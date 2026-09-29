@@ -31,6 +31,8 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 
 背景使用 background 通道，光线使用 lighting；只改背景时不自动重写人物或照明，换场景确需匹配灯光时把 lighting 也列入本轮允许范围。既有背景与光线合写的记录可继续使用原通道，或在新任务中重建类别，不能修改旧冻结记录。
 
+表情使用 expression 通道，与 identity 分开修改和验收。仅改表情保留身份、年龄、发型、衣装、姿态、背景和灯光；需要同步转头或改变身体姿态时显式加入 composition。旧 identity 段同时锁定神态或嘴角位置时，先在新任务中拆清稳定辨识点与可变表情，不通过新增一句“自然微笑”掩盖旧冲突。
+
 身份图可以声明 `identity_group` 和 `identity_role: primary|support`。多个身份视角必须同组、恰好一个主参考、均实际送入生成；衣装或评价参考不因此取得身份权限。是否同一人物仍由观察与用户说明决定。
 
 编辑或重生成使用 `prepare --kind edit|revision --parent previous.snapshot.json`，保持 case 与 cohort。快照会比较目标摘要，改变要求或验收标准时自动标记 goal_changed。不能把新目标的成功算作原目标修复成功。每轮同时重查已通过项，最多两轮无改善即停止该修订路线。

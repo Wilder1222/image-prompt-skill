@@ -32,6 +32,8 @@
 
 **身份和美感**：保留本人的辨识点，避免用“统一鹅蛋脸、大眼、高鼻、小下巴”重造所有角色。美感优先可以保持克制妆容与柔和软组织；“真人质感”需具体到皮肤的局部反射、眼睑与软组织，不默认增加年龄、疲态和粗糙毛孔。
 
+**表情按任务适配**：按 [表情与身份区分](../core/identity-vs-temperament-diagnostics.md) 结合人物气质、姿态、背景和用途选择眼神、眉眼张力、嘴角和唇部开合，保留身份而允许自然表情运动。用户明确表情或视线要求优先；不统一微笑、不堆叠矛盾情绪、不自动改变头部朝向。局部改表情时删除旧“锁定原神态、嘴角位置”等冲突文字，保持年龄、造型、构图和布光；仅修其他部位时不顺带换表情。
+
 **发型为面容展示适配**：用户允许自动调整时，保留发色、发长方向、主要盘束轮廓与身份相关饰物，按五官和姿态安排分缝、鬓发及束发位置。大幅收拢或移开横跨额头、眉眼、鼻口和面颊的碎发，眼睛与鼻口清楚可见；保留少量脸廓外发丝、发束层次与自然蓬松度。不要逐缕锁定原图的风吹乱发，也不要为了干净变成油亮贴头皮。只有用户特别要求复刻刘海或发饰时才收紧对应结构。调整头发遮挡和调整照明是两个可分别检查的目标，不能只去掉发丝投影就说面部遮挡已解决。
 
 **媒介和材质分开**：先判断用户要摄影、轻写实资产还是厚涂原画。再决定服装的材料可信度与细节密度。白底只改变背景与呈现用途，不能自动擦除厚涂面容、选择性边缘和幻想气质。黑金幻想服装也可以是实拍材质，衣服题材不替代媒介判断。
@@ -76,7 +78,7 @@
 
 `acceptance` 应检查输出图可判断的目标。“中文标签是否完整”“是否尚未生图”等是文字交付或执行状态，单独留在文本审查记录，不能混入图像成功率。将仅提示词任务升级为生图测试前，先重新核对验收目标并冻结新的记录；不要生成后删除不适用的关键项来制造通过。精确脚位若被长裙遮住，保留不可判断，而整体平衡与衣摆可分别评审。
 
-通道为 identity、makeup、hair、costume、material、composition、proportion、hands_feet、background、lighting、style、task、output。背景可独立使用 background，旧记录中的 lighting/composition 背景条款继续兼容。可见性为 visible、partial、unknown、not_visible。事实可跨类别提供依据，但参考必须具有控制目标类别的权限。部分可见的事实只描述可见部分。
+通道为 identity、expression、makeup、hair、costume、material、composition、proportion、hands_feet、background、lighting、style、task、output。表情可独立使用 expression，背景使用 background；旧记录在 identity 中描述表情、在 lighting/composition 中描述背景仍兼容。可见性为 visible、partial、unknown、not_visible。事实可跨类别提供依据，但参考必须具有控制目标类别的权限。部分可见的事实只描述可见部分。
 
 ```bash
 node scripts/iteration-director.mjs prompt-build --input path/to/agent-authored-brief.json --format text

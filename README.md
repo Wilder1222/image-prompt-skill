@@ -2,7 +2,7 @@
 
 参考图驱动的角色定妆照提示词与迭代工作流。支持全身资产、服装展示、场景保留或调整、优质母图保留与局部修复，并区分身份、风格、服装、背景和编辑母图的参考权限。
 
-当前版本 **0.12.1**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
+当前版本 **0.12.2**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
 
 提供参考图和描述，Skill 负责观察、解析意图、决定保留与改造、撰写中文分类提示词、检查冲突，并在已授权时执行出图评审与修订。用户无需选择模板或填写参数。主入口是 [提示词生产流程](references/routes/prompt-production.md)；历史范例用于校准表达与评估，不是每次生成的填空底稿。
 
@@ -13,6 +13,8 @@
 v0.12 增加统一视觉验收、生成前冻结记录、目标变更与中断记录、同人多视角和按标签限定的修订。参见 [站姿决策](references/core/standing-pose-direction.md)、[视觉验收](references/core/visual-acceptance.md) 和 [执行记录](references/routes/production-execution.md)。
 
 背景可保留、调整、替换，也可选择白底或其他棚背景；白底不是必选项。按 [背景与环境适配](references/core/background-direction.md) 决定景物、空间和照明，支持独立 background 通道。选择白底定妆时默认采用 [摄影棚布光](references/core/studio-lighting-direction.md)；保留场景时让人物受光与环境协调，不强制清空场景或移除合理环境色。背景与面部布光分别验收。发型可自动适配分缝、鬓发和局部束发，大幅减少碎发遮脸，保留整体方向与自然蓬松度。
+
+表情也可按人物气质、姿态、背景和用途自动适配，支持独立 expression 通道与【表情与眼神】标签。保留身份而允许自然的眉眼、嘴角与唇部运动，明确表情和视线要求优先，不锁死原神态或统一微笑。表情适切性与身份保持分别评审，见 [表情与身份区分](references/core/identity-vs-temperament-diagnostics.md)。
 
 ## 使用
 

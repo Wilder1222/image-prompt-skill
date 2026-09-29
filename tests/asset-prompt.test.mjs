@@ -69,7 +69,8 @@ test('authorized moderate redesign keeps identity while releasing costume constr
   const after = compileAssetPrompt({ ...options, designFreedom: 'moderate' });
   assert.equal(after.configuration.design_freedom, 'moderate');
   assert.match(after.prompt, /moderate redesign is authorized/);
-  assert.match(after.prompt, /recognizable facial features, apparent age and characteristic expression/);
+  assert.match(after.prompt, /recognizable facial features and apparent age/);
+  assert.doesNotMatch(after.prompt, /apparent age and characteristic expression/);
   assert.doesNotMatch(after.prompt, /Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette/);
   assert.match(before.prompt, /visible costume construction and palette/);
   const oldPlan=createAssetPlan(options), newPlan=createAssetPlan({ ...options, designFreedom: 'moderate' });

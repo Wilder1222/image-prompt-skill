@@ -111,3 +111,25 @@ test('an environment reference cannot control identity without explicit identity
  input.references.push({id:'ENV',source:'environment.jpg',inspected:true,generation_input:true,authority:['background'],facts:[{id:'scene',channel:'background',visibility:'visible',text:'花树庭院。'}]});
  input.sections[0].items[0].basis.push('scene');assert.throws(()=>compileProductionPrompt(input),/ENV cannot control identity/);
 });
+
+test('expression reference controls facial action without inheriting identity authority',t=>{
+ const {input}=setup(t);
+ input.references.push({id:'EMOTION',source:'expression.jpg',inspected:true,generation_input:true,authority:['expression'],facts:[{id:'smile',channel:'expression',visibility:'visible',text:'嘴角轻提，唇部闭合，眼神放松。'}]});
+ input.requirements.push({id:'EX',channel:'expression',priority:'must',text:'保留人物身份，采用自然闭唇浅笑。'});
+ input.sections.push({label:'表情与眼神',channel:'expression',items:[{text:'采用嘴角轻提、闭唇与放松的眼神，人物五官来自主身份图。',basis:['smile','EX'],intent:'retain'}]});
+ input.acceptance.push({id:'expression',basis:'EX',question:'是否自然闭唇浅笑？',critical:true});
+ const c=compileProductionPrompt(input);assert.equal(c.status,'prompt_ready');assert.deepEqual(c.reference_inputs.map(r=>r.id),['R1','EMOTION']);
+ input.sections[0].items[0].basis.push('smile');assert.throws(()=>compileProductionPrompt(input),/EMOTION cannot control identity/);
+});
+
+test('expression-only revisions preserve identity and presentation and cannot change head angle',t=>{
+ const {input}=setup(t);input.requirements[0].text='保持本人稳定辨识点与原表观年龄。';
+ for(const [channel,label,text] of [['expression','表情与眼神','闭唇浅笑，看镜头。'],['hair','发型','保留低束发。'],['composition','朝向','头部正对镜头。'],['background','背景','保留庭院。'],['lighting','光线','保留柔和场景光。']]){
+  input.requirements.push({id:channel,channel,priority:'must',text});
+  input.sections.push({label,channel,items:[{text,basis:[channel],intent:'constraint'}]});
+  input.acceptance.push({id:channel,basis:channel,question:text,critical:true});
+ }
+ const change={request:'表情改为沉静认真，仍看镜头，其他保持。',channels:['expression'],sections:[{label:'表情与眼神',items:[{text:'收起笑意，嘴唇自然闭合，眼神沉静认真，仍看镜头。',basis:['expression'],intent:'constraint'}]}],requirements:[{...input.requirements.find(r=>r.id==='expression'),text:'沉静认真，仍看镜头。'}],acceptance:[{...input.acceptance.find(r=>r.id==='expression'),question:'是否沉静认真并看镜头？'}]};
+ const result=reviseProductionInput(input,change);assert.deepEqual(result.input.references,input.references);assert.deepEqual(result.input.sections.filter(s=>s.channel!=='expression'),input.sections.filter(s=>s.channel!=='expression'));assert.deepEqual(result.input.requirements.filter(r=>r.channel!=='expression'),input.requirements.filter(r=>r.channel!=='expression'));assert.equal(result.target_changed,true);
+ change.sections.push({label:'朝向',items:[{text:'转头看向侧面。',basis:['composition'],intent:'constraint'}]});assert.throws(()=>reviseProductionInput(input,change),/escaped allowed scope/);
+});
