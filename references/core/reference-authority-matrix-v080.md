@@ -15,6 +15,9 @@ Owns: identity, hairstyle silhouette, body continuity, costume architecture, sig
 ## Background Reference
 Owns: the explicitly assigned setting, spatial layout, scene elements and background appearance through the `background` channel. Assign `lighting` separately when the reference also controls illumination. It does not gain identity or wardrobe authority. Preserve, adjust or replace the environment according to the current brief; a white background is optional. See [background direction](background-direction.md).
 
+## Expression Reference
+Owns: the assigned gaze, facial tension, mouth action and emotional intensity through `expression`. It does not supply identity geometry, apparent age, hairstyle or head angle. Adapt the action to the identity reference, following explicit expression and gaze requirements. Expression adaptation may also be chosen directly from the brief without an extra image.
+
 ## Key rule
 
 A style target should be allowed to change **presentation** strongly without silently replacing **design identity**.
@@ -23,7 +26,7 @@ If style demands dynamic composition and the user did not lock the static pose, 
 
 ## Identity A / Wardrobe B
 
-Use this separate scenario when a user authorizes clothing redesign and the current brief assigns a specific image as the wardrobe reference. A supplies the face, apparent age, expression and hair. B supplies the named clothing construction, palette, layering and material relationships; selected accessories only as assigned. The written adaptation controls changes, pose and background. A portrait does not establish unseen full-body proportions, and B's body is not an identity template.
+Use this separate scenario when a user authorizes clothing redesign and the current brief assigns a specific image as the wardrobe reference. A supplies facial identity and apparent age; expression and hair may adapt when authorized by the current brief. B supplies the named clothing construction, palette, layering and material relationships; selected accessories only as assigned. The written adaptation controls changes, pose and background. A portrait does not establish unseen full-body proportions, and B's body is not an identity template.
 
 Bind the roles to the actual submitted image order and describe each image briefly. Explicitly exclude distinctive donor traits that could transfer accidentally: for example silver hair, a high bun, a forehead mark or a crown. This is targeted clarification, not a long generic negative list. User-authorized hairstyle changes still take precedence over defaults.
 

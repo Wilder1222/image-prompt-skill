@@ -41,9 +41,9 @@
         "beauty-first identity",
         "subtle cheek volume",
         "natural eyelid structure",
-        "individual mouth-corner placement",
+        "individual nose-and-lip identity features",
         "soft regional skin response",
-        "character-specific eye expression"
+        "task-appropriate expression with stable identity"
       ],
       "avoid": [
         "generic AI beauty template",
@@ -54,7 +54,7 @@
       ],
       "prompt_translation": [
         "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
-        "Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.",
+        "Retain the reference cheek volume, underlying eyelid structure and distinctive nose-and-lip features. Allow natural expression movement when requested; select gaze, facial tension and mouth action for the current character and task rather than freezing the original expression or imposing a smile.",
         "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity."
       ]
     },

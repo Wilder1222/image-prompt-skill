@@ -20,6 +20,8 @@ Existing suites cover earlier reference-role, style, proportion, human-presence 
 
 Production-run tests also cover the independent background channel: retained, adjusted, replaced and white backgrounds; background-only edits preserve lighting and identity, and environment references cannot acquire identity authority implicitly. These are compilation and scope checks, not rendered scene-quality evidence.
 
+Expression checks cover independent expression-reference authority and scoped expression edits: identity, age instructions, appearance, composition, background and lighting remain outside an expression-only update. They do not establish visual identity preservation under a changed expression.
+
 Use `templates/visual-regression-record.json` for actual image evaluation. Do not mark image checks passed from CLI output alone.
 
 Use `templates/benchmark-comparison-record.json` when the user supplies a better reference. Record whether the benchmark was only inspected to write the prompt or actually sent to the image model. Keep observer review and user approval separate.

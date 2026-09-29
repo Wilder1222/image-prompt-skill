@@ -22,13 +22,15 @@ node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anch
 
 本项目古风预设恢复用户指定的 `P9_FASHION_ASSET`，高挑、协调，不能极端缩头、拉长颈部或推高骨盆。`--proportion-profile NATURAL_ADULT` 保留为明确选择的自然成人比例。比例与衣片展示独立，`costume_showcase` 不覆盖比例；完整全身母图拒绝这些覆盖。先验收头颈肩、完整胸廓与骨盆、上下腿和手脚尺度，裙摆拖尾不计入站立身高。数字是设计方向，不是测量或模型遵守的保证。
 
-`--design-freedom reference_preserve` 是未授权改造型时的默认；用户明确允许服装、造型优化或希望再设计时，用 `--design-freedom moderate`。后者保留人物辨识度、表观年龄和典型表情，释放可见服装构造与造型的硬锁：先写一套连贯方案，再调整衣片、领袖、腰部、饰物、材料和配色比例；不要在负向提示中把这些设计变化逐一禁止。方案可从优秀效果图提取，但不能把标杆人物的脸也迁移过来。现代装和铠甲按实际角色路线写文本，不强套古风长袍预设。此选项只用于新候选生成，不能混入 `full_body_anchor` 或局部编辑阶段。
+`--design-freedom reference_preserve` 是未授权改造型时的默认；用户明确允许服装、造型优化或希望再设计时，用 `--design-freedom moderate`。后者保留人物辨识度与表观年龄，释放可见服装构造与造型的硬锁：先写一套连贯方案，再调整衣片、领袖、腰部、饰物、材料和配色比例；不要在负向提示中把这些设计变化逐一禁止。表情可按当前任务独立适配，不因保持身份而锁定原神态。方案可从优秀效果图提取，但不能把标杆人物的脸也迁移过来。现代装和铠甲按实际角色路线写文本，不强套古风长袍预设。此选项只用于新候选生成，不能混入 `full_body_anchor` 或局部编辑阶段。
 
 `--presentation neutral_asset` 兼容原有预设；`costume_showcase` 适用于需要长袍层次与袖摆的服装定妆展示，允许原设计的宽裙、短拖尾与自然遮鞋，修长感通过颈肩腰和长衣片组织。它不改变脸、年龄、材质与用户显式选择的手势。需要填写本套衣服的具体构造，不能直接把通用提示词当作完整设计。
 
 `--reference-mode portrait_expand` 为默认扩身路线；`full_body_anchor` 则保留已给全身造型的脸、渲染、比例、手势、材料和光线，绕过通用预设，不编造新的下半身。后者只用于保留式生成，拒绝相冲突的预设覆盖或编辑锁；局部修复直接选 edit stage / focus。遇到用户提供更好的旧图时读取 [标杆对照](benchmark-costume-refinement.md)。
 
 Face profile 有 `beauty_first_clean`、`beauty_first_character`、`humanized_real_light`、`humanized_real_full`、`stylized_beauty`。切换只改变面部渲染，不顺带改变年龄目标、手势或服装。年龄独立选择 `youthful_18_22`、`young_adult_20_26` 或 `none`；后者保留参考年龄，不能据此推断人物年龄。默认成年青年预设与参考年龄不符时，选择 `none` 并在最终文本明确用户的年龄要求。
+
+旧 `face` 编辑阶段只修面部渲染，保留原表情；`full_body_anchor` 属于明确保留式生成。这些局部锁定不适用于已授权的表情改案。需要适配或修改表情时用生产入口的 expression 通道，独立写明眼神、眉眼与唇部动作及身份保留范围。
 
 `asset-master-plan-v082` 和 `ancient-white-asset-plan-v082` 保持兼容，也支持脸、手、年龄与展示型覆盖。`--reference-mode` 仅由 `asset-prompt` 接收。计划不表示阶段已完成。新消费者使用 `asset-prompt` 获取编辑文本。
 
