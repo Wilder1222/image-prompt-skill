@@ -1,0 +1,118 @@
+{
+  "date": "2026-09-29",
+  "version": "0.9.2",
+  "independent_originals_tested": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "coverage_is_not_quality_approval": true,
+  "goal_status": "active",
+  "new_benchmark_directions_untested": [
+    "black-gold costume (new image 4)",
+    "modern short-skirt variation (new image 5)"
+  ],
+  "records": [
+    {
+      "original": 1,
+      "cycle": "goal-cycle-01",
+      "id": "h1-01-cloth",
+      "reference_sha256": "9db2a1e4c8ead5fc5eac9ac356fe04fd526ef0864514a4d585adb51fa8de3c40",
+      "candidate_sha256": "4d8250ff7524ad97c70d5220f5b5360aee5a4ed7119d161879f9d1bb9eb3f7f3",
+      "prompt_sha256": "6f08a47f732270d95c38dfea126f0faee51545337831d5f07d88a5ca58a91583",
+      "independent_original_generation": true,
+      "user_approval": "pending",
+      "note": "粗布肌理保留；正脸未评估。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-01/"
+    },
+    {
+      "original": 2,
+      "cycle": "goal-cycle-02",
+      "id": "c-02-blue-white",
+      "reference_sha256": "366fcbc9f6aa73905939d5e0aa741da3d32e81e8b977ddea2352f6c877b3afeb",
+      "candidate_sha256": "28e8e752fe0501dfa23c4a4c17250ad7644265b8217ed5654d9bab566140d3ee",
+      "prompt_sha256": "7bb7c54cfaf533da36063eba98666ffd85e530b9bb45866c9a31503a0db1d100",
+      "independent_original_generation": true,
+      "user_approval": "pending",
+      "note": "适度设计浅蓝白花饰，脸部与顶部留白待评审。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-02/"
+    },
+    {
+      "original": 3,
+      "cycle": "goal-cycle-02",
+      "id": "a-03-silver-white",
+      "reference_sha256": "aad2e6670661ef67f1e9c0e4a194576823dc47a3f564a262c250cca336bed083",
+      "candidate_sha256": "17e10f651c3c4b3fd36ed0cb46bdae68fc954c780e9360945e8b29265edb2fef",
+      "prompt_sha256": "2ce6c6a97f01a8543ee83906fbe968884ac5ad95caeb41d23bdab2909c08fb3b",
+      "independent_original_generation": true,
+      "user_approval": "pending",
+      "note": "单独身份参考，银白粉白分层；顶部紧。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-02/"
+    },
+    {
+      "original": 4,
+      "cycle": "goal-cycle-02",
+      "id": "b-04-separated-planes",
+      "reference_sha256": "9cee683b950eea6f24651f42ceb2274c06d34e90bee258624d0839a7e65549c2",
+      "candidate_sha256": "e8787d68e73a9febc70ce176535b8eccbb9c8d30608ed472012e4cd3160c317a",
+      "prompt_sha256": "938b861715b678699cdd2fcdd42e3052fee50e22b0a099e486a09cb44aead9e1",
+      "independent_original_generation": true,
+      "user_approval": "pending",
+      "note": "前后形象较易区分；装饰羽毛按设计允许裁切。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-02/"
+    },
+    {
+      "original": 5,
+      "cycle": "goal-cycle-01",
+      "id": "d1-05-dragon-armor",
+      "reference_sha256": "decc8ac4fb2ebdd87a90d04258bc8a944dc7d7c286989a8a6023d6b8ce6a5fbe",
+      "candidate_sha256": "24081daf01fdf545377d3d374df50e75c5fd9ae011d333a50555d04370f395d9",
+      "prompt_sha256": "24949d78fd54bab03be3f22f86176d4ec2fa558e1d676729f6d8e84506bd9b22",
+      "independent_original_generation": true,
+      "user_approval": "pending",
+      "note": "完整甲靴与裙片；两条龙指令实际出现四个龙首，翼尖裁切。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-01/"
+    },
+    {
+      "original": 6,
+      "cycle": "goal-cycle-02",
+      "id": "b-06-separated-planes",
+      "reference_sha256": "7ebaf87addeebd5595b1c6a892089e5431b20c52533eeb0e4a4f56ba85d640d6",
+      "candidate_sha256": "86370137144370e0940cc9f1ff765f40a429cf1f462217436875f0f96b1d89b0",
+      "prompt_sha256": "623071585dd0ac262c41bb2c42d64c904ab1f9363dccddc5c4a4e9cd0f4658fb",
+      "independent_original_generation": true,
+      "user_approval": "pending",
+      "note": "完整裙尾入画；后方腿部被裙遮挡不可评估。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-02/"
+    },
+    {
+      "original": 7,
+      "cycle": "goal-cycle-01",
+      "id": "d1-07-knit-skirt",
+      "reference_sha256": "6925d822b25340015881ca572c6e269f8b4711066cc8303cd7251ebdc0658df3",
+      "candidate_sha256": "b50ef32c0a4d9f669350408695eac955c5ddab211c0baf6f5d32a17ff4b69a30",
+      "prompt_sha256": "86e0cabfed1074dab6f8e12cb06abfe83ca7515fdf2c50a82077b2066f0abf82",
+      "independent_original_generation": true,
+      "user_approval": "pending",
+      "note": "针织与裙装协调，闭唇微笑恢复；用户未验收。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-01/"
+    },
+    {
+      "original": 8,
+      "cycle": "goal-cycle-02",
+      "id": "c-08-teal-brocade",
+      "reference_sha256": "9336b63306d7200b87da8db5f7fa5cf48092aa137b5de0c606e7f2449c5d0a9f",
+      "candidate_sha256": "c35025157012bf3152ec0801e8ced2e1e80885270f4d0073f20d4e0b0a666324",
+      "prompt_sha256": "a02d2f752f0937e60037ca28a5fb82b4ef480bbc37cab65b81220dc1b08d7023",
+      "independent_original_generation": true,
+      "user_approval": "pending",
+      "note": "前中素面与织锦区分改善；主要可见一只鞋尖。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-02/"
+    }
+  ]
+}
