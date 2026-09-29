@@ -57,13 +57,14 @@ npm run plugin:build
 
 ## 入口
 
+- [下一阶段目标、任务优先级与验收标准](docs/next-milestone.md)
 - [当前提示词生产与效果验证流程](references/routes/prompt-production.md)
 - [三套独立提示词与五次真实出图记录](docs/visual-evaluations/production-skill-v0110.md)
 - [分类标签与两条风格路线](references/routes/tagged-prompt-workflows.md)
 - [两份参考专属中文提示词](examples/user-reference-tagged-prompts.md)
 - [v0.10.0 更新与验收边界](docs/tagged-workflows-v0100.md)
 - [v0.9.7 自然比例实验（已被用户明确的 P9 方向取代）](docs/visual-evaluations/chinese-natural-proportion-v097.md)
-- [参考图实测与当前候选总览](docs/visual-evaluations/current-overview.md)
+- [v0.9.6 历史实测与候选总览](docs/visual-evaluations/current-overview.md)
 - [技能主工作流](SKILL.md)
 - [白底资产工作流](references/routes/asset-master-workflow.md)
 - [标杆对照与服装展示](references/routes/benchmark-costume-refinement.md)
