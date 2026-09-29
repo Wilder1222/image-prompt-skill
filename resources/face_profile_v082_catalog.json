@@ -1,7 +1,7 @@
 {
   "version": "0.8.2",
   "default": "beauty_first_character",
-  "principle": "Choose a granular face profile independently from non-face realism. Beauty, age and character specificity may outrank maximal facial photorealism.",
+  "principle": "Choose facial rendering independently from non-face realism. Facial texture supports refined makeup and visual appeal, while preserving identity and apparent age; more photorealism must not degrade the finished face.",
   "profiles": {
     "beauty_first_clean": {
       "base_mode": "beauty_first",
@@ -27,7 +27,7 @@
       "prompt_translation": [
         "Keep the face beauty-first, clean and elegant while preserving the reference age; do not age the character up in the name of realism.",
         "Preserve the reference face shape, cheek volume, eye spacing and natural eyelids with delicate makeup; do not impose a generic oval face.",
-        "Use restrained regional skin reflection while keeping the approved facial identity and apparent age."
+        "Establish refined makeup first, then use restrained regional skin reflection and texture appropriate to framing; preserve the approved identity, apparent age and visual appeal."
       ]
     },
     "beauty_first_character": {
@@ -55,7 +55,7 @@
       "prompt_translation": [
         "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
         "Retain the reference cheek volume, underlying eyelid structure and distinctive nose-and-lip features. Allow natural expression movement when requested; select gaze, facial tension and mouth action for the current character and task rather than freezing the original expression or imposing a smile.",
-        "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity."
+        "Build facial realism on refined makeup, adding only restrained regional skin response and soft-tissue detail that improve visual appeal; do not increase maturity, fatigue or facial severity."
       ]
     },
     "humanized_real_light": {
@@ -80,7 +80,7 @@
       ],
       "prompt_translation": [
         "Increase believable human facial presence while keeping the character attractive, identity-stable and consistent with the approved apparent age.",
-        "Use realistic eyelid structure, regional skin optics and natural nose/lip anatomy without pushing the face toward mature documentary realism."
+        "Keep the makeup refined and flattering; use realistic eyelids, restrained regional skin optics and natural nose/lip anatomy to support that finish. Do not force visible pores at full-body scale or push the face toward documentary roughness."
       ]
     },
     "humanized_real_full": {
@@ -105,7 +105,7 @@
       ],
       "prompt_translation": [
         "Use strong photographic human presence while preserving the approved identity and attractiveness.",
-        "Keep realistic facial planes, soft tissue, eye optics and skin response coherent with a premium studio portrait."
+        "Keep realistic facial planes, soft tissue, eye optics and skin response coherent with refined makeup and an attractive finished portrait. Strong photographic presence is not permission to amplify pores, fatigue or texture contrast."
       ]
     },
     "stylized_beauty": {

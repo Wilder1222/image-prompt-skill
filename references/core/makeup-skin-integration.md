@@ -1,6 +1,6 @@
 # Makeup-Skin Integration
 
-Makeup realism should not erase skin realism.
+For character beauty work, facial realism and skin texture support a refined makeup finish and visual appeal. Follow [the current makeup and skin direction](makeup-skin-integration-v2.md): establish the makeup, then add restrained texture appropriate to framing. Do not expose more pores at the expense of the finished face.
 
 ## Base makeup
 

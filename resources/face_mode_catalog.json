@@ -1,7 +1,7 @@
 {
   "version": "0.7.9",
   "default": "beauty_first",
-  "principle": "face direction is style-dependent; beauty, age impression and identity can take priority over maximum facial photorealism.",
+  "principle": "Face direction is style-dependent. Facial realism and skin texture support refined makeup and visual appeal while preserving identity and apparent age; maximum texture is not the objective.",
   "modes": {
     "beauty_first": {
       "label": "Beauty-First Face",
@@ -42,7 +42,7 @@
       "prompt_translation": [
         "Preserve a youthful, elegant and beautiful face as the highest facial priority.",
         "Keep soft cheek tissue, a refined oval facial read and clear youthful eyes; do not age the character up in order to make the face more realistic.",
-        "Use only light facial realism: delicate skin response, natural lips and brows, restrained eye definition and soft youthful facial volume.",
+        "Build facial realism on refined makeup: delicate skin response, natural lips and brows, restrained eye definition and soft facial volume; keep texture subordinate to the finished face and framing.",
         "Put stronger realism into hair, body, hands, costume materials and lighting rather than forcing the face toward a mature fashion-model look."
       ]
     },
@@ -81,7 +81,7 @@
       ],
       "prompt_translation": [
         "Increase realistic human presence in the face while preserving the approved identity and attractiveness.",
-        "Use believable eyelid anatomy, soft tissue, regional skin response and natural nose/lip structure instead of plastic CG smoothness.",
+        "Establish refined makeup first; believable eyelids, soft tissue, restrained regional skin response and natural nose/lip structure should support an attractive finish rather than compete with it. Scale texture to framing without coarse sharpening or plastic smoothing.",
         "Keep the face young and attractive; realism must not become fatigue, hollowness or age inflation."
       ]
     },
