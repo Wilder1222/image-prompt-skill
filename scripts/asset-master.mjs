@@ -134,9 +134,18 @@ export function createAssetPlan(options = {}) {
   };
 }
 
+// Explicit English compatibility rendering stays in executable code; resource prose is Chinese.
+const englishStudioLighting = [
+  'For this white studio setup, use a large diffused key close to the camera axis and slightly above, with enough broad frontal fill for even forehead, eye and cheek exposure. Keep neutral white balance and subtle edge separation. Remove inherited dappled scene light, window patterns, hard hair shadows and warm color casts.',
+  'Retain gentle facial volume under even lighting. Skin detail serves refined makeup and framing. Keep the white background from swallowing pale garment edges, shadows consistent with the pose, distinct fabric layers and restrained metal highlights. Preserve the requested photographic or painterly medium.'
+];
+function renderEnglishCompatibility(prompt) {
+  return lights.profiles.studio_soft_separation.prompt_translation.reduce((text, source, i) => text.replaceAll(source, englishStudioLighting[i]), prompt);
+}
+
 export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'zh-CN', ...options } = {}) {
   if (!['en', 'zh-CN'].includes(language)) throw new Error('language must be zh-CN or en');
-  const finish = result => ({ ...result, status:'scaffold_only', requires_reference_analysis:true, prompt_language: language, prompt: language === 'zh-CN' ? renderTaggedChinese(result) : (result.prompt.startsWith('【') ? result.prompt : result.prompt.split('\n\n').map((text, i) => `【${i + 1}. ${i ? 'Preservation and edit scope' : 'Task and reference'}】\n${text}`).join('\n\n')) });
+  const finish = result => { if (language === 'en') result = {...result, prompt:renderEnglishCompatibility(result.prompt)}; return ({ ...result, status:'scaffold_only', requires_reference_analysis:true, prompt_language: language, prompt: language === 'zh-CN' ? renderTaggedChinese(result) : (result.prompt.startsWith('【') ? result.prompt : result.prompt.split('\n\n').map((text, i) => `【${i + 1}. ${i ? 'Preservation and edit scope' : 'Task and reference'}】\n${text}`).join('\n\n')) }); };
   const reference = lookup(presentations.reference_modes, referenceMode, 'reference mode');
   if (referenceMode === 'full_body_anchor') {
     if (stage !== 'generate' || focus || options.passed?.length) throw new Error('full_body_anchor is a preservation generation mode; for a local repair use the edit stage with the current image as its target');

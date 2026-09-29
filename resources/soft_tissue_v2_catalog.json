@@ -11,8 +11,8 @@
     "chin_softness": "subtle"
   },
   "prompt_translation": [
-    "Preserve the approved face shape while adding subtle young cheek soft tissue, natural nose-wing softness and slight lower-lid volume.",
-    "Keep mouth-corner volume and jaw-to-neck transition soft and human rather than a smooth CG surface."
+    "保持已确认脸型与年龄，用适度面颊软组织、自然鼻翼柔度和轻微下眼睑体积支持真实感。",
+    "嘴角体积与下颌至颈部过渡柔和连续，避免光滑僵硬的电脑塑形表面。"
   ],
   "forbidden": [
     "deep_nasolabial_folds",

@@ -1,7 +1,7 @@
 {
   "version": "0.7.8",
   "default": "P9_locked",
-  "principle": "Once a fashion proportion passes, later realism and polish rounds must preserve the accepted whole-figure visual ratio instead of quietly returning toward a shorter natural proportion.",
+  "principle": "时装比例通过后，后续肤质与细节修订应保留已认可的整体比例；不得悄悄改回更矮的体型。仅修局部时沿用既有边界，用户明确的新动作或造型要求优先。",
   "profiles": {
     "P8_locked": {
       "source_level": "P8",
@@ -32,8 +32,8 @@
         "hem_width"
       ],
       "prompt_translation": [
-        "Preserve the already-approved P9 fashion silhouette exactly: do not let later realism edits enlarge the head, lower the waistline, shorten the leg read or widen the skirt silhouette.",
-        "Keep the accepted torso length, pelvis-to-knee-to-ankle relationship, footwear scale and vertical garment flow unchanged."
+        "保留已通过的 P9 整体比例，肤质修订不能顺带放大头部、下移腰位或压短腿部观感；裙幅按已确认衣装保持，新的明确造型要求另行处理。",
+        "保留已确认的躯干长度、骨盆至膝踝关系和脚部尺度，衣片流动与当前姿态协调；隐藏结构不作虚构测量。"
       ]
     },
     "P9.5_locked": {

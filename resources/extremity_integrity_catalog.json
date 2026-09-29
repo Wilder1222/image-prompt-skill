@@ -2,26 +2,32 @@
   "version": "0.7.4",
   "default": "E2",
   "levels": {
-    "E0": {"label": "not_visible_or_irrelevant"},
-    "E1": {"label": "basic_visibility_check"},
+    "E0": {
+      "label": "not_visible_or_irrelevant"
+    },
+    "E1": {
+      "label": "basic_visibility_check"
+    },
     "E2": {
       "label": "asset_integrity",
       "hand_requirements": [
-        "exactly five digits per visible hand",
-        "one thumb in anatomically plausible opposition",
-        "four fingers with plausible length hierarchy",
-        "separate fingers without fusion or duplication",
-        "natural joint bends and relaxed spacing",
-        "wrist and palm orientation consistent with the pose"
+        "每只手的解剖结构为五指，但自然遮挡时不要求五指全部可见",
+        "拇指与手掌方向及动作关系可信",
+        "其余四指长度层次自然，只判断可见部分",
+        "可见指节结构连续，无融合、复制或凭空多指",
+        "关节弯曲与手指间距符合动作的松紧",
+        "手腕与掌面方向符合姿态并连续连接前臂"
       ],
       "foot_requirements": [
-        "plausible ankle-foot alignment",
-        "footwear follows the actual foot volume",
-        "no duplicated toes or broken shoe-foot intersection when visible",
-        "ground contact matches body weight and stance"
+        "可见踝脚连接与方向可信",
+        "鞋形遵循实际足部体积，衣摆自然遮鞋可接受",
+        "可见足部无重复脚趾或鞋脚错接",
+        "接地关系符合承重与动作阶段；跳跃、悬空或抬脚不强制接地"
       ]
     },
-    "E3": {"label": "closeup_integrity_review"}
+    "E3": {
+      "label": "closeup_integrity_review"
+    }
   },
-  "repair_policy": "If an extremity error occurs while the rest of the asset passes, use a local patch round and lock identity, costume, composition, and lighting."
+  "repair_policy": "当局部手足错误而其他部分已通过时，在已通过母图上修复该部位，保持身份、衣装、构图与灯光；不得借机改变整体体型。"
 }

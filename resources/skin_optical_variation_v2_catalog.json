@@ -50,9 +50,9 @@
     }
   },
   "prompt_translation": [
-    "Keep young skin overall clean and relatively even, but vary optical response by facial region.",
-    "Use fine texture around nose wings and inner cheeks, softer diffusion on outer cheeks, thinner eye-area response and separate lip material.",
-    "Let forehead, nose bridge, nose tip, cheeks and lips carry different highlight strengths instead of one uniform polished surface."
+    "在本年轻肤质方案中保持妆面细腻干净，额面、鼻部、面颊与嘴唇有不同光学反应；年龄与其他明确设定优先。",
+    "鼻翼与内侧面颊可有克制细纹理，外侧面颊反射柔和，眼周质感轻薄，嘴唇有独立润泽；这些细节服从妆容与景别，不强制可见毛孔。",
+    "额头、鼻梁、鼻尖、面颊和嘴唇的高光强度与宽窄不同，避免整张脸成为均匀抛光表面。"
   ],
   "forbidden": [
     "full_face_pores",

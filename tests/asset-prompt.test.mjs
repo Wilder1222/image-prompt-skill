@@ -158,3 +158,11 @@ test('CLI rejects unknown flags, missing values and invalid formats', () => {
     assert.equal(JSON.parse(result.stderr).status, 'fail');
   }
 });
+
+test('explicit English generation and lighting repair remain English after resource localization',()=>{
+  for (const options of [{}, {stage:'material-light'}, {stage:'material-light',focus:'lighting'}]) {
+    const result=compileAssetPrompt(options);
+    assert.doesNotMatch(result.prompt, /[\u3400-\u9fff]/);
+    assert.match(result.prompt, /even|illumination/i);
+  }
+});

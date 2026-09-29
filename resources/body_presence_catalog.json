@@ -1,7 +1,7 @@
 {
   "version": "0.7.8",
   "default": "BP2",
-  "principle": "Extend human presence beyond the face into neck, clavicle, hands, wrists, ankle/foot contact and subtle body soft-tissue cues without changing accepted fashion anatomy.",
+  "principle": "活人感应延续到颈肩、锁骨、腕手和可见踝脚，以柔和肌肉和软组织体积表现；保持已确认体型，接地或腾空由当前动作决定。",
   "levels": {
     "BP1": {
       "label": "subtle_body_presence",
@@ -22,9 +22,9 @@
         "body_soft_tissue_hint": "subtle"
       },
       "prompt_translation": [
-        "Keep the P9 anatomy unchanged but give the neck, clavicle, wrists, hands, ankles and foot contact believable human soft-tissue volume.",
-        "Hands should read as real young-adult hands: subtle knuckles and joints, natural nail presence, soft skin and no plastic mannequin surface.",
-        "Keep clavicles and neck transitions soft and anatomical rather than graphic CG lines."
+        "保持已确认的 P9 身体结构，颈肩、腕手和可见踝脚有可信软组织与适度肌肉体积；脚部接触按动作受力决定，腾空不强制接地。",
+        "成年人物手部应有自然指节、适度指甲和柔软皮肤，避免塑料模特表面；年龄与肤质按当前人物要求保持。",
+        "锁骨和颈肩过渡柔和、连续，不画成硬线或过度凸出的骨节。"
       ]
     },
     "BP3": {

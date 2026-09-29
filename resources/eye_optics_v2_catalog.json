@@ -14,10 +14,10 @@
     "cg_glassiness": "minimize"
   },
   "prompt_translation": [
-    "Use natural off-white sclera rather than luminous paper-white eye whites.",
-    "Give the iris subtle non-uniform radial texture and tonal variation without gemstone or glowing-eye rendering.",
-    "Make upper and lower eyelids physically wrap the eyeball with natural lid thickness and slight lower-lid volume.",
-    "Integrate lashes at real lash roots and keep catchlights consistent with the existing studio key light."
+    "眼白自然偏乳白，不发纸白亮光。",
+    "虹膜有克制的不均匀径向纹理与色调变化，不变成宝石或发光眼球。",
+    "上下眼睑自然包裹眼球，有合理厚度与轻微下睑体积。",
+    "睫毛连接真实根部，眼神高光与本轮实际光源一致；仅棚拍方案使用棚灯高光，不将所有背景都改成棚拍。"
   ],
   "forbidden": [
     "crystal_eyes",

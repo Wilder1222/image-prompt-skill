@@ -6,7 +6,7 @@ test('v0.7.8 catalogs validate',()=>{const r=run(['validate']);assert.equal(r.st
 
 test('P9 persistence locks accepted fashion dimensions',()=>{const r=run(['p9-persistence','--profile','P9_locked']);assert.equal(r.json.source_level,'P9');for(const id of ['head_visual_scale','torso_length','waistline_visual','leg_read','garment_vertical_flow'])assert.ok(r.json.locks.includes(id),id);});
 
-test('P9 persistence explicitly prevents rebound in prompt language',()=>{const r=run(['p9-persistence','--profile','P9_locked']);assert.match(r.json.prompt_translation.join(' '),/do not let later realism edits enlarge the head/i);assert.match(r.json.prompt_translation.join(' '),/lower the waistline/i);});
+test('P9 persistence explicitly prevents rebound in prompt language',()=>{const r=run(['p9-persistence','--profile','P9_locked']);assert.match(r.json.prompt_translation.join(' '),/肤质修订不能顺带放大头部/);assert.match(r.json.prompt_translation.join(' '),/下移腰位/);});
 
 test('body presence BP2 extends realism beyond face without anatomy redesign',()=>{const r=run(['body-presence','--level','BP2']);assert.equal(r.json.label,'asset_body_presence');assert.equal(r.json.controls.neck_jaw_transition,'natural_soft');assert.equal(r.json.controls.hand_skin,'young_real');assert.ok(r.json.forbidden.includes('body_reshape'));});
 

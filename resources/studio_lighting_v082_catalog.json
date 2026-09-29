@@ -18,8 +18,8 @@
         "neutral_white_balance_without_scene_color_cast"
       ],
       "prompt_translation": [
-        "Use photographic studio lighting: a very large diffused key close to the camera axis and slightly above, broad frontal fill sufficient to keep the forehead, eyes and both cheeks evenly exposed, and only subtle edge separation where needed. Use neutral white balance. Remove dappled daylight, window or foliage patterns, hard fringe shadows and inherited warm scene color casts.",
-        "Even illumination must retain gentle facial volume: soft continuous gradients beneath the nose and chin, natural eye sockets and fine skin texture. Keep the white background clean but not clipped, a soft grounded contact shadow, readable fabric hierarchy and restrained metal highlights. Apply this lighting logic without changing the requested photographic or painterly medium."
+        "本白底棚拍方案使用靠近镜头轴线、略高于人物的大面积扩散主光，配足够的正面柔和补光，使额头、眼周与双颊均匀受光；仅在需要时轻微分离轮廓。白平衡中性，移除原场景树影、窗格、斑驳日光、硬发丝阴影与暖色偏染。",
+        "均匀照明仍保留鼻下、下巴与眼窝的柔和体积。肤质细节服从精致妆容和景别；白底干净但不吞掉浅色衣缘，接地阴影随姿态成立，衣料厚薄和金属高光有主次。布光逻辑不改变指定的摄影或原画媒介。"
       ]
     }
   }
