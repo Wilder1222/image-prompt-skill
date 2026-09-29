@@ -62,5 +62,6 @@
       "pose_policy": "dynamic_if_style_requires_unless_user_locked",
       "asset_history_background": "must_not_override_current_style_intent"
     }
-  }
+  },
+  "default_scope": "hybrid 是旧黑红金风格融合案例的兼容默认；当前路线由用户明确的媒介、背景、动作与用途决定。中性资产预设不覆盖场景任务。"
 }

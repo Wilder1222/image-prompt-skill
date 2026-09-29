@@ -54,8 +54,8 @@
   ],
   "optional_roles": {
     "face_identity": {
-      "description": "Optional trusted portrait identity reference. If present, it overrides asset_master only for face identity geometry.",
-      "precedence": "face_identity > asset_master(face geometry) > facial_trait(traits only)"
+      "description": "可选的可信原始身份照；存在时只在稳定五官关系上优先于资产母图，不覆盖衣装和场景。",
+      "precedence": "用户明确要求优先；专属身份图负责五官，母图负责连续性，气质参考只负责指定表现。"
     }
   }
 }

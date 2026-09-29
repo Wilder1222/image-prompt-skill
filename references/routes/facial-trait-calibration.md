@@ -1,62 +1,18 @@
-# Facial Trait Calibration Route v0.7.1
+# 面容气质校准流程
 
-## When to Use
+用于用户明确表示幼态过强、气质不合适，或要求借鉴另一图的神态与妆容，同时保留原人物的任务。没有此问题时不自动运行。兼容轮次标识为 `trait_calibration`。
 
-Use when the user says:
+可调整指定成熟感、视线稳定度、表情强度、眼睑开合、面颊柔和程度的表现和妆容。保留人物稳定面容、表观年龄、发型方向、身体、服装、构图和背景。不能复制气质图的五官，也不能通过改变体型、衣装或添加衰老迹象制造成熟。
 
-- too childish / too baby-faced
-- not sophisticated enough
-- make the face more mature but keep the same person
-- use another reference only for face temperament / maturity
+按实际输入图序说明：A 是直接编辑母图与身份来源；B 只作为气质参考。若使用独立身份照，按 [参考角色分配](../core/reference-role-resolver.md) 明确三图关系。级别是内部设计摘要，正文应落实为具体可见变化。
 
-## Round Definition
+按【编辑对象】【保留范围】【表情与妆容变化】【参考借用边界】组织中文正文。用三至五条有效变化说明目标，不堆通用负面词。
 
-`trait_calibration`
+以下仅为明确要求年轻轻熟的案例：
 
-### Editable
-- facial_maturity
-- gaze_stability
-- expression_restraint
-- cheek_softness_delta
-- eye_openness_delta
-- makeup_restraint
-- editorial_tone
+> 【编辑对象】编辑图 A，图 B 仅供神态与妆容方向参考。
+> 【保留范围】保留图 A 的脸型、眼距、眼形核心、鼻唇和下颌辨识关系，以及原年龄、衣装和取景。
+> 【表情与妆容变化】眼神更稳定，眉眼与嘴角张力自然，妆面精致协调，减少导致幼态的过强腮红或光泽。保持年轻柔和的面颊，不凹陷削瘦。
+> 【参考借用边界】不复制图 B 的五官、头发、衣服、场景、光线或调色。不拉长面部，不缩窄鼻颌，不增加年龄。
 
-### Locked
-- face_identity_geometry
-- eye_spacing
-- eye_shape_core
-- nose_geometry
-- lip_geometry
-- jaw_chin_geometry
-- age_identity
-- hairstyle_silhouette
-- body
-- pose
-- garment
-- composition
-- background
-
-### Forbidden
-- copying trait-reference face geometry
-- importing trait-reference background / clothing / lighting
-- adding aging cues for M1–M3
-- changing body or costume to create “maturity”
-
-## Recommended Prompt Shape
-
-1. State A is the direct edit target and identity source.
-2. State B is only a facial trait reference.
-3. Name the target maturity level, e.g. M2.5.
-4. Describe the permitted trait shift in 3–5 clauses.
-5. State the identity geometry that must remain unchanged.
-6. Block borrowing from B outside its trait role.
-
-## Example
-
-```text
-Image A is the Asset Master and identity geometry source. Image B is only a Facial Trait Reference.
-Keep Image A's face shape, eye spacing, eye geometry, nose proportions, lips and jaw/chin unchanged.
-Move the facial presentation from youthful-soft toward M2.5 light-mature: steadier gaze, slightly reduced babyish cheek softness, more restrained eye openness, calmer mouth expression, and more editorial natural makeup.
-Do not make the face longer, narrower, sharper or older. Do not copy Image B's face geometry, hair, costume, scene, lighting or color grading.
-```
+生成后分别检查表情是否达成、身份是否保持、原有合格项是否漂移。参考本身不清楚或差异受视角影响时保留待审，不反复重塑脸部。

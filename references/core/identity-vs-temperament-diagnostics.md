@@ -1,8 +1,6 @@
-# Identity Drift vs Temperament Shift v0.7.1
+# 区分身份漂移与气质变化
 
-## Core Distinction
-
-A face can change in expression, maturity impression, or temperament while remaining the same identity. These changes should not all be labeled “identity drift.”
+表情、成熟感或神态发生变化时，人物仍可能是同一个人。先区分稳定五官关系与允许的自然表情运动，不把所有变化都叫身份漂移。
 
 ## 表情适配
 
@@ -17,56 +15,30 @@ A face can change in expression, maturity impression, or temperament while remai
 
 验收分别回答：表情是否符合任务，眼口眉是否协调自然，人物是否仍可辨认。开放微笑时检查可见牙齿、口腔与嘴唇连接；不需要张嘴的表情不强加牙齿要求。先排除表情运动、头角和照明造成的差异，再判断身份是否漂移；图像细节不足时保持不确定，不仅凭表情改变就判失败。
 
-## Identity Drift
+## 身份变化的证据
 
-Use when stable facial geometry changes materially:
+逐项比较实际原图和候选的面宽面长、眼距、眼形核心、鼻部比例、唇部结构及颊颌关系。稳定几何超出允许变化并让人读成另一个人物时，才有身份漂移依据；微笑导致眼睑收窄或嘴角上扬本身不是换脸。
 
-- face width/length changes beyond the target delta
-- eye spacing changes
-- underlying eye structure changes beyond plausible expression movement
-- nose width/proportion changes
-- underlying lip structure changes beyond plausible expression movement
-- jaw/chin changes enough to read as another person
+记录头部角度、受光、表情、遮挡和全图中的脸部尺寸。它们影响判断时，用 `possible_geometry_shift` 标记可能的几何变化，确定性为 `uncertain`，保持待审。这些是观察注释，不是自动识别器或图像模型参数。
 
-## Evidence before classification
+相同发色、饰物和头部朝向不能证明同一张脸。保住整套衣服也不代表修脸一定有益。无法清楚说明前后收益时保留原候选，将编辑记为结论不足，不因为尚待用户确认就反复改脸。
 
-Compare the actual source and candidate, naming the visible feature instead of relying on a generic similarity impression. Record head angle, lighting, expression, occlusion and face size in the full image as possible confounds. When these prevent a reliable comparison, record a provisional `possible_geometry_shift` with certainty `uncertain`; keep the identity verdict pending rather than declaring drift or stability. These are review annotations, not new CLI classifier outputs or image-model parameters.
+不同人物共用服装参考时，保持衣装方案但分别编写各自的身份与发型说明，并对各自原图核对。不同姿态或表情不够证明身份保持，不能把某张漂亮脸设为通用身份。
 
-The same hair color, accessory or head pose does not establish the same face. Conversely, a face correction that retains the whole costume does not automatically improve identity. If the before/after benefit cannot be clearly described at the available image detail, retain the prior candidate and mark the edit inconclusive. Do not run repeated face edits merely because approval is still pending.
+## 气质变化与诊断标识
 
-For a shared wardrobe reference across different original portraits, keep the clothing brief fixed and rewrite only the source-specific facial and hair description. Compare the results to each respective original; different poses or expressions alone are insufficient evidence that all facial geometry was preserved. Never make one reference portrait the default face for other characters.
+稳定辨识关系不变，只有眼神冷暖、表情强度、妆容或面颊柔和程度的表现变化时，分别判断它是否符合本轮目标。成熟感变化不等于年龄应改变。
 
-## Temperament Shift
+| 标识 | 含义 |
+| --- | --- |
+| `identity_stable` | 有足够可见依据支持身份保持。 |
+| `identity_drift` | 稳定五官关系改变，人物读成另一人。 |
+| `temperament_shift_target` | 气质变化符合当前要求。 |
+| `temperament_shift_over` | 气质变化超过授权幅度。 |
+| `maturity_undershoot` | 未达到指定成熟感。 |
+| `maturity_overshoot` | 超过指定成熟感。 |
+| `beauty_template_drift` | 被通用美人脸模板替换。 |
+| `age_shift_unwanted` | 未授权的年龄观感变化。 |
+| `trait_reference_overborrow` | 气质参考越界复制身份或其他属性。 |
 
-Use when geometry remains stable but presentation changes:
-
-- gaze becomes calmer / colder / warmer
-- expression becomes more restrained
-- makeup becomes less youthful
-- eye openness changes slightly
-- cheek softness presentation changes slightly
-
-Temperament shift can be **targeted** or **excessive**.
-
-## Classification Labels
-
-- `identity_stable`
-- `identity_drift`
-- `temperament_shift_target`
-- `temperament_shift_over`
-- `maturity_undershoot`
-- `maturity_overshoot`
-- `beauty_template_drift`
-- `age_shift_unwanted`
-- `trait_reference_overborrow`
-
-## Examples
-
-### Good
-Same face geometry, calmer gaze, slightly less cheek baby-softness, more restrained makeup → `temperament_shift_target`.
-
-### Bad
-The underlying eyes are redesigned, face gets much longer and chin sharper to look “expensive” → `identity_drift` + `beauty_template_drift`. Natural eyelid narrowing during a smile alone is not this failure.
-
-### Too mature
-Same identity, but face becomes hollow, severe, visibly older than intended → `maturity_overshoot` or `age_shift_unwanted`.
+例如同一面容变得更从容、妆面更精致，可以是目标气质变化；为了高级而拉长脸、削尖下巴并重做眼形，则属于身份或模板漂移。人物变凹颊、严厉、显老而超出年轻目标时，记录成熟感过量或未授权年龄变化。

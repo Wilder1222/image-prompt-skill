@@ -1,43 +1,11 @@
-# Beauty Calibration Rule v0.7.1
+# 面容美感校准
 
-## Purpose
+精致和高级不能退化为统一冷脸、尖下巴或网红五官。保持当前人物身份与表观年龄，在角色气质和用途之内提升妆面、眼神、发型展示与布光质量。
 
-Prevent “high-end / sophisticated beauty” from collapsing into a generic cold or influencer-like face.
+处理顺序：先看人物辨识与整体吸引力，再看表情和妆容是否协调，随后检查肌肤反射、发丝遮挡及受光。精致妆面是肌肤真实感的基础；毛孔更清楚、轮廓更尖锐不自动代表更好看。
 
-## Beauty Calibration Stack
+不作如下等同：高级等于冷漠，成熟等于显老，大眼等于美，窄鼻等于精致，尖下巴等于贵气。用户允许生动或夸张神态时仍按该要求适配，不用“克制”压掉情绪。
 
-In order of preference:
+优先寻找实际可见的改善：眼神有注意力，妆容色彩与角色协调，眉眼唇处理细致，肤色过渡柔和，面部结构清楚，发型展示五官，灯光符合场景。白底可用摄影棚柔光，其他背景不强制棚拍。
 
-1. **Identity fidelity**
-2. **Temperament restraint**
-3. **Natural makeup refinement**
-4. **Skin realism**
-5. **Hair discipline**
-6. **Lighting / photography quality**
-7. **Only then, small maturity adjustments**
-
-## Do Not Equate
-
-Do not automatically equate:
-
-- high-end = sharp jaw
-- mature = older
-- cold = sophisticated
-- large eyes = beautiful
-- slim nose = refined
-- pointed chin = premium
-
-## Preferred “High-End” Signals
-
-- composed gaze
-- controlled facial contrast
-- natural but precise makeup
-- believable skin reflectance
-- clear but soft face structure
-- restrained expression
-- coherent styling
-- polished studio lighting
-
-## Current Project Default
-
-For a young adult heroine who should feel less childish but still youthful, default to **M2.5 light mature** rather than M3/M4 cold mature.
+M2.5 只适用于明确要求“减少幼态但保持年轻”的历史案例；不是所有年轻成年女性的默认成熟度。没有成熟感问题就不改年龄观感。

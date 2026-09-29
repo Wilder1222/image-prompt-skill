@@ -1,48 +1,15 @@
-# Edit Scope Guard v0.7.1
+# 局部编辑范围
 
-Every repair round must define `editable`, `locked`, and `forbidden` dimensions.
+每轮先写清可改、保留和不可引入的内容；兼容计划字段为 `editable`、`locked`、`forbidden`。范围来自当前用户要求和实际失败，不按旧阶段名称自动扩大。
 
-## identity_skin
-Editable: identity geometry when genuinely drifting, regional skin optics, natural makeup, hair-strand realism.
-Locked: composition, body, pose, garment, palette, footwear, background.
+| 编辑类型 | 可改 | 保留 |
+| --- | --- | --- |
+| `identity_skin` | 经证据确认偏离的面容或指定肤质表现 | 未授权的体型、姿态、服装、取景和场景；只修肤质时也保留五官几何。 |
+| `trait_calibration` | 指定成熟感、视线、表情张力、面颊表现及妆容 | 身份、表观年龄、发型方向、身体、衣装、构图与背景。 |
+| `garment_material` | 已有面料的反射、厚薄、重力褶皱和连接可信度 | 人物、体型、姿态、衣片结构、轮廓、配色和背景；绣纹密度仅获设计授权才改。 |
+| `studio_polish` | 已选棚拍条件下的主补光、浅衣边缘分离、反射和成像 | 人物身份与衣装设计；场景任务不自动转棚拍。 |
+| `upscale` | 已授权的像素尺寸与克制锐化、降噪 | 全部语义设计，检查细节是否被再生成。 |
 
-## trait_calibration  **new**
-Editable:
-- facial_maturity
-- gaze_stability
-- expression_restraint
-- cheek_softness_delta
-- eye_openness_delta
-- makeup_restraint
-- editorial_tone
+气质参考不能复制另一人的五官、衣服、发型、体型、背景或灯位。年轻精致目标不靠皱纹、下垂和色斑实现。改变表情时允许自然软组织运动，不将嘴角位置逐像素冻结。
 
-Locked:
-- face_identity_geometry
-- eye spacing and eye-shape core
-- nose / lip / jaw-chin geometry
-- age identity
-- hair silhouette
-- body / pose
-- garment / palette
-- composition / background
-
-Forbidden:
-- copying trait-reference face geometry
-- importing trait-reference clothing, background, lighting, body type or hairstyle
-- adding wrinkles, sagging, pigmentation or other aging cues for M1–M3
-- major face-shape changes
-
-## garment_material
-Editable: material contrast, embroidery density, folds/gravity, controlled asymmetry, attachment logic.
-Locked: identity and maturity target, body, composition, pose, silhouette, palette, hair, footwear, background.
-
-## studio_polish
-Editable: key/fill ratio, white-background separation, rim separation, micro-contrast, specular balance, final optics.
-Locked: all semantic identity and design.
-
-## upscale
-Editable: target pixels, upscale, final sharpen, denoise.
-Locked: all semantic design.
-
-## Scope Leakage
-If a trait calibration changes costume, body, face geometry or scene, mark `edit_scope_leak` and `trait_reference_overborrow` as appropriate.
+局部编辑也须复查原来通过的维度。越界记录为 `edit_scope_leak`（编辑范围越界），由气质图带入新属性时另记 `trait_reference_overborrow`。文字锁定不是像素保护，无法确认改善时保留母图和不确定记录。

@@ -1,6 +1,6 @@
 {
   "version": "0.9.5",
-  "principle": "each visual attribute should have one dominant reference authority; style target never owns identity geometry or garment architecture unless explicitly authorized.",
+  "principle": "每个视觉属性只指定一个主要参考来源；风格图不默认控制人物五官或衣片构造，用户明确授权的改案优先。权限数字是计划标识，不是模型权重。",
   "scenarios": {
     "style_A_asset_B": {
       "A": {
@@ -51,7 +51,7 @@
       }
     },
     "identity_A_wardrobe_B": {
-      "use_when": "The user authorizes wardrobe redesign and the current brief explicitly assigns Image B as a clothing-design reference.",
+      "use_when": "用户授权换装或衣装再设计，且本轮明确指定图 B 为服装设计来源。",
       "A": {
         "role": "identity_source",
         "authority": {
@@ -84,23 +84,23 @@
           "background": 0
         }
       },
-      "brief_precedence": "Explicit adaptation controls the allowed wardrobe changes, accessory limits, pose and background. Visible body or hairstyle requirements from the user remain authoritative; an unseen body cannot be measured from a portrait.",
+      "brief_precedence": "文字改案决定允许的衣装变化、饰物数量、姿态与背景。用户明确的身体和发型要求优先；近景参考不能证明未见的身体测量。",
       "prompt_binding": [
-        "Image A is the sole source of the character's face, apparent age, expression, hair color and hairstyle, except changes explicitly authorized in this brief.",
-        "Image B supplies only the clothing construction, palette, material relationships and selected accessories named in the wardrobe brief. Do not copy B's face, body proportions, hair, forehead marks or unassigned head ornaments.",
-        "The explicit wardrobe adaptation takes precedence over conflicting clothing details in either image. Follow the specified pose and background rather than automatically inheriting B's presentation."
+        "图 A 是人物面容、表观年龄、发色与发型方向的主要来源；表情与发型可按本轮授权自然适配。",
+        "图 B 仅提供衣装方案指定的衣片构造、配色、材质关系和选定饰品。不复制 B 的脸、体型、头发、额饰或未授权冠饰。",
+        "明确的衣装改案优先于两图中冲突的服装细节。姿态与背景按本轮要求执行，不自动继承 B 的呈现。"
       ],
       "review": [
-        "Check identity and hair against A separately from costume construction against B.",
-        "Check B-only face, hair, forehead and body traits for unwanted transfer; absence of one obvious trait does not prove identity preservation.",
-        "Check the final accessory count and ornament density against the adaptation brief; B can introduce extra detail despite role text.",
-        "Record B as an actual generation input, not evaluation-only. Do not label the result a pure prompt-only improvement."
+        "人物身份和发型对照 A，衣片构造对照 B，分别检查。",
+        "检查 B 独有的脸、发型、额饰和体型是否误借；没有一个明显误借特征不等于身份已保持。",
+        "按改案检查饰品数量与装饰密度，角色绑定文字不能保证模型不会加细节。",
+        "B 必须记为实际生成输入，而不是仅评价标杆；该结果不属于纯提示词优化。"
       ]
     },
     "single_style_reference": {
       "A": {
         "role": "style_target_and_subject_source",
-        "rule": "decompose channels; visible identity/costume may be strong, unseen structure remains conservative completion; style channels may be strong."
+        "rule": "按通道拆分：可见人物与服装可作为主要依据，未见结构按保守延展处理，获准的画风通道可强继承。"
       }
     }
   },

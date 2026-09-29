@@ -1,9 +1,7 @@
-# Compatibility note
+# 兼容版本说明
 
-The v0.8.2 Asset Master additions are integrated into [SKILL.md](SKILL.md) and the [current asset workflow](references/routes/asset-master-workflow.md).
+v0.8.2 的资产母图能力已并入 [主入口](SKILL.md) 与 [当前资产工作流](references/routes/asset-master-workflow.md)。面容、长袍比例、自然遮挡手势、材质分离、取景和棚光均按当前流程执行。成年古风女性预设只适用于对应案例；面部、结构、材质与光线是依赖关系，不要求重做已通过的阶段。
 
-Use the current workflow for face profiles, robe-aware proportion, occlusion-aware hands, material separation, framing and studio lighting. The default adult ancient-female preset is case-specific. Select only the failed repair dimension; the face → structure → material/light order is a dependency plan, not a requirement to redo accepted stages.
+流动衣装展示与用户提供的更好结果，按 [标杆对照流程](references/routes/benchmark-costume-refinement.md) 判断。服装展示与中性检查用途分开；完整母图不能被通用脸型、年龄、比例或手势默认值覆盖。
 
-For flowing costume portraits and better prior results, use the [benchmark workflow](references/routes/benchmark-costume-refinement.md). v0.8.4 separates costume presentation from neutral inspection and preserves complete supplied designs without silently applying generic face, age, proportion or hand defaults.
-
-Historical `docs/v0.*` reports and versioned release manifests describe their respective snapshots. Consult the current manifest and live validation for the present package.
+`docs/v0.*` 与旧版本发布清单是各版本历史快照。当前包状态以当前清单和实际校验结果为准。

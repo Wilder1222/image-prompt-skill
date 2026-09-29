@@ -1,37 +1,11 @@
-# Style Restoration Resolver
+# 风格恢复的来源与强度
 
-## Purpose
+将原作可辨认的视觉语言迁移到当前人物资产，不能让风格参考悄悄替换已确认角色。
 
-Restore the visual DNA of an original artwork without allowing that reference to overwrite the approved character asset.
+可按任务分配的通道：氛围情绪 `mood`、动作语言 `motion_language`、光线语言 `lighting_language`、空气与景深 `atmosphere`、主辅色关系 `color_relationships`、绘画或摄影媒介 `medium_language`、构图动势 `composition_energy`、环境尺度 `environment_scale`。
 
-## Style channels
+每条都写成实际可见结果，例如披帛沿旋转方向展开、柔光勾出既有甲片、远景低对比；不只使用宏大或高级等抽象词。通道权限来自任务，不表示每次都必须加入雾、尘、建筑或逆光。
 
-A Style Restoration Reference may contribute:
+风格图默认不能更换人物脸型、年龄、身体比例、衣片构造、标志冠饰或鞋履。已授权新衣装的任务另按服装来源设计，不能用风格保护阻止用户改案。
 
-1. `mood` — solemn, epic, ethereal, oppressive, luminous, etc.
-2. `motion_language` — sweeping hair, diagonal fabric flow, quiet stillness, vortex movement.
-3. `lighting_language` — luminous backlight, diffuse glow, edge fire, cool ambient fill.
-4. `atmosphere` — mist, particles, dust, painterly depth, mythic air.
-5. `color_relationships` — relative balance of black / white / gold / red, warm-vs-cool relationship.
-6. `medium_language` — painterly-cinematic, editorial-photographic, ink-like, textured.
-7. `composition_energy` — centered monumentality, diagonal action, low-angle power, etc.
-8. `environment_scale` — monumental architecture, mythic ruins, abstracted fantasy space.
-
-## Forbidden borrow
-
-Style references may not replace:
-- face identity geometry
-- body proportions
-- garment silhouette / construction
-- signature crown / accessories
-- footwear identity
-- age identity
-
-## Restoration intensity
-
-- S0 none
-- S1 subtle atmosphere only
-- S2 clear style restoration while asset remains dominant
-- S3 strong restoration; scene/motion/lighting may shift substantially, identity and garment architecture remain locked
-
-For the current workflow, `hybrid + S2` is the default.
+兼容强度：S0 不迁移，S1 轻度氛围，S2 明确迁移且资产结构占主导，S3 强烈迁移场景与运动语言、仍保留已锁定身份和设计。历史案例的 `hybrid + S2` 不是新任务默认；依本次目标选择并实测。

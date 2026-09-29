@@ -1,20 +1,14 @@
-# Style Intent Router v0.8.0
+# 风格意图选择
 
-Face Mode answers **how the face should be treated**. Style Intent answers **what the final image should look like**. They must never be conflated.
+面容模式说明脸部如何处理；风格意图说明整张图最终是什么媒介、构图与氛围。两者分别决定，不能把美感优先理解为强制照片化。
 
-## Highest-level rule
+用户明确指定某图画风、恢复原画或转换摄影时，该目标高于继承的资产展示默认。原母图是白底，不意味着后续仍必须白底。
 
-When the user explicitly says “use image X's style”, “restore the original style”, “make it like the original key art”, or otherwise names a visual target, that explicit style target outranks inherited asset presentation defaults.
+| 当前任务 | 可选路线 |
+| --- | --- |
+| 明确白底或中性展示，并保留指定画风 | `style_asset` |
+| 已有母图，恢复指定场景画风且没有白底锁定 | `cinematic_hybrid` |
+| 没有独立母图，直接恢复参考的视觉语言 | `restoration` |
+| 普通角色资产制作 | `asset`，具体背景和动作仍由描述决定 |
 
-A prior white-background Asset Master does **not** make future edits white-background by default.
-
-## Render resolution
-
-- Explicit white/neutral background + style reference → `style_asset`.
-- Explicit target-style restoration + Asset Master, no white-background lock → `cinematic_hybrid`.
-- Style restoration with no separate Asset Master → `restoration`.
-- Plain character asset request → `asset`.
-
-## What archetype may control
-
-Character archetype may recommend Face Mode. It may not override explicit final style intent.
+角色题材可提示面容处理方向，不能覆盖明确媒介要求。黑金服装可以摄影化，白衣也可以厚涂。局部摄影化需写清允许变化与保留设计，再实测面容和材料是否统一；不只叠加“真人、写实”标签。

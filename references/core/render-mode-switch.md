@@ -1,26 +1,11 @@
-# Render Mode Switch
+# 渲染路线选择
 
-## asset
+路线是工作流摘要，不是厂商参数。先确定用户要什么画面，再决定背景、动作、面部表现和材料；不能从旧案例自动带入白底、静态姿势或幻想厚涂。
 
-Goal: reusable character asset.
-Priorities: identity, complete framing, garment readability, neutral background/lighting, continuity.
+- `asset`：角色资产展示，关注身份、所需取景、衣装可读性和连续性。背景与动作按当前描述选择，中性棚拍只是一个选项。
+- `style_asset`：在所选展示背景中保留指定媒介与风格，白底与摄影面容不是同义词。
+- `restoration`：恢复原作的媒介、氛围、光线与动态语言，仍保护明确锁定的人物和服装。
+- `hybrid`：以已有资产作为结构依据，结合获准风格并提高人物与材料可信度。先保身份和标志设计，再协调风格与真实感。
+- `cinematic_hybrid`：当前风格路由中的场景融合路线，允许授权的动态和环境变化；具体权限以 [风格意图](style-intent-router-v080.md) 为准。
 
-## restoration
-
-Goal: recover the original artwork's visual spirit.
-Priorities: style, mood, motion, lighting language, environment scale, composition energy.
-Asset continuity is protected but presentation may change strongly.
-
-## hybrid
-
-Goal: use a validated asset as the structural anchor while restoring the original style and adding believable human/material realism.
-
-Priority order:
-1. Identity and signature design
-2. Asset continuity
-3. Style restoration
-4. Reality gain
-5. Lighting/material integration
-6. Micro quality
-
-Current black-red-gold warrior-queen workflow should default to `hybrid`.
+黑红金女将只是历史应用案例，不自动决定其他角色必须使用混合路线。局部编辑不因切换一个模式名而获得全面改造权限。

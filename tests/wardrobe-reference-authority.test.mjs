@@ -28,10 +28,10 @@ test('authorized wardrobe scenario assigns clothing to B with an explicit adapta
   assert.equal(plan.A.authority[channel],0,channel);
   assert.equal(plan.B.authority[channel],2,channel);
  }
- assert.match(plan.use_when,/user authorizes wardrobe redesign/);
- assert.match(plan.brief_precedence,/Explicit adaptation controls/);
- assert.match(plan.prompt_binding.join(' '),/explicit wardrobe adaptation takes precedence/i);
- assert.match(plan.review.join(' '),/actual generation input/);
+ assert.match(plan.use_when,/用户授权换装或衣装再设计/);
+ assert.match(plan.brief_precedence,/文字改案决定/);
+ assert.match(plan.prompt_binding.join(' '),/明确的衣装改案优先/);
+ assert.match(plan.review.join(' '),/实际生成输入/);
 });
 
 test('cinematic style plan rejects wardrobe roles instead of emitting reversed identity instructions',()=>{

@@ -1,56 +1,36 @@
-# Iterative Repair Route v0.7.1
+# 按证据迭代修复
 
-## Workflow
+实际生成后先诊断、分类，再选择最小有效范围修订；重新查看输出并保留已通过项。不是每张图都需依次修脸、修衣、抛光和放大。
 
-Generate → Diagnose → **Classify** → Lock → Patch → **Reclassify** → Lock → Polish → Upscale
+## 诊断前核对目标
 
-The new Classify/Reclassify step distinguishes identity drift from acceptable temperament change.
+明确参考角色和可见范围，再分辨身份漂移、成熟感过量或不足、气质变化、参考越界、通用美人脸替换，以及比例、媒介、服装、动作和取景问题。
 
-## Planning
+判不遵循前核对约束来源：用户明确要求、实际观察或代理补全方案。未经支持或相互矛盾的设计选择需记录原因并更正，不能静默降低真正的用户要求。旧失败和新目标分开留证。
 
-1. Resolve reference roles.
-2. Resolve visible vs inferred regions.
-3. Diagnose result.
-4. Classify facial issue:
-   - identity drift?
-   - maturity undershoot / overshoot?
-   - temperament shift?
-   - trait-reference overborrow?
-   - beauty-template drift?
-5. Route to the smallest repair round.
+## 只修取景
 
-Before diagnosing noncompliance, audit the failed constraint against its source: explicit user requirement, observed reference fact, or assistant-authored design choice. Correct an unsupported or contradictory design choice with a recorded reason; do not silently downgrade an actual user requirement. Keep the old failure and the revised target as separate evidence.
+主体可用而边缘触框时，以该候选本身为编辑图，要求在原画幅比例内增加周围背景、整体缩小人物及全部附属衣发，保持内部空间关系、面容、姿态和物件数量。不加换脸或换装指令，也不需先把候选宣布为已验收母图。
 
-## framing_only
+分别记录编辑对象、原始身份来源和仅评价标杆。检查新留白，也复查饰物、手部和面容漂移。相同输出尺寸下增加空场会减少人物像素覆盖，保留原来主体较大的候选供比较。一次取景成功不证明从原图生成就能稳定取景，更不代表逐像素保留。
 
-When an otherwise usable candidate merely touches the frame, use that exact candidate as the edit target. Request more surrounding background and a smaller overall ensemble within the specified aspect ratio, preserving all internal spatial relationships, face, pose, outfit and object count. Do not add identity or costume redesign clauses. A candidate can be tested this way without being promoted to an approved master.
+约百分比留白与“不触框”是不同要求。结果可能从过满变成过小：按原定用途和验收记录，不在生成后将约 6% 的要求放宽成任何不触框都通过。若需要严格几何尺度，仅靠自然语言与生成式编辑的试验结果不应冒称精确控制。
 
-Record the edit target separately from original identity references and evaluation-only benchmarks. After the edit, inspect both the new margins and possible detail or identity drift. Increasing white space reduces the subject's pixel coverage at the same output dimensions; retain the larger-subject candidate when that is preferable. A successful edit does not prove that the original-to-image generation prompt fixed framing by itself, nor that all pixels stayed unchanged.
+## 面容表现与身份
 
-## identity_skin
-Use only when the same-person geometry or skin realism is actually failing.
+只有身份或指定面部媒介实际失败时才进入修脸。仅肤质问题应锁定稳定五官；人物与环境媒介不一致时先判断是否只需转换面部光学表现，不默认全部重生成。
 
-For a targeted face-reference test, Image A is the current full-body edit target and Image B is the original identity-detail reference. A controls clothing, body pose, framing, hair silhouette and scene; B controls only the named facial features and expression being corrected. This differs from `trait_calibration`, where B supplies optional facial traits rather than original identity. Bind the actual submitted order explicitly. Describe how B's features should fit A's existing head angle and lighting; do not inherit B's old outfit, outdoor shadows or close-up framing.
+当前全身图 A 可控制衣装、身体、动作、取景、发型和场景；原始身份细节图 B 仅补充明确五官或获准表情。实际顺序写清，B 的特征须适配 A 的头角和光线，不借入 B 的旧衣服、户外阴影或近景构图。这不同于仅借神态的气质参考。
 
-When the diagnosis is uncertain, label the result an exploratory candidate and preserve A. Inspect both the intended face change and unintended changes in the costume, hands, pose and framing. A natural-language request to keep everything else unchanged is not pixel-level protection. Promote only a clearly supported improvement; an inconclusive correction is evidence to stop that edit path, not a reason to strengthen face reshaping indefinitely.
+摄影化不靠更多“真人、超写实”同义词：可描述真实眼睑包裹眼球、鼻翼与唇面的分区反射、妆面下柔和软组织、符合全身景别的肤质。保留精致妆容和既定身份，不用粗毛孔、噪点、疲态或过锐纹理冒充摄影。转换后复核五官辨识，媒介改善不能掩盖身份待审。
 
-## trait_calibration
-Use when identity is stable but the face is too childish, too cold, too mature, too generic, or not refined enough.
+诊断不确定时将结果记为探索候选并保留 A。自然语言锁定不是像素保护；收益不明或身份退步时停止该方向，不不断加强重塑五官的程度。
 
-Recommended A/B setup:
-- A = Asset Master and identity geometry source
-- B = Facial Trait Reference only
+## 其他局部范围
 
-Target a named maturity level, normally M2.5 for “young but sophisticated.”
+- 气质调整：身份稳定而神态、成熟感或妆容不符时，按 [气质校准](facial-trait-calibration.md) 处理。M2.5 只用于相应轻熟目标，不是默认脸型。
+- 材料调整：仅修已有衣料的厚薄、反射、重力与连接；不要求先对无问题的脸部再做一次修订。
+- 灯光调整：棚拍或场景光按任务选择，保持人物与设计；不能用抛光掩盖主要结构失败。
+- 放大输出：主要视觉验收已通过且用户需要时执行，之后仍检查细节再生成。
 
-## garment_material
-Use only after identity and maturity are accepted.
-
-## studio_polish
-Use only after semantic design and materials are accepted.
-
-## upscale
-Use after all visual acceptance checks pass.
-
-## Key Principle
-The more mature the iteration becomes, the **shorter and narrower** the edit prompt should become.
+一轮只处理最影响目标的问题组。最多两轮没有明确改善就停止当前修订路线，保留最佳候选与失败证据；必要时重新分析来源、冲突或模型遵循问题。提示词越成熟应越聚焦，但不能为求短而删掉有效的衣装构造或来源说明。

@@ -1,23 +1,9 @@
-# Micro-Asymmetry Policy v2
+# 微小不对称的使用原则
 
-v0.7.5 treated tiny asymmetry as a positive realism cue. v0.7.6 weakens that rule.
+早期版本把微小不对称当作积极的真实感线索，当前规则改为：保留已经自然存在的不对称，允许表情中自然出现的微差，不主动扭曲一个已经好看的面容。左右较对称本身不是计算机生成感缺陷。
 
-## New policy
+只有明显镜像复制、两侧高光或眼睑被机械重复，或用户明确要求减弱过度对称时，才针对可见问题修订。先检查光位与表情，不直接移动五官来制造差异；眼神光应匹配实际光源，不要求两眼必须不同。
 
-- preserve naturally observed asymmetry
-- allow tiny variation if it emerges organically
-- do not deliberately distort a good face just to prove it is human
-- symmetry is not itself a CG failure
-
-Use asymmetry edits only when:
-
-- the face is visibly mirrored / procedurally duplicated
-- both highlights or eyelid openings are unnaturally identical
-- the user specifically asks for less perfect symmetry
-
-## Failure signals
-
-- micro_asymmetry_overdone
-- mirrored_face_artifact
-
-`micro_asymmetry_missing` is retained for backward compatibility but becomes advisory rather than a mandatory repair trigger.
+- `micro_asymmetry_overdone`：不对称过量，损害身份、美感或动作合理性。
+- `mirrored_face_artifact`：存在可见的镜像复制伪影。
+- `micro_asymmetry_missing`：保留兼容标识，仅作提示，不是必修缺陷。
