@@ -340,5 +340,59 @@
       "note": "同衣装下呈现原图 3 的较凝神目光与不同头部倾斜，保持黑发；高处发饰为设计延展，顶部偏紧；不能凭神情和姿态差异确认全部五官保留。",
       "artifact_directory": "dist/visual-tests/goal-cycle-06/"
     }
+  ],
+  "prompt_density_variants": [
+    {
+      "original": 8,
+      "cycle": "goal-cycle-07",
+      "id": "a-08-concise",
+      "authoring": "concise_reference_brief",
+      "reference_sha256": "9336b63306d7200b87da8db5f7fa5cf48092aa137b5de0c606e7f2449c5d0a9f",
+      "candidate_sha256": "68c8ef5b41bdf109bdd02b12157dc192072a5da596fc5f3ad65c8639560ad337",
+      "prompt_sha256": "c28f1f8b14cc5671a42b811ece50fe8dfcf42278e37d23708e3c0b0c7c5e0372",
+      "shared_brief_sha256": "9a5c1d3c883d282326b4c384f53a7292ae239431cd7c9ad24cd8a479de466950",
+      "user_approval": "pending",
+      "note": "完整全身与衣摆；青灰锈红延续原图；织锦和浅色袖里花纹较密，浅色中部窄，整体偏厚重。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-07/"
+    },
+    {
+      "original": 8,
+      "cycle": "goal-cycle-07",
+      "id": "b-08-compiled",
+      "authoring": "current_compiler_plus_same_brief",
+      "reference_sha256": "9336b63306d7200b87da8db5f7fa5cf48092aa137b5de0c606e7f2449c5d0a9f",
+      "candidate_sha256": "16d598db78d1d16a8b59d0f5cbfe2335c9621e4ba3d0f63a07d41aa560fb644a",
+      "prompt_sha256": "a1cceba1972dbdce58a3ce59df7c167273f4bb5da13cfae15afc9c9905959a70",
+      "shared_brief_sha256": "9a5c1d3c883d282326b4c384f53a7292ae239431cd7c9ad24cd8a479de466950",
+      "user_approval": "pending",
+      "note": "完整全身与衣摆；浅色内裙及花纹集中区更清楚，叠手与袖布关系可读；本对更适合展示分层。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-07/"
+    },
+    {
+      "original": 1,
+      "cycle": "goal-cycle-07",
+      "id": "a-01-concise",
+      "authoring": "concise_reference_brief",
+      "reference_sha256": "9db2a1e4c8ead5fc5eac9ac356fe04fd526ef0864514a4d585adb51fa8de3c40",
+      "candidate_sha256": "2083c32bae4b40a6cfd5014c9da435dc892b7c723c357c26374360decccb09a0",
+      "prompt_sha256": "34dc2c1c1c684673da7ce5ac37e01d1dd04ee9222cf9ad609e38c176afacf16f",
+      "shared_brief_sha256": "f309d39f8fde5a92f9fd5b5928b76693c066530de7b1eb2416010a4493d13703",
+      "user_approval": "pending",
+      "note": "侧向面容与松散黑发、素布交领及粗褶皱可读；背景偏浅灰，侧向投影较重；粗布感更明显。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-07/"
+    },
+    {
+      "original": 1,
+      "cycle": "goal-cycle-07",
+      "id": "b-01-compiled",
+      "authoring": "current_compiler_plus_same_brief",
+      "reference_sha256": "9db2a1e4c8ead5fc5eac9ac356fe04fd526ef0864514a4d585adb51fa8de3c40",
+      "candidate_sha256": "3209d438873e69af3a38fffae11a363029d61e42b9a77c61e73fc8bda288d5fa",
+      "prompt_sha256": "000f3cb92a85fdcbf00fecc8bb7d75c227ef4557b555148041bb5ca390d13723",
+      "shared_brief_sha256": "f309d39f8fde5a92f9fd5b5928b76693c066530de7b1eb2416010a4493d13703",
+      "user_approval": "pending",
+      "note": "保留侧向头部和无花纹素布，叠手与袖摆收束，背景更接近白色；布面比简洁版平顺；未出现华服装饰污染。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-07/"
+    }
   ]
 }
