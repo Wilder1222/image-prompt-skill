@@ -12,7 +12,7 @@
 可以：
 > 严格保持参考图可见的领型、胸前装饰和袖口结构。
 
-### partially_visible
+### partial（旧称 partially_visible）
 只能确认一部分。
 
 应该：
@@ -45,7 +45,7 @@
 
 `strict_lock` 仅允许：
 - visible + role_authorized
-- partially_visible 的可见子范围
+- partial 的可见子范围（生产 JSON 使用 `partial`，旧称 partially_visible）
 - user_locked
 
 `not_visible + observed` 属于逻辑错误。

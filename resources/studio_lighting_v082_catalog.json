@@ -3,8 +3,8 @@
   "default": "studio_soft_separation",
   "profiles": {
     "studio_soft_separation": {
-      "key": "front_left_upper_large_softbox",
-      "fill": "front_low_weaker_fill",
+      "key": "near_camera_slightly_upper_large_diffused_softbox",
+      "fill": "broad_frontal_fill_for_even_face_exposure",
       "separation": "very_subtle_edge_separation",
       "floor_shadow": "soft_grounded_contact",
       "background": "high_key_white_not_clipped",
@@ -13,11 +13,13 @@
         "white_gauze_separates_from_background",
         "main_fabric_keeps_weight",
         "gold_thread_gets_controlled_highlights",
-        "no_flat_even_light"
+        "even_face_exposure_with_soft_volume",
+        "no_dappled_or_hard_hair_shadows",
+        "neutral_white_balance_without_scene_color_cast"
       ],
       "prompt_translation": [
-        "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
-        "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+        "Use photographic studio lighting: a very large diffused key close to the camera axis and slightly above, broad frontal fill sufficient to keep the forehead, eyes and both cheeks evenly exposed, and only subtle edge separation where needed. Use neutral white balance. Remove dappled daylight, window or foliage patterns, hard fringe shadows and inherited warm scene color casts.",
+        "Even illumination must retain gentle facial volume: soft continuous gradients beneath the nose and chin, natural eye sockets and fine skin texture. Keep the white background clean but not clipped, a soft grounded contact shadow, readable fabric hierarchy and restrained metal highlights. Apply this lighting logic without changing the requested photographic or painterly medium."
       ]
     }
   }

@@ -2,6 +2,8 @@
 
 Choose the scenario by the actual task. The style-restoration rules below do not freeze clothing when the user has authorized a new wardrobe design.
 
+Current execution uses [prompt production](../routes/prompt-production.md). For multiple views of the same person, declare one primary identity reference and supporting views in the same `identity_group`; never merge different people merely because their style is similar. Group declarations do not verify identity. Evaluation-only images remain outside generation inputs unless the current task explicitly assigns another role.
+
 ## Style Target
 Owns: medium, motion, lighting language, atmosphere, composition energy, color relationships and environment scale when authorized.
 

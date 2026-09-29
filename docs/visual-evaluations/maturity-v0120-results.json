@@ -1,0 +1,3174 @@
+{
+  "version": "0.12.0",
+  "date": "2026-09-29",
+  "scope": "29 saved images: 4 pilots, 5 superseded initial outputs, 14 repeated pose outputs, 2 frame edits, 1 independent modern output, 1 color edit, 1 studio-light edit, 1 face-clear hair edit. Nine interrupted old records have unknown dispatch. No universal success claim.",
+  "summary": {
+    "cohorts": {
+      "pilot-v012": {
+        "runs_planned": 4,
+        "known_tool_calls": 4,
+        "initial_planned": 2,
+        "initial_completed": 2,
+        "initial_passed": 0,
+        "resolved_without_goal_change": 0,
+        "unresolved_reviews": 2,
+        "failures": 2,
+        "tool_errors": 0,
+        "pending": 0,
+        "interrupted": 0,
+        "dispatch_unknown": 0,
+        "reused_outputs": 0,
+        "goal_changes": 0
+      },
+      "independent-author-modern-v012": {
+        "runs_planned": 4,
+        "known_tool_calls": 4,
+        "initial_planned": 1,
+        "initial_completed": 1,
+        "initial_passed": 0,
+        "resolved_without_goal_change": 0,
+        "unresolved_reviews": 1,
+        "failures": 0,
+        "tool_errors": 0,
+        "pending": 0,
+        "interrupted": 0,
+        "dispatch_unknown": 0,
+        "reused_outputs": 0,
+        "goal_changes": 3
+      },
+      "pose-repeat-material-v012": {
+        "runs_planned": 13,
+        "known_tool_calls": 13,
+        "initial_planned": 12,
+        "initial_completed": 12,
+        "initial_passed": 0,
+        "resolved_without_goal_change": 0,
+        "unresolved_reviews": 1,
+        "failures": 12,
+        "tool_errors": 0,
+        "pending": 0,
+        "interrupted": 0,
+        "dispatch_unknown": 0,
+        "reused_outputs": 0,
+        "goal_changes": 0
+      },
+      "pose-repeat-dark-v012": {
+        "runs_planned": 3,
+        "known_tool_calls": 3,
+        "initial_planned": 2,
+        "initial_completed": 2,
+        "initial_passed": 0,
+        "resolved_without_goal_change": 0,
+        "unresolved_reviews": 1,
+        "failures": 2,
+        "tool_errors": 0,
+        "pending": 0,
+        "interrupted": 0,
+        "dispatch_unknown": 0,
+        "reused_outputs": 0,
+        "goal_changes": 0
+      },
+      "repeat-material-v012": {
+        "runs_planned": 12,
+        "known_tool_calls": 5,
+        "initial_planned": 12,
+        "initial_completed": 5,
+        "initial_passed": 0,
+        "resolved_without_goal_change": 0,
+        "unresolved_reviews": 0,
+        "failures": 5,
+        "tool_errors": 0,
+        "pending": 0,
+        "interrupted": 7,
+        "dispatch_unknown": 7,
+        "reused_outputs": 0,
+        "goal_changes": 0
+      },
+      "repeat-dark-fantasy-v012": {
+        "runs_planned": 2,
+        "known_tool_calls": 0,
+        "initial_planned": 2,
+        "initial_completed": 0,
+        "initial_passed": 0,
+        "resolved_without_goal_change": 0,
+        "unresolved_reviews": 0,
+        "failures": 0,
+        "tool_errors": 0,
+        "pending": 0,
+        "interrupted": 2,
+        "dispatch_unknown": 2,
+        "reused_outputs": 0,
+        "goal_changes": 0
+      }
+    },
+    "user_acceptance": "not_inferred",
+    "note": "Counts are observer results for this sample; reused outputs and changed targets do not create initial successes."
+  },
+  "runs": [
+    {
+      "run_id": "01-floral-padding",
+      "case_id": "01-floral",
+      "cohort": "pilot-v012",
+      "kind": "edit",
+      "parent": "01-floral-pilot",
+      "goal_changed": false,
+      "prompt_sha256": "bd1554cf5b16428507bf08fb033c5cccb041570a37e7c6feb86b3985e8764ecf",
+      "target_sha256": "2025c2290bc2ced4a10913091456a6b7f9fd48a1c05adc91e77df58f1cd477c6",
+      "snapshot_sha256": "a83c5bff8e57e381320761092c10455cebcf886a7f59f0d746ab0412ad56d663",
+      "output_sha256": "73c391c666293a791b34fa0979b78f8c377e55b8ae789706d6555010b5b63281",
+      "status": "needs_review",
+      "dispatch_state": null,
+      "critical_failures": [],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "Uidentity",
+          "question": "原图多个面部辨识点、发型与表情是否延续？视角改变不自动判失败；证据不足记不确定。",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "原杏眼、柔和唇形、花髻与清冷神情延续，但原图侧向暖光与正面白底的面部差异仍需辨认，不能只凭发型判同人。"
+        },
+        {
+          "id": "medium",
+          "basis": "Ustyle",
+          "question": "整体表面表现是否符合本例的面容与材料/原画目标？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "织物、细腻皮肤和柔光搭配，保持美感优先的轻度真实材料路线。"
+        },
+        {
+          "id": "proportion",
+          "basis": "Ubody",
+          "question": "头颈肩和完整躯干是否协调，下半身没有被单独拉长，保持P9整体时装感？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与完整躯干协调，腰线未贴胸下，手落在下腹；高髻不作为头身比例的测量依据。"
+        },
+        {
+          "id": "framing_pose",
+          "basis": "Uframe",
+          "question": "身体正对镜头、稳定站立、头饰衣摆及鞋履在画幅内？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "最高发饰、左右裙摆和鞋底均有明确白边，站姿、双肩和骨盆保持正面，未裁切。"
+        },
+        {
+          "id": "costume",
+          "basis": "Udesign",
+          "question": "保留关键衣装设计语言，补全部位结构是否连贯？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "青灰织金花卉主衣、象牙中裙、暗红束带与薄外纱连接清楚。内裙下缘多了小绣枝，属于适度改案范围，不作为绝对素面通过证据。"
+        },
+        {
+          "id": "materials",
+          "basis": "Udesign",
+          "question": "主料、内层、纱和金属的重量、透光或反光是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "外纱透叠、主衣织金花纹和较实内裙的大褶有区别，花卉沿布料而非悬浮。"
+        },
+        {
+          "id": "extremities",
+          "basis": "Uhands",
+          "question": "可见手指与腕部是否连续自然，两个鞋尖和承重是否可辨，无融合或重复？不推断隐藏关节。",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "叠手可见手指与腕部连接自然，正常遮挡处不推断指节；两只鞋尖、鞋底和落地阴影分别可辨。"
+        },
+        {
+          "id": "background_light",
+          "basis": "Ulight",
+          "question": "白底干净，浅衣不明显溢出，接地关系成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "输出为RGB不透明背景，近白四角与整幅白地面成立，鞋下阴影浅，无花枝场景或透明抠图。"
+        },
+        {
+          "id": "beauty",
+          "basis": "Ubeauty",
+          "question": "年轻精致与本角色气质是否成立，未出现塑料面容、疲态或强行换脸？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "面颊柔和、眼神平静、唇部有体积，轻薄妆容与年轻感成立。"
+        }
+      ]
+    },
+    {
+      "run_id": "01-floral-pilot",
+      "case_id": "01-floral",
+      "cohort": "pilot-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "fb0b47ef3267545ba623a1287d7a18ae72b52e353ac73508fe8a9bda2c91443f",
+      "target_sha256": "2025c2290bc2ced4a10913091456a6b7f9fd48a1c05adc91e77df58f1cd477c6",
+      "snapshot_sha256": "4444ad520e9c47153933f4adbde14e6a6b518f5142577a0ca9075ec68bee3de1",
+      "output_sha256": "3c81995ae04f1a35ea718105c76bce34e1bed61d16978297e456aaae7f68dd2b",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing_pose"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "Uidentity",
+          "question": "原图多个面部辨识点、发型与表情是否延续？视角改变不自动判失败；证据不足记不确定。",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "原杏眼、柔和唇形、花髻与清冷神情延续，但原图侧向暖光与正面白底的面部差异仍需辨认，不能只凭发型判同人。"
+        },
+        {
+          "id": "medium",
+          "basis": "Ustyle",
+          "question": "整体表面表现是否符合本例的面容与材料/原画目标？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "织物、细腻皮肤和柔光搭配，保持美感优先的轻度真实材料路线。"
+        },
+        {
+          "id": "proportion",
+          "basis": "Ubody",
+          "question": "头颈肩和完整躯干是否协调，下半身没有被单独拉长，保持P9整体时装感？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与完整躯干协调，腰线未贴胸下，手落在下腹；高髻不作为头身比例的测量依据。"
+        },
+        {
+          "id": "framing_pose",
+          "basis": "Uframe",
+          "question": "身体正对镜头、稳定站立、头饰衣摆及鞋履在画幅内？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "身体与双鞋完整，最高发饰距离顶部很近，未落实舒适白边；不能因没有裁断就算取景合格。"
+        },
+        {
+          "id": "costume",
+          "basis": "Udesign",
+          "question": "保留关键衣装设计语言，补全部位结构是否连贯？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "青灰织金花卉主衣、象牙中裙、暗红束带与薄外纱连接清楚。内裙下缘多了小绣枝，属于适度改案范围，不作为绝对素面通过证据。"
+        },
+        {
+          "id": "materials",
+          "basis": "Udesign",
+          "question": "主料、内层、纱和金属的重量、透光或反光是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "外纱透叠、主衣织金花纹和较实内裙的大褶有区别，花卉沿布料而非悬浮。"
+        },
+        {
+          "id": "extremities",
+          "basis": "Uhands",
+          "question": "可见手指与腕部是否连续自然，两个鞋尖和承重是否可辨，无融合或重复？不推断隐藏关节。",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "叠手可见手指与腕部连接自然，正常遮挡处不推断指节；两只鞋尖、鞋底和落地阴影分别可辨。"
+        },
+        {
+          "id": "background_light",
+          "basis": "Ulight",
+          "question": "白底干净，浅衣不明显溢出，接地关系成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "输出为RGB不透明背景，近白四角与整幅白地面成立，鞋下阴影浅，无花枝场景或透明抠图。"
+        },
+        {
+          "id": "beauty",
+          "basis": "Ubeauty",
+          "question": "年轻精致与本角色气质是否成立，未出现塑料面容、疲态或强行换脸？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "面颊柔和、眼神平静、唇部有体积，轻薄妆容与年轻感成立。"
+        }
+      ]
+    },
+    {
+      "run_id": "02-fantasy-padding",
+      "case_id": "02-fantasy",
+      "cohort": "pilot-v012",
+      "kind": "edit",
+      "parent": "02-fantasy-pilot",
+      "goal_changed": false,
+      "prompt_sha256": "bd1554cf5b16428507bf08fb033c5cccb041570a37e7c6feb86b3985e8764ecf",
+      "target_sha256": "68756948664da98d9f1454ddde2f9a972a7d406391ff09800a63151d901de34a",
+      "snapshot_sha256": "67a3c0b107f18ad4bfbbca655c5c7d1a50d42ff32257424f089ea730837e9655",
+      "output_sha256": "d270380cff439ff726376e1ea5f668cd940d5e9e8ec3fe53b92e11805c0152a0",
+      "status": "needs_review",
+      "dispatch_state": null,
+      "critical_failures": [],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "Uidentity",
+          "question": "原图多个面部辨识点、发型与表情是否延续？视角改变不自动判失败；证据不足记不确定。",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "狭长上扬眉眼、细直鼻部、柔和唇形与原图方向一致；正面展开后的面颊与眼形仍不足以确认完全同人，保持待审。"
+        },
+        {
+          "id": "medium",
+          "basis": "Ustyle",
+          "question": "整体表面表现是否符合本例的面容与材料/原画目标？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "发梢与白袍有概括笔触，金属清楚而衣摆柔化，保持厚涂资产表现。"
+        },
+        {
+          "id": "proportion",
+          "basis": "Ubody",
+          "question": "头颈肩和完整躯干是否协调，下半身没有被单独拉长，保持P9整体时装感？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "相较旧黑金候选，头部与肩宽关系更可读、腰腹和胯部衔接清楚，双靴落点使下身长度有支撑；未见单独超长腿段。此为整体观感，未测隐藏关节。"
+        },
+        {
+          "id": "framing_pose",
+          "basis": "Uframe",
+          "question": "身体正对镜头、稳定站立、头饰衣摆及鞋履在画幅内？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "最高发饰、左右裙摆和鞋底均有明确白边，站姿、双肩和骨盆保持正面，未裁切。"
+        },
+        {
+          "id": "costume",
+          "basis": "Udesign",
+          "question": "保留关键衣装设计语言，补全部位结构是否连贯？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "黑金胸腰、古金肩臂甲、白色外裙、暗红内衬均有连贯连接；配套黑金双靴可见。"
+        },
+        {
+          "id": "materials",
+          "basis": "Udesign",
+          "question": "主料、内层、纱和金属的重量、透光或反光是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "古金甲片厚度与受控高光、白袍宽褶、黑内裙较暗实、轻披帛薄边可区分。"
+        },
+        {
+          "id": "extremities",
+          "basis": "Uhands",
+          "question": "可见手指与腕部是否连续自然，两个鞋尖和承重是否可辨，无融合或重复？不推断隐藏关节。",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "叠手可见手指与腕部连接自然，正常遮挡处不推断指节；两只鞋尖、鞋底和落地阴影分别可辨。"
+        },
+        {
+          "id": "background_light",
+          "basis": "Ulight",
+          "question": "白底干净，浅衣不明显溢出，接地关系成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "输出为RGB不透明背景，近白四角与整幅白地面成立，鞋下阴影浅，无花枝场景或透明抠图。"
+        },
+        {
+          "id": "palette",
+          "basis": "Upalette",
+          "question": "白衣层、黑色支撑、古金护甲和暗红点缀是否形成清楚主次？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白色主要外衣、黑色内层、古金护甲和少量暗红均出现，有明确区域与主次。"
+        },
+        {
+          "id": "beauty",
+          "basis": "Ubeauty",
+          "question": "年轻精致与本角色气质是否成立，未出现塑料面容、疲态或强行换脸？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "面容年轻、冷艳且克制，没有粗糙毛孔或疲态；仍为精致原画面容。"
+        }
+      ]
+    },
+    {
+      "run_id": "02-fantasy-pilot",
+      "case_id": "02-fantasy",
+      "cohort": "pilot-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "1ead7c436499f3b170d7e13ebf89d46765c8fdee6b8220c6aae8841523f0f76f",
+      "target_sha256": "68756948664da98d9f1454ddde2f9a972a7d406391ff09800a63151d901de34a",
+      "snapshot_sha256": "f2cbe9d47f1f992ecd91eb7b1da96d6ffa403efe378b38ab3c58dacc3e66ba9c",
+      "output_sha256": "3d44dde873953074ebf49457c10e5e7117721b49af6237d1fc6d6257c90c83ba",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing_pose"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "Uidentity",
+          "question": "原图多个面部辨识点、发型与表情是否延续？视角改变不自动判失败；证据不足记不确定。",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "狭长上扬眉眼、细直鼻部、柔和唇形与原图方向一致；正面展开后的面颊与眼形仍不足以确认完全同人，保持待审。"
+        },
+        {
+          "id": "medium",
+          "basis": "Ustyle",
+          "question": "整体表面表现是否符合本例的面容与材料/原画目标？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "发梢与白袍有概括笔触，金属清楚而衣摆柔化，保持厚涂资产表现。"
+        },
+        {
+          "id": "proportion",
+          "basis": "Ubody",
+          "question": "头颈肩和完整躯干是否协调，下半身没有被单独拉长，保持P9整体时装感？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "相较旧黑金候选，头部与肩宽关系更可读、腰腹和胯部衔接清楚，双靴落点使下身长度有支撑；未见单独超长腿段。此为整体观感，未测隐藏关节。"
+        },
+        {
+          "id": "framing_pose",
+          "basis": "Uframe",
+          "question": "身体正对镜头、稳定站立、头饰衣摆及鞋履在画幅内？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "身体与双鞋完整，最高发饰距离顶部很近，未落实舒适白边；不能因没有裁断就算取景合格。"
+        },
+        {
+          "id": "costume",
+          "basis": "Udesign",
+          "question": "保留关键衣装设计语言，补全部位结构是否连贯？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "黑金胸腰、古金肩臂甲、白色外裙、暗红内衬均有连贯连接；配套黑金双靴可见。"
+        },
+        {
+          "id": "materials",
+          "basis": "Udesign",
+          "question": "主料、内层、纱和金属的重量、透光或反光是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "古金甲片厚度与受控高光、白袍宽褶、黑内裙较暗实、轻披帛薄边可区分。"
+        },
+        {
+          "id": "extremities",
+          "basis": "Uhands",
+          "question": "可见手指与腕部是否连续自然，两个鞋尖和承重是否可辨，无融合或重复？不推断隐藏关节。",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "叠手可见手指与腕部连接自然，正常遮挡处不推断指节；两只鞋尖、鞋底和落地阴影分别可辨。"
+        },
+        {
+          "id": "background_light",
+          "basis": "Ulight",
+          "question": "白底干净，浅衣不明显溢出，接地关系成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "输出为RGB不透明背景，近白四角与整幅白地面成立，鞋下阴影浅，无花枝场景或透明抠图。"
+        },
+        {
+          "id": "palette",
+          "basis": "Upalette",
+          "question": "白衣层、黑色支撑、古金护甲和暗红点缀是否形成清楚主次？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白色主要外衣、黑色内层、古金护甲和少量暗红均出现，有明确区域与主次。"
+        },
+        {
+          "id": "beauty",
+          "basis": "Ubeauty",
+          "question": "年轻精致与本角色气质是否成立，未出现塑料面容、疲态或强行换脸？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "面容年轻、冷艳且克制，没有粗糙毛孔或疲态；仍为精致原画面容。"
+        }
+      ]
+    },
+    {
+      "run_id": "modern-color-edit",
+      "case_id": "modern-forward",
+      "cohort": "independent-author-modern-v012",
+      "kind": "edit",
+      "parent": "modern-forward-pose",
+      "goal_changed": true,
+      "prompt_sha256": "bb72219e392f9b90a701846d1bba09e0545c5602af423394c076e808fa638cc1",
+      "target_sha256": "8e63c5432b9eda732ee1ca459d653d7932a08e2b69c083177e33ce0e80451a7a",
+      "snapshot_sha256": "98a1038eaf946b7857be40a6dd0b48c802e557b9c0f21149a1334113d155538a",
+      "output_sha256": "9c82b932285354ee678ed1a661c1fc6b36a4d48560226a388d8cbbccaca97c89",
+      "status": "reviewer_qualified",
+      "dispatch_state": null,
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": [
+        {
+          "id": "check-identity",
+          "basis": "identity",
+          "question": "是否保留眉眼、面颊、鼻唇及微笑关系，而非只保留发色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "与本轮编辑母图相比，眉眼、鼻唇、笑意与发型未见明显变化；这是视觉比较，不主张像素级不变。"
+        },
+        {
+          "id": "check-body-heading",
+          "basis": "body-heading",
+          "question": "肩与骨盆是否共同呈三分之四，头是否自然转向镜头，而非身体又被拉回严格正面？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "与编辑母图比较：肩和骨盆共同轻转，头部回看镜头，身体没有被强制拉成严格正面。"
+        },
+        {
+          "id": "check-leg-pose",
+          "basis": "leg-pose",
+          "question": "是否小腿下段轻交错且支撑合理，没有变成迈步、深交叉或双腿粘连？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "与编辑母图比较：双腿在小腿下部与脚踝附近轻交错，一脚完整支撑、另一脚前掌接地，没有迈步悬空或膝部融合。"
+        },
+        {
+          "id": "check-hand-pose",
+          "basis": "hand-pose",
+          "question": "双臂是否放松，未被无关叠手、叉腰要求覆盖？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "与编辑母图比较：两臂在身侧放松，手未被改成叠手或叉腰，袖口与手腕相接。"
+        },
+        {
+          "id": "check-feet-policy",
+          "basis": "feet-policy",
+          "question": "是否允许自然遮挡且未为露鞋改裙长或开裙？只能检查实际可见脚部，隐藏部分不作通过判断。",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "与编辑母图比较：裤脚自然叠到鞋上，保留交错遮挡，没有为展示鞋而改变服装。"
+        },
+        {
+          "id": "check-framing",
+          "basis": "framing",
+          "question": "是否完整容纳发顶、外侧手臂和服装最低轮廓，有落地留白；服装遮脚是否被正确区分于画框裁切？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "与编辑母图比较：发顶、双臂、裤脚鞋底完整且有四周白边，2:3竖幅。"
+        },
+        {
+          "id": "check-background",
+          "basis": "background",
+          "question": "是否白底并保留自然接地阴影，没有复制原墙面和暖色强日光？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "与编辑母图比较：不透明白色无缝背景与浅接触影，原墙面和暖色窗光已移除。"
+        },
+        {
+          "id": "check-wardrobe",
+          "basis": "wardrobe",
+          "question": "是否仅开衫呈浅蓝色，针织结构、T恤、牛仔裤与鞋均保留？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "开衫变为浅蓝，针织纵纹、线圈绒感、袖口和下摆形状保留；米白T恤、深蓝牛仔裤与帆布鞋未见明显改色。"
+        },
+        {
+          "id": "check-output",
+          "basis": "output",
+          "question": "是否输出完整独立改色图，未裁切或改成拼版？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "仍为2:3独立完整白底图，没有裁切、拼版或文字。"
+        }
+      ]
+    },
+    {
+      "run_id": "modern-face-clear-edit",
+      "case_id": "modern-forward",
+      "cohort": "independent-author-modern-v012",
+      "kind": "edit",
+      "parent": "modern-studio-light-edit",
+      "goal_changed": true,
+      "prompt_sha256": "a1c1b2647ba0f75ab68428c754b1ec016520454d4c259e259a819e1741e968db",
+      "target_sha256": "c9c9610e60eee026c4607760ab7c1140ebb56748ca16d6ef8fb08f32125a436b",
+      "snapshot_sha256": "430b5e6110c0e7fc9daf270db29ac0372de3dd0ca7138092e3149b929de8128c",
+      "output_sha256": "8b7cb8a18f6ede48cb884fb427c3d998677e0c970ba323d36ee315b6e660d412",
+      "status": "reviewer_qualified",
+      "dispatch_state": null,
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": [
+        {
+          "id": "check-identity",
+          "basis": "identity",
+          "question": "是否保留眉眼、面颊、鼻唇及微笑关系，而非只保留发色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "对照母图，眉眼形态、眼距、鼻唇关系与微笑方向未见明显变化；移开发丝后眉形和面颊更清楚，不主张像素级相同。"
+        },
+        {
+          "id": "check-body-heading",
+          "basis": "body-heading",
+          "question": "肩与骨盆是否共同呈三分之四，头是否自然转向镜头，而非身体又被拉回严格正面？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "重新对照本轮头发编辑图：肩与骨盆仍轻转三分之四，头部回看镜头，未变成正面站姿。"
+        },
+        {
+          "id": "check-leg-pose",
+          "basis": "leg-pose",
+          "question": "是否小腿下段轻交错且支撑合理，没有变成迈步、深交叉或双腿粘连？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "重新对照本轮头发编辑图：小腿与脚踝的轻交错、支撑脚和前掌接地关系保持。"
+        },
+        {
+          "id": "check-hand-pose",
+          "basis": "hand-pose",
+          "question": "双臂是否放松，未被无关叠手、叉腰要求覆盖？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "重新对照本轮头发编辑图：双臂仍自然下垂，手腕和袖口相连，没有新增叠手或叉腰。"
+        },
+        {
+          "id": "check-feet-policy",
+          "basis": "feet-policy",
+          "question": "是否允许自然遮挡且未为露鞋改裙长或开裙？只能检查实际可见脚部，隐藏部分不作通过判断。",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "重新对照本轮头发编辑图：裤脚自然覆盖部分鞋面，原交错遮挡保持，没有为露脚改变衣长。"
+        },
+        {
+          "id": "check-framing",
+          "basis": "framing",
+          "question": "是否完整容纳发顶、外侧手臂和服装最低轮廓，有落地留白；服装遮脚是否被正确区分于画框裁切？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "重新对照本轮头发编辑图：发顶至鞋底与外侧袖廓完整，四周白边保留，仍为2:3。"
+        },
+        {
+          "id": "check-background",
+          "basis": "background",
+          "question": "是否白底并保留自然接地阴影，没有复制原墙面和暖色强日光？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "重新对照本轮头发编辑图：画面为连续白色棚背景与白地面，脚下仍有浅而柔和的接地阴影。"
+        },
+        {
+          "id": "check-wardrobe",
+          "basis": "wardrobe",
+          "question": "浅蓝开衫、米白T恤、深蓝裤与鞋的本色、纹理和结构是否保持？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "重新对照本轮头发编辑图：浅蓝针织开衫、米白T恤、深蓝牛仔裤和米白帆布鞋均保留款式、本色、褶皱及可见纹理；柔光使反射略变，不主张纹理像素完全锁定。"
+        },
+        {
+          "id": "check-output",
+          "basis": "output",
+          "question": "是否独立完整的2:3布光修订图，无拼版、文字或裁切？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "重新对照本轮头发编辑图：单张完整竖幅修订图，无文字、拼版和新增配件。"
+        },
+        {
+          "id": "check-face-studio-light",
+          "basis": "face-studio-light",
+          "question": "放大看额头、眼周与双颊是否均匀受光，斑驳亮块与碎发硬阴影被移除，肤色中性且保留柔和鼻下、下颌体积和细微纹理？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "额头、眉眼与双颊受光连续均匀，没有重新引入碎发条影或日光斑块；鼻下和下颌保留柔和低对比体积。"
+        },
+        {
+          "id": "check-hair-face-clear",
+          "basis": "hair-face-clear",
+          "question": "是否明显移开额头、眉眼、鼻口和面颊前的碎发，五官完整可读，同时保留深棕低束发方向与自然蓬松，未变成贴头皮硬梳？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "前发收向两侧，额头与眉眼明显更清楚，原来经过眼周与面颊的长碎发显著减少；鼻口完整可见。深棕发色、丰盈头顶、侧后低束发与轮廓外少量细发保持，不是贴头皮后梳。"
+        }
+      ]
+    },
+    {
+      "run_id": "modern-forward-pose",
+      "case_id": "modern-forward",
+      "cohort": "independent-author-modern-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "bfe68606ebbe76059e35c689ccbd9bb0ba637711d3071bc977ce07fe12b7ac4c",
+      "target_sha256": "953ecb53691dec7ff1614a927c19089366bdac04e562edda5685f3073c3000e4",
+      "snapshot_sha256": "9523f60f0abaa432a1d3ffe0f0d52ab047e801d03ab81d920bf75c68a3ae13b6",
+      "output_sha256": "c2ded52368c5001116d0c9b35e67cd283bedc574ec0463854036671cedbfe0ab",
+      "status": "needs_review",
+      "dispatch_state": null,
+      "critical_failures": [],
+      "unresolved": [
+        "check-output"
+      ],
+      "checks": [
+        {
+          "id": "check-identity",
+          "basis": "identity",
+          "question": "是否保留眉眼、面颊、鼻唇及微笑关系，而非只保留发色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "平缓眉形、舒展眼形、圆柔鼻尖与面颊、闭唇微笑嘴角相互关系延续，脸侧散发和低束发也保留；换成棚光但未见明显脸型替换。"
+        },
+        {
+          "id": "check-body-heading",
+          "basis": "body-heading",
+          "question": "肩与骨盆是否共同呈三分之四，头是否自然转向镜头，而非身体又被拉回严格正面？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "肩和骨盆共同轻转，头部回看镜头，身体没有被强制拉成严格正面。"
+        },
+        {
+          "id": "check-leg-pose",
+          "basis": "leg-pose",
+          "question": "是否小腿下段轻交错且支撑合理，没有变成迈步、深交叉或双腿粘连？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "双腿在小腿下部与脚踝附近轻交错，一脚完整支撑、另一脚前掌接地，没有迈步悬空或膝部融合。"
+        },
+        {
+          "id": "check-hand-pose",
+          "basis": "hand-pose",
+          "question": "双臂是否放松，未被无关叠手、叉腰要求覆盖？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "两臂在身侧放松，手未被改成叠手或叉腰，袖口与手腕相接。"
+        },
+        {
+          "id": "check-feet-policy",
+          "basis": "feet-policy",
+          "question": "是否允许自然遮挡且未为露鞋改裙长或开裙？只能检查实际可见脚部，隐藏部分不作通过判断。",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "裤脚自然叠到鞋上，保留交错遮挡，没有为展示鞋而改变服装。"
+        },
+        {
+          "id": "check-framing",
+          "basis": "framing",
+          "question": "是否完整容纳发顶、外侧手臂和服装最低轮廓，有落地留白；服装遮脚是否被正确区分于画框裁切？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "发顶、双臂、裤脚鞋底完整且有四周白边，2:3竖幅。"
+        },
+        {
+          "id": "check-background",
+          "basis": "background",
+          "question": "是否白底并保留自然接地阴影，没有复制原墙面和暖色强日光？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白色无缝背景与浅接触影，原墙面和暖色窗光已移除。"
+        },
+        {
+          "id": "check-wardrobe",
+          "basis": "wardrobe",
+          "question": "针织开衫和米白 T 恤是否仍清楚，补全裤装是否服务当前站姿？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "灰粉针织开衫、米白T恤与补全牛仔裤帆布鞋连贯；针织、棉和牛仔纹理清楚，自然成人比例没有被P9古风默认拉长。"
+        },
+        {
+          "id": "check-output",
+          "basis": "output",
+          "question": "是否中文分类可复制，并明确未生图、未完成视觉验收？",
+          "critical": true,
+          "verdict": "not_assessable",
+          "evidence": "原独立测试仅要求提示词，此关键项检查中文分类和未生图声明；本次升级为生图前未将其移到文本审查，属于协议问题而非图片缺陷。保留原冻结标准，不在出图后删项制造通过。"
+        }
+      ]
+    },
+    {
+      "run_id": "modern-studio-light-edit",
+      "case_id": "modern-forward",
+      "cohort": "independent-author-modern-v012",
+      "kind": "edit",
+      "parent": "modern-color-edit",
+      "goal_changed": true,
+      "prompt_sha256": "122412770f7daf4c110cc1bde7b1e02d4b286bb66046a3ad5ecdd491306232ce",
+      "target_sha256": "50c0dd219efe7c243780da4ca4a01e0414b81f101dab6edc452bdbdeada547b7",
+      "snapshot_sha256": "150872d1e917375011f3b447e5c81cf731bea2bbb2eb2d954909e5a53c07321f",
+      "output_sha256": "0de5d9f5aae7086266d4046ac89584e60b3a4a9773068874b8bcf2a9e23ec355",
+      "status": "reviewer_qualified",
+      "dispatch_state": null,
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": [
+        {
+          "id": "check-identity",
+          "basis": "identity",
+          "question": "是否保留眉眼、面颊、鼻唇及微笑关系，而非只保留发色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "对照编辑母图，眉眼位置、鼻唇关系、自然微笑和发束轮廓保持；这是可见特征比较，不主张逐像素不变。"
+        },
+        {
+          "id": "check-body-heading",
+          "basis": "body-heading",
+          "question": "肩与骨盆是否共同呈三分之四，头是否自然转向镜头，而非身体又被拉回严格正面？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "肩与骨盆仍轻转三分之四，头部回看镜头，未变成正面站姿。"
+        },
+        {
+          "id": "check-leg-pose",
+          "basis": "leg-pose",
+          "question": "是否小腿下段轻交错且支撑合理，没有变成迈步、深交叉或双腿粘连？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "小腿与脚踝的轻交错、支撑脚和前掌接地关系保持。"
+        },
+        {
+          "id": "check-hand-pose",
+          "basis": "hand-pose",
+          "question": "双臂是否放松，未被无关叠手、叉腰要求覆盖？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "双臂仍自然下垂，手腕和袖口相连，没有新增叠手或叉腰。"
+        },
+        {
+          "id": "check-feet-policy",
+          "basis": "feet-policy",
+          "question": "是否允许自然遮挡且未为露鞋改裙长或开裙？只能检查实际可见脚部，隐藏部分不作通过判断。",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "裤脚自然覆盖部分鞋面，原交错遮挡保持，没有为露脚改变衣长。"
+        },
+        {
+          "id": "check-framing",
+          "basis": "framing",
+          "question": "是否完整容纳发顶、外侧手臂和服装最低轮廓，有落地留白；服装遮脚是否被正确区分于画框裁切？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "发顶至鞋底与外侧袖廓完整，四周白边保留，仍为2:3。"
+        },
+        {
+          "id": "check-background",
+          "basis": "background",
+          "question": "是否白底并保留自然接地阴影，没有复制原墙面和暖色强日光？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "画面为连续白色棚背景与白地面，脚下仍有浅而柔和的接地阴影。"
+        },
+        {
+          "id": "check-wardrobe",
+          "basis": "wardrobe",
+          "question": "浅蓝开衫、米白T恤、深蓝裤与鞋的本色、纹理和结构是否保持？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "浅蓝针织开衫、米白T恤、深蓝牛仔裤和米白帆布鞋均保留款式、本色、褶皱及可见纹理；柔光使反射略变，不主张纹理像素完全锁定。"
+        },
+        {
+          "id": "check-output",
+          "basis": "output",
+          "question": "是否独立完整的2:3布光修订图，无拼版、文字或裁切？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "单张完整竖幅修订图，无文字、拼版和新增配件。"
+        },
+        {
+          "id": "check-face-studio-light",
+          "basis": "face-studio-light",
+          "question": "放大看额头、眼周与双颊是否均匀受光，斑驳亮块与碎发硬阴影被移除，肤色中性且保留柔和鼻下、下颌体积和细微纹理？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "对照原图，额头与眼周锐利条影明显减轻，双颊由局部亮块变为更连续的均匀受光，暖色侧光减弱；鼻下、眼窝、下颌仍有柔和渐变，碎发本身保留。全身图面部尺寸有限，未声称消除所有微阴影；本项为观察者通过，待用户判断。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-01-r1",
+      "case_id": "pose-01",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "f013e05898e897c881bee2361474a6c94ccd8fd19f7b9be30b28006b65738444",
+      "target_sha256": "2a49d93e24787a13af37e75a67a3cd88a46529d01500589155f215c055904638",
+      "snapshot_sha256": "b526cd0ef79307dd7cb68a603b017601f4d5ba13b609e359cf09ba4941ed1665",
+      "output_sha256": "9ed326f43352bbe3c092f23370782df08cc72977f6c2387e5b22756255e4d988",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "细长杏眼、唇部体积与黑色半盘发延续，但原图侧向近景变为正面小脸后，面颊宽窄和眼形仍有变化，不能确认完全同人。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "银蓝薄外衣、象牙内裙、浅粉白领袖与同色束带连贯；没有混入黑金甲或银发。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "外纱薄且能透见里层，内裙较实而柔亮，浅粉袖里更柔，细银绣线沿衣片分布。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "人物完整自然轮廓可见，但最高发饰距离顶边仍明显小于事前约88%造型占高的取景方案；姿态观察：两次都改为双臂自然垂下，不再自动叠手；可见一只鞋尖，其余由长裙遮挡。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。两次都改为双臂自然垂下，不再自动叠手；可见一只鞋尖，其余由长裙遮挡。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-01-r2",
+      "case_id": "pose-01",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "f013e05898e897c881bee2361474a6c94ccd8fd19f7b9be30b28006b65738444",
+      "target_sha256": "2a49d93e24787a13af37e75a67a3cd88a46529d01500589155f215c055904638",
+      "snapshot_sha256": "ffd5e50d06626ccf3f42f6b0cdfe8414799c8f7b89dbf860658e6781e684e4ad",
+      "output_sha256": "cb002378ba1e7473067c14bf95f0db9c81a9d86d8bb0e5d122b4eb2a246e09a7",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "细长杏眼、唇部体积与黑色半盘发延续，但原图侧向近景变为正面小脸后，面颊宽窄和眼形仍有变化，不能确认完全同人。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "银蓝薄外衣、象牙内裙、浅粉白领袖与同色束带连贯；没有混入黑金甲或银发。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "外纱薄且能透见里层，内裙较实而柔亮，浅粉袖里更柔，细银绣线沿衣片分布。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "人物完整自然轮廓可见，但最高发饰距离顶边仍明显小于事前约88%造型占高的取景方案；姿态观察：两次都改为双臂自然垂下，不再自动叠手；可见一只鞋尖，其余由长裙遮挡。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。两次都改为双臂自然垂下，不再自动叠手；可见一只鞋尖，其余由长裙遮挡。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-02-r1-frame",
+      "case_id": "pose-02",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "edit",
+      "parent": "pose-02-r1",
+      "goal_changed": false,
+      "prompt_sha256": "b3b24d951f991a5562710c525a45ff92308aedab570187c4a27ad7c7ee05b473",
+      "target_sha256": "637cef582d72d24782432af1d0f72f6f5c17e87ccf251125018764e56597a202",
+      "snapshot_sha256": "eee0439500513c6d79f292f12ae33104c45e0942a003b9c41be2b756544f6dcf",
+      "output_sha256": "ea47fa80790cadba8e54072437ea20cb616473b385b65992a99a165073f9d86e",
+      "status": "needs_review",
+      "dispatch_state": null,
+      "critical_failures": [],
+      "unresolved": [
+        "identity",
+        "framing"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "细长眼、柔和唇形与深色发保留；原参考面部小且强烈暖光，换光后无法据此可靠确认多处五官几何。 本轮只修取景，未证明原参考身份已通过；缩小后脸部像素覆盖减少。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白胸衣、青蓝披帛、羽状古金肩胸腰甲及同系下装有连接。按本轮人物采集设计移除了独立龙形和火焰；本例不评估完整守护组合。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "古金甲片有雕刻厚度与局部亮面，白胸衣细褶柔软，青蓝布条与白纱薄边可辨。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "最高头饰和所有衣摆已有明显白边，取景问题已改善；未改内部姿态，脚位仍偏前后错步，指定适度开立未能确认。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。双手放松垂下已落实，但双脚更像一前一后的窄错步，未明确完成指定适度开立。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-02-r1",
+      "case_id": "pose-02",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "ac94e14cbb4f13d9c19b3eb4455be4b7afe9f762b2e8e246c4096a5cd2e04c26",
+      "target_sha256": "637cef582d72d24782432af1d0f72f6f5c17e87ccf251125018764e56597a202",
+      "snapshot_sha256": "1ec6807191c83ced48a1f7606fdc2f358e6ad84b64c8662e34200a2adbf707bd",
+      "output_sha256": "28cdca1341af12292987ba7def6cd7b1496ba542b0cbbe6dcffca8f6cdda0b3f",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "细长眼、柔和唇形与深色发保留；原参考面部小且强烈暖光，换光后无法据此可靠确认多处五官几何。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白胸衣、青蓝披帛、羽状古金肩胸腰甲及同系下装有连接。按本轮人物采集设计移除了独立龙形和火焰；本例不评估完整守护组合。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "古金甲片有雕刻厚度与局部亮面，白胸衣细褶柔软，青蓝布条与白纱薄边可辨。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "羽状发饰触顶或几乎触顶，未达到事前约88%造型占高与清楚白边；同时脚位偏错步。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。双手放松垂下已落实，但双脚更像一前一后的窄错步，未明确完成指定适度开立。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-02-r2",
+      "case_id": "pose-02",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "ac94e14cbb4f13d9c19b3eb4455be4b7afe9f762b2e8e246c4096a5cd2e04c26",
+      "target_sha256": "637cef582d72d24782432af1d0f72f6f5c17e87ccf251125018764e56597a202",
+      "snapshot_sha256": "860855b2d2cf8a8e71351abfe961373b3cd8823795b9906a58f682617ff1d09a",
+      "output_sha256": "6161f67ae9f9cb172a6f6afa45ac5cfd7fd15f88a9a93e9fe7c77ad057ba3e51",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "细长眼、柔和唇形与深色发保留；原参考面部小且强烈暖光，换光后无法据此可靠确认多处五官几何。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白胸衣、青蓝披帛、羽状古金肩胸腰甲及同系下装有连接。按本轮人物采集设计移除了独立龙形和火焰；本例不评估完整守护组合。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "古金甲片有雕刻厚度与局部亮面，白胸衣细褶柔软，青蓝布条与白纱薄边可辨。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "羽状发饰触顶或几乎触顶，未达到事前约88%造型占高与清楚白边；同时脚位偏错步。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。双手放松垂下已落实，但双脚更像一前一后的窄错步，未明确完成指定适度开立。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-03-r1",
+      "case_id": "pose-03",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "fc9773f9f5a8f89653e03a5debb7bddf4d8d7184a6e96b8ef7e79f8e58104364",
+      "target_sha256": "11f57f7f0fc93d6b0070609c658a46e9784712dd00d0727b19e79087bf4507c8",
+      "snapshot_sha256": "7cbd4b3dee34ac4debc11ce1cdb0bf1e497a4e66cb4065abc97ce3a149706f3f",
+      "output_sha256": "1b5a0e7b7715fbef481eee388dee86d8cc536273fdea3594b659b4227788b978",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "眉眼略上挑、自然红唇与松盘发近似参考，头部角度和正面脸形不同；原图仍有暖光及侧倾干扰，身份保留待审。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "乳白主袍、黑纱披层、深色胸衣和暗红纵向衣片延续，兔子按采集方案移除，袖肩绣纹仍集中。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白缎宽褶、透黑纱、深红内层重量和细绣高光有区别。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "人物完整自然轮廓可见，但最高发饰距离顶边仍明显小于事前约88%造型占高的取景方案；姿态观察：一手搭另一侧腕部的姿势成立；裙下大部分脚位看不见，不能确认精确丁字步，也不为此判缺脚。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。一手搭另一侧腕部的姿势成立；裙下大部分脚位看不见，不能确认精确丁字步，也不为此判缺脚。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-03-r2",
+      "case_id": "pose-03",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "fc9773f9f5a8f89653e03a5debb7bddf4d8d7184a6e96b8ef7e79f8e58104364",
+      "target_sha256": "11f57f7f0fc93d6b0070609c658a46e9784712dd00d0727b19e79087bf4507c8",
+      "snapshot_sha256": "1c81c3ef18754a8d7c49cfe4ec0b0d1d9166a5bf6683edcdf06603a08b46aad4",
+      "output_sha256": "d3504ade3798c3471973df12fbc5a20e8337909c0ae42bf686a3332478334a95",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "眉眼略上挑、自然红唇与松盘发近似参考，头部角度和正面脸形不同；原图仍有暖光及侧倾干扰，身份保留待审。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "乳白主袍、黑纱披层、深色胸衣和暗红纵向衣片延续，兔子按采集方案移除，袖肩绣纹仍集中。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白缎宽褶、透黑纱、深红内层重量和细绣高光有区别。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "人物完整自然轮廓可见，但最高发饰距离顶边仍明显小于事前约88%造型占高的取景方案；姿态观察：一手搭另一侧腕部的姿势成立；裙下大部分脚位看不见，不能确认精确丁字步，也不为此判缺脚。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。一手搭另一侧腕部的姿势成立；裙下大部分脚位看不见，不能确认精确丁字步，也不为此判缺脚。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-04-r1",
+      "case_id": "pose-04",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "da314ddaa74eab979a07206bc7e02328e6fe5cbf18d80e77fbd43e548a2a1067",
+      "target_sha256": "cb4f0563907a8a99a6dec01181699dfda6bc63db61df0b55f039a916a68d99bc",
+      "snapshot_sha256": "0965e1e2f44265f2512a724eef79825654c797607012dc55432b7037ac3e09cb",
+      "output_sha256": "f4cd43179de1ce9508627a003f2aeb1f911d8da86ae0718c51f6014b7982316d",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "杏眼、轻抿唇和蓬松碎发与原图相近，眉眼略有绘画化变化；正面小脸不足以确认完整同人。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "青蓝外袍、橙红裙片、象牙领袖与深棕层叠腰带连续，细辫和简小饰物保留，没有增加宫廷冠甲。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "外袍宽缓丝织反光、较哑光橙红衣片、浅袖里与厚腰带形成差异。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "人物完整自然轮廓可见，但最高发饰距离顶边仍明显小于事前约88%造型占高的取景方案；姿态观察：人物自身右手轻触腰带，左手垂下已落实；正面上身有轻微偏移，裙下实际承重腿不可直接确认。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。人物自身右手轻触腰带，左手垂下已落实；正面上身有轻微偏移，裙下实际承重腿不可直接确认。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-04-r2",
+      "case_id": "pose-04",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "da314ddaa74eab979a07206bc7e02328e6fe5cbf18d80e77fbd43e548a2a1067",
+      "target_sha256": "cb4f0563907a8a99a6dec01181699dfda6bc63db61df0b55f039a916a68d99bc",
+      "snapshot_sha256": "4e582c3492ff713b76a1699a1adc59339cee7d3aef3fa3019de1c3276ca841b6",
+      "output_sha256": "99601dc96f6515cda2b723430edf130ab64bc2db568cf7260071f536dfd1b529",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "杏眼、轻抿唇和蓬松碎发与原图相近，眉眼略有绘画化变化；正面小脸不足以确认完整同人。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "青蓝外袍、橙红裙片、象牙领袖与深棕层叠腰带连续，细辫和简小饰物保留，没有增加宫廷冠甲。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "外袍宽缓丝织反光、较哑光橙红衣片、浅袖里与厚腰带形成差异。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "人物完整自然轮廓可见，但最高发饰距离顶边仍明显小于事前约88%造型占高的取景方案；姿态观察：人物自身右手轻触腰带，左手垂下已落实；正面上身有轻微偏移，裙下实际承重腿不可直接确认。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。人物自身右手轻触腰带，左手垂下已落实；正面上身有轻微偏移，裙下实际承重腿不可直接确认。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-05-r1",
+      "case_id": "pose-05",
+      "cohort": "pose-repeat-dark-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "090dc2ff3693cfdfc4f8f900e5ed360cbf68670b07cca02aca251e0198deccdd",
+      "target_sha256": "80b2a02e41c0eb927c62597feb6dd34ff61937489305c318de5900d75a6ce595",
+      "snapshot_sha256": "b8d81072fd8787acb85575f20f00ea47336991cda70e8519d1ac60a444ab1b51",
+      "output_sha256": "ee61afc6d49f66a8ae3d833514d6252b321fe1ece388ee8e662d09f2814943dd",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing_pose"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "Uidentity",
+          "question": "原图多个面部辨识点、发型与表情是否延续？视角改变不自动判失败；证据不足记不确定。",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "狭长上挑眼、冷艳表情与细直鼻唇延续；原图侧向五官与正面绘制细节不能可靠判为完全一致，保留身份待审。"
+        },
+        {
+          "id": "medium",
+          "basis": "Ustyle",
+          "question": "整体表面表现是否符合本例的面容与材料/原画目标？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "幻想厚涂、选择性细节与金属布料区分仍在。"
+        },
+        {
+          "id": "proportion",
+          "basis": "Ubody",
+          "question": "头颈肩和完整躯干是否协调，下半身没有被单独拉长，保持P9整体时装感？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "framing_pose",
+          "basis": "Uframe",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "发髻几乎贴顶，裙摆两侧贴框或越界，未完成事前留白。"
+        },
+        {
+          "id": "costume",
+          "basis": "Udesign",
+          "question": "保留关键衣装设计语言，补全部位结构是否连贯？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "黑金胸腰、白色外袍和裙侧、古金肩臂结构与暗红内衬形成连贯造型；白主衣层可读但黑色胸衣仍强，未强改成普通汉服。"
+        },
+        {
+          "id": "materials",
+          "basis": "Udesign",
+          "question": "主料、内层、纱和金属的重量、透光或反光是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "古金硬甲的亮点、白袍大褶、较厚黑裙与薄飘带相互可分，次要衣摆以原画笔触概括。"
+        },
+        {
+          "id": "extremities",
+          "basis": "Uhands",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。左手搭腰、右手垂落成立，一只靴向前可见，另一侧自然被裙摆遮挡；不是缺脚。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background_light",
+          "basis": "Ulight",
+          "question": "白底干净，浅衣不明显溢出，接地关系成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白底与接地阴影，浅色衣片仍有层次，原场景已去除。"
+        },
+        {
+          "id": "palette",
+          "basis": "Upalette",
+          "question": "白衣层、黑色支撑、古金护甲和暗红点缀是否形成清楚主次？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白色外衣、黑色支撑、古金装饰与少量暗红分别有清楚区域。"
+        },
+        {
+          "id": "beauty",
+          "basis": "Ubeauty",
+          "question": "年轻精致与本角色气质是否成立，未出现塑料面容、疲态或强行换脸？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-05-r2-frame",
+      "case_id": "pose-05",
+      "cohort": "pose-repeat-dark-v012",
+      "kind": "edit",
+      "parent": "pose-05-r2",
+      "goal_changed": false,
+      "prompt_sha256": "b3b24d951f991a5562710c525a45ff92308aedab570187c4a27ad7c7ee05b473",
+      "target_sha256": "80b2a02e41c0eb927c62597feb6dd34ff61937489305c318de5900d75a6ce595",
+      "snapshot_sha256": "78327ccdb69857f9d7d8046920859c18b025336540c35124f0acd1c7f888db25",
+      "output_sha256": "dff7a7d1c85adb3e3d45f2e35413a3eb434ca31f6f489b398fcae7055c21f6a9",
+      "status": "needs_review",
+      "dispatch_state": null,
+      "critical_failures": [],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "Uidentity",
+          "question": "原图多个面部辨识点、发型与表情是否延续？视角改变不自动判失败；证据不足记不确定。",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "狭长上挑眼、冷艳表情与细直鼻唇延续；原图侧向五官与正面绘制细节不能可靠判为完全一致，保留身份待审。 本轮只修取景，未证明原参考身份已通过；缩小后脸部像素覆盖减少。"
+        },
+        {
+          "id": "medium",
+          "basis": "Ustyle",
+          "question": "整体表面表现是否符合本例的面容与材料/原画目标？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "幻想厚涂、选择性细节与金属布料区分仍在。"
+        },
+        {
+          "id": "proportion",
+          "basis": "Ubody",
+          "question": "头颈肩和完整躯干是否协调，下半身没有被单独拉长，保持P9整体时装感？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "framing_pose",
+          "basis": "Uframe",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头饰、裙尾和靴底已全部离开画框并有清楚白边；左手搭腰、右手垂落与前脚位置保留，内部身体关系未见明显变化。"
+        },
+        {
+          "id": "costume",
+          "basis": "Udesign",
+          "question": "保留关键衣装设计语言，补全部位结构是否连贯？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "黑金胸腰、白色外袍和裙侧、古金肩臂结构与暗红内衬形成连贯造型；白主衣层可读但黑色胸衣仍强，未强改成普通汉服。"
+        },
+        {
+          "id": "materials",
+          "basis": "Udesign",
+          "question": "主料、内层、纱和金属的重量、透光或反光是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "古金硬甲的亮点、白袍大褶、较厚黑裙与薄飘带相互可分，次要衣摆以原画笔触概括。"
+        },
+        {
+          "id": "extremities",
+          "basis": "Uhands",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。左手搭腰、右手垂落成立，一只靴向前可见，另一侧自然被裙摆遮挡；不是缺脚。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background_light",
+          "basis": "Ulight",
+          "question": "白底干净，浅衣不明显溢出，接地关系成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白底与接地阴影，浅色衣片仍有层次，原场景已去除。"
+        },
+        {
+          "id": "palette",
+          "basis": "Upalette",
+          "question": "白衣层、黑色支撑、古金护甲和暗红点缀是否形成清楚主次？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白色外衣、黑色支撑、古金装饰与少量暗红分别有清楚区域。"
+        },
+        {
+          "id": "beauty",
+          "basis": "Ubeauty",
+          "question": "年轻精致与本角色气质是否成立，未出现塑料面容、疲态或强行换脸？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-05-r2",
+      "case_id": "pose-05",
+      "cohort": "pose-repeat-dark-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "090dc2ff3693cfdfc4f8f900e5ed360cbf68670b07cca02aca251e0198deccdd",
+      "target_sha256": "80b2a02e41c0eb927c62597feb6dd34ff61937489305c318de5900d75a6ce595",
+      "snapshot_sha256": "d6034a2e2a56a8a7ad20e745755bdf785f175174b31690916ef25b6190c18882",
+      "output_sha256": "247f60e67d0e95586ab720b075e383108dd36082766279aba6ca1ef2edf7ba82",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing_pose"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "Uidentity",
+          "question": "原图多个面部辨识点、发型与表情是否延续？视角改变不自动判失败；证据不足记不确定。",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "狭长上挑眼、冷艳表情与细直鼻唇延续；原图侧向五官与正面绘制细节不能可靠判为完全一致，保留身份待审。"
+        },
+        {
+          "id": "medium",
+          "basis": "Ustyle",
+          "question": "整体表面表现是否符合本例的面容与材料/原画目标？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "幻想厚涂、选择性细节与金属布料区分仍在。"
+        },
+        {
+          "id": "proportion",
+          "basis": "Ubody",
+          "question": "头颈肩和完整躯干是否协调，下半身没有被单独拉长，保持P9整体时装感？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "framing_pose",
+          "basis": "Uframe",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "发髻几乎贴顶，裙摆两侧贴框或越界，未完成事前留白。"
+        },
+        {
+          "id": "costume",
+          "basis": "Udesign",
+          "question": "保留关键衣装设计语言，补全部位结构是否连贯？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "黑金胸腰、白色外袍和裙侧、古金肩臂结构与暗红内衬形成连贯造型；白主衣层可读但黑色胸衣仍强，未强改成普通汉服。"
+        },
+        {
+          "id": "materials",
+          "basis": "Udesign",
+          "question": "主料、内层、纱和金属的重量、透光或反光是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "古金硬甲的亮点、白袍大褶、较厚黑裙与薄飘带相互可分，次要衣摆以原画笔触概括。"
+        },
+        {
+          "id": "extremities",
+          "basis": "Uhands",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。左手搭腰、右手垂落成立，一只靴向前可见，另一侧自然被裙摆遮挡；不是缺脚。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background_light",
+          "basis": "Ulight",
+          "question": "白底干净，浅衣不明显溢出，接地关系成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白底与接地阴影，浅色衣片仍有层次，原场景已去除。"
+        },
+        {
+          "id": "palette",
+          "basis": "Upalette",
+          "question": "白衣层、黑色支撑、古金护甲和暗红点缀是否形成清楚主次？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白色外衣、黑色支撑、古金装饰与少量暗红分别有清楚区域。"
+        },
+        {
+          "id": "beauty",
+          "basis": "Ubeauty",
+          "question": "年轻精致与本角色气质是否成立，未出现塑料面容、疲态或强行换脸？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-06-r1",
+      "case_id": "pose-06",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "ff714388c220bff90eb8553da7079576c1fe06fd5140fa70af84c5f22d955d20",
+      "target_sha256": "32ac6b3ab354163b3e71546506afa9637a6bf65155773f341c58bf2d67e7ea57",
+      "snapshot_sha256": "a884964c7d6637ef75c23a225ed366489af024e3ffcbb4b036ff1812279b6775",
+      "output_sha256": "c508405791f96b7c0059f451f10e6ebc6a520a7e75080ae8118ecab4fd487cfd",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing_pose"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "Uidentity",
+          "question": "原图多个面部辨识点、发型与表情是否延续？视角改变不自动判失败；证据不足记不确定。",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "花髻、柔和唇形和清冷表情延续；第二张眼形更圆、面颊更正面，第一张略偏头，原参考的侧角暖光使同人判断仍不充分。"
+        },
+        {
+          "id": "medium",
+          "basis": "Ustyle",
+          "question": "整体表面表现是否符合本例的面容与材料/原画目标？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "皮肤柔和、衣料有物理层次，属于轻度真实材料路线。"
+        },
+        {
+          "id": "proportion",
+          "basis": "Ubody",
+          "question": "头颈肩和完整躯干是否协调，下半身没有被单独拉长，保持P9整体时装感？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "framing_pose",
+          "basis": "Uframe",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "人物完整自然轮廓可见，但最高发饰距离顶边仍明显小于事前约88%造型占高的取景方案；姿态观察：腰下轻搭双手与稳站成立，双鞋都被完整落地裙摆遮住，符合最新自然遮挡要求。"
+        },
+        {
+          "id": "costume",
+          "basis": "Udesign",
+          "question": "保留关键衣装设计语言，补全部位结构是否连贯？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "青黛花卉主衣、象牙中裙、灰青外纱与少量暗红腰带连贯，两张内裙绣纹密度有波动。"
+        },
+        {
+          "id": "materials",
+          "basis": "Udesign",
+          "question": "主料、内层、纱和金属的重量、透光或反光是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "织金花卉附于有重量的主衣，外纱边透叠，象牙内裙更实；不是全衣同一种塑料亮面。"
+        },
+        {
+          "id": "extremities",
+          "basis": "Uhands",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。腰下轻搭双手与稳站成立，双鞋都被完整落地裙摆遮住，符合最新自然遮挡要求。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background_light",
+          "basis": "Ulight",
+          "question": "白底干净，浅衣不明显溢出，接地关系成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白底与接地阴影，浅色衣片仍有层次，原场景已去除。"
+        },
+        {
+          "id": "beauty",
+          "basis": "Ubeauty",
+          "question": "年轻精致与本角色气质是否成立，未出现塑料面容、疲态或强行换脸？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-06-r2",
+      "case_id": "pose-06",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "ff714388c220bff90eb8553da7079576c1fe06fd5140fa70af84c5f22d955d20",
+      "target_sha256": "32ac6b3ab354163b3e71546506afa9637a6bf65155773f341c58bf2d67e7ea57",
+      "snapshot_sha256": "bdd138bd5c511c2df6956f2065c8fca1e79e9d03eddd25fedcd52ac03b9f10e3",
+      "output_sha256": "65eded45d636c46ac500a2ff7abcb7c585bb1f96006298f56db9abea49e41df0",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing_pose"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "Uidentity",
+          "question": "原图多个面部辨识点、发型与表情是否延续？视角改变不自动判失败；证据不足记不确定。",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "花髻、柔和唇形和清冷表情延续；第二张眼形更圆、面颊更正面，第一张略偏头，原参考的侧角暖光使同人判断仍不充分。"
+        },
+        {
+          "id": "medium",
+          "basis": "Ustyle",
+          "question": "整体表面表现是否符合本例的面容与材料/原画目标？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "皮肤柔和、衣料有物理层次，属于轻度真实材料路线。"
+        },
+        {
+          "id": "proportion",
+          "basis": "Ubody",
+          "question": "头颈肩和完整躯干是否协调，下半身没有被单独拉长，保持P9整体时装感？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "framing_pose",
+          "basis": "Uframe",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "人物完整自然轮廓可见，但最高发饰距离顶边仍明显小于事前约88%造型占高的取景方案；姿态观察：腰下轻搭双手与稳站成立，双鞋都被完整落地裙摆遮住，符合最新自然遮挡要求。"
+        },
+        {
+          "id": "costume",
+          "basis": "Udesign",
+          "question": "保留关键衣装设计语言，补全部位结构是否连贯？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "青黛花卉主衣、象牙中裙、灰青外纱与少量暗红腰带连贯，两张内裙绣纹密度有波动。"
+        },
+        {
+          "id": "materials",
+          "basis": "Udesign",
+          "question": "主料、内层、纱和金属的重量、透光或反光是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "织金花卉附于有重量的主衣，外纱边透叠，象牙内裙更实；不是全衣同一种塑料亮面。"
+        },
+        {
+          "id": "extremities",
+          "basis": "Uhands",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。腰下轻搭双手与稳站成立，双鞋都被完整落地裙摆遮住，符合最新自然遮挡要求。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background_light",
+          "basis": "Ulight",
+          "question": "白底干净，浅衣不明显溢出，接地关系成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白底与接地阴影，浅色衣片仍有层次，原场景已去除。"
+        },
+        {
+          "id": "beauty",
+          "basis": "Ubeauty",
+          "question": "年轻精致与本角色气质是否成立，未出现塑料面容、疲态或强行换脸？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-07-r1",
+      "case_id": "pose-07",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "de3e239be82c328b7a057cdc431017192e75efbb82ae5da354d7e1ecd89573ac",
+      "target_sha256": "9e27afc3a83adfd6f6ea121918a2679352e7e3c326efd93a5ce72968e3e9034f",
+      "snapshot_sha256": "6a7c5c02eefca70f0a1d993ce4fda75c1f0f36a787afed520ec172831bed642d",
+      "output_sha256": "7ffa3ca93bf5aa321d2ab6b6e6c1320d6d7b525d22ef0abb9dbd38147bab6570",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "保留温柔表情与深色盘发方向，但原参考是很小的闭眼侧脸；正面睁眼关系属于推定，不能宣称身份已验证。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "象牙白大袖裙、浅金淡青绣纹、珊瑚束带披帛延续，旋转风卷转为静态垂落；新增正面衣片属于补全。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白内裙的重量、薄红披帛透光与细绣纹附着可辨。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "人物完整自然轮廓可见，但最高发饰距离顶边仍明显小于事前约88%造型占高的取景方案；姿态观察：第一张双臂呈小幅松开弧线，第二张一手抬到腰侧，未严格完成同一手势；两张精确错步都被裙摆大部遮住。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。第一张双臂呈小幅松开弧线，第二张一手抬到腰侧，未严格完成同一手势；两张精确错步都被裙摆大部遮住。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "pose-07-r2",
+      "case_id": "pose-07",
+      "cohort": "pose-repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "de3e239be82c328b7a057cdc431017192e75efbb82ae5da354d7e1ecd89573ac",
+      "target_sha256": "9e27afc3a83adfd6f6ea121918a2679352e7e3c326efd93a5ce72968e3e9034f",
+      "snapshot_sha256": "63f92ef468f8b6c2c470d0d5e7bd40dfb38c0e7a0deb5cddb365ac98aba2ed2c",
+      "output_sha256": "b9babaf3d0a0d197b32e25ab238546c7de1ddaae974e90e6b18944f80e9883d4",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "保留温柔表情与深色盘发方向，但原参考是很小的闭眼侧脸；正面睁眼关系属于推定，不能宣称身份已验证。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "成年面容年轻精致，表情克制，无明显疲态或粗糙老化；此项独立于同人判断。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "本图主发色、盘束或半束方向及主要饰物家族延续，未混入其他案例发型。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "象牙白大袖裙、浅金淡青绣纹、珊瑚束带披帛延续，旋转风卷转为静态垂落；新增正面衣片属于补全。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白内裙的重量、薄红披帛透光与细绣纹附着可辨。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保持美感优先的轻度真人表面与真实衣料；部分面容仍带参考的风格化，不等于严格纪实摄影。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否完成本轮正面站姿与手势，完整自然轮廓入画且保留白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "人物完整自然轮廓可见，但最高发饰距离顶边仍明显小于事前约88%造型占高的取景方案；姿态观察：第一张双臂呈小幅松开弧线，第二张一手抬到腰侧，未严格完成同一手势；两张精确错步都被裙摆大部遮住。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "头颈肩与胸腰骨盆可读，手腕接续位置自然，整体修长而未见极端缩头、长颈或下身单独拉伸；未测裙下隐藏关节，不声称精确九头身。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手脚是否连贯、整体承重可信，允许按服装自然遮脚，未为露鞋破坏衣摆？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "可见手指与手腕接续自然，没有明显重复或融合。第一张双臂呈小幅松开弧线，第二张一手抬到腰侧，未严格完成同一手势；两张精确错步都被裙摆大部遮住。 隐藏部分不作为解剖通过证据。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "RGB不透明图；整幅白色背景和白地面、浅接地阴影成立，没有原环境。"
+        }
+      ]
+    },
+    {
+      "run_id": "ref-01-r1",
+      "case_id": "ref-01",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "4cc15e2651f21fefed8953a269718f43f8a382bcfa3bf2a019bdcc2c21b42316",
+      "target_sha256": "7be183ff590fa6f74b412abd924a58664e79afb5b21955f7fe13325f26487ec8",
+      "snapshot_sha256": "6e6df35fa1e089deb9dea654edca1734fb020a724bd8949bb1ceaaa110e27c44",
+      "output_sha256": "9820bb503a15fd86cd04830a64cc54470ed4cac250de795b84702588a280c2ac",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "细长杏眼、唇部体积与黑色半盘发延续，但原图侧向近景变为正面小脸后，面颊宽窄和眼形仍有变化，不能确认完全同人。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "精致成年面容、克制妆容和年轻感成立，身份另审。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保留本参考深发主轮廓与同类小饰物。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "银蓝薄外衣、象牙内裙、浅粉白领袖与同色束带连贯；没有混入黑金甲或银发。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "外纱薄且能透见里层，内裙较实而柔亮，浅粉袖里更柔，细银绣线沿衣片分布。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "轻度真实皮肤与分层衣料，仍保留参考风格化面容。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否端正正面，全造型入画，最高头饰和最远裙摆有白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "旧条件完整头身和双鞋可见，但顶部饰物离框过近，未实现预定清楚留白；此为被用户新要求替代的旧实验。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "躯干、肩颈与下身整体修长连贯，未发现极端缩头或独立拉长腿；裙下关节不测量。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手部连贯，两个鞋尖和落地关系可辨？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "按旧目标，可见双鞋尖与接地关系，手指正常交叠无明显融合；旧双鞋条件不再用于新任务。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白底，衣料边界与浅接地影可读。"
+        }
+      ]
+    },
+    {
+      "run_id": "ref-01-r2",
+      "case_id": "ref-01",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "4cc15e2651f21fefed8953a269718f43f8a382bcfa3bf2a019bdcc2c21b42316",
+      "target_sha256": "7be183ff590fa6f74b412abd924a58664e79afb5b21955f7fe13325f26487ec8",
+      "snapshot_sha256": "b403b2fbd4435fd9af345b522b84febfdc9ccf2fefd3ce1f5e8b0bf5f0708fbd",
+      "output_sha256": "a7aa498996eba318d6f029146e6f2b885a9e49b8f89aa0709ac718e96019de47",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "细长杏眼、唇部体积与黑色半盘发延续，但原图侧向近景变为正面小脸后，面颊宽窄和眼形仍有变化，不能确认完全同人。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "精致成年面容、克制妆容和年轻感成立，身份另审。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保留本参考深发主轮廓与同类小饰物。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "银蓝薄外衣、象牙内裙、浅粉白领袖与同色束带连贯；没有混入黑金甲或银发。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "外纱薄且能透见里层，内裙较实而柔亮，浅粉袖里更柔，细银绣线沿衣片分布。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "轻度真实皮肤与分层衣料，仍保留参考风格化面容。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否端正正面，全造型入画，最高头饰和最远裙摆有白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "旧条件完整头身和双鞋可见，但顶部饰物离框过近，未实现预定清楚留白；此为被用户新要求替代的旧实验。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "躯干、肩颈与下身整体修长连贯，未发现极端缩头或独立拉长腿；裙下关节不测量。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手部连贯，两个鞋尖和落地关系可辨？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "按旧目标，可见双鞋尖与接地关系，手指正常交叠无明显融合；旧双鞋条件不再用于新任务。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白底，衣料边界与浅接地影可读。"
+        }
+      ]
+    },
+    {
+      "run_id": "ref-02-r1",
+      "case_id": "ref-02",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "222f75aeb62937843f09bb274c869cfcc684d2faaf624097dc319db903a18313",
+      "target_sha256": "7be183ff590fa6f74b412abd924a58664e79afb5b21955f7fe13325f26487ec8",
+      "snapshot_sha256": "7dbbfcb920fd11443fdb4a019b8ee75ab03979a9c628c27e09b9dd85a5e2a78f",
+      "output_sha256": "6ac107e5fc154b559a122d0bccdcc5d57b517f9f2a9cc34ae190d6befeb40417",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "细长眼、柔和唇形与深色发保留；原参考面部小且强烈暖光，换光后无法据此可靠确认多处五官几何。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "精致成年面容、克制妆容和年轻感成立，身份另审。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保留本参考深发主轮廓与同类小饰物。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白胸衣、青蓝披帛、羽状古金肩胸腰甲及同系下装有连接。按本轮人物采集设计移除了独立龙形和火焰；本例不评估完整守护组合。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "古金甲片有雕刻厚度与局部亮面，白胸衣细褶柔软，青蓝布条与白纱薄边可辨。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "轻度真实皮肤与分层衣料，仍保留参考风格化面容。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否端正正面，全造型入画，最高头饰和最远裙摆有白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "旧条件完整头身和双鞋可见，但顶部饰物离框过近，未实现预定清楚留白；此为被用户新要求替代的旧实验。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "躯干、肩颈与下身整体修长连贯，未发现极端缩头或独立拉长腿；裙下关节不测量。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手部连贯，两个鞋尖和落地关系可辨？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "按旧目标，可见双鞋尖与接地关系，手指正常交叠无明显融合；旧双鞋条件不再用于新任务。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白底，衣料边界与浅接地影可读。"
+        }
+      ]
+    },
+    {
+      "run_id": "ref-02-r2",
+      "case_id": "ref-02",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "222f75aeb62937843f09bb274c869cfcc684d2faaf624097dc319db903a18313",
+      "target_sha256": "7be183ff590fa6f74b412abd924a58664e79afb5b21955f7fe13325f26487ec8",
+      "snapshot_sha256": "281c54a0e3cf69f8f6fe908443d0de42924f7ef87f87c3e656a879534dddbb0a",
+      "output_sha256": "767d5f2510be5a2cecaf086b83759d5b6959d669e7584fe8acc3df8081c64cb3",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "细长眼、柔和唇形与深色发保留；原参考面部小且强烈暖光，换光后无法据此可靠确认多处五官几何。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "精致成年面容、克制妆容和年轻感成立，身份另审。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保留本参考深发主轮廓与同类小饰物。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白胸衣、青蓝披帛、羽状古金肩胸腰甲及同系下装有连接。按本轮人物采集设计移除了独立龙形和火焰；本例不评估完整守护组合。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "古金甲片有雕刻厚度与局部亮面，白胸衣细褶柔软，青蓝布条与白纱薄边可辨。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "轻度真实皮肤与分层衣料，仍保留参考风格化面容。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否端正正面，全造型入画，最高头饰和最远裙摆有白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "旧条件完整头身和双鞋可见，但顶部饰物离框过近，未实现预定清楚留白；此为被用户新要求替代的旧实验。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "躯干、肩颈与下身整体修长连贯，未发现极端缩头或独立拉长腿；裙下关节不测量。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手部连贯，两个鞋尖和落地关系可辨？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "按旧目标，可见双鞋尖与接地关系，手指正常交叠无明显融合；旧双鞋条件不再用于新任务。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白底，衣料边界与浅接地影可读。"
+        }
+      ]
+    },
+    {
+      "run_id": "ref-03-r1",
+      "case_id": "ref-03",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "e00d8aca5c0674b9afe573f52b2fb49421831218e47026ba2a67ad6739fdf670",
+      "target_sha256": "7be183ff590fa6f74b412abd924a58664e79afb5b21955f7fe13325f26487ec8",
+      "snapshot_sha256": "d447a5ad40a61a08883cf4f2b3ebbb7805c9a32f0f053326cde072c07dd24271",
+      "output_sha256": "14a0d435fdd6979474113188e770b327340ea101af505cacf96dd811d4223947",
+      "status": "needs_revision",
+      "dispatch_state": null,
+      "critical_failures": [
+        "framing"
+      ],
+      "unresolved": [
+        "identity"
+      ],
+      "checks": [
+        {
+          "id": "identity",
+          "basis": "identity",
+          "question": "多个可判断面部特征是否延续原图，未换成另一张标准脸？",
+          "critical": true,
+          "verdict": "uncertain",
+          "evidence": "眉眼略上挑、自然红唇与松盘发近似参考，头部角度和正面脸形不同；原图仍有暖光及侧倾干扰，身份保留待审。"
+        },
+        {
+          "id": "beauty",
+          "basis": "beauty",
+          "question": "年轻感、精致面容和原定气质是否成立？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "精致成年面容、克制妆容和年轻感成立，身份另审。"
+        },
+        {
+          "id": "hair",
+          "basis": "hair",
+          "question": "发型与主要饰物方向是否延续？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "保留本参考深发主轮廓与同类小饰物。"
+        },
+        {
+          "id": "costume",
+          "basis": "costume",
+          "question": "衣装颜色、主要衣片连接及纹样分区是否延续参考和改案？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "乳白主袍、黑纱披层、深色胸衣和暗红纵向衣片延续，兔子按采集方案移除，袖肩绣纹仍集中。"
+        },
+        {
+          "id": "material",
+          "basis": "material",
+          "question": "各类衣料/金属厚薄、反光与重力是否可区分？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "白缎宽褶、透黑纱、深红内层重量和细绣高光有区别。"
+        },
+        {
+          "id": "style",
+          "basis": "style",
+          "question": "是否保持本例指定的媒介及表面表现？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "轻度真实皮肤与分层衣料，仍保留参考风格化面容。"
+        },
+        {
+          "id": "framing",
+          "basis": "framing",
+          "question": "是否端正正面，全造型入画，最高头饰和最远裙摆有白边？",
+          "critical": true,
+          "verdict": "fail",
+          "evidence": "旧条件完整头身和双鞋可见，但顶部饰物离框过近，未实现预定清楚留白；此为被用户新要求替代的旧实验。"
+        },
+        {
+          "id": "proportion",
+          "basis": "proportion",
+          "question": "头颈肩、躯干与下身是否协调，没有极端缩头/长颈/超长下身？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "躯干、肩颈与下身整体修长连贯，未发现极端缩头或独立拉长腿；裙下关节不测量。"
+        },
+        {
+          "id": "extremities",
+          "basis": "extremities",
+          "question": "可见手部连贯，两个鞋尖和落地关系可辨？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "按旧目标，可见双鞋尖与接地关系，手指正常交叠无明显融合；旧双鞋条件不再用于新任务。"
+        },
+        {
+          "id": "background",
+          "basis": "background",
+          "question": "是否不透明白底，衣料边缘可读且无强环境色？",
+          "critical": true,
+          "verdict": "pass",
+          "evidence": "不透明白底，衣料边界与浅接地影可读。"
+        }
+      ]
+    },
+    {
+      "run_id": "ref-03-r2",
+      "case_id": "ref-03",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "e00d8aca5c0674b9afe573f52b2fb49421831218e47026ba2a67ad6739fdf670",
+      "target_sha256": "7be183ff590fa6f74b412abd924a58664e79afb5b21955f7fe13325f26487ec8",
+      "snapshot_sha256": "0cd81034de121ce76dd30386cdcdca611c1c8705cbdec6f316a7c53c03358ef5",
+      "output_sha256": null,
+      "status": "interrupted",
+      "dispatch_state": "unknown",
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": []
+    },
+    {
+      "run_id": "ref-04-r1",
+      "case_id": "ref-04",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "66246188f98d2a807e3f5602b63315533d3966530d2ce913328d20169df26701",
+      "target_sha256": "7be183ff590fa6f74b412abd924a58664e79afb5b21955f7fe13325f26487ec8",
+      "snapshot_sha256": "b6f6d614a8968c4ee950910cb21ae33c512997c4bb6aea7d7d73c97ba8ecc6e7",
+      "output_sha256": null,
+      "status": "interrupted",
+      "dispatch_state": "unknown",
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": []
+    },
+    {
+      "run_id": "ref-04-r2",
+      "case_id": "ref-04",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "66246188f98d2a807e3f5602b63315533d3966530d2ce913328d20169df26701",
+      "target_sha256": "7be183ff590fa6f74b412abd924a58664e79afb5b21955f7fe13325f26487ec8",
+      "snapshot_sha256": "6ed83e2d1eb354f7b4de5c5ce6074261a6c3ad1fb3ee4051a091a79ebb8644ac",
+      "output_sha256": null,
+      "status": "interrupted",
+      "dispatch_state": "unknown",
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": []
+    },
+    {
+      "run_id": "ref-05-r1",
+      "case_id": "ref-05",
+      "cohort": "repeat-dark-fantasy-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "897c5d08322c286bed92444314ca83fb8e95f0b69ae6b49a255b292cbe0da00f",
+      "target_sha256": "68756948664da98d9f1454ddde2f9a972a7d406391ff09800a63151d901de34a",
+      "snapshot_sha256": "2e3c7a8e962d8ea903ed29cfdba49820dfaef99a9c6771585ad1134817652b71",
+      "output_sha256": null,
+      "status": "interrupted",
+      "dispatch_state": "unknown",
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": []
+    },
+    {
+      "run_id": "ref-05-r2",
+      "case_id": "ref-05",
+      "cohort": "repeat-dark-fantasy-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "897c5d08322c286bed92444314ca83fb8e95f0b69ae6b49a255b292cbe0da00f",
+      "target_sha256": "68756948664da98d9f1454ddde2f9a972a7d406391ff09800a63151d901de34a",
+      "snapshot_sha256": "d9799a082c8ae0953fe282cbe63798a052bcfc8a7b956de7b1c6606541fd49c2",
+      "output_sha256": null,
+      "status": "interrupted",
+      "dispatch_state": "unknown",
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": []
+    },
+    {
+      "run_id": "ref-06-r1",
+      "case_id": "ref-06",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "5e773969cb0927f477a192b97ad0570d924de01d37899932b9d9954dbbe247f3",
+      "target_sha256": "2025c2290bc2ced4a10913091456a6b7f9fd48a1c05adc91e77df58f1cd477c6",
+      "snapshot_sha256": "483017ee4089c6b33a780822c21c8ba5f3f0f39b922fcb24d75df63fb601850e",
+      "output_sha256": null,
+      "status": "interrupted",
+      "dispatch_state": "unknown",
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": []
+    },
+    {
+      "run_id": "ref-06-r2",
+      "case_id": "ref-06",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "5e773969cb0927f477a192b97ad0570d924de01d37899932b9d9954dbbe247f3",
+      "target_sha256": "2025c2290bc2ced4a10913091456a6b7f9fd48a1c05adc91e77df58f1cd477c6",
+      "snapshot_sha256": "8a53d41f97c9f072fcc9bcc130a2e8ce65dab4731ac2c59be3c7cc85e82fdaa5",
+      "output_sha256": null,
+      "status": "interrupted",
+      "dispatch_state": "unknown",
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": []
+    },
+    {
+      "run_id": "ref-07-r1",
+      "case_id": "ref-07",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "62a5aef6b5bb1a08901dcbd839ea4cee36732de9f7cd41be36d6a19550b83f61",
+      "target_sha256": "7be183ff590fa6f74b412abd924a58664e79afb5b21955f7fe13325f26487ec8",
+      "snapshot_sha256": "8034e7306aa2e9741ea54d4d840f5a379e58172e05dd03cee907ceb3bc153d8f",
+      "output_sha256": null,
+      "status": "interrupted",
+      "dispatch_state": "unknown",
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": []
+    },
+    {
+      "run_id": "ref-07-r2",
+      "case_id": "ref-07",
+      "cohort": "repeat-material-v012",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "prompt_sha256": "62a5aef6b5bb1a08901dcbd839ea4cee36732de9f7cd41be36d6a19550b83f61",
+      "target_sha256": "7be183ff590fa6f74b412abd924a58664e79afb5b21955f7fe13325f26487ec8",
+      "snapshot_sha256": "4dab8a8b282c9427d7e2fa5b59e09e682f50e2eeb97acdd5b816fb8d8964a111",
+      "output_sha256": null,
+      "status": "interrupted",
+      "dispatch_state": "unknown",
+      "critical_failures": [],
+      "unresolved": [],
+      "checks": []
+    }
+  ],
+  "user_feedback": [
+    {
+      "run_id": "modern-color-edit",
+      "feedback": "面部有些光影斑驳，白底应该使用摄影灯光。",
+      "resolution_run": "modern-studio-light-edit",
+      "user_acceptance": "not_yet_provided",
+      "note": "Original observer review preserved as historical record; user identified a facial-lighting defect. Background and facial-lighting checks are now separate."
+    },
+    {
+      "run_id": "modern-studio-light-edit",
+      "feedback": "同时大幅减少碎发对面部的遮挡，发型允许自动适配和调整。",
+      "resolution_run": "modern-face-clear-edit",
+      "user_acceptance": "not_yet_provided"
+    }
+  ]
+}

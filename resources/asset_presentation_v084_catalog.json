@@ -12,8 +12,8 @@
     "costume_showcase": {
       "use_for": "A composed full-body costume portrait when the intended robe already has, or the user requests, flowing sleeves and layered skirts. Do not apply this silhouette to fitted armor or casual clothing automatically.",
       "asset_prompt_translation": [
-        "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.",
-        "Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully."
+        "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament and entire natural garment silhouette inside the frame, leaving breathing room above and below.",
+        "Let the approved skirt and sleeve silhouette remain generous. The selected stance and natural drape determine whether one, both or neither foot is visible. Shoe tips are not mandatory; preserve a grounded hem and never shorten the dress just to expose shoes."
       ],
       "proportion_prompt_translation": [
         "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
