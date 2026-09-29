@@ -1,6 +1,6 @@
 {
   "date": "2026-09-29",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "independent_originals_tested": [
     1,
     2,
@@ -65,27 +65,51 @@
     },
     {
       "original": 5,
-      "cycle": "goal-cycle-01",
-      "id": "d1-05-dragon-armor",
+      "cycle": "goal-cycle-04",
+      "id": "a-05-four-head-contained",
       "reference_sha256": "decc8ac4fb2ebdd87a90d04258bc8a944dc7d7c286989a8a6023d6b8ce6a5fbe",
-      "candidate_sha256": "24081daf01fdf545377d3d374df50e75c5fd9ae011d333a50555d04370f395d9",
-      "prompt_sha256": "24949d78fd54bab03be3f22f86176d4ec2fa558e1d676729f6d8e84506bd9b22",
+      "candidate_sha256": "2bde59388cbeb6ebe7bf81ab1831aa6311ce80cd389d4792d83854c65367adbf",
+      "prompt_sha256": "8079891d358a37f2929e9fe868100da696b643ec3ad0534d1769fa8b82c5fbbd",
       "independent_original_generation": true,
       "user_approval": "pending",
-      "note": "完整甲靴与裙片；两条龙指令实际出现四个龙首，翼尖裁切。",
-      "artifact_directory": "dist/visual-tests/goal-cycle-01/"
+      "note": "四首、龙冠、羽尖、裙尾、双靴均在画内；低垂目光与长波浪发保留；顶部仍紧，肩颈局部拥挤，内裙有边缘金纹。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-04/",
+      "previous_candidate": {
+        "original": 5,
+        "cycle": "goal-cycle-01",
+        "id": "d1-05-dragon-armor",
+        "reference_sha256": "decc8ac4fb2ebdd87a90d04258bc8a944dc7d7c286989a8a6023d6b8ce6a5fbe",
+        "candidate_sha256": "24081daf01fdf545377d3d374df50e75c5fd9ae011d333a50555d04370f395d9",
+        "prompt_sha256": "24949d78fd54bab03be3f22f86176d4ec2fa558e1d676729f6d8e84506bd9b22",
+        "independent_original_generation": true,
+        "user_approval": "pending",
+        "note": "完整甲靴与裙片；两条龙指令实际出现四个龙首，翼尖裁切。",
+        "artifact_directory": "dist/visual-tests/goal-cycle-01/"
+      }
     },
     {
       "original": 6,
-      "cycle": "goal-cycle-02",
-      "id": "b-06-separated-planes",
+      "cycle": "goal-cycle-04",
+      "id": "b-06-contained-holdout",
       "reference_sha256": "7ebaf87addeebd5595b1c6a892089e5431b20c52533eeb0e4a4f56ba85d640d6",
-      "candidate_sha256": "86370137144370e0940cc9f1ff765f40a429cf1f462217436875f0f96b1d89b0",
-      "prompt_sha256": "623071585dd0ac262c41bb2c42d64c904ab1f9363dccddc5c4a4e9cd0f4658fb",
+      "candidate_sha256": "0d6b69e42ba150be0e77818067abf99f93345604a40430f88d0db06b8cfa9a71",
+      "prompt_sha256": "2460e0ee23582d51ea969f401e92ddbe6214fc948801516cb1d092400c1929dc",
       "independent_original_generation": true,
       "user_approval": "pending",
-      "note": "完整裙尾入画；后方腿部被裙遮挡不可评估。",
-      "artifact_directory": "dist/visual-tests/goal-cycle-02/"
+      "note": "四首组合完整，警觉直视、较短头发、转身和不对称手势可辨；双靴可见；顶部仍紧，近肩处并非处处有白色空隙。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-04/",
+      "previous_candidate": {
+        "original": 6,
+        "cycle": "goal-cycle-02",
+        "id": "b-06-separated-planes",
+        "reference_sha256": "7ebaf87addeebd5595b1c6a892089e5431b20c52533eeb0e4a4f56ba85d640d6",
+        "candidate_sha256": "86370137144370e0940cc9f1ff765f40a429cf1f462217436875f0f96b1d89b0",
+        "prompt_sha256": "623071585dd0ac262c41bb2c42d64c904ab1f9363dccddc5c4a4e9cd0f4658fb",
+        "independent_original_generation": true,
+        "user_approval": "pending",
+        "note": "完整裙尾入画；后方腿部被裙遮挡不可评估。",
+        "artifact_directory": "dist/visual-tests/goal-cycle-02/"
+      }
     },
     {
       "original": 7,
@@ -159,7 +183,46 @@
   "remaining_quality_issues": [
     "身份相似度与审美待用户验收",
     "黑金发髻与顶部留白尚未改善",
-    "此前神兽数量和完整轮廓要求仍有未通过样本",
-    "单次生成不证明提示词稳定性"
+    "复杂组合独立生成的顶部仍紧；候选图编辑能增加留白但降低人物像素占比",
+    "旧两龙指令失败保留；该数量为助手自加方案，本轮明确改为四个可见龙首",
+    "少量实测不证明提示词稳定性"
+  ],
+  "guardian_variants": [
+    {
+      "original": 5,
+      "cycle": "goal-cycle-04",
+      "id": "a-05-four-head-contained",
+      "experiment_type": "independent_original_generation",
+      "input_sha256": "decc8ac4fb2ebdd87a90d04258bc8a944dc7d7c286989a8a6023d6b8ce6a5fbe",
+      "candidate_sha256": "2bde59388cbeb6ebe7bf81ab1831aa6311ce80cd389d4792d83854c65367adbf",
+      "prompt_sha256": "8079891d358a37f2929e9fe868100da696b643ec3ad0534d1769fa8b82c5fbbd",
+      "user_approval": "pending",
+      "note": "四首、龙冠、羽尖、裙尾、双靴均在画内；低垂目光与长波浪发保留；顶部仍紧，肩颈局部拥挤，内裙有边缘金纹。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-04/"
+    },
+    {
+      "original": 6,
+      "cycle": "goal-cycle-04",
+      "id": "b-06-contained-holdout",
+      "experiment_type": "independent_original_generation",
+      "input_sha256": "7ebaf87addeebd5595b1c6a892089e5431b20c52533eeb0e4a4f56ba85d640d6",
+      "candidate_sha256": "0d6b69e42ba150be0e77818067abf99f93345604a40430f88d0db06b8cfa9a71",
+      "prompt_sha256": "2460e0ee23582d51ea969f401e92ddbe6214fc948801516cb1d092400c1929dc",
+      "user_approval": "pending",
+      "note": "四首组合完整，警觉直视、较短头发、转身和不对称手势可辨；双靴可见；顶部仍紧，近肩处并非处处有白色空隙。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-04/"
+    },
+    {
+      "original": 6,
+      "cycle": "goal-cycle-04",
+      "id": "c-06-framing-edit",
+      "experiment_type": "candidate_framing_edit",
+      "input_sha256": "0d6b69e42ba150be0e77818067abf99f93345604a40430f88d0db06b8cfa9a71",
+      "candidate_sha256": "29fb6a16781309bc2f471f2ab56cd2b0841e079bc0565b1ff99658a9bfa8ebd4",
+      "prompt_sha256": "20d42517b026283c237d757a99a7806cb54c0ae4e5ed26afabef9a264ac4c0f1",
+      "user_approval": "pending",
+      "note": "候选图编辑后明显增加顶部与两侧白边；四首、人物朝向、服装布局整体保留；人物像素占比减少，未经逐像素或身份定量验证。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-04/"
+    }
   ]
 }

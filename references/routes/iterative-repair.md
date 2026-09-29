@@ -19,6 +19,14 @@ The new Classify/Reclassify step distinguishes identity drift from acceptable te
    - beauty-template drift?
 5. Route to the smallest repair round.
 
+Before diagnosing noncompliance, audit the failed constraint against its source: explicit user requirement, observed reference fact, or assistant-authored design choice. Correct an unsupported or contradictory design choice with a recorded reason; do not silently downgrade an actual user requirement. Keep the old failure and the revised target as separate evidence.
+
+## framing_only
+
+When an otherwise usable candidate merely touches the frame, use that exact candidate as the edit target. Request more surrounding background and a smaller overall ensemble within the specified aspect ratio, preserving all internal spatial relationships, face, pose, outfit and object count. Do not add identity or costume redesign clauses. A candidate can be tested this way without being promoted to an approved master.
+
+Record the edit target separately from original identity references and evaluation-only benchmarks. After the edit, inspect both the new margins and possible detail or identity drift. Increasing white space reduces the subject's pixel coverage at the same output dimensions; retain the larger-subject candidate when that is preferable. A successful edit does not prove that the original-to-image generation prompt fixed framing by itself, nor that all pixels stayed unchanged.
+
 ## identity_skin
 Use only when the same-person geometry or skin realism is actually failing.
 
