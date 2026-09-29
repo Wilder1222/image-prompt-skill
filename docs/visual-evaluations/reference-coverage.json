@@ -1,6 +1,6 @@
 {
   "date": "2026-09-29",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "independent_originals_tested": [
     1,
     2,
@@ -186,7 +186,8 @@
     "复杂组合独立生成的顶部仍紧；候选图编辑能增加留白但降低人物像素占比",
     "旧两龙指令失败保留；该数量为助手自加方案，本轮明确改为四个可见龙首",
     "少量实测不证明提示词稳定性",
-    "双参考衣装可更贴近标杆，但面容需独立评估；黑金样本借入多余腰饰和更密花纹"
+    "双参考衣装可更贴近标杆，但面容需独立评估；黑金样本借入多余腰饰和更密花纹",
+    "原图 2 的一次面部参考编辑收益不明确，保留原候选；同衣装的新身份样本只支持可见神情差异，不证明身份完全保留"
   ],
   "guardian_variants": [
     {
@@ -288,6 +289,56 @@
       "user_approval": "pending",
       "note": "黑金领肩、腰封与错落长片更接近服装参考；原图式花饰高髻仍可见；装饰密度提高，腰饰多于一件，发髻仍高且顶部紧。",
       "artifact_directory": "dist/visual-tests/goal-cycle-05/"
+    }
+  ],
+  "identity_review_variants": [
+    {
+      "original": 2,
+      "cycle": "goal-cycle-06",
+      "id": "a-02-face-reference-edit",
+      "experiment_type": "candidate_face_reference_edit",
+      "inputs": [
+        {
+          "role": "current_edit_target",
+          "sha256": "6a436f135bf4cca45552f0ec82d52ed5cb054b8b20ee2bf954b3fb803faaaff8"
+        },
+        {
+          "role": "identity_detail_reference",
+          "sha256": "366fcbc9f6aa73905939d5e0aa741da3d32e81e8b977ddea2352f6c877b3afeb"
+        }
+      ],
+      "candidate_sha256": "a1111d2cf10e1be9e1e65ad32401dc7c49a03fd840c68fd93aaad6407a7426d2",
+      "prompt_sha256": "0216ae95aa78eee0146da71a6024eadbf681419e88c010331820bbbdafaa28e9",
+      "identity_certainty": "uncertain",
+      "edit_benefit": "inconclusive",
+      "decision": "retain_baseline_do_not_promote",
+      "user_approval": "pending",
+      "note": "服装、叠手、肩扣、裙摆和鞋尖在全图观看下保持；面部变化较小，当前细节下无法明确确认相似度改善，不替换原候选。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-06/"
+    },
+    {
+      "original": 3,
+      "cycle": "goal-cycle-06",
+      "id": "b-03-same-wardrobe-identity",
+      "experiment_type": "same_wardrobe_new_identity",
+      "inputs": [
+        {
+          "role": "identity_source",
+          "sha256": "aad2e6670661ef67f1e9c0e4a194576823dc47a3f564a262c250cca336bed083"
+        },
+        {
+          "role": "wardrobe_design_reference",
+          "sha256": "f83cb319f4b435f64786f68468fbb356614b76b2dd628e188ba197f25cf1c42b"
+        }
+      ],
+      "candidate_sha256": "9e773f54c65703998f9449bdd7cea768b9767e08c9b2c5ed5a6665489bdcc8e3",
+      "prompt_sha256": "4a33777d2dc5dbe9cb26bc78163f177098cb2697b7c946160dfda7c11a2b5032",
+      "identity_certainty": "uncertain",
+      "edit_benefit": "not_an_edit",
+      "decision": "keep_as_unapproved_new_candidate",
+      "user_approval": "pending",
+      "note": "同衣装下呈现原图 3 的较凝神目光与不同头部倾斜，保持黑发；高处发饰为设计延展，顶部偏紧；不能凭神情和姿态差异确认全部五官保留。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-06/"
     }
   ]
 }

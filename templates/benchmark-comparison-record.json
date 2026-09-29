@@ -23,6 +23,10 @@
       "observer_review": {
         "reviewer_type": null,
         "face_and_identity": "pending",
+        "identity_observations": [],
+        "identity_confounds": [],
+        "identity_certainty": "unknown",
+        "edit_benefit": "not_evaluated",
         "neck_waist_proportion": "pending",
         "hand_sleeve_relationship": "pending",
         "garment_silhouette": "pending",

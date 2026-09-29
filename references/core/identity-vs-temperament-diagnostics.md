@@ -15,6 +15,14 @@ Use when stable facial geometry changes materially:
 - lip geometry changes
 - jaw/chin changes enough to read as another person
 
+## Evidence before classification
+
+Compare the actual source and candidate, naming the visible feature instead of relying on a generic similarity impression. Record head angle, lighting, expression, occlusion and face size in the full image as possible confounds. When these prevent a reliable comparison, record a provisional `possible_geometry_shift` with certainty `uncertain`; keep the identity verdict pending rather than declaring drift or stability. These are review annotations, not new CLI classifier outputs or image-model parameters.
+
+The same hair color, accessory or head pose does not establish the same face. Conversely, a face correction that retains the whole costume does not automatically improve identity. If the before/after benefit cannot be clearly described at the available image detail, retain the prior candidate and mark the edit inconclusive. Do not run repeated face edits merely because approval is still pending.
+
+For a shared wardrobe reference across different original portraits, keep the clothing brief fixed and rewrite only the source-specific facial and hair description. Compare the results to each respective original; different poses or expressions alone are insufficient evidence that all facial geometry was preserved. Never make one reference portrait the default face for other characters.
+
 ## Temperament Shift
 
 Use when geometry remains stable but presentation changes:

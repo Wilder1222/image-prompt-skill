@@ -30,6 +30,10 @@ Record the edit target separately from original identity references and evaluati
 ## identity_skin
 Use only when the same-person geometry or skin realism is actually failing.
 
+For a targeted face-reference test, Image A is the current full-body edit target and Image B is the original identity-detail reference. A controls clothing, body pose, framing, hair silhouette and scene; B controls only the named facial features and expression being corrected. This differs from `trait_calibration`, where B supplies optional facial traits rather than original identity. Bind the actual submitted order explicitly. Describe how B's features should fit A's existing head angle and lighting; do not inherit B's old outfit, outdoor shadows or close-up framing.
+
+When the diagnosis is uncertain, label the result an exploratory candidate and preserve A. Inspect both the intended face change and unintended changes in the costume, hands, pose and framing. A natural-language request to keep everything else unchanged is not pixel-level protection. Promote only a clearly supported improvement; an inconclusive correction is evidence to stop that edit path, not a reason to strengthen face reshaping indefinitely.
+
 ## trait_calibration
 Use when identity is stable but the face is too childish, too cold, too mature, too generic, or not refined enough.
 
