@@ -2,7 +2,7 @@
 
 参考图驱动的角色定妆照提示词与迭代工作流。支持全身白底资产、服装展示、优质母图保留与局部修复，并区分身份、风格、服装和编辑母图的参考权限。
 
-当前版本 **0.9.5**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
+当前版本 **0.9.6**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
 
 ## 使用
 
@@ -60,5 +60,6 @@ npm run plugin:build
 - [黑金与现代短裙实测](docs/visual-evaluations/wardrobe-redesign-v093.md)
 - [四龙首组合与取景修复实测](docs/visual-evaluations/guardian-framing-v094.md)
 - [身份与服装双参考实测](docs/visual-evaluations/wardrobe-reference-v095.md)
+- [面部诊断与同衣装对照](docs/visual-evaluations/identity-review-v096.md)
 - [视觉回归模板](templates/benchmark-comparison-record.json)
 - [测试说明](tests/README.md)
