@@ -73,7 +73,7 @@ test('authorized moderate redesign keeps identity while releasing costume constr
   for(const options of [{stage:'material-light',designFreedom:'moderate'}, {referenceMode:'full_body_anchor',designFreedom:'moderate'}, {designFreedom:'typo'}]) assert.throws(()=>compileAssetPrompt(options));
   const cli=run(['asset-prompt','--design-freedom','moderate','--presentation','costume_showcase','--maturity-guard','none']);
   assert.equal(cli.status,0,cli.stderr);
-  assert.equal(JSON.parse(cli.stdout).prompt,after.prompt);
+  assert.equal(JSON.parse(cli.stdout).prompt,compileAssetPrompt({...options,designFreedom:'moderate',language:'zh-CN'}).prompt);
 });
 
 test('each edit includes its locks and exposes disjoint editable dimensions', () => {
@@ -130,7 +130,7 @@ test('all profiles can compile and plans never claim image approval', () => {
 test('CLI text output is copyable and JSON output is structured', () => {
   const text = run(['asset-prompt', '--format', 'text']);
   assert.equal(text.status, 0, text.stderr);
-  assert.equal(text.stdout.trim(), compileAssetPrompt().prompt);
+  assert.equal(text.stdout.trim(), compileAssetPrompt({ language:'zh-CN' }).prompt);
   const json = run(['asset-prompt']);
   assert.equal(json.status, 0, json.stderr);
   assert.equal(JSON.parse(json.stdout).prompt, text.stdout.trim());

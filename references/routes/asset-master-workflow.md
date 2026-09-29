@@ -12,9 +12,11 @@ node scripts/iteration-director.mjs asset-prompt --presentation costume_showcase
 node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anchor --format text
 ```
 
-`--format json`（默认）返回配置、文本、编辑范围和未生成图像的证据状态；`text` 只输出提示词。模式代码只保留在配置中。编译器输出英文；面向中文用户可译成中文，保持参考权限、编辑范围和遮挡语义。
+`--format json`（默认）返回配置、文本、编辑范围和未生成图像的证据状态；`text` 只输出提示词。`asset-prompt` 默认输出带 P0/P1/P2 分段标签的中文，`--language en` 仅在需要英文时显式使用。标签是文字组织方式，不是模型参数。图像调用使用与交付相同的最终中文正文。程序库为旧调用保留英文默认，调用 `compileAssetPrompt` 时用 `language: 'zh-CN'` 获取同一中文正文。
 
-支持选项：`--preset`、`--face-profile`、`--hand-mode`、`--maturity-guard`、`--presentation`、`--design-freedom`、`--reference-mode`、`--stage`、`--focus`、`--passed`、`--format`。参数缺值、拼写错误、未知模式会失败，不会悄悄退回默认。
+支持选项：`--preset`、`--face-profile`、`--hand-mode`、`--maturity-guard`、`--presentation`、`--proportion-profile`、`--design-freedom`、`--reference-mode`、`--stage`、`--focus`、`--passed`、`--format`、`--language`。参数缺值、拼写错误、未知模式会失败，不会悄悄退回默认。
+
+普通成年棚拍默认 `NATURAL_ADULT`：约七至七点五头身为设计参考，不从裁切原图推断精确身高。比例与衣片展示分开，`costume_showcase` 不再覆盖身体比例。只有用户明确选择时装九头身时使用 `--proportion-profile P9_FASHION_ASSET`；完整全身母图模式拒绝这一覆盖。先验收自然头颈肩、完整胸廓与骨盆关系、腰以下长度和手脚尺度，裙摆拖尾不计入站立身高。数字条款不能保证模型遵守，必须看实际图片。
 
 `--design-freedom reference_preserve` 是未授权改造型时的默认；用户明确允许服装、造型优化或希望再设计时，用 `--design-freedom moderate`。后者保留人物辨识度、表观年龄和典型表情，释放可见服装构造与造型的硬锁：先写一套连贯方案，再调整衣片、领袖、腰部、饰物、材料和配色比例；不要在负向提示中把这些设计变化逐一禁止。方案可从优秀效果图提取，但不能把标杆人物的脸也迁移过来。现代装和铠甲按实际角色路线写文本，不强套古风长袍预设。此选项只用于新候选生成，不能混入 `full_body_anchor` 或局部编辑阶段。
 

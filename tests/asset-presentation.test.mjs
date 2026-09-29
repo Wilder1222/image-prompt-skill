@@ -8,7 +8,8 @@ test('showcase selection changes presentation, not face or material treatment', 
   const a = createAssetPlan(), b = createAssetPlan({ presentation: 'costume_showcase' });
   assert.deepEqual(a.stage_1, b.stage_1);
   assert.deepEqual(a.stage_3, b.stage_3);
-  assert.equal(b.stage_2.fashion_asset.visual_head_count_target, 'reference_derived');
+  assert.equal(b.configuration.proportion_profile, 'NATURAL_ADULT');
+  assert.equal(b.stage_2.fashion_asset.visual_head_count_target, a.stage_2.fashion_asset.visual_head_count_target);
   assert.equal(a.configuration.presentation_profile, 'neutral_asset');
   const result = compileAssetPrompt({ presentation: 'costume_showcase' });
   assert.match(result.prompt, /A-line hem/);
@@ -66,6 +67,6 @@ test('CLI dispatches presentation and full-body mode without dropping them', () 
   ]) {
     const result = spawnSync(process.execPath, [tool, 'asset-prompt', ...args], { encoding: 'utf8' });
     assert.equal(result.status, 0, result.stderr);
-    assert.deepEqual(JSON.parse(result.stdout), compileAssetPrompt(options));
+    assert.deepEqual(JSON.parse(result.stdout), compileAssetPrompt({...options, language:'zh-CN'}));
   }
 });

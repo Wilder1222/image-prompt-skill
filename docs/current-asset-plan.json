@@ -3,7 +3,7 @@
   "configuration": {
     "render_mode": "style_asset",
     "face_profile": "beauty_first_character",
-    "proportion_profile": "presentation:costume_showcase",
+    "proportion_profile": "NATURAL_ADULT",
     "material_profile": "ancient_asset_material_split",
     "hand_mode": "elegant_crossed_hands_safe",
     "asset_profile": "presentation:costume_showcase",
@@ -31,7 +31,7 @@
       "Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully."
     ],
     "proportion_prompt_translation": [
-      "Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.",
+      "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
       "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube."
     ],
     "generation_prompt_translation": [
@@ -147,10 +147,14 @@
       "prompt_strategy": "Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction."
     },
     "fashion_asset": {
-      "profile": "presentation:costume_showcase",
-      "visual_head_count_target": "reference_derived",
+      "profile": "NATURAL_ADULT",
+      "visual_head_count_target": "approximately_7_to_7.5_design_guide_not_measurement",
+      "head_ornaments_excluded": true,
       "prompt_translation": [
-        "Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.",
+        "Use ordinary adult studio-portrait proportions, with an approximately seven to seven-and-a-half head visual guide measured from the anatomical crown to chin, excluding hair volume and ornaments. This is a design guide, not a measurement inferred from a cropped reference.",
+        "Keep a naturally sized head, a normal neck, a complete ribcage-to-pelvis relationship and balanced upper and lower legs. Do not shrink the head, raise the anatomical waist, lengthen the neck or stretch the lower body to make the outfit look taller.",
+        "The clothing hangs over the body; its sash does not redefine the anatomical waist, and a long skirt or train does not extend the person's standing height. Keep shoulder, elbow, wrist and shoe scale coherent, without claiming hidden joints are visible.",
+        "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
         "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube."
       ]
     },
@@ -192,7 +196,10 @@
       "Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction.",
       "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.",
       "Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.",
-      "Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.",
+      "Use ordinary adult studio-portrait proportions, with an approximately seven to seven-and-a-half head visual guide measured from the anatomical crown to chin, excluding hair volume and ornaments. This is a design guide, not a measurement inferred from a cropped reference.",
+      "Keep a naturally sized head, a normal neck, a complete ribcage-to-pelvis relationship and balanced upper and lower legs. Do not shrink the head, raise the anatomical waist, lengthen the neck or stretch the lower body to make the outfit look taller.",
+      "The clothing hangs over the body; its sash does not redefine the anatomical waist, and a long skirt or train does not extend the person's standing height. Keep shoulder, elbow, wrist and shoe scale coherent, without claiming hidden joints are visible.",
+      "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
       "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.",
       "Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.",
       "Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area."

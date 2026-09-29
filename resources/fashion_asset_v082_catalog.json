@@ -1,8 +1,17 @@
 {
   "version": "0.8.2",
-  "default": "P9_FASHION_ASSET",
-  "principle": "P9 asset proportion is preserved through body landmarks AND garment visual cues; never solve a robe-covered figure by simply stretching the legs.",
+  "default": "NATURAL_ADULT",
+  "principle": "Use natural adult proportions for ordinary studio wardrobe portraits. P9 is an explicit fashion choice, never an implied effect of realism or long robes. Hair ornaments and trailing cloth do not count as anatomical height.",
   "profiles": {
+    "NATURAL_ADULT": {
+      "visual_head_count_target": "approximately_7_to_7.5_design_guide_not_measurement",
+      "head_ornaments_excluded": true,
+      "prompt_translation": [
+        "Use ordinary adult studio-portrait proportions, with an approximately seven to seven-and-a-half head visual guide measured from the anatomical crown to chin, excluding hair volume and ornaments. This is a design guide, not a measurement inferred from a cropped reference.",
+        "Keep a naturally sized head, a normal neck, a complete ribcage-to-pelvis relationship and balanced upper and lower legs. Do not shrink the head, raise the anatomical waist, lengthen the neck or stretch the lower body to make the outfit look taller.",
+        "The clothing hangs over the body; its sash does not redefine the anatomical waist, and a long skirt or train does not extend the person's standing height. Keep shoulder, elbow, wrist and shoe scale coherent, without claiming hidden joints are visible."
+      ]
+    },
     "P9_FASHION_ASSET": {
       "visual_head_count_target": "8.6_9.0",
       "head_ornaments_excluded": true,

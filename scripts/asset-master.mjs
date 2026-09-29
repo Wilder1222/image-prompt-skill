@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { renderTaggedChinese } from './asset-prompt-zh.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = name => JSON.parse(fs.readFileSync(path.join(root, 'resources', name), 'utf8'));
@@ -39,12 +40,13 @@ const scopes = {
 };
 
 export function createAssetPlan(options = {}) {
-  const allowed = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'designFreedom', 'passed'];
+  const allowed = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'proportionProfile', 'designFreedom', 'passed'];
   for (const key of Object.keys(options)) if (!allowed.includes(key)) throw new Error(`unknown asset option: ${key}`);
   const preset = options.preset ?? presets.default;
   const configuration = { ...lookup(presets.presets, preset, 'asset preset') };
   configuration.face_profile = options.faceProfile ?? configuration.face_profile;
   configuration.hand_mode = options.handMode ?? configuration.hand_mode;
+  configuration.proportion_profile = options.proportionProfile ?? configuration.proportion_profile;
   // Face realism never implicitly changes the age target, including during A/B tests.
   configuration.maturity_guard = options.maturityGuard ?? configuration.maturity_guard;
   configuration.presentation_profile = options.presentation ?? presentations.default;
@@ -57,8 +59,7 @@ export function createAssetPlan(options = {}) {
   const hand = lookup(hands.modes, configuration.hand_mode, 'hand mode');
   let fashion = lookup(proportions.profiles, configuration.proportion_profile, 'proportion profile');
   if (presentation.proportion_prompt_translation) {
-    fashion = { visual_head_count_target: 'reference_derived', prompt_translation: presentation.proportion_prompt_translation };
-    configuration.proportion_profile = `presentation:${configuration.presentation_profile}`;
+    fashion = { ...fashion, prompt_translation: [...fashion.prompt_translation, ...presentation.proportion_prompt_translation] };
   }
   const material = lookup(materials.profiles, configuration.material_profile, 'material profile');
   let asset = lookup(assets.profiles, configuration.asset_profile, 'asset profile');
@@ -118,22 +119,24 @@ export function createAssetPlan(options = {}) {
   };
 }
 
-export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', ...options } = {}) {
+export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'en', ...options } = {}) {
+  if (!['en', 'zh-CN'].includes(language)) throw new Error('language must be zh-CN or en');
+  const finish = result => ({ ...result, prompt_language: language, prompt: language === 'zh-CN' ? renderTaggedChinese(result, options) : result.prompt });
   const reference = lookup(presentations.reference_modes, referenceMode, 'reference mode');
   if (referenceMode === 'full_body_anchor') {
     if (stage !== 'generate' || focus || options.passed?.length) throw new Error('full_body_anchor is a preservation generation mode; for a local repair use the edit stage with the current image as its target');
-    const overrides = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'designFreedom'].filter(key => options[key] !== undefined);
+    const overrides = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'proportionProfile', 'designFreedom'].filter(key => options[key] !== undefined);
     if (overrides.length) throw new Error(`full_body_anchor preserves its design; conflicting profile overrides: ${overrides.join(', ')}; use an explicit edit stage to change an attribute`);
     // Validate unknown keys without applying the preset's pose, age or proportions.
     createAssetPlan(options);
-    return {
+    return finish({
       status: 'prompt_ready', stage, focus: null, reference_mode: referenceMode,
       configuration: { face_profile: 'preserve_reference', maturity_guard: 'none', hand_mode: 'preserve_reference',
         proportion_profile: 'preserve_reference', presentation_profile: 'preserve_reference',
         material_profile: 'preserve_reference', lighting_profile: 'preserve_reference' },
       round_plan: null, prompt: reference.prompt_translation.join('\n\n'),
       evidence: { image_generated: false, visual_quality_verified: false },
-    };
+    });
   }
   if (stage !== 'generate' && options.designFreedom !== undefined) throw new Error('designFreedom is for new generation; a local edit cannot reopen costume design');
   const plan = createAssetPlan(options);
@@ -181,7 +184,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
   }
   // Profile codes belong in the plan, never in the copyable vendor prompt.
   lines = lines.map(line => line.replaceAll('P9 fashion-asset proportion', 'tall, balanced fashion proportion with an approximately nine-head visual read'));
-  return { status: 'prompt_ready', stage, focus: focus ?? null, reference_mode: referenceMode, configuration: plan.configuration,
+  return finish({ status: 'prompt_ready', stage, focus: focus ?? null, reference_mode: referenceMode, configuration: plan.configuration,
     round_plan: roundPlan, prompt: [...new Set(lines)].join('\n\n'),
-    evidence: { image_generated: false, visual_quality_verified: false } };
+    evidence: { image_generated: false, visual_quality_verified: false } });
 }
