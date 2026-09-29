@@ -1,0 +1,49 @@
+{
+  "first_focus": "identity_drift",
+  "priority": "P0",
+  "recommended_round": "identity_skin",
+  "round_plan": {
+    "round": "identity_skin",
+    "editable": [
+      "face_identity",
+      "regional_skin_optics",
+      "natural_makeup",
+      "hair_strand_realism"
+    ],
+    "locked": [
+      "composition",
+      "body_proportion",
+      "pose",
+      "garment_silhouette",
+      "garment_structure",
+      "palette",
+      "footwear",
+      "background",
+      "accessory_design"
+    ],
+    "forbidden": [
+      "new_costume",
+      "body_elongation",
+      "new_slit",
+      "new_pose"
+    ],
+    "prompt_strategy": "short patch prompt; mention locked asset master once, expand editable dimensions only"
+  },
+  "failures": [
+    {
+      "id": "identity_drift",
+      "priority": "P0",
+      "round": "identity_skin"
+    },
+    {
+      "id": "cgi_skin",
+      "priority": "P2",
+      "round": "identity_skin"
+    },
+    {
+      "id": "material_flattening",
+      "priority": "P2",
+      "round": "garment_material"
+    }
+  ]
+}

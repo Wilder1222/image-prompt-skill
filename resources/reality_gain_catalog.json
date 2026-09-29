@@ -1,0 +1,77 @@
+{
+  "version": "0.7.2",
+  "default_target": "R2",
+  "levels": {
+    "R0": {
+      "label": "stylized_preservation",
+      "human_realism": "none",
+      "material_realism": "none",
+      "protected_style": [
+        "all"
+      ]
+    },
+    "R1": {
+      "label": "light_realism",
+      "human_realism": [
+        "skin_logic",
+        "hair_grouping"
+      ],
+      "material_realism": [
+        "basic_separation"
+      ],
+      "protected_style": [
+        "medium_language",
+        "atmosphere",
+        "motion_language"
+      ]
+    },
+    "R2": {
+      "label": "humanized_restoration",
+      "human_realism": [
+        "soft_tissue",
+        "regional_skin_optics",
+        "natural_makeup",
+        "hair_strands"
+      ],
+      "material_realism": [
+        "layer_separation",
+        "attachment_logic",
+        "physical_drape"
+      ],
+      "lighting_realism": [
+        "key_fill_logic",
+        "rim_separation",
+        "material_highlight_routing"
+      ],
+      "protected_style": [
+        "epic_mood",
+        "painterly_cinematic_atmosphere",
+        "motion_language",
+        "environment_scale"
+      ]
+    },
+    "R3": {
+      "label": "fantasy_editorial_photography",
+      "human_realism": [
+        "strong_photographic_presence"
+      ],
+      "material_realism": [
+        "photographic_material_behavior"
+      ],
+      "lighting_realism": [
+        "editorial_photographic_logic"
+      ],
+      "protected_style": [
+        "palette",
+        "composition_energy",
+        "fantasy_design",
+        "atmosphere"
+      ]
+    }
+  },
+  "forbidden": [
+    "face_reshape",
+    "body_redesign",
+    "costume_redesign_without_authorization"
+  ]
+}

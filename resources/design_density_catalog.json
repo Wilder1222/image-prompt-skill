@@ -1,0 +1,22 @@
+{
+  "version": "0.7.4",
+  "levels": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "default_policy": "preserve_reference_density",
+  "zones": [
+    "head",
+    "torso",
+    "waist",
+    "arms",
+    "lower_body",
+    "footwear"
+  ],
+  "rules": {
+    "completion_default_delta": 0,
+    "new_zone_must_not_exceed_reference_peak_without_authorization": true,
+    "do_not_scale_decoration_count_with_canvas_area": true
+  }
+}

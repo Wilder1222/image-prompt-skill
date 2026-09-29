@@ -1,0 +1,31 @@
+{
+  "level": "R2",
+  "label": "humanized_restoration",
+  "human_realism": [
+    "soft_tissue",
+    "regional_skin_optics",
+    "natural_makeup",
+    "hair_strands"
+  ],
+  "material_realism": [
+    "layer_separation",
+    "attachment_logic",
+    "physical_drape"
+  ],
+  "lighting_realism": [
+    "key_fill_logic",
+    "rim_separation",
+    "material_highlight_routing"
+  ],
+  "protected_style": [
+    "epic_mood",
+    "painterly_cinematic_atmosphere",
+    "motion_language",
+    "environment_scale"
+  ],
+  "forbidden": [
+    "face_reshape",
+    "body_redesign",
+    "costume_redesign_without_authorization"
+  ]
+}

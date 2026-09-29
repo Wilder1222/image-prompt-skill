@@ -1,0 +1,29 @@
+{
+  "observations": [
+    {
+      "id": "face_geometry_stable",
+      "class": "identity",
+      "effect": "stable"
+    },
+    {
+      "id": "gaze_more_composed",
+      "class": "temperament",
+      "effect": "target_shift"
+    },
+    {
+      "id": "cheek_softness_slightly_reduced",
+      "class": "maturity",
+      "effect": "target_shift"
+    },
+    {
+      "id": "gaze_too_cold",
+      "class": "temperament",
+      "effect": "over_shift"
+    }
+  ],
+  "classifications": [
+    "identity_stable",
+    "temperament_shift_over"
+  ],
+  "recommended_next": "trait_calibration"
+}

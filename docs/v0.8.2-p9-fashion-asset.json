@@ -1,0 +1,28 @@
+{
+  "profile": "P9_FASHION_ASSET",
+  "visual_head_count_target": "8.6_9.0",
+  "head_ornaments_excluded": true,
+  "controls": {
+    "head_visual_scale": "refined_small_without_face_reshape",
+    "neck_shoulder": "elongated_relaxed",
+    "torso_length": "fully_preserved",
+    "waistline": "visually_high_natural",
+    "pelvis_to_knee": "balanced_long",
+    "knee_to_ankle": "balanced_long",
+    "footwear_scale": "refined_natural",
+    "garment_verticality": "strong",
+    "robe_width": "controlled",
+    "foot_visibility": "clear_enough_for_scale_read"
+  },
+  "robe_rules": [
+    "Use waist placement, central vertical panels, hem opening and visible foot-to-hem relation to preserve the tall read under long robes.",
+    "Do not let oversized sleeves or excessive hem width suppress the lower-body visual length.",
+    "Do not shorten the torso, extreme-shrink the head, or stretch only one leg segment."
+  ],
+  "prompt_translation": [
+    "Maintain a clear P9 fashion-asset proportion even under layered long robes: refined head-to-body read, elongated neck-to-waist rhythm, naturally elevated waist, strong vertical garment lines and a readable foot-to-hem relationship.",
+    "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
+    "Control sleeve and hem width so the costume supports height instead of visually compressing it."
+  ],
+  "principle": "P9 asset proportion is preserved through body landmarks AND garment visual cues; never solve a robe-covered figure by simply stretching the legs."
+}

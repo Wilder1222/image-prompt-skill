@@ -1,0 +1,26 @@
+{
+  "round": "garment_material",
+  "editable": [
+    "material_contrast",
+    "embroidery_density",
+    "fold_gravity",
+    "controlled_asymmetry",
+    "attachment_logic"
+  ],
+  "locked": [
+    "face_identity",
+    "body_proportion",
+    "composition",
+    "pose",
+    "garment_silhouette",
+    "palette",
+    "hairstyle_silhouette",
+    "footwear",
+    "background",
+    "regional_skin_optics",
+    "natural_makeup",
+    "hair_strand_realism"
+  ],
+  "forbidden": [],
+  "prompt_strategy": "short patch prompt; mention locked asset master once, expand editable dimensions only"
+}

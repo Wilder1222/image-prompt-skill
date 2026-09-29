@@ -1,0 +1,31 @@
+{
+  "level": "M2.5",
+  "label": "light_mature_high_end_young_adult",
+  "identity_geometry_policy": "locked",
+  "cheek_softness": "medium_low_but_not_hollow",
+  "eye_openness": "slightly_restrained_same_geometry",
+  "gaze_stability": "steady_composed",
+  "jaw_definition": "clear_not_sharp",
+  "makeup_contrast": "restrained_editorial",
+  "expression": "calm_refined_not_cold",
+  "aging_cues": "none",
+  "max_delta_per_round": 1,
+  "preferred_signals": [
+    "gaze_stability",
+    "expression_restraint",
+    "makeup_restraint",
+    "cheek_softness_delta_small",
+    "eye_openness_delta_small",
+    "jaw_clarity_small"
+  ],
+  "forbidden_for_light_maturity": [
+    "sharp_chin",
+    "major_face_length_change",
+    "major_eye_geometry_change",
+    "narrow_nose_geometry",
+    "hollow_cheeks",
+    "wrinkles",
+    "sagging",
+    "pigmentation_aging"
+  ]
+}

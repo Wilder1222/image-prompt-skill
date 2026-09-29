@@ -1,0 +1,243 @@
+{
+  "stage_1": {
+    "p9_persistence": {
+      "profile": "P9_locked",
+      "source_level": "P9",
+      "guard_strength": "strong",
+      "locks": [
+        "head_visual_scale",
+        "neck_extension",
+        "shoulder_opening",
+        "torso_length",
+        "waistline_visual",
+        "pelvis_knee_ankle_relationship",
+        "leg_read",
+        "footwear_scale",
+        "garment_vertical_flow",
+        "hem_width"
+      ],
+      "prompt_translation": [
+        "Preserve the already-approved P9 fashion silhouette exactly: do not let later realism edits enlarge the head, lower the waistline, shorten the leg read or widen the skirt silhouette.",
+        "Keep the accepted torso length, pelvis-to-knee-to-ankle relationship, footwear scale and vertical garment flow unchanged."
+      ],
+      "principle": "Once a fashion proportion passes, later realism and polish rounds must preserve the accepted whole-figure visual ratio instead of quietly returning toward a shorter natural proportion.",
+      "failure_codes": [
+        "p9_regression",
+        "head_scale_rebound",
+        "waistline_drop",
+        "leg_read_compressed",
+        "hem_volume_overblocking",
+        "vertical_flow_regression"
+      ]
+    },
+    "body_presence": {
+      "level": "BP2",
+      "label": "asset_body_presence",
+      "gain": 0.8,
+      "controls": {
+        "neck_jaw_transition": "natural_soft",
+        "clavicle_relief": "subtle",
+        "wrist_volume": "natural",
+        "hand_skin": "young_real",
+        "finger_joint_visibility": "subtle",
+        "nail_presence": "low",
+        "ankle_volume": "natural",
+        "foot_ground_contact": "credible",
+        "body_soft_tissue_hint": "subtle"
+      },
+      "prompt_translation": [
+        "Keep the P9 anatomy unchanged but give the neck, clavicle, wrists, hands, ankles and foot contact believable human soft-tissue volume.",
+        "Hands should read as real young-adult hands: subtle knuckles and joints, natural nail presence, soft skin and no plastic mannequin surface.",
+        "Keep clavicles and neck transitions soft and anatomical rather than graphic CG lines."
+      ],
+      "principle": "Extend human presence beyond the face into neck, clavicle, hands, wrists, ankle/foot contact and subtle body soft-tissue cues without changing accepted fashion anatomy.",
+      "forbidden": [
+        "body_reshape",
+        "p9_reopen",
+        "extreme_clavicle",
+        "vein_exaggeration",
+        "aged_hands",
+        "rough_skin_shortcut"
+      ],
+      "failure_codes": [
+        "hand_too_plastic",
+        "neck_transition_too_clean",
+        "clavicle_too_graphic",
+        "body_soft_tissue_missing",
+        "wrist_too_thin_cg",
+        "ankle_contact_unreal"
+      ]
+    },
+    "round_plan": {
+      "round": "p9_persistence_body_presence",
+      "editable": [
+        "p9_persistence_guard",
+        "neck_jaw_transition",
+        "clavicle_presence",
+        "wrist_hand_presence",
+        "ankle_foot_contact",
+        "body_soft_tissue_hint"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "approved_eye_optics",
+        "approved_skin_optics",
+        "approved_hair",
+        "fashion_proportion_geometry",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "pose",
+        "composition",
+        "background",
+        "lighting_layout",
+        "fashion_proportion",
+        "human_face_optical_refine"
+      ],
+      "forbidden": [
+        "head_scale_rebound",
+        "waistline_drop",
+        "leg_read_compressed",
+        "body_reshape",
+        "costume_redesign",
+        "face_reopen"
+      ],
+      "prompt_strategy": "preserve approved P9 proportions and add body-level human presence only; do not reopen face, costume or framing"
+    },
+    "prompt_skeleton": [
+      "Preserve the already-approved P9 fashion silhouette exactly: do not let later realism edits enlarge the head, lower the waistline, shorten the leg read or widen the skirt silhouette.",
+      "Keep the accepted torso length, pelvis-to-knee-to-ankle relationship, footwear scale and vertical garment flow unchanged.",
+      "Keep the P9 anatomy unchanged but give the neck, clavicle, wrists, hands, ankles and foot contact believable human soft-tissue volume.",
+      "Hands should read as real young-adult hands: subtle knuckles and joints, natural nail presence, soft skin and no plastic mannequin surface.",
+      "Keep clavicles and neck transitions soft and anatomical rather than graphic CG lines.",
+      "Do not reopen face optics, costume architecture, pose, composition or lighting layout."
+    ],
+    "note": "Use after P9 and face optics are approved. This round preserves proportion while extending human presence beyond the face."
+  },
+  "stage_2": {
+    "fabric_white": {
+      "profile": "white_asset_photographic",
+      "background": "near_pure_white",
+      "garment_background_tonal_gap": "subtle_visible",
+      "edge_outline": "forbidden",
+      "key_light": "soft_directional",
+      "fill": "weaker",
+      "separation_light": "very_subtle",
+      "materials": {
+        "silk": "continuous_soft_directional_highlight",
+        "gauze": "translucent_soft_edge_with_layer_thickness",
+        "brocade": "heavier_weave_structured_reflection",
+        "embroidery": "raised_thread_local_specular",
+        "metal": "small_controlled_crisp_highlight"
+      },
+      "drape": {
+        "left_right_symmetry": "avoid_perfect_mirror",
+        "ground_fold_randomness": "subtle",
+        "sleeve_weight": "natural",
+        "sheer_edge_perfection": "reduce"
+      },
+      "prompt_translation": [
+        "Separate pale garments from the white background through subtle tonal and material differences, never through a dark outline.",
+        "Make silk, gauze, brocade, embroidery and metal respond differently to the same studio light instead of sharing one fantasy gloss.",
+        "Use believable gravity and slightly irregular ground folds; avoid perfectly mirrored sleeves, hems and sheer edges."
+      ],
+      "principle": "White-on-white asset photography must separate garment from background through material response, tonal spacing, edge transmission and contact shadow rather than artificial outlines.",
+      "failure_codes": [
+        "white_on_white_separation_weak",
+        "fabric_response_too_uniform",
+        "drape_too_symmetric",
+        "sheer_edge_too_clean",
+        "garment_highlight_flattened"
+      ]
+    },
+    "round_plan": {
+      "round": "photographic_fabric_white_refine",
+      "editable": [
+        "white_background_separation",
+        "material_response_separation",
+        "drape_naturalness",
+        "sheer_edge_behavior",
+        "contact_shadow",
+        "highlight_rolloff_fabric"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "approved_human_presence",
+        "fashion_proportion",
+        "body_proportion",
+        "pose",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "hand_integrity",
+        "foot_integrity",
+        "composition",
+        "background_type",
+        "human_face_optical_refine",
+        "p9_persistence_body_presence"
+      ],
+      "forbidden": [
+        "dark_outline_separation",
+        "costume_redesign",
+        "new_material_family",
+        "p9_reopen",
+        "face_reopen",
+        "extreme_shallow_dof"
+      ],
+      "prompt_strategy": "refine white-on-white separation, material-specific response and natural drape only; lock identity, P9 and costume architecture"
+    },
+    "prompt_skeleton": [
+      "Separate pale garments from the white background through subtle tonal and material differences, never through a dark outline.",
+      "Make silk, gauze, brocade, embroidery and metal respond differently to the same studio light instead of sharing one fantasy gloss.",
+      "Use believable gravity and slightly irregular ground folds; avoid perfectly mirrored sleeves, hems and sheer edges.",
+      "Keep identity, approved P9, approved human presence, costume architecture, palette and composition locked."
+    ],
+    "note": "White-on-white photographic refinement only. No dark outline and no costume redesign."
+  },
+  "stage_3": {
+    "round_plan": {
+      "round": "final_photographic_polish",
+      "editable": [
+        "local_microcontrast",
+        "highlight_rolloff",
+        "focus_hierarchy",
+        "material_highlight_balance",
+        "white_background_tone",
+        "final_camera_response"
+      ],
+      "locked": [
+        "all_semantic_design_dimensions",
+        "approved_p9",
+        "approved_human_presence",
+        "approved_material_behavior",
+        "pose",
+        "composition",
+        "fashion_proportion",
+        "human_face_optical_refine",
+        "p9_persistence_body_presence",
+        "photographic_fabric_white_refine"
+      ],
+      "forbidden": [
+        "semantic_redesign",
+        "global_sharpening",
+        "p9_reopen",
+        "face_reopen",
+        "costume_reopen"
+      ],
+      "prompt_strategy": "camera-response polish only after all semantic and material dimensions pass; no redesign"
+    },
+    "prompt_skeleton": [
+      "Keep every approved semantic design dimension locked.",
+      "Refine only local microcontrast, highlight roll-off, focus hierarchy, material-specific highlight balance, white-background tone and final camera response.",
+      "Do not use global sharpening, HDR clarity or extreme shallow depth of field."
+    ],
+    "note": "Run only after P9 persistence, body presence and photographic fabric rounds pass."
+  },
+  "order": [
+    "p9_persistence_body_presence",
+    "photographic_fabric_white_refine",
+    "final_photographic_polish",
+    "upscale"
+  ],
+  "rule": "Do not reopen approved P9 or face optics. Extend realism from body to fabric to final camera response in separate rounds."
+}

@@ -1,0 +1,36 @@
+{
+  "name": "image-prompt-skill",
+  "version": "0.7.5",
+  "status": "pass",
+  "unit_tests": {
+    "tests": 76,
+    "pass": 76,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "validation": {
+    "status": "pass",
+    "errors": [],
+    "references": 2,
+    "restoration_references": 2,
+    "rounds": 15,
+    "maturity_levels": 6,
+    "style_levels": 4,
+    "reality_levels": 4,
+    "render_modes": 4,
+    "fidelity_presets": 5,
+    "completion_levels": 4,
+    "human_presence_levels": 4,
+    "completion_budget_levels": 4,
+    "density_budget_profiles": 3,
+    "wear_budget_levels": 5,
+    "human_presence_v2_levels": 4,
+    "extremity_levels": 4,
+    "fashion_proportion_levels": 4,
+    "human_presence_v21_levels": 4
+  },
+  "media_tests": "not_run_for_v0.7.5",
+  "interpretation": "Pass validates local planning/catalog/routing logic only. It does not prove generated-image anatomy, exact nine-head proportion, or photographic realism."
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.7.4",
+  "default": "E2",
+  "levels": {
+    "E0": {"label": "not_visible_or_irrelevant"},
+    "E1": {"label": "basic_visibility_check"},
+    "E2": {
+      "label": "asset_integrity",
+      "hand_requirements": [
+        "exactly five digits per visible hand",
+        "one thumb in anatomically plausible opposition",
+        "four fingers with plausible length hierarchy",
+        "separate fingers without fusion or duplication",
+        "natural joint bends and relaxed spacing",
+        "wrist and palm orientation consistent with the pose"
+      ],
+      "foot_requirements": [
+        "plausible ankle-foot alignment",
+        "footwear follows the actual foot volume",
+        "no duplicated toes or broken shoe-foot intersection when visible",
+        "ground contact matches body weight and stance"
+      ]
+    },
+    "E3": {"label": "closeup_integrity_review"}
+  },
+  "repair_policy": "If an extremity error occurs while the rest of the asset passes, use a local patch round and lock identity, costume, composition, and lighting."
+}

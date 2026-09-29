@@ -1,0 +1,23 @@
+{
+  "version": "0.7.7",
+  "name": "soft_tissue_presence_v2",
+  "controls": {
+    "cheek_volume": "subtle_young",
+    "lower_lid_pad": "very_subtle",
+    "nose_wing_softness": "natural",
+    "mouth_corner_volume": "subtle",
+    "nasolabial_transition": "very_soft",
+    "jaw_to_neck_transition": "natural",
+    "chin_softness": "subtle"
+  },
+  "prompt_translation": [
+    "Preserve the approved face shape while adding subtle young cheek soft tissue, natural nose-wing softness and slight lower-lid volume.",
+    "Keep mouth-corner volume and jaw-to-neck transition soft and human rather than a smooth CG surface."
+  ],
+  "forbidden": [
+    "deep_nasolabial_folds",
+    "hollow_cheeks",
+    "aging_shift",
+    "face_shape_change"
+  ]
+}

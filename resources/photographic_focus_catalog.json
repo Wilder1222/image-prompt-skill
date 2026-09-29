@@ -1,0 +1,27 @@
+{
+  "version": "0.7.6",
+  "profiles": {
+    "full_body_asset": {
+      "face_focus": "strongest",
+      "upper_costume": "crisp_readable",
+      "lower_costume": "clear_asset_readable",
+      "outer_translucent_edges": "slightly_softer_allowed",
+      "background": "seamless_low_attention",
+      "depth_policy": "moderate_depth_not_shallow_portrait_blur"
+    },
+    "half_body_asset": {
+      "face_focus": "strongest",
+      "upper_costume": "crisp_readable",
+      "hair": "high_detail_natural",
+      "background": "low_attention",
+      "depth_policy": "moderate_portrait_depth"
+    },
+    "close_up_portrait": {
+      "eyes_focus": "strongest",
+      "skin": "high_optical_detail",
+      "hairline": "high_detail",
+      "background": "soft_allowed",
+      "depth_policy": "portrait_depth"
+    }
+  }
+}

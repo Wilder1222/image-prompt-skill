@@ -1,0 +1,211 @@
+{
+  "style_intent": {
+    "intent": "style_target_match",
+    "description": "match a supplied visual style reference as the dominant final look",
+    "signals": [
+      "match_reference_style",
+      "restore_original_style",
+      "use_image_style",
+      "like_image_4_style",
+      "original_art_style"
+    ],
+    "render_mode_with_asset_master": "cinematic_hybrid",
+    "render_mode_without_asset_master": "restoration",
+    "resolved_render_mode": "cinematic_hybrid",
+    "precedence": [
+      "identity_lock",
+      "explicit_background_constraint",
+      "explicit_style_target",
+      "explicit_motion_or_scene_intent",
+      "character_archetype_default",
+      "generic_default"
+    ],
+    "rules": [
+      "If the user explicitly requests a white/neutral background and a style reference, use style_asset.",
+      "If the user explicitly requests the supplied style/final-art look and does not lock a white/neutral background, use cinematic_hybrid when an asset master exists.",
+      "Never infer white background merely because the character was previously represented as an asset image.",
+      "Face mode and render mode are independent decisions."
+    ]
+  },
+  "style_target": {
+    "profile": "oriental_epic_painterly",
+    "label": "Oriental Epic Painterly Fantasy",
+    "medium_language": [
+      "painterly_cinematic",
+      "concept_art_brushwork",
+      "selective_detail",
+      "soft_edge_to_hard_edge_variation"
+    ],
+    "composition": [
+      "asymmetric_flow",
+      "large_s_curve",
+      "dynamic_negative_space",
+      "full_body_hero_focus"
+    ],
+    "motion": [
+      "sweeping_hair",
+      "large_fabric_arcs",
+      "ribbon_motion",
+      "wind_driven_secondary_shapes"
+    ],
+    "lighting": [
+      "luminous_backlight",
+      "soft_directional_key",
+      "warm_gold_accents",
+      "deep_soft_shadow_masses",
+      "atmospheric_glow"
+    ],
+    "atmosphere": [
+      "mythic_scale",
+      "dust_haze",
+      "abstract_architectural_depth",
+      "painterly_particles"
+    ],
+    "palette_language": [
+      "ivory_or_pale_highlights",
+      "deep_black_or_charcoal_masses",
+      "antique_gold",
+      "muted_crimson_accents",
+      "warm_neutral_haze"
+    ],
+    "detail_distribution": [
+      "face_and_primary_ornament_focus",
+      "less_uniform_microdetail",
+      "painterly_peripheral_edges"
+    ],
+    "background_policy": "cinematic_environment_not_blank_studio",
+    "pose_policy": "dynamic_pose_authorized_unless_user_locks_pose",
+    "anti_patterns": [
+      "flat_white_studio",
+      "front_static_asset_pose",
+      "uniform_global_sharpness",
+      "clean_catalog_lighting",
+      "literal_every-detail rendering"
+    ],
+    "recommended_face_mode": "stylized_beauty",
+    "alternate_face_modes": [
+      "beauty_first",
+      "humanized_real"
+    ]
+  },
+  "reference_authority": {
+    "scenario": "style_A_asset_B",
+    "A": {
+      "role": "style_target",
+      "authority": {
+        "medium_language": 3,
+        "motion_language": 3,
+        "lighting_language": 3,
+        "atmosphere": 3,
+        "composition_energy": 3,
+        "color_relationships": 2,
+        "environment_scale": 2,
+        "face_identity_geometry": 0,
+        "body_proportion": 0,
+        "garment_silhouette": 0,
+        "garment_structure": 0,
+        "signature_accessories": 0
+      }
+    },
+    "B": {
+      "role": "asset_master",
+      "authority": {
+        "face_identity_geometry": 3,
+        "body_proportion": 2,
+        "garment_silhouette": 3,
+        "garment_structure": 3,
+        "signature_accessories": 3,
+        "hairstyle_silhouette": 3,
+        "palette_family": 2,
+        "footwear_family": 2,
+        "medium_language": 0,
+        "environment_scale": 0
+      }
+    },
+    "optional_C": {
+      "role": "facial_trait",
+      "authority": {
+        "maturity_level": 2,
+        "gaze_stability": 2,
+        "makeup_restraint": 2
+      },
+      "forbidden": [
+        "face_identity_geometry",
+        "garment_structure",
+        "lighting_language",
+        "environment_scale"
+      ]
+    },
+    "levels": {
+      "0": "ignore",
+      "1": "weak",
+      "2": "strong",
+      "3": "strict"
+    },
+    "principle": "each visual attribute should have one dominant reference authority; style target never owns identity geometry or garment architecture unless explicitly authorized."
+  },
+  "face_compatibility": {
+    "style_profile": "oriental_epic_painterly",
+    "recommended": "stylized_beauty",
+    "resolved_face_mode": "stylized_beauty",
+    "override_applied": false,
+    "reason": "the target look uses idealized painterly facial treatment; stronger photographic face realism can fight the medium",
+    "allowed": [
+      "stylized_beauty",
+      "beauty_first",
+      "humanized_real"
+    ],
+    "principle": "face mode is independent from render mode; style may recommend a face treatment but explicit user face preference wins."
+  },
+  "preservation_guard": {
+    "profile": "cinematic_target",
+    "lock_style_channels": [
+      "medium_language",
+      "motion_language",
+      "lighting_language",
+      "atmosphere",
+      "composition_energy"
+    ],
+    "background_rule": "follow explicit user target or style target; never reset to white studio from prior asset history",
+    "pose_rule": "dynamic pose/motion is authorized when required by the style target unless user explicitly locks pose",
+    "realism_rule": "realism may refine human/material behavior but must not erase painterly medium, motion or atmosphere",
+    "anti_drift": [
+      "flat_white_background",
+      "static_asset_pose",
+      "clean_catalog_lighting",
+      "uniform_sharpness",
+      "loss_of_painterly_edges"
+    ]
+  },
+  "round_plan": {
+    "round": "style_intent_alignment",
+    "editable": [
+      "explicit_output_intent",
+      "render_mode",
+      "style_target_assignment",
+      "background_policy",
+      "motion_permission"
+    ],
+    "locked": [
+      "face_identity_geometry",
+      "garment_silhouette",
+      "garment_structure",
+      "signature_accessories",
+      "approved_face_mode"
+    ],
+    "forbidden": [
+      "infer_white_background_from_asset_history",
+      "let_character_archetype_override_explicit_style_target"
+    ],
+    "prompt_strategy": "resolve explicit output/style intent first: choose render mode, background policy and style target authority without touching identity or costume architecture"
+  },
+  "prompt_skeleton": [
+    "Render mode: cinematic_hybrid.",
+    "Image A is the Style Target; Image B is the Asset Master.",
+    "Keep B identity and garment architecture; borrow A medium, motion, lighting, atmosphere and composition energy only.",
+    "Face mode: stylized_beauty.",
+    "Do not inherit the Asset Master white background; follow the cinematic style target environment/presentation.",
+    "Do not flatten painterly motion/atmosphere during realism refinement."
+  ],
+  "note": "Explicit style intent and background constraints are resolved before archetype defaults."
+}

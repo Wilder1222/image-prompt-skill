@@ -1,0 +1,36 @@
+{
+  "version": "0.7.4",
+  "default": "H2",
+  "levels": {
+    "H0": {
+      "label": "stylized",
+      "soft_tissue": false,
+      "regional_skin": false,
+      "natural_asymmetry": false,
+      "camera_response": false
+    },
+    "H1": {
+      "label": "surface_realism",
+      "soft_tissue": "light",
+      "regional_skin": "light",
+      "natural_asymmetry": false,
+      "camera_response": "light"
+    },
+    "H2": {
+      "label": "human_presence",
+      "soft_tissue": "moderate",
+      "regional_skin": "moderate",
+      "natural_asymmetry": "subtle",
+      "camera_response": "moderate",
+      "age_shift": "none"
+    },
+    "H3": {
+      "label": "photographic_presence",
+      "soft_tissue": "strong",
+      "regional_skin": "strong",
+      "natural_asymmetry": "subtle_to_moderate",
+      "camera_response": "strong",
+      "age_shift": "none_by_default"
+    }
+  }
+}

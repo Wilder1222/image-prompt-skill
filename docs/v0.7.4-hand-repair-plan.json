@@ -1,0 +1,38 @@
+{
+  "first_focus": "hand_digit_count_error",
+  "priority": "P1E",
+  "recommended_round": "extremity_integrity",
+  "round_plan": {
+    "round": "extremity_integrity",
+    "editable": [
+      "hand_integrity",
+      "foot_integrity",
+      "local_wrist_ankle_transition"
+    ],
+    "locked": [
+      "face_identity_geometry",
+      "body_proportion",
+      "pose_except_local_extremity",
+      "garment_silhouette",
+      "garment_structure",
+      "palette",
+      "composition",
+      "lighting",
+      "background",
+      "identity_stable"
+    ],
+    "forbidden": [
+      "global_pose_redesign",
+      "costume_redesign",
+      "identity_change"
+    ],
+    "prompt_strategy": "local hand/foot anatomy patch only; lock passed identity, costume, composition and lighting"
+  },
+  "failures": [
+    {
+      "id": "hand_digit_count_error",
+      "priority": "P1E",
+      "round": "extremity_integrity"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "version": "0.7.4",
+  "default": "W0",
+  "note": "Visual wear budgets are project guidance, not physical measurements or vendor parameters.",
+  "levels": {
+    "W0": {
+      "label": "clean",
+      "stain_coverage_pct": [0, 2],
+      "tear_coverage_pct": [0, 1],
+      "large_tears_max": 0,
+      "edge_fray": "none_to_minimal",
+      "metal_weathering": "clean"
+    },
+    "W1": {
+      "label": "lightly_worn",
+      "stain_coverage_pct": [1, 5],
+      "tear_coverage_pct": [0, 3],
+      "large_tears_max": 1,
+      "edge_fray": "light",
+      "metal_weathering": "light_scuffs"
+    },
+    "W2": {
+      "label": "distressed",
+      "stain_coverage_pct": [5, 15],
+      "tear_coverage_pct": [3, 12],
+      "large_tears_max": 3,
+      "edge_fray": "visible_but_controlled",
+      "metal_weathering": "scuffs_light_oxidation_no_structural_damage"
+    },
+    "W3": {
+      "label": "battle_worn",
+      "stain_coverage_pct": [10, 25],
+      "tear_coverage_pct": [10, 25],
+      "large_tears_max": 6,
+      "edge_fray": "heavy",
+      "metal_weathering": "heavy_scuffs_dents_local_damage"
+    },
+    "W4": {
+      "label": "ruined",
+      "stain_coverage_pct": [20, 50],
+      "tear_coverage_pct": [20, 50],
+      "large_tears_max": null,
+      "edge_fray": "extreme",
+      "metal_weathering": "structural_damage_allowed"
+    }
+  },
+  "prompt_translation_rule": "Describe wear by visible extent and type. Never escalate the wear state automatically during completion."
+}

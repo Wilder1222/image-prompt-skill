@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "status": "pending",
+  "purpose": "Compare a costume portrait against a user-preferred benchmark without conflating new visual inputs with prompt-only changes.",
+  "baseline_image": null,
+  "benchmarks": [],
+  "cases": [
+    {
+      "case_id": null,
+      "experiment_type": "same_reference_prompt_revision",
+      "image_inputs": [],
+      "text_only_benchmark_observations": [],
+      "designed_extensions": [],
+      "compiler_options": {},
+      "compiled_prompt": null,
+      "final_prompt": null,
+      "model": null,
+      "seed": null,
+      "output_image": null,
+      "observer_review": {
+        "reviewer_type": null,
+        "face_and_identity": "pending",
+        "neck_waist_proportion": "pending",
+        "hand_sleeve_relationship": "pending",
+        "garment_silhouette": "pending",
+        "material_hierarchy": "pending",
+        "visible_anatomy": "pending",
+        "framing_and_ground_contact": "pending",
+        "regressions": [],
+        "decision": null
+      },
+      "human_approval": "pending"
+    }
+  ],
+  "causal_claim_limit": "Different image inputs are separate tests; unknown model settings prevent a strict controlled comparison. A single sample cannot establish repeatability.",
+  "promote_output_to_master": false
+}

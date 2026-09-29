@@ -1,0 +1,30 @@
+{
+  "version": "0.7.2",
+  "layers": {
+    "structural_fabric": [
+      "brocade",
+      "satin_brocade",
+      "silk_base",
+      "heavy_woven_panel"
+    ],
+    "atmospheric_fabric": [
+      "silk_gauze",
+      "chiffon",
+      "veil",
+      "translucent_sleeve"
+    ],
+    "ornament_armor": [
+      "metal",
+      "leather",
+      "waist_medallion",
+      "pauldron",
+      "bracer"
+    ],
+    "surface_detail": [
+      "metallic_thread_embroidery",
+      "woven_motif",
+      "embossed_trim"
+    ]
+  },
+  "rule": "each layer must have distinct physical behavior and image function"
+}

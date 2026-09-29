@@ -1,0 +1,17 @@
+{
+  "version": "0.7.2",
+  "hybrid_R2": {
+    "key": "soft_directional_cinematic_key",
+    "fill": "weaker_controlled_fill",
+    "rim": "luminous_controlled_rim_or_backlight",
+    "atmosphere": "moderate_glow_restrained_bloom",
+    "highlight_routing": {
+      "skin": "soft_broken_specular",
+      "silk": "directional_sheen",
+      "gauze": "soft_transmission",
+      "leather": "low_to_medium_specular",
+      "metal": "controlled_hard_highlights",
+      "jewelry": "small_point_highlights"
+    }
+  }
+}

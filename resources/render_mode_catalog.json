@@ -1,0 +1,66 @@
+{
+  "version": "0.8.0",
+  "default": "hybrid",
+  "modes": {
+    "asset": {
+      "priority": [
+        "identity",
+        "asset_continuity",
+        "readability",
+        "neutral_presentation"
+      ]
+    },
+    "restoration": {
+      "priority": [
+        "identity",
+        "style_restoration",
+        "atmosphere",
+        "motion",
+        "environment_scale",
+        "realism_support"
+      ]
+    },
+    "hybrid": {
+      "priority": [
+        "identity",
+        "asset_continuity",
+        "style_restoration",
+        "reality_gain",
+        "material_lighting_integration",
+        "micro_quality"
+      ]
+    },
+    "style_asset": {
+      "priority": [
+        "identity",
+        "asset_continuity",
+        "style_language",
+        "human_presence",
+        "material_realism",
+        "neutral_background",
+        "micro_quality"
+      ],
+      "background_policy": "white_or_neutral",
+      "environment_copy": "forbidden"
+    },
+    "cinematic_hybrid": {
+      "priority": [
+        "identity",
+        "asset_continuity",
+        "explicit_style_target",
+        "style_medium",
+        "style_motion",
+        "style_lighting",
+        "style_atmosphere",
+        "composition_energy",
+        "material_realism",
+        "face_mode",
+        "micro_quality"
+      ],
+      "background_policy": "explicit_user_constraint_else_style_target",
+      "environment_copy": "authorized_style_language_not_literal_geometry",
+      "pose_policy": "dynamic_if_style_requires_unless_user_locked",
+      "asset_history_background": "must_not_override_current_style_intent"
+    }
+  }
+}

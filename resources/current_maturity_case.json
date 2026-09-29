@@ -1,0 +1,36 @@
+{
+  "version": "0.7.1",
+  "case_id": "character_001_maturity_calibration_001",
+  "asset_master": "current_fullbody_white_studio_asset",
+  "trait_reference": "secondary_face_reference_for_maturity_only",
+  "target_maturity": "M2.5",
+  "desired_shift": [
+    "reduce_childishness",
+    "steadier_gaze",
+    "slightly_less_babyish_cheek_softness",
+    "more_restrained_editorial_makeup",
+    "more_refined_young_adult_temperament"
+  ],
+  "locked_identity_geometry": [
+    "face_shape",
+    "eye_spacing",
+    "eye_shape_core",
+    "nose_proportions",
+    "lip_geometry",
+    "jaw_chin_geometry"
+  ],
+  "blocked_trait_reference_transfer": [
+    "face_geometry",
+    "hair",
+    "costume",
+    "body",
+    "background",
+    "lighting",
+    "camera_framing"
+  ],
+  "observed_risk_from_previous_round": [
+    "maturity_implemented_as_coldness",
+    "maturity_implemented_as_face_sharpening",
+    "generic_high_end_beauty_drift"
+  ]
+}

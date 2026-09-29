@@ -1,0 +1,29 @@
+{
+  "version": "0.7.7",
+  "name": "eye_optical_realism_v2",
+  "controls": {
+    "sclera_tone": "natural_off_white",
+    "iris_uniformity": "low",
+    "iris_radial_variation": "subtle",
+    "corneal_highlight": "studio_consistent",
+    "eyelid_wrap": "high",
+    "lower_lid_volume": "subtle",
+    "tear_duct_visibility": "subtle",
+    "lash_root_integration": "natural",
+    "eye_white_contrast": "restrained",
+    "cg_glassiness": "minimize"
+  },
+  "prompt_translation": [
+    "Use natural off-white sclera rather than luminous paper-white eye whites.",
+    "Give the iris subtle non-uniform radial texture and tonal variation without gemstone or glowing-eye rendering.",
+    "Make upper and lower eyelids physically wrap the eyeball with natural lid thickness and slight lower-lid volume.",
+    "Integrate lashes at real lash roots and keep catchlights consistent with the existing studio key light."
+  ],
+  "forbidden": [
+    "crystal_eyes",
+    "glowing_eyes",
+    "jewel_like_iris",
+    "ultra_clear_eyes",
+    "perfectly_symmetrical_eyes"
+  ]
+}

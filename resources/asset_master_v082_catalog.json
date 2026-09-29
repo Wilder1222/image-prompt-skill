@@ -1,0 +1,26 @@
+{
+  "version": "0.8.2",
+  "default": "master_sheet_single",
+  "profiles": {
+    "master_sheet_single": {
+      "aspect_ratio": "3:4",
+      "background": "clean_white_seamless",
+      "orientation": "front_facing",
+      "pose": "upright_neutral_elegant",
+      "requirements": [
+        "hair_ornament_fully_visible",
+        "shoes_fully_visible",
+        "safe_margin_top_bottom_sides",
+        "vertical_body_axis_stable",
+        "balanced_negative_space",
+        "hem_spread_controlled",
+        "footwear_readable",
+        "no_capture_motion"
+      ],
+      "prompt_translation": [
+        "Compose the character as a clean master asset portrait: full body visible from the top of the hair ornament to the shoes, centered, front-facing and upright, with balanced negative space and a pure white seamless background.",
+        "Keep the hem controlled rather than excessively spread, and keep the footwear clearly readable so the full-body scale and costume construction can be used as a reusable character asset master."
+      ]
+    }
+  }
+}

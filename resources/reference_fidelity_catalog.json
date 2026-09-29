@@ -1,0 +1,57 @@
+{
+  "version": "0.7.3",
+  "levels": {
+    "0": "ignore",
+    "1": "weak",
+    "2": "strong",
+    "3": "strict"
+  },
+  "channels": ["identity", "costume", "material", "pose", "style", "lighting", "environment"],
+  "presets": {
+    "single_reference_asset": {
+      "identity": 3,
+      "costume": 3,
+      "material": 2,
+      "pose": 2,
+      "style": 1,
+      "lighting": 1,
+      "environment": 0
+    },
+    "single_reference_style_asset": {
+      "identity": 3,
+      "costume": 3,
+      "material": 2,
+      "pose": 2,
+      "style": 2,
+      "lighting": 2,
+      "environment": 0
+    },
+    "single_reference_restoration": {
+      "identity": 2,
+      "costume": 2,
+      "material": 2,
+      "pose": 1,
+      "style": 3,
+      "lighting": 3,
+      "environment": 2
+    },
+    "silver_asset_case": {
+      "identity": 3,
+      "costume": 2,
+      "material": 2,
+      "pose": 2,
+      "style": 2,
+      "lighting": 2,
+      "environment": 0
+    },
+    "cyber_asset_case": {
+      "identity": 3,
+      "costume": 3,
+      "material": 2,
+      "pose": 2,
+      "style": 2,
+      "lighting": 1,
+      "environment": 0
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "version": "0.8.0",
+  "priority_order": [
+    "P0_identity",
+    "P0I_explicit_output_intent",
+    "P1_asset_continuity",
+    "P1S_style_target",
+    "P1M_render_mode",
+    "P2_style_restoration",
+    "P2R_reality_gain",
+    "P3_material_lighting",
+    "P4_micro_quality"
+  ],
+  "conflicts": {
+    "asset_pose_vs_dynamic_style": {
+      "hybrid_resolution": "keep core pose unless authorized; move dynamic style into hair/fabric/composition energy"
+    },
+    "realism_vs_painterly_atmosphere": {
+      "hybrid_resolution": "apply realism to human/material behavior; preserve stylized atmosphere at R1/R2"
+    },
+    "real_material_vs_fantasy_design": {
+      "hybrid_resolution": "preserve silhouette and ornament language; correct material behavior and attachment logic"
+    },
+    "face_lock_vs_trait_or_style": {
+      "resolution": "identity geometry wins"
+    },
+    "white_asset_background_vs_restoration_scene": {
+      "resolution": "render mode decides; hybrid/restoration may replace background unless explicitly locked"
+    },
+    "prior_asset_white_vs_current_style_target": {
+      "resolution": "current explicit style/output intent wins; prior asset background is not persistent unless user re-locks it"
+    },
+    "archetype_default_vs_explicit_style_target": {
+      "resolution": "explicit style target controls render mode; archetype only recommends face mode"
+    },
+    "photographic_face_vs_painterly_medium": {
+      "resolution": "use style-face compatibility; default to stylized_beauty or beauty_first for painterly target unless user explicitly requests humanized_real"
+    },
+    "static_asset_pose_vs_full_dynamic_style": {
+      "resolution": "if user requests target style and pose is not explicitly locked, authorize dynamic pose and large-scale hair/fabric motion while preserving identity/costume architecture"
+    }
+  }
+}

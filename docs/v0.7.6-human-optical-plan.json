@@ -1,0 +1,177 @@
+{
+  "human_presence": {
+    "level": "H2.5",
+    "label": "photographic_human",
+    "eye_optics_realism": 0.86,
+    "skin_optical_coherence": 0.84,
+    "soft_structure_fidelity": 0.82,
+    "makeup_skin_integration": 0.82,
+    "hair_frequency_variation": 0.75,
+    "camera_optics_hierarchy": 0.86,
+    "realism_coherence": 0.9,
+    "asymmetry_policy": "optional_natural",
+    "age_shift": "none",
+    "prompt_translation": [
+      "Keep the approved face identity and P9 body proportions unchanged; refine only photographic human presence.",
+      "Make the eyes optically believable: natural lid-to-eyeball contact, realistic lash roots, natural off-white sclera, non-gem-like iris texture, and catchlights consistent with the existing key light.",
+      "Keep young skin relatively even in color while adding region-dependent optical response: soft forehead sheen, slightly stronger nose response, fine inner-cheek texture, softer outer-cheek diffusion, thinner eye-area response, and independent lip material.",
+      "Integrate makeup into real skin instead of replacing skin texture; keep brows, eyeliner, lashes and lip finish refined but not vector-clean or glass-plastic.",
+      "Build hair at multiple scales: primary masses, secondary bundles and only a small amount of fine irregular hair, with non-uniform highlight flow.",
+      "Use a photographic focus hierarchy and soft highlight roll-off rather than global digital sharpness; the face is the strongest focus while the full costume remains clearly readable.",
+      "Keep eyes, skin, lips, hair, makeup and nearby materials at a coherent realism level; do not overprocess one subsystem relative to the others."
+    ],
+    "detail_budget": {
+      "full_body": {
+        "primary": [
+          "eye_optics_realism",
+          "skin_optical_coherence",
+          "realism_coherence",
+          "camera_optics_hierarchy"
+        ],
+        "secondary": [
+          "soft_structure_fidelity",
+          "makeup_skin_integration",
+          "hair_frequency_variation"
+        ],
+        "support": [
+          "fine_pores",
+          "micro_asymmetry"
+        ]
+      },
+      "half_body": {
+        "primary": [
+          "eye_optics_realism",
+          "skin_optical_coherence",
+          "soft_structure_fidelity",
+          "makeup_skin_integration"
+        ],
+        "secondary": [
+          "hair_frequency_variation",
+          "camera_optics_hierarchy",
+          "realism_coherence"
+        ],
+        "support": [
+          "micro_asymmetry"
+        ]
+      },
+      "close_up": {
+        "primary": [
+          "eye_optics_realism",
+          "skin_optical_coherence",
+          "soft_structure_fidelity",
+          "makeup_skin_integration",
+          "realism_coherence"
+        ],
+        "secondary": [
+          "hair_frequency_variation",
+          "camera_optics_hierarchy"
+        ],
+        "support": [
+          "micro_asymmetry"
+        ]
+      }
+    },
+    "forbidden_shortcuts": [
+      "coarse_pore_stack",
+      "random_skin_mottling",
+      "paper_white_sclera",
+      "gem_eye_rendering",
+      "forced_face_asymmetry",
+      "aging_cues",
+      "face_reshape",
+      "global_sharpening",
+      "hdr_clarity_surface"
+    ],
+    "principle": "Photographic human presence comes from coherent eye/skin/hair/makeup/camera behavior, not maximum texture, forced asymmetry, aging cues or global sharpening."
+  },
+  "focus": {
+    "profile": "full_body_asset",
+    "face_focus": "strongest",
+    "upper_costume": "crisp_readable",
+    "lower_costume": "clear_asset_readable",
+    "outer_translucent_edges": "slightly_softer_allowed",
+    "background": "seamless_low_attention",
+    "depth_policy": "moderate_depth_not_shallow_portrait_blur"
+  },
+  "coherence": {
+    "channels": [
+      "eyes",
+      "skin",
+      "lips",
+      "brows_lashes",
+      "hair",
+      "makeup",
+      "adjacent_costume",
+      "camera_response"
+    ],
+    "rule": "adjacent realism channels should stay within one internal tier",
+    "repair_order": [
+      "eyes_skin",
+      "makeup_skin",
+      "hair",
+      "camera_focus",
+      "adjacent_material_highlights"
+    ],
+    "failure_codes": [
+      "realism_mismatch_eye_skin",
+      "realism_mismatch_face_hair",
+      "realism_mismatch_face_costume",
+      "realism_channel_overprocessed"
+    ]
+  },
+  "round_plan": {
+    "round": "human_presence_optical_refine",
+    "editable": [
+      "eye_optics_realism",
+      "skin_optical_coherence",
+      "soft_structure_fidelity",
+      "makeup_skin_integration",
+      "hair_frequency_variation",
+      "camera_optics_hierarchy",
+      "realism_coherence",
+      "highlight_rolloff",
+      "focus_hierarchy"
+    ],
+    "locked": [
+      "face_identity_geometry",
+      "age_identity",
+      "fashion_proportion",
+      "body_proportion",
+      "pose",
+      "garment_silhouette",
+      "garment_structure",
+      "palette",
+      "composition",
+      "background",
+      "lighting_design",
+      "hand_integrity",
+      "foot_integrity"
+    ],
+    "forbidden": [
+      "face_reshape",
+      "aging_cues",
+      "coarse_pore_stack",
+      "random_skin_mottling",
+      "paper_white_sclera",
+      "gem_eye_rendering",
+      "forced_face_asymmetry",
+      "global_sharpening",
+      "proportion_reopen",
+      "costume_reopen"
+    ],
+    "prompt_strategy": "optical-human patch: eyes + skin optics + makeup integration + hair frequency + camera/focus coherence while locking identity, P9 proportion, costume and lighting layout"
+  },
+  "prompt_skeleton": [
+    "Keep the approved face identity and P9 body proportions unchanged; refine only photographic human presence.",
+    "Make the eyes optically believable: natural lid-to-eyeball contact, realistic lash roots, natural off-white sclera, non-gem-like iris texture, and catchlights consistent with the existing key light.",
+    "Keep young skin relatively even in color while adding region-dependent optical response: soft forehead sheen, slightly stronger nose response, fine inner-cheek texture, softer outer-cheek diffusion, thinner eye-area response, and independent lip material.",
+    "Integrate makeup into real skin instead of replacing skin texture; keep brows, eyeliner, lashes and lip finish refined but not vector-clean or glass-plastic.",
+    "Build hair at multiple scales: primary masses, secondary bundles and only a small amount of fine irregular hair, with non-uniform highlight flow.",
+    "Use a photographic focus hierarchy and soft highlight roll-off rather than global digital sharpness; the face is the strongest focus while the full costume remains clearly readable.",
+    "Keep eyes, skin, lips, hair, makeup and nearby materials at a coherent realism level; do not overprocess one subsystem relative to the others.",
+    "Focus hierarchy: face/eyes strongest; upper costume crisp; full garment and footwear remain asset-readable; peripheral translucent edges may resolve slightly softer.",
+    "Preserve youthful skin color homogeneity; add realism through regional optical response, not random pigment noise.",
+    "Treat micro-asymmetry as optional: preserve naturally observed variation but do not deliberately deform a symmetrical face."
+  ],
+  "note": "Run after P9 is accepted. This round does not reopen body proportion, identity geometry, costume architecture or lighting layout."
+}

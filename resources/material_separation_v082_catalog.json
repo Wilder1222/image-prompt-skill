@@ -1,0 +1,52 @@
+{
+  "version": "0.8.2",
+  "default": "ancient_asset_material_split",
+  "principle": "Material separation is a structural readability problem, not a request for more texture everywhere.",
+  "profiles": {
+    "ancient_asset_material_split": {
+      "layers": {
+        "primary_fabric": {
+          "materials": [
+            "silk_brocade",
+            "cloud_brocade",
+            "fine_satin"
+          ],
+          "behavior": "denser_weighted_stable_folds",
+          "highlight": "controlled_directional"
+        },
+        "sheer_overlay": {
+          "materials": [
+            "silk_gauze",
+            "organza_like_silk"
+          ],
+          "behavior": "light_semitransparent_layered",
+          "highlight": "soft_transmitted",
+          "edge": "thin_visible"
+        },
+        "pattern_layer": {
+          "materials": [
+            "gold_thread_embroidery",
+            "woven_gold",
+            "floral_brocade"
+          ],
+          "behavior": "attached_to_fabric_with_slight_relief",
+          "highlight": "fine_selective"
+        },
+        "structure_layer": {
+          "materials": [
+            "waist_sash",
+            "collar_edge",
+            "ties",
+            "hanging_ornaments"
+          ],
+          "behavior": "more_defined_and_supportive",
+          "highlight": "structured_low_medium"
+        }
+      },
+      "prompt_translation": [
+        "Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.",
+        "Do not let all layers share the same soft glossy fantasy surface."
+      ]
+    }
+  }
+}

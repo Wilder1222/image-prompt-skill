@@ -1,0 +1,24 @@
+{
+  "version": "0.8.0",
+  "principle": "face mode is independent from render mode; style may recommend a face treatment but explicit user face preference wins.",
+  "profiles": {
+    "oriental_epic_painterly": {
+      "recommended": "stylized_beauty",
+      "reason": "the target look uses idealized painterly facial treatment; stronger photographic face realism can fight the medium",
+      "allowed": [
+        "stylized_beauty",
+        "beauty_first",
+        "humanized_real"
+      ]
+    },
+    "clean_asset_studio": {
+      "recommended": "beauty_first",
+      "reason": "neutral asset presentation benefits from preserving character beauty unless archetype/user asks for stronger realism",
+      "allowed": [
+        "beauty_first",
+        "humanized_real",
+        "stylized_beauty"
+      ]
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "render_mode": {
+    "mode": "hybrid",
+    "priority": [
+      "identity",
+      "asset_continuity",
+      "style_restoration",
+      "reality_gain",
+      "material_lighting_integration",
+      "micro_quality"
+    ]
+  },
+  "style_restoration": {
+    "level": "S2",
+    "label": "clear_restoration",
+    "channels": [
+      "mood",
+      "motion_language",
+      "lighting_language",
+      "atmosphere",
+      "color_relationships",
+      "medium_language",
+      "composition_energy"
+    ],
+    "forbidden_borrow": [
+      "face_identity_geometry",
+      "body_proportion",
+      "garment_silhouette",
+      "garment_structure",
+      "signature_accessories",
+      "age_identity"
+    ]
+  },
+  "reality_gain": {
+    "level": "R2",
+    "label": "humanized_restoration",
+    "human_realism": [
+      "soft_tissue",
+      "regional_skin_optics",
+      "natural_makeup",
+      "hair_strands"
+    ],
+    "material_realism": [
+      "layer_separation",
+      "attachment_logic",
+      "physical_drape"
+    ],
+    "lighting_realism": [
+      "key_fill_logic",
+      "rim_separation",
+      "material_highlight_routing"
+    ],
+    "protected_style": [
+      "epic_mood",
+      "painterly_cinematic_atmosphere",
+      "motion_language",
+      "environment_scale"
+    ],
+    "forbidden": [
+      "face_reshape",
+      "body_redesign",
+      "costume_redesign_without_authorization"
+    ]
+  },
+  "reference_roles": {
+    "A": "style_restoration only",
+    "B": "asset_master",
+    "C": "optional facial_trait only"
+  },
+  "locks": [
+    "face_identity_geometry",
+    "body_proportion",
+    "garment_silhouette",
+    "garment_structure",
+    "signature_accessories"
+  ],
+  "lighting": {
+    "key": "soft_directional_cinematic_key",
+    "fill": "weaker_controlled_fill",
+    "rim": "luminous_controlled_rim_or_backlight",
+    "atmosphere": "moderate_glow_restrained_bloom",
+    "highlight_routing": {
+      "skin": "soft_broken_specular",
+      "silk": "directional_sheen",
+      "gauze": "soft_transmission",
+      "leather": "low_to_medium_specular",
+      "metal": "controlled_hard_highlights",
+      "jewelry": "small_point_highlights"
+    }
+  },
+  "material_layers": {
+    "structural_fabric": [
+      "brocade",
+      "satin_brocade",
+      "silk_base",
+      "heavy_woven_panel"
+    ],
+    "atmospheric_fabric": [
+      "silk_gauze",
+      "chiffon",
+      "veil",
+      "translucent_sleeve"
+    ],
+    "ornament_armor": [
+      "metal",
+      "leather",
+      "waist_medallion",
+      "pauldron",
+      "bracer"
+    ],
+    "surface_detail": [
+      "metallic_thread_embroidery",
+      "woven_motif",
+      "embossed_trim"
+    ]
+  },
+  "prompt_skeleton": [
+    "Assign reference roles first.",
+    "Render mode: hybrid. Style restoration: S2. Reality gain: R2.",
+    "Keep asset identity/body/garment architecture locked.",
+    "Restore only authorized mood/motion/lighting/atmosphere/medium channels from the style reference.",
+    "Apply realism to human skin, hair, materials and lighting without erasing the restored fantasy language."
+  ],
+  "note": "S/R levels are project heuristics, not vendor parameters."
+}

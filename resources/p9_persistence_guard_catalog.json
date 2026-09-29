@@ -1,0 +1,55 @@
+{
+  "version": "0.7.8",
+  "default": "P9_locked",
+  "principle": "Once a fashion proportion passes, later realism and polish rounds must preserve the accepted whole-figure visual ratio instead of quietly returning toward a shorter natural proportion.",
+  "profiles": {
+    "P8_locked": {
+      "source_level": "P8",
+      "guard_strength": "medium",
+      "locks": [
+        "head_visual_scale",
+        "neck_extension",
+        "torso_length",
+        "waistline_visual",
+        "leg_read",
+        "footwear_scale",
+        "garment_vertical_flow"
+      ]
+    },
+    "P9_locked": {
+      "source_level": "P9",
+      "guard_strength": "strong",
+      "locks": [
+        "head_visual_scale",
+        "neck_extension",
+        "shoulder_opening",
+        "torso_length",
+        "waistline_visual",
+        "pelvis_knee_ankle_relationship",
+        "leg_read",
+        "footwear_scale",
+        "garment_vertical_flow",
+        "hem_width"
+      ],
+      "prompt_translation": [
+        "Preserve the already-approved P9 fashion silhouette exactly: do not let later realism edits enlarge the head, lower the waistline, shorten the leg read or widen the skirt silhouette.",
+        "Keep the accepted torso length, pelvis-to-knee-to-ankle relationship, footwear scale and vertical garment flow unchanged."
+      ]
+    },
+    "P9.5_locked": {
+      "source_level": "P9.5",
+      "guard_strength": "strong",
+      "locks": [
+        "all_approved_fashion_proportion_dimensions"
+      ]
+    }
+  },
+  "failure_codes": [
+    "p9_regression",
+    "head_scale_rebound",
+    "waistline_drop",
+    "leg_read_compressed",
+    "hem_volume_overblocking",
+    "vertical_flow_regression"
+  ]
+}

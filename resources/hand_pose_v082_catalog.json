@@ -1,0 +1,35 @@
+{
+  "version": "0.8.2",
+  "default": "elegant_crossed_hands_safe",
+  "principle": "Hands are a generation-time structural constraint for asset portraits, not only a post-generation repair item.",
+  "modes": {
+    "elegant_crossed_hands_safe": {
+      "primary_hand": "front_top_hand",
+      "secondary_hand": "supporting_lower_hand",
+      "requirements": [
+        "five_digits_each",
+        "one_thumb_four_fingers_each",
+        "natural_length_hierarchy",
+        "believable_knuckles",
+        "clear_wrist_direction",
+        "sleeve_does_not_swallow_finger_roots",
+        "hand_scale_matches_face_and_forearm"
+      ],
+      "prompt_translation": [
+        "Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.",
+        "Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area."
+      ]
+    },
+    "relaxed_down_safe": {
+      "requirements": [
+        "five_digits_each",
+        "relaxed_finger_curve",
+        "clear_wrist_direction",
+        "no_fusion"
+      ],
+      "prompt_translation": [
+        "Keep the hands relaxed beside the body with anatomically correct five-finger structure and natural wrist alignment."
+      ]
+    }
+  }
+}

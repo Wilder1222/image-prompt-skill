@@ -1,0 +1,32 @@
+{
+  "face_signature": {
+    "face_shape": "soft_oval_long",
+    "brow_eye_relation": "balanced_close",
+    "eye_shape_core": "slender_almond",
+    "eye_spacing": "standard_slightly_narrow",
+    "nose_bridge_and_tip": "slim_bridge_soft_tip",
+    "lip_ratio": "thinner_upper_softer_lower",
+    "jaw_chin": "soft_jaw_narrow_chin",
+    "age_intent": "20_25"
+  },
+  "hair_signature": {
+    "parting": "center_part",
+    "bangs_grouping": "soft_split_strands",
+    "side_locks": "long_delicate",
+    "updo_height": "high_half_up",
+    "rear_hair_volume": "medium_full",
+    "long_hair_drop": "front_shoulders_and_back",
+    "hair_accessory_shape": "tall_gold_crown_branch_like"
+  },
+  "body_signature": {
+    "frame": "slim_small_bone",
+    "shoulder_waist_relation": "narrow_shoulder_defined_waist",
+    "torso_leg_balance": "tall_but_credible",
+    "body_curve_intent": "elegant_controlled"
+  },
+  "identity_lock_scope": {
+    "strong_lock": ["face_signature", "hair_signature", "age_intent", "body_frame"],
+    "medium_lock": ["makeup_direction", "accessory_family"],
+    "flexible": ["costume", "palette", "pose_within_range"]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "profile": "studio_soft_separation",
+  "key": "front_left_upper_large_softbox",
+  "fill": "front_low_weaker_fill",
+  "separation": "very_subtle_edge_separation",
+  "floor_shadow": "soft_grounded_contact",
+  "background": "high_key_white_not_clipped",
+  "goals": [
+    "face_is_primary_read",
+    "white_gauze_separates_from_background",
+    "main_fabric_keeps_weight",
+    "gold_thread_gets_controlled_highlights",
+    "no_flat_even_light"
+  ],
+  "prompt_translation": [
+    "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
+    "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "version": "0.8.1",
+  "default": "selective_painterly",
+  "profiles": {
+    "selective_painterly": {
+      "crisp_edges": [
+        "eyes",
+        "nose_mouth_focal_contour",
+        "crown_core",
+        "weapon_core",
+        "waist_core_metal"
+      ],
+      "soft_edges": [
+        "hair_tails",
+        "outer_gauze",
+        "outer_ribbons",
+        "secondary_skirt_edges",
+        "cloud_edges"
+      ],
+      "lost_edges": [
+        "backlit_hair_periphery",
+        "mist_architecture_intersections",
+        "glowing_fabric_edges",
+        "ground_light_reflections"
+      ],
+      "rules": [
+        "Use crisp edges only where they reinforce the focal hierarchy.",
+        "Allow soft and partially lost edges in wind-driven and atmospheric regions.",
+        "Let backlight erase selected contours naturally.",
+        "Do not sharpen every silhouette equally."
+      ],
+      "anti_patterns": [
+        "uniform_edge_sharpness",
+        "cutout_character_edge",
+        "vector_like_cloth_edges",
+        "sharp_mist"
+      ]
+    }
+  }
+}

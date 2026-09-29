@@ -1,0 +1,45 @@
+{
+  "checked_on": "2026-09-26",
+  "sources": [
+    {
+      "id": "OPENAI_IMAGE_PROMPTING",
+      "url": "https://developers.openai.com/api/docs/guides/image-prompting",
+      "type": "official"
+    },
+    {
+      "id": "OPENAI_IMAGE_GENERATION",
+      "url": "https://developers.openai.com/api/docs/guides/image-generation",
+      "type": "official"
+    },
+    {
+      "id": "MJ_EDIT",
+      "url": "https://docs.midjourney.com/hc/en-us/articles/48495453462797-Edit-Model",
+      "type": "official"
+    },
+    {
+      "id": "MJ_STYLE_REF",
+      "url": "https://docs.midjourney.com/hc/en-us/articles/32180011136653-Style-Reference",
+      "type": "official"
+    },
+    {
+      "id": "GEMINI_IMAGE",
+      "url": "https://ai.google.dev/gemini-api/docs/image-generation",
+      "type": "official"
+    },
+    {
+      "id": "SEEDREAM_API",
+      "url": "https://docs.volcengine.com/docs/ark/image-generation-api?lang=en",
+      "type": "official"
+    },
+    {
+      "id": "FLUX2_EDIT",
+      "url": "https://docs.bfl.ai/flux_2/flux2_image_editing",
+      "type": "official"
+    },
+    {
+      "id": "FLUX2_PROMPTING",
+      "url": "https://docs.bfl.ai/guides/prompting_guide_flux2",
+      "type": "official"
+    }
+  ]
+}

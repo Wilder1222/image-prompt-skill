@@ -1,0 +1,64 @@
+{
+  "level": "P9",
+  "label": "fashion",
+  "visual_head_count_range": [
+    8.7,
+    9
+  ],
+  "head_visual_scale": "slightly_reduced",
+  "neck_extension": "mild",
+  "shoulder_opening": "mild",
+  "torso_preservation": "strong",
+  "waistline_visual_raise": "mild",
+  "leg_extension": "balanced_moderate",
+  "garment_vertical_bias": "strong",
+  "garment_width_control": "medium",
+  "prompt_translation": [
+    "Create a high-fashion nine-head visual proportion on a believable adult body: tall, elongated and elegant rather than anime-stretched.",
+    "Slightly reduce the head's visual share of the full figure while keeping face width, face shape and all identity geometry unchanged.",
+    "Keep the ribcage and torso fully developed; do not shorten the torso to create longer legs.",
+    "Lengthen the hip-to-knee and knee-to-ankle segments in balance, preserving natural knee position, pelvis width, ankle scale and foot proportion.",
+    "Raise the waistline only visually through sash placement, skirt-panel origin and vertical garment lines rather than compressing the anatomical torso.",
+    "Bias the costume toward vertical flow and slightly control sleeve/skirt lateral mass so the garment supports the tall fashion silhouette."
+  ],
+  "head_to_body_guard": {
+    "include_hair_ornaments_in_ratio": false,
+    "allow_face_identity_change": false,
+    "allow_face_width_reduction": false,
+    "allow_eye_nose_lip_rescaling": false,
+    "control_mode": "visual_scale_relationship_only",
+    "rules": [
+      "Hair buns, crowns, hairpins and head ornaments do not count toward the visual head unit.",
+      "Never create a smaller-looking head by narrowing the face, enlarging the shoulders, or changing facial identity.",
+      "Head-scale correction must be achieved through whole-figure relationship and framing, not facial reshaping."
+    ]
+  },
+  "leg_segmentation_guard": {
+    "thigh_extension": "balanced",
+    "calf_extension": "balanced",
+    "knee_position": "natural",
+    "pelvis_relation": "natural",
+    "ankle_scale": "natural",
+    "foot_scale": "coordinated",
+    "rules": [
+      "Do not lengthen only the thigh or only the calf.",
+      "Keep knee placement believable relative to pelvis and ankle.",
+      "Preserve natural pelvis width and realistic lower-limb soft tissue.",
+      "Do not enlarge the feet after elongating the figure."
+    ]
+  },
+  "garment_proportion_assist": {
+    "waist_sash_position": "slightly_higher_visual",
+    "skirt_start_bias": "high_waist_visual",
+    "centerline_strength": "medium_strong",
+    "sleeve_mass_control": "medium",
+    "hem_width_control": "medium",
+    "footwear_visibility": "slight_increase",
+    "rules": [
+      "Use sash placement, skirt-panel origin and long vertical panel lines to support a taller silhouette without changing garment identity.",
+      "Reduce only excess lateral sleeve/skirt spread; do not redesign the costume or remove signature layers.",
+      "Preserve enough footwear visibility to clarify the full vertical figure."
+    ]
+  },
+  "note": "All head-count values are project visual heuristics, not vendor-native parameters or medical/anatomical measurements. Hair buns, crowns, hairpins and other head ornaments are excluded from the visual head unit."
+}

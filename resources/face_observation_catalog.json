@@ -1,0 +1,21 @@
+{
+  "version": "0.7.1",
+  "observations": {
+    "face_geometry_stable": {"class": "identity", "effect": "stable"},
+    "face_geometry_changed": {"class": "identity", "effect": "drift"},
+    "eye_spacing_changed": {"class": "identity", "effect": "drift"},
+    "nose_geometry_changed": {"class": "identity", "effect": "drift"},
+    "lip_geometry_changed": {"class": "identity", "effect": "drift"},
+    "jaw_chin_changed": {"class": "identity", "effect": "drift"},
+    "gaze_more_composed": {"class": "temperament", "effect": "target_shift"},
+    "gaze_too_cold": {"class": "temperament", "effect": "over_shift"},
+    "cheek_softness_slightly_reduced": {"class": "maturity", "effect": "target_shift"},
+    "cheek_hollowed": {"class": "maturity", "effect": "overshoot"},
+    "makeup_more_restrained": {"class": "maturity", "effect": "target_shift"},
+    "eyes_still_overly_youthful": {"class": "maturity", "effect": "undershoot"},
+    "wrinkles_or_sagging_added": {"class": "age", "effect": "unwanted_shift"},
+    "trait_reference_face_geometry_copied": {"class": "reference", "effect": "overborrow"},
+    "trait_reference_scene_or_style_copied": {"class": "reference", "effect": "overborrow"},
+    "generic_cold_beauty_face": {"class": "beauty", "effect": "template_drift"}
+  }
+}

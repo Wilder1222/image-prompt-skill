@@ -1,0 +1,27 @@
+{
+  "round": "studio_polish",
+  "editable": [
+    "key_fill_ratio",
+    "white_background_separation",
+    "rim_separation",
+    "micro_contrast",
+    "specular_balance",
+    "final_optics"
+  ],
+  "locked": [
+    "face_identity",
+    "body_proportion",
+    "composition",
+    "pose",
+    "garment_silhouette",
+    "garment_structure",
+    "palette",
+    "hairstyle_silhouette",
+    "accessories",
+    "footwear",
+    "background_type",
+    "material_contrast"
+  ],
+  "forbidden": [],
+  "prompt_strategy": "short patch prompt; mention locked asset master once, expand editable dimensions only"
+}

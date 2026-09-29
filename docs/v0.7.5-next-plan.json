@@ -1,0 +1,55 @@
+{
+  "first_focus": "head_visual_too_large",
+  "priority": "P1P",
+  "recommended_round": "fashion_proportion",
+  "round_plan": {
+    "round": "fashion_proportion",
+    "editable": [
+      "fashion_proportion",
+      "head_visual_scale",
+      "neck_extension",
+      "shoulder_opening",
+      "torso_preservation",
+      "waistline_visual_raise",
+      "leg_segmentation",
+      "garment_vertical_bias",
+      "garment_width_control",
+      "footwear_scale"
+    ],
+    "locked": [
+      "face_identity_geometry",
+      "age_identity",
+      "hairstyle_silhouette",
+      "garment_silhouette",
+      "garment_structure",
+      "palette",
+      "material_contrast",
+      "background",
+      "lighting",
+      "hand_integrity",
+      "foot_integrity"
+    ],
+    "forbidden": [
+      "face_reshape",
+      "face_width_reduction",
+      "eye_nose_lip_rescaling",
+      "torso_crush",
+      "single_segment_leg_stretch",
+      "extreme_waist_narrowing",
+      "costume_redesign"
+    ],
+    "prompt_strategy": "proportion-only patch: change whole-figure visual ratios and garment verticality while locking face identity, costume design, materials and lighting"
+  },
+  "failures": [
+    {
+      "id": "head_visual_too_large",
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    {
+      "id": "face_too_cg",
+      "priority": "P2H",
+      "round": "human_presence_refine"
+    }
+  ]
+}

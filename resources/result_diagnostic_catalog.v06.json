@@ -1,0 +1,60 @@
+{
+  "version": "0.6.0",
+  "failures": {
+    "identity_signature_drift": {
+      "severity": "critical",
+      "repair": ["identity_signature", "face_lock", "hair_lock"],
+      "preserve": ["approved_palette", "approved_costume_family"]
+    },
+    "beauty_template_drift": {
+      "severity": "high",
+      "repair": ["beauty_drift_control", "face_lock"],
+      "preserve": ["identity_signature"]
+    },
+    "anatomy_overstretch": {
+      "severity": "high",
+      "repair": ["anatomy_guardrail", "pose_balance", "framing"],
+      "preserve": ["identity_signature", "costume_structure"]
+    },
+    "same_silhouette_repeat": {
+      "severity": "high",
+      "repair": ["garment_architecture_matrix", "look_diversity_check"],
+      "preserve": ["character_signature"]
+    },
+    "ornament_overload": {
+      "severity": "medium",
+      "repair": ["ornament_budget", "visual_hierarchy"],
+      "preserve": ["main_look_direction"]
+    },
+    "exposure_over_default": {
+      "severity": "medium",
+      "repair": ["exposure_level_control"],
+      "preserve": ["silhouette"]
+    },
+    "transparency_over_budget": {
+      "severity": "medium",
+      "repair": ["transparency_budget", "material_physics"],
+      "preserve": ["palette", "silhouette"]
+    },
+    "attachment_logic_fail": {
+      "severity": "medium",
+      "repair": ["attachment_logic", "costume_construction"],
+      "preserve": ["overall_look"]
+    },
+    "footwear_western_drift": {
+      "severity": "medium",
+      "repair": ["footwear_system"],
+      "preserve": ["character_signature", "palette"]
+    },
+    "white_background_merge": {
+      "severity": "medium",
+      "repair": ["white_on_white_lighting", "edge_separation"],
+      "preserve": ["garment_materials"]
+    },
+    "cgi_skin_persistence": {
+      "severity": "medium",
+      "repair": ["skin_optics", "soft_tissue", "color_variation", "specular_breakup"],
+      "preserve": ["identity_signature"]
+    }
+  }
+}

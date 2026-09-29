@@ -1,0 +1,104 @@
+{
+  "version": "0.8.0",
+  "default": "oriental_epic_painterly",
+  "profiles": {
+    "oriental_epic_painterly": {
+      "label": "Oriental Epic Painterly Fantasy",
+      "medium_language": [
+        "painterly_cinematic",
+        "concept_art_brushwork",
+        "selective_detail",
+        "soft_edge_to_hard_edge_variation"
+      ],
+      "composition": [
+        "asymmetric_flow",
+        "large_s_curve",
+        "dynamic_negative_space",
+        "full_body_hero_focus"
+      ],
+      "motion": [
+        "sweeping_hair",
+        "large_fabric_arcs",
+        "ribbon_motion",
+        "wind_driven_secondary_shapes"
+      ],
+      "lighting": [
+        "luminous_backlight",
+        "soft_directional_key",
+        "warm_gold_accents",
+        "deep_soft_shadow_masses",
+        "atmospheric_glow"
+      ],
+      "atmosphere": [
+        "mythic_scale",
+        "dust_haze",
+        "abstract_architectural_depth",
+        "painterly_particles"
+      ],
+      "palette_language": [
+        "ivory_or_pale_highlights",
+        "deep_black_or_charcoal_masses",
+        "antique_gold",
+        "muted_crimson_accents",
+        "warm_neutral_haze"
+      ],
+      "detail_distribution": [
+        "face_and_primary_ornament_focus",
+        "less_uniform_microdetail",
+        "painterly_peripheral_edges"
+      ],
+      "background_policy": "cinematic_environment_not_blank_studio",
+      "pose_policy": "dynamic_pose_authorized_unless_user_locks_pose",
+      "anti_patterns": [
+        "flat_white_studio",
+        "front_static_asset_pose",
+        "uniform_global_sharpness",
+        "clean_catalog_lighting",
+        "literal_every-detail rendering"
+      ],
+      "recommended_face_mode": "stylized_beauty",
+      "alternate_face_modes": [
+        "beauty_first",
+        "humanized_real"
+      ]
+    },
+    "clean_asset_studio": {
+      "label": "Clean Asset Studio",
+      "medium_language": [
+        "clean_asset_render",
+        "controlled_detail"
+      ],
+      "composition": [
+        "front_or_controlled_pose",
+        "full_body_readability"
+      ],
+      "motion": [
+        "minimal"
+      ],
+      "lighting": [
+        "soft_studio_key",
+        "controlled_fill",
+        "subtle_separation"
+      ],
+      "atmosphere": [
+        "none"
+      ],
+      "palette_language": [
+        "reference_palette"
+      ],
+      "detail_distribution": [
+        "uniform_asset_readability"
+      ],
+      "background_policy": "white_or_neutral",
+      "pose_policy": "asset_pose",
+      "anti_patterns": [
+        "cinematic_environment_leak"
+      ],
+      "recommended_face_mode": "beauty_first",
+      "alternate_face_modes": [
+        "humanized_real",
+        "stylized_beauty"
+      ]
+    }
+  }
+}

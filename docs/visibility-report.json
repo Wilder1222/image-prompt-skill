@@ -1,0 +1,57 @@
+{
+  "reference_id": "B",
+  "attributes": [
+    {
+      "name": "face_identity",
+      "visibility": "visible",
+      "source": "observed",
+      "lock": "strict"
+    },
+    {
+      "name": "hair_upper",
+      "visibility": "visible",
+      "source": "observed",
+      "lock": "strict"
+    },
+    {
+      "name": "neckline",
+      "visibility": "visible",
+      "source": "observed",
+      "lock": "strict"
+    },
+    {
+      "name": "upper_sleeve",
+      "visibility": "partially_visible",
+      "source": "observed",
+      "lock": "partial"
+    },
+    {
+      "name": "waist_complete",
+      "visibility": "not_visible",
+      "source": "designed_extension",
+      "lock": "none"
+    },
+    {
+      "name": "lower_skirt",
+      "visibility": "not_visible",
+      "source": "designed_extension",
+      "lock": "none"
+    },
+    {
+      "name": "footwear",
+      "visibility": "not_visible",
+      "source": "designed_extension",
+      "lock": "none"
+    }
+  ],
+  "strict_locks": [
+    "face_identity",
+    "hair_upper",
+    "neckline"
+  ],
+  "extensions": [
+    "waist_complete",
+    "lower_skirt",
+    "footwear"
+  ]
+}

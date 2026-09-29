@@ -1,0 +1,28 @@
+{
+  "version": "0.7.7",
+  "name": "hair_frequency_variation_v2",
+  "controls": {
+    "primary_mass": "strong",
+    "secondary_bundle_variation": "medium",
+    "fine_strand_density": "low",
+    "hairline_transition": "natural",
+    "flyaway_density": "very_low",
+    "highlight_uniformity": "low",
+    "strand_sharpness_uniformity": "low"
+  },
+  "frequency_layers": [
+    "primary_hair_mass",
+    "secondary_bundles",
+    "fine_strands"
+  ],
+  "prompt_translation": [
+    "Build hair in three scales: primary masses, varied secondary bundles and only a small amount of fine strands.",
+    "Use a natural hairline transition, very low flyaway density and non-uniform highlight/sharpness instead of ribbon-like uniformly polished hair."
+  ],
+  "forbidden": [
+    "fine_strands_as_primary",
+    "dense_flyaways",
+    "uniform_ribbon_hair",
+    "uniform_highlight_flow"
+  ]
+}

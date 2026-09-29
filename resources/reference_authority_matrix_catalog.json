@@ -1,0 +1,66 @@
+{
+  "version": "0.8.0",
+  "principle": "each visual attribute should have one dominant reference authority; style target never owns identity geometry or garment architecture unless explicitly authorized.",
+  "scenarios": {
+    "style_A_asset_B": {
+      "A": {
+        "role": "style_target",
+        "authority": {
+          "medium_language": 3,
+          "motion_language": 3,
+          "lighting_language": 3,
+          "atmosphere": 3,
+          "composition_energy": 3,
+          "color_relationships": 2,
+          "environment_scale": 2,
+          "face_identity_geometry": 0,
+          "body_proportion": 0,
+          "garment_silhouette": 0,
+          "garment_structure": 0,
+          "signature_accessories": 0
+        }
+      },
+      "B": {
+        "role": "asset_master",
+        "authority": {
+          "face_identity_geometry": 3,
+          "body_proportion": 2,
+          "garment_silhouette": 3,
+          "garment_structure": 3,
+          "signature_accessories": 3,
+          "hairstyle_silhouette": 3,
+          "palette_family": 2,
+          "footwear_family": 2,
+          "medium_language": 0,
+          "environment_scale": 0
+        }
+      },
+      "optional_C": {
+        "role": "facial_trait",
+        "authority": {
+          "maturity_level": 2,
+          "gaze_stability": 2,
+          "makeup_restraint": 2
+        },
+        "forbidden": [
+          "face_identity_geometry",
+          "garment_structure",
+          "lighting_language",
+          "environment_scale"
+        ]
+      }
+    },
+    "single_style_reference": {
+      "A": {
+        "role": "style_target_and_subject_source",
+        "rule": "decompose channels; visible identity/costume may be strong, unseen structure remains conservative completion; style channels may be strong."
+      }
+    }
+  },
+  "levels": {
+    "0": "ignore",
+    "1": "weak",
+    "2": "strong",
+    "3": "strict"
+  }
+}

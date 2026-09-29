@@ -1,0 +1,118 @@
+{
+  "completion": {
+    "level": "C1",
+    "label": "conservative_structural_completion",
+    "structure_growth_pct_max": 10,
+    "silhouette_growth_pct_max": 10,
+    "ornament_growth_pct_max": 0,
+    "new_primary_motifs_max": 0,
+    "new_secondary_motifs_max": 1,
+    "new_material_families_max": 0,
+    "prompt_translation": [
+      "Extend unseen regions conservatively using the already visible design language.",
+      "Do not introduce new primary motifs or increase ornament density; keep silhouette expansion minimal and functional."
+    ],
+    "rule": "budget percentages are internal heuristics; compile them into visible natural-language constraints."
+  },
+  "design_density": {
+    "profile": "preserve",
+    "primary_ornament_growth_pct_max": 0,
+    "secondary_ornament_growth_pct_max": 10,
+    "micro_detail_growth_pct_max": 10,
+    "mechanical_module_growth_pct_max": 0,
+    "chain_tassel_growth_pct_max": 0,
+    "new_zone_density_rule": "match_reference_mean_not_peak",
+    "prompt_translation": [
+      "Keep the same design density as the visible reference instead of filling newly revealed space with extra decoration.",
+      "Do not increase the count of primary ornaments, mechanical modules, chains, tassels, or signature motifs in completed regions."
+    ],
+    "note": "Relative density budgets are internal heuristics, not measurable vendor controls."
+  },
+  "wear": {
+    "level": "W0",
+    "label": "clean",
+    "stain_coverage_pct": [
+      0,
+      2
+    ],
+    "tear_coverage_pct": [
+      0,
+      1
+    ],
+    "large_tears_max": 0,
+    "edge_fray": "none_to_minimal",
+    "metal_weathering": "clean",
+    "rule": "Describe wear by visible extent and type. Never escalate the wear state automatically during completion."
+  },
+  "human_presence": {
+    "level": "H2",
+    "label": "human_presence_v2",
+    "soft_tissue": 0.7,
+    "regional_skin_response": 0.65,
+    "natural_asymmetry": 0.25,
+    "eye_anatomy": 0.7,
+    "hair_irregularity": 0.55,
+    "camera_response": 0.7,
+    "age_shift": "none",
+    "prompt_translation": [
+      "Keep identity geometry unchanged while adding believable facial soft tissue, realistic eyelid and eye-socket structure, regional skin response, subtle natural asymmetry, non-uniform hair grouping, and photographic camera response.",
+      "Realism must come from anatomy, material response, and optics rather than larger pores, aging, or stronger sharpening."
+    ],
+    "regions": {
+      "forehead": "smooth fine texture with restrained sebum reflection",
+      "eyelids": "thin skin, believable thickness and fold structure, subtle lower-lid volume",
+      "nose": "slightly stronger specular response with fine texture around alae",
+      "inner_cheeks": "subtle microtexture and gentle color variation",
+      "outer_cheeks": "softer diffuse response",
+      "lips": "independent moist material with fine lip lines",
+      "jaw_neck": "natural soft-tissue transition without razor-sharp contour"
+    },
+    "camera_rules": [
+      "soft highlight roll-off",
+      "shadow detail retention",
+      "natural local micro-contrast",
+      "no global mathematical sharpness",
+      "no edge halos",
+      "face focus is strongest while peripheral cloth may resolve slightly softer"
+    ],
+    "components": [
+      "soft_tissue",
+      "regional_skin_response",
+      "natural_asymmetry",
+      "eye_anatomy",
+      "hair_irregularity",
+      "camera_response"
+    ],
+    "rule": "v2 human presence changes anatomy presentation and optics while identity geometry and age remain locked."
+  },
+  "extremity": {
+    "level": "E2",
+    "label": "asset_integrity",
+    "hand_requirements": [
+      "exactly five digits per visible hand",
+      "one thumb in anatomically plausible opposition",
+      "four fingers with plausible length hierarchy",
+      "separate fingers without fusion or duplication",
+      "natural joint bends and relaxed spacing",
+      "wrist and palm orientation consistent with the pose"
+    ],
+    "foot_requirements": [
+      "plausible ankle-foot alignment",
+      "footwear follows the actual foot volume",
+      "no duplicated toes or broken shoe-foot intersection when visible",
+      "ground contact matches body weight and stance"
+    ],
+    "repair_policy": "If an extremity error occurs while the rest of the asset passes, use a local patch round and lock identity, costume, composition, and lighting."
+  },
+  "prompt_skeleton": [
+    "Extend unseen regions conservatively using the already visible design language.",
+    "Do not introduce new primary motifs or increase ornament density; keep silhouette expansion minimal and functional.",
+    "Keep the same design density as the visible reference instead of filling newly revealed space with extra decoration.",
+    "Do not increase the count of primary ornaments, mechanical modules, chains, tassels, or signature motifs in completed regions.",
+    "Preserve wear state W0; do not increase stains, tears, fraying, or metal damage during completion.",
+    "Keep identity geometry unchanged while adding believable facial soft tissue, realistic eyelid and eye-socket structure, regional skin response, subtle natural asymmetry, non-uniform hair grouping, and photographic camera response.",
+    "Realism must come from anatomy, material response, and optics rather than larger pores, aging, or stronger sharpening.",
+    "When hands or feet are visible, verify anatomically correct extremities and repair them locally if needed."
+  ],
+  "note": "Budgets are internal planning constraints and must be translated into normal visual language before prompting a vendor model."
+}

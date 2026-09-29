@@ -1,0 +1,30 @@
+{
+  "profile": "beauty_first_character",
+  "base_mode": "beauty_first",
+  "age_range": "18_22",
+  "identity_specificity": "high",
+  "face_realism": "low_medium",
+  "beauty_priority": "very_high",
+  "maturity_guard": "youthful_18_22",
+  "signals": [
+    "beauty-first identity",
+    "subtle cheek volume",
+    "natural eyelid structure",
+    "individual mouth-corner placement",
+    "soft regional skin response",
+    "character-specific eye expression"
+  ],
+  "avoid": [
+    "generic AI beauty template",
+    "age_up",
+    "hollowing",
+    "hard cheekbone carving",
+    "perfectly averaged facial symmetry"
+  ],
+  "prompt_translation": [
+    "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
+    "Retain subtle youthful cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.",
+    "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity."
+  ],
+  "principle": "Choose a granular face profile independently from non-face realism. Beauty, age and character specificity may outrank maximal facial photorealism."
+}

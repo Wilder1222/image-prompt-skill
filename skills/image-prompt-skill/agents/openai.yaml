@@ -1,0 +1,4 @@
+interface:
+  display_name: "角色资产提示词"
+  short_description: "参考图驱动的定妆展示、优质母图保留、局部修复与视觉对照"
+  default_prompt: "使用 $image-prompt-skill，根据实际参考选择定妆展示或局部修复；有更好旧图时先对照可见优势，再写明参考权限、保留内容与本轮改动。"

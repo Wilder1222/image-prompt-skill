@@ -1,0 +1,61 @@
+{
+  "version": "0.7.1",
+  "subject_id": "character_001",
+  "identity_source": "A",
+  "references": [
+    {
+      "id": "A",
+      "role": "asset_master",
+      "authority": [
+        "face_identity_geometry",
+        "composition",
+        "body_proportion",
+        "pose",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "hairstyle_silhouette",
+        "background",
+        "footwear",
+        "current_design_extension"
+      ],
+      "forbidden_authority": []
+    },
+    {
+      "id": "B",
+      "role": "facial_trait",
+      "authority": [
+        "maturity_level",
+        "gaze_stability",
+        "expression_restraint",
+        "cheek_softness_delta",
+        "eye_openness_delta",
+        "makeup_restraint",
+        "editorial_tone",
+        "temperament_direction"
+      ],
+      "forbidden_authority": [
+        "face_shape",
+        "eye_spacing",
+        "eye_shape_geometry",
+        "nose_proportion",
+        "lip_shape",
+        "jaw_chin",
+        "skin_tone_baseline",
+        "hairstyle_silhouette",
+        "body_proportion",
+        "composition",
+        "background",
+        "garment",
+        "pose",
+        "lighting_style"
+      ]
+    }
+  ],
+  "optional_roles": {
+    "face_identity": {
+      "description": "Optional trusted portrait identity reference. If present, it overrides asset_master only for face identity geometry.",
+      "precedence": "face_identity > asset_master(face geometry) > facial_trait(traits only)"
+    }
+  }
+}

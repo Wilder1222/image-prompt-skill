@@ -1,0 +1,58 @@
+{
+  "version": "0.7.4",
+  "default": "C1",
+  "note": "Project heuristics for prompt compilation, not vendor parameters.",
+  "levels": {
+    "C0": {
+      "label": "strict_minimum_completion",
+      "structure_growth_pct_max": 0,
+      "silhouette_growth_pct_max": 0,
+      "ornament_growth_pct_max": 0,
+      "new_primary_motifs_max": 0,
+      "new_secondary_motifs_max": 0,
+      "new_material_families_max": 0,
+      "prompt_translation": [
+        "Complete only the minimum missing structure required for a coherent full body.",
+        "Do not enlarge the silhouette or add new decorative motifs, material families, armor systems, colors, or signature accessories."
+      ]
+    },
+    "C1": {
+      "label": "conservative_structural_completion",
+      "structure_growth_pct_max": 10,
+      "silhouette_growth_pct_max": 10,
+      "ornament_growth_pct_max": 0,
+      "new_primary_motifs_max": 0,
+      "new_secondary_motifs_max": 1,
+      "new_material_families_max": 0,
+      "prompt_translation": [
+        "Extend unseen regions conservatively using the already visible design language.",
+        "Do not introduce new primary motifs or increase ornament density; keep silhouette expansion minimal and functional."
+      ]
+    },
+    "C2": {
+      "label": "creative_but_family_preserving_completion",
+      "structure_growth_pct_max": 25,
+      "silhouette_growth_pct_max": 25,
+      "ornament_growth_pct_max": 15,
+      "new_primary_motifs_max": 0,
+      "new_secondary_motifs_max": 2,
+      "new_material_families_max": 1,
+      "prompt_translation": [
+        "Allow limited creative extension while preserving the original design family and hierarchy.",
+        "New details must remain secondary and cannot compete with the existing primary design language."
+      ]
+    },
+    "C3": {
+      "label": "authorized_redesign",
+      "structure_growth_pct_max": null,
+      "silhouette_growth_pct_max": null,
+      "ornament_growth_pct_max": null,
+      "new_primary_motifs_max": null,
+      "new_secondary_motifs_max": null,
+      "new_material_families_max": null,
+      "prompt_translation": [
+        "Redesign is authorized, but explicitly preserve any user-locked identity or canon constraints."
+      ]
+    }
+  }
+}

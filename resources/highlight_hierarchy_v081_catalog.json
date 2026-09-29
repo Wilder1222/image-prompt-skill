@@ -1,0 +1,39 @@
+{
+  "version": "0.8.1",
+  "default": "focal_brightness",
+  "profiles": {
+    "focal_brightness": {
+      "primary_highlights": [
+        "face_adjacent_zone",
+        "crown",
+        "upper_torso",
+        "weapon_core"
+      ],
+      "secondary_highlights": [
+        "waist_core_ornament",
+        "selected_fabric_turns",
+        "key_gold_elements",
+        "primary_hair_rim"
+      ],
+      "tertiary_highlights": [
+        "outer_ribbons",
+        "distant_architecture",
+        "cloud_edges",
+        "ground_reflection",
+        "peripheral_effects"
+      ],
+      "rules": [
+        "Primary highlights must remain the strongest value concentration.",
+        "Secondary highlights support form but cannot equal primary brightness density.",
+        "Tertiary highlights are sparse and subordinate.",
+        "Do not make every gold edge or fabric rim luminous."
+      ],
+      "anti_patterns": [
+        "highlight_everywhere",
+        "equal_brightness_across_scene",
+        "background_highlight_competes",
+        "ground_reflection_competes"
+      ]
+    }
+  }
+}

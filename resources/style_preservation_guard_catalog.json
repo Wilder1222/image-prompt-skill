@@ -1,0 +1,40 @@
+{
+  "version": "0.8.0",
+  "profiles": {
+    "cinematic_target": {
+      "lock_style_channels": [
+        "medium_language",
+        "motion_language",
+        "lighting_language",
+        "atmosphere",
+        "composition_energy"
+      ],
+      "background_rule": "follow explicit user target or style target; never reset to white studio from prior asset history",
+      "pose_rule": "dynamic pose/motion is authorized when required by the style target unless user explicitly locks pose",
+      "realism_rule": "realism may refine human/material behavior but must not erase painterly medium, motion or atmosphere",
+      "anti_drift": [
+        "flat_white_background",
+        "static_asset_pose",
+        "clean_catalog_lighting",
+        "uniform_sharpness",
+        "loss_of_painterly_edges"
+      ]
+    },
+    "style_asset_target": {
+      "lock_style_channels": [
+        "medium_language",
+        "color_relationships",
+        "material_language",
+        "lighting_language"
+      ],
+      "background_rule": "keep white/neutral background; do not copy environment",
+      "pose_rule": "keep asset-readable pose unless user requests motion",
+      "realism_rule": "style language may affect surface, lighting and materials without importing scene environment",
+      "anti_drift": [
+        "environment_copy",
+        "identity_drift",
+        "costume_geometry_copy"
+      ]
+    }
+  }
+}

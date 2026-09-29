@@ -1,0 +1,312 @@
+{
+  "preset": "ancient_female_white_master",
+  "configuration": {
+    "render_mode": "style_asset",
+    "face_profile": "beauty_first_character",
+    "proportion_profile": "presentation:costume_showcase",
+    "material_profile": "ancient_asset_material_split",
+    "hand_mode": "elegant_crossed_hands_safe",
+    "asset_profile": "presentation:costume_showcase",
+    "lighting_profile": "studio_soft_separation",
+    "legacy_face_mode": "beauty_first",
+    "maturity_guard": "none",
+    "presentation_profile": "costume_showcase"
+  },
+  "status": "planned",
+  "priority": [
+    "face_profile",
+    "asset_structure",
+    "fashion_proportion",
+    "hand_integrity",
+    "material_separation",
+    "studio_lighting",
+    "micro_quality"
+  ],
+  "presentation": {
+    "profile": "costume_showcase",
+    "use_for": "A composed full-body costume portrait when the intended robe already has, or the user requests, flowing sleeves and layered skirts. Do not apply this silhouette to fitted armor or casual clothing automatically.",
+    "asset_prompt_translation": [
+      "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.",
+      "Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully."
+    ],
+    "proportion_prompt_translation": [
+      "Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.",
+      "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube."
+    ],
+    "generation_prompt_translation": [
+      "Arrange the costume around its waist and central vertical panels: the selected hand gesture must work with the sleeve drape, and the face, collar and waist remain readable.",
+      "Separate only the layers present in the reference or explicitly requested in the design brief. Give dense patterned fabric weighted folds, any sheer overlayer thin overlapping edges, and the inner skirt a quieter matte surface. Keep quieter areas between concentrated ornament; do not cover every layer with identical gold pattern.",
+      "A cropped reference does not specify the unseen skirt. Follow the stated extension brief and identify those additions as design choices; without such a brief, keep the extension restrained and do not invent extra jewelry or gauze."
+    ]
+  },
+  "stage_1": {
+    "status": "planned",
+    "blocked_by_passed": [],
+    "requires_accepted_rounds": [],
+    "round_plan": {
+      "round": "asset_master_face_refine",
+      "editable": [
+        "asset_face_profile",
+        "face_character_specificity",
+        "age_guard",
+        "light_face_realism"
+      ],
+      "locked": [
+        "identity_geometry",
+        "body_proportion",
+        "hair_design",
+        "costume_design",
+        "pose",
+        "hands",
+        "footwear",
+        "background",
+        "lighting_layout"
+      ],
+      "forbidden": [
+        "age_up",
+        "face_reshape",
+        "costume_redesign",
+        "body_reshape"
+      ],
+      "prompt_strategy": "Change only facial rendering: retain the observed eyelids, cheek volume and mouth-corner placement while adjusting skin response and facial realism."
+    },
+    "face_profile": {
+      "profile": "beauty_first_character",
+      "base_mode": "beauty_first",
+      "age_range": "preserve_reference",
+      "identity_specificity": "high",
+      "face_realism": "low_medium",
+      "beauty_priority": "very_high",
+      "maturity_guard": "none",
+      "signals": [
+        "beauty-first identity",
+        "subtle cheek volume",
+        "natural eyelid structure",
+        "individual mouth-corner placement",
+        "soft regional skin response",
+        "character-specific eye expression"
+      ],
+      "avoid": [
+        "generic AI beauty template",
+        "age_up",
+        "hollowing",
+        "hard cheekbone carving",
+        "perfectly averaged facial symmetry"
+      ],
+      "prompt_translation": [
+        "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
+        "Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.",
+        "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity."
+      ]
+    },
+    "prompt_skeleton": [
+      "Edit the supplied current asset image. Use it as the only direct edit target.",
+      "Preserve the exact facial identity geometry and apparent age, body proportions, hairstyle, costume design, pose, hands, footwear, framing, background and lighting layout.",
+      "Change only facial rendering: retain the observed eyelids, cheek volume and mouth-corner placement while adjusting skin response and facial realism.",
+      "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
+      "Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.",
+      "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity."
+    ]
+  },
+  "stage_2": {
+    "status": "planned",
+    "blocked_by_passed": [],
+    "requires_accepted_rounds": [
+      "asset_master_face_refine"
+    ],
+    "round_plan": {
+      "round": "asset_master_structure_refine",
+      "editable": [
+        "fashion_asset_proportion",
+        "garment_verticality",
+        "asset_framing",
+        "hand_pose_integrity",
+        "footwear_readability"
+      ],
+      "locked": [
+        "identity_geometry",
+        "approved_face_profile",
+        "costume_design",
+        "palette",
+        "materials",
+        "background_type",
+        "lighting_layout"
+      ],
+      "forbidden": [
+        "face_reshape",
+        "new_costume",
+        "extreme_leg_stretch",
+        "head_shrink_shortcut"
+      ],
+      "prompt_strategy": "Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction."
+    },
+    "fashion_asset": {
+      "profile": "presentation:costume_showcase",
+      "visual_head_count_target": "reference_derived",
+      "prompt_translation": [
+        "Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.",
+        "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube."
+      ]
+    },
+    "hand_pose": {
+      "mode": "elegant_crossed_hands_safe",
+      "primary_hand": "front_top_hand",
+      "secondary_hand": "supporting_lower_hand",
+      "requirements": [
+        "five_digits_each",
+        "one_thumb_four_fingers_each",
+        "natural_length_hierarchy",
+        "believable_knuckles",
+        "clear_wrist_direction",
+        "sleeve_does_not_swallow_finger_roots",
+        "hand_scale_matches_face_and_forearm"
+      ],
+      "prompt_translation": [
+        "Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.",
+        "Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area."
+      ]
+    },
+    "asset_master": {
+      "profile": "presentation:costume_showcase",
+      "aspect_ratio": "3:4",
+      "background": "clean_white_seamless",
+      "requirements": [
+        "complete_silhouette",
+        "readable_shoe_contact",
+        "reference_derived_hem"
+      ],
+      "prompt_translation": [
+        "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.",
+        "Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully."
+      ]
+    },
+    "prompt_skeleton": [
+      "Edit the supplied current asset image. Use it as the only direct edit target.",
+      "Preserve facial identity, apparent age, approved facial rendering, hairstyle, costume design, palette, materials, background type and lighting layout.",
+      "Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction.",
+      "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.",
+      "Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.",
+      "Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.",
+      "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.",
+      "Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.",
+      "Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area."
+    ]
+  },
+  "stage_3": {
+    "status": "planned",
+    "blocked_by_passed": [],
+    "requires_accepted_rounds": [
+      "asset_master_face_refine",
+      "asset_master_structure_refine"
+    ],
+    "round_plan": {
+      "round": "asset_master_material_light_refine",
+      "editable": [
+        "material_separation",
+        "studio_light_separation",
+        "white_background_readability",
+        "floor_contact_shadow",
+        "material_highlight_balance"
+      ],
+      "locked": [
+        "identity_geometry",
+        "approved_face_profile",
+        "fashion_asset_proportion",
+        "pose",
+        "hands",
+        "costume_design",
+        "palette",
+        "asset_framing"
+      ],
+      "forbidden": [
+        "face_maturity_change",
+        "body_reshape",
+        "costume_redesign",
+        "background_scene_invention"
+      ],
+      "prompt_strategy": "Change only garment material response, studio lighting, pale-fabric edge separation and floor contact shadow."
+    },
+    "material_separation": {
+      "profile": "ancient_asset_material_split",
+      "layers": {
+        "primary_fabric": {
+          "materials": [
+            "silk_brocade",
+            "cloud_brocade",
+            "fine_satin"
+          ],
+          "behavior": "denser_weighted_stable_folds",
+          "highlight": "controlled_directional"
+        },
+        "sheer_overlay": {
+          "materials": [
+            "silk_gauze",
+            "organza_like_silk"
+          ],
+          "behavior": "light_semitransparent_layered",
+          "highlight": "soft_transmitted",
+          "edge": "thin_visible"
+        },
+        "pattern_layer": {
+          "materials": [
+            "gold_thread_embroidery",
+            "woven_gold",
+            "floral_brocade"
+          ],
+          "behavior": "attached_to_fabric_with_slight_relief",
+          "highlight": "fine_selective"
+        },
+        "structure_layer": {
+          "materials": [
+            "waist_sash",
+            "collar_edge",
+            "ties",
+            "hanging_ornaments"
+          ],
+          "behavior": "more_defined_and_supportive",
+          "highlight": "structured_low_medium"
+        }
+      },
+      "prompt_translation": [
+        "Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.",
+        "Do not let all layers share the same soft glossy fantasy surface."
+      ]
+    },
+    "studio_lighting": {
+      "profile": "studio_soft_separation",
+      "key": "front_left_upper_large_softbox",
+      "fill": "front_low_weaker_fill",
+      "separation": "very_subtle_edge_separation",
+      "floor_shadow": "soft_grounded_contact",
+      "background": "high_key_white_not_clipped",
+      "goals": [
+        "face_is_primary_read",
+        "white_gauze_separates_from_background",
+        "main_fabric_keeps_weight",
+        "gold_thread_gets_controlled_highlights",
+        "no_flat_even_light"
+      ],
+      "prompt_translation": [
+        "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
+        "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+      ]
+    },
+    "prompt_skeleton": [
+      "Edit the supplied current asset image. Use it as the only direct edit target.",
+      "Preserve facial identity, apparent age and approved facial rendering, body proportions, hairstyle, pose, hands, footwear shape, costume construction, palette and framing.",
+      "Change only garment material response, studio lighting, pale-fabric edge separation and floor contact shadow.",
+      "Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.",
+      "Do not let all layers share the same soft glossy fantasy surface.",
+      "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
+      "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+    ]
+  },
+  "order": [
+    "asset_master_face_refine",
+    "asset_master_structure_refine",
+    "asset_master_material_light_refine",
+    "final_photographic_polish",
+    "upscale"
+  ],
+  "rule": "Use only the failed stage; accept its actual image before progressing. A plan is not evidence that any image has passed. Preserve approved face rendering during non-face repairs."
+}
