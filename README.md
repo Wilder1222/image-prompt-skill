@@ -4,7 +4,7 @@
 
 当前版本 **0.9.7**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
 
-`asset-prompt` 默认交付带标签的中文提示词，普通成年服装采集使用自然比例。九头身需要显式选择；完整全身母图保留原比例。实际送入图像工具的提示词应与交付正文一致，图片的比例验收独立于代码测试。
+所有最终生图提示词按语义标签分类。`asset-prompt` 与程序库默认输出中文，角色新图提供模式块和十类正文。本项目古风预设采用用户指定的 `beauty_first + P9 Fashion`；完整全身母图保留自身比例。真实材质定妆照与东方幻想厚涂资产分成两条路线，实际提交文本与交付正文一致。
 
 ## 使用
 
@@ -12,6 +12,7 @@
 
 ```bash
 node scripts/iteration-director.mjs asset-prompt --presentation costume_showcase --maturity-guard none --format text
+node scripts/iteration-director.mjs asset-prompt --style-workflow dark_fantasy_asset --format text
 node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anchor --format text
 node scripts/iteration-director.mjs asset-prompt --stage structure --focus hands --format text
 ```
@@ -52,7 +53,10 @@ npm run plugin:build
 
 ## 入口
 
-- [中文标签与自然比例纠错记录](docs/visual-evaluations/chinese-natural-proportion-v097.md)
+- [分类标签与两条风格路线](references/routes/tagged-prompt-workflows.md)
+- [两份参考专属中文提示词](examples/user-reference-tagged-prompts.md)
+- [v0.10.0 更新与验收边界](docs/tagged-workflows-v0100.md)
+- [v0.9.7 自然比例实验（已被用户明确的 P9 方向取代）](docs/visual-evaluations/chinese-natural-proportion-v097.md)
 - [参考图实测与当前候选总览](docs/visual-evaluations/current-overview.md)
 - [技能主工作流](SKILL.md)
 - [白底资产工作流](references/routes/asset-master-workflow.md)

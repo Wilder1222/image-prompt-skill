@@ -33,12 +33,15 @@ description: 根据参考图编写角色资产图、全身定妆照、风格还�
 
 ## 提示词交付
 
-默认交付带中文分段标签的提示词，例如 `【P0 任务与参考】`、`【P0 人物比例】`、`【P1 人脸身份与质感】`、`【P1 服装与造型】`、`【P2 服装材质】`、`【P2 白底棚拍】`，并用 `【P1 本张人物与服装采集】` 补充实际参考的区别。这里 P0/P1/P2 只是文字优先级，不是模型参数或保证。只有用户明确要求其他语言时才切换。实际发送给图像工具的文本应与交付的中文标签正文一致，不要展示中文却暗中发送另一套英文扩写。
+所有最终交付或实际提交生图的提示词都按语义分类加标签，默认中文。角色新图使用 `【任务与参考】`、`【本轮模式】`、`【核心目标】`，再按 `【1. 人物身份与面容】`、`【2. 妆容与肌肤】`、`【3. 发型与头饰】`、`【4. 服装设计】`、`【5. 材质与服装真实感】`、`【6. 构图与姿态】`、`【7. 身材比例】`、`【8. 手部与脚部完整性】`、`【9. 背景与灯光】`、`【10. 最终目标】` 组织。内容按实际参考逐类填写，不能用 P0/P1 优先级替代语义分类。其他主体可调整类别，例如场景用主体、空间、材质、构图、光线；不要强套女性服装章节。
 
-用可见的主体、服装构造、材质反应、姿态、光位和构图描述目标。普通成年真人服装采集默认自然比例；七至七点五头身是设计参考，不是从半身图测出的事实。头长按颅顶至下巴计算，发髻、头饰与裙尾不计入。九头身只在用户明确选择时使用；展示长袍不等于增加腿长、缩小头部或推高骨盆。已有完整全身母图仍保留自身比例。需要脚本时使用 Node.js 22+，工作目录为此技能目录：
+模式块保留用户可调整的 render mode、style workflow（有明确路线时）、face mode、proportion mode、detail budget、highlight hierarchy、edge control，并在正文落实其可见效果。模式名是工作流选择，不是厂商参数。只有明确要求其他语言才切换，切换后仍保留分类标签。实际送入图像工具的完整文本必须与交付正文一致，不暗中改为另一套英文。内部目录的英文片段和 `prompt_skeleton` 是编译素材，不可当作未经分类的最终提示词交付。两条参考路线及示例见 [标签与风格路线](references/routes/tagged-prompt-workflows.md)。
+
+用可见的主体、服装构造、材质反应、姿态、光位和构图描述目标。本项目古风定妆照已明确选择协调的 `P9 Fashion`，配合 `beauty_first`；比例失衡时修正头颈、躯干与四肢关系，不擅自改成七头身。`NATURAL_ADULT` 仍作为明确选择的自然比例方案，不是强制修复方向。头长按颅顶至下巴计算，发髻、头饰与裙尾不计入；完整全身母图保留自身比例。这些案例不决定其他项目、年龄或角色的比例。需要脚本时使用 Node.js 22+，工作目录为此技能目录：
 
 ```bash
 node scripts/iteration-director.mjs asset-prompt --stage generate --format text
+node scripts/iteration-director.mjs asset-prompt --style-workflow dark_fantasy_asset --format text
 node scripts/iteration-director.mjs asset-prompt --presentation costume_showcase --maturity-guard none --format text
 node scripts/iteration-director.mjs asset-prompt --presentation costume_showcase --design-freedom moderate --maturity-guard none --format text
 node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anchor --format text
@@ -47,7 +50,7 @@ node scripts/iteration-director.mjs asset-prompt --stage material-light --focus 
 
 首条命令仅适合上述成年古风白底预设。服装展示型按流动长袍的实际设计选用；不要将其自动用于短装、日常服或贴身铠甲。全身母图模式保留原来的脸、比例、手势与服装，不应用这些预设。调整人物、年龄、画幅或其他用户约束时，基于观察编辑最终提示词；CLI 仅暴露工作流文档列出的选项，不支持的选项会报错。
 
-生成提示词覆盖本轮必要信息；编辑提示词先指出当前母图、允许变化和需要保持的内容，再写局部变化。不要把三轮编辑指令拼成一轮。保留已通过的身份与设计，发现漂移则回到最近通过的母图。
+生成提示词覆盖本轮必要信息；编辑提示词使用“编辑对象、锁定范围、局部变化”等分类标签，不必机械复述十类生成要求。不要把三轮编辑指令拼成一轮。保留已通过的身份、风格与设计，发现漂移则回到最近通过的母图。`dark_fantasy_asset` 保留厚涂原画面容、选择性细节和边缘，不自动执行真人摄影抛光；`material_realistic_asset` 使用美感优先的轻度真实肌肤和真实服装材质，两者都不等于粗糙纪实面容。
 
 删减以重复、冲突和实际失败为依据，不以字符数为目标。简洁文本与详细编译文本都要搭配参考专属方案；不能因一张短提示词图可用，就移除其他造型有效的材质分层或取景条款。
 

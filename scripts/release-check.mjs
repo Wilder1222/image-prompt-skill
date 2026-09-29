@@ -80,6 +80,18 @@ export function validateProject(base, { manifest = true } = {}) {
       if (face && face.base_mode !== preset.legacy_face_mode) errors.push(`${name}: legacy face mode disagrees with face profile`);
     }
     const faceCatalog = json('resources/face_profile_v082_catalog.json');
+    const workflows = json('resources/asset_style_workflows.json');
+    if (!Object.hasOwn(workflows.profiles, workflows.default)) errors.push('unknown default asset style workflow');
+    for (const [name, workflow] of Object.entries(workflows.profiles)) {
+      for (const [field, table] of [['detail_budget','detail_budgets'], ['highlight_hierarchy','highlight_hierarchies'], ['edge_control','edge_controls']]) {
+        if (!Object.hasOwn(workflows[table], workflow[field])) errors.push(`${name}: unknown ${field}`);
+      }
+    }
+    for (const table of ['profiles','detail_budgets','highlight_hierarchies','edge_controls']) {
+      for (const [name, value] of Object.entries(workflows[table])) {
+        for (const language of ['zh','en']) if (typeof value[language] !== 'string' || !value[language].trim()) errors.push(`${name}: missing ${language} visual instructions`);
+      }
+    }
     const materialCatalog = json('resources/material_separation_v082_catalog.json');
     for (const [name, profile] of Object.entries(materialCatalog.profiles)) {
       for (const key of ['prompt_translation', 'generation_prompt_translation']) {

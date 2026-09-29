@@ -6,6 +6,7 @@ import { compileAssetPrompt, createAssetPlan } from './asset-master.mjs';
 export function currentExamples() {
   const cases = [
     ['A：角色感优先的全身白底生成', {}],
+    ['东方幻想原画资产：保留厚涂面容与选择性边缘', { styleWorkflow: 'dark_fantasy_asset', maturityGuard: 'none' }],
     ['B：轻度真人感；其余条件与 A 相同', { faceProfile: 'humanized_real_light' }],
     ['服装定妆展示：有层次的长袍与袖摆', { presentation: 'costume_showcase', maturityGuard: 'none' }],
     ['适度优化服装与造型：保留人物辨识度，按方案再设计', { presentation: 'costume_showcase', maturityGuard: 'none', designFreedom: 'moderate' }],

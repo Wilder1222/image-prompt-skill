@@ -3,7 +3,7 @@
   "configuration": {
     "render_mode": "style_asset",
     "face_profile": "beauty_first_character",
-    "proportion_profile": "NATURAL_ADULT",
+    "proportion_profile": "P9_FASHION_ASSET",
     "material_profile": "ancient_asset_material_split",
     "hand_mode": "elegant_crossed_hands_safe",
     "asset_profile": "presentation:costume_showcase",
@@ -11,7 +11,32 @@
     "legacy_face_mode": "beauty_first",
     "maturity_guard": "none",
     "presentation_profile": "costume_showcase",
-    "design_freedom": "reference_preserve"
+    "design_freedom": "reference_preserve",
+    "style_workflow": "material_realistic_asset",
+    "detail_budget": "material_priority",
+    "highlight_hierarchy": "focal_brightness",
+    "edge_control": "soft_realistic"
+  },
+  "style_rendering": {
+    "workflow": {
+      "detail_budget": "material_priority",
+      "highlight_hierarchy": "focal_brightness",
+      "edge_control": "soft_realistic",
+      "zh": "高颜值古风定妆照与白底角色资产图结合：面容美感优先，保留轻度真实肌肤与自然妆容，服装具有可触摸的真实材质。不用粗糙纪实皮肤或统一塑料高光制造真实感。",
+      "en": "Combine a beautiful costume portrait with a white-background character asset. Prioritize facial beauty with mild natural skin texture and makeup, and physically convincing garment materials; avoid coarse documentary skin or uniform plastic highlights."
+    },
+    "detail": {
+      "zh": "细节用于区分真丝、织锦、纱、绣线与金属的厚度、透光和反射；主衣片、缝合、受力褶皱清楚，素面区域安静，不以全身密集花纹代替材质真实感。",
+      "en": "Spend detail on the thickness, transmission and reflectance of silk, brocade, gauze, embroidery and metal. Keep construction, seams and load-bearing folds readable; retain quiet plain areas instead of covering every surface in ornament."
+    },
+    "highlights": {
+      "zh": "以脸部及邻近头饰、上身为视觉亮度焦点，腰饰和少量衣褶反光次之，裙边与披帛高光更稀疏。不让每条金边同样发亮，不让纯白背景导致肤色和浅衣过曝。",
+      "en": "Concentrate subject highlights around the face, adjacent existing head ornaments and upper torso; subordinate waist and selected fabric highlights, with sparse peripheral glints. Do not make every gold edge equally luminous or clip skin and pale fabric against the white background."
+    },
+    "edges": {
+      "zh": "轮廓服从柔和棚光和真实材质：眼睑、衣料接缝与必要结构清楚，细发、薄纱和次要边缘自然柔化，保持白衣与白底分离；不描黑边，不锐化整圈轮廓。",
+      "en": "Let edges follow soft studio light and physical materials: keep eyelids, seams and necessary construction clear, soften fine hair and thin gauze naturally, and separate pale garments from white without black outlines or uniformly sharpened contours."
+    }
   },
   "status": "planned",
   "priority": [
@@ -147,13 +172,30 @@
       "prompt_strategy": "Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction."
     },
     "fashion_asset": {
-      "profile": "NATURAL_ADULT",
-      "visual_head_count_target": "approximately_7_to_7.5_design_guide_not_measurement",
+      "profile": "P9_FASHION_ASSET",
+      "visual_head_count_target": "8.6_9.0",
       "head_ornaments_excluded": true,
+      "controls": {
+        "head_visual_scale": "balanced_without_extreme_shrink_or_face_reshape",
+        "neck_shoulder": "relaxed_without_neck_stretch",
+        "torso_length": "fully_preserved",
+        "waistline": "clear_natural_anatomical_position",
+        "pelvis_to_knee": "balanced_long",
+        "knee_to_ankle": "balanced_long",
+        "footwear_scale": "refined_natural",
+        "garment_verticality": "strong",
+        "robe_width": "controlled",
+        "foot_visibility": "clear_enough_for_scale_read"
+      },
+      "robe_rules": [
+        "Use waist placement, central vertical panels, hem opening and visible foot-to-hem relation to preserve the tall read under long robes.",
+        "Do not let oversized sleeves or excessive hem width suppress the lower-body visual length.",
+        "Do not shorten the torso, extreme-shrink the head, or stretch only one leg segment."
+      ],
       "prompt_translation": [
-        "Use ordinary adult studio-portrait proportions, with an approximately seven to seven-and-a-half head visual guide measured from the anatomical crown to chin, excluding hair volume and ornaments. This is a design guide, not a measurement inferred from a cropped reference.",
-        "Keep a naturally sized head, a normal neck, a complete ribcage-to-pelvis relationship and balanced upper and lower legs. Do not shrink the head, raise the anatomical waist, lengthen the neck or stretch the lower body to make the outfit look taller.",
-        "The clothing hangs over the body; its sash does not redefine the anatomical waist, and a long skirt or train does not extend the person's standing height. Keep shoulder, elbow, wrist and shoe scale coherent, without claiming hidden joints are visible.",
+        "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and a readable foot-to-hem relationship. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
+        "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
+        "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
         "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
         "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube."
       ]
@@ -196,9 +238,9 @@
       "Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction.",
       "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.",
       "Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.",
-      "Use ordinary adult studio-portrait proportions, with an approximately seven to seven-and-a-half head visual guide measured from the anatomical crown to chin, excluding hair volume and ornaments. This is a design guide, not a measurement inferred from a cropped reference.",
-      "Keep a naturally sized head, a normal neck, a complete ribcage-to-pelvis relationship and balanced upper and lower legs. Do not shrink the head, raise the anatomical waist, lengthen the neck or stretch the lower body to make the outfit look taller.",
-      "The clothing hangs over the body; its sash does not redefine the anatomical waist, and a long skirt or train does not extend the person's standing height. Keep shoulder, elbow, wrist and shoe scale coherent, without claiming hidden joints are visible.",
+      "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and a readable foot-to-hem relationship. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
+      "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
+      "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
       "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
       "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.",
       "Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.",

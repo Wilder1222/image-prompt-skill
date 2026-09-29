@@ -12,11 +12,11 @@ node scripts/iteration-director.mjs asset-prompt --presentation costume_showcase
 node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anchor --format text
 ```
 
-`--format json`（默认）返回配置、文本、编辑范围和未生成图像的证据状态；`text` 只输出提示词。`asset-prompt` 默认输出带 P0/P1/P2 分段标签的中文，`--language en` 仅在需要英文时显式使用。标签是文字组织方式，不是模型参数。图像调用使用与交付相同的最终中文正文。程序库为旧调用保留英文默认，调用 `compileAssetPrompt` 时用 `language: 'zh-CN'` 获取同一中文正文。
+`--format json`（默认）返回配置、文本、编辑范围和未生成图像的证据状态；`text` 只输出提示词。`asset-prompt` 和 `compileAssetPrompt()` 均默认中文。生成正文采用模式块和十类语义标签，局部编辑使用编辑对象、锁定范围和变化类别；不以 P0/P1 优先级替代分类。`--language en` / `language: 'en'` 显式切换英文后仍分类。图像调用使用与交付相同的完整正文。
 
-支持选项：`--preset`、`--face-profile`、`--hand-mode`、`--maturity-guard`、`--presentation`、`--proportion-profile`、`--design-freedom`、`--reference-mode`、`--stage`、`--focus`、`--passed`、`--format`、`--language`。参数缺值、拼写错误、未知模式会失败，不会悄悄退回默认。
+支持选项：`--preset`、`--face-profile`、`--hand-mode`、`--maturity-guard`、`--presentation`、`--proportion-profile`、`--design-freedom`、`--style-workflow`、`--detail-budget`、`--highlight-hierarchy`、`--edge-control`、`--reference-mode`、`--stage`、`--focus`、`--passed`、`--format`、`--language`。参数缺值、拼写错误、未知模式会失败，不会悄悄退回默认。风格及细节选项见 [两条风格路线](tagged-prompt-workflows.md)。
 
-普通成年棚拍默认 `NATURAL_ADULT`：约七至七点五头身为设计参考，不从裁切原图推断精确身高。比例与衣片展示分开，`costume_showcase` 不再覆盖身体比例。只有用户明确选择时装九头身时使用 `--proportion-profile P9_FASHION_ASSET`；完整全身母图模式拒绝这一覆盖。先验收自然头颈肩、完整胸廓与骨盆关系、腰以下长度和手脚尺度，裙摆拖尾不计入站立身高。数字条款不能保证模型遵守，必须看实际图片。
+本项目古风预设恢复用户指定的 `P9_FASHION_ASSET`，高挑、协调，不能极端缩头、拉长颈部或推高骨盆。`--proportion-profile NATURAL_ADULT` 保留为明确选择的自然成人比例。比例与衣片展示独立，`costume_showcase` 不覆盖比例；完整全身母图拒绝这些覆盖。先验收头颈肩、完整胸廓与骨盆、上下腿和手脚尺度，裙摆拖尾不计入站立身高。数字是设计方向，不是测量或模型遵守的保证。
 
 `--design-freedom reference_preserve` 是未授权改造型时的默认；用户明确允许服装、造型优化或希望再设计时，用 `--design-freedom moderate`。后者保留人物辨识度、表观年龄和典型表情，释放可见服装构造与造型的硬锁：先写一套连贯方案，再调整衣片、领袖、腰部、饰物、材料和配色比例；不要在负向提示中把这些设计变化逐一禁止。方案可从优秀效果图提取，但不能把标杆人物的脸也迁移过来。现代装和铠甲按实际角色路线写文本，不强套古风长袍预设。此选项只用于新候选生成，不能混入 `full_body_anchor` 或局部编辑阶段。
 
