@@ -65,3 +65,19 @@ test('missing full-body preservation prompt fails release validation', t => {
   fs.writeFileSync(file, JSON.stringify(data));
   assert.ok(validateProject(dir, { manifest: false }).errors.includes('invalid full-body anchor prompts'));
 });
+
+test('missing generation material rules fail before publishing a runtime-broken compiler', t => {
+  const dir = fixture(t), file = path.join(dir, 'resources/material_separation_v082_catalog.json');
+  const data = JSON.parse(fs.readFileSync(file));
+  delete data.profiles.ancient_asset_material_split.generation_prompt_translation;
+  fs.writeFileSync(file, JSON.stringify(data));
+  assert.ok(validateProject(dir, { manifest: false }).errors.includes('ancient_asset_material_split: invalid material generation_prompt_translation'));
+});
+
+test('missing moderate-design policy fails release validation', t => {
+  const dir = fixture(t), file = path.join(dir, 'resources/asset_presentation_v084_catalog.json');
+  const data = JSON.parse(fs.readFileSync(file));
+  delete data.design_freedoms.moderate;
+  fs.writeFileSync(file, JSON.stringify(data));
+  assert.ok(validateProject(dir, { manifest: false }).errors.includes('invalid design freedom moderate'));
+});

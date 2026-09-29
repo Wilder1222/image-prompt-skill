@@ -39,7 +39,7 @@ const scopes = {
 };
 
 export function createAssetPlan(options = {}) {
-  const allowed = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'passed'];
+  const allowed = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'designFreedom', 'passed'];
   for (const key of Object.keys(options)) if (!allowed.includes(key)) throw new Error(`unknown asset option: ${key}`);
   const preset = options.preset ?? presets.default;
   const configuration = { ...lookup(presets.presets, preset, 'asset preset') };
@@ -48,6 +48,8 @@ export function createAssetPlan(options = {}) {
   // Face realism never implicitly changes the age target, including during A/B tests.
   configuration.maturity_guard = options.maturityGuard ?? configuration.maturity_guard;
   configuration.presentation_profile = options.presentation ?? presentations.default;
+  configuration.design_freedom = options.designFreedom ?? 'reference_preserve';
+  const designFreedom = lookup(presentations.design_freedoms, configuration.design_freedom, 'design freedom');
   const presentation = lookup(presentations.profiles, configuration.presentation_profile, 'presentation profile');
   const face = lookup(faces.profiles, configuration.face_profile, 'face profile');
   configuration.legacy_face_mode = face.base_mode;
@@ -109,6 +111,7 @@ export function createAssetPlan(options = {}) {
   return {
     preset, configuration, status: 'planned', priority: presets.priority,
     presentation: { profile: configuration.presentation_profile, ...presentation },
+    design_freedom: { mode: configuration.design_freedom, ...designFreedom },
     stage_1: stage1, stage_2: stage2, stage_3: stage3,
     order: [scopes.face.round, scopes.structure.round, scopes['material-light'].round, 'final_photographic_polish', 'upscale'],
     rule: 'Use only the failed stage; accept its actual image before progressing. A plan is not evidence that any image has passed. Preserve approved face rendering during non-face repairs.',
@@ -119,7 +122,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
   const reference = lookup(presentations.reference_modes, referenceMode, 'reference mode');
   if (referenceMode === 'full_body_anchor') {
     if (stage !== 'generate' || focus || options.passed?.length) throw new Error('full_body_anchor is a preservation generation mode; for a local repair use the edit stage with the current image as its target');
-    const overrides = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation'].filter(key => options[key] !== undefined);
+    const overrides = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'designFreedom'].filter(key => options[key] !== undefined);
     if (overrides.length) throw new Error(`full_body_anchor preserves its design; conflicting profile overrides: ${overrides.join(', ')}; use an explicit edit stage to change an attribute`);
     // Validate unknown keys without applying the preset's pose, age or proportions.
     createAssetPlan(options);
@@ -132,6 +135,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
       evidence: { image_generated: false, visual_quality_verified: false },
     };
   }
+  if (stage !== 'generate' && options.designFreedom !== undefined) throw new Error('designFreedom is for new generation; a local edit cannot reopen costume design');
   const plan = createAssetPlan(options);
   const stages = { face: plan.stage_1, structure: plan.stage_2, 'material-light': plan.stage_3 };
   const focuses = {
@@ -153,9 +157,12 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
     if (focus || options.passed?.length) throw new Error('focus and passed locks require an edit stage');
     lines = [
       'Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.',
-      'Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.',
-      ...plan.stage_1.prompt_skeleton.slice(3), ...plan.stage_2.prompt_skeleton.slice(3), ...plan.stage_3.prompt_skeleton.slice(3),
+      plan.design_freedom.reference_prompt,
+      ...plan.stage_1.prompt_skeleton.slice(3), ...plan.stage_2.prompt_skeleton.slice(3),
+      ...plan.stage_3.material_separation.generation_prompt_translation,
+      ...plan.stage_3.studio_lighting.prompt_translation,
       ...plan.presentation.generation_prompt_translation,
+      ...plan.design_freedom.prompt_translation,
     ];
   } else {
     const selected = lookup(stages, stage, 'edit stage');

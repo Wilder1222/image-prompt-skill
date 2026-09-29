@@ -14,6 +14,7 @@ description: 根据参考图编写角色资产图、全身定妆照、风格还�
 - 用户提供「之前更好的结果」时，先读 [标杆对照与定妆展示](references/routes/benchmark-costume-refinement.md)：提取可见的姿态、轮廓、层次与材质优势；区分审美标杆和完整造型母图。已有好图可以直接保留，不默认重做脸或身体。
 - 可见设计可以锁定；遮挡与未入画区域只能标为推断或设计延展。半身扩全身时读取 [可见与推断](references/core/visible-inferred-detector.md)。
 - 用户指定的身份、年龄、比例、姿态、画幅和背景优先于预设。古风成年女性白底预设只是一个案例，不能成为所有角色的默认脸型或年龄。
+- 用户允许服装或造型优化时，采用适度再设计：保留人物辨识度与气质，允许按本轮方案调整可见衣服的衣片、袖型、腰饰、配色比例、饰品和姿态，不只补全未入画部分。不要把“身份保留”误写成“全部造型冻结”；明确哪些是再设计。CLI 使用 `--design-freedom moderate`；保留母图和局部修复仍按其原范围执行。
 
 ## 选择所需路线
 
@@ -35,6 +36,7 @@ description: 根据参考图编写角色资产图、全身定妆照、风格还�
 ```bash
 node scripts/iteration-director.mjs asset-prompt --stage generate --format text
 node scripts/iteration-director.mjs asset-prompt --presentation costume_showcase --maturity-guard none --format text
+node scripts/iteration-director.mjs asset-prompt --presentation costume_showcase --design-freedom moderate --maturity-guard none --format text
 node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anchor --format text
 node scripts/iteration-director.mjs asset-prompt --stage material-light --focus materials --format text
 ```

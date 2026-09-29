@@ -10,8 +10,8 @@ const tool = fileURLToPath(new URL('../scripts/iteration-director.mjs', import.m
 const run = args => spawnSync(process.execPath, [tool, ...args], { encoding: 'utf8' });
 
 test('published current examples and plan match the compiler', () => {
-  assert.equal(fs.readFileSync(new URL('../examples/ancient-white-asset-v084-prompts.md', import.meta.url), 'utf8'), currentExamples());
-  assert.deepEqual(JSON.parse(fs.readFileSync(new URL('../docs/v0.8.4-asset-plan.json', import.meta.url), 'utf8')), createAssetPlan({ presentation: 'costume_showcase', maturityGuard: 'none' }));
+  assert.equal(fs.readFileSync(new URL('../examples/ancient-white-asset-current-prompts.md', import.meta.url), 'utf8'), currentExamples());
+  assert.deepEqual(JSON.parse(fs.readFileSync(new URL('../docs/current-asset-plan.json', import.meta.url), 'utf8')), createAssetPlan({ presentation: 'costume_showcase', maturityGuard: 'none' }));
 });
 
 test('A/B changes facial rendering while non-face stages and age stay fixed', () => {
@@ -43,6 +43,37 @@ test('generation has no edit-only locks or internal profile codes', () => {
   assert.doesNotMatch(result.prompt, /only direct edit target|Change only|beauty_first|P9|youthful_18_22/);
   assert.equal(result.status, 'prompt_ready');
   assert.deepEqual(result.evidence, { image_generated: false, visual_quality_verified: false });
+});
+
+test('new generation permits explicit completion while material repair cannot add layers', () => {
+  const generated = compileAssetPrompt({ presentation: 'costume_showcase', maturityGuard: 'none' });
+  assert.match(generated.prompt, /only when the brief specifies it/);
+  assert.match(generated.prompt, /plain in the brief unpatterned, including tone-on-tone jacquard/);
+  assert.doesNotMatch(generated.prompt, /Do not add missing gauze/);
+  for (const focus of [undefined, 'materials']) {
+    const edited = compileAssetPrompt({ stage: 'material-light', focus });
+    assert.match(edited.prompt, /Do not add missing gauze, gold motifs or accessories/);
+    assert.doesNotMatch(edited.prompt, /only when the brief specifies it|plain in the brief unpatterned/);
+  }
+  const anchored = compileAssetPrompt({ referenceMode: 'full_body_anchor' });
+  assert.doesNotMatch(anchored.prompt, /completion brief|plain in the brief unpatterned/);
+});
+
+test('authorized moderate redesign keeps identity while releasing costume construction', () => {
+  const options = { presentation: 'costume_showcase', maturityGuard: 'none' };
+  const before = compileAssetPrompt(options);
+  const after = compileAssetPrompt({ ...options, designFreedom: 'moderate' });
+  assert.equal(after.configuration.design_freedom, 'moderate');
+  assert.match(after.prompt, /moderate redesign is authorized/);
+  assert.match(after.prompt, /recognizable facial features, apparent age and characteristic expression/);
+  assert.doesNotMatch(after.prompt, /Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette/);
+  assert.match(before.prompt, /visible costume construction and palette/);
+  const oldPlan=createAssetPlan(options), newPlan=createAssetPlan({ ...options, designFreedom: 'moderate' });
+  for(const stage of ['stage_1','stage_2','stage_3']) assert.deepEqual(oldPlan[stage],newPlan[stage]);
+  for(const options of [{stage:'material-light',designFreedom:'moderate'}, {referenceMode:'full_body_anchor',designFreedom:'moderate'}, {designFreedom:'typo'}]) assert.throws(()=>compileAssetPrompt(options));
+  const cli=run(['asset-prompt','--design-freedom','moderate','--presentation','costume_showcase','--maturity-guard','none']);
+  assert.equal(cli.status,0,cli.stderr);
+  assert.equal(JSON.parse(cli.stdout).prompt,after.prompt);
 });
 
 test('each edit includes its locks and exposes disjoint editable dimensions', () => {

@@ -255,11 +255,11 @@ function ancientWhiteAssetPromptPlanV082(options={}){
  return {plan,prompt_skeleton:compiled.prompt.split('\n\n'),prompt:compiled.prompt,evidence:compiled.evidence};
 }
 function assetOptions(o,extra=[]){
- const allowed=new Set(['_','preset','face-profile','hand-mode','maturity-guard','presentation','passed',...extra]);
+ const allowed=new Set(['_','preset','face-profile','hand-mode','maturity-guard','presentation','design-freedom','passed',...extra]);
  for(const key of Object.keys(o))if(!allowed.has(key))throw new Error(`unknown asset option --${key}`);
  for(const [key,value] of Object.entries(o))if(key!=='_'&&typeof value!=='string')throw new Error(`--${key} requires a value`);
  if(o._.length!==1)throw new Error('asset commands accept named options only');
- return {preset:o.preset,faceProfile:o['face-profile'],handMode:o['hand-mode'],maturityGuard:o['maturity-guard'],presentation:o.presentation,passed:csv(o.passed)};
+ return {preset:o.preset,faceProfile:o['face-profile'],handMode:o['hand-mode'],maturityGuard:o['maturity-guard'],presentation:o.presentation,designFreedom:o['design-freedom'],passed:csv(o.passed)};
 }
 function conflictCheck(keys){const found=[];for(const id of keys){const row=CONFLICT.conflicts[id];if(row)found.push({id,...row});}return {conflicts:found,priority_order:CONFLICT.priority_order,status:found.length?'needs_resolution':'clear'};}
 const o=argv();try{const cmd=o._[0];let out;
