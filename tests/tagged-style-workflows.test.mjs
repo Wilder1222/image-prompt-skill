@@ -40,7 +40,7 @@ test('two workflows change visible instructions and defaults, not just a mode he
   assert.equal(a.configuration.edge_control, 'soft_realistic');
   assert.equal(b.configuration.detail_budget, 'concept_art_priority');
   assert.equal(b.configuration.edge_control, 'painterly_selective');
-  assert.match(a.prompt, /轻微纹理与肤色过渡/);
+  assert.match(a.prompt, /全身图不强行显示毛孔/);
   assert.match(b.prompt, /不要通过毛孔强化/);
   assert.match(b.prompt, /最高细节集中/);
   assert.match(b.prompt, /次要裙边保留柔和笔触/);

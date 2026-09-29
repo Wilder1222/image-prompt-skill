@@ -3,7 +3,7 @@
   "name": "makeup_skin_integration_v2",
   "controls": {
     "foundation_coverage": "light",
-    "skin_visibility": "high",
+    "skin_visibility": "subtle_under_refined_makeup",
     "brow_density_variation": "natural",
     "eyeliner_edge": "softened",
     "lash_density": "moderate",
@@ -13,8 +13,9 @@
     "lip_color_uniformity": "slight_variation"
   },
   "prompt_translation": [
-    "Make makeup sit on top of real skin rather than replacing the skin surface.",
-    "Keep foundation light, eyebrow density naturally varied, eyeliner softened into the lash root, eyeshadow blended with eye-socket structure and lip color slightly non-uniform."
+    "Establish refined makeup and an attractive finished face first; facial realism and skin texture must support that beauty while preserving identity and apparent age.",
+    "Keep foundation finely blended, brows and lash roots natural, and eyeshadow, blush and lip finish coherent with the character. Let restrained regional reflection and subtle texture support the makeup rather than competing with it.",
+    "Scale texture to framing and output size: do not force visible pores into a full-body face, and keep close-up skin detail low-contrast and flattering. Avoid both coarse sharpening and plastic smoothing."
   ],
   "forbidden": [
     "opaque_foundation_mask",

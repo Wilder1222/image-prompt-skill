@@ -14,7 +14,7 @@ test('young skin policy avoids age signals',()=>{const r=run(['skin-optics-v2'])
 
 test('soft tissue preserves youthful cheek and jaw transition',()=>{const r=run(['soft-tissue-v2']);assert.equal(r.json.controls.cheek_volume,'subtle_young');assert.equal(r.json.controls.jaw_to_neck_transition,'natural');assert.ok(r.json.forbidden.includes('aging_shift'));});
 
-test('makeup stays light and skin-visible',()=>{const r=run(['makeup-skin-v2']);assert.equal(r.json.controls.foundation_coverage,'light');assert.equal(r.json.controls.skin_visibility,'high');assert.equal(r.json.controls.eyeliner_edge,'softened');});
+test('makeup keeps skin response subtle beneath a refined finish',()=>{const r=run(['makeup-skin-v2']);assert.equal(r.json.controls.foundation_coverage,'light');assert.equal(r.json.controls.skin_visibility,'subtle_under_refined_makeup');assert.equal(r.json.controls.eyeliner_edge,'softened');});
 
 test('hair uses exactly three frequency layers and fine strands are not primary',()=>{const r=run(['hair-frequency-v2']);assert.equal(r.json.frequency_layers.length,3);assert.deepEqual(r.json.frequency_layers,['primary_hair_mass','secondary_bundles','fine_strands']);assert.equal(r.json.controls.fine_strand_density,'low');assert.ok(r.json.forbidden.includes('fine_strands_as_primary'));});
 

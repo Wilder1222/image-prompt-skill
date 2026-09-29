@@ -2,7 +2,7 @@
 
 ## Goal
 
-Young, beautiful skin should remain relatively even and healthy while still behaving like living tissue under light.
+Facial realism should support refined makeup and visual appeal, following [the current makeup and skin direction](makeup-skin-integration-v2.md). Skin stays coherent under light without making surface detail compete with the face or overriding the selected makeup finish and apparent age.
 
 ## Distinguish two concepts
 
@@ -31,7 +31,7 @@ At full-body scale:
 - soft structure and region-dependent reflectance matter more
 
 At close-up scale:
-- fine pores and lip texture can become more explicit
+- fine pores and lip texture may become more visible where appropriate to the makeup, lighting and resolution; keep contrast restrained and the finished face attractive
 
 ## Failure signals
 
