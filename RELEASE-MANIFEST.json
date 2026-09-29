@@ -17,7 +17,7 @@
     "dist",
     "node_modules"
   ],
-  "file_count": 418,
+  "file_count": 419,
   "files": [
     ".codex-plugin/plugin.json",
     ".gitattributes",
@@ -36,6 +36,7 @@
     "docs/current-asset-plan.json",
     "docs/cyber-style-asset-plan.json",
     "docs/maturity-M2.5.json",
+    "docs/next-milestone.md",
     "docs/reality-R2.json",
     "docs/reference-role-report.json",
     "docs/render-mode-hybrid.json",
@@ -443,7 +444,7 @@
     ".gitattributes": "695321e5f5e2f7837d0e5906727f8f9fefb2574edd98dffc7f9542b9741ee63c",
     ".gitignore": "ad8304074e668898167688c6f4744cc4710e8dd670b7ca1392717bf9814bdcd5",
     "PATCH-README.md": "0be9d553cacaac028d7b0c47d960bef13fdfb35de7eb3765d12ad6879df195c5",
-    "README.md": "acca8d8d2cd430f7af5b04b2611157801154d577a696837aaf116928b70b6983",
+    "README.md": "c9d3d9a191518c66620d89f2d26392562069631fb49e4952617726947fcaff22",
     "RELEASE-MANIFEST-v0.8.0.json": "380c103527cb45644cacdca364d26b2bee93ad9bf910a711442c0a6552e3cc91",
     "RELEASE-MANIFEST-v0.8.1.json": "4cbc1ab2b8aee887747013a919c1a1517ed94b50ff1e07947abd84f9fb80f554",
     "RELEASE-MANIFEST-v0.8.2.json": "f853b2eb944917f3127e68f4acd427e99c5c33b56b68417baf1ddce531db683b",
@@ -456,6 +457,7 @@
     "docs/current-asset-plan.json": "951f1110018c991052d2c8395014982adefabca51531d309e85cba00684be604",
     "docs/cyber-style-asset-plan.json": "c55f071e7a65f38ae4f976f1a5c0b04def557ca2b391da5c843be5528d52c86a",
     "docs/maturity-M2.5.json": "3d2b1357e0e9e7316f37cac1910d540d43b5c2dc3767d79745579091c0dffe87",
+    "docs/next-milestone.md": "64e4cf16bb2f51d21177d8917b455ba4777a0c4608913fb4bb669ce610eea5de",
     "docs/reality-R2.json": "e41501263324a3089913684f8029441aeb98cd520eae36ae63e469a4e2318aeb",
     "docs/reference-role-report.json": "4fc5c3723e4e9247d62ba2f6fb4170f4d765ca0e045c48790e3b09806425c46c",
     "docs/render-mode-hybrid.json": "7e773b9f89444569341a38d06634a516c23d53764c52d5632d7e922ec078e879",
