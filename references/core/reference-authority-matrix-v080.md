@@ -18,6 +18,9 @@ Owns: the explicitly assigned setting, spatial layout, scene elements and backgr
 ## Expression Reference
 Owns: the assigned gaze, facial tension, mouth action and emotional intensity through `expression`. It does not supply identity geometry, apparent age, hairstyle or head angle. Adapt the action to the identity reference, following explicit expression and gaze requirements. Expression adaptation may also be chosen directly from the brief without an extra image.
 
+## Body Action Reference
+Owns: the assigned movement phase, gesture, support and limb relationships through `action`. It does not supply the actor's face, body proportions or costume. Adapt the movement to the current character and clothing; add composition, expression and material permissions only where the brief calls for their coordinated adaptation. Exaggerated action is allowed when coherent with the task. See [action direction](action-direction.md).
+
 ## Key rule
 
 A style target should be allowed to change **presentation** strongly without silently replacing **design identity**.

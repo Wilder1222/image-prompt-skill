@@ -44,7 +44,7 @@
 
 **比例靠整体关系**：已选 P9 的目标是协调的高挑时装感，保留完整躯干、自然颈肩和协调四肢。不要同时写极小头、长脖子、极高腰、超长腿和拖地长裙来叠加拉伸。裙尾、发髻不算人体身高；隐藏关节不可精确测量。用用户的成功图检查整体观感，而不是由数字自行判通过。
 
-**站姿按意图设定**：读取 [站姿决策](../core/standing-pose-direction.md)，将身体与头部朝向、重心、腿脚关系、手势和衣摆遮挡分别确定。支持常见女性站姿与用户指定动作，不把“定妆”固定为并脚叠手。保持任务已有的正面/侧面要求；鞋是否露出服从站姿和服装，未要求展示鞋时允许自然遮住一脚或双脚。编写一种明确可执行的姿态，不把多个备选动作全部塞入同一张图。
+**动作自动适配并保持生动**：读取 [动作与生命感](../core/action-direction.md)，结合人物、情绪、服装、场景和用途选择一种明确动作，支持日常动作和夸张伸展、跳跃、旋转等。写清动作阶段、身体关系、表情视线与衣料响应；通过自然松紧、不对称、接触和注意力表现活人感。站姿只是其中一类，选用时再读 [站姿决策](../core/standing-pose-direction.md)。当前明确的朝向和取景优先，未指定时允许随动作协调调整；腾空不强制落地，鞋脚仍允许自然遮挡，不以夸张本身判错。
 
 **细节有目的**：材料路线把细节用于厚薄、织物、缝合和反射；原画路线把细节集中于脸和关键装饰，周边概括。主衣片需要安静空间，亮度焦点有主次。每个“高级、华丽、真实”至少对应一个构造或光学描述，不能靠更多同义词强化。
 
@@ -78,7 +78,7 @@
 
 `acceptance` 应检查输出图可判断的目标。“中文标签是否完整”“是否尚未生图”等是文字交付或执行状态，单独留在文本审查记录，不能混入图像成功率。将仅提示词任务升级为生图测试前，先重新核对验收目标并冻结新的记录；不要生成后删除不适用的关键项来制造通过。精确脚位若被长裙遮住，保留不可判断，而整体平衡与衣摆可分别评审。
 
-通道为 identity、expression、makeup、hair、costume、material、composition、proportion、hands_feet、background、lighting、style、task、output。表情可独立使用 expression，背景使用 background；旧记录在 identity 中描述表情、在 lighting/composition 中描述背景仍兼容。可见性为 visible、partial、unknown、not_visible。事实可跨类别提供依据，但参考必须具有控制目标类别的权限。部分可见的事实只描述可见部分。
+通道为 identity、expression、action、makeup、hair、costume、material、composition、proportion、hands_feet、background、lighting、style、task、output。身体动作用 action，表情用 expression，背景用 background；旧记录在 composition 中描述动作、identity 中描述表情、lighting/composition 中描述背景仍兼容。动作与构图、神态和材料需联动时按本轮意图一起修改，不机械锁死。可见性为 visible、partial、unknown、not_visible。事实可跨类别提供依据，但参考必须具有控制目标类别的权限。部分可见的事实只描述可见部分。
 
 ```bash
 node scripts/iteration-director.mjs prompt-build --input path/to/agent-authored-brief.json --format text

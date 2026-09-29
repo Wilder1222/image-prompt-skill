@@ -33,6 +33,8 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 
 表情使用 expression 通道，与 identity 分开修改和验收。仅改表情保留身份、年龄、发型、衣装、姿态、背景和灯光；需要同步转头或改变身体姿态时显式加入 composition。旧 identity 段同时锁定神态或嘴角位置时，先在新任务中拆清稳定辨识点与可变表情，不通过新增一句“自然微笑”掩盖旧冲突。
 
+身体动作可使用 action 通道。用户允许动作自动适配时，代理依据整体意图选择必要的 action、composition、expression、hands_feet、material 或 hair 联动范围，分别调整动作、取景/朝向、神态与动态响应，无需用户逐项选参数。保留仍有效的身份、衣装设计和其他要求；旧“站直、双脚落地”等若不适用于当前动作，在新记录中同步改写要求与验收。只修特定局部时仍遵守该轮边界。
+
 身份图可以声明 `identity_group` 和 `identity_role: primary|support`。多个身份视角必须同组、恰好一个主参考、均实际送入生成；衣装或评价参考不因此取得身份权限。是否同一人物仍由观察与用户说明决定。
 
 编辑或重生成使用 `prepare --kind edit|revision --parent previous.snapshot.json`，保持 case 与 cohort。快照会比较目标摘要，改变要求或验收标准时自动标记 goal_changed。不能把新目标的成功算作原目标修复成功。每轮同时重查已通过项，最多两轮无改善即停止该修订路线。
