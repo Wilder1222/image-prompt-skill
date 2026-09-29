@@ -2,7 +2,9 @@
 
 参考图驱动的角色定妆照提示词与迭代工作流。支持全身白底资产、服装展示、优质母图保留与局部修复，并区分身份、风格、服装和编辑母图的参考权限。
 
-当前版本 **0.9.6**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
+当前版本 **0.9.7**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
+
+`asset-prompt` 默认交付带标签的中文提示词，普通成年服装采集使用自然比例。九头身需要显式选择；完整全身母图保留原比例。实际送入图像工具的提示词应与交付正文一致，图片的比例验收独立于代码测试。
 
 ## 使用
 
@@ -50,6 +52,7 @@ npm run plugin:build
 
 ## 入口
 
+- [中文标签与自然比例纠错记录](docs/visual-evaluations/chinese-natural-proportion-v097.md)
 - [参考图实测与当前候选总览](docs/visual-evaluations/current-overview.md)
 - [技能主工作流](SKILL.md)
 - [白底资产工作流](references/routes/asset-master-workflow.md)

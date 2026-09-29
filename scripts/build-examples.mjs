@@ -17,7 +17,7 @@ export function currentExamples() {
   return '# 当前白底角色资产测试提示词\n\n'
     + '由 `npm run examples:build` 自动生成。A/B 使用同一张参考图、相同画幅与模型设置，只改变面部渲染方向；不要将 A 的输出作为 B 的输入。局部编辑使用最新已接受母图。\n\n'
     + '以下是通用编译示例，仍需填写本套服装的具体构造和参考权限。展示型仅适合用户需要的流动长袍；全身母图模式保留自身造型。这些示例本身没有对应生成图，实际回归另存输入输出回执。\n\n'
-    + cases.map(([title, options]) => `## ${title}\n\n\`\`\`text\n${compileAssetPrompt(options).prompt}\n\`\`\`\n`).join('\n');
+    + cases.map(([title, options]) => `## ${title}\n\n\`\`\`text\n${compileAssetPrompt({...options, language:'zh-CN'}).prompt}\n\`\`\`\n`).join('\n');
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
