@@ -50,6 +50,7 @@ npm run plugin:build
 
 ## 入口
 
+- [参考图实测与当前候选总览](docs/visual-evaluations/current-overview.md)
 - [技能主工作流](SKILL.md)
 - [白底资产工作流](references/routes/asset-master-workflow.md)
 - [标杆对照与服装展示](references/routes/benchmark-costume-refinement.md)
