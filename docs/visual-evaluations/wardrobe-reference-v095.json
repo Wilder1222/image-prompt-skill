@@ -1,0 +1,146 @@
+{
+  "version": "0.9.5",
+  "date": "2026-09-29",
+  "status": "partial_progress",
+  "goal_status": "active",
+  "new_images": 3,
+  "shared_core_verified": true,
+  "comparison": "White A/B share exactly the core prompt, with changed reference-binding preamble and added image. Black C shares the historical cycle03 b-08 core, adds binding and wardrobe image. Unknown model/seed; added images prevent a prompt-only causal claim.",
+  "artifact_directory": "dist/visual-tests/goal-cycle-05/",
+  "records": [
+    {
+      "id": "a-02-text-wardrobe",
+      "original_reference": 2,
+      "benchmark": "earlier-excellent-2",
+      "experiment_type": "original_plus_text",
+      "authoring": "Project reference-authority and moderate wardrobe route; shared concrete wardrobe brief; single-original baseline",
+      "source_commit": "d5589c5b55efcf517bada11e7a414dd36eae7c74",
+      "provider": "image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "prompt": {
+        "sha256": "beea4025c862e5c734fe309ba5850e8bc81c63424be75dba9ebfabf4311a35f4",
+        "characters": 2354,
+        "shared_core_sha256": "69fc171ecc2afc068f4494223795f4d86203097afeae3705d412bd5a7b6652e7"
+      },
+      "inputs": [
+        {
+          "role": "identity_source",
+          "sha256": "366fcbc9f6aa73905939d5e0aa741da3d32e81e8b977ddea2352f6c877b3afeb",
+          "local_file": "inputs/366fcbc9f6aa7390.jpg"
+        }
+      ],
+      "evaluation_only": [
+        {
+          "role": "evaluation_only",
+          "sha256": "f83cb319f4b435f64786f68468fbb356614b76b2dd628e188ba197f25cf1c42b",
+          "local_file": "inputs/f83cb319f4b435f6.jpg"
+        }
+      ],
+      "output": {
+        "file": "a-02-text-wardrobe.png",
+        "sha256": "f3e776053b63a487b2b7a31710e87175e205b234c362fc67bc26fa20f8aa63fb",
+        "width": 1086,
+        "height": 1448
+      },
+      "observation": "黑发、安静直视与浅粉内领可辨；白紫衣片与薄纱成立；肩扣较小、袖带与长片较简单；顶部偏紧，鞋尖与衣摆在画内。",
+      "observer": "Codex visual inspection",
+      "identity_verdict": "pending",
+      "user_approval": "pending",
+      "visual_quality_verified": false,
+      "regressions": [
+        "top margin remains limited",
+        "identity not quantitatively verified"
+      ]
+    },
+    {
+      "id": "b-02-visual-wardrobe",
+      "original_reference": 2,
+      "benchmark": "earlier-excellent-2",
+      "experiment_type": "identity_plus_wardrobe_image",
+      "authoring": "Project reference-authority principle with explicit authorized wardrobe-design role under test; same core wardrobe brief as A",
+      "source_commit": "d5589c5b55efcf517bada11e7a414dd36eae7c74",
+      "provider": "image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "prompt": {
+        "sha256": "f586de7af69bb960e9d016d571fa54c98c128d160e4a1011e4a8f04fcccfad1d",
+        "characters": 2671,
+        "shared_core_sha256": "69fc171ecc2afc068f4494223795f4d86203097afeae3705d412bd5a7b6652e7"
+      },
+      "inputs": [
+        {
+          "role": "identity_source",
+          "sha256": "366fcbc9f6aa73905939d5e0aa741da3d32e81e8b977ddea2352f6c877b3afeb",
+          "local_file": "inputs/366fcbc9f6aa7390.jpg"
+        },
+        {
+          "role": "wardrobe_design_reference",
+          "sha256": "f83cb319f4b435f64786f68468fbb356614b76b2dd628e188ba197f25cf1c42b",
+          "local_file": "inputs/f83cb319f4b435f6.jpg"
+        }
+      ],
+      "evaluation_only": [],
+      "output": {
+        "file": "b-02-visual-wardrobe.png",
+        "sha256": "6a436f135bf4cca45552f0ec82d52ed5cb054b8b20ee2bf954b3fb803faaaff8",
+        "width": 1086,
+        "height": 1448
+      },
+      "observation": "肩扣垂链、袖带和裙片错层更接近服装参考；保持黑发与小银饰，未见银发、长簪、额饰迁移；面容相似度仍待独立评审。",
+      "observer": "Codex visual inspection",
+      "identity_verdict": "pending",
+      "user_approval": "pending",
+      "visual_quality_verified": false,
+      "regressions": [
+        "top margin remains limited",
+        "identity not quantitatively verified"
+      ]
+    },
+    {
+      "id": "c-08-visual-wardrobe",
+      "original_reference": 8,
+      "benchmark": "new-excellent-4",
+      "experiment_type": "identity_plus_wardrobe_image",
+      "authoring": "Same wardrobe core as cycle03 b-08, adding explicit second-image wardrobe-only binding and visual input; historical baseline, unknown model/seed",
+      "source_commit": "d5589c5b55efcf517bada11e7a414dd36eae7c74",
+      "provider": "image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "prompt": {
+        "sha256": "d312b0f596357b193e9feccf3ebc9c008b99e9df97fd235b106d07439340ed18",
+        "characters": 3710,
+        "shared_core_sha256": "45f1848fe9a84bff778f8f0ae5eae84b2b3952753ddc42c787f311622ce1799f"
+      },
+      "inputs": [
+        {
+          "role": "identity_source",
+          "sha256": "9336b63306d7200b87da8db5f7fa5cf48092aa137b5de0c606e7f2449c5d0a9f",
+          "local_file": "inputs/9336b63306d7200b.jpg"
+        },
+        {
+          "role": "wardrobe_design_reference",
+          "sha256": "a466ca11342b2bf6af40a1fdada78593f76133566a4b597afe47d846c8d9980c",
+          "local_file": "inputs/a466ca11342b2bf6.jpg"
+        }
+      ],
+      "evaluation_only": [],
+      "output": {
+        "file": "c-08-visual-wardrobe.png",
+        "sha256": "2866b24b7f1cb748c9e8d58b6c70736b3c940504b2b96cf5ac5be518eca6fab9",
+        "width": 1086,
+        "height": 1448
+      },
+      "observation": "黑金领肩、腰封与错落长片更接近服装参考；原图式花饰高髻仍可见；装饰密度提高，腰饰多于一件，发髻仍高且顶部紧。",
+      "observer": "Codex visual inspection",
+      "identity_verdict": "pending",
+      "user_approval": "pending",
+      "visual_quality_verified": false,
+      "regressions": [
+        "multiple waist pendants despite one specified",
+        "higher ornament density",
+        "high bun and tight top margin persist"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "version": "0.8.0",
+  "version": "0.9.5",
   "principle": "each visual attribute should have one dominant reference authority; style target never owns identity geometry or garment architecture unless explicitly authorized.",
   "scenarios": {
     "style_A_asset_B": {
@@ -49,6 +49,53 @@
           "environment_scale"
         ]
       }
+    },
+    "identity_A_wardrobe_B": {
+      "use_when": "The user authorizes wardrobe redesign and the current brief explicitly assigns Image B as a clothing-design reference.",
+      "A": {
+        "role": "identity_source",
+        "authority": {
+          "face_identity_geometry": 3,
+          "apparent_age": 3,
+          "expression": 3,
+          "hair_color": 3,
+          "hairstyle_silhouette": 3,
+          "garment_silhouette": 0,
+          "garment_structure": 0,
+          "palette_family": 0,
+          "body_proportion": 0
+        }
+      },
+      "B": {
+        "role": "wardrobe_design_reference",
+        "authority": {
+          "garment_silhouette": 2,
+          "garment_structure": 2,
+          "palette_family": 2,
+          "material_relationships": 2,
+          "signature_accessories": 1,
+          "face_identity_geometry": 0,
+          "apparent_age": 0,
+          "expression": 0,
+          "hair_color": 0,
+          "hairstyle_silhouette": 0,
+          "body_proportion": 0,
+          "pose": 0,
+          "background": 0
+        }
+      },
+      "brief_precedence": "Explicit adaptation controls the allowed wardrobe changes, accessory limits, pose and background. Visible body or hairstyle requirements from the user remain authoritative; an unseen body cannot be measured from a portrait.",
+      "prompt_binding": [
+        "Image A is the sole source of the character's face, apparent age, expression, hair color and hairstyle, except changes explicitly authorized in this brief.",
+        "Image B supplies only the clothing construction, palette, material relationships and selected accessories named in the wardrobe brief. Do not copy B's face, body proportions, hair, forehead marks or unassigned head ornaments.",
+        "The explicit wardrobe adaptation takes precedence over conflicting clothing details in either image. Follow the specified pose and background rather than automatically inheriting B's presentation."
+      ],
+      "review": [
+        "Check identity and hair against A separately from costume construction against B.",
+        "Check B-only face, hair, forehead and body traits for unwanted transfer; absence of one obvious trait does not prove identity preservation.",
+        "Check the final accessory count and ornament density against the adaptation brief; B can introduce extra detail despite role text.",
+        "Record B as an actual generation input, not evaluation-only. Do not label the result a pure prompt-only improvement."
+      ]
     },
     "single_style_reference": {
       "A": {
