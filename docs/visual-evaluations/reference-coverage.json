@@ -1,6 +1,6 @@
 {
   "date": "2026-09-29",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "independent_originals_tested": [
     1,
     2,
@@ -13,10 +13,7 @@
   ],
   "coverage_is_not_quality_approval": true,
   "goal_status": "active",
-  "new_benchmark_directions_untested": [
-    "black-gold costume (new image 4)",
-    "modern short-skirt variation (new image 5)"
-  ],
+  "new_benchmark_directions_untested": [],
   "records": [
     {
       "original": 1,
@@ -114,5 +111,55 @@
       "note": "前中素面与织锦区分改善；主要可见一只鞋尖。",
       "artifact_directory": "dist/visual-tests/goal-cycle-02/"
     }
+  ],
+  "wardrobe_variants": [
+    {
+      "original": 8,
+      "benchmark": 4,
+      "cycle": "goal-cycle-03",
+      "id": "a-08-black-gold",
+      "reference_sha256": "9336b63306d7200b87da8db5f7fa5cf48092aa137b5de0c606e7f2449c5d0a9f",
+      "candidate_sha256": "88fd93f7c0560859d574db2224bc1b186248c282ba9eba3d701f5496c8079c01",
+      "prompt_sha256": "eee23e2330b4bcc906e5a54005ae3b6717854ce9765f5ee268e1cfa9359ce644",
+      "independent_original_generation": true,
+      "benchmark_usage": "evaluation_only",
+      "user_approval": "pending",
+      "note": "黑纱、浅色袖里、金纹与中心裙面区分可读；身体、衣摆和鞋尖完整；中心深色裙面积大而沉重，肩饰外展，顶部紧。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-03/"
+    },
+    {
+      "original": 7,
+      "benchmark": 5,
+      "cycle": "goal-cycle-03",
+      "id": "a-07-blue-short",
+      "reference_sha256": "6925d822b25340015881ca572c6e269f8b4711066cc8303cd7251ebdc0658df3",
+      "candidate_sha256": "07ece293ec9d8bf5ae5757bc8fe4036092b1e2a801c3e154597c2c1ba4c67889",
+      "prompt_sha256": "c9fa6808863ba72c902b22fd16ff26cce9db56a4061e15eadaa16453cf287424",
+      "independent_original_generation": true,
+      "benchmark_usage": "evaluation_only",
+      "user_approval": "pending",
+      "note": "针织、碎花内搭、短裙与袜鞋区分可读，闭唇微笑与侧垂低马尾保留；相叠手指和遮挡的骨盆无法全面评估。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-03/"
+    },
+    {
+      "original": 8,
+      "benchmark": 4,
+      "cycle": "goal-cycle-03",
+      "id": "b-08-layered-black-gold",
+      "reference_sha256": "9336b63306d7200b87da8db5f7fa5cf48092aa137b5de0c606e7f2449c5d0a9f",
+      "candidate_sha256": "725cb94bea37b61aecae663706b24a39c568db269960ed02abc6aedfb1e68db2",
+      "prompt_sha256": "45f1848fe9a84bff778f8f0ae5eae84b2b3952753ddc42c787f311622ce1799f",
+      "independent_original_generation": true,
+      "benchmark_usage": "evaluation_only",
+      "user_approval": "pending",
+      "note": "浅色内层和错落侧片可读，深色中心变窄，肩饰更贴合；发髻仍高且顶部留白仍紧，中心仍有纹理与柔亮反光。",
+      "artifact_directory": "dist/visual-tests/goal-cycle-03/"
+    }
+  ],
+  "remaining_quality_issues": [
+    "身份相似度与审美待用户验收",
+    "黑金发髻与顶部留白尚未改善",
+    "此前神兽数量和完整轮廓要求仍有未通过样本",
+    "单次生成不证明提示词稳定性"
   ]
 }
