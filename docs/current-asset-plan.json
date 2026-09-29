@@ -180,22 +180,27 @@
         "neck_shoulder": "relaxed_without_neck_stretch",
         "torso_length": "fully_preserved",
         "waistline": "clear_natural_anatomical_position",
+        "waist_hip_balance": "defined_waist_natural_pelvis_continuous_volume",
+        "upper_lower_arm": "coherent_lengths_elbow_wrist_hand_scale",
+        "muscle_definition": "moderate_even_soft_pose_responsive",
         "pelvis_to_knee": "balanced_long",
         "knee_to_ankle": "balanced_long",
         "footwear_scale": "refined_natural",
         "garment_verticality": "strong",
         "robe_width": "controlled",
-        "foot_visibility": "clear_enough_for_scale_read"
+        "foot_visibility": "pose_and_garment_dependent"
       },
       "robe_rules": [
-        "Use waist placement, central vertical panels, hem opening and visible foot-to-hem relation to preserve the tall read under long robes.",
+        "Use natural waist placement and central vertical panels to preserve a tall read under long robes. Shoes may remain naturally hidden by the pose and garment.",
         "Do not let oversized sleeves or excessive hem width suppress the lower-body visual length.",
         "Do not shorten the torso, extreme-shrink the head, or stretch only one leg segment."
       ],
       "prompt_translation": [
-        "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and a readable foot-to-hem relationship. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
+        "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and complete silhouette. Foot visibility depends on pose and clothing. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
         "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
         "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
+        "Balance shoulders, ribcage, waist and pelvis with a defined waist and natural hip volume. Keep upper arms, forearms, elbows, wrists and hands coherent; keep thighs, knees, calves and ankles balanced in both length and thickness. Golden proportion is an aesthetic goal, not a universal numeric ratio or a measurement inferred through clothing.",
+        "Use moderate, evenly developed muscle volume with soft definition on visible shoulders, arms, waist and legs, responding to the selected action. Preserve natural soft tissue; avoid stick limbs, pinched waists, exaggerated bodybuilding cuts or muscles showing through opaque fabric.",
         "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
         "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube."
       ]
@@ -238,9 +243,11 @@
       "Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction.",
       "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament and entire natural garment silhouette inside the frame, leaving breathing room above and below.",
       "Let the approved skirt and sleeve silhouette remain generous. The selected stance and natural drape determine whether one, both or neither foot is visible. Shoe tips are not mandatory; preserve a grounded hem and never shorten the dress just to expose shoes.",
-      "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and a readable foot-to-hem relationship. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
+      "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and complete silhouette. Foot visibility depends on pose and clothing. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
       "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
       "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
+      "Balance shoulders, ribcage, waist and pelvis with a defined waist and natural hip volume. Keep upper arms, forearms, elbows, wrists and hands coherent; keep thighs, knees, calves and ankles balanced in both length and thickness. Golden proportion is an aesthetic goal, not a universal numeric ratio or a measurement inferred through clothing.",
+      "Use moderate, evenly developed muscle volume with soft definition on visible shoulders, arms, waist and legs, responding to the selected action. Preserve natural soft tissue; avoid stick limbs, pinched waists, exaggerated bodybuilding cuts or muscles showing through opaque fabric.",
       "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
       "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.",
       "Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.",
