@@ -136,7 +136,7 @@ export function createAssetPlan(options = {}) {
 
 export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'zh-CN', ...options } = {}) {
   if (!['en', 'zh-CN'].includes(language)) throw new Error('language must be zh-CN or en');
-  const finish = result => ({ ...result, prompt_language: language, prompt: language === 'zh-CN' ? renderTaggedChinese(result) : (result.prompt.startsWith('【') ? result.prompt : result.prompt.split('\n\n').map((text, i) => `【${i + 1}. ${i ? 'Preservation and edit scope' : 'Task and reference'}】\n${text}`).join('\n\n')) });
+  const finish = result => ({ ...result, status:'scaffold_only', requires_reference_analysis:true, prompt_language: language, prompt: language === 'zh-CN' ? renderTaggedChinese(result) : (result.prompt.startsWith('【') ? result.prompt : result.prompt.split('\n\n').map((text, i) => `【${i + 1}. ${i ? 'Preservation and edit scope' : 'Task and reference'}】\n${text}`).join('\n\n')) });
   const reference = lookup(presentations.reference_modes, referenceMode, 'reference mode');
   if (referenceMode === 'full_body_anchor') {
     if (stage !== 'generate' || focus || options.passed?.length) throw new Error('full_body_anchor is a preservation generation mode; for a local repair use the edit stage with the current image as its target');

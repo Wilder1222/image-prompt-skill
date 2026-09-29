@@ -44,7 +44,8 @@ test('generation exposes requested mode labels but has no edit-only locks', () =
   const result = compileAssetPrompt();
   assert.doesNotMatch(result.prompt, /only direct edit target|Change only|youthful_18_22/);
   assert.match(result.prompt, /proportion mode = P9 Fashion/);
-  assert.equal(result.status, 'prompt_ready');
+  assert.equal(result.status, 'scaffold_only');
+  assert.equal(result.requires_reference_analysis, true);
   assert.deepEqual(result.evidence, { image_generated: false, visual_quality_verified: false });
 });
 

@@ -36,7 +36,7 @@ export function validateProject(base, { manifest = true } = {}) {
   const files = releaseFiles(base);
   const json = name => JSON.parse(fs.readFileSync(path.join(base, name), 'utf8'));
   for (const file of ['SKILL.md', 'package.json', 'agents/openai.yaml', 'scripts/iteration-director.mjs',
-    'scripts/asset-master.mjs', 'references/routes/asset-master-workflow.md',
+    'scripts/asset-master.mjs', 'scripts/production-prompt.mjs', 'references/routes/prompt-production.md', 'references/routes/asset-master-workflow.md',
     'resources/asset_presentation_v084_catalog.json', 'references/routes/benchmark-costume-refinement.md',
     '.codex-plugin/plugin.json', 'skills/image-prompt-skill/SKILL.md', 'scripts/plugin-support.mjs']) {
     if (!files.includes(file)) errors.push(`missing required file: ${file}`);
