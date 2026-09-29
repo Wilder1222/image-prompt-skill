@@ -1,22 +1,22 @@
-# Leg Segmentation Guard v0.7.5
+# 腿部分段协调规则
 
-## Purpose
+## 目的
 
-Prevent the common AI failure where a “long-leg” request stretches only one limb segment.
+防止“长腿”要求只拉长大腿或小腿。与当前 [身材比例规则](fashion-proportion-system.md) 一起使用。
 
-## Rules
+## 规则
 
-- Hip-to-knee and knee-to-ankle elongation must be coordinated.
-- Knee location remains believable relative to pelvis and ankle.
-- Pelvis width and thigh attachment remain natural.
-- Lower-leg soft tissue remains believable.
-- Foot scale is coordinated with the elongated figure and must not become oversized.
-- Do not create a compressed torso + extreme legs combination.
+- 骨盆至膝部、膝部至踝部的长度和体积共同协调。
+- 膝部位置与骨盆、脚踝关系可信，考虑屈伸和透视缩短。
+- 骨盆宽度与大腿连接自然，大腿有适度肌肉体积。
+- 小腿软组织有自然起伏，向踝部收细，不能画成等粗细杆。
+- 足部尺度与整体身材协调，不因追求修长而把脚放大或缩成尖点。
+- 不压短躯干来制造极端长腿；裙下隐藏关节不能凭空测量。
 
-## Diagnostics
+## 诊断标识
 
-- thigh_overstretched
-- calf_overstretched
-- knee_position_low
-- pelvis_leg_disconnect
-- footwear_scale_too_large
+- `thigh_overstretched`：大腿过度拉长。
+- `calf_overstretched`：小腿过度拉长。
+- `knee_position_low`：排除姿态影响后，膝部仍明显偏低。
+- `pelvis_leg_disconnect`：骨盆与腿部连接不连续。
+- `footwear_scale_too_large`：鞋履尺度过大。

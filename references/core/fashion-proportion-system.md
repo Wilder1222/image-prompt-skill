@@ -1,4 +1,4 @@
-# Fashion Proportion System v0.7.5
+# 时装身材比例系统
 
 ## 当前身材设计规则
 
@@ -18,38 +18,38 @@
 
 验收时分别检查头身、肩腰臀、上下臂、上下腿和肌肉量，再看整体是否修长自然。任何一处明显失衡都不能被“长腿”或总体分数掩盖；遮挡处注明不可判断。比例优化优先修正失衡部位，保持已通过的面容、妆容、服装与动作。明确要求保持完整母图时不自动改身材；已授权体型再设计时走主生产流程，不调用冻结体型的保留母图预设。
 
-## Goal
+## 工作原则
 
-Turn “nine-head perfect proportion” into a controlled fashion-anatomy workflow rather than a generic “longer legs” instruction.
+将“九头身、比例优雅”落实为可检查的整体身体关系，不用一句“腿更长”替代设计。
 
-The system is a **visual design heuristic**, not an anatomical measurement protocol and not a vendor-native parameter.
+这套系统是视觉设计规则，不是人体测量协议，也不是图像模型原生参数。
 
-## Profiles
+## 比例方案
 
-- `P7 Natural`: ordinary believable adult proportion.
-- `P8 Elegant`: subtly taller and more editorial.
-- `P9 Fashion`: high-fashion nine-head visual proportion while preserving adult anatomy.
-- `P9.5 Stylized`: stronger editorial elongation; only use when the user explicitly wants stylization.
+- `P7 Natural`：可信的普通成年人体型。
+- `P8 Elegant`：略修长的优雅写真体型。
+- `P9 Fashion`：保持成年人体结构的九头身时装观感。
+- `P9.5 Stylized`：更强的风格化拉长，仅在用户明确选择时使用。
 
-For full-body character assets, default to `P9` when the user asks for 九头身 / 高挑时装比例.
+全身资产明确要求九头身或高挑时装比例时使用 `P9`；其他方案不覆盖本项目已确认的选择。
 
-## P9 Core Rules
+## 九头身核心规则
 
-1. Hair buns, crowns and hairpins do not count as head length.
-2. Reduce the head's **visual share** of the full figure, not the face width or identity geometry.
-3. Keep a complete ribcage and torso; never manufacture long legs by crushing the torso.
-4. Lengthen hip-to-knee and knee-to-ankle segments together.
-5. Preserve believable pelvis width, knee position, ankle scale and foot size.
-6. Raise the waist only visually through sash placement and skirt origin, not by shortening anatomy.
-7. Use the garment itself to strengthen verticality: long center lines and balanced sleeve/skirt mass. Footwear may be naturally hidden; do not change the hem merely to expose shoes.
+1. 发髻、冠饰和发簪不计入头长。
+2. 调整头在全身中的视觉占比，不改变脸宽和身份几何。
+3. 保留完整胸廓与躯干，不能压短上身制造长腿。
+4. 大腿、小腿的长度与体积共同协调，不单段拉伸。
+5. 骨盆宽度、膝部位置、踝部和足部尺度可信。
+6. 束带和衣片可辅助纵向观感，但不移动解剖腰位或缩短腰腹。
+7. 通过中心长衣片与袖裙体量辅助修长。鞋履可自然遮挡，不为露鞋改变裙摆。
 
-## Failure Signals
+## 诊断标识
 
-- head_visual_too_large
-- torso_visually_short
-- waistline_too_low
-- leg_extension_insufficient
-- knee_position_low
-- footwear_scale_too_large
-- silhouette_too_wide
-- vertical_flow_insufficient
+- `head_visual_too_large`：排除头饰后头部视觉占比仍过大。
+- `torso_visually_short`：躯干明显受压缩。
+- `waistline_too_low`：实际身体或服装连接的腰线不符合既定设计。
+- `leg_extension_insufficient`：未达到已选时装比例，而非所有短腿都需修改。
+- `knee_position_low`：膝部关系失衡。
+- `footwear_scale_too_large`：鞋履尺度过大。
+- `silhouette_too_wide`：非设计意图的轮廓过宽。
+- `vertical_flow_insufficient`：衣片缺少所需纵向走向。

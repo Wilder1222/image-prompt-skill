@@ -1,37 +1,25 @@
-# Lighting Reconstruction Module
+# 灯光重建
 
-## 1. Key Light Logic
+## 主光
 
-Defines the primary readable form of face, torso and costume. Record direction, softness and relative intensity.
+决定脸部、躯干与衣装的主要体积。记录方向、软硬和相对强度，以本次背景与展示用途为依据。
 
-## 2. Fill Control
+## 补光
 
-Defines shadow openness and sophistication. Fill should not automatically equal the key. A weaker fill preserves modeling.
+控制阴影细节与明暗对比。场景写真可用较弱补光保留方向性；白底定妆按 [摄影棚布光](studio-lighting-direction.md) 提供充分正面柔和补光，让双眼与面颊均匀受光。不要把历史弱补光案例用作普遍要求。
 
-## 3. Rim / Separation
+## 轮廓分离
 
-Used to separate hair, armor, gauze and silhouette from atmospheric backgrounds. Keep it motivated and controlled.
+需要时用有光源依据的轮廓光区分头发、护甲、薄纱与背景；强度克制，不在所有人物外沿画统一亮边。
 
-## 4. Atmospheric Glow
+## 氛围辉光
 
-Controls bloom, luminous haze, particles and painterly aura. Atmosphere may be stylized, but face/material details must remain readable.
+辉光、薄雾、粒子与原画光晕服从指定风格，面容和材料结构仍需可读。白底任务通常不需要环境雾与粒子。
 
-## 5. Material Highlight Routing
+## 材料反光分配
 
-Route different highlight behavior to:
-- skin
-- silk / satin
-- gauze
-- leather
-- metal
-- jewelry
+分别决定肌肤与妆面、丝绸、薄纱、皮革、金属和珠宝的反光宽窄、强度及过渡，不能统一使用塑料高光。
 
-## Hybrid recommendation
+## 混合风格案例
 
-For `hybrid + R2`:
-- cinematic directional key
-- weaker fill
-- luminous rim/backlight
-- moderate atmospheric glow
-- restrained bloom
-- face and material micro-contrast remain legible
+旧 `hybrid + R2` 场景案例可采用方向性主光、较弱补光与适度逆光，配少量辉光，保持面部和材料细节。这是可选方案，不覆盖用户明确的均匀面部曝光、白底摄影或其他光线要求。

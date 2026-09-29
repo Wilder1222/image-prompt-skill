@@ -3,7 +3,7 @@ name: image-prompt-skill
 description: 将参考图和自然语言描述转化为参考专属的中文分类生图提示词：观察人物与服装、解析创作意图、决定保留与改造范围、审查冲突与遗漏，并用实际出图诊断和修订。适用于角色定妆、全身资产、风格转换与局部修复；用户无需选择模板或填写参数。
 ---
 
-# Image Prompt Skill
+# 图像提示词技能
 
 输入是用户的参考图与描述，输出是可直接使用的参考专属提示词。由你完成观察、审美判断和编写，不能让用户填模板，也不能把编译选项当作创作理解。只要提示词时交付提示词；已要求出图或效果验证时执行实测与修订。
 
@@ -92,6 +92,8 @@ node scripts/iteration-director.mjs asset-prompt --stage material-light --focus 
 
 脚本只编译计划与文字，不查看图像，也不生成图像。`prompt_ready`、`planned` 与图像已生成、人工验收通过分开记录。全身入画不能代替比例验收：先看头颈肩关系、躯干是否完整、腰腹至鞋的整体长度和手部位置，再看衣片；裙下关节不可见时不编造精准测量，也不能因此忽略整体被拉长的视觉问题。小样仍失衡时保留失败记录，不按相同方案继续整批铺开。使用 [视觉回归记录](templates/visual-regression-record.json) 留存真实输入输出与人工判断；没有对比图时保持 `pending`。
 
-开发检查：`npm test`、`npm run validate`。修改发布文件后先运行 `npm run release:build` 更新当前清单，再验证。历史版本清单保留作为快照。
+用户要求量化效果时，先固定 [图像评分标准](references/core/图像评分标准.md)，逐图保留证据与全部尝试。`scripts/visual-score-report.mjs` 检查评分与实际文件绑定，不能自动看图或代替审美判断；达到平均分也不等于关键项全部通过。
+
+开发检查：`npm test`、`npm run validate`。中文化检查用 `node scripts/audit-language.mjs`，候选仍需人工区分命令、标识和正文。修改发布文件后先运行 `npm run release:build` 更新当前清单，再验证。历史版本清单保留作为快照。
 
 Codex 插件支持使用同一主工作流；插件入口、构建和个人安装方式见 [插件说明](docs/codex-plugin.md)。
