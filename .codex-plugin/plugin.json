@@ -1,6 +1,6 @@
 {
   "name": "image-prompt-skill",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "参考图驱动的角色定妆照提示词、服装展示、母图保留与局部修复。",
   "author": {
     "name": "wangwei97"

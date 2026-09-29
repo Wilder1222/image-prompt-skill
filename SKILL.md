@@ -21,7 +21,7 @@ description: 根据参考图编写角色资产图、全身定妆照、风格还�
 | 当前请求 | 读取 |
 | --- | --- |
 | 古风全身白底资产、模式对比、局部修复 | [当前资产工作流](references/routes/asset-master-workflow.md) |
-| 其他角色资产或多套服装 | [角色资产流程](references/routes/character-asset-pipeline.md) |
+| 现代服装、铠甲、带守护形象的复杂造型或多套服装 | [角色资产流程](references/routes/character-asset-pipeline.md) |
 | 保留参考画风、场景气氛或风格与身份融合 | [风格目标流程](references/routes/style-target-fusion-pipeline-v080.md) |
 | 真人感、风格化脸、美感方向选择 | `resources/face_profile_v082_catalog.json`；需要旧模式兼容时读取 `resources/face_mode_catalog.json` |
 | 面容气质与身份不一致 | [身份与气质诊断](references/core/identity-vs-temperament-diagnostics.md) |
