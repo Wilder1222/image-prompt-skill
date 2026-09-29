@@ -1,0 +1,420 @@
+{
+  "date": "2026-09-29",
+  "version": "0.9.1",
+  "status": "partial_progress",
+  "goal_status": "active",
+  "baseline_count": 2,
+  "new_output_count": 9,
+  "benchmark_usage": "evaluation_only_never_sent_to_generator",
+  "user_steering": "服装，造型可以适度优化，不用严格限制死",
+  "user_approval": "pending",
+  "missing_current_version_single_reference_cases": [
+    3,
+    4,
+    6
+  ],
+  "records": [
+    {
+      "id": "r0-08-teal",
+      "decision": "baseline",
+      "observer": "Codex visual inspection",
+      "observation": "米白内裙大片同色纹样，锦纱层次存在，顶部紧。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "b583226f25fe40207cde91fef70ef5fc9c624ab6d6d91e650c0928daa7573603",
+      "source_hashes": null,
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "9336b63306d7200b87da8db5f7fa5cf48092aa137b5de0c606e7f2449c5d0a9f",
+          "local_copy": "inputs/9336b63306d7200b.jpg"
+        },
+        {
+          "role": "evaluation_only",
+          "sha256": "0ca0acc38cf0020cadbe68ea63b4f85089a5cf1da11d6469b9d775eb7dee6115",
+          "local_copy": "inputs/0ca0acc38cf0020c.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "r0-08-teal.png",
+        "sha256": "067776226fae815e47f0ab6308b04a928b9643ce8478f0b0db4300f145a5bff7",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-6ee815b5-7145-4940-a1f1-2504b84b76dc.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    },
+    {
+      "id": "r0-02-white",
+      "decision": "baseline",
+      "observer": "Codex visual inspection",
+      "observation": "细碎褶皱贯穿多层，浅色层厚薄区别弱；保留黑发银饰。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "95a830de0f08b6586e75d9bf672762ac878f8c93bf0349745a6b777636637adf",
+      "source_hashes": null,
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "366fcbc9f6aa73905939d5e0aa741da3d32e81e8b977ddea2352f6c877b3afeb",
+          "local_copy": "inputs/366fcbc9f6aa7390.jpg"
+        },
+        {
+          "role": "evaluation_only",
+          "sha256": "f83cb319f4b435f64786f68468fbb356614b76b2dd628e188ba197f25cf1c42b",
+          "local_copy": "inputs/f83cb319f4b435f6.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "r0-02-white.png",
+        "sha256": "4eb87e6d32c88cd4468cf5cb3ddcb8c13a1867b527e126435ce782d8e4d144a2",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-21ded26a-08df-4597-881c-3722a3ba26fa.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    },
+    {
+      "id": "r1-08-teal",
+      "decision": "material_candidate",
+      "observer": "Codex visual inspection",
+      "observation": "前中素面区扩大；下摆仍有隐约纹样，未完全通过。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "7f15c45f125d7b2c0f74f29021502212816a0b911b98bd85b56810194cc73163",
+      "source_hashes": {
+        "scripts/asset-master.mjs": "ae381a98c4c1455052a73e1bd00fa4c77ca8085d3808ca07365d852e20a031bd",
+        "resources/material_separation_v082_catalog.json": "cd2e2188d2eb02b3715d89c6a079bafd011cd45adf085e8f5c50daea18f51224",
+        "resources/asset_presentation_v084_catalog.json": "7ab7d610e0056c45f035e38291f2672a4bb185cbd7ecf4c5e0e6ec41f1e0a925"
+      },
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "9336b63306d7200b87da8db5f7fa5cf48092aa137b5de0c606e7f2449c5d0a9f",
+          "local_copy": "inputs/9336b63306d7200b.jpg"
+        },
+        {
+          "role": "evaluation_only",
+          "sha256": "0ca0acc38cf0020cadbe68ea63b4f85089a5cf1da11d6469b9d775eb7dee6115",
+          "local_copy": "inputs/0ca0acc38cf0020c.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "r1-08-teal.png",
+        "sha256": "09ca5115486b9a1278034830bf3d7fb6f3e68e5031f3ef00f8d650ce8efc0596",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-f9ea8451-3cc5-4d1f-8f78-0d90b80d9c17.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    },
+    {
+      "id": "r1-02-white",
+      "decision": "material_candidate",
+      "observer": "Codex visual inspection",
+      "observation": "宽褶内裙与透叠纱层更容易辨认；顶部紧、侧衣片仍弱。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "5f9abd0d57683cd5b49875092eb1f97bcb8c328e5dadfead8d8656bd37bd328a",
+      "source_hashes": {
+        "scripts/asset-master.mjs": "ae381a98c4c1455052a73e1bd00fa4c77ca8085d3808ca07365d852e20a031bd",
+        "resources/material_separation_v082_catalog.json": "cd2e2188d2eb02b3715d89c6a079bafd011cd45adf085e8f5c50daea18f51224",
+        "resources/asset_presentation_v084_catalog.json": "7ab7d610e0056c45f035e38291f2672a4bb185cbd7ecf4c5e0e6ec41f1e0a925"
+      },
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "366fcbc9f6aa73905939d5e0aa741da3d32e81e8b977ddea2352f6c877b3afeb",
+          "local_copy": "inputs/366fcbc9f6aa7390.jpg"
+        },
+        {
+          "role": "evaluation_only",
+          "sha256": "f83cb319f4b435f64786f68468fbb356614b76b2dd628e188ba197f25cf1c42b",
+          "local_copy": "inputs/f83cb319f4b435f6.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "r1-02-white.png",
+        "sha256": "29df0e6c33b3c25f195a073646747fd7bd05e8c19bf9213a217a812e0655a10a",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-d56b59a5-ba7f-4014-99e1-bd99b4401101.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    },
+    {
+      "id": "r2-08-teal",
+      "decision": "framing_rule_rejected",
+      "observer": "Codex visual inspection",
+      "observation": "数值留白未呈现可靠收益；此提示词取景修改已撤回。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "0af426ff372cb3eea2e1c52c91ffe7c7d9d293e83c064b552dbc08170b447c0d",
+      "source_hashes": {
+        "scripts/asset-master.mjs": "ae381a98c4c1455052a73e1bd00fa4c77ca8085d3808ca07365d852e20a031bd",
+        "resources/material_separation_v082_catalog.json": "cd2e2188d2eb02b3715d89c6a079bafd011cd45adf085e8f5c50daea18f51224",
+        "resources/asset_presentation_v084_catalog.json": "8d2fd7f7a75a0b8158f14258d6476cffa41dd26a33872dc0d9b7423bb1420213"
+      },
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "9336b63306d7200b87da8db5f7fa5cf48092aa137b5de0c606e7f2449c5d0a9f",
+          "local_copy": "inputs/9336b63306d7200b.jpg"
+        },
+        {
+          "role": "evaluation_only",
+          "sha256": "0ca0acc38cf0020cadbe68ea63b4f85089a5cf1da11d6469b9d775eb7dee6115",
+          "local_copy": "inputs/0ca0acc38cf0020c.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "r2-08-teal.png",
+        "sha256": "2079acb0a778ec4b29b11e20d17ae0850c5d61534ad9296c354e77cc57d5fcfe",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-17fb175c-4c09-4a49-8852-935cc2accb42.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    },
+    {
+      "id": "r2-02-white",
+      "decision": "framing_rule_rejected",
+      "observer": "Codex visual inspection",
+      "observation": "头顶依旧接近画框；此提示词取景修改已撤回。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "3062e000b40d6794dddc649f9d738cbb1323c4709b719212cce2d76f2560694a",
+      "source_hashes": {
+        "scripts/asset-master.mjs": "ae381a98c4c1455052a73e1bd00fa4c77ca8085d3808ca07365d852e20a031bd",
+        "resources/material_separation_v082_catalog.json": "cd2e2188d2eb02b3715d89c6a079bafd011cd45adf085e8f5c50daea18f51224",
+        "resources/asset_presentation_v084_catalog.json": "8d2fd7f7a75a0b8158f14258d6476cffa41dd26a33872dc0d9b7423bb1420213"
+      },
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "366fcbc9f6aa73905939d5e0aa741da3d32e81e8b977ddea2352f6c877b3afeb",
+          "local_copy": "inputs/366fcbc9f6aa7390.jpg"
+        },
+        {
+          "role": "evaluation_only",
+          "sha256": "f83cb319f4b435f64786f68468fbb356614b76b2dd628e188ba197f25cf1c42b",
+          "local_copy": "inputs/f83cb319f4b435f6.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "r2-02-white.png",
+        "sha256": "88d913aec2f255ba03d340f0988626d675f69d2e896d6f690bca0b62a3fa7d62",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-bf706a34-78b2-4863-b10d-6156db0108f6.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    },
+    {
+      "id": "h1-01-cloth",
+      "decision": "holdout_candidate",
+      "observer": "Codex visual inspection",
+      "observation": "保留哑光粗织物，无金纹纱层；侧脸可读，正脸未评估。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "6f08a47f732270d95c38dfea126f0faee51545337831d5f07d88a5ca58a91583",
+      "source_hashes": null,
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "9db2a1e4c8ead5fc5eac9ac356fe04fd526ef0864514a4d585adb51fa8de3c40",
+          "local_copy": "inputs/9db2a1e4c8ead5fc.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "h1-01-cloth.png",
+        "sha256": "4d8250ff7524ad97c70d5220f5b5360aee5a4ed7119d161879f9d1bb9eb3f7f3",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-4b298611-f699-4706-bc97-b7ade7d15293.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    },
+    {
+      "id": "h1-07-knit",
+      "decision": "holdout_candidate",
+      "observer": "Codex visual inspection",
+      "observation": "保留针织与棉布区分；原图闭唇微笑变成略张嘴，表情未通过。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "4e842a8841a039daedb6c9594c602a7488098e6e9ce0de88b8658033c22086b6",
+      "source_hashes": null,
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "6925d822b25340015881ca572c6e269f8b4711066cc8303cd7251ebdc0658df3",
+          "local_copy": "inputs/6925d822b2534001.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "h1-07-knit.png",
+        "sha256": "aa91a93c152b26b6eebbb6cb29ae5ae6aefc8d7e59dc33e89527b1a46f09cd76",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-5805b549-1473-47d6-9a18-7abdf4fd34ed.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    },
+    {
+      "id": "d1-02-blue-white",
+      "decision": "moderate_redesign_candidate",
+      "observer": "Codex visual inspection",
+      "observation": "授权再设计后，雾蓝腰封与侧衣片、白花枝和流苏形成更丰富层次；脸未换成标杆，顶部仍紧。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "35768567398a60dbe453e95f1dc437aae28da913f6cea37154470d4f5c469722",
+      "source_hashes": null,
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "366fcbc9f6aa73905939d5e0aa741da3d32e81e8b977ddea2352f6c877b3afeb",
+          "local_copy": "inputs/366fcbc9f6aa7390.jpg"
+        },
+        {
+          "role": "evaluation_only",
+          "sha256": "2ceb15b21d6a168862b4d6e477fe2a1abfb99e8447952d62a0d2332e29a4719c",
+          "local_copy": "inputs/2ceb15b21d6a1688.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "d1-02-blue-white.png",
+        "sha256": "72dc06c5a7f47ac816c04f5d8282c651a917acf2e1b836ecd96221fa7e37c569",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-bd422c9e-151e-402d-b30e-46273c4c70ca.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    },
+    {
+      "id": "d1-07-knit-skirt",
+      "decision": "moderate_redesign_candidate",
+      "observer": "Codex visual inspection",
+      "observation": "针织配长裙与低位合手更接近新标杆方向；闭唇微笑恢复，原图辨识度待用户验收。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "86e0cabfed1074dab6f8e12cb06abfe83ca7515fdf2c50a82077b2066f0abf82",
+      "source_hashes": null,
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "6925d822b25340015881ca572c6e269f8b4711066cc8303cd7251ebdc0658df3",
+          "local_copy": "inputs/6925d822b2534001.jpg"
+        },
+        {
+          "role": "evaluation_only",
+          "sha256": "bd397c777e69535883bb3e2e55aac254a4946b4a96504dce62c5f86b2d5eac59",
+          "local_copy": "inputs/bd397c777e695358.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "d1-07-knit-skirt.png",
+        "sha256": "b50ef32c0a4d9f669350408695eac955c5ddab211c0baf6f5d32a17ff4b69a30",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-c2882d47-8a46-45f5-8644-50ff8ae02aae.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    },
+    {
+      "id": "d1-05-dragon-armor",
+      "decision": "moderate_redesign_partial",
+      "observer": "Codex visual inspection",
+      "observation": "胸腰甲、裙片、甲靴与守护形象完整；要求两条龙却出现四个龙首，翼尖裁切，数量与取景未完全执行。",
+      "user_approval": "pending",
+      "model": null,
+      "seed": null,
+      "provider": "image_gen.imagegen",
+      "prompt_sha256": "24949d78fd54bab03be3f22f86176d4ec2fa558e1d676729f6d8e84506bd9b22",
+      "source_hashes": null,
+      "inputs": [
+        {
+          "role": "generation_reference",
+          "sha256": "decc8ac4fb2ebdd87a90d04258bc8a944dc7d7c286989a8a6023d6b8ce6a5fbe",
+          "local_copy": "inputs/decc8ac4fb2ebdd8.jpg"
+        },
+        {
+          "role": "evaluation_only",
+          "sha256": "8077656503963ee7743af92fc3fba5b7afd7aa6770410da651c5f4200b5045a1",
+          "local_copy": "inputs/8077656503963ee7.jpg"
+        }
+      ],
+      "output": {
+        "local_file": "d1-05-dragon-armor.png",
+        "sha256": "24081daf01fdf545377d3d374df50e75c5fd9ae011d333a50555d04370f395d9",
+        "width": 1086,
+        "height": 1448
+      },
+      "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-765e0ae2-6963-48cd-9463-d6cdb4a79505.png",
+      "limitations": [
+        "single stochastic sample",
+        "identity is visual judgment, not a face-recognition score",
+        "occluded anatomy not assessable"
+      ]
+    }
+  ]
+}

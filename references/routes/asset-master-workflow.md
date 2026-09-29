@@ -1,4 +1,4 @@
-# 当前白底资产工作流（v0.8.4）
+# 当前白底资产工作流（v0.9.1）
 
 适用：成年古风角色从参考图扩展到完整全身白底资产，或对现有资产局部修复。默认案例为 `ancient_female_white_master`。其他主体、年龄、画幅与服装要求按用户和实际图像调整，不能套用案例外观。
 
@@ -14,7 +14,9 @@ node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anch
 
 `--format json`（默认）返回配置、文本、编辑范围和未生成图像的证据状态；`text` 只输出提示词。模式代码只保留在配置中。编译器输出英文；面向中文用户可译成中文，保持参考权限、编辑范围和遮挡语义。
 
-支持选项：`--preset`、`--face-profile`、`--hand-mode`、`--maturity-guard`、`--presentation`、`--reference-mode`、`--stage`、`--focus`、`--passed`、`--format`。参数缺值、拼写错误、未知模式会失败，不会悄悄退回默认。
+支持选项：`--preset`、`--face-profile`、`--hand-mode`、`--maturity-guard`、`--presentation`、`--design-freedom`、`--reference-mode`、`--stage`、`--focus`、`--passed`、`--format`。参数缺值、拼写错误、未知模式会失败，不会悄悄退回默认。
+
+`--design-freedom reference_preserve` 是未授权改造型时的默认；用户明确允许服装、造型优化或希望再设计时，用 `--design-freedom moderate`。后者保留人物辨识度、表观年龄和典型表情，释放可见服装构造与造型的硬锁：先写一套连贯方案，再调整衣片、领袖、腰部、饰物、材料和配色比例；不要在负向提示中把这些设计变化逐一禁止。方案可从优秀效果图提取，但不能把标杆人物的脸也迁移过来。现代装和铠甲按实际角色路线写文本，不强套古风长袍预设。此选项只用于新候选生成，不能混入 `full_body_anchor` 或局部编辑阶段。
 
 `--presentation neutral_asset` 兼容原有预设；`costume_showcase` 适用于需要长袍层次与袖摆的服装定妆展示，允许原设计的宽裙、短拖尾与自然遮鞋，修长感通过颈肩腰和长衣片组织。它不改变脸、年龄、材质与用户显式选择的手势。需要填写本套衣服的具体构造，不能直接把通用提示词当作完整设计。
 
@@ -23,6 +25,8 @@ node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anch
 Face profile 有 `beauty_first_clean`、`beauty_first_character`、`humanized_real_light`、`humanized_real_full`、`stylized_beauty`。切换只改变面部渲染，不顺带改变年龄目标、手势或服装。年龄独立选择 `youthful_18_22`、`young_adult_20_26` 或 `none`；后者保留参考年龄，不能据此推断人物年龄。默认成年青年预设与参考年龄不符时，选择 `none` 并在最终文本明确用户的年龄要求。
 
 `asset-master-plan-v082` 和 `ancient-white-asset-plan-v082` 保持兼容，也支持脸、手、年龄与展示型覆盖。`--reference-mode` 仅由 `asset-prompt` 接收。计划不表示阶段已完成。新消费者使用 `asset-prompt` 获取编辑文本。
+
+生成阶段采用独立的 `generation_prompt_translation` 材质条款：材料来自可见参考或明确补全方案，不能把“禁止局部编辑新增衣层”套到已授权的扩身设计。素面区域包括同色提花也应保持无纹样；厚薄区别来自织物重量、褶皱尺度、透叠和光泽，不统一改成锦缎或同一种细碎褶皱。局部材质编辑仍使用原来的 `prompt_translation`，只调整已有面料，不新增纱层和装饰。新图中的素面范围应在补全方案中具体写明。
 
 ## 返回图与局部迭代
 

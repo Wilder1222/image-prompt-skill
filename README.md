@@ -2,7 +2,7 @@
 
 参考图驱动的角色定妆照提示词与迭代工作流。支持全身白底资产、服装展示、优质母图保留与局部修复，并区分身份、风格、服装和编辑母图的参考权限。
 
-当前版本 **0.9.0**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
+当前版本 **0.9.1**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
 
 ## 使用
 
@@ -53,7 +53,8 @@ npm run plugin:build
 - [技能主工作流](SKILL.md)
 - [白底资产工作流](references/routes/asset-master-workflow.md)
 - [标杆对照与服装展示](references/routes/benchmark-costume-refinement.md)
-- [通用提示词示例](examples/ancient-white-asset-v084-prompts.md)
+- [通用提示词示例](examples/ancient-white-asset-current-prompts.md)
 - [四次真实测试的提示词](examples/benchmark-costume-v084-prompts.md)
+- [材质生成规则实测与后续清单](docs/visual-evaluations/material-generation-v091.md)
 - [视觉回归模板](templates/benchmark-comparison-record.json)
 - [测试说明](tests/README.md)

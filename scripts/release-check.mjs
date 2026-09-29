@@ -80,6 +80,12 @@ export function validateProject(base, { manifest = true } = {}) {
       if (face && face.base_mode !== preset.legacy_face_mode) errors.push(`${name}: legacy face mode disagrees with face profile`);
     }
     const faceCatalog = json('resources/face_profile_v082_catalog.json');
+    const materialCatalog = json('resources/material_separation_v082_catalog.json');
+    for (const [name, profile] of Object.entries(materialCatalog.profiles)) {
+      for (const key of ['prompt_translation', 'generation_prompt_translation']) {
+        if (!Array.isArray(profile[key]) || !profile[key].length || profile[key].some(line => typeof line !== 'string' || !line.trim())) errors.push(`${name}: invalid material ${key}`);
+      }
+    }
     const modes = json('resources/face_mode_catalog.json').modes;
     const guards = json('resources/maturity_guard_catalog.json').profiles;
     for (const [name, profile] of Object.entries(faceCatalog.profiles)) {
@@ -88,6 +94,10 @@ export function validateProject(base, { manifest = true } = {}) {
     }
     if (!Object.hasOwn(presetCatalog.presets, presetCatalog.default)) errors.push('unknown default asset preset');
     const presentation = json('resources/asset_presentation_v084_catalog.json');
+    for (const mode of ['reference_preserve', 'moderate']) {
+      const design = presentation.design_freedoms?.[mode];
+      if (!design || typeof design.reference_prompt !== 'string' || !design.reference_prompt.trim() || !Array.isArray(design.prompt_translation) || design.prompt_translation.some(line => typeof line !== 'string' || !line.trim())) errors.push(`invalid design freedom ${mode}`);
+    }
     if (!Object.hasOwn(presentation.profiles, presentation.default)) errors.push('unknown default presentation profile');
     for (const [name, profile] of Object.entries(presentation.profiles)) {
       for (const key of ['asset_prompt_translation', 'proportion_prompt_translation', 'generation_prompt_translation']) {

@@ -1,5 +1,5 @@
 {
-  "version": "0.8.2",
+  "version": "0.9.1",
   "default": "ancient_asset_material_split",
   "principle": "Material separation is a structural readability problem, not a request for more texture everywhere.",
   "profiles": {
@@ -43,6 +43,11 @@
           "highlight": "structured_low_medium"
         }
       },
+      "generation_prompt_translation": [
+        "Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.",
+        "Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.",
+        "Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen."
+      ],
       "prompt_translation": [
         "Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.",
         "Do not let all layers share the same soft glossy fantasy surface."
