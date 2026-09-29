@@ -6,6 +6,8 @@
 
 这里的白底仅为专项案例。保留、调整或替换场景时，走生产入口和 [背景与环境适配](../core/background-direction.md)，不要直接继承此案例中的清空场景、纯白背景与棚拍锁定条款。
 
+本页预设中的 `upright_neutral_elegant`、`vertical_body_axis_stable`、`no_capture_motion` 仅适用于已选择的静态检查姿态。自动动作、跳跃、旋舞或夸张动态通过生产入口与 [动作与生命感](../core/action-direction.md) 决策，不套用站直、固定手势或禁止动态的旧条件；明确保留母图与仅修局部的任务仍按当前范围处理。
+
 ## 历史素材配置（不能直接提交生成）
 
 ```bash

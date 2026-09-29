@@ -22,6 +22,8 @@ Production-run tests also cover the independent background channel: retained, ad
 
 Expression checks cover independent expression-reference authority and scoped expression edits: identity, age instructions, appearance, composition, background and lighting remain outside an expression-only update. They do not establish visual identity preservation under a changed expression.
 
+Action checks cover action-reference permissions and coordinated changes to movement, expression, composition, visible extremities and material response while preserving identity and wardrobe. A change from standing to airborne uses a new target, not a silent relaxation of the old stance check. These checks do not judge anatomy or liveliness in rendered images.
+
 Use `templates/visual-regression-record.json` for actual image evaluation. Do not mark image checks passed from CLI output alone.
 
 Use `templates/benchmark-comparison-record.json` when the user supplies a better reference. Record whether the benchmark was only inspected to write the prompt or actually sent to the image model. Keep observer review and user approval separate.

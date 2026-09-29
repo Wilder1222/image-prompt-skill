@@ -189,7 +189,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
       section('7. Body proportion', plan.stage_2.fashion_asset.prompt_translation),
       section('8. Hands and feet', ['Each hand anatomically has one thumb and four fingers; natural overlap is allowed. Keep visible joints coherent. The stance and garment gravity determine whether one, both or neither foot is visible. Keep the complete natural silhouette inside the frame and plausible ground contact; do not lift or shorten the hem to force visible shoe tips.']),
       section('9. Background and light', [...plan.stage_3.studio_lighting.prompt_translation, s.highlights.en, s.edges.en, 'Remove scenic branches, bokeh, sunset atmosphere, foreground obstructions and battlefield effects. Keep only a white seamless background and a faint contact shadow.']),
-      section('10. Final goal and restrictions', [s.workflow.en, 'A complete, centered, front-facing asset with beautiful readable face, coherent tall proportions and distinct garment materials. No half-body crop, large twist, exaggerated action or forced perspective.']),
+      section('10. Final goal and restrictions', [s.workflow.en, 'For this neutral front-facing inspection case, keep a complete centered figure, readable face, coherent proportions and distinct garment materials. Exaggerated or dynamic action is supported by the production workflow when selected for the task; do not apply this static case as a universal movement restriction. Express life through focused gaze, coherent facial and body intent, natural shoulder and hand tension, and believable cloth response.']),
     ];
   } else {
     const selected = lookup(stages, stage, 'edit stage');

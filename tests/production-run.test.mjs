@@ -133,3 +133,31 @@ test('expression-only revisions preserve identity and presentation and cannot ch
  const result=reviseProductionInput(input,change);assert.deepEqual(result.input.references,input.references);assert.deepEqual(result.input.sections.filter(s=>s.channel!=='expression'),input.sections.filter(s=>s.channel!=='expression'));assert.deepEqual(result.input.requirements.filter(r=>r.channel!=='expression'),input.requirements.filter(r=>r.channel!=='expression'));assert.equal(result.target_changed,true);
  change.sections.push({label:'朝向',items:[{text:'转头看向侧面。',basis:['composition'],intent:'constraint'}]});assert.throws(()=>reviseProductionInput(input,change),/escaped allowed scope/);
 });
+
+test('action reference can direct movement without supplying the actor identity or wardrobe',t=>{
+ const {input}=setup(t);
+ input.references.push({id:'MOVE',source:'action.jpg',inspected:true,generation_input:true,authority:['action'],facts:[{id:'jump',channel:'action',visibility:'visible',text:'双脚离地，右腿屈收，双臂向外伸展。'}]});
+ input.requirements.push({id:'ACT',channel:'action',priority:'must',text:'依动作参考表现跃起的单一瞬间。'});
+ input.sections.push({label:'动作与身体关系',channel:'action',items:[{text:'采用参考的腾空、屈腿与双臂伸展关系，由当前人物完成。',basis:['jump','ACT'],intent:'retain'}]});
+ input.acceptance.push({id:'action',basis:'ACT',question:'是否为指定腾空瞬间且身体关系可读？',critical:true});
+ assert.equal(compileProductionPrompt(input).status,'prompt_ready');
+ const face=structuredClone(input);face.sections[0].items[0].basis.push('jump');assert.throws(()=>compileProductionPrompt(face),/MOVE cannot control identity/);
+ input.sections[1].items[0].basis.push('jump');assert.throws(()=>compileProductionPrompt(input),/MOVE cannot control costume/);
+});
+
+test('coordinated dynamic adaptation changes linked targets without reopening identity or wardrobe',t=>{
+ const {input}=setup(t);
+ const directions=[
+  ['action','动作','静止站立。','跃起旋身的腾空瞬间，双臂舒展，身体方向协调。'],
+  ['expression','表情','平静闭唇。','眼神专注运动方向，嘴角轻扬，表情与跃起意图协调。'],
+  ['composition','取景','居中站立的静态取景。','完整轮廓入画，为旋身方向保留空间。'],
+  ['hands_feet','可见手脚','双脚着地。','双脚离地，手腕与脚踝连接自然，可见结构不融合。'],
+  ['material','动态衣料','衣摆静止垂落。','衣摆沿旋转方向滞后展开，布料重量与重力仍可读。']
+ ];
+ for(const [channel,label,text] of directions){input.requirements.push({id:channel,channel,priority:'must',text});input.sections.push({label,channel,items:[{text,basis:[channel],intent:'constraint'}]});input.acceptance.push({id:channel,basis:channel,question:text,critical:true});}
+ const parent=freeze(input);
+ const change={request:'允许夸张跃起动作，表情与衣料联动，保持人物和服装。',channels:directions.map(d=>d[0]),sections:directions.map(([channel,label,,text])=>({label,items:[{text,basis:[channel],intent:'constraint'}]})),requirements:directions.map(([channel,,,text])=>({...input.requirements.find(r=>r.id===channel),text})),acceptance:directions.map(([channel,,,text])=>({...input.acceptance.find(r=>r.id===channel),question:text}))};
+ const r=reviseProductionInput(input,change),child=freeze(r.input,{run_id:'dynamic',kind:'revision',parent});
+ assert.deepEqual(r.input.sections.slice(0,2),input.sections.slice(0,2));assert.deepEqual(r.input.references,input.references);assert.equal(child.goal_changed,true);assert.doesNotMatch(r.compiled.prompt,/静止站立|双脚着地|衣摆静止垂落/);
+ change.sections.push({label:'衣服',items:[{text:'换成新的衣服。',basis:['U2'],intent:'constraint'}]});assert.throws(()=>reviseProductionInput(input,change),/escaped allowed scope/);
+});
