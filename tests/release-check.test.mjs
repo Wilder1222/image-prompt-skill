@@ -92,3 +92,21 @@ test('unresolved style settings and missing localized instructions fail release 
   assert.ok(errors.includes('dark_fantasy_asset: unknown edge_control'));
   assert.ok(errors.includes('concept_art_priority: missing zh visual instructions'));
 });
+
+test('English workflow validation reads the target checkout rather than the caller module',t=>{
+  const dir=fixture(t),file=path.join(dir,'scripts/asset-catalog-en.mjs');
+  const text=fs.readFileSync(file,'utf8'),marker='export const workflowEnglish = ';
+  const split=text.indexOf(marker)+marker.length;
+  const values=JSON.parse(text.slice(split).trim().replace(/;$/,''));
+  delete values.detail_budgets.concept_art_priority;
+  fs.writeFileSync(file,text.slice(0,split)+JSON.stringify(values)+';\n');
+  assert.ok(validateProject(dir,{manifest:false}).errors.includes('concept_art_priority: missing en visual instructions'));
+});
+
+test('changing Chinese authority requires updating its explicit English compatibility binding',t=>{
+  const dir=fixture(t),file=path.join(dir,'resources/hand_pose_v082_catalog.json');
+  const data=JSON.parse(fs.readFileSync(file,'utf8'));
+  data.modes.relaxed_down_safe.prompt_translation[0]='新的中文手势要求';
+  fs.writeFileSync(file,JSON.stringify(data));
+  assert.ok(validateProject(dir,{manifest:false}).errors.some(e=>e.startsWith('stale English compatibility: hand_pose_v082_catalog.json')));
+});

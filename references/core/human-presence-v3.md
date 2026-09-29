@@ -1,80 +1,19 @@
-# Human Presence v3
+# 人物生命感与光学协调（第三版）
 
-v0.7.6 changes the realism target from **detail accumulation** to **optical coherence**.
+本方案源于历史银发资产实验：当时细节、衣装和比例已有较高完成度，但眼睛、皮肤、发束、妆容和相机表现过于均匀，仍显得像游戏角色。该历史观察不是本轮新图的验证证据，也不决定所有人物都使用同一真实度。
 
-The problem observed in v0.7.5 tests was not low detail. The silver-haired asset already had high detail, stable P9 proportion, correct costume, and clean rendering. It still read as CG because the eyes, skin, hair, makeup, and camera response were too uniformly polished.
+## 选择与目标
 
-## Core rule
+先确认用户需要摄影、轻写实或原画。选择摄影时，眼部、肤质、软组织、妆容、发束、焦点与高光应协调。更多细节不是目标，精致、自然且好看的整体呈现才是目标。
 
-A convincing human portrait does not need maximum detail everywhere. It needs a coherent set of human visual signals:
+项目等级保留为兼容用语：H0 为风格化，H1 为表面真实，H2 为精致人物存在感，H2.5 为摄影式人物表现，H3 为更强摄影表现。这些不是厂商参数；H2.5 曾用于银发案例，不是所有角色的强制默认。
 
-1. eye optics
-2. skin optics
-3. soft-tissue structure
-4. makeup integrated with skin
-5. hair at multiple spatial frequencies
-6. photographic focus / highlight behavior
-7. realism consistency across all facial subsystems
+## 修订重点
 
-Identity geometry, age intent, accepted P9 proportion, costume, and composition remain locked.
+优先检查眼肤光学、软组织和妆面融合，其次检查发束层次、焦点和高光过渡。自然不对称只在原本存在或自然出现时保留，不故意扭动五官。
 
-## Levels
+年轻成年案例的肤色应相对均匀，额头、鼻部、面颊、眼周和嘴唇有不同反射。不要增加粗毛孔、随机色斑、过强血管、疲态、年龄变化或全局锐化来冒充真人感；全身小脸不强制显示细纹理。
 
-Human Presence v3 adds `H2.5` between H2 and H3.
+## 编辑边界
 
-- H0 — stylized
-- H1 — surface realism
-- H2 — refined human presence
-- **H2.5 — photographic human**: recommended for premium character assets
-- H3 — strong photographic presence
-
-`H2.5` is the default target for the current silver-haired asset because H2 v2.1 was visibly better but still read as high-quality CG.
-
-## H2.5 priorities
-
-### Primary
-- eye optical realism
-- skin optical coherence
-- soft-tissue fidelity
-- makeup-skin integration
-- realism coherence guard
-
-### Secondary
-- hair frequency variation
-- camera / focus hierarchy
-- highlight roll-off
-
-### Support
-- optional natural asymmetry only when already present or clearly useful
-
-## Non-goals
-
-Human Presence v3 does **not** achieve realism by:
-
-- coarse pore fields
-- random blotchy pigmentation
-- stronger global sharpness
-- exaggerated blood vessels
-- visible aging cues
-- reshaping the face
-- making sclera paper-white
-- deliberately deforming a symmetrical face
-
-## Young-skin rule
-
-For young-adult character assets, maintain relatively even skin color while allowing region-dependent **optical response**. The distinction is important:
-
-- good: forehead, nose, cheeks, eye area and lips respond differently to light
-- bad: adding random spots, redness, mottling and pore noise everywhere
-
-## Micro-asymmetry correction from v2.1
-
-Micro-asymmetry is no longer a mandatory realism signal. Preserve natural small differences if visible, or allow tiny variation when it appears organically. Do not intentionally shift brows, eyes or mouth corners merely because the face looks "too symmetrical."
-
-## Iteration rule
-
-When P9 fashion proportion has passed:
-
-`P9 LOCK → H2.5 optical refinement → studio polish → upscale`
-
-Do not reopen proportion during H2.5.
+已通过的 P9 比例、面容身份、年龄、服装和构图在局部光学修订中保持。推荐先确认比例，再修面部光学，随后按必要性处理灯光和分辨率。用户明确修改表情、动作或背景时，以新任务范围为准，不拿局部锁定条款阻止已授权创作。

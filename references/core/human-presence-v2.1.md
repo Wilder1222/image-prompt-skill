@@ -1,33 +1,11 @@
-# Human Presence v2.1
+# 人物生命感与摄影表现（第二点一版）
 
-v2.1 keeps the v0.7.4 soft-tissue / skin / eye / hair / camera framework but shifts emphasis from “more detail” to **photographic human presence**.
+本历史方案沿用软组织、皮肤、眼睛、头发和相机表现框架，将重点由增加细节转向可信的人物存在感。当前执行仍以 [主流程](../routes/prompt-production.md) 和 [妆肤规则](makeup-skin-integration-v2.md) 为准。
 
-## Soft Structure Fidelity
+面颊体积、眼睑厚度、鼻翼柔度、嘴角和下颌至颈部连接应自然，保持身份与表观年龄。面容美感建立在精致妆容上，而非塑料般抛光表面。
 
-Realism should appear in cheek volume, eyelid thickness, nose-wing softness, mouth-corner volume and jaw-to-neck transition while all identity geometry remains locked.
+自然微小不对称可以保留，但不再作为必须添加的真人化信号。不要为了打破对称，故意移动眉毛、眼睛或嘴角；这是后续版本对旧方案的修正。
 
-## Micro-Asymmetry
+摄影表现包括柔和高光过渡、可读暗部、自然局部反差，避免全局锐化和剪贴般面部边缘。外围衣料可略柔，但不模糊应展示的主衣片。
 
-Use tiny natural variations in brow height, eyelid openness, mouth-corner balance and highlight distribution. The goal is to avoid mathematically perfect rendering, not to deform the face.
-
-## Lens Response Realism
-
-- soft highlight roll-off
-- retained shadow detail
-- natural local micro-contrast
-- no global clarity/HDR look
-- no sharpened cut-out face edge
-- slightly softer peripheral cloth resolution than facial focus when appropriate
-
-## Beauty Without CG
-
-The face can remain beautiful and refined, but beauty should come from identity, makeup restraint, skin optics, soft structure, hair and lighting rather than a polished CG surface.
-
-## Failure Signals
-
-- face_too_cg
-- skin_too_uniform
-- eye_anatomy_too_clean
-- hair_too_uniform
-- micro_asymmetry_missing
-- highlight_rolloff_digital
+兼容诊断标识：`face_too_cg`、`skin_too_uniform`、`eye_anatomy_too_clean`、`hair_too_uniform`、`micro_asymmetry_missing`、`highlight_rolloff_digital`。其中旧不对称诊断不能自动触发五官位移。

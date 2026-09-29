@@ -1,7 +1,7 @@
 {
   "version": "0.9.1",
   "default": "ancient_asset_material_split",
-  "principle": "Material separation is a structural readability problem, not a request for more texture everywhere.",
+  "principle": "材质区分依靠可读的结构、厚薄与反射，不是全图增加纹理。",
   "profiles": {
     "ancient_asset_material_split": {
       "layers": {
@@ -44,13 +44,13 @@
         }
       },
       "generation_prompt_translation": [
-        "Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.",
-        "Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.",
-        "Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen."
+        "使用参考可见与补全方案明确指定的材料。只有设计方案要求时才增加未见衣层，否则按现有构造克制延展；不自动把素布变织锦，不随意加纱、金纹或饰物。",
+        "每种指定衣层有独立材料表现：不透明内层褶皱宽而安静、高光克制；主衣料保留已观察的织纹和重量；指定薄纱有轻透细边，可透见内层。用褶皱尺度、叠压和适量高光区分层次，不用更多饰纹或加深轮廓影替代。",
+        "设计为素面的区域保持无纹样，包括同色提花；已有刺绣织纹只分布于指定衣片，不蔓延到内裙或所有衣层。保留细微织物纹理，不让每层都布满同样细褶和亮光。"
       ],
       "prompt_translation": [
-        "Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.",
-        "Do not let all layers share the same soft glossy fantasy surface."
+        "仅区分参考已存在的材料：主袍较密实有结构，已有薄纱轻透，已有金色花纹呈织金或刺绣附着，而非平面印花，原有腰带、领缘与系带更明确。不要新增缺失的纱层、金纹或饰物。",
+        "各衣层不能共用同一种柔亮、塑料般的幻想表面。"
       ]
     }
   }

@@ -1,15 +1,15 @@
 {
   "version": "0.8.2",
   "default": "P9_FASHION_ASSET",
-  "principle": "This project's ancient character asset preset uses the user-selected balanced P9 Fashion direction. Natural adult proportion remains an explicit alternative, not a forced correction of P9. Full-body anchors preserve their own proportions. Hair ornaments and trailing cloth do not count as anatomical height.",
+  "principle": "本项目古风资产预设采用用户选择的协调 P9 时装比例；自然成年比例是可明确选择的其他方案，不是强制纠正方向。完整全身母图保留自身比例。头饰和拖尾不计人体高度。",
   "profiles": {
     "NATURAL_ADULT": {
       "visual_head_count_target": "approximately_7_to_7.5_design_guide_not_measurement",
       "head_ornaments_excluded": true,
       "prompt_translation": [
-        "Use ordinary adult studio-portrait proportions, with an approximately seven to seven-and-a-half head visual guide measured from the anatomical crown to chin, excluding hair volume and ornaments. This is a design guide, not a measurement inferred from a cropped reference.",
-        "Keep a naturally sized head, a normal neck, a complete ribcage-to-pelvis relationship and balanced upper and lower legs. Do not shrink the head, raise the anatomical waist, lengthen the neck or stretch the lower body to make the outfit look taller.",
-        "The clothing hangs over the body; its sash does not redefine the anatomical waist, and a long skirt or train does not extend the person's standing height. Keep shoulder, elbow, wrist and shoe scale coherent, without claiming hidden joints are visible."
+        "本自然成年方案采用普通棚拍体型，约七至七点五头身仅作视觉设计参考；头长取颅顶至下巴，不含发量和饰物，不从裁切参考推算实测比例。",
+        "头部大小、颈部长度与胸廓骨盆关系自然，上下腿协调；不用缩头、抬高骨盆、加长颈部或拉长下身让衣服显高。",
+        "服装覆盖身体，衣带不重新定义人体腰位，长裙拖尾不延长人物身高；肩肘腕和鞋的尺度相称，不声称隐藏关节可见。"
       ]
     },
     "P9_FASHION_ASSET": {
@@ -31,16 +31,16 @@
         "foot_visibility": "pose_and_garment_dependent"
       },
       "robe_rules": [
-        "Use natural waist placement and central vertical panels to preserve a tall read under long robes. Shoes may remain naturally hidden by the pose and garment.",
-        "Do not let oversized sleeves or excessive hem width suppress the lower-body visual length.",
-        "Do not shorten the torso, extreme-shrink the head, or stretch only one leg segment."
+        "自然腰位和纵向主衣片支持长袍下的修长观感，鞋脚可由姿态和衣摆自然遮住。",
+        "避免无依据的过大袖量或裙幅压缩整体修长观感，但保留明确选择的服装轮廓。",
+        "不压短躯干、极端缩头或只拉长一段腿。"
       ],
       "prompt_translation": [
-        "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and complete silhouette. Foot visibility depends on pose and clothing. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
-        "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
-        "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
-        "Balance shoulders, ribcage, waist and pelvis with a defined waist and natural hip volume. Keep upper arms, forearms, elbows, wrists and hands coherent; keep thighs, knees, calves and ankles balanced in both length and thickness. Golden proportion is an aesthetic goal, not a universal numeric ratio or a measurement inferred through clothing.",
-        "Use moderate, evenly developed muscle volume with soft definition on visible shoulders, arms, waist and legs, responding to the selected action. Preserve natural soft tissue; avoid stick limbs, pinched waists, exaggerated bodybuilding cuts or muscles showing through opaque fabric."
+        "层叠长袍下仍保持清楚的 P9 时装比例：整体修长协调，肩颈舒展、自然腰位明确、轮廓完整；鞋脚是否可见由姿态与衣裙决定。不极端缩头、拉长脖子或上提人体骨盆。",
+        "躯干解剖关系完整，通过协调的髋膝踝关系表现修长，不生硬拉伸腿部。",
+        "袖摆宽度与既定服装设计协调，衣服支持修长观感而非将人物压成窄长筒。",
+        "肩、胸廓、腰和骨盆协调，腰部自然收束、臀部有体积；上臂、前臂、肘腕手与大腿、膝、小腿、脚踝在长度和粗细上相称。黄金比例是审美方向，不是通用数值公式，也不是透过衣服推断的人体测量。",
+        "可见肩臂、腰腿有适度均匀肌肉体积和柔和线条，随动作收缩放松；保留自然软组织，不画细杆四肢、纸片腰、健美分块或穿透不透明衣料的肌肉。"
       ]
     }
   }

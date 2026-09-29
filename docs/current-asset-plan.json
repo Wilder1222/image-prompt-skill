@@ -22,20 +22,16 @@
       "detail_budget": "material_priority",
       "highlight_hierarchy": "focal_brightness",
       "edge_control": "soft_realistic",
-      "zh": "高颜值古风定妆照与白底角色资产图结合：面容美感优先，保留轻度真实肌肤与自然妆容，服装具有可触摸的真实材质。不用粗糙纪实皮肤或统一塑料高光制造真实感。",
-      "en": "Combine a beautiful costume portrait with a white-background character asset. Prioritize facial beauty with mild natural skin texture and makeup, and physically convincing garment materials; avoid coarse documentary skin or uniform plastic highlights."
+      "zh": "高颜值古风定妆照与白底角色资产图结合：面容美感优先，保留轻度真实肌肤与自然妆容，服装具有可触摸的真实材质。不用粗糙纪实皮肤或统一塑料高光制造真实感。"
     },
     "detail": {
-      "zh": "细节用于区分真丝、织锦、纱、绣线与金属的厚度、透光和反射；主衣片、缝合、受力褶皱清楚，素面区域安静，不以全身密集花纹代替材质真实感。",
-      "en": "Spend detail on the thickness, transmission and reflectance of silk, brocade, gauze, embroidery and metal. Keep construction, seams and load-bearing folds readable; retain quiet plain areas instead of covering every surface in ornament."
+      "zh": "细节用于区分真丝、织锦、纱、绣线与金属的厚度、透光和反射；主衣片、缝合、受力褶皱清楚，素面区域安静，不以全身密集花纹代替材质真实感。"
     },
     "highlights": {
-      "zh": "以脸部及邻近头饰、上身为视觉亮度焦点，腰饰和少量衣褶反光次之，裙边与披帛高光更稀疏。不让每条金边同样发亮，不让纯白背景导致肤色和浅衣过曝。",
-      "en": "Concentrate subject highlights around the face, adjacent existing head ornaments and upper torso; subordinate waist and selected fabric highlights, with sparse peripheral glints. Do not make every gold edge equally luminous or clip skin and pale fabric against the white background."
+      "zh": "以脸部及邻近头饰、上身为视觉亮度焦点，腰饰和少量衣褶反光次之，裙边与披帛高光更稀疏。不让每条金边同样发亮，不让纯白背景导致肤色和浅衣过曝。"
     },
     "edges": {
-      "zh": "轮廓服从柔和棚光和真实材质：眼睑、衣料接缝与必要结构清楚，细发、薄纱和次要边缘自然柔化，保持白衣与白底分离；不描黑边，不锐化整圈轮廓。",
-      "en": "Let edges follow soft studio light and physical materials: keep eyelids, seams and necessary construction clear, soften fine hair and thin gauze naturally, and separate pale garments from white without black outlines or uniformly sharpened contours."
+      "zh": "轮廓服从柔和棚光和真实材质：眼睑、衣料接缝与必要结构清楚，细发、薄纱和次要边缘自然柔化，保持白衣与白底分离；不描黑边，不锐化整圈轮廓。"
     }
   },
   "status": "planned",
@@ -50,24 +46,24 @@
   ],
   "presentation": {
     "profile": "costume_showcase",
-    "use_for": "A composed full-body costume portrait when the intended robe already has, or the user requests, flowing sleeves and layered skirts. Do not apply this silhouette to fitted armor or casual clothing automatically.",
+    "use_for": "适用于已有或明确要求流动宽袖、层叠长裙的全身服装展示，不自动用于贴身铠甲或日常服。",
     "asset_prompt_translation": [
-      "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament and entire natural garment silhouette inside the frame, leaving breathing room above and below.",
-      "Let the approved skirt and sleeve silhouette remain generous. The selected stance and natural drape determine whether one, both or neither foot is visible. Shoe tips are not mandatory; preserve a grounded hem and never shorten the dress just to expose shoes."
+      "本白底服装展示案例中，最高发饰与完整自然衣摆全部入画，上下保留舒展空间。",
+      "保留已确认的裙袖轮廓，姿态与垂坠决定鞋脚露出程度；鞋尖不是必露项，不为了露鞋缩短裙装。"
     ],
     "proportion_prompt_translation": [
-      "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
-      "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube."
+      "身体比例与衣装展示分别处理，领口、肩部结构与腰部闭合清楚；纵向衣片不能被误用为拉长人物或缩头。",
+      "对于流动长袍，腰下轮廓逐渐打开形成自然落地裙摆，保留指定袖量与小拖尾，不将整套衣服压成窄筒。"
     ],
     "generation_prompt_translation": [
-      "Arrange the costume around its waist and central vertical panels: the selected hand gesture must work with the sleeve drape, and the face, collar and waist remain readable.",
-      "Separate only the layers present in the reference or explicitly requested in the design brief. Give dense patterned fabric weighted folds, any sheer overlayer thin overlapping edges, and the inner skirt a quieter matte surface. Keep quieter areas between concentrated ornament; do not cover every layer with identical gold pattern.",
-      "A cropped reference does not specify the unseen skirt. Follow the stated extension brief and identify those additions as design choices; without such a brief, keep the extension restrained and do not invent extra jewelry or gauze."
+      "围绕腰部连接和纵向衣片组织服装，选定手势与袖子垂坠相容，面部、衣领与腰部保持可读。",
+      "只区分参考存在或设计明确指定的层次：密纹布料有重量，已有薄纱有细薄叠边，内裙更安静哑光。装饰密集区域之间保留素面，不把每层都铺满同种金纹。",
+      "裁切参考不能证明未见裙装结构。按明确补全方案设计并标明是新增选择；无方案时克制延展，不额外发明首饰或纱层。"
     ]
   },
   "design_freedom": {
     "mode": "reference_preserve",
-    "reference_prompt": "Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.",
+    "reference_prompt": "保留已观察的面容身份、表观年龄、发型饰物、可见衣装构造与配色。未见下部按明确方案延展，无方案时在同一设计语言内克制补全；这些是设计延展，不是已观察事实。",
     "prompt_translation": []
   },
   "stage_1": {
@@ -99,7 +95,7 @@
         "costume_redesign",
         "body_reshape"
       ],
-      "prompt_strategy": "Change only facial rendering: retain the observed eyelids, cheek volume and mouth-corner placement while adjusting skin response and facial realism."
+      "prompt_strategy": "仅调整面部表现：保留已观察的眼睑、面颊体积与嘴角位置，修订肤质反射和真人程度。"
     },
     "face_profile": {
       "profile": "beauty_first_character",
@@ -110,33 +106,33 @@
       "beauty_priority": "very_high",
       "maturity_guard": "none",
       "signals": [
-        "beauty-first identity",
-        "subtle cheek volume",
-        "natural eyelid structure",
-        "individual nose-and-lip identity features",
-        "soft regional skin response",
-        "task-appropriate expression with stable identity"
+        "美感优先并保持个体身份",
+        "适度面颊体积",
+        "自然眼睑结构",
+        "有辨识度的鼻唇特征",
+        "柔和分区肤质反应",
+        "表情适配任务且身份稳定"
       ],
       "avoid": [
-        "generic AI beauty template",
+        "标准化美人模板脸",
         "age_up",
-        "hollowing",
-        "hard cheekbone carving",
-        "perfectly averaged facial symmetry"
+        "面颊凹陷",
+        "过度雕刻颧骨",
+        "过分平均对称的五官"
       ],
       "prompt_translation": [
-        "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
-        "Retain the reference cheek volume, underlying eyelid structure and distinctive nose-and-lip features. Allow natural expression movement when requested; select gaze, facial tension and mouth action for the current character and task rather than freezing the original expression or imposing a smile.",
-        "Build facial realism on refined makeup, adding only restrained regional skin response and soft-tissue detail that improve visual appeal; do not increase maturity, fatigue or facial severity."
+        "面容好看优先，同时保留本角色的个体辨识点，不平均化为标准美人脸。",
+        "保留参考面颊体积、眼睑基础结构及鼻唇特征；按人物与任务自然调整视线、面部松紧和嘴唇动作，不锁死原神态或强制微笑。",
+        "面容真实感建立在精致妆容上，仅加入改善美感的克制分区反射和软组织层次，不增加成熟感、疲态或严厉感。"
       ]
     },
     "prompt_skeleton": [
-      "Edit the supplied current asset image. Use it as the only direct edit target.",
-      "Preserve the exact facial identity geometry and apparent age, body proportions, hairstyle, costume design, pose, hands, footwear, framing, background and lighting layout.",
-      "Change only facial rendering: retain the observed eyelids, cheek volume and mouth-corner placement while adjusting skin response and facial realism.",
-      "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
-      "Retain the reference cheek volume, underlying eyelid structure and distinctive nose-and-lip features. Allow natural expression movement when requested; select gaze, facial tension and mouth action for the current character and task rather than freezing the original expression or imposing a smile.",
-      "Build facial realism on refined makeup, adding only restrained regional skin response and soft-tissue detail that improve visual appeal; do not increase maturity, fatigue or facial severity."
+      "编辑提供的当前资产图，将其作为唯一直接编辑对象。",
+      "保留既有面容几何与表观年龄、身体比例、发型、服装、姿态、手脚、取景、背景和布光。",
+      "仅调整面部表现：保留已观察的眼睑、面颊体积与嘴角位置，修订肤质反射和真人程度。",
+      "面容好看优先，同时保留本角色的个体辨识点，不平均化为标准美人脸。",
+      "保留参考面颊体积、眼睑基础结构及鼻唇特征；按人物与任务自然调整视线、面部松紧和嘴唇动作，不锁死原神态或强制微笑。",
+      "面容真实感建立在精致妆容上，仅加入改善美感的克制分区反射和软组织层次，不增加成熟感、疲态或严厉感。"
     ]
   },
   "stage_2": {
@@ -169,7 +165,7 @@
         "extreme_leg_stretch",
         "head_shrink_shortcut"
       ],
-      "prompt_strategy": "Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction."
+      "prompt_strategy": "仅调整全身比例关系、可见手部结构和取景，保持服装构造；鞋履是否需展示由任务决定。"
     },
     "fashion_asset": {
       "profile": "P9_FASHION_ASSET",
@@ -191,18 +187,18 @@
         "foot_visibility": "pose_and_garment_dependent"
       },
       "robe_rules": [
-        "Use natural waist placement and central vertical panels to preserve a tall read under long robes. Shoes may remain naturally hidden by the pose and garment.",
-        "Do not let oversized sleeves or excessive hem width suppress the lower-body visual length.",
-        "Do not shorten the torso, extreme-shrink the head, or stretch only one leg segment."
+        "自然腰位和纵向主衣片支持长袍下的修长观感，鞋脚可由姿态和衣摆自然遮住。",
+        "避免无依据的过大袖量或裙幅压缩整体修长观感，但保留明确选择的服装轮廓。",
+        "不压短躯干、极端缩头或只拉长一段腿。"
       ],
       "prompt_translation": [
-        "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and complete silhouette. Foot visibility depends on pose and clothing. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
-        "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
-        "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
-        "Balance shoulders, ribcage, waist and pelvis with a defined waist and natural hip volume. Keep upper arms, forearms, elbows, wrists and hands coherent; keep thighs, knees, calves and ankles balanced in both length and thickness. Golden proportion is an aesthetic goal, not a universal numeric ratio or a measurement inferred through clothing.",
-        "Use moderate, evenly developed muscle volume with soft definition on visible shoulders, arms, waist and legs, responding to the selected action. Preserve natural soft tissue; avoid stick limbs, pinched waists, exaggerated bodybuilding cuts or muscles showing through opaque fabric.",
-        "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
-        "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube."
+        "层叠长袍下仍保持清楚的 P9 时装比例：整体修长协调，肩颈舒展、自然腰位明确、轮廓完整；鞋脚是否可见由姿态与衣裙决定。不极端缩头、拉长脖子或上提人体骨盆。",
+        "躯干解剖关系完整，通过协调的髋膝踝关系表现修长，不生硬拉伸腿部。",
+        "袖摆宽度与既定服装设计协调，衣服支持修长观感而非将人物压成窄长筒。",
+        "肩、胸廓、腰和骨盆协调，腰部自然收束、臀部有体积；上臂、前臂、肘腕手与大腿、膝、小腿、脚踝在长度和粗细上相称。黄金比例是审美方向，不是通用数值公式，也不是透过衣服推断的人体测量。",
+        "可见肩臂、腰腿有适度均匀肌肉体积和柔和线条，随动作收缩放松；保留自然软组织，不画细杆四肢、纸片腰、健美分块或穿透不透明衣料的肌肉。",
+        "身体比例与衣装展示分别处理，领口、肩部结构与腰部闭合清楚；纵向衣片不能被误用为拉长人物或缩头。",
+        "对于流动长袍，腰下轮廓逐渐打开形成自然落地裙摆，保留指定袖量与小拖尾，不将整套衣服压成窄筒。"
       ]
     },
     "hand_pose": {
@@ -219,8 +215,8 @@
         "hand_scale_matches_face_and_forearm"
       ],
       "prompt_translation": [
-        "Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.",
-        "Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area."
+        "本交叠手势方案中，右手轻覆左手手背，放在下腹前；手指放松，手腕方向清楚，不十指交绞。",
+        "每只手解剖上为一拇指与四指，自然交叠可遮挡部分手指，不强制十指全露；可见指节、手腕连接连续，袖口不吞没手部接触区。"
       ]
     },
     "asset_master": {
@@ -233,25 +229,25 @@
         "reference_derived_hem"
       ],
       "prompt_translation": [
-        "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament and entire natural garment silhouette inside the frame, leaving breathing room above and below.",
-        "Let the approved skirt and sleeve silhouette remain generous. The selected stance and natural drape determine whether one, both or neither foot is visible. Shoe tips are not mandatory; preserve a grounded hem and never shorten the dress just to expose shoes."
+        "本白底服装展示案例中，最高发饰与完整自然衣摆全部入画，上下保留舒展空间。",
+        "保留已确认的裙袖轮廓，姿态与垂坠决定鞋脚露出程度；鞋尖不是必露项，不为了露鞋缩短裙装。"
       ]
     },
     "prompt_skeleton": [
-      "Edit the supplied current asset image. Use it as the only direct edit target.",
-      "Preserve facial identity, apparent age, approved facial rendering, hairstyle, costume design, palette, materials, background type and lighting layout.",
-      "Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction.",
-      "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament and entire natural garment silhouette inside the frame, leaving breathing room above and below.",
-      "Let the approved skirt and sleeve silhouette remain generous. The selected stance and natural drape determine whether one, both or neither foot is visible. Shoe tips are not mandatory; preserve a grounded hem and never shorten the dress just to expose shoes.",
-      "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and complete silhouette. Foot visibility depends on pose and clothing. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
-      "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
-      "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
-      "Balance shoulders, ribcage, waist and pelvis with a defined waist and natural hip volume. Keep upper arms, forearms, elbows, wrists and hands coherent; keep thighs, knees, calves and ankles balanced in both length and thickness. Golden proportion is an aesthetic goal, not a universal numeric ratio or a measurement inferred through clothing.",
-      "Use moderate, evenly developed muscle volume with soft definition on visible shoulders, arms, waist and legs, responding to the selected action. Preserve natural soft tissue; avoid stick limbs, pinched waists, exaggerated bodybuilding cuts or muscles showing through opaque fabric.",
-      "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
-      "For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.",
-      "Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.",
-      "Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area."
+      "编辑提供的当前资产图，将其作为唯一直接编辑对象。",
+      "保留人物身份与年龄、已认可面部表现、发型、服装构造配色、材料、背景类型与灯位。",
+      "仅调整全身比例关系、可见手部结构和取景，保持服装构造；鞋履是否需展示由任务决定。",
+      "本白底服装展示案例中，最高发饰与完整自然衣摆全部入画，上下保留舒展空间。",
+      "保留已确认的裙袖轮廓，姿态与垂坠决定鞋脚露出程度；鞋尖不是必露项，不为了露鞋缩短裙装。",
+      "层叠长袍下仍保持清楚的 P9 时装比例：整体修长协调，肩颈舒展、自然腰位明确、轮廓完整；鞋脚是否可见由姿态与衣裙决定。不极端缩头、拉长脖子或上提人体骨盆。",
+      "躯干解剖关系完整，通过协调的髋膝踝关系表现修长，不生硬拉伸腿部。",
+      "袖摆宽度与既定服装设计协调，衣服支持修长观感而非将人物压成窄长筒。",
+      "肩、胸廓、腰和骨盆协调，腰部自然收束、臀部有体积；上臂、前臂、肘腕手与大腿、膝、小腿、脚踝在长度和粗细上相称。黄金比例是审美方向，不是通用数值公式，也不是透过衣服推断的人体测量。",
+      "可见肩臂、腰腿有适度均匀肌肉体积和柔和线条，随动作收缩放松；保留自然软组织，不画细杆四肢、纸片腰、健美分块或穿透不透明衣料的肌肉。",
+      "身体比例与衣装展示分别处理，领口、肩部结构与腰部闭合清楚；纵向衣片不能被误用为拉长人物或缩头。",
+      "对于流动长袍，腰下轮廓逐渐打开形成自然落地裙摆，保留指定袖量与小拖尾，不将整套衣服压成窄筒。",
+      "本交叠手势方案中，右手轻覆左手手背，放在下腹前；手指放松，手腕方向清楚，不十指交绞。",
+      "每只手解剖上为一拇指与四指，自然交叠可遮挡部分手指，不强制十指全露；可见指节、手腕连接连续，袖口不吞没手部接触区。"
     ]
   },
   "stage_3": {
@@ -286,7 +282,7 @@
         "costume_redesign",
         "background_scene_invention"
       ],
-      "prompt_strategy": "Change only garment material response, studio lighting, pale-fabric edge separation and floor contact shadow."
+      "prompt_strategy": "仅调整服装材质反应、棚拍照明、浅色衣缘分离及符合姿态的接地阴影。"
     },
     "material_separation": {
       "profile": "ancient_asset_material_split",
@@ -330,13 +326,13 @@
         }
       },
       "generation_prompt_translation": [
-        "Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.",
-        "Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.",
-        "Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen."
+        "使用参考可见与补全方案明确指定的材料。只有设计方案要求时才增加未见衣层，否则按现有构造克制延展；不自动把素布变织锦，不随意加纱、金纹或饰物。",
+        "每种指定衣层有独立材料表现：不透明内层褶皱宽而安静、高光克制；主衣料保留已观察的织纹和重量；指定薄纱有轻透细边，可透见内层。用褶皱尺度、叠压和适量高光区分层次，不用更多饰纹或加深轮廓影替代。",
+        "设计为素面的区域保持无纹样，包括同色提花；已有刺绣织纹只分布于指定衣片，不蔓延到内裙或所有衣层。保留细微织物纹理，不让每层都布满同样细褶和亮光。"
       ],
       "prompt_translation": [
-        "Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.",
-        "Do not let all layers share the same soft glossy fantasy surface."
+        "仅区分参考已存在的材料：主袍较密实有结构，已有薄纱轻透，已有金色花纹呈织金或刺绣附着，而非平面印花，原有腰带、领缘与系带更明确。不要新增缺失的纱层、金纹或饰物。",
+        "各衣层不能共用同一种柔亮、塑料般的幻想表面。"
       ]
     },
     "studio_lighting": {
@@ -361,11 +357,11 @@
       ]
     },
     "prompt_skeleton": [
-      "Edit the supplied current asset image. Use it as the only direct edit target.",
-      "Preserve facial identity, apparent age and approved facial rendering, body proportions, hairstyle, pose, hands, footwear shape, costume construction, palette and framing.",
-      "Change only garment material response, studio lighting, pale-fabric edge separation and floor contact shadow.",
-      "Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.",
-      "Do not let all layers share the same soft glossy fantasy surface.",
+      "编辑提供的当前资产图，将其作为唯一直接编辑对象。",
+      "保留人物身份、年龄与已认可面部表现、身体比例、发型、姿态、手脚鞋形、服装构造配色及取景。",
+      "仅调整服装材质反应、棚拍照明、浅色衣缘分离及符合姿态的接地阴影。",
+      "仅区分参考已存在的材料：主袍较密实有结构，已有薄纱轻透，已有金色花纹呈织金或刺绣附着，而非平面印花，原有腰带、领缘与系带更明确。不要新增缺失的纱层、金纹或饰物。",
+      "各衣层不能共用同一种柔亮、塑料般的幻想表面。",
       "本白底棚拍方案使用靠近镜头轴线、略高于人物的大面积扩散主光，配足够的正面柔和补光，使额头、眼周与双颊均匀受光；仅在需要时轻微分离轮廓。白平衡中性，移除原场景树影、窗格、斑驳日光、硬发丝阴影与暖色偏染。",
       "均匀照明仍保留鼻下、下巴与眼窝的柔和体积。肤质细节服从精致妆容和景别；白底干净但不吞掉浅色衣缘，接地阴影随姿态成立，衣料厚薄和金属高光有主次。布光逻辑不改变指定的摄影或原画媒介。"
     ]
@@ -377,5 +373,5 @@
     "final_photographic_polish",
     "upscale"
   ],
-  "rule": "Use only the failed stage; accept its actual image before progressing. A plan is not evidence that any image has passed. Preserve approved face rendering during non-face repairs."
+  "rule": "只处理未通过的阶段，查看实际输出后再推进；计划不代表图像通过。非面部修订保留已认可的面部表现。"
 }

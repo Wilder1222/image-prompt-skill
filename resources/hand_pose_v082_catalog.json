@@ -1,7 +1,7 @@
 {
   "version": "0.8.2",
   "default": "elegant_crossed_hands_safe",
-  "principle": "Hands are a generation-time structural constraint for asset portraits, not only a post-generation repair item.",
+  "principle": "手部结构应在生成时就明确，不只作为出图后的补救项；手势由当前任务选择。",
   "modes": {
     "elegant_crossed_hands_safe": {
       "primary_hand": "front_top_hand",
@@ -16,8 +16,8 @@
         "hand_scale_matches_face_and_forearm"
       ],
       "prompt_translation": [
-        "Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.",
-        "Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area."
+        "本交叠手势方案中，右手轻覆左手手背，放在下腹前；手指放松，手腕方向清楚，不十指交绞。",
+        "每只手解剖上为一拇指与四指，自然交叠可遮挡部分手指，不强制十指全露；可见指节、手腕连接连续，袖口不吞没手部接触区。"
       ]
     },
     "relaxed_down_safe": {
@@ -28,7 +28,7 @@
         "no_fusion"
       ],
       "prompt_translation": [
-        "Keep the hands relaxed beside the body with anatomically correct five-finger structure and natural wrist alignment."
+        "双手在身体两侧自然放松，五指解剖结构正确、腕部连续，允许姿态形成自然遮挡。"
       ]
     }
   }

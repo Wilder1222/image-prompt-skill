@@ -1,39 +1,21 @@
-# Realism Coherence Guard
+# 真实感协调保护
 
-The face can look synthetic even when individual parts are detailed. A common failure is **inconsistent realism**: photographic skin paired with gem-like eyes, or realistic eyes paired with plastic hair / makeup.
+单个部位细节充分，整体仍可能显得合成。常见问题是摄影式皮肤搭配宝石眼、真实眼睛搭配塑料发束，或妆面与肤色反射脱节。
 
-## Coherence channels
+## 检查范围
 
-- eyes
-- skin
-- lips
-- brows/lashes
-- hair
-- makeup
-- nearby costume materials
-- camera / lighting response
+眼睛、皮肤、嘴唇、眉睫、头发、妆容、邻近服装，以及相机和照明表现需要协调。先确认本轮媒介，再判断相邻部分；不能把原画的选择性笔触当成必须去除的缺陷。
 
-## Rule
+项目中的 H 等级只是规划用语，可用于提示相邻通道差距，不是厂商参数，也不能替代看图。例如 H2.5 皮肤与 H1 眼睛可能不协调；眼肤接近、头发略概括可以成立，仍以实图判断。
 
-Adjacent channels should not differ by more than one project realism tier.
+## 修订顺序
 
-Example:
-- H2.5 skin + H1 eyes = mismatch
-- H2.5 eyes + H2.5 skin + H2 hair = acceptable
+1. 判断眼睛与肤质是否属于同一媒介。
+2. 检查精致妆容与分区反射。
+3. 检查发束层次及面部遮挡。
+4. 检查焦点、高光和轮廓清晰度。
+5. 检查邻近衣料反光是否与人物相容。
 
-These tiers are internal planning heuristics, not vendor controls.
+只修改本次失败的部分，保持已通过的身份与编辑边界；不能为了统一真实感重做全部五官。
 
-## Repair order
-
-1. eyes + skin
-2. makeup integration
-3. hair
-4. camera/focus response
-5. adjacent costume highlight consistency
-
-## Failure signals
-
-- realism_mismatch_eye_skin
-- realism_mismatch_face_hair
-- realism_mismatch_face_costume
-- realism_channel_overprocessed
+兼容诊断标识：`realism_mismatch_eye_skin`、`realism_mismatch_face_hair`、`realism_mismatch_face_costume`、`realism_channel_overprocessed`。

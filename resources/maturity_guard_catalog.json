@@ -23,9 +23,9 @@
         "delicate_makeup"
       ],
       "prompt_translation": [
-        "Keep the visual age in the youthful 18–22 range.",
-        "Do not create mature fatigue, hollow cheeks, deep eye sockets, heavy under-eye darkness or a stern older fashion-model impression.",
-        "Preserve youthful cheek softness and clear facial energy while allowing only subtle natural skin realism."
+        "仅选择本年龄方案时，视觉年龄保持约18–22岁。",
+        "不增加成熟疲态、面颊凹陷、深眼窝、重眼袋阴影或显老严厉的模特感。",
+        "保留年轻面颊的柔软度与清楚有神的面容，仅加入克制自然肤质。"
       ]
     },
     "young_adult_20_26": {
@@ -44,8 +44,8 @@
         "stable_identity"
       ],
       "prompt_translation": [
-        "Keep a refined young-adult impression without aging the character up.",
-        "Allow restrained maturity through gaze and presentation, not through fatigue or facial hollowing."
+        "保持精致年轻成年气质，不擅自增加人物年龄。",
+        "成熟感可由视线与呈现方式克制表达，不靠疲态或面颊凹陷制造。"
       ]
     },
     "none": {
@@ -53,5 +53,5 @@
       "prompt_translation": []
     }
   },
-  "principle": "maturity guard limits unwanted age drift; it does not force childishness."
+  "principle": "年龄保护用于限制无意的年龄漂移，不强迫人物幼态化。"
 }
