@@ -81,3 +81,14 @@ test('missing moderate-design policy fails release validation', t => {
   fs.writeFileSync(file, JSON.stringify(data));
   assert.ok(validateProject(dir, { manifest: false }).errors.includes('invalid design freedom moderate'));
 });
+
+test('unresolved style settings and missing localized instructions fail release validation', t => {
+  const dir = fixture(t), file = path.join(dir, 'resources/asset_style_workflows.json');
+  const data = JSON.parse(fs.readFileSync(file));
+  data.profiles.dark_fantasy_asset.edge_control = 'missing';
+  data.detail_budgets.concept_art_priority.zh = '';
+  fs.writeFileSync(file, JSON.stringify(data));
+  const errors = validateProject(dir, { manifest: false }).errors;
+  assert.ok(errors.includes('dark_fantasy_asset: unknown edge_control'));
+  assert.ok(errors.includes('concept_art_priority: missing zh visual instructions'));
+});

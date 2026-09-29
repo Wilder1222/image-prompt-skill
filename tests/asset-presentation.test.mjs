@@ -2,18 +2,20 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { compileAssetPrompt, createAssetPlan } from '../scripts/asset-master.mjs';
+import { compileAssetPrompt as compile, createAssetPlan } from '../scripts/asset-master.mjs';
+const compileAssetPrompt = options => compile({ language: 'en', ...options });
 
 test('showcase selection changes presentation, not face or material treatment', () => {
   const a = createAssetPlan(), b = createAssetPlan({ presentation: 'costume_showcase' });
   assert.deepEqual(a.stage_1, b.stage_1);
   assert.deepEqual(a.stage_3, b.stage_3);
-  assert.equal(b.configuration.proportion_profile, 'NATURAL_ADULT');
+  assert.equal(b.configuration.proportion_profile, 'P9_FASHION_ASSET');
   assert.equal(b.stage_2.fashion_asset.visual_head_count_target, a.stage_2.fashion_asset.visual_head_count_target);
   assert.equal(a.configuration.presentation_profile, 'neutral_asset');
   const result = compileAssetPrompt({ presentation: 'costume_showcase' });
   assert.match(result.prompt, /A-line hem/);
-  assert.doesNotMatch(result.prompt, /approximately nine-head|hem controlled rather than excessively spread/);
+  assert.match(result.prompt, /approximately nine-head/);
+  assert.doesNotMatch(result.prompt, /hem controlled rather than excessively spread/);
 });
 
 test('explicit hand request takes precedence over showcase composition', () => {

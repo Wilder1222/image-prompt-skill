@@ -1,7 +1,7 @@
 {
   "version": "0.8.2",
-  "default": "NATURAL_ADULT",
-  "principle": "Use natural adult proportions for ordinary studio wardrobe portraits. P9 is an explicit fashion choice, never an implied effect of realism or long robes. Hair ornaments and trailing cloth do not count as anatomical height.",
+  "default": "P9_FASHION_ASSET",
+  "principle": "This project's ancient character asset preset uses the user-selected balanced P9 Fashion direction. Natural adult proportion remains an explicit alternative, not a forced correction of P9. Full-body anchors preserve their own proportions. Hair ornaments and trailing cloth do not count as anatomical height.",
   "profiles": {
     "NATURAL_ADULT": {
       "visual_head_count_target": "approximately_7_to_7.5_design_guide_not_measurement",
@@ -16,10 +16,10 @@
       "visual_head_count_target": "8.6_9.0",
       "head_ornaments_excluded": true,
       "controls": {
-        "head_visual_scale": "refined_small_without_face_reshape",
-        "neck_shoulder": "elongated_relaxed",
+        "head_visual_scale": "balanced_without_extreme_shrink_or_face_reshape",
+        "neck_shoulder": "relaxed_without_neck_stretch",
         "torso_length": "fully_preserved",
-        "waistline": "visually_high_natural",
+        "waistline": "clear_natural_anatomical_position",
         "pelvis_to_knee": "balanced_long",
         "knee_to_ankle": "balanced_long",
         "footwear_scale": "refined_natural",
@@ -33,7 +33,7 @@
         "Do not shorten the torso, extreme-shrink the head, or stretch only one leg segment."
       ],
       "prompt_translation": [
-        "Maintain a clear P9 fashion-asset proportion even under layered long robes: refined head-to-body read, elongated neck-to-waist rhythm, naturally elevated waist, strong vertical garment lines and a readable foot-to-hem relationship.",
+        "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and a readable foot-to-hem relationship. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
         "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
         "Control sleeve and hem width so the costume supports height instead of visually compressing it."
       ]

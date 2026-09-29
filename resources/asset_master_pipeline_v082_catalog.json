@@ -5,7 +5,7 @@
     "ancient_female_white_master": {
       "render_mode": "style_asset",
       "face_profile": "beauty_first_character",
-      "proportion_profile": "NATURAL_ADULT",
+      "proportion_profile": "P9_FASHION_ASSET",
       "material_profile": "ancient_asset_material_split",
       "hand_mode": "elegant_crossed_hands_safe",
       "asset_profile": "master_sheet_single",

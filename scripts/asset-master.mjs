@@ -15,6 +15,7 @@ const lights = read('studio_lighting_v082_catalog.json');
 const guards = read('maturity_guard_catalog.json');
 const rounds = read('repair_round_catalog.json');
 const presentations = read('asset_presentation_v084_catalog.json');
+const workflows = read('asset_style_workflows.json');
 
 function lookup(table, id, label) {
   if (typeof id !== 'string' || !Object.hasOwn(table, id)) throw new Error(`unknown ${label}: ${id}`);
@@ -40,7 +41,7 @@ const scopes = {
 };
 
 export function createAssetPlan(options = {}) {
-  const allowed = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'proportionProfile', 'designFreedom', 'passed'];
+  const allowed = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'proportionProfile', 'designFreedom', 'styleWorkflow', 'detailBudget', 'highlightHierarchy', 'edgeControl', 'passed'];
   for (const key of Object.keys(options)) if (!allowed.includes(key)) throw new Error(`unknown asset option: ${key}`);
   const preset = options.preset ?? presets.default;
   const configuration = { ...lookup(presets.presets, preset, 'asset preset') };
@@ -51,6 +52,20 @@ export function createAssetPlan(options = {}) {
   configuration.maturity_guard = options.maturityGuard ?? configuration.maturity_guard;
   configuration.presentation_profile = options.presentation ?? presentations.default;
   configuration.design_freedom = options.designFreedom ?? 'reference_preserve';
+  configuration.style_workflow = options.styleWorkflow ?? workflows.default;
+  const workflow = lookup(workflows.profiles, configuration.style_workflow, 'style workflow');
+  configuration.detail_budget = options.detailBudget ?? workflow.detail_budget;
+  configuration.highlight_hierarchy = options.highlightHierarchy ?? workflow.highlight_hierarchy;
+  configuration.edge_control = options.edgeControl ?? workflow.edge_control;
+  const styleRendering = {
+    workflow,
+    detail: lookup(workflows.detail_budgets, configuration.detail_budget, 'detail budget'),
+    highlights: lookup(workflows.highlight_hierarchies, configuration.highlight_hierarchy, 'highlight hierarchy'),
+    edges: lookup(workflows.edge_controls, configuration.edge_control, 'edge control'),
+  };
+  if (configuration.style_workflow === 'dark_fantasy_asset' && ['humanized_real_light', 'humanized_real_full'].includes(configuration.face_profile)) {
+    throw new Error('dark_fantasy_asset preserves a painted face; use a beauty_first or stylized_beauty profile, or explicitly switch style workflow');
+  }
   const designFreedom = lookup(presentations.design_freedoms, configuration.design_freedom, 'design freedom');
   const presentation = lookup(presentations.profiles, configuration.presentation_profile, 'presentation profile');
   const face = lookup(faces.profiles, configuration.face_profile, 'face profile');
@@ -110,22 +125,22 @@ export function createAssetPlan(options = {}) {
     studio_lighting: { profile: configuration.lighting_profile, ...light },
   }, ['asset_master_face_refine', 'asset_master_structure_refine']);
   return {
-    preset, configuration, status: 'planned', priority: presets.priority,
+    preset, configuration, style_rendering: styleRendering, status: 'planned', priority: presets.priority,
     presentation: { profile: configuration.presentation_profile, ...presentation },
     design_freedom: { mode: configuration.design_freedom, ...designFreedom },
     stage_1: stage1, stage_2: stage2, stage_3: stage3,
-    order: [scopes.face.round, scopes.structure.round, scopes['material-light'].round, 'final_photographic_polish', 'upscale'],
+    order: [scopes.face.round, scopes.structure.round, scopes['material-light'].round, configuration.style_workflow === 'dark_fantasy_asset' ? 'final_style_review' : 'final_photographic_polish', 'upscale'],
     rule: 'Use only the failed stage; accept its actual image before progressing. A plan is not evidence that any image has passed. Preserve approved face rendering during non-face repairs.',
   };
 }
 
-export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'en', ...options } = {}) {
+export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'zh-CN', ...options } = {}) {
   if (!['en', 'zh-CN'].includes(language)) throw new Error('language must be zh-CN or en');
-  const finish = result => ({ ...result, prompt_language: language, prompt: language === 'zh-CN' ? renderTaggedChinese(result, options) : result.prompt });
+  const finish = result => ({ ...result, prompt_language: language, prompt: language === 'zh-CN' ? renderTaggedChinese(result) : (result.prompt.startsWith('【') ? result.prompt : result.prompt.split('\n\n').map((text, i) => `【${i + 1}. ${i ? 'Preservation and edit scope' : 'Task and reference'}】\n${text}`).join('\n\n')) });
   const reference = lookup(presentations.reference_modes, referenceMode, 'reference mode');
   if (referenceMode === 'full_body_anchor') {
     if (stage !== 'generate' || focus || options.passed?.length) throw new Error('full_body_anchor is a preservation generation mode; for a local repair use the edit stage with the current image as its target');
-    const overrides = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'proportionProfile', 'designFreedom'].filter(key => options[key] !== undefined);
+    const overrides = ['preset', 'faceProfile', 'handMode', 'maturityGuard', 'presentation', 'proportionProfile', 'designFreedom', 'styleWorkflow', 'detailBudget', 'highlightHierarchy', 'edgeControl'].filter(key => options[key] !== undefined);
     if (overrides.length) throw new Error(`full_body_anchor preserves its design; conflicting profile overrides: ${overrides.join(', ')}; use an explicit edit stage to change an attribute`);
     // Validate unknown keys without applying the preset's pose, age or proportions.
     createAssetPlan(options);
@@ -158,14 +173,22 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
   let lines, roundPlan = null;
   if (stage === 'generate') {
     if (focus || options.passed?.length) throw new Error('focus and passed locks require an edit stage');
+    const c = plan.configuration, s = plan.style_rendering;
+    const section = (label, items) => `【${label}】\n${items.map(text => text.trim()).filter(Boolean).join('\n')}`;
     lines = [
-      'Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.',
-      plan.design_freedom.reference_prompt,
-      ...plan.stage_1.prompt_skeleton.slice(3), ...plan.stage_2.prompt_skeleton.slice(3),
-      ...plan.stage_3.material_separation.generation_prompt_translation,
-      ...plan.stage_3.studio_lighting.prompt_translation,
-      ...plan.presentation.generation_prompt_translation,
-      ...plan.design_freedom.prompt_translation,
+      section('Task and reference', ['Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.', plan.design_freedom.reference_prompt]),
+      section('Mode settings', [`render mode = ${c.render_mode}`, `style workflow = ${c.style_workflow}`, `face mode = ${c.legacy_face_mode}`, `proportion mode = ${c.proportion_profile === 'P9_FASHION_ASSET' ? 'P9 Fashion' : 'Natural Adult'}`, `detail budget = ${c.detail_budget}`, `highlight hierarchy = ${c.highlight_hierarchy}`, `edge control = ${c.edge_control}`]),
+      section('Core goal', [s.workflow.en]),
+      section('1. Identity and face', plan.stage_1.prompt_skeleton.slice(3)),
+      section('2. Makeup and skin', [c.style_workflow === 'dark_fantasy_asset' ? 'Retain refined painted makeup and facial beauty. Do not add documentary pores, age or fatigue to force photographic realism.' : 'Use sheer makeup, soft brows and restrained lip color; preserve mild natural skin texture and region-specific reflection, avoiding plastic smoothing and coarse documentary aging.']),
+      section('3. Hair and ornaments', ['Keep the actual reference hairstyle direction, hair color, primary silhouette and signature ornaments. Resolve individual hair groups without replacing the hairstyle with another character template.']),
+      section('4. Costume design', [plan.design_freedom.reference_prompt, ...plan.design_freedom.prompt_translation, ...plan.presentation.generation_prompt_translation]),
+      section('5. Material response', [...plan.stage_3.material_separation.generation_prompt_translation, s.detail.en]),
+      section('6. Composition and pose', [...plan.stage_2.asset_master.prompt_translation, ...plan.stage_2.hand_pose.prompt_translation]),
+      section('7. Body proportion', plan.stage_2.fashion_asset.prompt_translation),
+      section('8. Hands and feet', ['Each hand anatomically has one thumb and four fingers; natural overlap is allowed. Keep wrists and visible joints coherent. Include matching footwear and floor contact; do not crop the feet or force the entire shoe out from under a naturally long hem.']),
+      section('9. Background and light', [...plan.stage_3.studio_lighting.prompt_translation, s.highlights.en, s.edges.en, 'Remove scenic branches, bokeh, sunset atmosphere, foreground obstructions and battlefield effects. Keep only a white seamless background and a faint contact shadow.']),
+      section('10. Final goal and restrictions', [s.workflow.en, 'A complete, centered, front-facing asset with beautiful readable face, coherent tall proportions and distinct garment materials. No half-body crop, large twist, exaggerated action or forced perspective.']),
     ];
   } else {
     const selected = lookup(stages, stage, 'edit stage');
@@ -181,10 +204,12 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
       ? ['Edit the supplied current asset image. Use it as the only direct edit target.', scopes[stage].preserve, selectedFocus.preserve, ...selectedFocus.prompts]
       : selected.prompt_skeleton;
     if (options.passed?.length) lines = [...lines, `Also preserve these accepted dimensions: ${options.passed.map(id => id.replaceAll('_', ' ')).join(', ')}.`];
+    // Keep localized repairs within their existing scope; a style selection cannot restyle an accepted master.
+    if (plan.configuration.style_workflow === 'dark_fantasy_asset') lines.push('Preserve the existing painted concept-art medium and selective brushwork; this local repair must not convert the asset into a photograph.');
   }
-  // Profile codes belong in the plan, never in the copyable vendor prompt.
+  // Keep the user-requested mode header, and translate catalog shorthand in visual clauses.
   lines = lines.map(line => line.replaceAll('P9 fashion-asset proportion', 'tall, balanced fashion proportion with an approximately nine-head visual read'));
-  return finish({ status: 'prompt_ready', stage, focus: focus ?? null, reference_mode: referenceMode, configuration: plan.configuration,
+  return finish({ status: 'prompt_ready', stage, focus: focus ?? null, reference_mode: referenceMode, configuration: plan.configuration, style_rendering: plan.style_rendering,
     round_plan: roundPlan, prompt: [...new Set(lines)].join('\n\n'),
     evidence: { image_generated: false, visual_quality_verified: false } });
 }

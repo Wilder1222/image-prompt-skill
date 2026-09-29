@@ -3,7 +3,9 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import fs from 'node:fs';
-import { compileAssetPrompt, createAssetPlan } from '../scripts/asset-master.mjs';
+import { compileAssetPrompt as compile, createAssetPlan } from '../scripts/asset-master.mjs';
+// These legacy semantic assertions exercise the explicitly requested English renderer.
+const compileAssetPrompt = options => compile({ language: 'en', ...options });
 import { currentExamples } from '../scripts/build-examples.mjs';
 
 const tool = fileURLToPath(new URL('../scripts/iteration-director.mjs', import.meta.url));
@@ -38,9 +40,10 @@ test('hand override changes structure only', () => {
   assert.notDeepEqual(a.stage_2.prompt_skeleton, b.stage_2.prompt_skeleton);
 });
 
-test('generation has no edit-only locks or internal profile codes', () => {
+test('generation exposes requested mode labels but has no edit-only locks', () => {
   const result = compileAssetPrompt();
-  assert.doesNotMatch(result.prompt, /only direct edit target|Change only|beauty_first|P9|youthful_18_22/);
+  assert.doesNotMatch(result.prompt, /only direct edit target|Change only|youthful_18_22/);
+  assert.match(result.prompt, /proportion mode = P9 Fashion/);
   assert.equal(result.status, 'prompt_ready');
   assert.deepEqual(result.evidence, { image_generated: false, visual_quality_verified: false });
 });
