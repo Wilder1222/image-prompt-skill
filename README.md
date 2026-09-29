@@ -2,26 +2,30 @@
 
 参考图驱动的角色定妆照提示词与迭代工作流。支持全身白底资产、服装展示、优质母图保留与局部修复，并区分身份、风格、服装和编辑母图的参考权限。
 
-当前版本 **0.9.7**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
+当前版本 **0.11.0**，同时提供独立 Skill、Node.js 命令行和 Codex 插件。编译器生成提示词与计划；实际出图使用宿主已有图像工具。
 
-所有最终生图提示词按语义标签分类。`asset-prompt` 与程序库默认输出中文，角色新图提供模式块和十类正文。本项目古风预设采用用户指定的 `beauty_first + P9 Fashion`；完整全身母图保留自身比例。真实材质定妆照与东方幻想厚涂资产分成两条路线，实际提交文本与交付正文一致。
+提供参考图和描述，Skill 负责观察、解析意图、决定保留与改造、撰写中文分类提示词、检查冲突，并在已授权时执行出图评审与修订。用户无需选择模板或填写参数。主入口是 [提示词生产流程](references/routes/prompt-production.md)；历史范例用于校准表达与评估，不是每次生成的填空底稿。
+
+效果保障分三层：代理对实际图像和描述做语义审查；编译器检查来源权限、要求覆盖和交付完整性；实际输出由视觉评审与针对性修订检验。三层不能互相替代，单次成功不证明批量稳定。
 
 ## 使用
 
-需要 Node.js 22+，没有第三方 npm 依赖。以下命令在仓库根目录执行：
+安装插件后，直接提供图片和自然语言描述，例如：
+
+> 使用 $image-prompt-skill，根据这些参考图和我的描述生成可直接使用的中文生图提示词。保留人物，适度优化服装，白底正面全身；如果我要求测试，再生成图片并检查偏差。
+
+需要持久化生产记录时，由代理完成内部分析文件。检查工具需要 Node.js 22+，无第三方 npm 依赖：
 
 ```bash
-node scripts/iteration-director.mjs asset-prompt --presentation costume_showcase --maturity-guard none --format text
-node scripts/iteration-director.mjs asset-prompt --style-workflow dark_fantasy_asset --format text
-node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anchor --format text
-node scripts/iteration-director.mjs asset-prompt --stage structure --focus hands --format text
+node scripts/iteration-director.mjs prompt-build --input path/to/agent-authored-brief.json --format text
+node scripts/iteration-director.mjs prompt-review --input path/to/agent-authored-brief.json --review path/to/review.json
 ```
 
 在安装插件后的新 Codex 任务中，可直接说：
 
 > 使用 $image-prompt-skill，根据这些参考图编写全身白底定妆照提示词，并生成测试图。
 
-先查看实际参考再补充人物与服装信息；通用编译结果不是已经完成的角色设计。
+旧 `asset-prompt` 保留为素材兼容命令，返回 `scaffold_only`，不能直接当作完成的参考专属提示词。最终正文来自本轮实际观察和设计决定，不自动混入固定古风衣装、女性脸型或九头身。本项目已确认的 P9 与两份美感范例仍作为对应任务的上下文使用。
 
 ## Codex 插件
 
@@ -53,6 +57,8 @@ npm run plugin:build
 
 ## 入口
 
+- [当前提示词生产与效果验证流程](references/routes/prompt-production.md)
+- [三套独立提示词与五次真实出图记录](docs/visual-evaluations/production-skill-v0110.md)
 - [分类标签与两条风格路线](references/routes/tagged-prompt-workflows.md)
 - [两份参考专属中文提示词](examples/user-reference-tagged-prompts.md)
 - [v0.10.0 更新与验收边界](docs/tagged-workflows-v0100.md)

@@ -1,4 +1,4 @@
 interface:
   display_name: "角色资产提示词"
-  short_description: "参考图驱动的定妆展示、优质母图保留、局部修复与视觉对照"
-  default_prompt: "使用 $image-prompt-skill，根据实际参考选择定妆展示或局部修复；有更好旧图时先对照可见优势，再写明参考权限、保留内容与本轮改动。"
+  short_description: "从参考图和描述形成专属提示词，检查冲突并按实图修订"
+  default_prompt: "使用 $image-prompt-skill，观察我提供的参考图并理解描述，完成设计判断、中文分类提示词和提交前审查；如果已要求出图，则执行测试、对照目标检查并修订。不要让我选择模板或填写参数。"

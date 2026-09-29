@@ -1,5 +1,9 @@
 # Verification
 
+The production workflow is now `prompt-build` / `prompt-review`. Tests cover source authority, reference inspection declarations, visible-versus-inferred locks, required-instruction coverage, missing acceptance criteria, unfinished clauses, exact prompt hashes and uncertain image reviews. Legacy `asset-prompt` emits `scaffold_only` because it has no reference-specific visual analysis.
+
+These checks validate declared data and artifact integrity. They cannot prove that the agent interpreted the image correctly or that a prompt will yield a good image. The host agent must inspect actual inputs, review the meaning of the final prompt, then inspect actual outputs when generation is requested.
+
 Run `npm test` for the Node.js test suite and `npm run validate` for catalog, skill-entrypoint, linked-file, JSON, reference-binding and release-hash validation. No npm dependencies are required.
 
 After editing prompt catalogs or the compiler, run `npm run examples:build` to regenerate current examples and the plan. After completing intended file changes, run `npm run release:build` to update the current manifest, then `npm run validate`. Keep versioned historical manifests unchanged.
