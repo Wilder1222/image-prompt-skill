@@ -61,5 +61,6 @@ npm run plugin:build
 - [四龙首组合与取景修复实测](docs/visual-evaluations/guardian-framing-v094.md)
 - [身份与服装双参考实测](docs/visual-evaluations/wardrobe-reference-v095.md)
 - [面部诊断与同衣装对照](docs/visual-evaluations/identity-review-v096.md)
+- [简洁与详细提示词实图对照](docs/visual-evaluations/prompt-density-20260929.md)
 - [视觉回归模板](templates/benchmark-comparison-record.json)
 - [测试说明](tests/README.md)
