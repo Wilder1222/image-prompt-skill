@@ -16,8 +16,8 @@
     "fine_strands"
   ],
   "prompt_translation": [
-    "Build hair in three scales: primary masses, varied secondary bundles and only a small amount of fine strands.",
-    "Use a natural hairline transition, very low flyaway density and non-uniform highlight/sharpness instead of ribbon-like uniformly polished hair."
+    "按主发量、次级发束和少量细发三个尺度组织头发，主轮廓清楚，局部发束有变化。",
+    "发际线自然过渡，碎发量很低，高光与清晰度有变化，避免每束发丝都像均匀抛光丝带；整理横跨眼鼻口的碎发，保留轮廓边缘的少量蓬松细发。"
   ],
   "forbidden": [
     "fine_strands_as_primary",

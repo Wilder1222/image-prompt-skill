@@ -16,7 +16,7 @@ test('W2 wear budget remains distressed without structural ruin',()=>{const r=ru
 
 test('H2 v2 includes eye anatomy hair irregularity and camera response',()=>{const r=run(['human-presence-v2','--level','H2']);assert.equal(r.status,0,r.stderr);assert.ok(r.json.eye_anatomy>=0.7);assert.ok(r.json.hair_irregularity>=0.5);assert.ok(r.json.camera_response>=0.7);assert.equal(r.json.age_shift,'none');assert.ok(r.json.regions.eyelids);});
 
-test('E2 asset integrity requires five digits per hand',()=>{const r=run(['extremity-guard','--level','E2']);assert.equal(r.status,0,r.stderr);assert.ok(r.json.hand_requirements.some(x=>x.includes('five digits')));assert.ok(r.json.foot_requirements.length>0);});
+test('E2 asset integrity requires five digits per hand',()=>{const r=run(['extremity-guard','--level','E2']);assert.equal(r.status,0,r.stderr);assert.ok(r.json.hand_requirements.some(x=>x.includes('五指') && x.includes('不要求五指全部可见')));assert.ok(r.json.foot_requirements.length>0);});
 
 test('constraint plan combines all budgets without vendor parameter claim',()=>{const r=run(['constraint-plan','--completion','C1','--density','preserve','--wear','W2','--human','H2','--extremity','E2']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.completion.level,'C1');assert.equal(r.json.design_density.profile,'preserve');assert.equal(r.json.wear.level,'W2');assert.equal(r.json.human_presence.level,'H2');assert.equal(r.json.extremity.level,'E2');assert.match(r.json.note,/internal planning constraints/);});
 

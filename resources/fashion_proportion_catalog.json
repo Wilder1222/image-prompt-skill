@@ -1,11 +1,14 @@
 {
   "version": "0.7.5",
   "default": "P9",
-  "note": "All head-count values are project visual heuristics, not vendor-native parameters or medical/anatomical measurements. Hair buns, crowns, hairpins and other head ornaments are excluded from the visual head unit.",
+  "note": "头身数仅用于本项目的视觉审美判断，不是厂商参数或人体测量结论。头长取颅顶至下巴，发髻、冠饰、簪饰和裙尾不计入。完整身体关系优先，不将黄金比例当作各部位统一公式。",
   "levels": {
     "P7": {
       "label": "natural",
-      "visual_head_count_range": [7.2, 7.8],
+      "visual_head_count_range": [
+        7.2,
+        7.8
+      ],
       "head_visual_scale": "natural",
       "neck_extension": "none",
       "shoulder_opening": "natural",
@@ -15,12 +18,15 @@
       "garment_vertical_bias": "neutral",
       "garment_width_control": "neutral",
       "prompt_translation": [
-        "Keep a natural adult human proportion with believable torso, pelvis, leg and foot relationships."
+        "保持自然成年人体比例，胸廓、腰腹、骨盆、四肢和脚部关系可信。"
       ]
     },
     "P8": {
       "label": "elegant",
-      "visual_head_count_range": [8.0, 8.5],
+      "visual_head_count_range": [
+        8.0,
+        8.5
+      ],
       "head_visual_scale": "slightly_reduced",
       "neck_extension": "subtle",
       "shoulder_opening": "mild",
@@ -30,13 +36,16 @@
       "garment_vertical_bias": "medium",
       "garment_width_control": "mild",
       "prompt_translation": [
-        "Make the figure elegantly tall and slender while preserving a complete believable torso and natural pelvis-to-knee-to-ankle segmentation.",
-        "Use a slightly smaller visual head-to-body relationship without changing the face identity or facial geometry."
+        "人物修长优雅，同时保留完整躯干与协调的骨盆、膝、踝关系。",
+        "通过整体头身关系呈现修长，不改变面宽、五官几何与人物身份。"
       ]
     },
     "P9": {
       "label": "fashion",
-      "visual_head_count_range": [8.7, 9.0],
+      "visual_head_count_range": [
+        8.7,
+        9.0
+      ],
       "head_visual_scale": "slightly_reduced",
       "neck_extension": "mild",
       "shoulder_opening": "mild",
@@ -46,17 +55,20 @@
       "garment_vertical_bias": "strong",
       "garment_width_control": "medium",
       "prompt_translation": [
-        "Create a high-fashion nine-head visual proportion on a believable adult body: tall, elongated and elegant rather than anime-stretched.",
-        "Slightly reduce the head's visual share of the full figure while keeping face width, face shape and all identity geometry unchanged.",
-        "Keep the ribcage and torso fully developed; do not shorten the torso to create longer legs.",
-        "Lengthen the hip-to-knee and knee-to-ankle segments in balance, preserving natural knee position, pelvis width, ankle scale and foot proportion.",
-        "Raise the waistline only visually through sash placement, skirt-panel origin and vertical garment lines rather than compressing the anatomical torso.",
-        "Bias the costume toward vertical flow and slightly control sleeve/skirt lateral mass so the garment supports the tall fashion silhouette."
+        "在可信的成年人体结构上呈现约九头身的时装观感，修长而匀称，不采用漫画式拉伸。",
+        "头与肩宽、颈部和完整身体相称；保持面宽、脸型与人物辨识点，不靠极端缩头制造比例。",
+        "胸廓、腰腹和骨盆完整连续，不压短躯干来制造长腿。",
+        "上下臂、上下腿长短与粗细协调，保留自然膝位、骨盆宽度、踝部尺度和脚部比例；肩臂与腿部有适度匀称肌肉及软组织体积，随动作收缩或放松。",
+        "衣带与裙片可在服装设计允许时辅助纵向轮廓，但腰位符合身体结构，不上提骨盆或压缩腰腹；衣带位置不能当作腰围测量。",
+        "衣片的纵向流动支持修长观感，保留已确认的袖裙轮廓和标志性层次，不自动压窄整套衣服。"
       ]
     },
     "P9.5": {
       "label": "stylized_fashion",
-      "visual_head_count_range": [9.0, 9.5],
+      "visual_head_count_range": [
+        9.0,
+        9.5
+      ],
       "head_visual_scale": "reduced",
       "neck_extension": "moderate",
       "shoulder_opening": "mild",
@@ -66,8 +78,8 @@
       "garment_vertical_bias": "strong",
       "garment_width_control": "medium_strong",
       "prompt_translation": [
-        "Use a deliberately stylized fashion-model proportion while keeping a complete believable torso and coordinated limb segmentation.",
-        "Do not create an extreme tiny waist, narrow pelvis, oversized feet, or isolated calf/thigh stretching."
+        "仅在明确选择时采用更风格化的时装比例，同时保持完整躯干、协调四肢和可信体积。",
+        "不制造极细腰、狭窄骨盆、过大脚部或单独拉长大腿、小腿。"
       ]
     }
   },
@@ -78,9 +90,9 @@
     "allow_eye_nose_lip_rescaling": false,
     "control_mode": "visual_scale_relationship_only",
     "rules": [
-      "Hair buns, crowns, hairpins and head ornaments do not count toward the visual head unit.",
-      "Never create a smaller-looking head by narrowing the face, enlarging the shoulders, or changing facial identity.",
-      "Head-scale correction must be achieved through whole-figure relationship and framing, not facial reshaping."
+      "头长按颅顶至下巴计算，发髻、冠饰和簪饰不计入。",
+      "不通过削窄脸部、放大双肩或更换五官身份制造小头观感。",
+      "头部比例校正针对整体身体关系，保留人物脸部几何；改变取景只能改善展示，不能单独修复头身比。"
     ]
   },
   "leg_segmentation_guard": {
@@ -91,10 +103,10 @@
     "ankle_scale": "natural",
     "foot_scale": "coordinated",
     "rules": [
-      "Do not lengthen only the thigh or only the calf.",
-      "Keep knee placement believable relative to pelvis and ankle.",
-      "Preserve natural pelvis width and realistic lower-limb soft tissue.",
-      "Do not enlarge the feet after elongating the figure."
+      "不只拉长大腿或小腿中的一段。",
+      "膝位相对骨盆与脚踝自然，上下腿长短和粗细协调。",
+      "保留自然骨盆宽度与适度下肢肌肉、软组织体积；遮挡部位不虚构精确测量。",
+      "身体修长不意味着脚部也要放大。"
     ]
   },
   "garment_proportion_assist": {
@@ -103,11 +115,11 @@
     "centerline_strength": "medium_strong",
     "sleeve_mass_control": "medium",
     "hem_width_control": "medium",
-    "footwear_visibility": "slight_increase",
+    "footwear_visibility": "pose_and_drape_dependent",
     "rules": [
-      "Use sash placement, skirt-panel origin and long vertical panel lines to support a taller silhouette without changing garment identity.",
-      "Reduce only excess lateral sleeve/skirt spread; do not redesign the costume or remove signature layers.",
-      "Preserve enough footwear visibility to clarify the full vertical figure."
+      "在不改变已确认服装设计的前提下，衣带、裙片起点和纵向衣片支持整体修长轮廓；自然腰位与完整躯干优先。",
+      "只处理确实妨碍展示的多余横向堆叠，不自动重设计服装或删去标志性层次。",
+      "鞋脚可被衣摆自然遮挡；只有明确要求展示鞋履时才设为必须可见，不为露鞋缩短长裙。"
     ]
   },
   "task_defaults": {

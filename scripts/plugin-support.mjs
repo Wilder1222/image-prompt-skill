@@ -17,7 +17,7 @@ export function pluginEntry(base) {
   const source = fs.readFileSync(path.join(base, 'SKILL.md'), 'utf8');
   const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!frontmatter) throw new Error('root SKILL.md must have YAML frontmatter');
-  return `---\n${frontmatter[1].replaceAll('\r\n', '\n')}\n---\n\n# Image Prompt Skill for Codex\n\n`
+  return `---\n${frontmatter[1].replaceAll('\r\n', '\n')}\n---\n\n# Codex 图像提示词技能\n\n`
     + '先读取 [主工作流](../../SKILL.md)，再按该工作流选择所需参考。此入口由 `npm run plugin:sync` 生成；行为规则只在主工作流中维护。\n\n'
     + '本文件所在目录的 `../..` 是插件根目录。主工作流中的 `references/`、`resources/`、`templates/`、`examples/` 和 `scripts/` 路径均相对插件根目录解析；从插件根目录执行命令，或使用解析后的绝对路径。\n\n'
     + '插件已包含全部规则与编译器，安装后不依赖原始仓库路径。需要实际生成或编辑图像时，按用户请求调用宿主已有图像工具，并保留真实输出与验证边界。\n';

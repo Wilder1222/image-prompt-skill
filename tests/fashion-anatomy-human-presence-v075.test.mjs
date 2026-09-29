@@ -10,11 +10,11 @@ test('v0.7.5 catalogs validate',()=>{const r=run(['validate']);assert.equal(r.st
 
 test('P9 is the fashion default and excludes head ornaments from head unit',()=>{const r=run(['proportion-profile','--level','P9']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.label,'fashion');assert.deepEqual(r.json.visual_head_count_range,[8.7,9]);assert.equal(r.json.head_to_body_guard.include_hair_ornaments_in_ratio,false);});
 
-test('P9 locks face identity while changing visual head share',()=>{const r=run(['proportion-plan','--level','P9']);assert.equal(r.status,0,r.stderr);assert.ok(r.json.round_plan.locked.includes('face_identity_geometry'));assert.ok(r.json.round_plan.editable.includes('head_visual_scale'));assert.ok(r.json.round_plan.forbidden.includes('face_reshape'));assert.ok(r.json.prompt_skeleton.some(x=>/face width|face shape/i.test(x)));});
+test('P9 locks face identity while changing visual head share',()=>{const r=run(['proportion-plan','--level','P9']);assert.equal(r.status,0,r.stderr);assert.ok(r.json.round_plan.locked.includes('face_identity_geometry'));assert.ok(r.json.round_plan.editable.includes('head_visual_scale'));assert.ok(r.json.round_plan.forbidden.includes('face_reshape'));assert.ok(r.json.prompt_skeleton.some(x=>/面宽|脸型/.test(x)));});
 
-test('P9 preserves torso and balances thigh and calf',()=>{const r=run(['proportion-profile','--level','P9']);assert.equal(r.json.torso_preservation,'strong');assert.equal(r.json.leg_extension,'balanced_moderate');assert.match(r.json.leg_segmentation_guard.rules.join(' '),/Do not lengthen only the thigh or only the calf/i);});
+test('P9 preserves torso and balances thigh and calf',()=>{const r=run(['proportion-profile','--level','P9']);assert.equal(r.json.torso_preservation,'strong');assert.equal(r.json.leg_extension,'balanced_moderate');assert.match(r.json.leg_segmentation_guard.rules.join(' '),/不只拉长大腿或小腿中的一段/);});
 
-test('P9 garment assist strengthens verticality instead of redesigning costume',()=>{const r=run(['proportion-profile','--level','P9']);assert.equal(r.json.garment_vertical_bias,'strong');assert.equal(r.json.garment_proportion_assist.sleeve_mass_control,'medium');assert.match(r.json.garment_proportion_assist.rules.join(' '),/do not redesign/i);});
+test('P9 garment assist strengthens verticality instead of redesigning costume',()=>{const r=run(['proportion-profile','--level','P9']);assert.equal(r.json.garment_vertical_bias,'strong');assert.equal(r.json.garment_proportion_assist.sleeve_mass_control,'medium');assert.match(r.json.garment_proportion_assist.rules.join(' '),/不自动重设计服装/);});
 
 test('P9.5 is more stylized than P9',()=>{const a=run(['proportion-profile','--level','P9']);const b=run(['proportion-profile','--level','P9.5']);assert.ok(b.json.visual_head_count_range[1]>a.json.visual_head_count_range[1]);assert.equal(b.json.label,'stylized_fashion');});
 

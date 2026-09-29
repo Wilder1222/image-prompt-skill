@@ -1,4 +1,4 @@
-# Local outputs and dependencies
+# 本地输出与依赖
 /dist/
 /node_modules/
 /coverage/
@@ -8,7 +8,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Machine-local configuration and credentials
+# 本机配置与凭证
 .env
 .env.*
 !.env.example

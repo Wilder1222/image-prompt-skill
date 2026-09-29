@@ -6,6 +6,7 @@ import {verifyFrozenRun,finishProductionRun} from './production-run.mjs';
 
 export const dimensions=['参考或描述遵循','面容与妆容美感','真实感与生命感','比例与体型','动作与解剖','服装构造与延展','材料与细节','构图与完整性','背景与布光','完成度与伪影'];
 export const expectedCases=['青黛花卉','现代针织','黑金幻想','青橙古装','纯文本舞者','纯文本时装'];
+export const scoreTarget=9.5;
 
 export function summarizeScores(rows,{cases=expectedCases,finalRound=2}={}) {
   const outputs=new Set(),runs=new Set();
@@ -30,7 +31,7 @@ export function summarizeScores(rows,{cases=expectedCases,finalRound=2}={}) {
   const missing=cases.filter(c=>!final.some(r=>r.案例===c));
   const mean=rs=>rs.length?rs.reduce((s,r)=>s+Math.round(r.平均分*20),0)/(20*rs.length):null;
   const allMean=mean(verified),finalMean=mean(final);
-  return {已评审图数:verified.length,全部尝试平均分:allMean,最终轮图数:final.length,最终轮平均分:finalMean,最终轮缺少案例:missing,最终轮未合格:final.filter(r=>!r.视觉合格).map(r=>r.运行),视觉分数目标达成:missing.length===0&&final.length===cases.length&&final.every(r=>r.视觉合格)&&allMean>9&&finalMean>9,逐图:verified,说明:'仅统计实际查看并有输出摘要的本轮图像；不是用户验收或普遍成功率。中文化、项目一致性和发布条件需另行完成。'};
+  return {目标最低平均分:scoreTarget,已评审图数:verified.length,全部尝试平均分:allMean,最终轮图数:final.length,最终轮平均分:finalMean,最终轮缺少案例:missing,最终轮未合格:final.filter(r=>!r.视觉合格).map(r=>r.运行),视觉分数目标达成:missing.length===0&&final.length===cases.length&&final.every(r=>r.视觉合格)&&allMean>=scoreTarget&&finalMean>=scoreTarget,逐图:verified,说明:'仅统计实际查看并有输出摘要的本轮图像；不是用户验收或普遍成功率。中文化、项目一致性和发布条件需另行完成。'};
 }
 
 export function reportDirectory(dir){
