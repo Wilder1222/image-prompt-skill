@@ -82,3 +82,32 @@ test('same-target repair counts once per initial task and snapshots cannot be ov
  assert.equal(s.initial_completed,1);assert.equal(s.initial_passed,0);assert.equal(s.resolved_without_goal_change,1);
  const dest=path.join(dir,'frozen.json');writeNew(dest,a);assert.throws(()=>writeNew(dest,b),/EEXIST/);
 });
+
+test('background channel accepts retained, adjusted, replaced and white targets without injecting presets',t=>{
+ const {input}=setup(t);input.request='根据本轮描述决定背景，人物和衣服保持。';
+ input.references.push({id:'ENV',source:'environment.jpg',inspected:true,generation_input:true,authority:['background'],facts:[{id:'scene',channel:'background',visibility:'visible',text:'庭院里有灰墙和花树。'}]});
+ input.requirements.push({id:'BG',channel:'background',priority:'must',text:'按本轮要求处理背景。'});
+ input.acceptance.push({id:'bg',basis:'BG',question:'场景是否符合本轮背景要求？',critical:true});
+ for(const [intent,text] of [['retain','保留灰墙与花树庭院。'],['design','保留庭院，减弱后方花树的景深细节。'],['design','替换为有灰石地面的室内展厅，人物尺度与透视匹配。'],['design','背景替换为纯白无缝棚景。']]){
+  const plan=structuredClone(input);plan.requirements.at(-1).text=text;
+  plan.sections.push({label:'背景与空间',channel:'background',items:[{text,intent,basis:['scene','BG'],...(intent==='design'?{reason:'当前用户指定的背景处理。'}:{})}]});
+  const c=compileProductionPrompt(plan);assert.equal(c.prompt,plan.sections.map(s=>`【${s.label}】\n${s.items.map(i=>i.text).join('\n')}`).join('\n\n'));
+  assert.deepEqual(c.reference_inputs.at(-1),{id:'ENV',source:'environment.jpg'});
+ }
+});
+
+test('background-only revisions preserve lighting and identity, and reject unapproved relighting',t=>{
+ const {input}=setup(t);
+ input.requirements.push({id:'BG',channel:'background',priority:'must',text:'保留庭院。'},{id:'LIGHT',channel:'lighting',priority:'must',text:'保留原场景柔光。'});
+ input.sections.push({label:'背景',channel:'background',items:[{text:'保留庭院。',basis:['BG'],intent:'constraint'}]},{label:'光线',channel:'lighting',items:[{text:'保留原场景柔光。',basis:['LIGHT'],intent:'constraint'}]});
+ input.acceptance.push({id:'bg',basis:'BG',question:'庭院保持？',critical:true},{id:'light',basis:'LIGHT',question:'柔光保持？',critical:true});
+ const change={request:'只减少庭院杂物，其他不变。',channels:['background'],sections:[{label:'背景',items:[{text:'保留庭院，清理杂物。',basis:['BG'],intent:'constraint'}]}],requirements:[{...input.requirements[2],text:'保留庭院，清理杂物。'}],acceptance:[{...input.acceptance[2],question:'是否只清理庭院杂物？'}]};
+ const result=reviseProductionInput(input,change);assert.deepEqual(result.input.sections.filter(s=>s.channel!=='background'),input.sections.filter(s=>s.channel!=='background'));assert.equal(result.target_changed,true);
+ change.sections.push({label:'光线',items:[{text:'改成棚拍光。',basis:['LIGHT'],intent:'constraint'}]});assert.throws(()=>reviseProductionInput(input,change),/escaped allowed scope/);
+});
+
+test('an environment reference cannot control identity without explicit identity authority',t=>{
+ const {input}=setup(t);
+ input.references.push({id:'ENV',source:'environment.jpg',inspected:true,generation_input:true,authority:['background'],facts:[{id:'scene',channel:'background',visibility:'visible',text:'花树庭院。'}]});
+ input.sections[0].items[0].basis.push('scene');assert.throws(()=>compileProductionPrompt(input),/ENV cannot control identity/);
+});

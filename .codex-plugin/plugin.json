@@ -1,6 +1,6 @@
 {
   "name": "image-prompt-skill",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "将参考图与描述转成专属生图提示词，执行来源与约束检查，并根据实际出图诊断修订。",
   "author": {
     "name": "wangwei97"

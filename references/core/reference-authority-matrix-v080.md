@@ -12,6 +12,9 @@ Never owns by default: identity geometry, body identity, garment silhouette, gar
 ## Asset Master
 Owns: identity, hairstyle silhouette, body continuity, costume architecture, signature accessories and approved design family.
 
+## Background Reference
+Owns: the explicitly assigned setting, spatial layout, scene elements and background appearance through the `background` channel. Assign `lighting` separately when the reference also controls illumination. It does not gain identity or wardrobe authority. Preserve, adjust or replace the environment according to the current brief; a white background is optional. See [background direction](background-direction.md).
+
 ## Key rule
 
 A style target should be allowed to change **presentation** strongly without silently replacing **design identity**.

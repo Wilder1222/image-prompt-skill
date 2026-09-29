@@ -2,7 +2,7 @@ import crypto from 'node:crypto';
 
 // The host agent performs visual observation and design reasoning. This compiler only
 // checks declared provenance, coverage and delivery integrity; it does not see images.
-const channels = new Set(['identity','makeup','hair','costume','material','composition','proportion','hands_feet','lighting','style','task','output']);
+const channels = new Set(['identity','makeup','hair','costume','material','composition','proportion','hands_feet','background','lighting','style','task','output']);
 const nonempty = x => typeof x === 'string' && x.trim().length > 0;
 export const promptHash = text => crypto.createHash('sha256').update(text).digest('hex');
 
