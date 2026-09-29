@@ -9,17 +9,17 @@
       "pose": "upright_neutral_elegant",
       "requirements": [
         "hair_ornament_fully_visible",
-        "shoes_fully_visible",
+        "natural_footwear_occlusion_allowed",
         "safe_margin_top_bottom_sides",
         "vertical_body_axis_stable",
         "balanced_negative_space",
         "hem_spread_controlled",
-        "footwear_readable",
+        "visible_extremities_coherent",
         "no_capture_motion"
       ],
       "prompt_translation": [
-        "Compose the character as a clean master asset portrait: full body visible from the top of the hair ornament to the shoes, centered, front-facing and upright, with balanced negative space and a pure white seamless background.",
-        "Keep the hem controlled rather than excessively spread, and keep the footwear clearly readable so the full-body scale and costume construction can be used as a reusable character asset master."
+        "For this front-facing asset case, compose the complete natural silhouette from the highest ornament to the lowest garment or visible shoe inside the frame, centered and balanced on pure white. An explicit pose request overrides this neutral case.",
+        "Let the chosen stance and garment gravity determine footwear visibility. One foot, both feet or neither may be visible beneath a long dress. Preserve natural drape and plausible ground contact; do not shorten or lift the hem to expose shoes unless shoe display is explicitly requested."
       ]
     }
   }

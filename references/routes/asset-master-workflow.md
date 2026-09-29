@@ -4,7 +4,7 @@
 
 适用：成年古风角色从参考图扩展到完整全身白底资产，或对现有资产局部修复。默认案例为 `ancient_female_white_master`。其他主体、年龄、画幅与服装要求按用户和实际图像调整，不能套用案例外观。
 
-## 配置与可复制输出
+## 历史素材配置（不能直接提交生成）
 
 ```bash
 node scripts/iteration-director.mjs asset-prompt --stage generate --format text

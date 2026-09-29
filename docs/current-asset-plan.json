@@ -52,8 +52,8 @@
     "profile": "costume_showcase",
     "use_for": "A composed full-body costume portrait when the intended robe already has, or the user requests, flowing sleeves and layered skirts. Do not apply this silhouette to fitted armor or casual clothing automatically.",
     "asset_prompt_translation": [
-      "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.",
-      "Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully."
+      "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament and entire natural garment silhouette inside the frame, leaving breathing room above and below.",
+      "Let the approved skirt and sleeve silhouette remain generous. The selected stance and natural drape determine whether one, both or neither foot is visible. Shoe tips are not mandatory; preserve a grounded hem and never shorten the dress just to expose shoes."
     ],
     "proportion_prompt_translation": [
       "Keep the selected body proportions independent of garment presentation. Show the neckline, shoulder construction and waist fastening clearly; vertical garment panels must not elongate the person or reduce head size.",
@@ -228,16 +228,16 @@
         "reference_derived_hem"
       ],
       "prompt_translation": [
-        "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.",
-        "Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully."
+        "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament and entire natural garment silhouette inside the frame, leaving breathing room above and below.",
+        "Let the approved skirt and sleeve silhouette remain generous. The selected stance and natural drape determine whether one, both or neither foot is visible. Shoe tips are not mandatory; preserve a grounded hem and never shorten the dress just to expose shoes."
       ]
     },
     "prompt_skeleton": [
       "Edit the supplied current asset image. Use it as the only direct edit target.",
       "Preserve facial identity, apparent age, approved facial rendering, hairstyle, costume design, palette, materials, background type and lighting layout.",
       "Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction.",
-      "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.",
-      "Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.",
+      "Compose one complete full-body costume portrait on seamless white, with the highest hair ornament and entire natural garment silhouette inside the frame, leaving breathing room above and below.",
+      "Let the approved skirt and sleeve silhouette remain generous. The selected stance and natural drape determine whether one, both or neither foot is visible. Shoe tips are not mandatory; preserve a grounded hem and never shorten the dress just to expose shoes.",
       "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and a readable foot-to-hem relationship. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward.",
       "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
       "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
@@ -334,8 +334,8 @@
     },
     "studio_lighting": {
       "profile": "studio_soft_separation",
-      "key": "front_left_upper_large_softbox",
-      "fill": "front_low_weaker_fill",
+      "key": "near_camera_slightly_upper_large_diffused_softbox",
+      "fill": "broad_frontal_fill_for_even_face_exposure",
       "separation": "very_subtle_edge_separation",
       "floor_shadow": "soft_grounded_contact",
       "background": "high_key_white_not_clipped",
@@ -344,11 +344,13 @@
         "white_gauze_separates_from_background",
         "main_fabric_keeps_weight",
         "gold_thread_gets_controlled_highlights",
-        "no_flat_even_light"
+        "even_face_exposure_with_soft_volume",
+        "no_dappled_or_hard_hair_shadows",
+        "neutral_white_balance_without_scene_color_cast"
       ],
       "prompt_translation": [
-        "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
-        "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+        "Use photographic studio lighting: a very large diffused key close to the camera axis and slightly above, broad frontal fill sufficient to keep the forehead, eyes and both cheeks evenly exposed, and only subtle edge separation where needed. Use neutral white balance. Remove dappled daylight, window or foliage patterns, hard fringe shadows and inherited warm scene color casts.",
+        "Even illumination must retain gentle facial volume: soft continuous gradients beneath the nose and chin, natural eye sockets and fine skin texture. Keep the white background clean but not clipped, a soft grounded contact shadow, readable fabric hierarchy and restrained metal highlights. Apply this lighting logic without changing the requested photographic or painterly medium."
       ]
     },
     "prompt_skeleton": [
@@ -357,8 +359,8 @@
       "Change only garment material response, studio lighting, pale-fabric edge separation and floor contact shadow.",
       "Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.",
       "Do not let all layers share the same soft glossy fantasy surface.",
-      "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
-      "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+      "Use photographic studio lighting: a very large diffused key close to the camera axis and slightly above, broad frontal fill sufficient to keep the forehead, eyes and both cheeks evenly exposed, and only subtle edge separation where needed. Use neutral white balance. Remove dappled daylight, window or foliage patterns, hard fringe shadows and inherited warm scene color casts.",
+      "Even illumination must retain gentle facial volume: soft continuous gradients beneath the nose and chin, natural eye sockets and fine skin texture. Keep the white background clean but not clipped, a soft grounded contact shadow, readable fabric hierarchy and restrained metal highlights. Apply this lighting logic without changing the requested photographic or painterly medium."
     ]
   },
   "order": [

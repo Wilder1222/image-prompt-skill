@@ -33,7 +33,18 @@ export function compileProductionPrompt(input) {
     }
   }
   const identitySources = [...references.values()].filter(r => r.authority?.includes('identity'));
-  if (identitySources.length > 1) errors.push('conflicting identity authorities; assign one primary identity reference');
+  if (identitySources.length > 1) {
+    const group=identitySources[0].identity_group;
+    if(!nonempty(group)||identitySources.some(r=>r.identity_group!==group)||
+      identitySources.filter(r=>r.identity_role==='primary').length!==1||
+      identitySources.some(r=>!['primary','support'].includes(r.identity_role)||r.generation_input!==true))
+      errors.push('conflicting identity authorities; assign one primary identity reference and same-identity supporting views');
+  }
+  for(const ref of input.references){
+    if(ref.identity_role==='support'&&!identitySources.some(r=>r.identity_role==='primary'&&nonempty(r.identity_group)&&r.identity_group===ref.identity_group))
+      errors.push(`identity support needs its primary: ${ref.id}`);
+    if(ref.identity_role&&!ref.authority?.includes('identity'))errors.push(`identity role requires identity authority: ${ref.id}`);
+  }
   for (const req of input.requirements ?? []) {
     add(req, 'requirement');
     if (!['must','prefer'].includes(req.priority)) errors.push(`invalid requirement priority: ${req.id}`);
@@ -88,6 +99,35 @@ export function compileProductionPrompt(input) {
     evidence: { provenance_checked:true, semantic_quality_verified:false, image_generated:false, visual_quality_verified:false, user_accepted:false },
     note: 'The agent must review meaning against the actual images and request. Declared provenance and complete coverage do not prove good visual results.',
   };
+}
+
+// Apply only the categories the current user change permits. The agent still reviews meaning.
+export function reviseProductionInput(input, change) {
+  compileProductionPrompt(input);
+  if(!nonempty(change?.request)||!Array.isArray(change?.channels)||!change.channels.length||change.channels.some(c=>!channels.has(c)))throw new Error('revision needs a request and allowed channels');
+  if(!Array.isArray(change.sections)||!change.sections.length)throw new Error('revision needs section changes');
+  const next=structuredClone(input), changedLabels=new Set();
+  for(const update of change.sections){
+    const section=next.sections.find(s=>s.label===update.label);
+    if(!section||!change.channels.includes(section.channel)||changedLabels.has(update.label))throw new Error('section revision escaped allowed scope');
+    if(Object.keys(update).some(k=>!['label','items'].includes(k)))throw new Error('section updates may only replace items');
+    section.items=structuredClone(update.items);changedLabels.add(update.label);
+  }
+  for(const key of ['requirements','acceptance']){
+    const seen=new Set();
+    for(const update of change[key]??[]){
+      const old=next[key].find(r=>r.id===update.id);
+      const channel=key==='requirements'?old?.channel:input.requirements.find(r=>r.id===old?.basis)?.channel??input.references.flatMap(r=>r.facts).find(f=>f.id===old?.basis)?.channel;
+      if(!old||!change.channels.includes(channel)||seen.has(update.id))throw new Error(`${key} revision escaped allowed scope`);
+      if(key==='requirements'&&update.channel!==old.channel)throw new Error('cannot redirect requirement channel');
+      if(key==='acceptance'&&update.basis!==old.basis)throw new Error('cannot redirect acceptance basis');
+      next[key][next[key].findIndex(r=>r.id===update.id)]=structuredClone(update);seen.add(update.id);
+    }
+  }
+  next.request+='\n本轮用户修改：'+change.request;
+  const compiled=compileProductionPrompt(next);
+  return {input:next,compiled,changed_sections:[...changedLabels],
+    target_changed:JSON.stringify(input.requirements)!==JSON.stringify(next.requirements)||JSON.stringify(input.acceptance)!==JSON.stringify(next.acceptance)};
 }
 
 export function reviewProductionResult(compiled, review) {
