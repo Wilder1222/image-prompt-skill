@@ -1,0 +1,66 @@
+{
+  "series_name": "female_asset_series_v06",
+  "character_signature_id": "character_001",
+  "looks": [
+    {
+      "look_id": "LOOK_01",
+      "silhouette": "wide_sleeve_long_skirt",
+      "neckline": "crossed_v",
+      "shoulder_structure": "draped_shawl",
+      "sleeve_type": "translucent_wide",
+      "waist_system": "narrow_belt",
+      "lower_structure": "layered_full_skirt",
+      "armor_ratio": "low",
+      "transparency_budget": "20-30",
+      "exposure_level": "balanced",
+      "ornament_budget": "low",
+      "footwear_family": "ceremonial_flat_shoe",
+      "palette": "ivory_silver_gold"
+    },
+    {
+      "look_id": "LOOK_02",
+      "silhouette": "asymmetric_battle_skirt",
+      "neckline": "high_collar",
+      "shoulder_structure": "one_sided_guard",
+      "sleeve_type": "split_sleeve",
+      "waist_system": "armor_cincher",
+      "lower_structure": "skirt_armor_mix",
+      "armor_ratio": "medium",
+      "transparency_budget": "10-20",
+      "exposure_level": "balanced",
+      "ornament_budget": "medium",
+      "footwear_family": "armored_soft_boot",
+      "palette": "ivory_gold_muted_red"
+    },
+    {
+      "look_id": "LOOK_03",
+      "silhouette": "robe_layered",
+      "neckline": "layered_collar",
+      "shoulder_structure": "light_pauldrons",
+      "sleeve_type": "long_streamers",
+      "waist_system": "layered_waist_panels",
+      "lower_structure": "front_slit_panels",
+      "armor_ratio": "low",
+      "transparency_budget": "20-30",
+      "exposure_level": "balanced",
+      "ornament_budget": "medium",
+      "footwear_family": "eastern_flat_brocade",
+      "palette": "sage_ice_silver"
+    },
+    {
+      "look_id": "LOOK_04",
+      "silhouette": "column_vertical",
+      "neckline": "halter_collar",
+      "shoulder_structure": "structured_formal",
+      "sleeve_type": "fitted_with_drapes",
+      "waist_system": "wide_corset_belt",
+      "lower_structure": "front_slit_panels",
+      "armor_ratio": "medium",
+      "transparency_budget": "10-20",
+      "exposure_level": "balanced",
+      "ornament_budget": "medium",
+      "footwear_family": "eastern_lowheel_wrap",
+      "palette": "black_red_gold"
+    }
+  ]
+}

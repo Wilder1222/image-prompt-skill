@@ -1,0 +1,31 @@
+{
+  "version": "0.7.9",
+  "default_archetype": "ancient_ethereal_female",
+  "archetypes": {
+    "ancient_ethereal_female": {
+      "face_mode": "beauty_first",
+      "maturity_guard": "youthful_18_22",
+      "age_impression": "18_22",
+      "reason": "young ethereal ancient-fantasy assets prioritize beauty, youth and spirit over maximal facial photorealism"
+    },
+    "warrior_queen": {
+      "face_mode": "humanized_real",
+      "maturity_guard": "young_adult_20_26",
+      "age_impression": "20_26",
+      "reason": "warrior-queen assets benefit from stronger human presence and composed maturity"
+    },
+    "cyber_oriental_female": {
+      "face_mode": "humanized_real",
+      "maturity_guard": "young_adult_20_26",
+      "age_impression": "20_26",
+      "reason": "cyber-oriental characters benefit from stronger human realism against mechanical materials"
+    },
+    "stylized_poster_character": {
+      "face_mode": "stylized_beauty",
+      "maturity_guard": "youthful_18_22",
+      "age_impression": "18_24",
+      "reason": "poster and illustration assets prioritize stylized visual appeal"
+    }
+  },
+  "rule": "route by character and output intent; user-explicit face mode always overrides automatic routing."
+}

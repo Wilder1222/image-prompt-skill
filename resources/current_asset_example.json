@@ -1,0 +1,36 @@
+{
+  "version": "0.7.1",
+  "asset_id": "character_001_fullbody_v1",
+  "status": "V1_ASSET_MASTER",
+  "references": {
+    "A": "current_fullbody_asset_master",
+    "B": "original_halfbody_face_identity_reference"
+  },
+  "passed": [
+    "fullbody_composition",
+    "white_background",
+    "ivory_iceblue_palette",
+    "garment_large_silhouette",
+    "hairstyle_direction",
+    "flower_headwear",
+    "earrings",
+    "hand_pose",
+    "body_proportion",
+    "eastern_footwear_family"
+  ],
+  "needs_repair": [
+    "face_identity_match",
+    "regional_skin_optics",
+    "hair_strand_realism",
+    "material_contrast",
+    "fold_gravity",
+    "lighting_depth"
+  ],
+  "recommended_rounds": [
+    "identity_skin",
+    "garment_material",
+    "studio_polish",
+    "upscale"
+  ],
+  "note": "v0.7 identity-reference workflow retained for cases with a true face_identity reference; v0.7.1 adds separate facial_trait workflow."
+}

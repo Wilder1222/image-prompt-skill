@@ -1,0 +1,103 @@
+{
+  "render_mode": {
+    "mode": "style_asset",
+    "priority": [
+      "identity",
+      "asset_continuity",
+      "style_language",
+      "human_presence",
+      "material_realism",
+      "neutral_background",
+      "micro_quality"
+    ],
+    "background_policy": "white_or_neutral",
+    "environment_copy": "forbidden"
+  },
+  "reference_fidelity": {
+    "preset": "cyber_asset_case",
+    "channels": {
+      "identity": {
+        "level": 3,
+        "label": "strict"
+      },
+      "costume": {
+        "level": 3,
+        "label": "strict"
+      },
+      "material": {
+        "level": 2,
+        "label": "strong"
+      },
+      "pose": {
+        "level": 2,
+        "label": "strong"
+      },
+      "style": {
+        "level": 2,
+        "label": "strong"
+      },
+      "lighting": {
+        "level": 1,
+        "label": "weak"
+      },
+      "environment": {
+        "level": 0,
+        "label": "ignore"
+      }
+    },
+    "rule": "one output attribute should have at most one strict source; these levels are project heuristics, not vendor parameters."
+  },
+  "completion": {
+    "level": "C1",
+    "label": "conservative_completion",
+    "new_major_design": false,
+    "new_secondary_design": true,
+    "density_delta": 0,
+    "rule": "not-visible regions remain designed extensions, never observed facts."
+  },
+  "human_presence": {
+    "level": "H2",
+    "label": "human_presence",
+    "soft_tissue": "moderate",
+    "regional_skin": "moderate",
+    "natural_asymmetry": "subtle",
+    "camera_response": "moderate",
+    "age_shift": "none",
+    "components": [
+      "soft_tissue",
+      "regional_skin_response",
+      "natural_asymmetry",
+      "camera_response"
+    ],
+    "rule": "human presence changes presentation, not identity geometry or age unless explicitly requested."
+  },
+  "density": {
+    "design_density": "high",
+    "density_policy": "preserve_reference_density",
+    "zones": [
+      "head",
+      "torso",
+      "waist",
+      "arms",
+      "lower_body",
+      "footwear"
+    ],
+    "wear_state": {
+      "level": "W2",
+      "label": "distressed"
+    },
+    "rules": {
+      "completion_default_delta": 0,
+      "new_zone_must_not_exceed_reference_peak_without_authorization": true,
+      "do_not_scale_decoration_count_with_canvas_area": true
+    }
+  },
+  "prompt_skeleton": [
+    "Keep the reference identity and costume architecture as the primary asset source.",
+    "Use the reference style/material/lighting channels according to the fidelity matrix, but keep the background white or neutral.",
+    "Complete unseen lower-body or footwear regions conservatively at the selected completion level; do not invent new major design motifs.",
+    "Preserve design density and wear state across newly completed regions.",
+    "Increase human presence through soft tissue, regional skin response, subtle natural asymmetry and camera realism without reshaping the face."
+  ],
+  "note": "Style-on-Asset preserves reference flavor without copying the original environment."
+}

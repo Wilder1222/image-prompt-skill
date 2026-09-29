@@ -1,0 +1,947 @@
+{
+  "version": "0.8.2",
+  "priority": {
+    "P0": [
+      "face_identity_geometry",
+      "age_identity"
+    ],
+    "P0T": [
+      "facial_maturity",
+      "gaze_stability",
+      "expression_restraint",
+      "cheek_softness_delta",
+      "eye_openness_delta",
+      "makeup_restraint",
+      "editorial_tone"
+    ],
+    "P1": [
+      "composition",
+      "body_proportion",
+      "pose",
+      "garment_silhouette",
+      "garment_structure",
+      "palette",
+      "hairstyle_silhouette",
+      "footwear"
+    ],
+    "P2": [
+      "regional_skin_optics",
+      "natural_makeup",
+      "hair_strand_realism",
+      "material_contrast",
+      "embroidery_density",
+      "fold_gravity",
+      "controlled_asymmetry"
+    ],
+    "P3": [
+      "key_fill_ratio",
+      "white_background_separation",
+      "rim_separation",
+      "micro_contrast",
+      "specular_balance",
+      "final_optics"
+    ],
+    "P4": [
+      "target_pixel_size",
+      "upscale",
+      "final_sharpen",
+      "denoise"
+    ],
+    "P1M": [
+      "render_mode"
+    ],
+    "P2S": [
+      "style_mood",
+      "style_motion",
+      "style_lighting_language",
+      "style_atmosphere",
+      "style_medium",
+      "style_environment_scale"
+    ],
+    "P2R": [
+      "reality_gain",
+      "human_realism",
+      "hair_realism",
+      "material_realism"
+    ],
+    "P0R": [
+      "reference_channel_assignment",
+      "reference_fidelity"
+    ],
+    "P1C": [
+      "completion_level",
+      "design_density",
+      "wear_state"
+    ],
+    "P2H": [
+      "soft_tissue",
+      "regional_skin_response",
+      "natural_asymmetry",
+      "eye_anatomy",
+      "hair_irregularity",
+      "camera_response",
+      "soft_structure_fidelity",
+      "micro_asymmetry",
+      "lens_response_realism",
+      "beauty_without_cg"
+    ],
+    "P1B": [
+      "completion_budget",
+      "design_density_budget",
+      "wear_budget"
+    ],
+    "P1E": [
+      "hand_integrity",
+      "foot_integrity"
+    ],
+    "P1P": [
+      "fashion_proportion",
+      "head_visual_scale",
+      "neck_extension",
+      "shoulder_opening",
+      "torso_preservation",
+      "waistline_visual_raise",
+      "leg_segmentation",
+      "garment_vertical_bias",
+      "garment_width_control",
+      "footwear_scale"
+    ],
+    "P2HV3": [
+      "eye_optics_realism",
+      "skin_optical_coherence",
+      "soft_structure_fidelity",
+      "makeup_skin_integration",
+      "hair_frequency_variation",
+      "camera_optics_hierarchy",
+      "realism_coherence",
+      "highlight_rolloff"
+    ],
+    "P2HA": [
+      "eye_optics_v2",
+      "skin_optics_v2",
+      "soft_tissue_v2",
+      "lips_material",
+      "makeup_skin_v2"
+    ],
+    "P2HB": [
+      "hair_frequency_v2",
+      "hairline_transition",
+      "photographic_focus_v2",
+      "highlight_rolloff_v2",
+      "local_microcontrast",
+      "realism_coherence_v2"
+    ],
+    "P0F": [
+      "face_mode",
+      "maturity_guard",
+      "face_realism_scope",
+      "beauty_priority"
+    ],
+    "P0I": [
+      "explicit_output_intent",
+      "style_target_assignment",
+      "background_constraint"
+    ],
+    "P1S": [
+      "style_target_authority",
+      "render_style_mode",
+      "motion_permission"
+    ],
+    "P0A": [
+      "asset_face_profile",
+      "age_guard",
+      "character_specificity"
+    ],
+    "P1A": [
+      "asset_framing",
+      "fashion_asset_proportion",
+      "hand_pose_integrity",
+      "footwear_readability"
+    ],
+    "P2AM": [
+      "material_separation",
+      "studio_light_separation",
+      "white_background_readability"
+    ]
+  },
+  "rounds": {
+    "identity_skin": {
+      "editable": [
+        "face_identity_geometry",
+        "regional_skin_optics",
+        "natural_makeup",
+        "hair_strand_realism"
+      ],
+      "locked": [
+        "composition",
+        "body_proportion",
+        "pose",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "footwear",
+        "background",
+        "accessory_design"
+      ],
+      "forbidden": [
+        "new_costume",
+        "body_elongation",
+        "new_slit",
+        "new_pose"
+      ]
+    },
+    "trait_calibration": {
+      "editable": [
+        "facial_maturity",
+        "gaze_stability",
+        "expression_restraint",
+        "cheek_softness_delta",
+        "eye_openness_delta",
+        "makeup_restraint",
+        "editorial_tone"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "eye_spacing",
+        "eye_shape_core",
+        "nose_geometry",
+        "lip_geometry",
+        "jaw_chin_geometry",
+        "age_identity",
+        "hairstyle_silhouette",
+        "body_proportion",
+        "pose",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "composition",
+        "background"
+      ],
+      "forbidden": [
+        "copy_trait_reference_face_geometry",
+        "copy_trait_reference_costume",
+        "copy_trait_reference_background",
+        "copy_trait_reference_lighting",
+        "add_wrinkles_or_sagging",
+        "major_face_shape_change"
+      ]
+    },
+    "garment_material": {
+      "editable": [
+        "material_contrast",
+        "embroidery_density",
+        "fold_gravity",
+        "controlled_asymmetry",
+        "attachment_logic"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "facial_maturity",
+        "body_proportion",
+        "composition",
+        "pose",
+        "garment_silhouette",
+        "palette",
+        "hairstyle_silhouette",
+        "footwear",
+        "background"
+      ]
+    },
+    "studio_polish": {
+      "editable": [
+        "key_fill_ratio",
+        "white_background_separation",
+        "rim_separation",
+        "micro_contrast",
+        "specular_balance",
+        "final_optics"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "facial_maturity",
+        "body_proportion",
+        "composition",
+        "pose",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "hairstyle_silhouette",
+        "accessories",
+        "footwear",
+        "background_type"
+      ]
+    },
+    "upscale": {
+      "editable": [
+        "target_pixel_size",
+        "upscale",
+        "final_sharpen",
+        "denoise"
+      ],
+      "locked": [
+        "all_semantic_design_dimensions"
+      ]
+    },
+    "style_restoration": {
+      "editable": [
+        "render_mode",
+        "style_mood",
+        "style_motion",
+        "style_lighting_language",
+        "style_atmosphere",
+        "style_medium",
+        "style_environment_scale"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "facial_maturity",
+        "body_proportion",
+        "garment_silhouette",
+        "garment_structure",
+        "signature_accessories"
+      ],
+      "forbidden": [
+        "copy_style_reference_face",
+        "copy_style_reference_body",
+        "copy_style_reference_costume_geometry"
+      ]
+    },
+    "realism_merge": {
+      "editable": [
+        "reality_gain",
+        "regional_skin_optics",
+        "hair_strand_realism",
+        "material_realism",
+        "attachment_logic",
+        "physical_drape"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "body_proportion",
+        "garment_silhouette",
+        "garment_structure",
+        "style_mood",
+        "style_motion",
+        "style_atmosphere",
+        "style_medium"
+      ],
+      "forbidden": [
+        "face_reshape",
+        "body_redesign",
+        "erase_style_atmosphere"
+      ]
+    },
+    "cinematic_polish": {
+      "editable": [
+        "lighting_reconstruction",
+        "key_fill_ratio",
+        "rim_separation",
+        "atmospheric_glow",
+        "material_highlight_routing",
+        "micro_contrast",
+        "final_optics"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "body_proportion",
+        "garment_silhouette",
+        "garment_structure",
+        "style_mood",
+        "style_motion",
+        "style_medium",
+        "environment_scale"
+      ],
+      "forbidden": [
+        "flat_studio_reset",
+        "semantic_redesign"
+      ]
+    },
+    "reference_fidelity": {
+      "editable": [
+        "reference_channel_assignment",
+        "reference_fidelity"
+      ],
+      "locked": [
+        "source_images",
+        "user_goal"
+      ],
+      "forbidden": [
+        "silent_channel_copy",
+        "multiple_strict_sources_same_attribute"
+      ]
+    },
+    "completion_guard": {
+      "editable": [
+        "completion_level",
+        "design_density",
+        "wear_state",
+        "designed_extensions"
+      ],
+      "locked": [
+        "visible_reference_design",
+        "identity",
+        "observed_costume_language"
+      ],
+      "forbidden": [
+        "invent_major_design_without_authorization",
+        "density_inflation",
+        "wear_state_inflation"
+      ]
+    },
+    "human_presence": {
+      "editable": [
+        "soft_tissue",
+        "regional_skin_response",
+        "natural_asymmetry",
+        "camera_response",
+        "eye_anatomy",
+        "hair_irregularity"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "age_identity",
+        "garment_structure",
+        "render_mode"
+      ],
+      "forbidden": [
+        "face_reshape",
+        "aging_cues",
+        "global_uniform_sharpness",
+        "cg_gloss_reset"
+      ]
+    },
+    "constraint_budget": {
+      "editable": [
+        "completion_budget",
+        "design_density_budget",
+        "wear_budget",
+        "designed_extensions"
+      ],
+      "locked": [
+        "identity",
+        "visible_reference_design",
+        "observed_costume_language",
+        "render_mode"
+      ],
+      "forbidden": [
+        "new_primary_motif_without_authorization",
+        "density_budget_overrun",
+        "wear_budget_overrun"
+      ]
+    },
+    "extremity_integrity": {
+      "editable": [
+        "hand_integrity",
+        "foot_integrity",
+        "local_wrist_ankle_transition"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "body_proportion",
+        "pose_except_local_extremity",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "composition",
+        "lighting",
+        "background"
+      ],
+      "forbidden": [
+        "global_pose_redesign",
+        "costume_redesign",
+        "identity_change"
+      ]
+    },
+    "fashion_proportion": {
+      "editable": [
+        "fashion_proportion",
+        "head_visual_scale",
+        "neck_extension",
+        "shoulder_opening",
+        "torso_preservation",
+        "waistline_visual_raise",
+        "leg_segmentation",
+        "garment_vertical_bias",
+        "garment_width_control",
+        "footwear_scale"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "age_identity",
+        "hairstyle_silhouette",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "material_contrast",
+        "background",
+        "lighting",
+        "hand_integrity",
+        "foot_integrity"
+      ],
+      "forbidden": [
+        "face_reshape",
+        "face_width_reduction",
+        "eye_nose_lip_rescaling",
+        "torso_crush",
+        "single_segment_leg_stretch",
+        "extreme_waist_narrowing",
+        "costume_redesign"
+      ]
+    },
+    "human_presence_refine": {
+      "editable": [
+        "soft_structure_fidelity",
+        "regional_skin_response",
+        "micro_asymmetry",
+        "eye_anatomy",
+        "hair_irregularity",
+        "lens_response_realism",
+        "beauty_without_cg"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "age_identity",
+        "fashion_proportion",
+        "body_proportion",
+        "pose",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "composition",
+        "background",
+        "lighting_design"
+      ],
+      "forbidden": [
+        "face_reshape",
+        "aging_cues",
+        "coarse_pore_stack",
+        "global_sharpening",
+        "cg_gloss_reset",
+        "proportion_reopen"
+      ]
+    },
+    "human_presence_optical_refine": {
+      "editable": [
+        "eye_optics_realism",
+        "skin_optical_coherence",
+        "soft_structure_fidelity",
+        "makeup_skin_integration",
+        "hair_frequency_variation",
+        "camera_optics_hierarchy",
+        "realism_coherence",
+        "highlight_rolloff",
+        "focus_hierarchy"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "age_identity",
+        "fashion_proportion",
+        "body_proportion",
+        "pose",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "composition",
+        "background",
+        "lighting_design",
+        "hand_integrity",
+        "foot_integrity"
+      ],
+      "forbidden": [
+        "face_reshape",
+        "aging_cues",
+        "coarse_pore_stack",
+        "random_skin_mottling",
+        "paper_white_sclera",
+        "gem_eye_rendering",
+        "forced_face_asymmetry",
+        "global_sharpening",
+        "proportion_reopen",
+        "costume_reopen"
+      ]
+    },
+    "human_face_optical_refine": {
+      "editable": [
+        "eye_optics_v2",
+        "skin_optics_v2",
+        "soft_tissue_v2",
+        "lips_material",
+        "makeup_skin_v2"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "age_identity",
+        "fashion_proportion",
+        "body_proportion",
+        "hairstyle_silhouette",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "pose",
+        "hand_integrity",
+        "foot_integrity",
+        "footwear",
+        "composition",
+        "background",
+        "lighting_direction"
+      ],
+      "forbidden": [
+        "face_reshape",
+        "age_shift",
+        "proportion_reopen",
+        "hair_redesign",
+        "costume_reopen",
+        "lighting_relayout",
+        "coarse_pore_stack",
+        "random_skin_mottling",
+        "paper_white_sclera",
+        "gem_eye_rendering",
+        "forced_face_asymmetry"
+      ]
+    },
+    "human_camera_hair_refine": {
+      "editable": [
+        "hair_frequency_v2",
+        "hairline_transition",
+        "photographic_focus_v2",
+        "highlight_rolloff_v2",
+        "local_microcontrast",
+        "realism_coherence_v2"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "age_identity",
+        "eye_optics_result",
+        "skin_optics_result",
+        "soft_tissue_result",
+        "makeup_skin_result",
+        "fashion_proportion",
+        "body_proportion",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "pose",
+        "hand_integrity",
+        "foot_integrity",
+        "composition",
+        "background",
+        "lighting_layout"
+      ],
+      "forbidden": [
+        "face_reopen",
+        "eye_reopen",
+        "skin_reopen",
+        "proportion_reopen",
+        "costume_reopen",
+        "global_sharpening",
+        "extreme_shallow_dof",
+        "dense_flyaways"
+      ]
+    },
+    "p9_persistence_body_presence": {
+      "editable": [
+        "p9_persistence_guard",
+        "neck_jaw_transition",
+        "clavicle_presence",
+        "wrist_hand_presence",
+        "ankle_foot_contact",
+        "body_soft_tissue_hint"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "approved_eye_optics",
+        "approved_skin_optics",
+        "approved_hair",
+        "fashion_proportion_geometry",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "pose",
+        "composition",
+        "background",
+        "lighting_layout"
+      ],
+      "forbidden": [
+        "head_scale_rebound",
+        "waistline_drop",
+        "leg_read_compressed",
+        "body_reshape",
+        "costume_redesign",
+        "face_reopen"
+      ]
+    },
+    "photographic_fabric_white_refine": {
+      "editable": [
+        "white_background_separation",
+        "material_response_separation",
+        "drape_naturalness",
+        "sheer_edge_behavior",
+        "contact_shadow",
+        "highlight_rolloff_fabric"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "approved_human_presence",
+        "fashion_proportion",
+        "body_proportion",
+        "pose",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "hand_integrity",
+        "foot_integrity",
+        "composition",
+        "background_type"
+      ],
+      "forbidden": [
+        "dark_outline_separation",
+        "costume_redesign",
+        "new_material_family",
+        "p9_reopen",
+        "face_reopen",
+        "extreme_shallow_dof"
+      ]
+    },
+    "final_photographic_polish": {
+      "editable": [
+        "local_microcontrast",
+        "highlight_rolloff",
+        "focus_hierarchy",
+        "material_highlight_balance",
+        "white_background_tone",
+        "final_camera_response"
+      ],
+      "locked": [
+        "all_semantic_design_dimensions",
+        "approved_p9",
+        "approved_human_presence",
+        "approved_material_behavior",
+        "pose",
+        "composition"
+      ],
+      "forbidden": [
+        "semantic_redesign",
+        "global_sharpening",
+        "p9_reopen",
+        "face_reopen",
+        "costume_reopen"
+      ]
+    },
+    "face_mode_calibration": {
+      "editable": [
+        "face_mode",
+        "age_impression",
+        "maturity_guard",
+        "face_realism_scope",
+        "beauty_priority",
+        "facial_presentation"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "fashion_proportion",
+        "body_proportion",
+        "hairstyle_silhouette",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "pose",
+        "composition",
+        "background"
+      ],
+      "forbidden": [
+        "identity_reshape",
+        "costume_redesign",
+        "body_reshape",
+        "age_up_without_user_request",
+        "copy_face_from_style_reference"
+      ]
+    },
+    "non_face_realism_refine": {
+      "editable": [
+        "hair_strands",
+        "body_presence",
+        "hands",
+        "costume_materials",
+        "cloth_physics",
+        "footwear",
+        "lighting",
+        "camera_response"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "face_mode",
+        "age_impression",
+        "maturity_guard",
+        "fashion_proportion",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "pose",
+        "composition"
+      ],
+      "forbidden": [
+        "face_reshaping",
+        "face_age_shift",
+        "maturity_increase",
+        "beauty_recalibration"
+      ]
+    },
+    "style_intent_alignment": {
+      "editable": [
+        "explicit_output_intent",
+        "render_mode",
+        "style_target_assignment",
+        "background_policy",
+        "motion_permission"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "garment_silhouette",
+        "garment_structure",
+        "signature_accessories",
+        "approved_face_mode"
+      ],
+      "forbidden": [
+        "infer_white_background_from_asset_history",
+        "let_character_archetype_override_explicit_style_target"
+      ]
+    },
+    "style_target_restoration": {
+      "editable": [
+        "style_medium",
+        "style_motion",
+        "style_lighting_language",
+        "style_atmosphere",
+        "composition_energy",
+        "environment_scale",
+        "painterly_edge_distribution"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "body_identity",
+        "garment_silhouette",
+        "garment_structure",
+        "signature_accessories",
+        "approved_face_mode"
+      ],
+      "forbidden": [
+        "flat_studio_reset",
+        "copy_style_reference_face",
+        "copy_style_reference_costume_geometry",
+        "erase_dynamic_composition"
+      ]
+    },
+    "concept_art_hierarchy_refine": {
+      "editable": [
+        "detail_budget",
+        "detail_distribution",
+        "highlight_hierarchy",
+        "focal_brightness",
+        "background_submission",
+        "background_resolution",
+        "background_contrast",
+        "painterly_edge_distribution",
+        "lost_edge_distribution"
+      ],
+      "locked": [
+        "explicit_style_target",
+        "approved_face_mode",
+        "face_identity_geometry",
+        "body_identity",
+        "fashion_proportion",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "approved_motion_language",
+        "approved_lighting_language",
+        "composition_energy"
+      ],
+      "forbidden": [
+        "identity_redesign",
+        "face_mode_reopen",
+        "costume_redesign",
+        "palette_shift",
+        "motion_reduction",
+        "flat_studio_reset",
+        "background_removal",
+        "global_sharpening",
+        "uniform_detail_increase",
+        "highlight_everywhere"
+      ]
+    },
+    "asset_master_face_refine": {
+      "editable": [
+        "asset_face_profile",
+        "face_character_specificity",
+        "age_guard",
+        "light_face_realism"
+      ],
+      "locked": [
+        "identity_geometry",
+        "body_proportion",
+        "hair_design",
+        "costume_design",
+        "pose",
+        "hands",
+        "footwear",
+        "background",
+        "lighting_layout"
+      ],
+      "forbidden": [
+        "age_up",
+        "face_reshape",
+        "costume_redesign",
+        "body_reshape"
+      ]
+    },
+    "asset_master_structure_refine": {
+      "editable": [
+        "fashion_asset_proportion",
+        "garment_verticality",
+        "asset_framing",
+        "hand_pose_integrity",
+        "footwear_readability"
+      ],
+      "locked": [
+        "identity_geometry",
+        "approved_face_profile",
+        "costume_design",
+        "palette",
+        "materials",
+        "background_type",
+        "lighting_layout"
+      ],
+      "forbidden": [
+        "face_reshape",
+        "new_costume",
+        "extreme_leg_stretch",
+        "head_shrink_shortcut"
+      ]
+    },
+    "asset_master_material_light_refine": {
+      "editable": [
+        "material_separation",
+        "studio_light_separation",
+        "white_background_readability",
+        "floor_contact_shadow",
+        "material_highlight_balance"
+      ],
+      "locked": [
+        "identity_geometry",
+        "approved_face_profile",
+        "fashion_asset_proportion",
+        "pose",
+        "hands",
+        "costume_design",
+        "palette",
+        "asset_framing"
+      ],
+      "forbidden": [
+        "face_maturity_change",
+        "body_reshape",
+        "costume_redesign",
+        "background_scene_invention"
+      ]
+    }
+  }
+}

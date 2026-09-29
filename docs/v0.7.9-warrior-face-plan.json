@@ -1,0 +1,135 @@
+{
+  "route": {
+    "archetype": "warrior_queen",
+    "auto_mode": "humanized_real",
+    "resolved_mode": "humanized_real",
+    "maturity_guard": "young_adult_20_26",
+    "age_impression": "20_26",
+    "reason": "warrior-queen assets benefit from stronger human presence and composed maturity",
+    "override_applied": false,
+    "rule": "route by character and output intent; user-explicit face mode always overrides automatic routing."
+  },
+  "face_mode": {
+    "mode": "humanized_real",
+    "label": "Humanized Real Face",
+    "goal": "increase photographic human presence while preserving identity and attractiveness",
+    "age_target": "22_28",
+    "preserve_beauty_priority": "medium",
+    "face_realism": "medium_high",
+    "non_face_realism": "high",
+    "controls": {
+      "face_softness": "medium",
+      "cheek_soft_tissue": "medium",
+      "jaw_sharpness": "medium",
+      "eye_attractiveness": "medium",
+      "eye_realism_pressure": "medium_high",
+      "under_eye_shadow": "subtle",
+      "nose_realism_pressure": "high",
+      "lip_softness": "medium",
+      "skin_microtexture": "medium",
+      "pore_visibility": "subtle_medium",
+      "reflectance_variation": "medium"
+    },
+    "preferred_signals": [
+      "believable eyelid anatomy",
+      "regional skin optics",
+      "natural nose and lip structure",
+      "soft tissue planes",
+      "photographic restraint"
+    ],
+    "avoid": [
+      "plastic skin",
+      "overly idealized game face",
+      "flat facial planes",
+      "identity reshaping"
+    ],
+    "prompt_translation": [
+      "Increase realistic human presence in the face while preserving the approved identity and attractiveness.",
+      "Use believable eyelid anatomy, soft tissue, regional skin response and natural nose/lip structure instead of plastic CG smoothness.",
+      "Keep the face young and attractive; realism must not become fatigue, hollowness or age inflation."
+    ],
+    "principle": "face direction is style-dependent; beauty, age impression and identity can take priority over maximum facial photorealism."
+  },
+  "maturity_guard": {
+    "profile": "young_adult_20_26",
+    "age_ceiling": 26,
+    "age_floor": 20,
+    "enabled": true,
+    "suppress": [
+      "age_inflation",
+      "fatigue",
+      "deep_wrinkles",
+      "hollowing"
+    ],
+    "preserve": [
+      "young_adult_fullness",
+      "clean_skin",
+      "stable_identity"
+    ],
+    "prompt_translation": [
+      "Keep a refined young-adult impression without aging the character up.",
+      "Allow restrained maturity through gaze and presentation, not through fatigue or facial hollowing."
+    ],
+    "principle": "maturity guard limits unwanted age drift; it does not force childishness."
+  },
+  "realism_scope": {
+    "mode": "humanized_real",
+    "face_realism": "medium_high",
+    "non_face_realism": "high",
+    "face_edit_budget": "medium",
+    "non_face_edit_budget": "large",
+    "non_face_channels": [
+      "hair_strands",
+      "body_presence",
+      "hands",
+      "costume_materials",
+      "cloth_physics",
+      "footwear",
+      "lighting",
+      "camera_response"
+    ],
+    "rule": "never infer that high non-face realism requires high face realism."
+  },
+  "round_plan": {
+    "round": "face_mode_calibration",
+    "editable": [
+      "face_mode",
+      "age_impression",
+      "maturity_guard",
+      "face_realism_scope",
+      "beauty_priority",
+      "facial_presentation"
+    ],
+    "locked": [
+      "face_identity_geometry",
+      "fashion_proportion",
+      "body_proportion",
+      "hairstyle_silhouette",
+      "garment_silhouette",
+      "garment_structure",
+      "palette",
+      "pose",
+      "composition",
+      "background"
+    ],
+    "forbidden": [
+      "identity_reshape",
+      "costume_redesign",
+      "body_reshape",
+      "age_up_without_user_request",
+      "copy_face_from_style_reference"
+    ],
+    "prompt_strategy": "face-mode-only calibration: protect identity and age impression, tune beauty/realism direction without changing body, costume or composition"
+  },
+  "prompt_skeleton": [
+    "Face mode: humanized_real.",
+    "Increase realistic human presence in the face while preserving the approved identity and attractiveness.",
+    "Use believable eyelid anatomy, soft tissue, regional skin response and natural nose/lip structure instead of plastic CG smoothness.",
+    "Keep the face young and attractive; realism must not become fatigue, hollowness or age inflation.",
+    "Keep a refined young-adult impression without aging the character up.",
+    "Allow restrained maturity through gaze and presentation, not through fatigue or facial hollowing.",
+    "Face realism scope: medium_high; non-face realism scope: high.",
+    "Do not infer that stronger hair, fabric, body or lighting realism requires a more mature or more photoreal face."
+  ],
+  "note": "Face beauty, age impression and realism intensity are routed separately from non-face realism."
+}

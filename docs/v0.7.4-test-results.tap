@@ -1,0 +1,358 @@
+TAP version 13
+# Subtest: v0.7.4 catalogs validate
+ok 1 - v0.7.4 catalogs validate
+  ---
+  duration_ms: 35.813469
+  type: 'test'
+  ...
+# Subtest: C1 completion budget blocks ornament growth and primary motifs
+ok 2 - C1 completion budget blocks ornament growth and primary motifs
+  ---
+  duration_ms: 33.669879
+  type: 'test'
+  ...
+# Subtest: density preserve blocks primary ornament mechanical and chain growth
+ok 3 - density preserve blocks primary ornament mechanical and chain growth
+  ---
+  duration_ms: 40.157515
+  type: 'test'
+  ...
+# Subtest: W2 wear budget remains distressed without structural ruin
+ok 4 - W2 wear budget remains distressed without structural ruin
+  ---
+  duration_ms: 36.903083
+  type: 'test'
+  ...
+# Subtest: H2 v2 includes eye anatomy hair irregularity and camera response
+ok 5 - H2 v2 includes eye anatomy hair irregularity and camera response
+  ---
+  duration_ms: 37.101518
+  type: 'test'
+  ...
+# Subtest: E2 asset integrity requires five digits per hand
+ok 6 - E2 asset integrity requires five digits per hand
+  ---
+  duration_ms: 32.718493
+  type: 'test'
+  ...
+# Subtest: constraint plan combines all budgets without vendor parameter claim
+ok 7 - constraint plan combines all budgets without vendor parameter claim
+  ---
+  duration_ms: 32.925781
+  type: 'test'
+  ...
+# Subtest: style asset plan now includes constraint budget
+ok 8 - style asset plan now includes constraint budget
+  ---
+  duration_ms: 39.947332
+  type: 'test'
+  ...
+# Subtest: digit count error routes to local extremity patch
+ok 9 - digit count error routes to local extremity patch
+  ---
+  duration_ms: 34.388564
+  type: 'test'
+  ...
+# Subtest: completion budget overrun routes before human realism issue
+ok 10 - completion budget overrun routes before human realism issue
+  ---
+  duration_ms: 37.564311
+  type: 'test'
+  ...
+# Subtest: mechanical module growth routes to constraint budget
+ok 11 - mechanical module growth routes to constraint budget
+  ---
+  duration_ms: 40.216574
+  type: 'test'
+  ...
+# Subtest: wear budget overrun routes to constraint budget
+ok 12 - wear budget overrun routes to constraint budget
+  ---
+  duration_ms: 32.096609
+  type: 'test'
+  ...
+# Subtest: CG eye anatomy routes to human presence
+ok 13 - CG eye anatomy routes to human presence
+  ---
+  duration_ms: 51.578446
+  type: 'test'
+  ...
+# Subtest: uniform CG hair routes to human presence
+ok 14 - uniform CG hair routes to human presence
+  ---
+  duration_ms: 39.016518
+  type: 'test'
+  ...
+# Subtest: templates validate
+ok 15 - templates validate
+  ---
+  duration_ms: 34.478985
+  type: 'test'
+  ...
+# Subtest: A is identity source and B is trait only
+ok 16 - A is identity source and B is trait only
+  ---
+  duration_ms: 30.080613
+  type: 'test'
+  ...
+# Subtest: invisible lower body remains extension not strict lock
+ok 17 - invisible lower body remains extension not strict lock
+  ---
+  duration_ms: 28.69069
+  type: 'test'
+  ...
+# Subtest: identity round locks garment and body
+ok 18 - identity round locks garment and body
+  ---
+  duration_ms: 30.404536
+  type: 'test'
+  ...
+# Subtest: trait calibration locks identity geometry
+ok 19 - trait calibration locks identity geometry
+  ---
+  duration_ms: 39.906126
+  type: 'test'
+  ...
+# Subtest: material round locks face and maturity
+ok 20 - material round locks face and maturity
+  ---
+  duration_ms: 31.85845
+  type: 'test'
+  ...
+# Subtest: studio polish locks semantic design
+ok 21 - studio polish locks semantic design
+  ---
+  duration_ms: 37.590771
+  type: 'test'
+  ...
+# Subtest: identity drift routes before maturity issue
+ok 22 - identity drift routes before maturity issue
+  ---
+  duration_ms: 38.733916
+  type: 'test'
+  ...
+# Subtest: maturity undershoot routes to trait calibration
+ok 23 - maturity undershoot routes to trait calibration
+  ---
+  duration_ms: 32.535317
+  type: 'test'
+  ...
+# Subtest: 4k misuse goes to upscale not generation
+ok 24 - 4k misuse goes to upscale not generation
+  ---
+  duration_ms: 35.850103
+  type: 'test'
+  ...
+# Subtest: M2.5 profile is young and refined without aging cues
+ok 25 - M2.5 profile is young and refined without aging cues
+  ---
+  duration_ms: 35.937356
+  type: 'test'
+  ...
+# Subtest: trait plan explicitly blocks reference geometry borrowing
+ok 26 - trait plan explicitly blocks reference geometry borrowing
+  ---
+  duration_ms: 32.763376
+  type: 'test'
+  ...
+# Subtest: stable geometry plus target trait change classifies as temperament shift
+ok 27 - stable geometry plus target trait change classifies as temperament shift
+  ---
+  duration_ms: 34.17793
+  type: 'test'
+  ...
+# Subtest: geometry change is identity drift
+ok 28 - geometry change is identity drift
+  ---
+  duration_ms: 27.80378
+  type: 'test'
+  ...
+# Subtest: cold over-shift routes back to trait calibration
+ok 29 - cold over-shift routes back to trait calibration
+  ---
+  duration_ms: 30.078153
+  type: 'test'
+  ...
+# Subtest: trait reference geometry copy is detected
+ok 30 - trait reference geometry copy is detected
+  ---
+  duration_ms: 34.986711
+  type: 'test'
+  ...
+# Subtest: aging cues are unwanted for light maturity
+ok 31 - aging cues are unwanted for light maturity
+  ---
+  duration_ms: 34.248787
+  type: 'test'
+  ...
+# Subtest: v0.7.3 catalogs validate
+ok 32 - v0.7.3 catalogs validate
+  ---
+  duration_ms: 37.77545
+  type: 'test'
+  ...
+# Subtest: single reference asset ignores environment while locking identity costume
+ok 33 - single reference asset ignores environment while locking identity costume
+  ---
+  duration_ms: 27.450077
+  type: 'test'
+  ...
+# Subtest: style asset preserves style but still ignores environment
+ok 34 - style asset preserves style but still ignores environment
+  ---
+  duration_ms: 39.860527
+  type: 'test'
+  ...
+# Subtest: C1 completion forbids new major design
+ok 35 - C1 completion forbids new major design
+  ---
+  duration_ms: 35.472965
+  type: 'test'
+  ...
+# Subtest: H2 human presence adds soft tissue skin asymmetry and camera response
+ok 36 - H2 human presence adds soft tissue skin asymmetry and camera response
+  ---
+  duration_ms: 36.736663
+  type: 'test'
+  ...
+# Subtest: density plan preserves wear state
+ok 37 - density plan preserves wear state
+  ---
+  duration_ms: 31.761659
+  type: 'test'
+  ...
+# Subtest: style asset render mode keeps background neutral
+ok 38 - style asset render mode keeps background neutral
+  ---
+  duration_ms: 39.375945
+  type: 'test'
+  ...
+# Subtest: style asset plan combines fidelity completion human presence and density
+ok 39 - style asset plan combines fidelity completion human presence and density
+  ---
+  duration_ms: 41.104279
+  type: 'test'
+  ...
+# Subtest: reference channel leak routes before human realism issue
+ok 40 - reference channel leak routes before human realism issue
+  ---
+  duration_ms: 37.5039
+  type: 'test'
+  ...
+# Subtest: completion overdesign routes to completion guard
+ok 41 - completion overdesign routes to completion guard
+  ---
+  duration_ms: 38.429002
+  type: 'test'
+  ...
+# Subtest: camera CG render routes to human presence
+ok 42 - camera CG render routes to human presence
+  ---
+  duration_ms: 42.647913
+  type: 'test'
+  ...
+# Subtest: style asset environment leak routes to reference fidelity
+ok 43 - style asset environment leak routes to reference fidelity
+  ---
+  duration_ms: 32.560845
+  type: 'test'
+  ...
+# Subtest: v0.7.2 templates validate
+ok 44 - v0.7.2 templates validate
+  ---
+  duration_ms: 43.8222
+  type: 'test'
+  ...
+# Subtest: restoration role blocks identity and garment geometry borrowing
+ok 45 - restoration role blocks identity and garment geometry borrowing
+  ---
+  duration_ms: 31.816081
+  type: 'test'
+  ...
+# Subtest: hybrid render mode prioritizes identity and asset continuity
+ok 46 - hybrid render mode prioritizes identity and asset continuity
+  ---
+  duration_ms: 31.818114
+  type: 'test'
+  ...
+# Subtest: S2 restores style without identity geometry
+ok 47 - S2 restores style without identity geometry
+  ---
+  duration_ms: 31.166416
+  type: 'test'
+  ...
+# Subtest: R2 increases human material lighting realism while protecting fantasy language
+ok 48 - R2 increases human material lighting realism while protecting fantasy language
+  ---
+  duration_ms: 29.919613
+  type: 'test'
+  ...
+# Subtest: hybrid S2 R2 style plan locks structural asset channels
+ok 49 - hybrid S2 R2 style plan locks structural asset channels
+  ---
+  duration_ms: 28.764791
+  type: 'test'
+  ...
+# Subtest: style restoration round cannot copy style reference face or costume geometry
+ok 50 - style restoration round cannot copy style reference face or costume geometry
+  ---
+  duration_ms: 29.544649
+  type: 'test'
+  ...
+# Subtest: realism merge preserves restored style channels
+ok 51 - realism merge preserves restored style channels
+  ---
+  duration_ms: 32.725499
+  type: 'test'
+  ...
+# Subtest: cinematic polish changes lighting only, not semantics
+ok 52 - cinematic polish changes lighting only, not semantics
+  ---
+  duration_ms: 29.274335
+  type: 'test'
+  ...
+# Subtest: style underrestoration routes to restoration round
+ok 53 - style underrestoration routes to restoration round
+  ---
+  duration_ms: 28.198446
+  type: 'test'
+  ...
+# Subtest: realism undershoot routes to realism merge
+ok 54 - realism undershoot routes to realism merge
+  ---
+  duration_ms: 26.70326
+  type: 'test'
+  ...
+# Subtest: flat restoration lighting routes to cinematic polish
+ok 55 - flat restoration lighting routes to cinematic polish
+  ---
+  duration_ms: 28.320992
+  type: 'test'
+  ...
+# Subtest: asset continuity drift outranks style underrestoration
+ok 56 - asset continuity drift outranks style underrestoration
+  ---
+  duration_ms: 27.837227
+  type: 'test'
+  ...
+# Subtest: conflict resolver surfaces hybrid pose conflict
+ok 57 - conflict resolver surfaces hybrid pose conflict
+  ---
+  duration_ms: 29.45345
+  type: 'test'
+  ...
+# Subtest: unknown conflict list can be clear
+ok 58 - unknown conflict list can be clear
+  ---
+  duration_ms: 29.831606
+  type: 'test'
+  ...
+1..58
+# tests 58
+# suites 0
+# pass 58
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1022.17626

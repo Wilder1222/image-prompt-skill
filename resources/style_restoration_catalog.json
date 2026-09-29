@@ -1,0 +1,51 @@
+{
+  "version": "0.7.2",
+  "default_intensity": "S2",
+  "levels": {
+    "S0": {
+      "label": "none",
+      "channels": []
+    },
+    "S1": {
+      "label": "subtle_atmosphere",
+      "channels": [
+        "mood",
+        "atmosphere",
+        "color_relationships"
+      ]
+    },
+    "S2": {
+      "label": "clear_restoration",
+      "channels": [
+        "mood",
+        "motion_language",
+        "lighting_language",
+        "atmosphere",
+        "color_relationships",
+        "medium_language",
+        "composition_energy"
+      ]
+    },
+    "S3": {
+      "label": "strong_restoration",
+      "channels": [
+        "mood",
+        "motion_language",
+        "lighting_language",
+        "atmosphere",
+        "color_relationships",
+        "medium_language",
+        "composition_energy",
+        "environment_scale"
+      ]
+    }
+  },
+  "forbidden_borrow": [
+    "face_identity_geometry",
+    "body_proportion",
+    "garment_silhouette",
+    "garment_structure",
+    "signature_accessories",
+    "age_identity"
+  ]
+}

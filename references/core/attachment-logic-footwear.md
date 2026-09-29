@@ -1,0 +1,36 @@
+# Attachment Logic + Footwear System
+
+## 1. Attachment Logic
+
+所有主要装饰都应回答三个问题：
+
+1. 固定在哪里
+2. 通过什么连接
+3. 为什么不会掉
+
+### 示例
+
+- 腰饰固定在宽腰封的中心金属底座上
+- 肩部金属件固定于肩部衣片与内衬结构，而非悬浮
+- 吊坠挂在主腰饰或袖口环扣上，而不是直接从空气中垂下
+
+## 2. Footwear System
+
+“古风鞋履”太模糊，容易被模型翻译成西式尖头礼鞋。
+
+应记录：
+
+- toe_shape：圆头 / 微翘 / 尖头但东方结构化
+- heel_type：平底 / 低跟 / 软靴底
+- upper_structure：锦缎鞋面 / 包脚鞋面 / 露踝结构
+- ankle_fastening：系带 / 踝链 / 绑带
+- material_family：锦缎 / 皮革 / 软甲 / 刺绣面
+- relation_to_costume：与腰饰、护腕、主配色呼应
+
+### 推荐鞋履族
+- eastern_flat_brocade
+- eastern_lowheel_wrap
+- ceremonial_flat_shoe
+- armored_soft_boot
+
+默认不建议：现代细高跟礼鞋

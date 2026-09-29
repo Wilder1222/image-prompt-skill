@@ -1,0 +1,305 @@
+{
+  "preset": "ancient_female_white_master",
+  "configuration": {
+    "render_mode": "style_asset",
+    "face_profile": "beauty_first_character",
+    "proportion_profile": "P9_FASHION_ASSET",
+    "material_profile": "ancient_asset_material_split",
+    "hand_mode": "elegant_crossed_hands_safe",
+    "asset_profile": "master_sheet_single",
+    "lighting_profile": "studio_soft_separation",
+    "legacy_face_mode": "beauty_first",
+    "maturity_guard": "youthful_18_22"
+  },
+  "priority": [
+    "face_profile",
+    "asset_structure",
+    "fashion_proportion",
+    "hand_integrity",
+    "material_separation",
+    "studio_lighting",
+    "micro_quality"
+  ],
+  "stage_1": {
+    "round_plan": {
+      "round": "asset_master_face_refine",
+      "editable": [
+        "asset_face_profile",
+        "face_character_specificity",
+        "age_guard",
+        "light_face_realism"
+      ],
+      "locked": [
+        "identity_geometry",
+        "body_proportion",
+        "hair_design",
+        "costume_design",
+        "pose",
+        "hands",
+        "footwear",
+        "background",
+        "lighting_layout"
+      ],
+      "forbidden": [
+        "age_up",
+        "face_reshape",
+        "costume_redesign",
+        "body_reshape"
+      ],
+      "prompt_strategy": "asset-face profile only: preserve identity geometry and age, increase character specificity without reopening body, costume, hands or lighting"
+    },
+    "face_profile": {
+      "profile": "beauty_first_character",
+      "base_mode": "beauty_first",
+      "age_range": "18_22",
+      "identity_specificity": "high",
+      "face_realism": "low_medium",
+      "beauty_priority": "very_high",
+      "maturity_guard": "youthful_18_22",
+      "signals": [
+        "beauty-first identity",
+        "subtle cheek volume",
+        "natural eyelid structure",
+        "individual mouth-corner placement",
+        "soft regional skin response",
+        "character-specific eye expression"
+      ],
+      "avoid": [
+        "generic AI beauty template",
+        "age_up",
+        "hollowing",
+        "hard cheekbone carving",
+        "perfectly averaged facial symmetry"
+      ],
+      "prompt_translation": [
+        "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
+        "Retain subtle youthful cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.",
+        "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity."
+      ],
+      "principle": "Choose a granular face profile independently from non-face realism. Beauty, age and character specificity may outrank maximal facial photorealism."
+    },
+    "prompt_skeleton": [
+      "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
+      "Retain subtle youthful cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.",
+      "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.",
+      "Keep maturity guard youthful_18_22; do not age the face up."
+    ]
+  },
+  "stage_2": {
+    "round_plan": {
+      "round": "asset_master_structure_refine",
+      "editable": [
+        "fashion_asset_proportion",
+        "garment_verticality",
+        "asset_framing",
+        "hand_pose_integrity",
+        "footwear_readability"
+      ],
+      "locked": [
+        "identity_geometry",
+        "approved_face_profile",
+        "costume_design",
+        "palette",
+        "materials",
+        "background_type",
+        "lighting_layout",
+        "asset_master_face_refine"
+      ],
+      "forbidden": [
+        "face_reshape",
+        "new_costume",
+        "extreme_leg_stretch",
+        "head_shrink_shortcut"
+      ],
+      "prompt_strategy": "asset-structure only: strengthen P9 robe-aware read, master-sheet framing, hand integrity and footwear readability while locking approved face and costume design"
+    },
+    "fashion_asset": {
+      "profile": "P9_FASHION_ASSET",
+      "visual_head_count_target": "8.6_9.0",
+      "head_ornaments_excluded": true,
+      "controls": {
+        "head_visual_scale": "refined_small_without_face_reshape",
+        "neck_shoulder": "elongated_relaxed",
+        "torso_length": "fully_preserved",
+        "waistline": "visually_high_natural",
+        "pelvis_to_knee": "balanced_long",
+        "knee_to_ankle": "balanced_long",
+        "footwear_scale": "refined_natural",
+        "garment_verticality": "strong",
+        "robe_width": "controlled",
+        "foot_visibility": "clear_enough_for_scale_read"
+      },
+      "robe_rules": [
+        "Use waist placement, central vertical panels, hem opening and visible foot-to-hem relation to preserve the tall read under long robes.",
+        "Do not let oversized sleeves or excessive hem width suppress the lower-body visual length.",
+        "Do not shorten the torso, extreme-shrink the head, or stretch only one leg segment."
+      ],
+      "prompt_translation": [
+        "Maintain a clear P9 fashion-asset proportion even under layered long robes: refined head-to-body read, elongated neck-to-waist rhythm, naturally elevated waist, strong vertical garment lines and a readable foot-to-hem relationship.",
+        "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
+        "Control sleeve and hem width so the costume supports height instead of visually compressing it."
+      ],
+      "principle": "P9 asset proportion is preserved through body landmarks AND garment visual cues; never solve a robe-covered figure by simply stretching the legs."
+    },
+    "hand_pose": {
+      "mode": "elegant_crossed_hands_safe",
+      "primary_hand": "front_top_hand",
+      "secondary_hand": "supporting_lower_hand",
+      "requirements": [
+        "five_digits_each",
+        "one_thumb_four_fingers_each",
+        "natural_length_hierarchy",
+        "believable_knuckles",
+        "clear_wrist_direction",
+        "sleeve_does_not_swallow_finger_roots",
+        "hand_scale_matches_face_and_forearm"
+      ],
+      "prompt_translation": [
+        "Place both hands in a clean elegant crossed-hand arrangement in front of the body, with a clear primary hand and supporting hand rather than ambiguous interlacing.",
+        "Each visible hand must have exactly five anatomically coherent digits, natural finger-length hierarchy, believable knuckles and a clear wrist direction; sleeves must not obscure the critical finger-root structure."
+      ],
+      "principle": "Hands are a generation-time structural constraint for asset portraits, not only a post-generation repair item."
+    },
+    "asset_master": {
+      "profile": "master_sheet_single",
+      "aspect_ratio": "3:4",
+      "background": "clean_white_seamless",
+      "orientation": "front_facing",
+      "pose": "upright_neutral_elegant",
+      "requirements": [
+        "hair_ornament_fully_visible",
+        "shoes_fully_visible",
+        "safe_margin_top_bottom_sides",
+        "vertical_body_axis_stable",
+        "balanced_negative_space",
+        "hem_spread_controlled",
+        "footwear_readable",
+        "no_capture_motion"
+      ],
+      "prompt_translation": [
+        "Compose the character as a clean master asset portrait: full body visible from the top of the hair ornament to the shoes, centered, front-facing and upright, with balanced negative space and a pure white seamless background.",
+        "Keep the hem controlled rather than excessively spread, and keep the footwear clearly readable so the full-body scale and costume construction can be used as a reusable character asset master."
+      ]
+    },
+    "prompt_skeleton": [
+      "Compose the character as a clean master asset portrait: full body visible from the top of the hair ornament to the shoes, centered, front-facing and upright, with balanced negative space and a pure white seamless background.",
+      "Keep the hem controlled rather than excessively spread, and keep the footwear clearly readable so the full-body scale and costume construction can be used as a reusable character asset master.",
+      "Maintain a clear P9 fashion-asset proportion even under layered long robes: refined head-to-body read, elongated neck-to-waist rhythm, naturally elevated waist, strong vertical garment lines and a readable foot-to-hem relationship.",
+      "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
+      "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
+      "Place both hands in a clean elegant crossed-hand arrangement in front of the body, with a clear primary hand and supporting hand rather than ambiguous interlacing.",
+      "Each visible hand must have exactly five anatomically coherent digits, natural finger-length hierarchy, believable knuckles and a clear wrist direction; sleeves must not obscure the critical finger-root structure."
+    ]
+  },
+  "stage_3": {
+    "round_plan": {
+      "round": "asset_master_material_light_refine",
+      "editable": [
+        "material_separation",
+        "studio_light_separation",
+        "white_background_readability",
+        "floor_contact_shadow",
+        "material_highlight_balance"
+      ],
+      "locked": [
+        "identity_geometry",
+        "approved_face_profile",
+        "fashion_asset_proportion",
+        "pose",
+        "hands",
+        "costume_design",
+        "palette",
+        "asset_framing",
+        "asset_master_face_refine",
+        "asset_master_structure_refine"
+      ],
+      "forbidden": [
+        "face_maturity_change",
+        "body_reshape",
+        "costume_redesign",
+        "background_scene_invention"
+      ],
+      "prompt_strategy": "asset material/light only: separate fabric layers, embroidery and gauze response, improve white-edge separation and grounded studio light while locking identity, proportion and framing"
+    },
+    "material_separation": {
+      "profile": "ancient_asset_material_split",
+      "layers": {
+        "primary_fabric": {
+          "materials": [
+            "silk_brocade",
+            "cloud_brocade",
+            "fine_satin"
+          ],
+          "behavior": "denser_weighted_stable_folds",
+          "highlight": "controlled_directional"
+        },
+        "sheer_overlay": {
+          "materials": [
+            "silk_gauze",
+            "organza_like_silk"
+          ],
+          "behavior": "light_semitransparent_layered",
+          "highlight": "soft_transmitted",
+          "edge": "thin_visible"
+        },
+        "pattern_layer": {
+          "materials": [
+            "gold_thread_embroidery",
+            "woven_gold",
+            "floral_brocade"
+          ],
+          "behavior": "attached_to_fabric_with_slight_relief",
+          "highlight": "fine_selective"
+        },
+        "structure_layer": {
+          "materials": [
+            "waist_sash",
+            "collar_edge",
+            "ties",
+            "hanging_ornaments"
+          ],
+          "behavior": "more_defined_and_supportive",
+          "highlight": "structured_low_medium"
+        }
+      },
+      "prompt_translation": [
+        "Separate the garment materials clearly: the main robe should feel denser and more structured, the outer gauze lighter and semi-transparent, the gold floral patterns woven or embroidered rather than printed, and the waist/collar/tie structures visibly more defined.",
+        "Do not let all layers share the same soft glossy fantasy surface."
+      ],
+      "principle": "Material separation is a structural readability problem, not a request for more texture everywhere."
+    },
+    "studio_lighting": {
+      "profile": "studio_soft_separation",
+      "key": "front_left_upper_large_softbox",
+      "fill": "front_low_weaker_fill",
+      "separation": "very_subtle_edge_separation",
+      "floor_shadow": "soft_grounded_contact",
+      "background": "high_key_white_not_clipped",
+      "goals": [
+        "face_is_primary_read",
+        "white_gauze_separates_from_background",
+        "main_fabric_keeps_weight",
+        "gold_thread_gets_controlled_highlights",
+        "no_flat_even_light"
+      ],
+      "prompt_translation": [
+        "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
+        "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+      ]
+    },
+    "prompt_skeleton": [
+      "Separate the garment materials clearly: the main robe should feel denser and more structured, the outer gauze lighter and semi-transparent, the gold floral patterns woven or embroidered rather than printed, and the waist/collar/tie structures visibly more defined.",
+      "Do not let all layers share the same soft glossy fantasy surface.",
+      "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
+      "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+    ]
+  },
+  "order": [
+    "asset_master_face_refine",
+    "asset_master_structure_refine",
+    "asset_master_material_light_refine",
+    "final_photographic_polish",
+    "upscale"
+  ],
+  "rule": "Choose face beauty/character specificity first, then structure integrity and P9 asset read, then material/studio realism. Never trade a passed face for stronger non-face realism."
+}

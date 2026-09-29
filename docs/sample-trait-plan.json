@@ -1,0 +1,83 @@
+{
+  "target_maturity": {
+    "level": "M2.5",
+    "label": "light_mature_high_end_young_adult",
+    "identity_geometry_policy": "locked",
+    "cheek_softness": "medium_low_but_not_hollow",
+    "eye_openness": "slightly_restrained_same_geometry",
+    "gaze_stability": "steady_composed",
+    "jaw_definition": "clear_not_sharp",
+    "makeup_contrast": "restrained_editorial",
+    "expression": "calm_refined_not_cold",
+    "aging_cues": "none",
+    "max_delta_per_round": 1,
+    "preferred_signals": [
+      "gaze_stability",
+      "expression_restraint",
+      "makeup_restraint",
+      "cheek_softness_delta_small",
+      "eye_openness_delta_small",
+      "jaw_clarity_small"
+    ],
+    "forbidden_for_light_maturity": [
+      "sharp_chin",
+      "major_face_length_change",
+      "major_eye_geometry_change",
+      "narrow_nose_geometry",
+      "hollow_cheeks",
+      "wrinkles",
+      "sagging",
+      "pigmentation_aging"
+    ]
+  },
+  "reference_roles": {
+    "A": "asset_master + identity geometry",
+    "B": "facial_trait only"
+  },
+  "round_plan": {
+    "round": "trait_calibration",
+    "editable": [
+      "facial_maturity",
+      "gaze_stability",
+      "expression_restraint",
+      "cheek_softness_delta",
+      "eye_openness_delta",
+      "makeup_restraint",
+      "editorial_tone"
+    ],
+    "locked": [
+      "face_identity_geometry",
+      "eye_spacing",
+      "eye_shape_core",
+      "nose_geometry",
+      "lip_geometry",
+      "jaw_chin_geometry",
+      "age_identity",
+      "hairstyle_silhouette",
+      "body_proportion",
+      "pose",
+      "garment_silhouette",
+      "garment_structure",
+      "palette",
+      "composition",
+      "background"
+    ],
+    "forbidden": [
+      "copy_trait_reference_face_geometry",
+      "copy_trait_reference_costume",
+      "copy_trait_reference_background",
+      "copy_trait_reference_lighting",
+      "add_wrinkles_or_sagging",
+      "major_face_shape_change"
+    ],
+    "prompt_strategy": "short trait patch; lock identity geometry; borrow only allowed traits"
+  },
+  "prompt_skeleton": [
+    "Image A is the Asset Master and identity geometry source.",
+    "Image B is only a Facial Trait Reference.",
+    "Keep A face shape, eye spacing/core geometry, nose proportions, lips and jaw/chin unchanged.",
+    "Shift only facial presentation toward M2.5: steadier gaze, restrained expression, small cheek-softness reduction, slightly less wide-eyed openness, more editorial natural makeup.",
+    "Do not copy B's face geometry, hair, costume, body, background, lighting or camera framing."
+  ],
+  "note": "High-end is achieved primarily through presentation, not facial reshaping."
+}

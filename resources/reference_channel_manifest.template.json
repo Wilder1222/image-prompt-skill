@@ -1,0 +1,20 @@
+{
+  "version": "0.7.3",
+  "reference_id": "A",
+  "channels": {
+    "identity": 3,
+    "costume": 3,
+    "material": 2,
+    "pose": 2,
+    "style": 1,
+    "lighting": 1,
+    "environment": 0
+  },
+  "visible_regions": [],
+  "inferred_regions": [],
+  "completion_level": "C1",
+  "design_density": "medium",
+  "wear_state": "W0",
+  "render_mode": "style_asset",
+  "human_presence": "H2"
+}

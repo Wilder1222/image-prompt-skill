@@ -1,0 +1,78 @@
+{
+  "fabric_white": {
+    "profile": "white_asset_photographic",
+    "background": "near_pure_white",
+    "garment_background_tonal_gap": "subtle_visible",
+    "edge_outline": "forbidden",
+    "key_light": "soft_directional",
+    "fill": "weaker",
+    "separation_light": "very_subtle",
+    "materials": {
+      "silk": "continuous_soft_directional_highlight",
+      "gauze": "translucent_soft_edge_with_layer_thickness",
+      "brocade": "heavier_weave_structured_reflection",
+      "embroidery": "raised_thread_local_specular",
+      "metal": "small_controlled_crisp_highlight"
+    },
+    "drape": {
+      "left_right_symmetry": "avoid_perfect_mirror",
+      "ground_fold_randomness": "subtle",
+      "sleeve_weight": "natural",
+      "sheer_edge_perfection": "reduce"
+    },
+    "prompt_translation": [
+      "Separate pale garments from the white background through subtle tonal and material differences, never through a dark outline.",
+      "Make silk, gauze, brocade, embroidery and metal respond differently to the same studio light instead of sharing one fantasy gloss.",
+      "Use believable gravity and slightly irregular ground folds; avoid perfectly mirrored sleeves, hems and sheer edges."
+    ],
+    "principle": "White-on-white asset photography must separate garment from background through material response, tonal spacing, edge transmission and contact shadow rather than artificial outlines.",
+    "failure_codes": [
+      "white_on_white_separation_weak",
+      "fabric_response_too_uniform",
+      "drape_too_symmetric",
+      "sheer_edge_too_clean",
+      "garment_highlight_flattened"
+    ]
+  },
+  "round_plan": {
+    "round": "photographic_fabric_white_refine",
+    "editable": [
+      "white_background_separation",
+      "material_response_separation",
+      "drape_naturalness",
+      "sheer_edge_behavior",
+      "contact_shadow",
+      "highlight_rolloff_fabric"
+    ],
+    "locked": [
+      "face_identity_geometry",
+      "approved_human_presence",
+      "fashion_proportion",
+      "body_proportion",
+      "pose",
+      "garment_silhouette",
+      "garment_structure",
+      "palette",
+      "hand_integrity",
+      "foot_integrity",
+      "composition",
+      "background_type"
+    ],
+    "forbidden": [
+      "dark_outline_separation",
+      "costume_redesign",
+      "new_material_family",
+      "p9_reopen",
+      "face_reopen",
+      "extreme_shallow_dof"
+    ],
+    "prompt_strategy": "refine white-on-white separation, material-specific response and natural drape only; lock identity, P9 and costume architecture"
+  },
+  "prompt_skeleton": [
+    "Separate pale garments from the white background through subtle tonal and material differences, never through a dark outline.",
+    "Make silk, gauze, brocade, embroidery and metal respond differently to the same studio light instead of sharing one fantasy gloss.",
+    "Use believable gravity and slightly irregular ground folds; avoid perfectly mirrored sleeves, hems and sheer edges.",
+    "Keep identity, approved P9, approved human presence, costume architecture, palette and composition locked."
+  ],
+  "note": "White-on-white photographic refinement only. No dark outline and no costume redesign."
+}

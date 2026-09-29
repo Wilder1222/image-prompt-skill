@@ -1,0 +1,449 @@
+{
+  "style_stage": {
+    "style_intent": {
+      "intent": "style_target_match",
+      "description": "match a supplied visual style reference as the dominant final look",
+      "signals": [
+        "match_reference_style",
+        "restore_original_style",
+        "use_image_style",
+        "like_image_4_style",
+        "original_art_style"
+      ],
+      "render_mode_with_asset_master": "cinematic_hybrid",
+      "render_mode_without_asset_master": "restoration",
+      "resolved_render_mode": "cinematic_hybrid",
+      "precedence": [
+        "identity_lock",
+        "explicit_background_constraint",
+        "explicit_style_target",
+        "explicit_motion_or_scene_intent",
+        "character_archetype_default",
+        "generic_default"
+      ],
+      "rules": [
+        "If the user explicitly requests a white/neutral background and a style reference, use style_asset.",
+        "If the user explicitly requests the supplied style/final-art look and does not lock a white/neutral background, use cinematic_hybrid when an asset master exists.",
+        "Never infer white background merely because the character was previously represented as an asset image.",
+        "Face mode and render mode are independent decisions."
+      ]
+    },
+    "style_target": {
+      "profile": "oriental_epic_painterly",
+      "label": "Oriental Epic Painterly Fantasy",
+      "medium_language": [
+        "painterly_cinematic",
+        "concept_art_brushwork",
+        "selective_detail",
+        "soft_edge_to_hard_edge_variation"
+      ],
+      "composition": [
+        "asymmetric_flow",
+        "large_s_curve",
+        "dynamic_negative_space",
+        "full_body_hero_focus"
+      ],
+      "motion": [
+        "sweeping_hair",
+        "large_fabric_arcs",
+        "ribbon_motion",
+        "wind_driven_secondary_shapes"
+      ],
+      "lighting": [
+        "luminous_backlight",
+        "soft_directional_key",
+        "warm_gold_accents",
+        "deep_soft_shadow_masses",
+        "atmospheric_glow"
+      ],
+      "atmosphere": [
+        "mythic_scale",
+        "dust_haze",
+        "abstract_architectural_depth",
+        "painterly_particles"
+      ],
+      "palette_language": [
+        "ivory_or_pale_highlights",
+        "deep_black_or_charcoal_masses",
+        "antique_gold",
+        "muted_crimson_accents",
+        "warm_neutral_haze"
+      ],
+      "detail_distribution": [
+        "face_and_primary_ornament_focus",
+        "less_uniform_microdetail",
+        "painterly_peripheral_edges"
+      ],
+      "background_policy": "cinematic_environment_not_blank_studio",
+      "pose_policy": "dynamic_pose_authorized_unless_user_locks_pose",
+      "anti_patterns": [
+        "flat_white_studio",
+        "front_static_asset_pose",
+        "uniform_global_sharpness",
+        "clean_catalog_lighting",
+        "literal_every-detail rendering"
+      ],
+      "recommended_face_mode": "stylized_beauty",
+      "alternate_face_modes": [
+        "beauty_first",
+        "humanized_real"
+      ]
+    },
+    "reference_authority": {
+      "scenario": "style_A_asset_B",
+      "A": {
+        "role": "style_target",
+        "authority": {
+          "medium_language": 3,
+          "motion_language": 3,
+          "lighting_language": 3,
+          "atmosphere": 3,
+          "composition_energy": 3,
+          "color_relationships": 2,
+          "environment_scale": 2,
+          "face_identity_geometry": 0,
+          "body_proportion": 0,
+          "garment_silhouette": 0,
+          "garment_structure": 0,
+          "signature_accessories": 0
+        }
+      },
+      "B": {
+        "role": "asset_master",
+        "authority": {
+          "face_identity_geometry": 3,
+          "body_proportion": 2,
+          "garment_silhouette": 3,
+          "garment_structure": 3,
+          "signature_accessories": 3,
+          "hairstyle_silhouette": 3,
+          "palette_family": 2,
+          "footwear_family": 2,
+          "medium_language": 0,
+          "environment_scale": 0
+        }
+      },
+      "optional_C": {
+        "role": "facial_trait",
+        "authority": {
+          "maturity_level": 2,
+          "gaze_stability": 2,
+          "makeup_restraint": 2
+        },
+        "forbidden": [
+          "face_identity_geometry",
+          "garment_structure",
+          "lighting_language",
+          "environment_scale"
+        ]
+      },
+      "levels": {
+        "0": "ignore",
+        "1": "weak",
+        "2": "strong",
+        "3": "strict"
+      },
+      "principle": "each visual attribute should have one dominant reference authority; style target never owns identity geometry or garment architecture unless explicitly authorized."
+    },
+    "face_compatibility": {
+      "style_profile": "oriental_epic_painterly",
+      "recommended": "stylized_beauty",
+      "resolved_face_mode": "beauty_first",
+      "override_applied": true,
+      "reason": "the target look uses idealized painterly facial treatment; stronger photographic face realism can fight the medium",
+      "allowed": [
+        "stylized_beauty",
+        "beauty_first",
+        "humanized_real"
+      ],
+      "principle": "face mode is independent from render mode; style may recommend a face treatment but explicit user face preference wins."
+    },
+    "preservation_guard": {
+      "profile": "cinematic_target",
+      "lock_style_channels": [
+        "medium_language",
+        "motion_language",
+        "lighting_language",
+        "atmosphere",
+        "composition_energy"
+      ],
+      "background_rule": "follow explicit user target or style target; never reset to white studio from prior asset history",
+      "pose_rule": "dynamic pose/motion is authorized when required by the style target unless user explicitly locks pose",
+      "realism_rule": "realism may refine human/material behavior but must not erase painterly medium, motion or atmosphere",
+      "anti_drift": [
+        "flat_white_background",
+        "static_asset_pose",
+        "clean_catalog_lighting",
+        "uniform_sharpness",
+        "loss_of_painterly_edges"
+      ]
+    },
+    "round_plan": {
+      "round": "style_intent_alignment",
+      "editable": [
+        "explicit_output_intent",
+        "render_mode",
+        "style_target_assignment",
+        "background_policy",
+        "motion_permission"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "garment_silhouette",
+        "garment_structure",
+        "signature_accessories",
+        "approved_face_mode"
+      ],
+      "forbidden": [
+        "infer_white_background_from_asset_history",
+        "let_character_archetype_override_explicit_style_target"
+      ],
+      "prompt_strategy": "resolve explicit output/style intent first: choose render mode, background policy and style target authority without touching identity or costume architecture"
+    },
+    "prompt_skeleton": [
+      "Render mode: cinematic_hybrid.",
+      "Image A is the Style Target; Image B is the Asset Master.",
+      "Keep B identity and garment architecture; borrow A medium, motion, lighting, atmosphere and composition energy only.",
+      "Face mode: beauty_first.",
+      "Do not inherit the Asset Master white background; follow the cinematic style target environment/presentation.",
+      "Do not flatten painterly motion/atmosphere during realism refinement."
+    ],
+    "note": "Explicit style intent and background constraints are resolved before archetype defaults."
+  },
+  "hierarchy_stage": {
+    "hierarchy": {
+      "profile": "oriental_epic_concept",
+      "detail_budget": "concept_art_priority",
+      "highlight_hierarchy": "focal_brightness",
+      "background_submission": "monumental_subordinate",
+      "edge_control": "selective_painterly",
+      "locked_successes": [
+        "oriental_epic_painterly",
+        "black_white_gold_crimson_palette",
+        "large_scale_motion",
+        "luminous_backlight",
+        "beauty_first_or_stylized_beauty",
+        "full_body_epic_key_art"
+      ],
+      "priority_order": [
+        "style_intent",
+        "character_authority",
+        "composition_motion",
+        "light_hierarchy",
+        "detail_budget_edge_control",
+        "output_polish"
+      ],
+      "target_read": "high-end oriental fantasy concept key art with breathing room and selective completion, not uniformly finished commercial character illustration"
+    },
+    "detail_budget": {
+      "profile": "concept_art_priority",
+      "goal": "selective detail concentration for high-end concept art rather than uniform completion",
+      "primary_detail": {
+        "level": "high",
+        "regions": [
+          "face",
+          "eyes",
+          "crown_core",
+          "chest_neck_focal",
+          "waist_core_ornament",
+          "weapon_core"
+        ]
+      },
+      "secondary_detail": {
+        "level": "medium",
+        "regions": [
+          "main_skirt_mass",
+          "primary_sleeves",
+          "primary_hair_masses",
+          "main_crimson_ribbons",
+          "major_accessories"
+        ]
+      },
+      "atmospheric_detail": {
+        "level": "low_selective",
+        "regions": [
+          "hair_tails",
+          "outer_ribbons",
+          "distant_architecture",
+          "banners",
+          "clouds_mist",
+          "ground_reflection",
+          "peripheral_particles"
+        ]
+      },
+      "compiler_rules": [
+        "Concentrate the highest detail at focal structures only.",
+        "Keep major body and costume masses readable at medium detail.",
+        "Render peripheral and distant areas selectively, with impressionistic or atmospheric omission.",
+        "Do not increase detail merely because empty space exists."
+      ],
+      "anti_patterns": [
+        "uniform_microdetail",
+        "literal_everything_rendered",
+        "peripheral_detail_competes",
+        "background_same_resolution_as_face"
+      ]
+    },
+    "highlight_hierarchy": {
+      "profile": "focal_brightness",
+      "primary_highlights": [
+        "face_adjacent_zone",
+        "crown",
+        "upper_torso",
+        "weapon_core"
+      ],
+      "secondary_highlights": [
+        "waist_core_ornament",
+        "selected_fabric_turns",
+        "key_gold_elements",
+        "primary_hair_rim"
+      ],
+      "tertiary_highlights": [
+        "outer_ribbons",
+        "distant_architecture",
+        "cloud_edges",
+        "ground_reflection",
+        "peripheral_effects"
+      ],
+      "rules": [
+        "Primary highlights must remain the strongest value concentration.",
+        "Secondary highlights support form but cannot equal primary brightness density.",
+        "Tertiary highlights are sparse and subordinate.",
+        "Do not make every gold edge or fabric rim luminous."
+      ],
+      "anti_patterns": [
+        "highlight_everywhere",
+        "equal_brightness_across_scene",
+        "background_highlight_competes",
+        "ground_reflection_competes"
+      ]
+    },
+    "background_submission": {
+      "profile": "monumental_subordinate",
+      "purpose": [
+        "mythic_scale",
+        "oriental_world_identity",
+        "depth",
+        "atmospheric_support"
+      ],
+      "detail_policy": "softened_selective",
+      "contrast_policy": "below_character_focal_zone",
+      "head_zone_policy": "reduce_hard_detail_around_head_and_upper_torso",
+      "allowed_elements": [
+        "palace_silhouettes",
+        "towers",
+        "banners",
+        "sacred_architecture",
+        "clouds",
+        "mist",
+        "luminous_depth_layers"
+      ],
+      "rules": [
+        "Keep monumental scale but lower local architectural resolution.",
+        "Use mist, silhouette layering and atmospheric separation instead of literal architectural description.",
+        "Do not place the strongest background contrast or hard edges directly behind the face.",
+        "Background should support the character, never form a second subject."
+      ],
+      "anti_patterns": [
+        "second_subject_background",
+        "hard_architecture_around_face",
+        "background_same_contrast_as_subject",
+        "overdescribed_palaces"
+      ]
+    },
+    "painterly_edge": {
+      "profile": "selective_painterly",
+      "crisp_edges": [
+        "eyes",
+        "nose_mouth_focal_contour",
+        "crown_core",
+        "weapon_core",
+        "waist_core_metal"
+      ],
+      "soft_edges": [
+        "hair_tails",
+        "outer_gauze",
+        "outer_ribbons",
+        "secondary_skirt_edges",
+        "cloud_edges"
+      ],
+      "lost_edges": [
+        "backlit_hair_periphery",
+        "mist_architecture_intersections",
+        "glowing_fabric_edges",
+        "ground_light_reflections"
+      ],
+      "rules": [
+        "Use crisp edges only where they reinforce the focal hierarchy.",
+        "Allow soft and partially lost edges in wind-driven and atmospheric regions.",
+        "Let backlight erase selected contours naturally.",
+        "Do not sharpen every silhouette equally."
+      ],
+      "anti_patterns": [
+        "uniform_edge_sharpness",
+        "cutout_character_edge",
+        "vector_like_cloth_edges",
+        "sharp_mist"
+      ]
+    },
+    "round_plan": {
+      "round": "concept_art_hierarchy_refine",
+      "editable": [
+        "detail_budget",
+        "detail_distribution",
+        "highlight_hierarchy",
+        "focal_brightness",
+        "background_submission",
+        "background_resolution",
+        "background_contrast",
+        "painterly_edge_distribution",
+        "lost_edge_distribution"
+      ],
+      "locked": [
+        "explicit_style_target",
+        "approved_face_mode",
+        "face_identity_geometry",
+        "body_identity",
+        "fashion_proportion",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "approved_motion_language",
+        "approved_lighting_language",
+        "composition_energy",
+        "style_intent_alignment",
+        "style_target_restoration"
+      ],
+      "forbidden": [
+        "identity_redesign",
+        "face_mode_reopen",
+        "costume_redesign",
+        "palette_shift",
+        "motion_reduction",
+        "flat_studio_reset",
+        "background_removal",
+        "global_sharpening",
+        "uniform_detail_increase",
+        "highlight_everywhere"
+      ],
+      "prompt_strategy": "concept-art hierarchy only: redistribute detail, brightness, background resolution and edge sharpness while locking style target, identity, face mode, motion, palette, costume architecture and composition energy"
+    },
+    "prompt_skeleton": [
+      "Keep the approved oriental epic painterly style, black-white-gold-crimson palette, beauty-first/stylized-beauty face direction, full-body epic composition and large-scale motion unchanged.",
+      "Concentrate highest detail on face, crown, chest-neck focal area, waist core ornament and weapon core.",
+      "Keep main garment masses, primary sleeves and major hair volumes at medium detail.",
+      "Let hair tails, outer ribbons, distant architecture, mist, clouds, ground reflections and peripheral effects remain selectively resolved and more impressionistic.",
+      "Use the strongest highlights near the face/crown/upper torso/weapon core; keep secondary garment highlights lower and peripheral/background light subordinate.",
+      "Keep monumental background scale but lower architectural resolution and contrast around the face and upper-body focal zone.",
+      "Use crisp edges only at focal structures; soften or partially lose edges in hair tails, drifting cloth, haze and distant architecture.",
+      "Do not redesign identity, costume, palette, motion language or composition energy."
+    ],
+    "note": "Use after style target direction is approved. This round reduces over-completion without weakening the cinematic style target."
+  },
+  "order": [
+    "style_intent_alignment",
+    "style_target_restoration",
+    "concept_art_hierarchy_refine"
+  ],
+  "rule": "First restore the target style; then redistribute detail, highlights, background emphasis and edge sharpness without reopening identity or style intent."
+}

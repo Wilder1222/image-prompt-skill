@@ -1,0 +1,28 @@
+{
+  "version": "0.7.7",
+  "channels": [
+    "eyes",
+    "skin",
+    "soft_tissue",
+    "makeup",
+    "hair",
+    "costume_material",
+    "lighting",
+    "camera_response"
+  ],
+  "default_rule": "adjacent realism channels should remain within one internal realism tier; do not let one subsystem read as photographic while another remains CG.",
+  "repair_order": [
+    "eyes_skin",
+    "soft_tissue_makeup",
+    "hair",
+    "camera_response",
+    "adjacent_costume_material"
+  ],
+  "failure_codes": [
+    "realism_mismatch_eye_skin",
+    "realism_mismatch_face_hair",
+    "realism_mismatch_face_costume",
+    "realism_channel_overprocessed",
+    "realism_coherence_mismatch"
+  ]
+}

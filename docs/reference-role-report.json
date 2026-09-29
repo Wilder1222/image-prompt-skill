@@ -1,0 +1,43 @@
+{
+  "references": [
+    {
+      "id": "A",
+      "role": "asset_master",
+      "authority": [
+        "composition",
+        "body_proportion",
+        "pose",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "hairstyle_silhouette",
+        "background",
+        "footwear",
+        "current_design_extension"
+      ],
+      "forbidden_authority": []
+    },
+    {
+      "id": "B",
+      "role": "face_identity",
+      "authority": [
+        "face_shape",
+        "eye_structure",
+        "nose_proportion",
+        "lip_shape",
+        "cheek_soft_tissue",
+        "jaw_chin",
+        "age_intent",
+        "facial_expression_character"
+      ],
+      "forbidden_authority": [
+        "composition",
+        "background",
+        "garment_lower_body",
+        "footwear",
+        "pose"
+      ]
+    }
+  ],
+  "rule": "A controls asset continuity; B controls face identity only. B forbidden_authority must not overwrite A."
+}

@@ -1,0 +1,30 @@
+{
+  "name": "image-prompt-skill",
+  "version": "0.9.0",
+  "description": "参考图驱动的角色定妆照提示词、服装展示、母图保留与局部修复。",
+  "author": {
+    "name": "wangwei97"
+  },
+  "skills": "./skills/",
+  "keywords": [
+    "image-prompt",
+    "character-design",
+    "reference-images",
+    "costume",
+    "visual-review"
+  ],
+  "interface": {
+    "displayName": "角色定妆与提示词",
+    "shortDescription": "从参考图编写定妆提示词，保留好母图并按实际结果迭代",
+    "longDescription": "根据实际参考编写全身白底角色资产、服装展示与局部修复提示词，明确身份、风格与母图的参考权限，并记录真实出图对照。附带本地 Node.js 提示词编译器；图像生成使用宿主已有工具。",
+    "developerName": "wangwei97",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "使用 $image-prompt-skill，根据参考图制作全身白底定妆照提示词。",
+      "使用 $image-prompt-skill，对比这两张角色图，制定并执行改进方案。",
+      "使用 $image-prompt-skill，保留当前母图，只修复我指出的局部问题。"
+    ],
+    "brandColor": "#426B60"
+  }
+}

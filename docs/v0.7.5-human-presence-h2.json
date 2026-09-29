@@ -1,0 +1,42 @@
+{
+  "level": "H2",
+  "label": "human_presence_refined",
+  "soft_structure_fidelity": 0.75,
+  "regional_skin_response": 0.75,
+  "micro_asymmetry": 0.2,
+  "eye_anatomy_realism": 0.8,
+  "hair_irregularity": 0.65,
+  "lens_response_realism": 0.8,
+  "age_shift": "none",
+  "prompt_translation": [
+    "Keep the locked face identity but give the cheeks, eyelids, nose wings, mouth corners and jaw-to-neck transition believable soft-tissue volume.",
+    "Use subtle regional skin response instead of one uniform polished surface: restrained forehead sheen, slightly stronger nose highlight, softer cheek diffusion, thinner eye-area response and independent lip material.",
+    "Allow extremely small natural asymmetries in brow height, eyelid openness, mouth-corner balance and highlight distribution without changing the character identity.",
+    "Make eye anatomy physically believable: natural eyeball-to-socket relationship, real upper/lower lid thickness, inner/outer canthus structure, integrated lash roots and non-pure-white sclera.",
+    "Build hair from primary masses, secondary strand groups and only a few fine irregular hairs, with non-uniform specular flow.",
+    "Use photographic highlight roll-off, preserved shadow detail, natural local micro-contrast and no global mathematical sharpness or edge halos."
+  ],
+  "soft_structure_rules": [
+    "cheek soft tissue remains continuous with the original identity",
+    "nose wings have soft volume instead of hard modeled edges",
+    "lower eyelids carry subtle volume",
+    "jaw-to-neck transition is soft and anatomical rather than razor-sharp"
+  ],
+  "micro_asymmetry_rules": [
+    "tiny left/right brow height variation",
+    "tiny eyelid openness variation",
+    "tiny mouth-corner variation",
+    "small highlight-distribution variation",
+    "never alter eye spacing, nose proportion, jaw geometry or overall face identity"
+  ],
+  "lens_response_rules": [
+    "soft highlight roll-off",
+    "shadow detail retention",
+    "natural local micro-contrast",
+    "face focus strongest but not digitally cut out",
+    "peripheral cloth can resolve slightly softer than the face",
+    "no edge halos",
+    "no global clarity/HDR look"
+  ],
+  "principle": "Beauty without CG: realism should come from soft structure, regional optics, small asymmetries, eye anatomy, hair irregularity and camera response rather than larger pores, aging cues or global sharpening."
+}

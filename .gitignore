@@ -1,0 +1,15 @@
+# Local outputs and dependencies
+/dist/
+/node_modules/
+/coverage/
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+Thumbs.db
+
+# Machine-local configuration and credentials
+.env
+.env.*
+!.env.example
+/.codex/

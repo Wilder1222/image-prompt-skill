@@ -1,0 +1,57 @@
+{
+  "version": "0.7.9",
+  "default": "youthful_18_22",
+  "profiles": {
+    "youthful_18_22": {
+      "age_ceiling": 22,
+      "age_floor": 18,
+      "enabled": true,
+      "suppress": [
+        "heavy_under_eye_shadow",
+        "sunken_cheeks",
+        "strong_cheekbone_carving",
+        "harsh_nasolabial_shaping",
+        "facial_fatigue",
+        "stern_mature_model_read",
+        "age_up_via_realism"
+      ],
+      "preserve": [
+        "cheek_softness",
+        "youthful_skin_homogeneity",
+        "clear_eye_energy",
+        "soft_jaw_transition",
+        "delicate_makeup"
+      ],
+      "prompt_translation": [
+        "Keep the visual age in the youthful 18–22 range.",
+        "Do not create mature fatigue, hollow cheeks, deep eye sockets, heavy under-eye darkness or a stern older fashion-model impression.",
+        "Preserve youthful cheek softness and clear facial energy while allowing only subtle natural skin realism."
+      ]
+    },
+    "young_adult_20_26": {
+      "age_ceiling": 26,
+      "age_floor": 20,
+      "enabled": true,
+      "suppress": [
+        "age_inflation",
+        "fatigue",
+        "deep_wrinkles",
+        "hollowing"
+      ],
+      "preserve": [
+        "young_adult_fullness",
+        "clean_skin",
+        "stable_identity"
+      ],
+      "prompt_translation": [
+        "Keep a refined young-adult impression without aging the character up.",
+        "Allow restrained maturity through gaze and presentation, not through fatigue or facial hollowing."
+      ]
+    },
+    "none": {
+      "enabled": false,
+      "prompt_translation": []
+    }
+  },
+  "principle": "maturity guard limits unwanted age drift; it does not force childishness."
+}

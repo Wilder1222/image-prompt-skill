@@ -1,0 +1,38 @@
+{
+  "version": "0.8.1",
+  "default": "monumental_subordinate",
+  "profiles": {
+    "monumental_subordinate": {
+      "purpose": [
+        "mythic_scale",
+        "oriental_world_identity",
+        "depth",
+        "atmospheric_support"
+      ],
+      "detail_policy": "softened_selective",
+      "contrast_policy": "below_character_focal_zone",
+      "head_zone_policy": "reduce_hard_detail_around_head_and_upper_torso",
+      "allowed_elements": [
+        "palace_silhouettes",
+        "towers",
+        "banners",
+        "sacred_architecture",
+        "clouds",
+        "mist",
+        "luminous_depth_layers"
+      ],
+      "rules": [
+        "Keep monumental scale but lower local architectural resolution.",
+        "Use mist, silhouette layering and atmospheric separation instead of literal architectural description.",
+        "Do not place the strongest background contrast or hard edges directly behind the face.",
+        "Background should support the character, never form a second subject."
+      ],
+      "anti_patterns": [
+        "second_subject_background",
+        "hard_architecture_around_face",
+        "background_same_contrast_as_subject",
+        "overdescribed_palaces"
+      ]
+    }
+  }
+}

@@ -1,0 +1,142 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { validatePluginSupport } from './plugin-support.mjs';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const manifestName = 'RELEASE-MANIFEST.json';
+const ignored = new Set(['.git', '.codex', 'node_modules', 'dist', 'coverage', '.DS_Store', 'Thumbs.db', '__pycache__', '.env']);
+const ignoredPatterns = ['.env.* (except .env.example)', '*.log', '*.py[cod]'];
+
+export function releaseFiles(base) {
+  function walk(dir) {
+    return fs.readdirSync(path.join(base, dir), { withFileTypes: true }).flatMap(entry => {
+      if (ignored.has(entry.name) || (entry.name.startsWith('.env.') && entry.name !== '.env.example') || entry.name.endsWith('.log') || /\.py[cod]$/.test(entry.name)) return [];
+      const relative = dir ? `${dir}/${entry.name}` : entry.name;
+      if (entry.isSymbolicLink()) throw new Error(`release cannot include symlink: ${relative}`);
+      if (entry.isDirectory()) return walk(relative);
+      return relative === manifestName ? [] : [relative];
+    });
+  }
+  return walk('').sort();
+}
+
+function snapshot(base) {
+  const pkg = JSON.parse(fs.readFileSync(path.join(base, 'package.json'), 'utf8'));
+  const files = releaseFiles(base);
+  return { name: 'image-prompt-skill', version: pkg.version, manifest_schema: 2,
+    excludes: [manifestName, ...ignored, ...ignoredPatterns].sort(), file_count: files.length, files,
+    sha256: Object.fromEntries(files.map(file => [file,
+      crypto.createHash('sha256').update(fs.readFileSync(path.join(base, file))).digest('hex')])) };
+}
+
+export function validateProject(base, { manifest = true } = {}) {
+  const errors = [];
+  const files = releaseFiles(base);
+  const json = name => JSON.parse(fs.readFileSync(path.join(base, name), 'utf8'));
+  for (const file of ['SKILL.md', 'package.json', 'agents/openai.yaml', 'scripts/iteration-director.mjs',
+    'scripts/asset-master.mjs', 'references/routes/asset-master-workflow.md',
+    'resources/asset_presentation_v084_catalog.json', 'references/routes/benchmark-costume-refinement.md',
+    '.codex-plugin/plugin.json', 'skills/image-prompt-skill/SKILL.md', 'scripts/plugin-support.mjs']) {
+    if (!files.includes(file)) errors.push(`missing required file: ${file}`);
+  }
+  if (files.includes('SKILL.md')) {
+    const skill = fs.readFileSync(path.join(base, 'SKILL.md'), 'utf8');
+    const frontmatter = skill.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    if (!frontmatter || !/^name: image-prompt-skill$/m.test(frontmatter[1]) || !/^description: .+/m.test(frontmatter[1])) errors.push('SKILL.md requires name and description frontmatter');
+  }
+  // Validate linked files in maintained instructions; historical reports can link old artifacts.
+  for (const file of files.filter(f => f.endsWith('.md') && (['SKILL.md', 'README.md'].includes(f) || f.startsWith('references/') || f.startsWith('templates/') || f.startsWith('skills/')))) {
+    const body = fs.readFileSync(path.join(base, file), 'utf8');
+    for (const match of body.matchAll(/\[[^\]]*\]\(([^)\s]+)\)/g)) {
+      const target = match[1];
+      if (/^(?:[a-z]+:|#)/i.test(target)) continue;
+      const linked = path.resolve(base, path.dirname(file), decodeURIComponent(target.split('#')[0]));
+      if (!fs.existsSync(linked)) errors.push(`${file}: missing linked file ${target}`);
+    }
+  }
+  for (const file of files.filter(f => f.endsWith('.json'))) {
+    try { json(file); } catch { errors.push(`invalid JSON: ${file}`); }
+  }
+  errors.push(...validatePluginSupport(base).errors);
+  try {
+    const presetCatalog = json('resources/asset_master_pipeline_v082_catalog.json');
+    const bindings = {
+      face_profile: ['face_profile_v082_catalog.json', 'profiles'],
+      proportion_profile: ['fashion_asset_v082_catalog.json', 'profiles'],
+      material_profile: ['material_separation_v082_catalog.json', 'profiles'],
+      hand_mode: ['hand_pose_v082_catalog.json', 'modes'],
+      asset_profile: ['asset_master_v082_catalog.json', 'profiles'],
+      lighting_profile: ['studio_lighting_v082_catalog.json', 'profiles'],
+      maturity_guard: ['maturity_guard_catalog.json', 'profiles'],
+      render_mode: ['render_mode_catalog.json', 'modes'],
+    };
+    for (const [name, preset] of Object.entries(presetCatalog.presets)) {
+      for (const [key, [file, section]] of Object.entries(bindings)) {
+        if (!Object.hasOwn(json(`resources/${file}`)[section], preset[key])) errors.push(`${name}: unknown ${key} ${preset[key]}`);
+      }
+      const face = json('resources/face_profile_v082_catalog.json').profiles[preset.face_profile];
+      if (face && face.base_mode !== preset.legacy_face_mode) errors.push(`${name}: legacy face mode disagrees with face profile`);
+    }
+    const faceCatalog = json('resources/face_profile_v082_catalog.json');
+    const modes = json('resources/face_mode_catalog.json').modes;
+    const guards = json('resources/maturity_guard_catalog.json').profiles;
+    for (const [name, profile] of Object.entries(faceCatalog.profiles)) {
+      if (!Object.hasOwn(modes, profile.base_mode)) errors.push(`${name}: unknown base face mode`);
+      if (!Object.hasOwn(guards, profile.maturity_guard)) errors.push(`${name}: unknown maturity guard`);
+    }
+    if (!Object.hasOwn(presetCatalog.presets, presetCatalog.default)) errors.push('unknown default asset preset');
+    const presentation = json('resources/asset_presentation_v084_catalog.json');
+    if (!Object.hasOwn(presentation.profiles, presentation.default)) errors.push('unknown default presentation profile');
+    for (const [name, profile] of Object.entries(presentation.profiles)) {
+      for (const key of ['asset_prompt_translation', 'proportion_prompt_translation', 'generation_prompt_translation']) {
+        const value = profile[key];
+        if (value === null && key !== 'generation_prompt_translation') continue;
+        if (!Array.isArray(value) || value.some(line => typeof line !== 'string' || !line.trim())) errors.push(`${name}: invalid ${key}`);
+      }
+    }
+    for (const mode of ['portrait_expand', 'full_body_anchor']) {
+      if (!Object.hasOwn(presentation.reference_modes, mode)) errors.push(`missing reference mode ${mode}`);
+    }
+    const anchorPrompts = presentation.reference_modes.full_body_anchor?.prompt_translation;
+    if (!Array.isArray(anchorPrompts) || !anchorPrompts.length || anchorPrompts.some(line => typeof line !== 'string' || !line.trim())) errors.push('invalid full-body anchor prompts');
+    const rounds = json('resources/repair_round_catalog.json').rounds;
+    for (const [name, round] of Object.entries(rounds)) {
+      if (round.editable.some(id => round.locked.includes(id))) errors.push(`${name}: editable/locked overlap`);
+    }
+    for (const [name, diagnostic] of Object.entries(json('resources/diagnostic_catalog.v07.json').failures)) {
+      // Planning diagnostics repair reference assignments before an image-edit round exists.
+      if (!['current_round', 'planning'].includes(diagnostic.round) && !Object.hasOwn(rounds, diagnostic.round)) errors.push(`${name}: unknown repair round ${diagnostic.round}`);
+    }
+  } catch (error) { errors.push(`catalog validation: ${error.message}`); }
+  if (manifest) {
+    try {
+      const actual = snapshot(base), saved = json(manifestName);
+      for (const key of ['name', 'version', 'manifest_schema', 'file_count', 'excludes', 'files']) {
+        if (JSON.stringify(actual[key]) !== JSON.stringify(saved[key])) errors.push(`manifest ${key} is stale; run npm run release:build`);
+      }
+      for (const file of actual.files) if (saved.sha256?.[file] !== actual.sha256[file]) errors.push(`manifest hash mismatch: ${file}`);
+      if (Object.keys(saved.sha256 ?? {}).length !== actual.files.length) errors.push('manifest hash inventory is stale');
+    } catch (error) { errors.push(`manifest validation: ${error.message}`); }
+  }
+  return { status: errors.length ? 'fail' : 'pass', errors, checked_files: files.length,
+    visual_quality_verified: false };
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  try {
+    const command = process.argv[2] ?? 'check';
+    if (!['build', 'check'].includes(command) || process.argv.length > 3) throw new Error('usage: node scripts/release-check.mjs build|check');
+    let report = validateProject(root, { manifest: command !== 'build' });
+    if (command === 'build' && report.status === 'pass') {
+      fs.writeFileSync(path.join(root, manifestName), `${JSON.stringify(snapshot(root), null, 2)}\n`);
+      report = validateProject(root);
+    }
+    console.log(JSON.stringify(report, null, 2));
+    process.exitCode = report.status === 'pass' ? 0 : 1;
+  } catch (error) {
+    console.error(JSON.stringify({ status: 'fail', error: error.message }));
+    process.exitCode = 1;
+  }
+}

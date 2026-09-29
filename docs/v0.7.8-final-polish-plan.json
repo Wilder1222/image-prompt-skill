@@ -1,0 +1,35 @@
+{
+  "round_plan": {
+    "round": "final_photographic_polish",
+    "editable": [
+      "local_microcontrast",
+      "highlight_rolloff",
+      "focus_hierarchy",
+      "material_highlight_balance",
+      "white_background_tone",
+      "final_camera_response"
+    ],
+    "locked": [
+      "all_semantic_design_dimensions",
+      "approved_p9",
+      "approved_human_presence",
+      "approved_material_behavior",
+      "pose",
+      "composition"
+    ],
+    "forbidden": [
+      "semantic_redesign",
+      "global_sharpening",
+      "p9_reopen",
+      "face_reopen",
+      "costume_reopen"
+    ],
+    "prompt_strategy": "camera-response polish only after all semantic and material dimensions pass; no redesign"
+  },
+  "prompt_skeleton": [
+    "Keep every approved semantic design dimension locked.",
+    "Refine only local microcontrast, highlight roll-off, focus hierarchy, material-specific highlight balance, white-background tone and final camera response.",
+    "Do not use global sharpening, HDR clarity or extreme shallow depth of field."
+  ],
+  "note": "Run only after P9 persistence, body presence and photographic fabric rounds pass."
+}

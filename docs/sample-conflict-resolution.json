@@ -1,0 +1,22 @@
+{
+  "conflicts": [
+    {
+      "id": "asset_pose_vs_dynamic_style",
+      "hybrid_resolution": "keep core pose unless authorized; move dynamic style into hair/fabric/composition energy"
+    },
+    {
+      "id": "realism_vs_painterly_atmosphere",
+      "hybrid_resolution": "apply realism to human/material behavior; preserve stylized atmosphere at R1/R2"
+    }
+  ],
+  "priority_order": [
+    "P0_identity",
+    "P1_asset_continuity",
+    "P1M_render_mode",
+    "P2_style_restoration",
+    "P2R_reality_gain",
+    "P3_material_lighting",
+    "P4_micro_quality"
+  ],
+  "status": "needs_resolution"
+}

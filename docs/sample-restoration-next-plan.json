@@ -1,0 +1,43 @@
+{
+  "first_focus": "style_underrestored",
+  "priority": "P2S",
+  "recommended_round": "style_restoration",
+  "round_plan": {
+    "round": "style_restoration",
+    "editable": [
+      "render_mode",
+      "style_mood",
+      "style_motion",
+      "style_lighting_language",
+      "style_atmosphere",
+      "style_medium",
+      "style_environment_scale"
+    ],
+    "locked": [
+      "face_identity_geometry",
+      "facial_maturity",
+      "body_proportion",
+      "garment_silhouette",
+      "garment_structure",
+      "signature_accessories"
+    ],
+    "forbidden": [
+      "copy_style_reference_face",
+      "copy_style_reference_body",
+      "copy_style_reference_costume_geometry"
+    ],
+    "prompt_strategy": "restore authorized style channels only; lock identity/body/garment architecture"
+  },
+  "failures": [
+    {
+      "id": "style_underrestored",
+      "priority": "P2S",
+      "round": "style_restoration"
+    },
+    {
+      "id": "realism_undershoot",
+      "priority": "P2R",
+      "round": "realism_merge"
+    }
+  ]
+}

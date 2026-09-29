@@ -1,0 +1,26 @@
+{
+  "version": "0.8.2",
+  "default": "ancient_female_white_master",
+  "presets": {
+    "ancient_female_white_master": {
+      "render_mode": "style_asset",
+      "face_profile": "beauty_first_character",
+      "proportion_profile": "P9_FASHION_ASSET",
+      "material_profile": "ancient_asset_material_split",
+      "hand_mode": "elegant_crossed_hands_safe",
+      "asset_profile": "master_sheet_single",
+      "lighting_profile": "studio_soft_separation",
+      "legacy_face_mode": "beauty_first",
+      "maturity_guard": "youthful_18_22"
+    }
+  },
+  "priority": [
+    "face_profile",
+    "asset_structure",
+    "fashion_proportion",
+    "hand_integrity",
+    "material_separation",
+    "studio_lighting",
+    "micro_quality"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "checked_on": "2026-09-26",
+  "sources": [
+    {
+      "id": "OPENAI-IMAGE-PROMPTING",
+      "url": "https://developers.openai.com/api/docs/guides/image-prompting",
+      "note": "Assign roles to references; separate changes from constraints; iterate deliberately."
+    },
+    {
+      "id": "MIDJOURNEY-EDIT",
+      "url": "https://docs.midjourney.com/hc/en-us/articles/48495453462797-Edit-Model",
+      "note": "V8.2 Edit Model supports editing and up to four reference images."
+    },
+    {
+      "id": "MIDJOURNEY-STYLE",
+      "url": "https://docs.midjourney.com/hc/en-us/articles/32180011136653-Style-Reference",
+      "note": "Style Reference is a distinct input type for look and feel."
+    },
+    {
+      "id": "GEMINI-IMAGE",
+      "url": "https://ai.google.dev/gemini-api/docs/image-generation",
+      "note": "Multiple references and character consistency workflows; editing guidance emphasizes preserving non-target content."
+    },
+    {
+      "id": "BFL-FLUX2-EDIT",
+      "url": "https://docs.bfl.ai/flux_2/flux2_image_editing",
+      "note": "FLUX.2 supports multi-reference image editing."
+    },
+    {
+      "id": "BFL-FLUX2-PROMPTING",
+      "url": "https://docs.bfl.ai/guides/prompting_guide_flux2",
+      "note": "Word order matters; put main subject and critical constraints first; no negative prompts."
+    }
+  ],
+  "project_heuristics": [
+    "Reference Fidelity 0-3",
+    "Completion C0-C3",
+    "Human Presence H0-H3",
+    "Design Density Preservation",
+    "Wear State W0-W4",
+    "Style-on-Asset render mode"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mode": "hybrid",
+  "priority": [
+    "identity",
+    "asset_continuity",
+    "style_restoration",
+    "reality_gain",
+    "material_lighting_integration",
+    "micro_quality"
+  ]
+}

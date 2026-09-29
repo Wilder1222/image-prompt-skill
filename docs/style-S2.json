@@ -1,0 +1,21 @@
+{
+  "level": "S2",
+  "label": "clear_restoration",
+  "channels": [
+    "mood",
+    "motion_language",
+    "lighting_language",
+    "atmosphere",
+    "color_relationships",
+    "medium_language",
+    "composition_energy"
+  ],
+  "forbidden_borrow": [
+    "face_identity_geometry",
+    "body_proportion",
+    "garment_silhouette",
+    "garment_structure",
+    "signature_accessories",
+    "age_identity"
+  ]
+}

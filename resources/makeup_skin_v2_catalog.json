@@ -1,0 +1,25 @@
+{
+  "version": "0.7.7",
+  "name": "makeup_skin_integration_v2",
+  "controls": {
+    "foundation_coverage": "light",
+    "skin_visibility": "high",
+    "brow_density_variation": "natural",
+    "eyeliner_edge": "softened",
+    "lash_density": "moderate",
+    "eyeshadow_blend": "anatomical",
+    "blush": "low_saturation",
+    "lip_coverage": "semi_transparent",
+    "lip_color_uniformity": "slight_variation"
+  },
+  "prompt_translation": [
+    "Make makeup sit on top of real skin rather than replacing the skin surface.",
+    "Keep foundation light, eyebrow density naturally varied, eyeliner softened into the lash root, eyeshadow blended with eye-socket structure and lip color slightly non-uniform."
+  ],
+  "forbidden": [
+    "opaque_foundation_mask",
+    "vector_eyeliner",
+    "uniform_brow_stamp",
+    "flat_lip_fill"
+  ]
+}

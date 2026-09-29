@@ -1,0 +1,12 @@
+{
+  "version": "0.7.4",
+  "default_policy": "preserve",
+  "levels": {
+    "W0": "clean",
+    "W1": "lightly_worn",
+    "W2": "distressed",
+    "W3": "battle_worn",
+    "W4": "ruined"
+  },
+  "max_auto_delta": 0
+}

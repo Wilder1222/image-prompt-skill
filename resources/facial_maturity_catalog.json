@@ -1,0 +1,86 @@
+{
+  "version": "0.7.1",
+  "default_target": "M2.5",
+  "max_delta_per_round": 1.0,
+  "levels": {
+    "M0": {
+      "label": "strongly_youthful",
+      "identity_geometry_policy": "locked",
+      "cheek_softness": "high",
+      "eye_openness": "high",
+      "gaze_stability": "open_youthful",
+      "jaw_definition": "very_soft",
+      "makeup_contrast": "fresh_high",
+      "aging_cues": "none"
+    },
+    "M1": {
+      "label": "youthful_fresh",
+      "identity_geometry_policy": "locked",
+      "cheek_softness": "medium_high",
+      "eye_openness": "natural_open",
+      "gaze_stability": "soft",
+      "jaw_definition": "soft",
+      "makeup_contrast": "fresh",
+      "aging_cues": "none"
+    },
+    "M2": {
+      "label": "young_adult_refined",
+      "identity_geometry_policy": "locked",
+      "cheek_softness": "medium",
+      "eye_openness": "natural",
+      "gaze_stability": "calm",
+      "jaw_definition": "clear_soft",
+      "makeup_contrast": "moderate_refined",
+      "aging_cues": "none"
+    },
+    "M2.5": {
+      "label": "light_mature_high_end_young_adult",
+      "identity_geometry_policy": "locked",
+      "cheek_softness": "medium_low_but_not_hollow",
+      "eye_openness": "slightly_restrained_same_geometry",
+      "gaze_stability": "steady_composed",
+      "jaw_definition": "clear_not_sharp",
+      "makeup_contrast": "restrained_editorial",
+      "expression": "calm_refined_not_cold",
+      "aging_cues": "none"
+    },
+    "M3": {
+      "label": "cool_mature",
+      "identity_geometry_policy": "locked",
+      "cheek_softness": "low_medium",
+      "eye_openness": "restrained",
+      "gaze_stability": "cool_composed",
+      "jaw_definition": "defined",
+      "makeup_contrast": "controlled_low_medium",
+      "aging_cues": "none_unless_requested"
+    },
+    "M4": {
+      "label": "strong_authoritative_mature",
+      "identity_geometry_policy": "locked_unless_user_authorizes_shape_change",
+      "cheek_softness": "low",
+      "eye_openness": "restrained",
+      "gaze_stability": "authoritative",
+      "jaw_definition": "strong_clear",
+      "makeup_contrast": "controlled",
+      "aging_cues": "none_by_default"
+    }
+  },
+  "preferred_signals": [
+    "gaze_stability",
+    "expression_restraint",
+    "makeup_restraint",
+    "cheek_softness_delta_small",
+    "eye_openness_delta_small",
+    "jaw_clarity_small"
+  ],
+  "forbidden_for_light_maturity": [
+    "sharp_chin",
+    "major_face_length_change",
+    "major_eye_geometry_change",
+    "narrow_nose_geometry",
+    "hollow_cheeks",
+    "wrinkles",
+    "sagging",
+    "pigmentation_aging"
+  ]
+}

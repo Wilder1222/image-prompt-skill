@@ -1,0 +1,126 @@
+{
+  "version": "0.7.9",
+  "default": "beauty_first",
+  "principle": "face direction is style-dependent; beauty, age impression and identity can take priority over maximum facial photorealism.",
+  "modes": {
+    "beauty_first": {
+      "label": "Beauty-First Face",
+      "goal": "preserve youthful attractiveness, elegance and character appeal before increasing facial realism",
+      "age_target": "18_22",
+      "preserve_beauty_priority": "high",
+      "face_realism": "low_medium",
+      "non_face_realism": "high",
+      "controls": {
+        "face_softness": "high",
+        "cheek_soft_tissue": "medium_high",
+        "jaw_sharpness": "low",
+        "eye_attractiveness": "high",
+        "eye_realism_pressure": "low_medium",
+        "under_eye_shadow": "low",
+        "nose_realism_pressure": "low_medium",
+        "lip_softness": "medium_high",
+        "skin_microtexture": "light",
+        "pore_visibility": "subtle",
+        "reflectance_variation": "subtle"
+      },
+      "preferred_signals": [
+        "youthful cheek softness",
+        "clear lively eyes",
+        "soft oval facial read",
+        "delicate natural makeup",
+        "clean youthful skin"
+      ],
+      "avoid": [
+        "heavy eyelid depth",
+        "strong under-eye darkness",
+        "hollow cheeks",
+        "harsh cheekbone carving",
+        "severe jaw definition",
+        "mature editorial fatigue",
+        "age-up through realism"
+      ],
+      "prompt_translation": [
+        "Preserve a youthful, elegant and beautiful face as the highest facial priority.",
+        "Keep soft cheek tissue, a refined oval facial read and clear youthful eyes; do not age the character up in order to make the face more realistic.",
+        "Use only light facial realism: delicate skin response, natural lips and brows, restrained eye definition and soft youthful facial volume.",
+        "Put stronger realism into hair, body, hands, costume materials and lighting rather than forcing the face toward a mature fashion-model look."
+      ]
+    },
+    "humanized_real": {
+      "label": "Humanized Real Face",
+      "goal": "increase photographic human presence while preserving identity and attractiveness",
+      "age_target": "22_28",
+      "preserve_beauty_priority": "medium",
+      "face_realism": "medium_high",
+      "non_face_realism": "high",
+      "controls": {
+        "face_softness": "medium",
+        "cheek_soft_tissue": "medium",
+        "jaw_sharpness": "medium",
+        "eye_attractiveness": "medium",
+        "eye_realism_pressure": "medium_high",
+        "under_eye_shadow": "subtle",
+        "nose_realism_pressure": "high",
+        "lip_softness": "medium",
+        "skin_microtexture": "medium",
+        "pore_visibility": "subtle_medium",
+        "reflectance_variation": "medium"
+      },
+      "preferred_signals": [
+        "believable eyelid anatomy",
+        "regional skin optics",
+        "natural nose and lip structure",
+        "soft tissue planes",
+        "photographic restraint"
+      ],
+      "avoid": [
+        "plastic skin",
+        "overly idealized game face",
+        "flat facial planes",
+        "identity reshaping"
+      ],
+      "prompt_translation": [
+        "Increase realistic human presence in the face while preserving the approved identity and attractiveness.",
+        "Use believable eyelid anatomy, soft tissue, regional skin response and natural nose/lip structure instead of plastic CG smoothness.",
+        "Keep the face young and attractive; realism must not become fatigue, hollowness or age inflation."
+      ]
+    },
+    "stylized_beauty": {
+      "label": "Stylized Beauty Face",
+      "goal": "preserve idealized visual appeal and stylized facial design with only minimal realism pressure",
+      "age_target": "18_24",
+      "preserve_beauty_priority": "very_high",
+      "face_realism": "low",
+      "non_face_realism": "medium_high",
+      "controls": {
+        "face_softness": "medium_high",
+        "cheek_soft_tissue": "medium",
+        "jaw_sharpness": "low_medium",
+        "eye_attractiveness": "very_high",
+        "eye_realism_pressure": "low",
+        "under_eye_shadow": "very_low",
+        "nose_realism_pressure": "low",
+        "lip_softness": "high",
+        "skin_microtexture": "very_light",
+        "pore_visibility": "minimal",
+        "reflectance_variation": "subtle"
+      },
+      "preferred_signals": [
+        "idealized beauty",
+        "clean facial design",
+        "controlled stylization",
+        "soft luminous complexion"
+      ],
+      "avoid": [
+        "excessive realism aging",
+        "harsh texture emphasis",
+        "strong photographic age cues"
+      ],
+      "prompt_translation": [
+        "Preserve the stylized beauty design and idealized facial appeal.",
+        "Use only minimal skin realism and keep the face polished, youthful and intentionally stylized.",
+        "Apply stronger realism to materials, body, hands, hair physics and lighting without forcing the face into photographic realism."
+      ]
+    }
+  }
+}

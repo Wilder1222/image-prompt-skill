@@ -1,0 +1,47 @@
+{
+  "version": "0.7.7",
+  "default": "asset_balanced",
+  "profiles": {
+    "portrait_priority": {
+      "face": 1.0,
+      "eyes": 1.0,
+      "upper_body": 0.9,
+      "hands": 0.8,
+      "main_skirt": 0.6,
+      "sheer_outer_layer": 0.5,
+      "hem_edge": 0.4,
+      "background": 0.25
+    },
+    "asset_balanced": {
+      "face": 1.0,
+      "upper_body": 0.95,
+      "waist": 0.92,
+      "hands": 0.92,
+      "main_skirt": 0.88,
+      "sheer_outer_layer": 0.8,
+      "hem_edge": 0.78,
+      "background": 0.55
+    },
+    "full_detail": {
+      "face": 1.0,
+      "upper_body": 0.98,
+      "waist": 0.96,
+      "hands": 0.96,
+      "main_skirt": 0.94,
+      "sheer_outer_layer": 0.9,
+      "hem_edge": 0.88,
+      "background": 0.65
+    }
+  },
+  "rules": [
+    "face_priority_must_exceed_skirt",
+    "background_is_lowest_attention",
+    "asset_mode_uses_moderate_depth_not_extreme_shallow_dof",
+    "soft_highlight_rolloff",
+    "no_global_equal_sharpness"
+  ],
+  "prompt_translation": [
+    "Keep the face as the strongest focus, the upper body and hands crisp, the full costume asset-readable, and allow peripheral sheer layers and hem edges to resolve slightly softer.",
+    "Use natural highlight roll-off and moderate depth rather than equal digital sharpness across the whole frame."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "version": "0.7.7",
+  "default": "H2.7",
+  "principle": "Photographic human presence comes from optical coherence, soft-tissue plausibility, makeup-skin integration, hair frequency hierarchy and photographic focus behavior while identity geometry and accepted P9 proportion remain locked.",
+  "levels": {
+    "H2": {
+      "label": "refined_human_presence",
+      "face_optics_gain": 0.65,
+      "hair_camera_gain": 0.6,
+      "age_shift": "none"
+    },
+    "H2.5": {
+      "label": "photographic_transition",
+      "face_optics_gain": 0.8,
+      "hair_camera_gain": 0.75,
+      "age_shift": "none"
+    },
+    "H2.7": {
+      "label": "photographic_asset",
+      "face_optics_gain": 0.9,
+      "hair_camera_gain": 0.86,
+      "age_shift": "none",
+      "rounds": [
+        "human_face_optical_refine",
+        "human_camera_hair_refine"
+      ]
+    },
+    "H3": {
+      "label": "strong_photographic_presence",
+      "face_optics_gain": 0.96,
+      "hair_camera_gain": 0.95,
+      "age_shift": "none_by_default"
+    }
+  },
+  "forbidden_shortcuts": [
+    "coarse_pore_stack",
+    "random_skin_mottling",
+    "aging_cues",
+    "face_reshape",
+    "forced_face_asymmetry",
+    "global_sharpening",
+    "paper_white_sclera",
+    "gem_eye_rendering"
+  ],
+  "prompt_translation": [
+    "Keep the approved identity geometry and P9 fashion proportion locked; change photographic human presence only.",
+    "Solve face optics first, then lock that result before hair and camera refinement.",
+    "Do not use more pores, stronger sharpening, aging cues or deliberate facial asymmetry as realism shortcuts."
+  ]
+}

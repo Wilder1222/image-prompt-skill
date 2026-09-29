@@ -1,0 +1,38 @@
+{
+  "name": "image-prompt-skill",
+  "version": "0.7.4",
+  "status": "pass",
+  "unit_tests": {
+    "tests": 58,
+    "pass": 58,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "validation": {
+    "status": "pass",
+    "errors": [],
+    "references": 2,
+    "restoration_references": 2,
+    "rounds": 13,
+    "maturity_levels": 6,
+    "style_levels": 4,
+    "reality_levels": 4,
+    "render_modes": 4,
+    "fidelity_presets": 5,
+    "completion_levels": 4,
+    "human_presence_levels": 4,
+    "completion_budget_levels": 4,
+    "density_budget_profiles": 3,
+    "wear_budget_levels": 5,
+    "human_presence_v2_levels": 4,
+    "extremity_levels": 4
+  },
+  "real_image_evidence": {
+    "silver_case": "environment/identity passed; human presence and completion scale partial; hand digit error observed then locally repaired",
+    "cyber_case": "identity/design family passed; lower-body design density and wear inflation observed; human presence partial"
+  },
+  "new_media_tests_after_v074": "not_run",
+  "interpretation": "Automated pass validates planning/routing/budget logic, not image quality or exact numeric budget adherence."
+}

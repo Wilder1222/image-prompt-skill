@@ -1,0 +1,64 @@
+{
+  "version": "0.7.7",
+  "name": "young_skin_optical_variation_v2",
+  "age_policy": "young_clean_not_aged",
+  "regions": {
+    "forehead": {
+      "texture": "very_fine",
+      "specular": "low",
+      "scatter": "medium"
+    },
+    "nose_bridge": {
+      "texture": "fine",
+      "specular": "medium",
+      "scatter": "low"
+    },
+    "nose_tip": {
+      "texture": "fine",
+      "specular": "medium_high",
+      "scatter": "low"
+    },
+    "nose_wing": {
+      "texture": "fine_visible",
+      "specular": "medium",
+      "scatter": "medium"
+    },
+    "inner_cheek": {
+      "texture": "fine_visible",
+      "specular": "low",
+      "scatter": "high"
+    },
+    "outer_cheek": {
+      "texture": "very_fine",
+      "specular": "low",
+      "scatter": "high"
+    },
+    "eye_area": {
+      "texture": "delicate",
+      "specular": "low",
+      "scatter": "medium",
+      "tone_variation": "subtle"
+    },
+    "chin": {
+      "texture": "fine",
+      "specular": "low",
+      "scatter": "medium"
+    },
+    "lips": {
+      "material": "separate",
+      "micro_lines": "subtle"
+    }
+  },
+  "prompt_translation": [
+    "Keep young skin overall clean and relatively even, but vary optical response by facial region.",
+    "Use fine texture around nose wings and inner cheeks, softer diffusion on outer cheeks, thinner eye-area response and separate lip material.",
+    "Let forehead, nose bridge, nose tip, cheeks and lips carry different highlight strengths instead of one uniform polished surface."
+  ],
+  "forbidden": [
+    "full_face_pores",
+    "heavy_freckles",
+    "rough_skin",
+    "visible_acne",
+    "aged_texture"
+  ]
+}

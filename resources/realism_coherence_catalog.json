@@ -1,0 +1,12 @@
+{
+  "version": "0.7.6",
+  "channels": ["eyes", "skin", "lips", "brows_lashes", "hair", "makeup", "adjacent_costume", "camera_response"],
+  "default_rule": "adjacent realism channels should stay within one internal tier",
+  "repair_order": ["eyes_skin", "makeup_skin", "hair", "camera_focus", "adjacent_material_highlights"],
+  "failure_codes": [
+    "realism_mismatch_eye_skin",
+    "realism_mismatch_face_hair",
+    "realism_mismatch_face_costume",
+    "realism_channel_overprocessed"
+  ]
+}

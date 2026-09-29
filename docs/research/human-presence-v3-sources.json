@@ -1,0 +1,76 @@
+{
+  "version": "0.7.6",
+  "checked_on": "2026-09-27",
+  "sources": [
+    {
+      "id": "OAI-IMAGE-PROMPT",
+      "title": "OpenAI Image prompting",
+      "url": "https://developers.openai.com/api/docs/guides/image-prompting",
+      "kind": "official_documentation",
+      "scope": "reference roles, change-vs-preserve, iterative editing"
+    },
+    {
+      "id": "GEMINI-IMAGE",
+      "title": "Gemini image generation",
+      "url": "https://ai.google.dev/gemini-api/docs/image-generation",
+      "kind": "official_documentation",
+      "scope": "multi-turn image editing, photorealistic camera language, reference fidelity"
+    },
+    {
+      "id": "FLUX2-PROMPT",
+      "title": "FLUX.2 prompting guide",
+      "url": "https://docs.bfl.ai/guides/prompting_guide_flux2",
+      "kind": "official_documentation",
+      "scope": "word order, photorealism, camera/lens references, multi-reference roles"
+    },
+    {
+      "id": "SEEDREAM-API",
+      "title": "Volcengine Image Generation API",
+      "url": "https://docs.volcengine.com/docs/ark/image-generation-api?lang=en",
+      "kind": "official_documentation",
+      "scope": "multi-reference image generation and prompt-length guidance"
+    },
+    {
+      "id": "MJ-EDIT",
+      "title": "Midjourney Edit Model",
+      "url": "https://docs.midjourney.com/hc/en-us/articles/48495453462797-Edit-Model",
+      "kind": "official_documentation",
+      "scope": "instruction-based editing, multi-reference, inpainting/outpainting"
+    },
+    {
+      "id": "PMC-SKIN-OPTICS",
+      "title": "Effect of skin color on optical properties and implications for medical optical technologies",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10807857/",
+      "kind": "peer_reviewed_review",
+      "scope": "human skin absorption and scattering behavior"
+    },
+    {
+      "id": "PMC-SKIN-HOMOGENEITY",
+      "title": "Your face looks the same as before, only prettier",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9667065/",
+      "kind": "peer_reviewed_article",
+      "scope": "skin homogeneity, youth/health/attractiveness perception"
+    },
+    {
+      "id": "PMC-UNCANNY-CG",
+      "title": "Too real for comfort? Uncanny responses to computer generated faces",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4264966/",
+      "kind": "peer_reviewed_article",
+      "scope": "eye/skin realism mismatch and CG face perception"
+    },
+    {
+      "id": "PMC-SCLERA",
+      "title": "The adaptive significance of human scleral brightness",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9691750/",
+      "kind": "peer_reviewed_article",
+      "scope": "scleral brightness, youth/health cues, limits of extra whitening"
+    },
+    {
+      "id": "PMC-SYMMETRY",
+      "title": "Attraction independent of detection suggests special mechanisms for symmetry preferences in human face perception",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1679900/",
+      "kind": "peer_reviewed_article",
+      "scope": "facial symmetry preference; basis for downgrading forced asymmetry"
+    }
+  ]
+}

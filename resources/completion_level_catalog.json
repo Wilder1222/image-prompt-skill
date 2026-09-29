@@ -1,0 +1,30 @@
+{
+  "version": "0.7.4",
+  "default": "C1",
+  "levels": {
+    "C0": {
+      "label": "strict_completion",
+      "new_major_design": false,
+      "new_secondary_design": false,
+      "density_delta": 0
+    },
+    "C1": {
+      "label": "conservative_completion",
+      "new_major_design": false,
+      "new_secondary_design": true,
+      "density_delta": 0
+    },
+    "C2": {
+      "label": "creative_completion",
+      "new_major_design": false,
+      "new_secondary_design": true,
+      "density_delta": 1
+    },
+    "C3": {
+      "label": "redesign",
+      "new_major_design": true,
+      "new_secondary_design": true,
+      "density_delta": 2
+    }
+  }
+}

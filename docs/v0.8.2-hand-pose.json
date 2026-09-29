@@ -1,0 +1,19 @@
+{
+  "mode": "elegant_crossed_hands_safe",
+  "primary_hand": "front_top_hand",
+  "secondary_hand": "supporting_lower_hand",
+  "requirements": [
+    "five_digits_each",
+    "one_thumb_four_fingers_each",
+    "natural_length_hierarchy",
+    "believable_knuckles",
+    "clear_wrist_direction",
+    "sleeve_does_not_swallow_finger_roots",
+    "hand_scale_matches_face_and_forearm"
+  ],
+  "prompt_translation": [
+    "Place both hands in a clean elegant crossed-hand arrangement in front of the body, with a clear primary hand and supporting hand rather than ambiguous interlacing.",
+    "Each visible hand must have exactly five anatomically coherent digits, natural finger-length hierarchy, believable knuckles and a clear wrist direction; sleeves must not obscure the critical finger-root structure."
+  ],
+  "principle": "Hands are a generation-time structural constraint for asset portraits, not only a post-generation repair item."
+}

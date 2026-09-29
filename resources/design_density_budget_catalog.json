@@ -1,0 +1,42 @@
+{
+  "version": "0.7.4",
+  "default_profile": "preserve",
+  "note": "Relative density budgets are internal heuristics, not measurable vendor controls.",
+  "profiles": {
+    "preserve": {
+      "primary_ornament_growth_pct_max": 0,
+      "secondary_ornament_growth_pct_max": 10,
+      "micro_detail_growth_pct_max": 10,
+      "mechanical_module_growth_pct_max": 0,
+      "chain_tassel_growth_pct_max": 0,
+      "new_zone_density_rule": "match_reference_mean_not_peak",
+      "prompt_translation": [
+        "Keep the same design density as the visible reference instead of filling newly revealed space with extra decoration.",
+        "Do not increase the count of primary ornaments, mechanical modules, chains, tassels, or signature motifs in completed regions."
+      ]
+    },
+    "reduce": {
+      "primary_ornament_growth_pct_max": -20,
+      "secondary_ornament_growth_pct_max": -20,
+      "micro_detail_growth_pct_max": -10,
+      "mechanical_module_growth_pct_max": -15,
+      "chain_tassel_growth_pct_max": -25,
+      "new_zone_density_rule": "below_reference_mean",
+      "prompt_translation": [
+        "Reduce decorative density and leave more quiet material surfaces while preserving the main identity motifs.",
+        "Use construction, fabric quality, cut, and material contrast rather than additional ornaments to carry richness."
+      ]
+    },
+    "enrich": {
+      "primary_ornament_growth_pct_max": 0,
+      "secondary_ornament_growth_pct_max": 20,
+      "micro_detail_growth_pct_max": 25,
+      "mechanical_module_growth_pct_max": 10,
+      "chain_tassel_growth_pct_max": 10,
+      "new_zone_density_rule": "up_to_reference_peak",
+      "prompt_translation": [
+        "Add limited secondary detail without creating new primary focal points or changing the design family."
+      ]
+    }
+  }
+}

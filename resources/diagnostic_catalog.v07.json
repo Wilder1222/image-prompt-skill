@@ -1,0 +1,746 @@
+{
+  "version": "0.8.2",
+  "failures": {
+    "reference_role_conflict": {
+      "priority": "P0",
+      "round": "identity_skin"
+    },
+    "trait_role_misassigned": {
+      "priority": "P0",
+      "round": "planning"
+    },
+    "trait_reference_overborrow": {
+      "priority": "P0",
+      "round": "trait_calibration"
+    },
+    "invisible_lock_claim": {
+      "priority": "P1",
+      "round": "planning"
+    },
+    "inferred_as_observed": {
+      "priority": "P1",
+      "round": "planning"
+    },
+    "edit_scope_leak": {
+      "priority": "P1",
+      "round": "current_round"
+    },
+    "identity_drift": {
+      "priority": "P0",
+      "round": "identity_skin"
+    },
+    "beauty_template_drift": {
+      "priority": "P0",
+      "round": "identity_skin"
+    },
+    "maturity_undershoot": {
+      "priority": "P0T",
+      "round": "trait_calibration"
+    },
+    "maturity_overshoot": {
+      "priority": "P0T",
+      "round": "trait_calibration"
+    },
+    "temperament_shift_over": {
+      "priority": "P0T",
+      "round": "trait_calibration"
+    },
+    "age_shift_unwanted": {
+      "priority": "P0T",
+      "round": "trait_calibration"
+    },
+    "cgi_skin": {
+      "priority": "P2",
+      "round": "identity_skin"
+    },
+    "material_flattening": {
+      "priority": "P2",
+      "round": "garment_material"
+    },
+    "embroidery_overdensity": {
+      "priority": "P2",
+      "round": "garment_material"
+    },
+    "symmetry_too_perfect": {
+      "priority": "P2",
+      "round": "garment_material"
+    },
+    "lighting_too_flat": {
+      "priority": "P3",
+      "round": "studio_polish"
+    },
+    "white_on_white_merge": {
+      "priority": "P3",
+      "round": "studio_polish"
+    },
+    "resolution_semantic_misuse": {
+      "priority": "P4",
+      "round": "upscale"
+    },
+    "asset_continuity_drift": {
+      "priority": "P1",
+      "round": "style_restoration"
+    },
+    "style_underrestored": {
+      "priority": "P2S",
+      "round": "style_restoration"
+    },
+    "style_overborrow": {
+      "priority": "P1",
+      "round": "style_restoration"
+    },
+    "realism_undershoot": {
+      "priority": "P2R",
+      "round": "realism_merge"
+    },
+    "realism_overwrite": {
+      "priority": "P2R",
+      "round": "realism_merge"
+    },
+    "material_unified_gloss": {
+      "priority": "P3",
+      "round": "realism_merge"
+    },
+    "lighting_flat_restoration": {
+      "priority": "P3",
+      "round": "cinematic_polish"
+    },
+    "atmosphere_haze_over": {
+      "priority": "P3",
+      "round": "cinematic_polish"
+    },
+    "hybrid_mode_collapse_asset": {
+      "priority": "P1M",
+      "round": "style_restoration"
+    },
+    "hybrid_mode_collapse_style": {
+      "priority": "P1M",
+      "round": "style_restoration"
+    },
+    "reference_channel_leak": {
+      "priority": "P0R",
+      "round": "reference_fidelity"
+    },
+    "reference_fidelity_conflict": {
+      "priority": "P0R",
+      "round": "reference_fidelity"
+    },
+    "completion_overdesign": {
+      "priority": "P1C",
+      "round": "completion_guard"
+    },
+    "design_density_inflation": {
+      "priority": "P1C",
+      "round": "completion_guard"
+    },
+    "wear_state_inflation": {
+      "priority": "P1C",
+      "round": "completion_guard"
+    },
+    "human_presence_undershoot": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "camera_cg_render": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "uniform_skin_response": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "symmetry_rendered": {
+      "priority": "P2H",
+      "round": "human_presence"
+    },
+    "style_asset_environment_leak": {
+      "priority": "P1M",
+      "round": "reference_fidelity"
+    },
+    "completion_budget_overrun": {
+      "priority": "P1B",
+      "round": "constraint_budget"
+    },
+    "silhouette_growth_overrun": {
+      "priority": "P1B",
+      "round": "constraint_budget"
+    },
+    "ornament_growth_overrun": {
+      "priority": "P1B",
+      "round": "constraint_budget"
+    },
+    "mechanical_module_growth_overrun": {
+      "priority": "P1B",
+      "round": "constraint_budget"
+    },
+    "wear_budget_overrun": {
+      "priority": "P1B",
+      "round": "constraint_budget"
+    },
+    "hand_digit_count_error": {
+      "priority": "P1E",
+      "round": "extremity_integrity"
+    },
+    "hand_anatomy_error": {
+      "priority": "P1E",
+      "round": "extremity_integrity"
+    },
+    "foot_anatomy_error": {
+      "priority": "P1E",
+      "round": "extremity_integrity"
+    },
+    "eye_anatomy_cg": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "hair_uniform_cg": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "highlight_rolloff_cg": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "head_visual_too_large": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "torso_visually_short": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "waistline_too_low": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "leg_extension_insufficient": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "thigh_overstretched": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "calf_overstretched": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "knee_position_low": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "pelvis_leg_disconnect": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "footwear_scale_too_large": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "silhouette_too_wide": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "vertical_flow_insufficient": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "garment_horizontal_weight_too_high": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "sleeve_mass_overpowering": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "skirt_width_suppressing_height": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "centerline_too_weak": {
+      "priority": "P1P",
+      "round": "fashion_proportion"
+    },
+    "face_too_cg": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "skin_too_uniform": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "eye_anatomy_too_clean": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "hair_too_uniform": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "micro_asymmetry_missing": {
+      "priority": "P3",
+      "round": "human_presence_optical_refine",
+      "advisory": true
+    },
+    "highlight_rolloff_digital": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "eye_sclera_too_white": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "eye_iris_too_uniform": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "eye_catchlight_mismatch": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "eye_glass_gem_cg": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "eye_lid_contact_flat": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "skin_optics_flat": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "skin_waxy_surface": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "skin_pigment_variation_overdone": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "skin_pore_overstack": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "skin_subsurface_fake_glow": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "makeup_skin_separation": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "eyeliner_vector_cg": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "lash_fan_uniform": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "lip_glass_plastic": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "hair_frequency_uniform": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "realism_mismatch_eye_skin": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "realism_mismatch_face_hair": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "realism_mismatch_face_costume": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "realism_channel_overprocessed": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "focus_uniform_cg": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "face_cutout_sharpness": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "peripheral_overblur": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "global_clarity_render": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "micro_asymmetry_overdone": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "mirrored_face_artifact": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "human_presence_v3_undershoot": {
+      "priority": "P2HV3",
+      "round": "human_presence_optical_refine"
+    },
+    "sclera_too_clean": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "iris_too_uniform": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "iris_too_glassy": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "catchlight_mismatch_v2": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "eyelid_wrap_too_weak": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "lower_lid_volume_missing": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "lashline_too_graphic": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "eye_contrast_too_high": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "face_material_too_uniform": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "nasal_side_texture_missing": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "cheek_scatter_too_flat": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "forehead_specular_too_strong": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "skin_texture_overdone_v2": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "eyeliner_too_graphic": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "brow_too_uniform": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "lip_color_too_flat": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "foundation_too_opaque": {
+      "priority": "P2HA",
+      "round": "human_face_optical_refine"
+    },
+    "hairline_too_clean": {
+      "priority": "P2HB",
+      "round": "human_camera_hair_refine"
+    },
+    "hair_highlight_too_even": {
+      "priority": "P2HB",
+      "round": "human_camera_hair_refine"
+    },
+    "fine_strands_overdone": {
+      "priority": "P2HB",
+      "round": "human_camera_hair_refine"
+    },
+    "flyaways_overdone_v2": {
+      "priority": "P2HB",
+      "round": "human_camera_hair_refine"
+    },
+    "global_sharpness_too_high": {
+      "priority": "P2HB",
+      "round": "human_camera_hair_refine"
+    },
+    "sheer_fabric_too_sharp": {
+      "priority": "P2HB",
+      "round": "human_camera_hair_refine"
+    },
+    "face_not_focus_priority": {
+      "priority": "P2HB",
+      "round": "human_camera_hair_refine"
+    },
+    "realism_coherence_mismatch": {
+      "priority": "P2HB",
+      "round": "human_camera_hair_refine"
+    },
+    "p9_regression": {
+      "priority": "P1P",
+      "round": "p9_persistence_body_presence"
+    },
+    "head_scale_rebound": {
+      "priority": "P1P",
+      "round": "p9_persistence_body_presence"
+    },
+    "waistline_drop": {
+      "priority": "P1P",
+      "round": "p9_persistence_body_presence"
+    },
+    "leg_read_compressed": {
+      "priority": "P1P",
+      "round": "p9_persistence_body_presence"
+    },
+    "hem_volume_overblocking": {
+      "priority": "P1P",
+      "round": "p9_persistence_body_presence"
+    },
+    "vertical_flow_regression": {
+      "priority": "P1P",
+      "round": "p9_persistence_body_presence"
+    },
+    "hand_too_plastic": {
+      "priority": "P2HB",
+      "round": "p9_persistence_body_presence"
+    },
+    "neck_transition_too_clean": {
+      "priority": "P2HB",
+      "round": "p9_persistence_body_presence"
+    },
+    "clavicle_too_graphic": {
+      "priority": "P2HB",
+      "round": "p9_persistence_body_presence"
+    },
+    "body_soft_tissue_missing": {
+      "priority": "P2HB",
+      "round": "p9_persistence_body_presence"
+    },
+    "wrist_too_thin_cg": {
+      "priority": "P2HB",
+      "round": "p9_persistence_body_presence"
+    },
+    "ankle_contact_unreal": {
+      "priority": "P2HB",
+      "round": "p9_persistence_body_presence"
+    },
+    "white_on_white_separation_weak": {
+      "priority": "P3",
+      "round": "photographic_fabric_white_refine"
+    },
+    "fabric_response_too_uniform": {
+      "priority": "P3",
+      "round": "photographic_fabric_white_refine"
+    },
+    "drape_too_symmetric": {
+      "priority": "P3",
+      "round": "photographic_fabric_white_refine"
+    },
+    "sheer_edge_too_clean": {
+      "priority": "P3",
+      "round": "photographic_fabric_white_refine"
+    },
+    "garment_highlight_flattened": {
+      "priority": "P3",
+      "round": "photographic_fabric_white_refine"
+    },
+    "face_mode_mismatch": {
+      "priority": "P0F",
+      "round": "face_mode_calibration"
+    },
+    "beauty_loss_after_realism": {
+      "priority": "P0F",
+      "round": "face_mode_calibration"
+    },
+    "age_impression_too_old": {
+      "priority": "P0F",
+      "round": "face_mode_calibration"
+    },
+    "face_realism_overdrive": {
+      "priority": "P0F",
+      "round": "face_mode_calibration"
+    },
+    "face_realism_undershoot": {
+      "priority": "P0F",
+      "round": "face_mode_calibration"
+    },
+    "maturity_guard_breach": {
+      "priority": "P0F",
+      "round": "face_mode_calibration"
+    },
+    "non_face_realism_undershoot": {
+      "priority": "P2R",
+      "round": "non_face_realism_refine"
+    },
+    "face_nonface_realism_coupled": {
+      "priority": "P0F",
+      "round": "face_mode_calibration"
+    },
+    "style_intent_misroute": {
+      "priority": "P0I",
+      "round": "style_intent_alignment"
+    },
+    "asset_mode_leak": {
+      "priority": "P0I",
+      "round": "style_intent_alignment"
+    },
+    "white_background_leak": {
+      "priority": "P0I",
+      "round": "style_intent_alignment"
+    },
+    "style_target_underweighted": {
+      "priority": "P1S",
+      "round": "style_target_restoration"
+    },
+    "style_medium_loss": {
+      "priority": "P1S",
+      "round": "style_target_restoration"
+    },
+    "motion_language_loss": {
+      "priority": "P1S",
+      "round": "style_target_restoration"
+    },
+    "static_pose_leak": {
+      "priority": "P1S",
+      "round": "style_target_restoration"
+    },
+    "atmosphere_loss": {
+      "priority": "P1S",
+      "round": "style_target_restoration"
+    },
+    "composition_energy_loss": {
+      "priority": "P1S",
+      "round": "style_target_restoration"
+    },
+    "clean_catalog_lighting_leak": {
+      "priority": "P1S",
+      "round": "style_target_restoration"
+    },
+    "style_reference_identity_overborrow": {
+      "priority": "P0R",
+      "round": "reference_fidelity"
+    },
+    "style_face_mode_conflict": {
+      "priority": "P0F",
+      "round": "face_mode_calibration"
+    },
+    "detail_density_uniform": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "peripheral_overrendered": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "background_detail_overweight": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "background_contrast_competes": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "background_second_subject": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "highlight_density_overload": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "highlight_focal_dilution": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "ground_reflection_competes": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "edge_uniform_sharpness": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "painterly_looseness_insufficient": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "concept_art_breathing_room_missing": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "commercial_illustration_drift": {
+      "priority": "P2VH",
+      "round": "concept_art_hierarchy_refine"
+    },
+    "face_template_generic": {
+      "priority": "P0A",
+      "round": "asset_master_face_refine"
+    },
+    "face_character_specificity_low": {
+      "priority": "P0A",
+      "round": "asset_master_face_refine"
+    },
+    "asset_age_impression_drift": {
+      "priority": "P0A",
+      "round": "asset_master_face_refine"
+    },
+    "p9_asset_read_weak": {
+      "priority": "P1A",
+      "round": "asset_master_structure_refine"
+    },
+    "robe_volume_suppresses_height": {
+      "priority": "P1A",
+      "round": "asset_master_structure_refine"
+    },
+    "asset_master_framing_loose": {
+      "priority": "P1A",
+      "round": "asset_master_structure_refine"
+    },
+    "footwear_readability_low": {
+      "priority": "P1A",
+      "round": "asset_master_structure_refine"
+    },
+    "hand_cross_overlap_ambiguous": {
+      "priority": "P1A",
+      "round": "asset_master_structure_refine"
+    },
+    "material_layers_merged": {
+      "priority": "P2AM",
+      "round": "asset_master_material_light_refine"
+    },
+    "embroidery_flat_print": {
+      "priority": "P2AM",
+      "round": "asset_master_material_light_refine"
+    },
+    "gauze_opacity_wrong": {
+      "priority": "P2AM",
+      "round": "asset_master_material_light_refine"
+    },
+    "studio_light_flat": {
+      "priority": "P2AM",
+      "round": "asset_master_material_light_refine"
+    },
+    "white_edge_separation_weak": {
+      "priority": "P2AM",
+      "round": "asset_master_material_light_refine"
+    },
+    "floor_contact_shadow_missing": {
+      "priority": "P2AM",
+      "round": "asset_master_material_light_refine"
+    }
+  }
+}

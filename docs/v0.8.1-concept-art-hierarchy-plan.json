@@ -1,0 +1,228 @@
+{
+  "hierarchy": {
+    "profile": "oriental_epic_concept",
+    "detail_budget": "concept_art_priority",
+    "highlight_hierarchy": "focal_brightness",
+    "background_submission": "monumental_subordinate",
+    "edge_control": "selective_painterly",
+    "locked_successes": [
+      "oriental_epic_painterly",
+      "black_white_gold_crimson_palette",
+      "large_scale_motion",
+      "luminous_backlight",
+      "beauty_first_or_stylized_beauty",
+      "full_body_epic_key_art"
+    ],
+    "priority_order": [
+      "style_intent",
+      "character_authority",
+      "composition_motion",
+      "light_hierarchy",
+      "detail_budget_edge_control",
+      "output_polish"
+    ],
+    "target_read": "high-end oriental fantasy concept key art with breathing room and selective completion, not uniformly finished commercial character illustration"
+  },
+  "detail_budget": {
+    "profile": "concept_art_priority",
+    "goal": "selective detail concentration for high-end concept art rather than uniform completion",
+    "primary_detail": {
+      "level": "high",
+      "regions": [
+        "face",
+        "eyes",
+        "crown_core",
+        "chest_neck_focal",
+        "waist_core_ornament",
+        "weapon_core"
+      ]
+    },
+    "secondary_detail": {
+      "level": "medium",
+      "regions": [
+        "main_skirt_mass",
+        "primary_sleeves",
+        "primary_hair_masses",
+        "main_crimson_ribbons",
+        "major_accessories"
+      ]
+    },
+    "atmospheric_detail": {
+      "level": "low_selective",
+      "regions": [
+        "hair_tails",
+        "outer_ribbons",
+        "distant_architecture",
+        "banners",
+        "clouds_mist",
+        "ground_reflection",
+        "peripheral_particles"
+      ]
+    },
+    "compiler_rules": [
+      "Concentrate the highest detail at focal structures only.",
+      "Keep major body and costume masses readable at medium detail.",
+      "Render peripheral and distant areas selectively, with impressionistic or atmospheric omission.",
+      "Do not increase detail merely because empty space exists."
+    ],
+    "anti_patterns": [
+      "uniform_microdetail",
+      "literal_everything_rendered",
+      "peripheral_detail_competes",
+      "background_same_resolution_as_face"
+    ]
+  },
+  "highlight_hierarchy": {
+    "profile": "focal_brightness",
+    "primary_highlights": [
+      "face_adjacent_zone",
+      "crown",
+      "upper_torso",
+      "weapon_core"
+    ],
+    "secondary_highlights": [
+      "waist_core_ornament",
+      "selected_fabric_turns",
+      "key_gold_elements",
+      "primary_hair_rim"
+    ],
+    "tertiary_highlights": [
+      "outer_ribbons",
+      "distant_architecture",
+      "cloud_edges",
+      "ground_reflection",
+      "peripheral_effects"
+    ],
+    "rules": [
+      "Primary highlights must remain the strongest value concentration.",
+      "Secondary highlights support form but cannot equal primary brightness density.",
+      "Tertiary highlights are sparse and subordinate.",
+      "Do not make every gold edge or fabric rim luminous."
+    ],
+    "anti_patterns": [
+      "highlight_everywhere",
+      "equal_brightness_across_scene",
+      "background_highlight_competes",
+      "ground_reflection_competes"
+    ]
+  },
+  "background_submission": {
+    "profile": "monumental_subordinate",
+    "purpose": [
+      "mythic_scale",
+      "oriental_world_identity",
+      "depth",
+      "atmospheric_support"
+    ],
+    "detail_policy": "softened_selective",
+    "contrast_policy": "below_character_focal_zone",
+    "head_zone_policy": "reduce_hard_detail_around_head_and_upper_torso",
+    "allowed_elements": [
+      "palace_silhouettes",
+      "towers",
+      "banners",
+      "sacred_architecture",
+      "clouds",
+      "mist",
+      "luminous_depth_layers"
+    ],
+    "rules": [
+      "Keep monumental scale but lower local architectural resolution.",
+      "Use mist, silhouette layering and atmospheric separation instead of literal architectural description.",
+      "Do not place the strongest background contrast or hard edges directly behind the face.",
+      "Background should support the character, never form a second subject."
+    ],
+    "anti_patterns": [
+      "second_subject_background",
+      "hard_architecture_around_face",
+      "background_same_contrast_as_subject",
+      "overdescribed_palaces"
+    ]
+  },
+  "painterly_edge": {
+    "profile": "selective_painterly",
+    "crisp_edges": [
+      "eyes",
+      "nose_mouth_focal_contour",
+      "crown_core",
+      "weapon_core",
+      "waist_core_metal"
+    ],
+    "soft_edges": [
+      "hair_tails",
+      "outer_gauze",
+      "outer_ribbons",
+      "secondary_skirt_edges",
+      "cloud_edges"
+    ],
+    "lost_edges": [
+      "backlit_hair_periphery",
+      "mist_architecture_intersections",
+      "glowing_fabric_edges",
+      "ground_light_reflections"
+    ],
+    "rules": [
+      "Use crisp edges only where they reinforce the focal hierarchy.",
+      "Allow soft and partially lost edges in wind-driven and atmospheric regions.",
+      "Let backlight erase selected contours naturally.",
+      "Do not sharpen every silhouette equally."
+    ],
+    "anti_patterns": [
+      "uniform_edge_sharpness",
+      "cutout_character_edge",
+      "vector_like_cloth_edges",
+      "sharp_mist"
+    ]
+  },
+  "round_plan": {
+    "round": "concept_art_hierarchy_refine",
+    "editable": [
+      "detail_budget",
+      "detail_distribution",
+      "highlight_hierarchy",
+      "focal_brightness",
+      "background_submission",
+      "background_resolution",
+      "background_contrast",
+      "painterly_edge_distribution",
+      "lost_edge_distribution"
+    ],
+    "locked": [
+      "explicit_style_target",
+      "approved_face_mode",
+      "face_identity_geometry",
+      "body_identity",
+      "fashion_proportion",
+      "garment_silhouette",
+      "garment_structure",
+      "palette",
+      "approved_motion_language",
+      "approved_lighting_language",
+      "composition_energy"
+    ],
+    "forbidden": [
+      "identity_redesign",
+      "face_mode_reopen",
+      "costume_redesign",
+      "palette_shift",
+      "motion_reduction",
+      "flat_studio_reset",
+      "background_removal",
+      "global_sharpening",
+      "uniform_detail_increase",
+      "highlight_everywhere"
+    ],
+    "prompt_strategy": "concept-art hierarchy only: redistribute detail, brightness, background resolution and edge sharpness while locking style target, identity, face mode, motion, palette, costume architecture and composition energy"
+  },
+  "prompt_skeleton": [
+    "Keep the approved oriental epic painterly style, black-white-gold-crimson palette, beauty-first/stylized-beauty face direction, full-body epic composition and large-scale motion unchanged.",
+    "Concentrate highest detail on face, crown, chest-neck focal area, waist core ornament and weapon core.",
+    "Keep main garment masses, primary sleeves and major hair volumes at medium detail.",
+    "Let hair tails, outer ribbons, distant architecture, mist, clouds, ground reflections and peripheral effects remain selectively resolved and more impressionistic.",
+    "Use the strongest highlights near the face/crown/upper torso/weapon core; keep secondary garment highlights lower and peripheral/background light subordinate.",
+    "Keep monumental background scale but lower architectural resolution and contrast around the face and upper-body focal zone.",
+    "Use crisp edges only at focal structures; soften or partially lose edges in hair tails, drifting cloth, haze and distant architecture.",
+    "Do not redesign identity, costume, palette, motion language or composition energy."
+  ],
+  "note": "Use after style target direction is approved. This round reduces over-completion without weakening the cinematic style target."
+}

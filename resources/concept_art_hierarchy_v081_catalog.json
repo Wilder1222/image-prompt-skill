@@ -1,0 +1,29 @@
+{
+  "version": "0.8.1",
+  "default": "oriental_epic_concept",
+  "profiles": {
+    "oriental_epic_concept": {
+      "detail_budget": "concept_art_priority",
+      "highlight_hierarchy": "focal_brightness",
+      "background_submission": "monumental_subordinate",
+      "edge_control": "selective_painterly",
+      "locked_successes": [
+        "oriental_epic_painterly",
+        "black_white_gold_crimson_palette",
+        "large_scale_motion",
+        "luminous_backlight",
+        "beauty_first_or_stylized_beauty",
+        "full_body_epic_key_art"
+      ],
+      "priority_order": [
+        "style_intent",
+        "character_authority",
+        "composition_motion",
+        "light_hierarchy",
+        "detail_budget_edge_control",
+        "output_polish"
+      ],
+      "target_read": "high-end oriental fantasy concept key art with breathing room and selective completion, not uniformly finished commercial character illustration"
+    }
+  }
+}

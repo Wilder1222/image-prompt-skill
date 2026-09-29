@@ -1,0 +1,214 @@
+{
+  "stage_1": {
+    "route": {
+      "archetype": "ancient_ethereal_female",
+      "auto_mode": "beauty_first",
+      "resolved_mode": "beauty_first",
+      "maturity_guard": "youthful_18_22",
+      "age_impression": "18_22",
+      "reason": "young ethereal ancient-fantasy assets prioritize beauty, youth and spirit over maximal facial photorealism",
+      "override_applied": false,
+      "rule": "route by character and output intent; user-explicit face mode always overrides automatic routing."
+    },
+    "face_mode": {
+      "mode": "beauty_first",
+      "label": "Beauty-First Face",
+      "goal": "preserve youthful attractiveness, elegance and character appeal before increasing facial realism",
+      "age_target": "18_22",
+      "preserve_beauty_priority": "high",
+      "face_realism": "low_medium",
+      "non_face_realism": "high",
+      "controls": {
+        "face_softness": "high",
+        "cheek_soft_tissue": "medium_high",
+        "jaw_sharpness": "low",
+        "eye_attractiveness": "high",
+        "eye_realism_pressure": "low_medium",
+        "under_eye_shadow": "low",
+        "nose_realism_pressure": "low_medium",
+        "lip_softness": "medium_high",
+        "skin_microtexture": "light",
+        "pore_visibility": "subtle",
+        "reflectance_variation": "subtle"
+      },
+      "preferred_signals": [
+        "youthful cheek softness",
+        "clear lively eyes",
+        "soft oval facial read",
+        "delicate natural makeup",
+        "clean youthful skin"
+      ],
+      "avoid": [
+        "heavy eyelid depth",
+        "strong under-eye darkness",
+        "hollow cheeks",
+        "harsh cheekbone carving",
+        "severe jaw definition",
+        "mature editorial fatigue",
+        "age-up through realism"
+      ],
+      "prompt_translation": [
+        "Preserve a youthful, elegant and beautiful face as the highest facial priority.",
+        "Keep soft cheek tissue, a refined oval facial read and clear youthful eyes; do not age the character up in order to make the face more realistic.",
+        "Use only light facial realism: delicate skin response, natural lips and brows, restrained eye definition and soft youthful facial volume.",
+        "Put stronger realism into hair, body, hands, costume materials and lighting rather than forcing the face toward a mature fashion-model look."
+      ],
+      "principle": "face direction is style-dependent; beauty, age impression and identity can take priority over maximum facial photorealism."
+    },
+    "maturity_guard": {
+      "profile": "youthful_18_22",
+      "age_ceiling": 22,
+      "age_floor": 18,
+      "enabled": true,
+      "suppress": [
+        "heavy_under_eye_shadow",
+        "sunken_cheeks",
+        "strong_cheekbone_carving",
+        "harsh_nasolabial_shaping",
+        "facial_fatigue",
+        "stern_mature_model_read",
+        "age_up_via_realism"
+      ],
+      "preserve": [
+        "cheek_softness",
+        "youthful_skin_homogeneity",
+        "clear_eye_energy",
+        "soft_jaw_transition",
+        "delicate_makeup"
+      ],
+      "prompt_translation": [
+        "Keep the visual age in the youthful 18–22 range.",
+        "Do not create mature fatigue, hollow cheeks, deep eye sockets, heavy under-eye darkness or a stern older fashion-model impression.",
+        "Preserve youthful cheek softness and clear facial energy while allowing only subtle natural skin realism."
+      ],
+      "principle": "maturity guard limits unwanted age drift; it does not force childishness."
+    },
+    "realism_scope": {
+      "mode": "beauty_first",
+      "face_realism": "low_medium",
+      "non_face_realism": "high",
+      "face_edit_budget": "small",
+      "non_face_edit_budget": "large",
+      "non_face_channels": [
+        "hair_strands",
+        "body_presence",
+        "hands",
+        "costume_materials",
+        "cloth_physics",
+        "footwear",
+        "lighting",
+        "camera_response"
+      ],
+      "rule": "never infer that high non-face realism requires high face realism."
+    },
+    "round_plan": {
+      "round": "face_mode_calibration",
+      "editable": [
+        "face_mode",
+        "age_impression",
+        "maturity_guard",
+        "face_realism_scope",
+        "beauty_priority",
+        "facial_presentation"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "fashion_proportion",
+        "body_proportion",
+        "hairstyle_silhouette",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "pose",
+        "composition",
+        "background"
+      ],
+      "forbidden": [
+        "identity_reshape",
+        "costume_redesign",
+        "body_reshape",
+        "age_up_without_user_request",
+        "copy_face_from_style_reference"
+      ],
+      "prompt_strategy": "face-mode-only calibration: protect identity and age impression, tune beauty/realism direction without changing body, costume or composition"
+    },
+    "prompt_skeleton": [
+      "Face mode: beauty_first.",
+      "Preserve a youthful, elegant and beautiful face as the highest facial priority.",
+      "Keep soft cheek tissue, a refined oval facial read and clear youthful eyes; do not age the character up in order to make the face more realistic.",
+      "Use only light facial realism: delicate skin response, natural lips and brows, restrained eye definition and soft youthful facial volume.",
+      "Put stronger realism into hair, body, hands, costume materials and lighting rather than forcing the face toward a mature fashion-model look.",
+      "Keep the visual age in the youthful 18–22 range.",
+      "Do not create mature fatigue, hollow cheeks, deep eye sockets, heavy under-eye darkness or a stern older fashion-model impression.",
+      "Preserve youthful cheek softness and clear facial energy while allowing only subtle natural skin realism.",
+      "Face realism scope: low_medium; non-face realism scope: high.",
+      "Do not infer that stronger hair, fabric, body or lighting realism requires a more mature or more photoreal face."
+    ],
+    "note": "Face beauty, age impression and realism intensity are routed separately from non-face realism."
+  },
+  "stage_2": {
+    "realism_scope": {
+      "mode": "beauty_first",
+      "face_realism": "low_medium",
+      "non_face_realism": "high",
+      "face_edit_budget": "small",
+      "non_face_edit_budget": "large",
+      "non_face_channels": [
+        "hair_strands",
+        "body_presence",
+        "hands",
+        "costume_materials",
+        "cloth_physics",
+        "footwear",
+        "lighting",
+        "camera_response"
+      ],
+      "rule": "never infer that high non-face realism requires high face realism."
+    },
+    "round_plan": {
+      "round": "non_face_realism_refine",
+      "editable": [
+        "hair_strands",
+        "body_presence",
+        "hands",
+        "costume_materials",
+        "cloth_physics",
+        "footwear",
+        "lighting",
+        "camera_response"
+      ],
+      "locked": [
+        "face_identity_geometry",
+        "face_mode",
+        "age_impression",
+        "maturity_guard",
+        "fashion_proportion",
+        "garment_silhouette",
+        "garment_structure",
+        "palette",
+        "pose",
+        "composition"
+      ],
+      "forbidden": [
+        "face_reshaping",
+        "face_age_shift",
+        "maturity_increase",
+        "beauty_recalibration"
+      ],
+      "prompt_strategy": "non-face realism only: hair/body/hands/materials/cloth/footwear/lighting/camera; keep approved face mode, identity and maturity locked"
+    },
+    "prompt_skeleton": [
+      "Keep approved face mode beauty_first, identity geometry and age impression unchanged.",
+      "Apply high realism to hair, body presence, hands, costume materials, cloth physics, footwear, lighting and camera response.",
+      "Do not increase facial maturity or facial realism just because non-face realism is high."
+    ],
+    "note": "Use this round when the face is already aesthetically approved but materials/body/camera still look CG."
+  },
+  "order": [
+    "face_mode_calibration",
+    "non_face_realism_refine",
+    "final_photographic_polish",
+    "upscale"
+  ],
+  "rule": "Choose the right face mode first; then improve non-face realism without reopening face maturity."
+}

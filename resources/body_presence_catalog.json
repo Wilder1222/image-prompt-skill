@@ -1,0 +1,51 @@
+{
+  "version": "0.7.8",
+  "default": "BP2",
+  "principle": "Extend human presence beyond the face into neck, clavicle, hands, wrists, ankle/foot contact and subtle body soft-tissue cues without changing accepted fashion anatomy.",
+  "levels": {
+    "BP1": {
+      "label": "subtle_body_presence",
+      "gain": 0.5
+    },
+    "BP2": {
+      "label": "asset_body_presence",
+      "gain": 0.8,
+      "controls": {
+        "neck_jaw_transition": "natural_soft",
+        "clavicle_relief": "subtle",
+        "wrist_volume": "natural",
+        "hand_skin": "young_real",
+        "finger_joint_visibility": "subtle",
+        "nail_presence": "low",
+        "ankle_volume": "natural",
+        "foot_ground_contact": "credible",
+        "body_soft_tissue_hint": "subtle"
+      },
+      "prompt_translation": [
+        "Keep the P9 anatomy unchanged but give the neck, clavicle, wrists, hands, ankles and foot contact believable human soft-tissue volume.",
+        "Hands should read as real young-adult hands: subtle knuckles and joints, natural nail presence, soft skin and no plastic mannequin surface.",
+        "Keep clavicles and neck transitions soft and anatomical rather than graphic CG lines."
+      ]
+    },
+    "BP3": {
+      "label": "strong_body_presence",
+      "gain": 0.95
+    }
+  },
+  "forbidden": [
+    "body_reshape",
+    "p9_reopen",
+    "extreme_clavicle",
+    "vein_exaggeration",
+    "aged_hands",
+    "rough_skin_shortcut"
+  ],
+  "failure_codes": [
+    "hand_too_plastic",
+    "neck_transition_too_clean",
+    "clavicle_too_graphic",
+    "body_soft_tissue_missing",
+    "wrist_too_thin_cg",
+    "ankle_contact_unreal"
+  ]
+}

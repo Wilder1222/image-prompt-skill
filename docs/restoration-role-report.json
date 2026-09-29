@@ -1,0 +1,60 @@
+{
+  "references": [
+    {
+      "id": "A",
+      "role": "style_restoration",
+      "authority": [
+        "mood",
+        "motion_language",
+        "lighting_language",
+        "atmosphere",
+        "color_relationships",
+        "medium_language",
+        "composition_energy",
+        "environment_scale"
+      ],
+      "forbidden_authority": [
+        "face_identity_geometry",
+        "body_proportion",
+        "garment_silhouette",
+        "garment_structure",
+        "signature_accessories",
+        "age_identity"
+      ]
+    },
+    {
+      "id": "B",
+      "role": "asset_master",
+      "authority": [
+        "face_identity_geometry",
+        "body_proportion",
+        "garment_silhouette",
+        "garment_structure",
+        "palette_family",
+        "hairstyle_silhouette",
+        "signature_accessories",
+        "footwear_family",
+        "asset_continuity"
+      ],
+      "forbidden_authority": []
+    }
+  ],
+  "optional_roles": {
+    "C": {
+      "role": "facial_trait",
+      "authority": [
+        "maturity_level",
+        "gaze_stability",
+        "expression_restraint",
+        "makeup_restraint"
+      ],
+      "forbidden_authority": [
+        "face_identity_geometry",
+        "garment_structure",
+        "background",
+        "lighting_language"
+      ]
+    }
+  },
+  "rule": "style_restoration controls visual-language channels only; asset_master controls identity and structural continuity."
+}

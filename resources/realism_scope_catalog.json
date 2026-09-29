@@ -1,0 +1,35 @@
+{
+  "version": "0.7.9",
+  "principle": "face realism and non-face realism are independent control axes.",
+  "modes": {
+    "beauty_first": {
+      "face_realism": "low_medium",
+      "non_face_realism": "high",
+      "face_edit_budget": "small",
+      "non_face_edit_budget": "large"
+    },
+    "humanized_real": {
+      "face_realism": "medium_high",
+      "non_face_realism": "high",
+      "face_edit_budget": "medium",
+      "non_face_edit_budget": "large"
+    },
+    "stylized_beauty": {
+      "face_realism": "low",
+      "non_face_realism": "medium_high",
+      "face_edit_budget": "very_small",
+      "non_face_edit_budget": "medium"
+    }
+  },
+  "non_face_channels": [
+    "hair_strands",
+    "body_presence",
+    "hands",
+    "costume_materials",
+    "cloth_physics",
+    "footwear",
+    "lighting",
+    "camera_response"
+  ],
+  "rule": "never infer that high non-face realism requires high face realism."
+}

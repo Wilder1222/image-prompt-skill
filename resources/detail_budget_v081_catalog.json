@@ -1,0 +1,83 @@
+{
+  "version": "0.8.1",
+  "default": "concept_art_priority",
+  "profiles": {
+    "concept_art_priority": {
+      "goal": "selective detail concentration for high-end concept art rather than uniform completion",
+      "primary_detail": {
+        "level": "high",
+        "regions": [
+          "face",
+          "eyes",
+          "crown_core",
+          "chest_neck_focal",
+          "waist_core_ornament",
+          "weapon_core"
+        ]
+      },
+      "secondary_detail": {
+        "level": "medium",
+        "regions": [
+          "main_skirt_mass",
+          "primary_sleeves",
+          "primary_hair_masses",
+          "main_crimson_ribbons",
+          "major_accessories"
+        ]
+      },
+      "atmospheric_detail": {
+        "level": "low_selective",
+        "regions": [
+          "hair_tails",
+          "outer_ribbons",
+          "distant_architecture",
+          "banners",
+          "clouds_mist",
+          "ground_reflection",
+          "peripheral_particles"
+        ]
+      },
+      "compiler_rules": [
+        "Concentrate the highest detail at focal structures only.",
+        "Keep major body and costume masses readable at medium detail.",
+        "Render peripheral and distant areas selectively, with impressionistic or atmospheric omission.",
+        "Do not increase detail merely because empty space exists."
+      ],
+      "anti_patterns": [
+        "uniform_microdetail",
+        "literal_everything_rendered",
+        "peripheral_detail_competes",
+        "background_same_resolution_as_face"
+      ]
+    },
+    "commercial_balanced": {
+      "goal": "balanced commercial illustration detail",
+      "primary_detail": {
+        "level": "high",
+        "regions": [
+          "face",
+          "upper_body",
+          "signature_ornaments"
+        ]
+      },
+      "secondary_detail": {
+        "level": "medium_high",
+        "regions": [
+          "garment",
+          "hair",
+          "weapon"
+        ]
+      },
+      "atmospheric_detail": {
+        "level": "medium",
+        "regions": [
+          "background",
+          "effects"
+        ]
+      },
+      "anti_patterns": [
+        "background_sharper_than_subject"
+      ]
+    }
+  }
+}
