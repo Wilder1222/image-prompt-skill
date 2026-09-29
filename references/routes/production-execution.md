@@ -29,6 +29,8 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 
 区分用户改变目标与同目标下修复失败。新的自然语言要求优先，但必须另记目标变更。`reviseProductionInput(input, change)` 接受本轮 request、允许修改的 channels、按现有 label 提供的 sections，以及需要更新的 requirements/acceptance；只替换允许范围，保留其他正文及参考。改变身份、来源或增加整个新类别时重新分析，不能借局部修改暗中换图。
 
+背景使用 background 通道，光线使用 lighting；只改背景时不自动重写人物或照明，换场景确需匹配灯光时把 lighting 也列入本轮允许范围。既有背景与光线合写的记录可继续使用原通道，或在新任务中重建类别，不能修改旧冻结记录。
+
 身份图可以声明 `identity_group` 和 `identity_role: primary|support`。多个身份视角必须同组、恰好一个主参考、均实际送入生成；衣装或评价参考不因此取得身份权限。是否同一人物仍由观察与用户说明决定。
 
 编辑或重生成使用 `prepare --kind edit|revision --parent previous.snapshot.json`，保持 case 与 cohort。快照会比较目标摘要，改变要求或验收标准时自动标记 goal_changed。不能把新目标的成功算作原目标修复成功。每轮同时重查已通过项，最多两轮无改善即停止该修订路线。

@@ -18,6 +18,8 @@ Release tests mutate temporary copies to verify missing entrypoints, broken link
 
 Existing suites cover earlier reference-role, style, proportion, human-presence and diagnostic routing behavior. These tests do not inspect images, measure identity similarity, or establish visual quality or batch reliability.
 
+Production-run tests also cover the independent background channel: retained, adjusted, replaced and white backgrounds; background-only edits preserve lighting and identity, and environment references cannot acquire identity authority implicitly. These are compilation and scope checks, not rendered scene-quality evidence.
+
 Use `templates/visual-regression-record.json` for actual image evaluation. Do not mark image checks passed from CLI output alone.
 
 Use `templates/benchmark-comparison-record.json` when the user supplies a better reference. Record whether the benchmark was only inspected to write the prompt or actually sent to the image model. Keep observer review and user approval separate.
