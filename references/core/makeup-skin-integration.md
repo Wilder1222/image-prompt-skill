@@ -1,39 +1,39 @@
-# Makeup-Skin Integration
+# 妆容与肌肤的局部融合
 
-For character beauty work, facial realism and skin texture support a refined makeup finish and visual appeal. Follow [the current makeup and skin direction](makeup-skin-integration-v2.md): establish the makeup, then add restrained texture appropriate to framing. Do not expose more pores at the expense of the finished face.
+人物美感任务按 [当前妆肤规则](makeup-skin-integration-v2.md) 先建立精致妆面，再加入适合景别的克制纹理。面容真实感服务视觉美感，不能为显示毛孔牺牲妆容完成度。
 
-## Base makeup
+## 底妆
 
-- thin, refined coverage
-- preserves subtle skin topology
-- does not create a perfectly flat digital face surface
+- 细腻贴肤，遮盖程度服从本角色妆容。
+- 保留柔和体积与少量自然起伏。
+- 不形成毫无体积的数字平面。
 
-## Brows
+## 眉毛
 
-- variable hair density
-- softer start at the brow head
-- avoid one continuous painted shape
+- 毛流与疏密自然。
+- 眉头过渡柔和。
+- 避免一整块生硬眉贴。
 
-## Eyeliner / lashes
+## 眼线与睫毛
 
-- eyeliner integrates with the lash root
-- lashes vary slightly in spacing / orientation
-- do not create dense identical fan-shaped lashes unless the design explicitly requires it
+- 眼线融入睫毛根部。
+- 睫毛间距与方向有轻微变化。
+- 除非明确的妆容要求，不形成完全相同的浓密扇形睫毛。
 
-## Lips
+## 嘴唇
 
-- color can be refined but should preserve fine lip texture
-- hydration / gloss remains localized
-- avoid perfect glass-plastic lips
+- 唇色精致，保留与妆面相符的细微唇纹。
+- 润泽高光位置集中且自然。
+- 避免玻璃塑料般的统一反光。
 
-## Highlight cosmetics
+## 提亮
 
-- makeup highlight sits on top of the underlying skin optical response
-- do not replace the whole face with one uniform glossy finish
+- 化妆提亮与底层肤质反射共同成立。
+- 不将全脸统一处理为油亮表面。
 
-## Failure signals
+## 诊断标识
 
-- makeup_skin_separation
-- eyeliner_vector_cg
-- lash_fan_uniform
-- lip_glass_plastic
+- `makeup_skin_separation`：妆容与肌肤分离。
+- `eyeliner_vector_cg`：眼线像生硬矢量线。
+- `lash_fan_uniform`：睫毛均匀复制。
+- `lip_glass_plastic`：嘴唇反光像玻璃塑料。

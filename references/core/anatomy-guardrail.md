@@ -1,4 +1,4 @@
-# Anatomy Guardrail
+# 人体结构边界
 
 ## 问题
 
@@ -28,8 +28,8 @@
 ### 2. 体态描述优先于单点比例
 
 优先：
-- 站姿稳定
-- 重心清楚
+- 静态站姿有稳定支撑，动态有可信的受力或腾空阶段
+- 重心与当前动作协调
 - 肩颈舒展
 - 腰线自然
 - 腿型修长但不过分夸张
@@ -45,11 +45,11 @@
 ## 修复方向
 
 如果出现比例漂移，本轮仅修：
-- body_proportion_guardrail
-- pose_balance
-- framing
+- 身材整体关系，对应 `body_proportion_guardrail`
+- 姿态与受力，对应 `pose_balance`
+- 取景，对应 `framing`
 
 锁定：
-- identity
-- costume family
-- palette
+- 人物身份
+- 服装设计语言
+- 已确认配色

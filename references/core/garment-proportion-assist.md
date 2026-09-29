@@ -1,27 +1,23 @@
-# Garment Proportion Assist v0.7.5
+# 服装对修长比例的辅助
 
-Ancient/fantasy clothing can make a correctly proportioned body look short. Use garment geometry to support the intended body proportion without redesigning the costume.
+古风或幻想服装可能让比例正确的身体显得矮短。通过衣片方向、体量和层次支持既定身材，不能将衣服的腰带位置当作解剖腰线。只修比例时保持原服装设计；另获再设计授权时按本轮范围调整。
 
-## Allowed Adjustments
+## 可调整项
 
-- slightly higher visual sash placement
-- slightly higher skirt-panel origin
-- stronger vertical centerline
-- more vertical long-panel flow
-- moderate reduction of unnecessary sleeve lateral mass
-- moderate control of skirt lateral spread
-- slightly clearer footwear visibility
+- 保持自然腰位，整理束带与衣片连接，让腰腹结构可读。
+- 增强中心衣片的纵向流动，避免横向装饰将躯干割裂。
+- 适度控制无意膨大的袖部体量和裙摆宽度，保留该服装应有轮廓。
+- 鞋履可见性服从姿态与衣摆；不为露鞋掀裙、缩裙或缩窄整套衣服。
 
-## Locked
+## 默认保持
 
-- costume identity
-- layer count unless explicitly requested
-- signature sleeves and skirt family
-- palette and signature ornaments
+- 服装身份与设计语言。
+- 未要求调整的层数。
+- 标志性袖型、裙型、配色和饰物。
 
-## Failure Signals
+## 诊断标识
 
-- garment_horizontal_weight_too_high
-- sleeve_mass_overpowering
-- skirt_width_suppressing_height
-- centerline_too_weak
+- `garment_horizontal_weight_too_high`：横向体量压过身材结构。
+- `sleeve_mass_overpowering`：袖部体量抢占主体。
+- `skirt_width_suppressing_height`：非设计意图的裙宽压低身高观感。
+- `centerline_too_weak`：中心衣片走向不清楚。

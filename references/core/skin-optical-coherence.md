@@ -1,42 +1,39 @@
-# Skin Optical Coherence
+# 肌肤光学一致性
 
-## Goal
+## 目标
 
-Facial realism should support refined makeup and visual appeal, following [the current makeup and skin direction](makeup-skin-integration-v2.md). Skin stays coherent under light without making surface detail compete with the face or overriding the selected makeup finish and apparent age.
+遵循 [当前妆肤规则](makeup-skin-integration-v2.md)，真实感支持精致妆容和视觉美感。肌肤在光线下表现连贯，表面细节不能抢过面容，也不能覆盖既定妆面与年龄。
 
-## Distinguish two concepts
+## 区分颜色与反射
 
-### Color / pigment homogeneity
-For a young character, keep this relatively high. Do not add random blotches, age spots or noisy redness to simulate realism.
+### 颜色均匀性
+年轻角色的肤色保持相对干净均匀，不添加随机斑驳、老年斑或杂乱泛红模拟真实。
 
-### Regional optical response
-This can vary naturally:
+### 分区光学响应
+不同区域可有自然区别，同时服从妆容光泽：
 
-- forehead: low-to-medium soft sheen
-- nose bridge / tip: slightly stronger specular response
-- inner cheek: fine texture with moderate diffusion
-- outer cheek: softer diffuse response
-- eye area: thinner-looking skin and lower saturation / slightly darker tone
-- lips: independent moist material response
-- ears / thin edges: only subtle translucency if visible and lighting supports it
+- 额头：较弱至中等的柔和光泽。
+- 鼻梁与鼻尖：略集中的柔和反光。
+- 内侧面颊：细微纹理与适度扩散。
+- 外侧面颊：柔和的漫反射。
+- 眼周：自然眼睑体积与轻柔色调变化，不刻意加深疲态。
+- 嘴唇：与肤色区域不同的润泽反射。
+- 耳部与薄边缘：仅在可见且光线支持时有轻微透光。
 
-## Subsurface cue
+## 软组织透光
 
-Use subtle tissue softness / translucency rather than "glowing skin." This is a perceptual cue, not a claim of physically exact subsurface rendering.
+用克制的组织柔软感和透光表现生命感，不把皮肤做成发光体。这是视觉描述，不宣称物理渲染参数准确。
 
-## Detail budget
+## 景别与细节
 
-At full-body scale:
-- pores are support-level, not primary
-- soft structure and region-dependent reflectance matter more
+全身画幅优先柔和结构和分区反射，不强求毛孔可见。
 
-At close-up scale:
-- fine pores and lip texture may become more visible where appropriate to the makeup, lighting and resolution; keep contrast restrained and the finished face attractive
+近景可按妆面、灯光和分辨率呈现细微毛孔与唇纹，仍须低对比、精致且好看。
 
-## Failure signals
+## 诊断标识
 
-- skin_optics_flat
-- skin_waxy_surface
-- skin_pigment_variation_overdone
-- skin_pore_overstack
-- skin_subsurface_fake_glow
+- `skin_optics_flat`：肌肤反射缺乏体积。
+- `skin_waxy_surface`：蜡质表面。
+- `skin_pigment_variation_overdone`：肤色杂变过度。
+- `skin_pore_overstack`：毛孔与纹理堆积。
+- `skin_subsurface_fake_glow`：不合理的皮下发光。

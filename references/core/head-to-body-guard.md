@@ -1,26 +1,24 @@
-# Head-to-Body Guard v0.7.5
+# 头身比例边界
 
-The purpose is to create a smaller **visual head-to-body relationship** without changing who the person is.
+目标是在保留人物辨识度的前提下协调头部与全身的视觉关系。不是每张图都需要缩头，先按 [身材比例](fashion-proportion-system.md) 判断实际失衡。
 
-## Locked
+## 保持的人物辨识点
 
-- face width
-- face shape
-- eye spacing and eye size relationship
-- nose/lip geometry
-- jaw/chin identity
-- hairstyle identity
+- 脸宽与脸型。
+- 眼距和双眼大小关系。
+- 鼻唇、下颌和下巴的辨识特征。
+- 发色与主要发型方向；已授权整理碎发时按该范围调整。
 
-## Allowed
+## 可调整项
 
-- whole-figure visual scaling relationship
-- slightly more neck/shoulder openness
-- framing and costume verticality that make the figure read taller
+- 整体头身视觉关系。
+- 适度舒展的肩颈。
+- 支持修长观感的取景与衣片纵向关系。
 
-## Forbidden
+## 避免
 
-- narrowing the face to fake a smaller head
-- widening shoulders unnaturally
-- shrinking facial features
-- reducing the skull while leaving facial geometry mismatched
-- counting hair ornaments as head length
+- 窄脸假装缩头。
+- 不自然地加宽肩膀。
+- 缩小五官。
+- 缩小颅骨却留下不匹配的五官结构。
+- 把头饰高度计入头长。
