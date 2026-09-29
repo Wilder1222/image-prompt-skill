@@ -18,8 +18,8 @@
         "no_capture_motion"
       ],
       "prompt_translation": [
-        "For this front-facing asset case, compose the complete natural silhouette from the highest ornament to the lowest garment or visible shoe inside the frame, centered and balanced on pure white. An explicit pose request overrides this neutral case.",
-        "Let the chosen stance and garment gravity determine footwear visibility. One foot, both feet or neither may be visible beneath a long dress. Preserve natural drape and plausible ground contact; do not shorten or lift the hem to expose shoes unless shoe display is explicitly requested."
+        "本正面资产案例采用纯白背景，最高饰物至最低自然衣摆或可见鞋履的完整轮廓均在画内，居中平衡；明确动作要求优先于此中性站姿案例。",
+        "姿态与衣料重力决定鞋脚可见性，长裙下可见一脚、双脚或均不可见；保留自然垂坠和符合动作的接地关系，未明确要求展示鞋时不缩短或掀起衣摆。"
       ]
     }
   }

@@ -1,45 +1,17 @@
-# Eye Optical Realism
+# 眼部真实感
 
-Eyes are a high-sensitivity realism cue. Human Presence v3 treats them as an optical subsystem, not simply "detailed eyes."
+眼睛是敏感的真人感线索，应检查眼睑、眼球、虹膜和高光的关系，而不只增加眼内纹理。
 
-## Preserve
+## 保持与可变范围
 
-- eye spacing
-- eye shape core
-- lid geometry identity
-- gaze direction
-- age intent
+保持人物眼距、主要眼形、眼睑辨识点与年龄。局部修肤质时沿用原视线；用户允许神态适配时，可调整视线和眼睑张力，不将表情变化误判为换脸。
 
-## Refine
+## 具体表现
 
-### Eyelid / eyeball contact
-- upper and lower lids visibly wrap the eyeball
-- inner and outer canthi are structurally believable
-- lash roots emerge from the lid margin instead of floating on top
+上下眼睑自然包裹眼球，内外眼角连接可信，睫毛根部落在睑缘，不悬浮在表面。眼白明亮但不发纸白光，当前景别可见时允许眼角有轻微暖灰变化，不主动加重血丝。
 
-### Sclera naturalness
-- sclera remains naturally light but not paper-white or luminous
-- subtle warm/gray variation may appear at the corners when visible
-- do not add dramatic redness to a healthy young-character asset
+虹膜保留指定颜色，有低对比、不完全均匀的层次；瞳孔与虹膜过渡避免矢量图式硬切。高光与实际主光一致，不出现无来源的多组反射，不像宝石闪光。
 
-### Iris / pupil
-- iris texture should not be perfectly uniform or gem-like
-- pupil / iris transitions should not look like vector graphics
-- preserve the character's original iris color
+近景中克制的湿润线可支持真实感，全身资产中不夸张描出。保持精致眼妆和面部美感，不为真实感加重疲态。
 
-### Catchlight
-- catchlights must agree with the current key light
-- do not create multiple unrelated studio reflections
-- keep highlights controlled rather than jewel-like
-
-### Moisture line
-- a subtle wetline / corneal sheen may support realism at portrait-visible scale
-- do not exaggerate it in full-body assets
-
-## Failure signals
-
-- eye_sclera_too_white
-- eye_iris_too_uniform
-- eye_catchlight_mismatch
-- eye_glass_gem_cg
-- eye_lid_contact_flat
+兼容诊断标识：`eye_sclera_too_white`、`eye_iris_too_uniform`、`eye_catchlight_mismatch`、`eye_glass_gem_cg`、`eye_lid_contact_flat`。

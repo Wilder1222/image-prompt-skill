@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderTaggedChinese } from './asset-prompt-zh.mjs';
+import { translateCatalogToEnglish, workflowEnglish } from './asset-catalog-en.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = name => JSON.parse(fs.readFileSync(path.join(root, 'resources', name), 'utf8'));
@@ -25,18 +26,24 @@ function lookup(table, id, label) {
 const scopes = {
   face: {
     round: 'asset_master_face_refine',
-    preserve: 'Preserve the exact facial identity geometry and apparent age, body proportions, hairstyle, costume design, pose, hands, footwear, framing, background and lighting layout.',
-    change: 'Change only facial rendering: retain the observed eyelids, cheek volume and mouth-corner placement while adjusting skin response and facial realism.',
+    preserve: '保留既有面容几何与表观年龄、身体比例、发型、服装、姿态、手脚、取景、背景和布光。',
+    change: '仅调整面部表现：保留已观察的眼睑、面颊体积与嘴角位置，修订肤质反射和真人程度。',
+    enPreserve: 'Preserve the exact facial identity geometry and apparent age, body proportions, hairstyle, costume design, pose, hands, footwear, framing, background and lighting layout.',
+    enChange: 'Change only facial rendering: retain the observed eyelids, cheek volume and mouth-corner placement while adjusting skin response and facial realism.',
   },
   structure: {
     round: 'asset_master_structure_refine',
-    preserve: 'Preserve facial identity, apparent age, approved facial rendering, hairstyle, costume design, palette, materials, background type and lighting layout.',
-    change: 'Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction.',
+    preserve: '保留人物身份与年龄、已认可面部表现、发型、服装构造配色、材料、背景类型与灯位。',
+    change: '仅调整全身比例关系、可见手部结构和取景，保持服装构造；鞋履是否需展示由任务决定。',
+    enPreserve: 'Preserve facial identity, apparent age, approved facial rendering, hairstyle, costume design, palette, materials, background type and lighting layout.',
+    enChange: 'Change only full-body proportion cues, hand anatomy, footwear readability and framing; retain the costume construction.',
   },
   'material-light': {
     round: 'asset_master_material_light_refine',
-    preserve: 'Preserve facial identity, apparent age and approved facial rendering, body proportions, hairstyle, pose, hands, footwear shape, costume construction, palette and framing.',
-    change: 'Change only garment material response, studio lighting, pale-fabric edge separation and floor contact shadow.',
+    preserve: '保留人物身份、年龄与已认可面部表现、身体比例、发型、姿态、手脚鞋形、服装构造配色及取景。',
+    change: '仅调整服装材质反应、棚拍照明、浅色衣缘分离及符合姿态的接地阴影。',
+    enPreserve: 'Preserve facial identity, apparent age and approved facial rendering, body proportions, hairstyle, pose, hands, footwear shape, costume construction, palette and framing.',
+    enChange: 'Change only garment material response, studio lighting, pale-fabric edge separation and floor contact shadow.',
   },
 };
 
@@ -104,7 +111,7 @@ export function createAssetPlan(options = {}) {
       },
       ...data,
       prompt_skeleton: conflicts.length ? [] : [
-        'Edit the supplied current asset image. Use it as the only direct edit target.',
+        '编辑提供的当前资产图，将其作为唯一直接编辑对象。',
         scope.preserve, scope.change, ...prompts,
       ],
     };
@@ -130,7 +137,7 @@ export function createAssetPlan(options = {}) {
     design_freedom: { mode: configuration.design_freedom, ...designFreedom },
     stage_1: stage1, stage_2: stage2, stage_3: stage3,
     order: [scopes.face.round, scopes.structure.round, scopes['material-light'].round, configuration.style_workflow === 'dark_fantasy_asset' ? 'final_style_review' : 'final_photographic_polish', 'upscale'],
-    rule: 'Use only the failed stage; accept its actual image before progressing. A plan is not evidence that any image has passed. Preserve approved face rendering during non-face repairs.',
+    rule: '只处理未通过的阶段，查看实际输出后再推进；计划不代表图像通过。非面部修订保留已认可的面部表现。',
   };
 }
 
@@ -140,7 +147,9 @@ const englishStudioLighting = [
   'Retain gentle facial volume under even lighting. Skin detail serves refined makeup and framing. Keep the white background from swallowing pale garment edges, shadows consistent with the pose, distinct fabric layers and restrained metal highlights. Preserve the requested photographic or painterly medium.'
 ];
 function renderEnglishCompatibility(prompt) {
-  return lights.profiles.studio_soft_separation.prompt_translation.reduce((text, source, i) => text.replaceAll(source, englishStudioLighting[i]), prompt);
+  const localized = lights.profiles.studio_soft_separation.prompt_translation.reduce((text, source, i) => text.replaceAll(source, englishStudioLighting[i]), prompt);
+  const scopesRendered = Object.values(scopes).reduce((text, scope) => text.replaceAll(scope.preserve,scope.enPreserve).replaceAll(scope.change,scope.enChange), localized).replaceAll('编辑提供的当前资产图，将其作为唯一直接编辑对象。','Edit the supplied current asset image. Use it as the only direct edit target.');
+  return translateCatalogToEnglish(scopesRendered).replaceAll('P9 fashion-asset proportion', 'tall, balanced fashion proportion with an approximately nine-head visual read');
 }
 
 export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'zh-CN', ...options } = {}) {
@@ -187,18 +196,18 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
     lines = [
       section('Task and reference', ['Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.', plan.design_freedom.reference_prompt]),
       section('Mode settings', [`render mode = ${c.render_mode}`, `style workflow = ${c.style_workflow}`, `face mode = ${c.legacy_face_mode}`, `proportion mode = ${c.proportion_profile === 'P9_FASHION_ASSET' ? 'P9 Fashion' : 'Natural Adult'}`, `detail budget = ${c.detail_budget}`, `highlight hierarchy = ${c.highlight_hierarchy}`, `edge control = ${c.edge_control}`]),
-      section('Core goal', [s.workflow.en]),
+      section('Core goal', [workflowEnglish.profiles[c.style_workflow]]),
       section('1. Identity and face', plan.stage_1.prompt_skeleton.slice(3)),
       section('Expression and gaze', ['Allow the expression to adapt to the current character, pose, setting and purpose while retaining facial identity and apparent age. Select coherent gaze, brow and eyelid tension, mouth-corner movement and lip opening; do not freeze the original expression or impose a universal smile. Explicit expression and gaze requirements take precedence. Natural expression movement is allowed without redesigning the face or changing a locked head angle.']),
       section('2. Makeup and skin', [c.style_workflow === 'dark_fantasy_asset' ? 'Retain refined painted makeup and facial beauty. Skin detail serves the finished makeup and visual appeal; do not add documentary pores, age or fatigue to force photographic realism.' : 'Establish refined, character-appropriate makeup and an attractive finished face first. Use finely blended foundation, coordinated eyes and lips, soft regional reflection and restrained skin texture to support that finish. Scale detail to framing without forcing visible pores at full-body size; avoid coarse sharpening, patchy makeup and plastic smoothing.']),
       section('3. Hair and ornaments', ['Keep the reference hair color, overall hairstyle direction, primary silhouette and signature ornaments. Allow the parting, temple strands and local fastening to adapt for a clear face: substantially reduce stray hair crossing the forehead, eyes, nose, mouth and cheeks; retain only sparse silhouette wisps and natural volume. Do not force strand-for-strand copying or slick all hair flat. Explicit user requests to preserve a particular fringe or ornament take precedence.']),
       section('4. Costume design', [plan.design_freedom.reference_prompt, ...plan.design_freedom.prompt_translation, ...plan.presentation.generation_prompt_translation]),
-      section('5. Material response', [...plan.stage_3.material_separation.generation_prompt_translation, s.detail.en]),
+      section('5. Material response', [...plan.stage_3.material_separation.generation_prompt_translation, workflowEnglish.detail_budgets[c.detail_budget]]),
       section('6. Composition and pose', [...plan.stage_2.asset_master.prompt_translation, ...plan.stage_2.hand_pose.prompt_translation]),
       section('7. Body proportion', plan.stage_2.fashion_asset.prompt_translation),
       section('8. Hands and feet', ['Each hand anatomically has one thumb and four fingers; natural overlap is allowed. Keep visible joints coherent. The stance and garment gravity determine whether one, both or neither foot is visible. Keep the complete natural silhouette inside the frame and plausible ground contact; do not lift or shorten the hem to force visible shoe tips.']),
-      section('9. Background and light', [...plan.stage_3.studio_lighting.prompt_translation, s.highlights.en, s.edges.en, 'Remove scenic branches, bokeh, sunset atmosphere, foreground obstructions and battlefield effects. Keep only a white seamless background and a faint contact shadow.']),
-      section('10. Final goal and restrictions', [s.workflow.en, 'For this neutral front-facing inspection case, keep a complete centered figure, readable face, coherent proportions and distinct garment materials. Exaggerated or dynamic action is supported by the production workflow when selected for the task; do not apply this static case as a universal movement restriction. Express life through focused gaze, coherent facial and body intent, natural shoulder and hand tension, and believable cloth response.']),
+      section('9. Background and light', [...plan.stage_3.studio_lighting.prompt_translation, workflowEnglish.highlight_hierarchies[c.highlight_hierarchy], workflowEnglish.edge_controls[c.edge_control], 'Remove scenic branches, bokeh, sunset atmosphere, foreground obstructions and battlefield effects. Keep only a white seamless background and a faint contact shadow.']),
+      section('10. Final goal and restrictions', [workflowEnglish.profiles[c.style_workflow], 'For this neutral front-facing inspection case, keep a complete centered figure, readable face, coherent proportions and distinct garment materials. Exaggerated or dynamic action is supported by the production workflow when selected for the task; do not apply this static case as a universal movement restriction. Express life through focused gaze, coherent facial and body intent, natural shoulder and hand tension, and believable cloth response.']),
     ];
   } else {
     const selected = lookup(stages, stage, 'edit stage');

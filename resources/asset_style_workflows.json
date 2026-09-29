@@ -5,41 +5,34 @@
       "detail_budget": "material_priority",
       "highlight_hierarchy": "focal_brightness",
       "edge_control": "soft_realistic",
-      "zh": "高颜值古风定妆照与白底角色资产图结合：面容美感优先，保留轻度真实肌肤与自然妆容，服装具有可触摸的真实材质。不用粗糙纪实皮肤或统一塑料高光制造真实感。",
-      "en": "Combine a beautiful costume portrait with a white-background character asset. Prioritize facial beauty with mild natural skin texture and makeup, and physically convincing garment materials; avoid coarse documentary skin or uniform plastic highlights."
+      "zh": "高颜值古风定妆照与白底角色资产图结合：面容美感优先，保留轻度真实肌肤与自然妆容，服装具有可触摸的真实材质。不用粗糙纪实皮肤或统一塑料高光制造真实感。"
     },
     "dark_fantasy_asset": {
       "detail_budget": "concept_art_priority",
       "highlight_hierarchy": "focal_brightness",
       "edge_control": "painterly_selective",
-      "zh": "保留参考的东方幻想厚涂原画审美、冷艳克制的美感、柔和笔触与局部柔和辉光，转化为稳定清晰的白底角色资产。不要变成普通真人商业硬照，不用纪实毛孔、疲态或锐利摄影轮廓取代原画面容。服装、护甲和冠饰是否存在及其配色，以实际参考和本轮设计为准，不自动套用另一角色的黑白金红衣装。",
-      "en": "Preserve the reference's Eastern dark-fantasy painted concept-art aesthetic, restrained beauty, soft brushwork and restrained local glow in a stable white-background asset. Do not convert it to an ordinary commercial photograph or replace the painted face with documentary pores, fatigue or uniformly sharp photographic edges. Costume, armor, crown and palette come from the actual reference and brief, not a universal black-white-gold-red outfit."
+      "zh": "保留参考的东方幻想厚涂原画审美、冷艳克制的美感、柔和笔触与局部柔和辉光，转化为稳定清晰的白底角色资产。不要变成普通真人商业硬照，不用纪实毛孔、疲态或锐利摄影轮廓取代原画面容。服装、护甲和冠饰是否存在及其配色，以实际参考和本轮设计为准，不自动套用另一角色的黑白金红衣装。"
     }
   },
   "detail_budgets": {
     "material_priority": {
-      "zh": "细节用于区分真丝、织锦、纱、绣线与金属的厚度、透光和反射；主衣片、缝合、受力褶皱清楚，素面区域安静，不以全身密集花纹代替材质真实感。",
-      "en": "Spend detail on the thickness, transmission and reflectance of silk, brocade, gauze, embroidery and metal. Keep construction, seams and load-bearing folds readable; retain quiet plain areas instead of covering every surface in ornament."
+      "zh": "细节用于区分真丝、织锦、纱、绣线与金属的厚度、透光和反射；主衣片、缝合、受力褶皱清楚，素面区域安静，不以全身密集花纹代替材质真实感。"
     },
     "concept_art_priority": {
-      "zh": "最高细节集中在面部、已有冠饰核心、领胸结构与腰部主饰；主裙、主袖和主要发束保持中等细节，发梢、披帛末端与次要裙边选择性概括。不得为了填满空白增加纹样、武器或饰物。",
-      "en": "Concentrate the highest detail on the face, existing crown core, neckline/chest construction and waist ornament. Resolve primary skirt, sleeves and hair masses at medium detail; selectively simplify hair tips, ribbon ends and secondary hems. Do not add motifs, weapons or ornaments merely to fill space."
+      "zh": "最高细节集中在面部、已有冠饰核心、领胸结构与腰部主饰；主裙、主袖和主要发束保持中等细节，发梢、披帛末端与次要裙边选择性概括。不得为了填满空白增加纹样、武器或饰物。"
     }
   },
   "highlight_hierarchies": {
     "focal_brightness": {
-      "zh": "以脸部及邻近头饰、上身为视觉亮度焦点，腰饰和少量衣褶反光次之，裙边与披帛高光更稀疏。不让每条金边同样发亮，不让纯白背景导致肤色和浅衣过曝。",
-      "en": "Concentrate subject highlights around the face, adjacent existing head ornaments and upper torso; subordinate waist and selected fabric highlights, with sparse peripheral glints. Do not make every gold edge equally luminous or clip skin and pale fabric against the white background."
+      "zh": "以脸部及邻近头饰、上身为视觉亮度焦点，腰饰和少量衣褶反光次之，裙边与披帛高光更稀疏。不让每条金边同样发亮，不让纯白背景导致肤色和浅衣过曝。"
     }
   },
   "edge_controls": {
     "soft_realistic": {
-      "zh": "轮廓服从柔和棚光和真实材质：眼睑、衣料接缝与必要结构清楚，细发、薄纱和次要边缘自然柔化，保持白衣与白底分离；不描黑边，不锐化整圈轮廓。",
-      "en": "Let edges follow soft studio light and physical materials: keep eyelids, seams and necessary construction clear, soften fine hair and thin gauze naturally, and separate pale garments from white without black outlines or uniformly sharpened contours."
+      "zh": "轮廓服从柔和棚光和真实材质：眼睑、衣料接缝与必要结构清楚，细发、薄纱和次要边缘自然柔化，保持白衣与白底分离；不描黑边，不锐化整圈轮廓。"
     },
     "painterly_selective": {
-      "zh": "眼睛、冠饰核心和关键金属结构边缘清楚；发梢、披帛、纱层及次要裙边保留柔和笔触与选择性虚实。保持外形完整可辨，不能用雾、强逆光或模糊遮掉手脚与鞋履。",
-      "en": "Keep eyes, existing crown core and key metal construction crisp; retain soft brushwork and selectively softened edges in hair tips, ribbons, gauze and secondary hems. Preserve the complete readable silhouette; do not obscure hands or shoes with mist, backlight or blur."
+      "zh": "眼睛、冠饰核心和关键金属结构边缘清楚；发梢、披帛、纱层及次要裙边保留柔和笔触与选择性虚实。保持外形完整可辨，不能用雾、强逆光或模糊遮掉手脚与鞋履。"
     }
   }
 }

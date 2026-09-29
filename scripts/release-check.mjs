@@ -36,7 +36,7 @@ export function validateProject(base, { manifest = true } = {}) {
   const files = releaseFiles(base);
   const json = name => JSON.parse(fs.readFileSync(path.join(base, name), 'utf8'));
   for (const file of ['SKILL.md', 'package.json', 'agents/openai.yaml', 'scripts/iteration-director.mjs',
-    'scripts/asset-master.mjs', 'scripts/production-prompt.mjs', 'scripts/production-run.mjs', 'references/core/standing-pose-direction.md', 'references/core/visual-acceptance.md', 'references/routes/prompt-production.md', 'references/routes/asset-master-workflow.md',
+    'scripts/asset-master.mjs', 'scripts/asset-catalog-en.mjs', 'scripts/production-prompt.mjs', 'scripts/production-run.mjs', 'references/core/standing-pose-direction.md', 'references/core/visual-acceptance.md', 'references/routes/prompt-production.md', 'references/routes/asset-master-workflow.md',
     'resources/asset_presentation_v084_catalog.json', 'references/routes/benchmark-costume-refinement.md',
     '.codex-plugin/plugin.json', 'skills/image-prompt-skill/SKILL.md', 'scripts/plugin-support.mjs']) {
     if (!files.includes(file)) errors.push(`missing required file: ${file}`);
@@ -81,6 +81,18 @@ export function validateProject(base, { manifest = true } = {}) {
     }
     const faceCatalog = json('resources/face_profile_v082_catalog.json');
     const workflows = json('resources/asset_style_workflows.json');
+    // Inspect the checked directory's data literals without executing its JavaScript.
+    const englishSource = fs.readFileSync(path.join(base,'scripts/asset-catalog-en.mjs'),'utf8').replaceAll('\r\n','\n');
+    const workflowMarker = 'export const workflowEnglish = ';
+    const catalogMarker = 'export const catalogEnglish = ';
+    if(!englishSource.includes(workflowMarker)||!englishSource.includes(catalogMarker))throw new Error('missing English compatibility exports');
+    const englishWorkflows = JSON.parse(englishSource.slice(englishSource.indexOf(workflowMarker)+workflowMarker.length).trim().replace(/;$/,''));
+    const englishEntries = JSON.parse(englishSource.slice(englishSource.indexOf(catalogMarker)+catalogMarker.length,englishSource.indexOf(';\n\nexport function')));
+    for(const entry of englishEntries){
+      if(!/^[a-z0-9_]+\.json$/.test(entry.resource)||!entry.path.startsWith('$.'))throw new Error('invalid English compatibility source path');
+      const value=entry.path.slice(2).replace(/\[(\d+)\]/g,'.$1').split('.').reduce((node,key)=>node?.[key],json(`resources/${entry.resource}`));
+      if(value!==entry.zh||typeof entry.en!=='string'||!entry.en.trim())errors.push(`stale English compatibility: ${entry.resource}${entry.path}`);
+    }
     if (!Object.hasOwn(workflows.profiles, workflows.default)) errors.push('unknown default asset style workflow');
     for (const [name, workflow] of Object.entries(workflows.profiles)) {
       for (const [field, table] of [['detail_budget','detail_budgets'], ['highlight_hierarchy','highlight_hierarchies'], ['edge_control','edge_controls']]) {
@@ -89,7 +101,9 @@ export function validateProject(base, { manifest = true } = {}) {
     }
     for (const table of ['profiles','detail_budgets','highlight_hierarchies','edge_controls']) {
       for (const [name, value] of Object.entries(workflows[table])) {
-        for (const language of ['zh','en']) if (typeof value[language] !== 'string' || !value[language].trim()) errors.push(`${name}: missing ${language} visual instructions`);
+        if (typeof value.zh !== 'string' || !value.zh.trim()) errors.push(`${name}: missing zh visual instructions`);
+        const english=englishWorkflows[table]?.[name];
+        if(typeof english!=='string'||!english.trim())errors.push(`${name}: missing en visual instructions`);
       }
     }
     const materialCatalog = json('resources/material_separation_v082_catalog.json');

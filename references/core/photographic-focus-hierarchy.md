@@ -1,34 +1,11 @@
-# Photographic Focus Hierarchy
+# 摄影焦点层次
 
-A real photograph does not give every pixel the same mathematical sharpness.
+自然照片不要求每个像素具有相同锐度，但角色资产需要足够清晰，不能用浅景深遮住服装缺陷。
 
-## Full-body character asset
+完整全身展示通常依次关注面部与眼睛、上身衣装和饰物、主裙及可见鞋履；外围薄纱与远侧边缘可以略柔，背景的清晰度由用途和场景决定。主体衣片始终应可读，不自动虚化主裙。
 
-Recommended hierarchy:
+模型能够理解时，可使用正常人物焦段、柔和主光、足够覆盖整套衣服的景深和自然高光过渡等可见描述。选择棚拍才使用棚灯语言，保留场景则让受光与环境一致。
 
-1. face / eyes — strongest perceptual focus
-2. upper costume / accessories — crisp and readable
-3. lower garment / footwear — clear enough for asset use
-4. outer translucent layers / far edges — may resolve slightly softer
-5. background — seamless and unobtrusive
+具体相机品牌、光圈数字不是普遍必需项。避免全局高动态范围式提亮、均匀强锐化和剪贴般的脸部硬边。
 
-This is not permission to blur the costume. The goal is natural optical hierarchy, not shallow-DOF portrait blur.
-
-## Camera language
-
-Where the target model responds well to camera terminology, use restrained studio-photography wording such as:
-
-- portrait-normal focal-length perspective
-- soft directional studio key
-- moderate depth of field sufficient to keep the full costume readable
-- natural highlight roll-off
-- no global HDR / clarity look
-
-Exact camera brands and aperture values are model-specific optional cues, not universal requirements.
-
-## Failure signals
-
-- focus_uniform_cg
-- face_cutout_sharpness
-- peripheral_overblur
-- global_clarity_render
+兼容诊断标识：`focus_uniform_cg`、`face_cutout_sharpness`、`peripheral_overblur`、`global_clarity_render`。

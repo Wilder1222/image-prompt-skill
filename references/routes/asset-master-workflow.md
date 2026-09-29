@@ -79,7 +79,7 @@ node scripts/iteration-director.mjs next --failures material_layers_merged
 
 ## 依据
 
-- [Anthropic Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)：保持入口精简，按任务逐步加载参考，以实际行为评估技能。
+- [Anthropic 技能编写实践](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)：保持入口精简，按任务逐步加载参考，以实际行为评估技能。
 - [OpenAI Image prompting](https://developers.openai.com/api/docs/guides/image-prompting)：局部编辑明确要改与要保持的内容，迭代使用前一张已接受图像。
 
 检索日期：2026-09-29。以上原则用于组织本地技能；P9、年龄范围和材质层均为项目预设，不是厂商参数或生成质量保证。

@@ -1,7 +1,7 @@
 {
   "version": "0.8.2",
   "default": "beauty_first_character",
-  "principle": "Choose facial rendering independently from non-face realism. Facial texture supports refined makeup and visual appeal, while preserving identity and apparent age; more photorealism must not degrade the finished face.",
+  "principle": "面容表现与身体、服装的真实程度分别选择。肌肤纹理服务于精致妆容和视觉美感，同时保持身份及表观年龄；增强摄影质感不能降低面容完成度。",
   "profiles": {
     "beauty_first_clean": {
       "base_mode": "beauty_first",
@@ -11,23 +11,23 @@
       "beauty_priority": "very_high",
       "maturity_guard": "youthful_18_22",
       "signals": [
-        "clean youthful beauty",
-        "soft oval facial read",
-        "clear elegant eyes",
-        "delicate makeup",
-        "polished but non-plastic skin"
+        "清爽的年轻美感",
+        "保留参考自然脸型",
+        "清澈优雅的眼神",
+        "精致妆容",
+        "细腻但不塑料化的肌肤"
       ],
       "avoid": [
         "age_up",
-        "heavy under-eye depth",
-        "hollow cheeks",
-        "harsh facial planes",
-        "documentary texture"
+        "过重的眼下凹陷",
+        "面颊凹陷",
+        "生硬面部转折",
+        "粗糙纪实纹理"
       ],
       "prompt_translation": [
-        "Keep the face beauty-first, clean and elegant while preserving the reference age; do not age the character up in the name of realism.",
-        "Preserve the reference face shape, cheek volume, eye spacing and natural eyelids with delicate makeup; do not impose a generic oval face.",
-        "Establish refined makeup first, then use restrained regional skin reflection and texture appropriate to framing; preserve the approved identity, apparent age and visual appeal."
+        "面容以清雅好看为先，保持参考年龄，不借真实感使人物显老。",
+        "保留参考脸型、面颊体积、眼距与自然眼睑，配精致妆容；不统一改为鹅蛋脸。",
+        "先完成精致妆面，再按景别加入克制分区反射与肤质，保持已认可的身份、年龄和美感。"
       ]
     },
     "beauty_first_character": {
@@ -38,24 +38,24 @@
       "beauty_priority": "very_high",
       "maturity_guard": "youthful_18_22",
       "signals": [
-        "beauty-first identity",
-        "subtle cheek volume",
-        "natural eyelid structure",
-        "individual nose-and-lip identity features",
-        "soft regional skin response",
-        "task-appropriate expression with stable identity"
+        "美感优先并保持个体身份",
+        "适度面颊体积",
+        "自然眼睑结构",
+        "有辨识度的鼻唇特征",
+        "柔和分区肤质反应",
+        "表情适配任务且身份稳定"
       ],
       "avoid": [
-        "generic AI beauty template",
+        "标准化美人模板脸",
         "age_up",
-        "hollowing",
-        "hard cheekbone carving",
-        "perfectly averaged facial symmetry"
+        "面颊凹陷",
+        "过度雕刻颧骨",
+        "过分平均对称的五官"
       ],
       "prompt_translation": [
-        "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
-        "Retain the reference cheek volume, underlying eyelid structure and distinctive nose-and-lip features. Allow natural expression movement when requested; select gaze, facial tension and mouth action for the current character and task rather than freezing the original expression or imposing a smile.",
-        "Build facial realism on refined makeup, adding only restrained regional skin response and soft-tissue detail that improve visual appeal; do not increase maturity, fatigue or facial severity."
+        "面容好看优先，同时保留本角色的个体辨识点，不平均化为标准美人脸。",
+        "保留参考面颊体积、眼睑基础结构及鼻唇特征；按人物与任务自然调整视线、面部松紧和嘴唇动作，不锁死原神态或强制微笑。",
+        "面容真实感建立在精致妆容上，仅加入改善美感的克制分区反射和软组织层次，不增加成熟感、疲态或严厉感。"
       ]
     },
     "humanized_real_light": {
@@ -66,21 +66,21 @@
       "beauty_priority": "high",
       "maturity_guard": "young_adult_20_26",
       "signals": [
-        "believable eyelids",
-        "regional skin optics",
-        "natural nose and lips",
-        "young soft tissue",
-        "photographic restraint"
+        "可信眼睑结构",
+        "分区皮肤光学反应",
+        "自然鼻唇",
+        "年轻柔和软组织",
+        "克制的摄影表现"
       ],
       "avoid": [
-        "mature fatigue",
-        "rough-skin shortcut",
-        "hollow cheeks",
-        "identity reshape"
+        "成熟疲态",
+        "用粗糙皮肤代替真实",
+        "面颊凹陷",
+        "重塑人物身份"
       ],
       "prompt_translation": [
-        "Increase believable human facial presence while keeping the character attractive, identity-stable and consistent with the approved apparent age.",
-        "Keep the makeup refined and flattering; use realistic eyelids, restrained regional skin optics and natural nose/lip anatomy to support that finish. Do not force visible pores at full-body scale or push the face toward documentary roughness."
+        "增强可信的真人面容，同时保持吸引力、身份稳定和已确认表观年龄。",
+        "妆容精致协调，以真实眼睑、克制分区肤质和自然鼻唇体积支撑妆面；全身景别不强制显示毛孔，不转成粗糙纪实脸。"
       ]
     },
     "humanized_real_full": {
@@ -91,21 +91,21 @@
       "beauty_priority": "medium_high",
       "maturity_guard": "young_adult_20_26",
       "signals": [
-        "photographic facial planes",
-        "soft-tissue structure",
-        "regional skin optics",
-        "eye optical realism",
-        "camera-coherent face"
+        "摄影式面部体积",
+        "软组织结构",
+        "分区皮肤光学反应",
+        "真实眼部光学",
+        "与相机表现一致的面容"
       ],
       "avoid": [
-        "plastic skin",
-        "game-CG face",
-        "identity reshape",
-        "age inflation"
+        "塑料肌肤",
+        "游戏渲染脸",
+        "重塑人物身份",
+        "无依据增加年龄"
       ],
       "prompt_translation": [
-        "Use strong photographic human presence while preserving the approved identity and attractiveness.",
-        "Keep realistic facial planes, soft tissue, eye optics and skin response coherent with refined makeup and an attractive finished portrait. Strong photographic presence is not permission to amplify pores, fatigue or texture contrast."
+        "采用明确的真人摄影质感，同时保持已认可的身份与吸引力。",
+        "面部体积、软组织、眼部光学和肤质与精致妆容协调；较强摄影真实感不意味着增强毛孔、疲态或纹理反差。"
       ]
     },
     "stylized_beauty": {
@@ -116,19 +116,19 @@
       "beauty_priority": "very_high",
       "maturity_guard": "youthful_18_22",
       "signals": [
-        "idealized facial appeal",
-        "clean stylized design",
-        "soft luminous complexion",
-        "controlled fantasy beauty"
+        "理想化面容美感",
+        "清楚的风格化设计",
+        "柔和明亮肤色",
+        "受控的幻想美感"
       ],
       "avoid": [
-        "excessive photographic aging",
-        "rough texture",
-        "hard documentary facial planes"
+        "过度摄影化导致显老",
+        "粗糙纹理",
+        "生硬纪实面部转折"
       ],
       "prompt_translation": [
-        "Preserve intentionally stylized beauty and idealized facial appeal with minimal realism pressure on the face.",
-        "Keep the observed facial geometry and age while retaining intentionally simplified skin shading and controlled luminous highlights."
+        "保留有意选择的风格化与理想化面容，减少不必要的真人纹理压力。",
+        "保持已观察的脸部几何和年龄，保留有意简化的肤色塑造与适度柔亮高光。"
       ]
     }
   }
