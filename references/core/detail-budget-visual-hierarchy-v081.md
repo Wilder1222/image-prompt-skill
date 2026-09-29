@@ -1,27 +1,17 @@
-# v0.8.1 Detail Budget & Visual Hierarchy
+# 细节预算与视觉层次
 
-## Problem
-A style can be directionally correct yet still feel like a commercial finished illustration rather than premium concept art because every region is equally resolved, equally bright and equally sharp.
+目标风格已经成立，却因处处同样精细、明亮、锐利而缺少主次时，按用途重新分配细节，不继续叠加装饰。
 
-## Detail Budget
-- Primary: face, eyes, crown core, chest/neck focal area, waist core ornament, weapon core.
-- Secondary: main skirt mass, primary sleeves, primary hair masses, main ribbons, major accessories.
-- Atmospheric: hair tails, outer ribbons, distant architecture, banners, cloud/mist masses, ground reflections, peripheral particles.
+| 层级 | 可能的区域 | 处理方式 |
+| --- | --- | --- |
+| 主要 | 面容眼睛、既有冠饰核心、领胸构造、腰饰或任务指定焦点 | 结构清楚，关键反射与连接准确。 |
+| 次要 | 主裙、主袖、大发束、主要飘带与配件 | 保留体积与材料，降低零碎刻画。 |
+| 外围 | 发尾、衣缘、远景建筑、云雾或地面反光 | 按媒介选择概括、柔化或留空。 |
 
-The atmospheric tier is intentionally allowed to be incomplete, impressionistic or partially omitted.
+这些是已有元素的预算，不授权增加武器、头冠、云雾或建筑。完整角色展示不能因概括而裁掉轮廓、模糊双手或遮掉服装构造；原画可以有选择性笔触，摄影的细节过渡需符合镜头与材料。
 
-## Highlight Hierarchy
-- Primary brightness: face-adjacent zone, crown, upper torso, weapon core.
-- Secondary: waist core ornament, selected fabric turns, key gold details, primary hair rim.
-- Tertiary: background buildings, outer ribbons, cloud edges, ground reflections.
+主体高光通常集中于面部附近及关键上身构造，腰饰与选定褶皱次之，背景和外围反光更克制。不让每条金边同样发光，也不用辉光覆盖所有材质。
 
-Do not use glow as a uniform decoration layer.
+已有宏大场景可降低背景的局部细节、对比与硬边，保留其尺度。清简庭院或纯色背景不因此新增宏大环境。脸部背后避免高对比碎细节抢夺注意力。
 
-## Background Submission
-Maintain monumental world scale while lowering local architectural resolution, contrast and edge hardness. Avoid hard-detail clusters directly behind the face and upper torso.
-
-## Painterly Edge Control
-Use hard edges sparingly at focal structures. Use soft edges in hair tails and drifting cloth. Use lost edges at backlit boundaries, haze, distant architecture and reflected light.
-
-## Core Principle
-After style intent passes, improvement comes from subtraction and hierarchy, not more detail.
+硬边用于必要结构，软边用于自然发尾和轻纱；逆光或雾中可按任务丢失少量边缘，但不能破坏要求的完整可读性。先减去竞争信息，再决定是否需要增加细节。

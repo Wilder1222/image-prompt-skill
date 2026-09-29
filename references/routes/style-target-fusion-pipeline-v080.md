@@ -1,25 +1,11 @@
-# Style Target Fusion Pipeline v0.8.0
+# 风格目标与人物资产融合
 
-1. Parse explicit user output intent.
-2. Assign references: Style Target / Asset Master / optional Face Trait.
-3. Resolve background policy independently from asset history.
-4. Resolve Render Mode.
-5. Resolve Face Mode independently.
-6. Build Reference Authority Matrix.
-7. Restore target style channels.
-8. Lock style channels that passed.
-9. Apply material/human realism without erasing medium, motion or atmosphere.
-10. Diagnose style drift before micro-quality polishing.
+1. 解析本次输出意图，分别确定媒介、背景、动作和面部表现。
+2. 给实际输入分配风格参考、人物母图、可选气质参考等角色。
+3. 按 [参考权限](../core/reference-authority-matrix-v080.md) 逐属性决定来源。
+4. 建立允许变化与保持范围，原白底或静态姿势不自动成为新任务锁定项。
+5. 编写中文分类正文，落实风格中的光线、运动、色彩与空间。
+6. 实际生成后，先验收身份、主要设计与媒介，再处理材料和细节。
+7. 已通过的风格保留，修订后同时复查漂移；代码检查不等于视觉通过。
 
-## Example
-
-User wants Image 4's painterly dynamic look using a clean full-body black-red-gold asset as the character source.
-
-- Image 4 → Style Target
-- full-body asset → Asset Master
-- Render Mode → cinematic_hybrid
-- Style Profile → oriental_epic_painterly
-- Face Mode → stylized_beauty by default, unless user requests another
-- White studio background from the Asset Master → ignored
-- Costume architecture from the Asset Master → locked
-- Dynamic pose / hair / fabric motion → authorized unless user locks pose
+历史例：用户要求参考图的动态厚涂风格，人物来自一张完整黑红金资产。风格图决定获准的笔触、动势、光线和场景；资产图决定身份与衣甲构造。可选 `cinematic_hybrid`，面容保留风格化美感；原资产白底不继承。只有本次确实授权动作时才改变身体姿势，不从风格标签推导无限改造权限。

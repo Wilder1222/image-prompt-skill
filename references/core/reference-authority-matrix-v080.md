@@ -1,42 +1,29 @@
-# Reference Authority Matrix
+# 参考来源权限
 
-Choose the scenario by the actual task. The style-restoration rules below do not freeze clothing when the user has authorized a new wardrobe design.
+按实际任务分配每个属性的来源。用户已经授权新衣装时，旧风格恢复流程不能冻结全部服装。当前执行入口为 [提示词生产](../routes/prompt-production.md)。
 
-Current execution uses [prompt production](../routes/prompt-production.md). For multiple views of the same person, declare one primary identity reference and supporting views in the same `identity_group`; never merge different people merely because their style is similar. Group declarations do not verify identity. Evaluation-only images remain outside generation inputs unless the current task explicitly assigns another role.
+同一人物多视角指定一个主要身份图，辅助视角放在同一 `identity_group`。分组声明不是自动身份验证，不能因风格相似就合并不同人物。评价标杆默认不作为生成输入；本轮明确赋予其他角色后才按新权限使用。
 
-## Style Target
-Owns: medium, motion, lighting language, atmosphere, composition energy, color relationships and environment scale when authorized.
+| 参考类型 | 允许控制 | 边界 |
+| --- | --- | --- |
+| 风格目标 | 获准的媒介、运动语言、光线语言、氛围、构图动势、配色关系与环境尺度 | 不默认改脸、体型、衣片构造或标志饰物。 |
+| 资产母图 | 人物、发型方向、体型、衣装构造、标志饰物和已确认设计连续性 | 用户新要求高于旧状态；只保护仍有效的部分。 |
+| 背景参考 | `background` 中指定的地点、空间、景物和背景表现 | 光线需另赋 `lighting`，不获身份与衣装权限。 |
+| 表情参考 | `expression` 中指定的视线、眉眼张力、嘴部动作和情绪强度 | 不提供脸型、年龄、发型或头部角度。 |
+| 身体动作参考 | `action` 中指定的动作阶段、支撑、手势和肢体关系 | 不提供动作模特身份、体型或衣装。 |
 
-Never owns by default: identity geometry, body identity, garment silhouette, garment construction or signature accessories.
+表情和动作可直接根据描述设计，不要求额外参考图。需要联动构图、材料或表情时记录对应范围，夸张动作只要符合任务和受力就可成立。背景按 [环境适配](background-direction.md)，动作按 [动作方向](action-direction.md) 执行。
 
-## Asset Master
-Owns: identity, hairstyle silhouette, body continuity, costume architecture, signature accessories and approved design family.
+## 人物 A 与衣装 B
 
-## Background Reference
-Owns: the explicitly assigned setting, spatial layout, scene elements and background appearance through the `background` channel. Assign `lighting` separately when the reference also controls illumination. It does not gain identity or wardrobe authority. Preserve, adjust or replace the environment according to the current brief; a white background is optional. See [background direction](background-direction.md).
+仅在本轮指定 B 为衣装设计来源时使用：A 提供人物面容与年龄，发型和表情可按授权适配；B 提供选定衣片构造、配色、层次和材质，饰品按明确范围借用。文字改案决定如何延展、改变姿态与背景。近景 A 不能证明不可见的全身体型，B 的模特身体也不是身份模板。
 
-## Expression Reference
-Owns: the assigned gaze, facial tension, mouth action and emotional intensity through `expression`. It does not supply identity geometry, apparent age, hairstyle or head angle. Adapt the action to the identity reference, following explicit expression and gaze requirements. Expression adaptation may also be chosen directly from the brief without an extra image.
-
-## Body Action Reference
-Owns: the assigned movement phase, gesture, support and limb relationships through `action`. It does not supply the actor's face, body proportions or costume. Adapt the movement to the current character and clothing; add composition, expression and material permissions only where the brief calls for their coordinated adaptation. Exaggerated action is allowed when coherent with the task. See [action direction](action-direction.md).
-
-## Key rule
-
-A style target should be allowed to change **presentation** strongly without silently replacing **design identity**.
-
-If style demands dynamic composition and the user did not lock the static pose, motion may be authorized. This is not an identity change.
-
-## Identity A / Wardrobe B
-
-Use this separate scenario when a user authorizes clothing redesign and the current brief assigns a specific image as the wardrobe reference. A supplies facial identity and apparent age; expression and hair may adapt when authorized by the current brief. B supplies the named clothing construction, palette, layering and material relationships; selected accessories only as assigned. The written adaptation controls changes, pose and background. A portrait does not establish unseen full-body proportions, and B's body is not an identity template.
-
-Bind the roles to the actual submitted image order and describe each image briefly. Explicitly exclude distinctive donor traits that could transfer accidentally: for example silver hair, a high bun, a forehead mark or a crown. This is targeted clarification, not a long generic negative list. User-authorized hairstyle changes still take precedence over defaults.
+绑定实际提交图序，并用一句话说明每张图。针对容易误借的特征作明确限制，例如 B 的银发、额饰或大冠；用户明确允许的发型调整仍可执行。不要使用一长串与参考无关的排除词。
 
 ```bash
 node scripts/iteration-director.mjs reference-authority --scenario identity_A_wardrobe_B
 ```
 
-This command returns planning metadata and reference-binding text; it does not inspect images, generate a complete costume prompt, or enforce model behavior. Authority levels are planning labels, not image-model weight parameters. Use the [character asset route](../routes/character-asset-pipeline.md) for the actual design brief. Do not feed this scenario into the cinematic style-restoration plan, whose A/B meanings are different.
+此命令仅返回计划与绑定说明，不查看图片、不完成服装设计，也不控制模型权重。具体方案按 [角色资产流程](../routes/character-asset-pipeline.md)。不要把这一 A/B 定义塞进 A/B 含义不同的风格恢复计划。
 
-Keep an original-only baseline when testing the added wardrobe image. Preserve the same concrete clothing brief where possible and record the new image and role-binding text as changes. Review face/hair against A and clothing against B separately; also check accessory count and ornament density against the brief. A successful black-hair check does not prove the face is unchanged. The additional visual source is not a prompt-only improvement. See [the actual comparison](../../docs/visual-evaluations/wardrobe-reference-v095.md).
+测试新增衣装参考时保留只用原图的基线，尽量保持文字衣装方案相同，记录新图与角色绑定的变化。脸和头发对 A，衣装对 B，饰品数量与密度对本轮方案分别核对。黑发未变不能证明身份未变，增加视觉参考也不能称作纯提示词优化。历史对照见 [服装参考实验](../../docs/visual-evaluations/wardrobe-reference-v095.md)。

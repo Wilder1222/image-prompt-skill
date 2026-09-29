@@ -1,44 +1,21 @@
-# Priority Compiler v3 — v0.7.5
+# 兼容优先级与当前执行边界
 
-## P0 Identity
-Face identity geometry and age identity remain the strongest invariants.
+这些标识供旧计划追踪，不替代中文语义标签，也不是模型注意力权重。用户当前及已确认要求优先，再按参考权限和局部编辑边界解决冲突。
 
-## P0R Reference Fidelity
-Reference channel ownership and fidelity assignment.
+| 标识 | 对应职责 |
+| --- | --- |
+| P0 | 人物稳定身份与已指定年龄。 |
+| P0R | 每个属性的参考来源和继承范围。 |
+| P0T | 保持身份的气质与表情调整。 |
+| P1 | 母图已确认的服装、姿态、构图、发型和配色连续性。 |
+| P1E | 可见手足结构的局部修复，自然遮挡不强制展开。 |
+| P1P | 头身、肩颈、完整躯干、腰臀、上下臂与上下腿协调。 |
+| P1B | 完成度、设计密度与磨损预算。 |
+| P1C | 可见事实、推断与缺失部分延展。 |
+| P1M | 资产展示、风格资产或风格恢复的输出意图。 |
+| P2H | 身体软组织、眼部结构、发束和成像中的生命感。 |
+| P2 | 材料分离与服装物理关系。 |
+| P3 | 符合用途与环境的布光和光学表现。 |
+| P4 | 实际放大、锐化或降噪。 |
 
-## P0T Trait Calibration
-Maturity / temperament presentation without changing identity geometry.
-
-## P1 Asset Continuity
-Composition, pose, costume architecture, hairstyle silhouette, palette and footwear family.
-
-## P1E Extremity Integrity
-Visible hand/foot anatomy errors are repaired locally.
-
-## P1P Fashion Proportion
-Head visual share, neck/shoulder openness, torso preservation, visual waistline, leg segmentation, garment verticality and footwear scale.
-
-## P1B Constraint Budgets
-Completion, design density and wear budgets.
-
-## P1C Completion Semantics
-Visible vs inferred / conservative completion.
-
-## P1M Render Mode
-Asset / style_asset / restoration / hybrid.
-
-## P2H Human Presence
-Soft structure, regional skin, micro-asymmetry, eye anatomy, hair irregularity and lens response.
-
-## P2 Materials
-Material separation and garment physics.
-
-## P3 Lighting & Optics
-Studio/cinematic lighting, separation, micro-contrast and final optics.
-
-## P4 Output Resolution
-Actual upscale / sharpen / denoise stages.
-
-## Compile rule
-
-If both `head_visual_too_large` and `face_too_cg` are present, route first to `fashion_proportion`. Lock accepted proportion before entering `human_presence_refine`.
+头身和面部表现同时失败时，先判断是否需要重建整体人体；确需改身体骨架时先处理它，避免后续破坏已修面容。仅局部问题则选最小范围，不机械要求每张图依序重修所有阶段。当前执行以 [提示词生产](../routes/prompt-production.md) 为准。

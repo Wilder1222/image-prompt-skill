@@ -1,83 +1,13 @@
-# Trait Reference Resolver v0.7.1
+# 气质参考的使用边界
 
-## New Role: facial_trait
+`facial_trait` 只提供指定面部表现，不提供身份。根据实际参考提取成熟感、视线、表情张力、妆容和整体从容程度，不笼统要求人物变得“像参考图”。
 
-A `facial_trait` reference is **not** an identity reference. It provides only selected presentation traits such as maturity, gaze quality, restraint, makeup mood, and editorial tone.
+兼容字段包括 `maturity_level`、`gaze_stability`、`expression_restraint`、`cheek_softness_delta`、`eye_openness_delta`、`makeup_restraint`、`editorial_tone`、`temperament_direction`。它们是内部设计记录，不是厂商参数；只有本次明确需要的字段才进入正文。
 
-## Allowed Authority
+气质参考不能自行控制脸型、眼距、眼鼻唇几何、下颌、肤色基底、年龄、发型、头饰、体型、衣装、背景、光线或镜头。眼睑与唇部随表情运动可以自然变化，但不能借机复制另一人的五官。
 
-A facial_trait reference may control only explicitly requested trait dimensions:
+通常 A 为母图与身份来源，B 为气质参考。存在独立原始身份照时，A 保持母图，B 提供身份，C 提供气质；实际图序必须写清。角色完整规则见 [参考角色分配](reference-role-resolver.md)。
 
-- maturity_level
-- gaze_stability
-- expression_restraint
-- cheek_softness_delta
-- eye_openness_delta
-- makeup_restraint
-- editorial_tone
-- temperament_direction
+示例仅适用于明确要求减少幼态的成年角色：
 
-## Forbidden Authority
-
-Unless separately authorized, a facial_trait reference must not control:
-
-- face_shape
-- eye_spacing
-- eye_shape_geometry
-- nose_width / nose_tip geometry
-- lip_shape geometry
-- jaw/chin geometry
-- skin tone baseline
-- hairstyle silhouette
-- headwear design
-- body shape
-- costume
-- background
-- lighting style
-- camera angle
-- scene mood
-
-## Recommended Two-Image Layout
-
-### Image A — Asset Master
-Controls:
-- current identity geometry
-- body
-- pose
-- composition
-- hairstyle silhouette
-- costume
-- background
-- current asset continuity
-
-### Image B — Facial Trait Reference
-Controls:
-- reduced childishness
-- maturity target
-- calm / high-end temperament
-- gaze restraint
-- makeup restraint
-
-Does **not** replace A's face geometry.
-
-## Optional Three-Image Layout
-
-If the user has a separate trusted portrait identity reference:
-
-- A = Asset Master
-- B = Face Identity Reference
-- C = Facial Trait Reference
-
-Precedence:
-
-```text
-B controls identity geometry
-A controls asset continuity
-C controls only trait direction
-```
-
-## Trait Extraction Rule
-
-Do not say “make the face look like Image B” when B is only a trait reference. Instead extract the traits:
-
-> Use Image B only for a calmer, less juvenile, more refined young-adult facial impression: steadier gaze, reduced babyish softness, restrained makeup, and a more editorial expression. Do not copy Image B's face shape, eyes, nose, lips, hair, lighting, clothing, or background.
+> 仅借鉴图 B 较稳定的眼神和精致、从容的妆容表现，适配图 A 现有面容。保留图 A 的脸型、眼距、鼻唇和下颌辨识点，不复制图 B 的五官、发型、衣服、背景或灯光。

@@ -1,74 +1,17 @@
-# Reference Role Resolver v0.7.1
+# 参考图角色分配
 
-## Principle
+每张参考有一个主要用途，可按任务声明多个明确通道；参考更多不代表控制更强。当前任务的用户要求高于旧预设，每个属性必须知道来自哪张图。
 
-Every reference has one primary job. More references do not automatically improve control; unclear roles increase leakage risk.
+| 兼容角色 | 可以决定 | 不自动获得的权限 |
+| --- | --- | --- |
+| `asset_master` | 已有母图的身份、体型、衣装、姿态与场景连续性 | 不覆盖用户明确授权的新改案。 |
+| `face_identity` | 稳定脸型、眼距眼形、鼻唇与颊颌辨识关系及表观年龄 | 衣装、动作、背景、未见下身。 |
+| `facial_trait` | 明确指定的成熟感、眼神、表情强度与妆容方向 | 另一个人的脸型、五官、年龄或肤色。 |
+| `costume_reference` | 指定衣片、配色、层次和材质 | 衣装模特的脸、发型与身体。 |
+| `pose_reference` | 动作阶段、支撑、手势和肢体关系 | 动作模特身份、体型和服装。 |
+| `material_reference` | 指定材质的厚薄、反射与褶皱表现 | 新增衣片或更换整体造型。 |
+| `lighting_reference` | 指定灯位、软硬、色温和反射关系 | 未授权的背景、人物与镜头变化。 |
 
-## Roles
+发生冲突时按用户明确要求、专属身份来源、母图的已确认连续性、受限气质参考、其他局部来源逐项解决；不是按整张图片争夺总优先级。多个同人视角按 [参考权限](reference-authority-matrix-v080.md) 记录主参考与辅助来源。
 
-### asset_master
-Controls the current approved asset state:
-- current face geometry if no separate face_identity reference exists
-- composition
-- body proportion / pose
-- garment silhouette / structure / palette
-- hairstyle silhouette
-- background / footwear / current design extension
-
-### face_identity
-Controls only stable identity geometry:
-- face shape
-- eye spacing and eye-shape core
-- nose proportions
-- lip geometry
-- cheek/jaw/chin identity structure
-- age identity
-
-It must not overwrite costume, pose, background, or lower-body design.
-
-### facial_trait  **new in v0.7.1**
-Controls only selected face-presentation traits:
-- maturity level
-- gaze stability
-- expression restraint
-- cheek softness delta
-- eye openness delta
-- makeup restraint
-- editorial tone / temperament direction
-
-It must not replace identity geometry.
-
-### costume_reference / pose_reference / material_reference / lighting_reference
-Keep the v0.7 role boundaries: each may control only its named domain.
-
-## Precedence
-
-```text
-explicit user instruction
-> face_identity (identity geometry only, if present)
-> asset_master (approved asset continuity)
-> facial_trait (traits only)
-> other scoped references
-```
-
-## Current A/B Pattern
-
-For the current “less childish, more high-end” edit:
-
-- A = Asset Master + identity geometry source
-- B = Facial Trait Reference only
-
-A keeps the same face structure, hair, body, costume, pose and white studio asset continuity.
-B contributes only a calmer, less juvenile, more refined young-adult facial presentation.
-
-**Do not say “make A look like B.”** Extract the permitted traits from B instead.
-
-## Optional A/B/C Pattern
-
-If a trusted original portrait is available:
-
-- A = Asset Master
-- B = Face Identity Reference
-- C = Facial Trait Reference
-
-B wins only for identity geometry; C may change only maturity/temperament traits.
+两图气质编辑中，A 是当前母图与身份来源，B 只提供指定神态或妆容。三图方案可让 A 保持全身母图、B 提供原始身份、C 提供气质。绑定实际提交顺序，不只写含糊的“像 B”。旧白底案例中的白背景、静态姿势不是新任务默认。

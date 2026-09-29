@@ -1,21 +1,7 @@
-# Style Preservation Guard v0.8.0
+# 已确认风格的保持
 
-Use after the target style has been identified.
+明确目标风格并查看实际结果后，保留已通过的媒介、运动语言、光线、氛围与构图动势。后续材质和人物真实感优化在该范围内执行；用户改变风格目标时重新记录，不用旧锁定阻止新要求。
 
-For cinematic painterly targets, lock these channels after restoration:
+需要检查的偏离：场景图因母图白底而退回摄影棚；动态姿态退回正面目录站姿；原画边缘被均匀锐化；需要的逆光变成平光；空气感和留白被密集衣纹吞没。
 
-- medium language
-- motion language
-- lighting language
-- atmosphere
-- composition energy
-
-Subsequent realism refinement must operate inside those locks.
-
-## Common drift to block
-
-- cinematic scene collapses back to a white studio because the Asset Master was white-background
-- dynamic target collapses to front-facing catalog pose
-- painterly edges become uniformly sharp
-- luminous backlight becomes flat catalog lighting
-- atmosphere and negative space disappear under literal costume detailing
+摄影化任务则反向检查面容是否仍为二维笔触、材料与人脸是否分属不同媒介。不能把“保留风格”变成固定保原画；保护的是本次选定且已确认的风格。

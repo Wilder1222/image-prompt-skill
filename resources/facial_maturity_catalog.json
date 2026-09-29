@@ -82,5 +82,6 @@
     "wrinkles",
     "sagging",
     "pigmentation_aging"
-  ]
+  ],
+  "default_scope": "M2.5 仅为明确要求减少幼态、保持年轻的旧气质校准案例默认，不覆盖当前身份、表情或年龄要求。"
 }

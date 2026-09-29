@@ -1,53 +1,11 @@
-# Anti-Borrow Guard v0.7.1
+# 防止参考属性越界
 
-## Purpose
+多参考编辑必须给每个来源明确权限，尤其不能让气质图悄悄变成换脸或换装图。
 
-Multi-reference editing can cause attribute leakage. This guard explicitly blocks a trait reference from importing unrelated identity, styling, or scene information.
+`facial_trait` 只借用本轮指定的成熟感、视线、表情张力、妆容方向和从容程度。脸部几何、人物身份、发色发型、衣甲饰品、场景建筑、调色氛围、灯位、取景、姿态和体型均不能随之复制；用户另行授权的通道按新范围处理。
 
-## Borrow Allowlist
+判断顺序是：用户要求；指定身份来源；母图已确认身份；气质参考的受限线索；其他参考各自权限。同一属性不可同时写相反的来源要求。
 
-For `facial_trait`, only borrow the explicitly named traits:
+气质编辑后若出现参考 B 的下颌、眼距、发型、服装花纹、灯光背景或体型，按证据标记 `trait_reference_overborrow`（气质参考越界）；不是所有合法表情变化都算越界。
 
-- maturity direction
-- gaze stability
-- expression restraint
-- makeup restraint
-- overall composure
-
-## Borrow Blocklist
-
-Do not borrow:
-
-- complete face geometry
-- ethnic or identity replacement
-- hairstyle / hair color
-- costume / armor / accessories
-- background / architecture
-- color grading / atmosphere
-- lighting direction
-- camera framing
-- pose
-- body proportions
-
-## Dominance Order
-
-1. explicit user instruction
-2. face_identity reference, if present
-3. asset_master identity geometry
-4. facial_trait traits only
-5. all other references within their assigned scope
-
-## Leakage Diagnosis
-
-Mark `trait_reference_overborrow` if a trait edit introduces any of these from the trait reference:
-
-- a different jaw/face shape
-- different eye spacing
-- a different hairstyle
-- new clothing motifs
-- the reference scene's lighting or background
-- a new body type
-
-## Repair
-
-Reduce trait borrowing to a short allowlist and restate A/B roles in one compact paragraph. Do not add more facial description unless the actual identity reference is unclear.
+修复时减少借用范围，用一段话重申实际 A/B 图序和允许变化。只有原始身份说明确实不足才补充五官描述，不用一长串通用美人词覆盖原人物。

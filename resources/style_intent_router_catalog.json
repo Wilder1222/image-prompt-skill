@@ -1,6 +1,6 @@
 {
   "version": "0.8.0",
-  "principle": "explicit user output/style intent controls render presentation; character archetype controls face strategy, never final render mode.",
+  "principle": "用户明确的输出和风格意图决定画面表现；角色题材可提示面容策略，不覆盖最终媒介要求。",
   "precedence": [
     "identity_lock",
     "explicit_background_constraint",
@@ -11,7 +11,7 @@
   ],
   "intents": {
     "asset_clean": {
-      "description": "clean character asset / white or neutral studio presentation",
+      "description": "清晰角色资产；此兼容预设为白色或中性棚背景，其他背景按当前生产任务设定。",
       "signals": [
         "white_background",
         "asset_portrait",
@@ -22,7 +22,7 @@
       "render_mode_with_style_ref": "style_asset"
     },
     "style_target_match": {
-      "description": "match a supplied visual style reference as the dominant final look",
+      "description": "以指定视觉参考的媒介和表现语言为最终风格目标。",
       "signals": [
         "match_reference_style",
         "restore_original_style",
@@ -34,7 +34,7 @@
       "render_mode_without_asset_master": "restoration"
     },
     "cinematic_final": {
-      "description": "final cinematic / painterly / dynamic key art instead of neutral asset output",
+      "description": "制作有场景、动势或绘画语言的最终画面，具体元素由描述决定。",
       "signals": [
         "cinematic_final",
         "dynamic_key_art",
@@ -45,7 +45,7 @@
       "render_mode_without_asset_master": "restoration"
     },
     "style_on_asset": {
-      "description": "white/neutral asset layout while borrowing style language without borrowing environment",
+      "description": "在明确的白色或中性资产布局中借鉴画风，不借入原环境。",
       "signals": [
         "white_background_plus_style",
         "style_asset"
@@ -54,9 +54,9 @@
     }
   },
   "resolution_rules": [
-    "If the user explicitly requests a white/neutral background and a style reference, use style_asset.",
-    "If the user explicitly requests the supplied style/final-art look and does not lock a white/neutral background, use cinematic_hybrid when an asset master exists.",
-    "Never infer white background merely because the character was previously represented as an asset image.",
-    "Face mode and render mode are independent decisions."
+    "用户明确要求白色或中性背景并提供画风参考时，采用 style_asset。",
+    "明确要求目标画风且未锁定中性背景，有独立资产母图时可采用 cinematic_hybrid。",
+    "不能因为人物曾是白底资产就推断本轮必须白底。",
+    "面容模式与整图渲染路线分别决定，旧预设不覆盖用户当前意图。"
   ]
 }

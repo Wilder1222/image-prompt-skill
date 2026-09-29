@@ -1,57 +1,17 @@
-# Maturity Signal Router v0.7.1
+# 成熟感线索选择
 
-## Goal
+用户要求减少幼态、更加精致或成熟时，先确认是神态、妆容、光线还是稳定五官造成的观感。高级感不是一个固定脸型，也不必变冷或少笑。
 
-When the user asks for “less childish, more sophisticated, more high-end,” the model must choose **safe maturity signals** before altering facial geometry.
+## 优先调整
 
-## Signal Priority
+按具体问题选择较稳定的视线、协调的眉眼张力、自然嘴角与适当眼睑开合。若腮红、唇部光泽或过强妆容对比确实造成用户不希望的幼态，可小幅调整；原妆面已合适时不统一减淡。自然表情变化不能被误判为换脸。
 
-### Tier 1 — Preferred signals
-Use these first because they can raise perceived maturity while preserving identity:
+## 有限调整
 
-- steadier gaze
-- slightly more restrained expression
-- less wide-eyed openness while keeping the same eye shape
-- calmer mouth corners
-- more controlled makeup contrast
-- slightly cleaner cheek-to-jaw transition
-- more editorial, less cute facial presentation
-- reduced blush / reduced glossy lip treatment if it is contributing to a juvenile look
+仅在用户允许且观察支持时，轻微调整面颊柔软程度的表现和颊颌明暗过渡。保持面宽、眼形与眼距，不将软组织变薄当作必选项。优先改变照明和妆容，不用缩眼、削颌或拉长面部来实现成熟感。
 
-### Tier 2 — Limited structural adjustment
-Only after Tier 1, and only within identity-safe bounds:
+## 不采用的捷径
 
-- reduce cheek baby-softness slightly, without hollowing
-- increase jaw clarity slightly, without narrowing the face
-- slightly reduce apparent eye openness, without shrinking the eye geometry
-- slightly reduce excessive “cute” facial contrast from makeup
+年轻而精致的目标不需要尖下巴、窄鼻翼、显著长脸、凹陷面颊、加重法令纹、皱纹或色斑。用户明确改变年龄的任务另行判断，不能用本分级锁死其要求。
 
-### Tier 3 — Forbidden for light maturity
-Do not use these to reach M2–M3:
-
-- sharp chin
-- significantly narrower jaw
-- visibly longer face
-- smaller nose or narrower nose wings
-- major eye reshaping
-- hollow cheeks
-- stronger nasolabial lines
-- wrinkles / sagging / pigmentation
-- strong age shift
-
-## Maturity vs “High-End”
-
-“High-end” is not a scientific facial category. In this Skill it is a styling target produced mainly by:
-
-1. identity stability
-2. restrained expression
-3. coherent makeup
-4. realistic skin optics
-5. controlled lighting and photography
-6. styling consistency
-
-Therefore the compiler should not use facial geometry as the primary way to create “high-end.”
-
-## Makeup Contrast Note
-
-Academic work suggests greater facial feature contrast can make female faces look younger. Therefore, when the goal is “slightly less youthful but still young,” the Skill may reduce exaggerated makeup contrast a little, but should not flatten the face or deliberately add aging cues.
+美感由人物辨识、协调表情、精致妆面、柔和肌肤反射、合适布光和造型共同形成。面部对比与年龄观感的历史研究见 `../../docs/research/facial-maturity-research.md`，不把研究趋势当作对每张图有效的固定配方。

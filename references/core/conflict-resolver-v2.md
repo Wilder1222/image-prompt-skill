@@ -1,30 +1,13 @@
-# Conflict Resolver v2
+# 提交前冲突消解
 
-Resolve contradictions before the final prompt is written.
+先按用户当前及已确认要求分配参考权限，再写最终正文。旧优先级不能覆盖用户允许的换装、动作、背景或表情调整。
 
-## Priority ladder
+| 冲突 | 处理原则 |
+| --- | --- |
+| 静态母图与动态目标 | 明确要求保姿态时只调整获准的衣发运动；用户允许动作适配时可联动身体、表情与构图，不能一面锁姿态一面要求奔跑。 |
+| 真人感与绘画媒介 | 先区分面部媒介和材料可信度。保原画时改善体积与反射，不自动抹掉笔触；明确要求摄影化时不能继续锁住绘画面容。 |
+| 真实材质与夸张幻想服装 | 保持获准的轮廓和装饰语言，调整厚度、连接与反射，不用简化成普通衣服来规避材料问题。 |
+| 身份锁定与气质参考 | 稳定辨识关系来自身份图，气质图只提供指定神态与妆容；自然表情运动不属于换脸。 |
+| 白底母图与环境重建 | 当前背景要求优先。保留白底时执行棚拍布光，替换场景时协调受光与地面，不同时锁死原阴影。 |
 
-- P0 Identity
-- P1 Asset continuity
-- P1M Render mode
-- P2 Style restoration
-- P2R Reality gain
-- P3 Material and lighting
-- P4 Micro quality / resolution language
-
-## Common conflicts
-
-### Asset pose vs original dynamic pose
-If hybrid: preserve body identity and costume architecture; allow motion language in hair, sleeves, fabric and composition energy unless pose change is explicitly authorized.
-
-### Realism vs painterly atmosphere
-Apply realism to human/material behavior first. Preserve stylized atmosphere and environment in R1/R2.
-
-### Real material vs extravagant fantasy design
-Keep silhouette and ornament language; change material behavior, attachment logic and highlight response rather than simplifying the entire costume.
-
-### Face lock vs facial trait/style reference
-Identity geometry wins. References may change only authorized presentation traits.
-
-### White studio asset vs style restoration environment
-Render mode decides. In `hybrid/restoration`, white asset background is not automatically locked unless the user explicitly says to keep it.
+发生冲突时删除或改写失效条款并记录原因，不用更多强调词盖住矛盾。实际主体、结构、动作和场景要求先于细节锐化；最终优先级由本任务决定。
