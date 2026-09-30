@@ -1,8 +1,7 @@
-# Midjourney v0.7.4 Constraint Budget Compiler
+# Midjourney：补全与设计预算
 
-Internal budgets remain planning rules. Final Midjourney text should emphasize the desired final visual result.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../core/constraint-budget-system.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-- Edit/Editor tasks may state the local change and preservation goal.
-- Compress density budgets into phrases such as “same ornament density as the reference” and “no additional mechanical modules in the completed lower body”.
-- Keep Human Presence cues high-value and visible: believable eye anatomy, skin response, grouped hair, photographic highlight roll-off.
-- Do not inflate the prompt with internal numeric percentages.
+把完成度、密度和磨损转为可见约束：未知下装沿已见衣片延展，复杂程度与参考相称，不因面积增加自动堆装甲、刺绣或破损。仅手足错误时局部修复，不强制露出自然遮挡部分。
+
+区分生成、编辑器局部修改与风格参考入口，不混用版本参数。可用区域编辑时应包含足够相邻皮肤、发际和颈部过渡，避免贴片边缘；只修取景时优先考虑已授权入口的画布控制，不能把此能力套到仅有文字参数的工具。

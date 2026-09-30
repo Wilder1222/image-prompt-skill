@@ -1,7 +1,7 @@
 {
   "version": "0.7.4",
   "default_profile": "preserve",
-  "note": "Relative density budgets are internal heuristics, not measurable vendor controls.",
+  "note": "相对密度数字是历史内部启发值，不是可测量的厂商参数；保留、简化或丰富由当前任务决定，不能自动删减刺绣。",
   "profiles": {
     "preserve": {
       "primary_ornament_growth_pct_max": 0,
@@ -11,8 +11,8 @@
       "chain_tassel_growth_pct_max": 0,
       "new_zone_density_rule": "match_reference_mean_not_peak",
       "prompt_translation": [
-        "Keep the same design density as the visible reference instead of filling newly revealed space with extra decoration.",
-        "Do not increase the count of primary ornaments, mechanical modules, chains, tassels, or signature motifs in completed regions."
+        "保持可见参考的设计密度，不用额外装饰填满新延展区域。",
+        "补全部位延续主装饰、机械构件、链条、流苏和标志纹样的既有层级，不自动增加其数量。"
       ]
     },
     "reduce": {
@@ -23,8 +23,8 @@
       "chain_tassel_growth_pct_max": -25,
       "new_zone_density_rule": "below_reference_mean",
       "prompt_translation": [
-        "Reduce decorative density and leave more quiet material surfaces while preserving the main identity motifs.",
-        "Use construction, fabric quality, cut, and material contrast rather than additional ornaments to carry richness."
+        "只有本轮明确允许简化时，减少已识别的装饰堆积并保留核心辨识纹样，具体说明删减位置。",
+        "用结构、剪裁、面料质量与材质对比呈现丰富感，不自动增加金属件。"
       ]
     },
     "enrich": {
@@ -35,7 +35,7 @@
       "chain_tassel_growth_pct_max": 10,
       "new_zone_density_rule": "up_to_reference_peak",
       "prompt_translation": [
-        "Add limited secondary detail without creating new primary focal points or changing the design family."
+        "只有本轮允许丰富细节时，加入有限的辅助细节，保持原有主次与设计家族。"
       ]
     }
   }

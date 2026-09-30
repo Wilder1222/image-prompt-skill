@@ -1,14 +1,7 @@
-# Gemini — Human Presence v3 Compiler
+# Gemini：面容与人物真实感
 
-Gemini image workflows support multi-turn editing and explicit photographic language. Use the accepted asset as the current image and make Human Presence v3 a follow-up edit.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/human-presence-v3-pipeline.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-Recommended compilation:
+主体和衣装已经成立时，以现图为编辑对象，保持身份、已选比例、动作、服装和当前场景。只修实际失败的眼部、肤质、妆面或发束表现；摄影质感服务精致妆容，不以粗毛孔和噪点替代体积。面部光源与环境一致，全身衣装仍清楚，不统一白底或浅景深。
 
-- first sentence: preserve the same person, P9 proportions, costume, pose and white-background composition
-- second block: eye optical realism + skin optical coherence
-- third block: makeup/hair integration
-- final block: photographic focus hierarchy and lighting consistency
-
-Camera/lens language may be used as an appearance cue, but should not override identity or costume locks. For full-body asset work, avoid excessively shallow depth of field; the costume and footwear must remain readable.
-
-Do not expand the prompt with unrelated costume history or scene detail during this round.
+若当前选用入口适合多轮编辑，沿用本轮已查看的母图并重述必要锁定；不能只靠聊天历史假定工具仍持有正确参考。当前模型的多参考与多轮能力须分别核对。

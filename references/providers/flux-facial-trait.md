@@ -1,14 +1,7 @@
-# FLUX.2 — Facial Trait Calibration v0.7.1
+# FLUX：面容气质调整
 
-FLUX.2 supports multi-reference editing. Its prompting guide emphasizes word order and putting the most important information first. For a maturity edit:
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/facial-trait-calibration.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-1. Put the Asset Master identity first.
-2. Put the target facial presentation second.
-3. Mention the trait reference only after the identity lock.
-4. Use positive target language instead of negative-prompt syntax.
+A 为母图与身份来源，B 仅为指定神态或妆容参考。保持稳定五官与年龄，允许自然表情运动，写清眼神和妆面变化。参考数量以解决问题所需为准，不用“让 A 像 B”替代权限说明，也不自动套用鹅蛋脸或轻熟目标。
 
-Example structure:
-
-```text
-Same woman and same facial geometry as Image 1, young adult, refined oval face, unchanged eyes/nose/lips/jaw. Slightly more composed light-mature presentation inspired by Image 2: steadier gaze, less babyish cheek softness, restrained editorial makeup. Keep the same hair, costume, pose, background and framing.
-```
+将最关键的主体与变化放在正文前部，用正向可见结果表达。例如“现有衣料有厚薄和柔和反射区别”，而非只写“不要塑料感”。具体负面字段以公共规则和当前接口为准。

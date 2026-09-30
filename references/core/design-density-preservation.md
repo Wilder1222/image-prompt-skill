@@ -1,27 +1,27 @@
-# Design Density Preservation v0.7.3
+# 保持设计密度
 
 ## 问题
 
 模型常把“半身复杂设计”扩全身时继续添加新金属、刺绣、挂件、纱层和破损，导致全身密度膨胀。
 
-## Density Lock
+## 设计密度记录
 
 记录参考图的设计密度：
-- low
-- medium
-- high
+- 低密度 `low`
+- 中密度 `medium`
+- 高密度 `high`
 
 扩图时保持近似单位面积复杂度，而不是按新增画面面积继续堆装饰。
 
 ## 分区密度
 
 可按：
-- head
-- torso
-- waist
-- arms
-- lower_body
-- footwear
+- 头部 `head`
+- 躯干 `torso`
+- 腰部 `waist`
+- 手臂 `arms`
+- 下半身 `lower_body`
+- 鞋履 `footwear`
 
 记录主视觉密度。新区域通常不应高于原图最复杂区域，除非用户要求把视觉重点下移。
 

@@ -1,15 +1,7 @@
-# FLUX.2 — Style Restoration Adapter
+# FLUX：风格恢复
 
-FLUX.2 documentation emphasizes subject-first prompt order and notes that word order matters. It supports multi-reference editing.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/restoration-hybrid-pipeline.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-For hybrid restoration:
-1. Put the asset character / identity first.
-2. Put the critical style restoration language next.
-3. Add environment and lighting.
-4. Add secondary material detail last.
+先声明母图连续性与风格参考权限，再写具体光线、运动、空间和材料。不要只写“同画风”。保留已锁定的人物和衣片构造，背景与身体动作按当前授权调整，真实材料与绘画氛围分别处理。
 
-FLUX.2 does not use negative prompts; translate exclusions into positive target descriptions.
-
-Example conversion:
-- “do not become flat studio lighting” → “cinematic directional key, weaker fill, luminous separation light, atmospheric depth”
-- “do not lose painterly mood” → “retain painterly-cinematic atmosphere, luminous layered depth and expressive motion language”
+将最关键的主体与变化放在正文前部，用正向可见结果表达。例如“现有衣料有厚薄和柔和反射区别”，而非只写“不要塑料感”。具体负面字段以公共规则和当前接口为准。

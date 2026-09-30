@@ -1,48 +1,10 @@
-# Reality Gain Control
+# 真实感增益的范围
 
-## Why
+先明确在哪些部位增加可信度，以及哪些媒介特征仍要保留。“更真实”不能默认把幻想原画变成普通棚拍。
 
-“More realistic” frequently collapses fantasy artwork into plain studio photography. Reality gain must therefore specify **where realism is added** and **what stylization remains protected**.
+- R0：保留既定风格，不主动增加人物或材料写实度。
+- R1：轻度改善软组织、发束、衣料分离和光影一致性，仍保留明显风格化。
+- R2：进一步加强妆面下的柔和体积、分区反射、真实衣料与连接，保留获准的原画氛围、动态和环境。它只是历史混合案例默认，不适用于所有任务。
+- R3：人物与衣装接近摄影表现，参考风格主要体现在配色、构图、气氛和设计。仅在当前用户要摄影化时采用。
 
-## R0 — Stylized preservation
-
-No deliberate human/material realism increase. Keep the original medium and rendering logic.
-
-## R1 — Light realism
-
-Improve:
-- skin logic
-- hair strand grouping
-- garment material separation
-- basic light/shadow coherence
-
-Preserve strong stylization and painterly atmosphere.
-
-## R2 — Humanized restoration (default)
-
-Improve strongly:
-- believable soft tissue
-- regional skin reflectance
-- natural makeup
-- strand-based hair behavior
-- real fabric / leather / metal responses
-- physically coherent key/fill/rim relationships
-
-Preserve:
-- epic fantasy mood
-- painterly-cinematic atmosphere
-- dynamic motion language
-- stylized environment
-- dramatic scale
-
-## R3 — Fantasy editorial photography
-
-Human and costume read close to high-end photography / live-action editorial. The style reference remains mainly in palette, composition, atmosphere and dramatic design.
-
-## Guardrail
-
-Higher R-level does not authorize:
-- face reshaping
-- body redesign
-- costume redesign
-- removing fantasy atmosphere unless explicitly requested
+级别为内部设计摘要，不能作为模型参数。更高级别不授权换脸、改体型、重新设计衣装或移除仍被要求的幻想场景。年轻人物的真实肌肤以精致妆面和美感为基础，不主动添加粗糙、疲态或年龄变化。

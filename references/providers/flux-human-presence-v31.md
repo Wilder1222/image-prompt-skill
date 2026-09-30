@@ -1,3 +1,7 @@
-# FLUX adapter: Human Presence v3.1
+# FLUX：面部光学与头发成像
 
-使用正向可见目标表达：natural off-white sclera、subtle irregular iris texture、physically wrapped eyelids、regional young-skin response、three-scale hair grouping、natural focus hierarchy。身份/P9 前置。
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../core/realism-coherence-v2.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
+
+H2.7-A 与 H2.7-B 是历史内部分工：前者处理眼、肤质、软组织和妆面，后者处理发束、焦点与高光过渡。只执行有问题的部分，保留其他已通过项；不为完整重复全部衣装，也不强制重做比例或增加微小不对称。
+
+将最关键的主体与变化放在正文前部，用正向可见结果表达。例如“现有衣料有厚薄和柔和反射区别”，而非只写“不要塑料感”。具体负面字段以公共规则和当前接口为准。

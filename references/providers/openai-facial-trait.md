@@ -1,19 +1,7 @@
-# OpenAI GPT Image — Facial Trait Editing v0.7.1
+# OpenAI：面容气质调整
 
-Official OpenAI guidance supports explicit reference roles, separating changes from constraints, and iterating one change at a time. For trait calibration:
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/facial-trait-calibration.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-1. Label images by role and number.
-2. Say “change only facial presentation / maturity traits.”
-3. Repeat the identity geometry to preserve.
-4. Keep the prompt shorter than the initial generation prompt.
-5. Reuse the previous approved output as the next edit input.
+A 为母图与身份来源，B 仅为指定神态或妆容参考。保持稳定五官与年龄，允许自然表情运动，写清眼神和妆面变化。参考数量以解决问题所需为准，不用“让 A 像 B”替代权限说明，也不自动套用鹅蛋脸或轻熟目标。
 
-Recommended pattern:
-
-```text
-Image 1 = Asset Master and identity geometry source.
-Image 2 = facial maturity / temperament reference only.
-Change only maturity presentation and makeup restraint. Preserve face shape, eye spacing, eye geometry, nose proportions, lip shape, jaw/chin, hair, pose, costume, background and framing.
-```
-
-Do not ask OpenAI to “make her look like Image 2” if Image 2 is not intended to replace identity.
+按当前宿主图像工具接口提交中文原文与实际参考。分开说明变化项与保持项，局部修订不重复无关服装设计；每次查看输出并记录范围漂移，未知执行设置保持未知。

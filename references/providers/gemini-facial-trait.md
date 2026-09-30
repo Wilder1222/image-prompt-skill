@@ -1,12 +1,7 @@
-# Gemini Image — Facial Trait Calibration v0.7.1
+# Gemini：面容气质调整
 
-Gemini image models support multiple references and explicit character-consistency workflows. For a single character maturity edit, use fewer references than the maximum whenever possible to reduce role ambiguity.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/facial-trait-calibration.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-Recommended:
+A 为母图与身份来源，B 仅为指定神态或妆容参考。保持稳定五官与年龄，允许自然表情运动，写清眼神和妆面变化。参考数量以解决问题所需为准，不用“让 A 像 B”替代权限说明，也不自动套用鹅蛋脸或轻熟目标。
 
-- Image 1 = identity / Asset Master
-- Image 2 = trait-only maturity reference
-- describe exactly which traits from Image 2 are allowed
-- state that Image 1 facial geometry remains authoritative
-
-Do not turn a high reference count into a quality goal. Character consistency is easier to audit when each image has one job.
+若当前选用入口适合多轮编辑，沿用本轮已查看的母图并重述必要锁定；不能只靠聊天历史假定工具仍持有正确参考。当前模型的多参考与多轮能力须分别核对。

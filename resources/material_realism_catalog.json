@@ -26,5 +26,5 @@
       "embossed_trim"
     ]
   },
-  "rule": "each layer must have distinct physical behavior and image function"
+  "rule": "仅对本设计实际存在的衣层分别描述物理行为、支撑与视觉作用；不得为凑齐目录增加薄纱或甲片。"
 }

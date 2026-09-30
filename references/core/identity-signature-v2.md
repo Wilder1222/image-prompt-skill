@@ -1,4 +1,4 @@
-# Identity Signature v2
+# 人物辨识记录
 
 ## 目的
 
@@ -6,7 +6,7 @@
 
 ## 签名结构
 
-### 1. Face Signature
+### 1. 面容辨识
 
 记录：
 
@@ -19,7 +19,7 @@
 - jaw_chin：下颌与下巴轮廓
 - age_intent：18-20 / 20-25 / 成熟感等
 
-### 2. Hair Signature
+### 2. 发型方向
 
 记录：
 
@@ -31,7 +31,7 @@
 - long_hair_drop：长发主要落点
 - hair_accessory_shape：发冠发簪的主要轮廓
 
-### 3. Body Signature
+### 3. 体型关系
 
 记录：
 
@@ -40,26 +40,26 @@
 - torso_leg_balance：躯干与腿长比例
 - body_curve_intent：纤细 / 柔和 / 有力量等
 
-### 4. Identity Lock Scope
+### 4. 保持范围
 
 强锁：
-- face signature
-- hair signature main silhouette
-- age intent
-- baseline body frame
+- 稳定面容辨识
+- 已选发型方向，允许按授权整理与适配
+- 已指定年龄
+- 可见且已确认的身体关系
 
 中锁：
-- makeup direction
-- accessory family
+- 已选妆容方向
+- 已指定饰品家族
 
 可变：
-- costume
-- palette
-- pose within approved range
+- 衣装
+- 配色
+- 授权范围内的姿态
 
 ## 使用规则
 
-1. 多 Look 系列必须使用同一份 Character Signature。
+1. 同一人物的多套造型共用其辨识记录；不同人物不可共用一张脸。
 2. 图生图时，身份参考图只能有一个主要人物来源。
 3. 服装参考不能替代身份参考。
 4. 若结果图出现“变成另一个人”，优先回到签名而不是继续加美貌词。

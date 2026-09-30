@@ -1,7 +1,7 @@
-# Gemini v0.7.4 Constraint Budget Compiler
+# Gemini：补全与设计预算
 
-Use coherent natural-language editing with explicit reference roles and preservation clauses.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../core/constraint-budget-system.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-- Keep budget translation concise: what may be completed, what cannot grow, and what must remain visually unchanged.
-- For multi-reference editing, do not let completion or human-realism references gain authority over identity geometry.
-- Local hand/foot repair should preserve the current approved asset and change only the failed extremity.
+把完成度、密度和磨损转为可见约束：未知下装沿已见衣片延展，复杂程度与参考相称，不因面积增加自动堆装甲、刺绣或破损。仅手足错误时局部修复，不强制露出自然遮挡部分。
+
+若当前选用入口适合多轮编辑，沿用本轮已查看的母图并重述必要锁定；不能只靠聊天历史假定工具仍持有正确参考。当前模型的多参考与多轮能力须分别核对。

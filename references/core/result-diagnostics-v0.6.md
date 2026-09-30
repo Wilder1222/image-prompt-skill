@@ -1,33 +1,23 @@
-# Result Diagnostics v0.6
+# 结果诊断：旧标识与当前判断
 
-## 新增 failure codes
+保留以下标识供历史记录与脚本兼容。诊断先核对当前意图和参考证据，不能用旧默认值替代本次要求。
 
-- identity_signature_drift
-- beauty_template_drift
-- anatomy_overstretch
-- same_silhouette_repeat
-- ornament_overload
-- exposure_over_default
-- transparency_over_budget
-- attachment_logic_fail
-- footwear_western_drift
-- white_background_merge
-- cgi_skin_persistence
+| 标识 | 当前判断 |
+| --- | --- |
+| `identity_signature_drift` | 人物核心辨识点偏离；先排除视角、表情、灯光和全身图尺寸造成的不确定性 |
+| `beauty_template_drift` | 原人物被替换为通用美人脸，或为美化无依据地改动五官 |
+| `anatomy_overstretch` | 头颈、躯干、上下臂或上下腿被不协调地拉伸 |
+| `same_silhouette_repeat` | 要求结构不同的新款却重复同一轮廓；同款换色与多姿态不适用 |
+| `ornament_overload` | 超出本轮设计范围的装饰堆积破坏主次或连接，而非繁复本身有错 |
+| `exposure_over_default` | 历史名称沿用；实际判断是否超出本轮明确露肤范围，不采用统一默认 |
+| `transparency_over_budget` | 半透部位、叠层或遮盖关系违背当前设计，不按虚构的面积阈值判断 |
+| `attachment_logic_fail` | 衣片、甲片、头饰或吊坠缺少可信固定与受力关系 |
+| `footwear_western_drift` | 鞋型偏离当前明确的东方鞋履要求；现代服装或自然遮鞋不能据此判错 |
+| `white_background_merge` | 选择白底时人物或衣边与背景失去必要分离；其他背景按其自身目标判断 |
+| `cgi_skin_persistence` | 已要求摄影表现时仍有塑料或统一渲染反射；原画媒介不能仅因有笔触判错 |
 
-## 诊断顺序
+## 修订顺序
 
-1. identity_signature_drift
-2. anatomy_overstretch
-3. same_silhouette_repeat
-4. ornament_overload
-5. exposure_over_default / transparency_over_budget
-6. attachment_logic_fail
-7. footwear_western_drift
-8. white_background_merge
-9. cgi_skin_persistence
+先处理当前任务的关键失败：身份与媒介、明显解剖失衡、主体裁切；再看衣装构造、动作受力、材料、布光与局部伪影。每轮选择相互关联的一组问题修复，保留已通过部分。
 
-## 修复原则
-
-- 先修结构性问题，再修表面问题
-- 角色身份和服装家族通过后应立即锁定
-- 不要因为皮肤不够真人，就顺手把脸换了
+人物与衣装通过后，后续局部编辑保持其辨识点和设计；用户明确授权的新造型或体型调整仍可执行。不能因皮肤不够真人顺手换脸，也不能为旧规则强改背景、站姿、裙长或鞋履。按 [视觉验收](visual-acceptance.md) 与 [图像评分标准](图像评分标准.md) 留存证据，不用诊断标识自行判图像合格。

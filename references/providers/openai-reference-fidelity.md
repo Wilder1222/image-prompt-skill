@@ -1,24 +1,7 @@
-# OpenAI GPT Image v0.7.3 Reference Fidelity
+# OpenAI：参考继承与补全
 
-OpenAI 官方图像提示指南明确建议为每张参考图分配角色，并在编辑时分开说明“改变什么”和“必须保持什么”。因此本 Skill 的 Reference Fidelity Matrix 在 GPT Image 上编译为自然语言职责，而不是虚构数值权重。
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../core/reference-fidelity-matrix.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-## 单参考白底资产
+先按实际图序说明各参考负责的属性，再区分可见保留与未知延展。白底仅在本次选择时去除原环境；保留场景时保持空间与受光关系。真人感用精致妆面、软组织、材料和成像描述，不用质量词替代身份。
 
-先声明：
-- reference controls identity/costume/material language
-- environment is not inherited
-- unseen regions are conservative extensions
-
-再写：
-- preserve exact visible identity/garment architecture
-- complete lower body conservatively
-- keep design density and wear state
-- increase H2 human presence
-
-## 多参考
-
-每张图按用途编号。不要用“综合参考所有图片”这种模糊语句。
-
-## H2 Human Presence
-
-用软组织、区域皮肤反射、自然非对称、镜头响应表达。不要只追加 pores / 8K / photorealistic。
+按当前宿主图像工具接口提交中文原文与实际参考。分开说明变化项与保持项，局部修订不重复无关服装设计；每次查看输出并记录范围漂移，未知执行设置保持未知。

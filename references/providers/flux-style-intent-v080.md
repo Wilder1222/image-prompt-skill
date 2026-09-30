@@ -1,10 +1,7 @@
-# flux Style Intent v0.8.0
+# FLUX：风格意图
 
-Compile explicit user style intent before face or material micro-detail.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../core/style-intent-router-v080.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-- State the Style Target and Asset Master roles clearly.
-- Preserve identity/costume architecture from the Asset Master.
-- Borrow only authorized medium, motion, lighting, atmosphere and composition channels from the Style Target.
-- Do not inherit a prior white background unless the user explicitly asks for it now.
-- Face Mode is resolved separately from Render Mode.
-- For painterly cinematic targets, do not let realism refinement flatten the medium into clean studio rendering.
+先确定本轮整图媒介和用途，再独立决定面容处理。人物母图负责身份与获准设计，风格图只提供已分配的光线、运动、氛围和媒介。旧白底不自动继承；保原画时不以摄影抛光擦除笔触，摄影化时不继续锁住原画面容。
+
+将最关键的主体与变化放在正文前部，用正向可见结果表达。例如“现有衣料有厚薄和柔和反射区别”，而非只写“不要塑料感”。具体负面字段以公共规则和当前接口为准。

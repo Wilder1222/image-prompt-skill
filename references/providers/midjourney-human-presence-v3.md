@@ -1,14 +1,7 @@
-# Midjourney Edit — Human Presence v3 Compiler
+# Midjourney：面容与人物真实感
 
-When the character asset is already correct and only the face still reads as CG, use the Edit / Editor workflow as a localized refinement where possible.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/human-presence-v3-pipeline.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-Keep reference count minimal and roles explicit. Do not reopen garment design or composition.
+主体和衣装已经成立时，以现图为编辑对象，保持身份、已选比例、动作、服装和当前场景。只修实际失败的眼部、肤质、妆面或发束表现；摄影质感服务精致妆容，不以粗毛孔和噪点替代体积。面部光源与环境一致，全身衣装仍清楚，不统一白底或浅景深。
 
-Human Presence v3 should focus on:
-
-- same identity and proportions
-- more natural eye / skin / hair photographic appearance
-- consistent studio lighting
-- preserved white-background full-body asset
-
-If using a region edit, include enough surrounding forehead / cheeks / hairline / neck to let the new face integrate with nearby skin and hair instead of producing a pasted-in face patch.
+区分生成、编辑器局部修改与风格参考入口，不混用版本参数。可用区域编辑时应包含足够相邻皮肤、发际和颈部过渡，避免贴片边缘；只修取景时优先考虑已授权入口的画布控制，不能把此能力套到仅有文字参数的工具。

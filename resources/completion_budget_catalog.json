@@ -1,7 +1,7 @@
 {
   "version": "0.7.4",
   "default": "C1",
-  "note": "Project heuristics for prompt compilation, not vendor parameters.",
+  "note": "历史补全档位供兼容编译使用，不是厂商参数或可测量面积；当前参考、明确设计权限与编辑范围优先，不能以默认 C1 限制已获授权的再设计。",
   "levels": {
     "C0": {
       "label": "strict_minimum_completion",
@@ -12,8 +12,8 @@
       "new_secondary_motifs_max": 0,
       "new_material_families_max": 0,
       "prompt_translation": [
-        "Complete only the minimum missing structure required for a coherent full body.",
-        "Do not enlarge the silhouette or add new decorative motifs, material families, armor systems, colors, or signature accessories."
+        "仅补齐完整身体展示所需的缺失结构，不重新设计已可见部分。",
+        "本档位不扩大轮廓，也不引入新的核心纹样、材质家族、甲片系统、配色或标志饰物。"
       ]
     },
     "C1": {
@@ -25,8 +25,8 @@
       "new_secondary_motifs_max": 1,
       "new_material_families_max": 0,
       "prompt_translation": [
-        "Extend unseen regions conservatively using the already visible design language.",
-        "Do not introduce new primary motifs or increase ornament density; keep silhouette expansion minimal and functional."
+        "依据已可见的设计语言，克制延展未显示区域。",
+        "本档位不新增核心纹样或提高装饰密度，轮廓变化以结构需要为依据。"
       ]
     },
     "C2": {
@@ -38,8 +38,8 @@
       "new_secondary_motifs_max": 2,
       "new_material_families_max": 1,
       "prompt_translation": [
-        "Allow limited creative extension while preserving the original design family and hierarchy.",
-        "New details must remain secondary and cannot compete with the existing primary design language."
+        "在本轮允许范围内进行有限创意延展，保留原设计家族与层级。",
+        "新增细节作为辅助，不与既有主要设计争夺焦点。"
       ]
     },
     "C3": {
@@ -51,7 +51,7 @@
       "new_secondary_motifs_max": null,
       "new_material_families_max": null,
       "prompt_translation": [
-        "Redesign is authorized, but explicitly preserve any user-locked identity or canon constraints."
+        "按本轮授权方案再设计，保留用户明确要求不变的人物辨识点及设定约束。"
       ]
     }
   }

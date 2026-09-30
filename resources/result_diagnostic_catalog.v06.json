@@ -3,58 +3,126 @@
   "failures": {
     "identity_signature_drift": {
       "severity": "critical",
-      "repair": ["identity_signature", "face_lock", "hair_lock"],
-      "preserve": ["approved_palette", "approved_costume_family"]
+      "repair": [
+        "identity_signature",
+        "face_lock",
+        "hair_lock"
+      ],
+      "preserve": [
+        "approved_palette",
+        "approved_costume_family"
+      ]
     },
     "beauty_template_drift": {
       "severity": "high",
-      "repair": ["beauty_drift_control", "face_lock"],
-      "preserve": ["identity_signature"]
+      "repair": [
+        "beauty_drift_control",
+        "face_lock"
+      ],
+      "preserve": [
+        "identity_signature"
+      ]
     },
     "anatomy_overstretch": {
       "severity": "high",
-      "repair": ["anatomy_guardrail", "pose_balance", "framing"],
-      "preserve": ["identity_signature", "costume_structure"]
+      "repair": [
+        "anatomy_guardrail",
+        "pose_balance",
+        "framing"
+      ],
+      "preserve": [
+        "identity_signature",
+        "costume_structure"
+      ]
     },
     "same_silhouette_repeat": {
       "severity": "high",
-      "repair": ["garment_architecture_matrix", "look_diversity_check"],
-      "preserve": ["character_signature"]
+      "repair": [
+        "garment_architecture_matrix",
+        "look_diversity_check"
+      ],
+      "preserve": [
+        "character_signature"
+      ],
+      "condition": "仅用于要求结构不同的新款；同款换色、同衣多姿态和局部修复不适用。"
     },
     "ornament_overload": {
       "severity": "medium",
-      "repair": ["ornament_budget", "visual_hierarchy"],
-      "preserve": ["main_look_direction"]
+      "repair": [
+        "ornament_budget",
+        "visual_hierarchy"
+      ],
+      "preserve": [
+        "main_look_direction"
+      ]
     },
     "exposure_over_default": {
       "severity": "medium",
-      "repair": ["exposure_level_control"],
-      "preserve": ["silhouette"]
+      "repair": [
+        "exposure_level_control"
+      ],
+      "preserve": [
+        "silhouette"
+      ],
+      "condition": "检查是否超出本轮明确露肤范围，不按旧默认档位判定。"
     },
     "transparency_over_budget": {
       "severity": "medium",
-      "repair": ["transparency_budget", "material_physics"],
-      "preserve": ["palette", "silhouette"]
+      "repair": [
+        "transparency_budget",
+        "material_physics"
+      ],
+      "preserve": [
+        "palette",
+        "silhouette"
+      ],
+      "condition": "检查本轮具体面料叠层和遮盖关系，不使用虚构面积阈值。"
     },
     "attachment_logic_fail": {
       "severity": "medium",
-      "repair": ["attachment_logic", "costume_construction"],
-      "preserve": ["overall_look"]
+      "repair": [
+        "attachment_logic",
+        "costume_construction"
+      ],
+      "preserve": [
+        "overall_look"
+      ]
     },
     "footwear_western_drift": {
       "severity": "medium",
-      "repair": ["footwear_system"],
-      "preserve": ["character_signature", "palette"]
+      "repair": [
+        "footwear_system"
+      ],
+      "preserve": [
+        "character_signature",
+        "palette"
+      ],
+      "condition": "仅在当前要求东方鞋履且可见鞋型发生偏离时适用。"
     },
     "white_background_merge": {
       "severity": "medium",
-      "repair": ["white_on_white_lighting", "edge_separation"],
-      "preserve": ["garment_materials"]
+      "repair": [
+        "white_on_white_lighting",
+        "edge_separation"
+      ],
+      "preserve": [
+        "garment_materials"
+      ],
+      "condition": "仅本轮选择白底时适用；其他背景按其自身目标判断。"
     },
     "cgi_skin_persistence": {
       "severity": "medium",
-      "repair": ["skin_optics", "soft_tissue", "color_variation", "specular_breakup"],
-      "preserve": ["identity_signature"]
+      "repair": [
+        "skin_optics",
+        "soft_tissue",
+        "color_variation",
+        "specular_breakup"
+      ],
+      "preserve": [
+        "identity_signature"
+      ],
+      "condition": "要求摄影表现时检查塑料反射；保留原画不要求去掉笔触。"
     }
-  }
+  },
+  "scope": "历史诊断标识按当前任务解释，不采用统一背景、露肤或鞋型默认；身份和媒介需人工看图，标识不等于自动验收。"
 }

@@ -1,26 +1,7 @@
-# FLUX.2 — Human Presence v3 Compiler
+# FLUX：面容与人物真实感
 
-FLUX.2 word order matters. Put the accepted character / identity and P9 asset state first, then the photographic-human target, then camera context.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/human-presence-v3-pipeline.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-Preferred order:
+主体和衣装已经成立时，以现图为编辑对象，保持身份、已选比例、动作、服装和当前场景。只修实际失败的眼部、肤质、妆面或发束表现；摄影质感服务精致妆容，不以粗毛孔和噪点替代体积。面部光源与环境一致，全身衣装仍清楚，不统一白底或浅景深。
 
-1. same approved subject / identity / P9 proportions
-2. photographic eye + skin + makeup + hair target
-3. studio camera / lens / focus behavior
-4. secondary costume readability
-
-Use positive target-state language because FLUX.2 does not support negative prompts.
-
-Instead of:
-- "not plastic skin"
-
-Compile to:
-- "living youthful skin with soft tissue volume, natural regional reflectance and smooth highlight roll-off"
-
-Instead of:
-- "not pure-white eyes"
-
-Compile to:
-- "natural off-white sclera with subtle tonal variation and catchlights matching the studio key"
-
-For production workflows, structured prompts may separate subject, lighting and camera fields, but the reference identity still comes first.
+将最关键的主体与变化放在正文前部，用正向可见结果表达。例如“现有衣料有厚薄和柔和反射区别”，而非只写“不要塑料感”。具体负面字段以公共规则和当前接口为准。

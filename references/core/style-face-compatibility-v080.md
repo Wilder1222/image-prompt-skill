@@ -1,15 +1,7 @@
-# Style / Face Compatibility v0.8.0
+# 媒介与面容表现的协调
 
-Face Mode is independent from Render Mode, but some combinations are more compatible.
+面容处理与整图路线分别决定，再检查两者是否协调。
 
-## Oriental Epic Painterly
+东方幻想厚涂可采用 `stylized_beauty` 保留理想化面容、选择性笔触和细节；用户选择 `beauty_first` 时仍优先美感，不意味着必须更幼态。只有本轮要更摄影的面部时才采用相应真人方向，并协调皮肤、衣装和背景的媒介关系。
 
-Default recommendation: `stylized_beauty`.
-
-Reason: the target look is painterly, idealized and selectively detailed. Forcing maximum photographic facial realism may fight the medium and make the face look pasted into the illustration.
-
-Allowed overrides:
-- `beauty_first` for younger / more ethereal beauty
-- `humanized_real` only when the user explicitly wants a more photographic face
-
-The user's explicit Face Mode always wins.
+这些为候选方案，用户明确要求优先。不能把照片脸贴进需保留的厚涂图，也不能在摄影化任务中借“风格保护”保留明显二维脸部。

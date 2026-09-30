@@ -1,11 +1,7 @@
-# Midjourney v0.7.3 Reference Fidelity
+# Midjourney：参考继承与补全
 
-V8.2 Edit Model 可使用最多4张参考，并且 Style Reference 是独立的参考类型。因此：
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../core/reference-fidelity-matrix.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-- 角色/服装连续性用 Edit Model Reference
-- 纯外观风格可用 Style Reference
-- 不要把场景图作为普通 Edit Reference 后期待模型自动只提取风格
+先按实际图序说明各参考负责的属性，再区分可见保留与未知延展。白底仅在本次选择时去除原环境；保留场景时保持空间与受光关系。真人感用精致妆面、软组织、材料和成像描述，不用质量词替代身份。
 
-Style-on-Asset 模式：资产参考放 Edit Model，风格参考放 Style Reference，正文明确纯白/中性背景和完整全身目标。
-
-`--raw` 可作为减少额外创意偏移的实验控制，但不是身份锁定开关。
+区分生成、编辑器局部修改与风格参考入口，不混用版本参数。可用区域编辑时应包含足够相邻皮肤、发际和颈部过渡，避免贴片边缘；只修取景时优先考虑已授权入口的画布控制，不能把此能力套到仅有文字参数的工具。
