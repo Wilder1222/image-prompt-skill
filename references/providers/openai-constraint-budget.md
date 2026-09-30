@@ -1,8 +1,7 @@
-# OpenAI v0.7.4 Constraint Budget Compiler
+# OpenAI：补全与设计预算
 
-For iterative image edits, keep the prompt natural-language and scope-limited.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../core/constraint-budget-system.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-- Translate C1/Density/Wear budgets into explicit visible constraints, not pseudo-parameters.
-- When a hand/finger error is the only failure, use the current result as the direct edit target and describe only the anatomical correction plus locks.
-- H2 v2 should prioritize facial soft tissue, eye anatomy, regional skin response, hair grouping, and camera response. Do not repeat the full costume description if it is already locked by the current image.
-- If a completed lower body is overdesigned, repair the extension rather than regenerating the whole character.
+把完成度、密度和磨损转为可见约束：未知下装沿已见衣片延展，复杂程度与参考相称，不因面积增加自动堆装甲、刺绣或破损。仅手足错误时局部修复，不强制露出自然遮挡部分。
+
+按当前宿主图像工具接口提交中文原文与实际参考。分开说明变化项与保持项，局部修订不重复无关服装设计；每次查看输出并记录范围漂移，未知执行设置保持未知。

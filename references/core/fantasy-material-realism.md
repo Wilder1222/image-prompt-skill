@@ -1,47 +1,12 @@
-# Fantasy Material Realism Model
+# 幻想衣装的真实材料
 
-A fantasy costume can be visually extravagant while its materials remain physically legible.
+幻想设计可以华丽夸张，材料仍须有可理解的厚薄、重量、连接和反射。按已有服装分层描述，不为凑层数添加新衣片。
 
-## Layer A — Structural Fabric
+| 层次 | 可见依据 | 需要落实 |
+| --- | --- | --- |
+| 主体承重衣料 | 锦缎、密织丝料、较厚衣片 | 重量、挺度或垂坠、褶皱尺度、方向性反光、接缝与支撑。 |
+| 轻薄覆盖层 | 绡纱、披帛、薄袖 | 透光、叠层后的遮蔽、边缘厚度、风与重力响应，与内层的关系。 |
+| 饰品与护甲 | 金属肩甲、腰饰、皮革束带 | 厚度、固定点、雕刻浮雕、倒角、受控高光和重量。 |
+| 表面纹样 | 绣线、织金花纹、压纹边饰 | 区分织造、刺绣与印花，纹路随褶皱转折，密度有主次。 |
 
-Examples: brocade, satin-brocade, silk base, heavy woven panels.
-Describe:
-- weight
-- stiffness / drape
-- fold scale
-- directional sheen
-- construction role
-
-## Layer B — Atmospheric Fabric
-
-Examples: silk gauze, chiffon, translucent sleeves, veils.
-Describe:
-- translucency
-- layered opacity
-- edge thickness
-- wind response
-- relationship to structural fabric
-
-## Layer C — Ornament / Armor
-
-Examples: metal shoulder guards, waist medallion, leather belts, bracers.
-Describe:
-- thickness
-- attachment point
-- engraving / relief
-- edge bevel
-- controlled specular response
-- weight and gravity
-
-## Layer D — Surface Detail
-
-Examples: metallic thread embroidery, woven motifs, embossed trim.
-Describe:
-- whether woven / embroidered / printed
-- thread direction
-- slight surface relief
-- density hierarchy
-
-## Core rule
-
-Never let every layer share the same glossy fantasy-CG response. “Rich” should come from contrast between layers, not uniform shine.
+层次丰富来自材料差异，不让整套衣服共用一种油亮表面。仅修材质时保持纹样数量和衣片设计，不能默认删减刺绣或增加半透层。

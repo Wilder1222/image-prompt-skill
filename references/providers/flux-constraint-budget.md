@@ -1,9 +1,7 @@
-# FLUX.2 v0.7.4 Constraint Budget Compiler
+# FLUX：补全与设计预算
 
-Put the subject and locked asset identity first. Translate budgets into positive final-state language.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../core/constraint-budget-system.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-Examples:
-- instead of “do not add more armor”, write “the completed lower body uses the same restrained mechanical density as the visible upper body”;
-- instead of “no plastic skin”, write “believable facial soft tissue, realistic eyelids, regional skin response, and soft photographic highlight roll-off”.
+把完成度、密度和磨损转为可见约束：未知下装沿已见衣片延展，复杂程度与参考相称，不因面积增加自动堆装甲、刺绣或破损。仅手足错误时局部修复，不强制露出自然遮挡部分。
 
-Internal percentages are not passed through as model parameters.
+将最关键的主体与变化放在正文前部，用正向可见结果表达。例如“现有衣料有厚薄和柔和反射区别”，而非只写“不要塑料感”。具体负面字段以公共规则和当前接口为准。

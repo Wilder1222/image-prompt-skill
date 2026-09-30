@@ -1,3 +1,7 @@
-# Midjourney Edit — v0.8.1 Concept Art Hierarchy
+# Midjourney：原画细节层次
 
-Use the approved image as the edit base. Keep the request compact and visual: face/crown/upper torso remain crisp, garment masses medium detail, distant architecture and outer motion elements painterly and softer, with the brightest glow concentrated near the focal character zone.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/concept-art-hierarchy-pipeline-v081.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
+
+保持已通过的身份、媒介、配色、衣装与动作，仅调整焦点细节、高光和边缘。脸与指定焦点清楚，主衣片保留体积，外围适度概括；没有建筑、武器或头冠时不新增。
+
+区分生成、编辑器局部修改与风格参考入口，不混用版本参数。可用区域编辑时应包含足够相邻皮肤、发际和颈部过渡，避免贴片边缘；只修取景时优先考虑已授权入口的画布控制，不能把此能力套到仅有文字参数的工具。

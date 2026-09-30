@@ -1,4 +1,4 @@
-# Makeup-Skin Integration v2
+# 妆容与肌肤表现的协调
 
 ## 审美优先级
 

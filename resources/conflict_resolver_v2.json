@@ -13,31 +13,31 @@
   ],
   "conflicts": {
     "asset_pose_vs_dynamic_style": {
-      "hybrid_resolution": "keep core pose unless authorized; move dynamic style into hair/fabric/composition energy"
+      "hybrid_resolution": "核心动作按当前明确要求决定；仅当动作被锁定时，才将允许的动势放在衣发与构图中。"
     },
     "realism_vs_painterly_atmosphere": {
-      "hybrid_resolution": "apply realism to human/material behavior; preserve stylized atmosphere at R1/R2"
+      "hybrid_resolution": "按当前媒介决定真实感范围；原画可保持绘画边缘并呈现可信材料，不强制全部摄影化。"
     },
     "real_material_vs_fantasy_design": {
-      "hybrid_resolution": "preserve silhouette and ornament language; correct material behavior and attachment logic"
+      "hybrid_resolution": "保留当前轮廓与装饰语言，修正材质行为和固定连接；材料真实不等于重新设计衣装。"
     },
     "face_lock_vs_trait_or_style": {
-      "resolution": "identity geometry wins"
+      "resolution": "保持稳定人物辨识点；按本轮授权调整表情、妆面和气质，不以气质修订擅自换脸。"
     },
     "white_asset_background_vs_restoration_scene": {
-      "resolution": "render mode decides; hybrid/restoration may replace background unless explicitly locked"
+      "resolution": "当前明确背景意图优先；保留、调整或替换场景分别记录，不由渲染模式自动决定。"
     },
     "prior_asset_white_vs_current_style_target": {
-      "resolution": "current explicit style/output intent wins; prior asset background is not persistent unless user re-locks it"
+      "resolution": "当前明确输出与风格要求优先；历史白底不能覆盖本轮新背景，同一任务仍保留已确认约束。"
     },
     "archetype_default_vs_explicit_style_target": {
-      "resolution": "explicit style target controls render mode; archetype only recommends face mode"
+      "resolution": "明确风格目标优先于旧角色预设；面部方案结合人物与用途选择，不按角色标签固定年龄或脸型。"
     },
     "photographic_face_vs_painterly_medium": {
-      "resolution": "use style-face compatibility; default to stylized_beauty or beauty_first for painterly target unless user explicitly requests humanized_real"
+      "resolution": "按面部与媒介兼容规则分开处理；原画可选风格化美感，明确要求真人时再选择摄影表现，精致妆容始终服务美感。"
     },
     "static_asset_pose_vs_full_dynamic_style": {
-      "resolution": "if user requests target style and pose is not explicitly locked, authorize dynamic pose and large-scale hair/fabric motion while preserving identity/costume architecture"
+      "resolution": "用户允许动作适配且未明确锁定时，可按当前气质、情绪、用途与场景选择生动或夸张动作，保持人物辨识与衣装连接。"
     }
   }
 }

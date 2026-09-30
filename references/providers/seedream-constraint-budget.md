@@ -1,11 +1,7 @@
-# Seedream v0.7.4 Constraint Budget Compiler
+# Seedream：补全与设计预算
 
-Use high-information-density Chinese.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../core/constraint-budget-system.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-Priority when compressing:
-1. identity and asset locks
-2. completion/density/wear constraints
-3. H2 v2 human-presence cues
-4. material and lighting details
+把完成度、密度和磨损转为可见约束：未知下装沿已见衣片延展，复杂程度与参考相称，不因面积增加自动堆装甲、刺绣或破损。仅手足错误时局部修复，不强制露出自然遮挡部分。
 
-Do not delete the constraint that newly completed areas must not become more complex than the visible reference. Remove repetitive quality adjectives before removing hard budget constraints.
+优先保留人物与编辑范围、衣片构造和最高影响的视觉关系；再删除重复质量词与反复枚举，不机械截断字数。可用简洁中文，但必须保留语义标签。

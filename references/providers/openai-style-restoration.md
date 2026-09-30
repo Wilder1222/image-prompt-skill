@@ -1,21 +1,7 @@
-# OpenAI GPT Image — Style Restoration Adapter
+# OpenAI：风格恢复
 
-Official image prompting guidance recommends assigning roles to references, separating changes from constraints, and refining one change at a time.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/restoration-hybrid-pipeline.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-For hybrid restoration:
+先声明母图连续性与风格参考权限，再写具体光线、运动、空间和材料。不要只写“同画风”。保留已锁定的人物和衣片构造，背景与身体动作按当前授权调整，真实材料与绘画氛围分别处理。
 
-1. Identify the Style Restoration Reference and Asset Master explicitly.
-2. State asset locks before style channels.
-3. Say which style channels may transfer: mood, lighting, motion, atmosphere, medium.
-4. State which structural channels may not transfer: face, body, garment architecture.
-5. Apply Reality Gain R-level after continuity is established.
-
-Recommended structure:
-- Reference roles
-- Primary goal
-- Preserve list
-- Style restoration channels
-- Reality/material/lighting upgrades
-- Final visual target
-
-Do not rely on “same style as image A” alone when identity preservation matters.
+按当前宿主图像工具接口提交中文原文与实际参考。分开说明变化项与保持项，局部修订不重复无关服装设计；每次查看输出并记录范围漂移，未知执行设置保持未知。

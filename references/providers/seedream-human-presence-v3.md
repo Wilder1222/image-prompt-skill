@@ -1,17 +1,7 @@
-# Seedream — Human Presence v3 Compiler
+# Seedream：面容与人物真实感
 
-Seedream's documented prompt-length guidance means Human Presence v3 should be highly compressed.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/human-presence-v3-pipeline.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-Internal planning can remain detailed, but the final Chinese prompt should prioritize only the highest-impact signals:
+主体和衣装已经成立时，以现图为编辑对象，保持身份、已选比例、动作、服装和当前场景。只修实际失败的眼部、肤质、妆面或发束表现；摄影质感服务精致妆容，不以粗毛孔和噪点替代体积。面部光源与环境一致，全身衣装仍清楚，不统一白底或浅景深。
 
-1. lock same face + P9 proportions + costume
-2. natural eye optics
-3. youthful skin optical response
-4. real hair bundles
-5. photographic studio response
-
-Do not enumerate every skin region, pore type and camera cue if the prompt becomes long. Preserve the hard locks before adding support detail.
-
-Recommended compressed idea:
-
-"保持同一人物五官和P9比例不变，仅提升真人摄影感：眼睑包裹关系真实，眼白自然不过亮，虹膜不呈宝石CG质感；年轻皮肤保持干净均匀但额头、鼻尖、面颊和唇部反射不同；妆容保留皮肤纹理，头发有主发束和少量细发；白棚镜头高光过渡柔和，人脸最清楚，服装仍完整可读。"
+优先保留人物与编辑范围、衣片构造和最高影响的视觉关系；再删除重复质量词与反复枚举，不机械截断字数。可用简洁中文，但必须保留语义标签。

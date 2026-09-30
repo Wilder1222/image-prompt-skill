@@ -1,52 +1,9 @@
-# Human Presence v3 Pipeline
+# 面容与人物真实感修订流程
 
-## Entry condition
+身份、体型和衣装大关系已成立，仅人物仍显得数字化或不符合指定摄影媒介时使用。它不替代身份诊断、人体修复和缺失手部处理。
 
-Use this route when:
+先保持当前人物、已选比例、衣装、姿态、配色、构图和背景，再指出可见失败：眼球像玻璃珠、眼睑缺少体积、整脸统一反射、妆面与肤质割裂、发束过于均匀或全局锐化。只编辑相应通道，回看全图是否协调。达到目标就停止，不为增加细节无限修脸。
 
-- identity is already acceptable
-- body / P9 proportion is already accepted
-- costume architecture is already accepted
-- the remaining complaint is "still looks CG / game render / digital person"
+H2.5 是历史摄影人物方案代号，不是所有角色默认。优先处理眼部、软组织、分区反射与精致妆面，必要时再调发束、焦点和高光过渡。自然不对称保留即可，不主动移动五官。
 
-Do not use it to repair identity drift, wrong body proportion, wrong costume, or missing hands.
-
-## Workflow
-
-1. lock identity geometry
-2. lock accepted P9 proportion
-3. lock pose / costume / palette / composition / background
-4. classify the visible CG cue
-5. edit only the corresponding optical channels
-6. re-check realism coherence
-7. stop when the image reads human; do not continue adding detail indefinitely
-
-## Default current-asset target
-
-`H2.5 Photographic Human`
-
-### Primary
-- eye_optics_realism
-- skin_optical_coherence
-- soft_structure_fidelity
-- makeup_skin_integration
-- realism_coherence
-
-### Secondary
-- hair_frequency_variation
-- camera_optics_hierarchy
-- highlight_rolloff
-
-### Optional
-- natural asymmetry
-
-## Recommended sequence
-
-If the face still looks CG:
-
-1. eyes + skin optics
-2. makeup integration
-3. hair frequency
-4. camera / focus hierarchy
-
-Do not rewrite the whole costume prompt in this round.
+原画媒介保持时用对应的体积与笔触，不将摄影化当作固定终点。只修面部不重复整套衣装，不把所有场景改成白棚；真实感以人物好看、自然、有生命感为目标。

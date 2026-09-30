@@ -1,3 +1,7 @@
-# FLUX — v0.8.1 Concept Art Hierarchy
+# FLUX：原画细节层次
 
-Compile to positive visible results and place the focal hierarchy first. Example concepts: selective focal detail, softened monumental architecture, dim subordinate background highlights, atmospheric lost edges. Avoid relying on negative-prompt syntax.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/concept-art-hierarchy-pipeline-v081.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
+
+保持已通过的身份、媒介、配色、衣装与动作，仅调整焦点细节、高光和边缘。脸与指定焦点清楚，主衣片保留体积，外围适度概括；没有建筑、武器或头冠时不新增。
+
+将最关键的主体与变化放在正文前部，用正向可见结果表达。例如“现有衣料有厚薄和柔和反射区别”，而非只写“不要塑料感”。具体负面字段以公共规则和当前接口为准。

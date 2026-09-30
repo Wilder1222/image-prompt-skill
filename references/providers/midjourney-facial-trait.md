@@ -1,14 +1,7 @@
-# Midjourney Edit — Facial Trait Calibration v0.7.1
+# Midjourney：面容气质调整
 
-Midjourney V8.1/V8.2 Edit accepts direct edit instructions and up to four reference images. For maturity calibration, use the smallest useful reference set, usually A + B.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/facial-trait-calibration.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-Recommended:
+A 为母图与身份来源，B 仅为指定神态或妆容参考。保持稳定五官与年龄，允许自然表情运动，写清眼神和妆面变化。参考数量以解决问题所需为准，不用“让 A 像 B”替代权限说明，也不自动套用鹅蛋脸或轻熟目标。
 
-- A = Asset Master
-- B = Facial Trait Reference
-- keep the prompt focused on the trait shift
-- consider `--raw` when you want less automatic creative reinterpretation
-
-Project rule:
-
-Do not rely on Midjourney to enforce reference roles automatically. State the allowed traits and forbidden borrowing explicitly. If facial attributes mix, reduce references before adding more text.
+区分生成、编辑器局部修改与风格参考入口，不混用版本参数。可用区域编辑时应包含足够相邻皮肤、发际和颈部过渡，避免贴片边缘；只修取景时优先考虑已授权入口的画布控制，不能把此能力套到仅有文字参数的工具。

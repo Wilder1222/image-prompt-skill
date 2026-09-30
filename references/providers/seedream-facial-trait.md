@@ -1,9 +1,7 @@
-# Seedream — Facial Trait Calibration v0.7.1
+# Seedream：面容气质调整
 
-Seedream supports multi-reference image generation, but the official API notes that overly long prompts can disperse attention. For trait calibration, compress the edit into one objective:
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/facial-trait-calibration.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-```text
-保持A图人物五官结构不变；B图仅参考轻熟、高级、沉静的面部气质。减少幼态感，眼神更稳定，面颊软组织略收，妆容更克制；不改变脸型、眼距、鼻唇、下颌，不引入B图服装、背景和光线。
-```
+A 为母图与身份来源，B 仅为指定神态或妆容参考。保持稳定五官与年龄，允许自然表情运动，写清眼神和妆面变化。参考数量以解决问题所需为准，不用“让 A 像 B”替代权限说明，也不自动套用鹅蛋脸或轻熟目标。
 
-Do not repeat the full costume description during a face-only repair round.
+优先保留人物与编辑范围、衣片构造和最高影响的视觉关系；再删除重复质量词与反复枚举，不机械截断字数。可用简洁中文，但必须保留语义标签。

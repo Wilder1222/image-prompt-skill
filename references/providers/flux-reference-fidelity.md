@@ -1,14 +1,7 @@
-# FLUX.2 v0.7.3 Reference Fidelity
+# FLUX：参考继承与补全
 
-FLUX.2 支持多参考编辑。官方提示指南强调词序：最重要的主体和关键约束放前面。
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../core/reference-fidelity-matrix.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-因此编译顺序：
-1. Identity/asset continuity
-2. Required completion
-3. Style/material target
-4. Human presence/camera
-5. Secondary details
+先按实际图序说明各参考负责的属性，再区分可见保留与未知延展。白底仅在本次选择时去除原环境；保留场景时保持空间与受光关系。真人感用精致妆面、软组织、材料和成像描述，不用质量词替代身份。
 
-FLUX 不支持 negative prompt。将“不要复制背景”改为“pure white seamless background; reference environment excluded from the final scene”。
-
-H2 真人感可使用清晰的摄影外观描述，但不靠相机型号替代身份和材料约束。
+将最关键的主体与变化放在正文前部，用正向可见结果表达。例如“现有衣料有厚薄和柔和反射区别”，而非只写“不要塑料感”。具体负面字段以公共规则和当前接口为准。

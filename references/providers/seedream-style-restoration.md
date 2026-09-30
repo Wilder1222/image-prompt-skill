@@ -1,11 +1,7 @@
-# Seedream — Style Restoration Adapter
+# Seedream：风格恢复
 
-Seedream accepts Chinese and English prompts; official API guidance warns that overly long prompts can disperse attention.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/restoration-hybrid-pipeline.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-For hybrid restoration:
-- keep a short role statement
-- preserve asset identity and costume in the first sentence
-- compress style restoration into 3–5 high-value channels
-- compress realism into skin + material + lighting
+先声明母图连续性与风格参考权限，再写具体光线、运动、空间和材料。不要只写“同画风”。保留已锁定的人物和衣片构造，背景与身体动作按当前授权调整，真实材料与绘画氛围分别处理。
 
-Do not paste the complete internal StylePlan into the final Seedream prompt. Internal detail may be forensic; the final provider prompt should remain dense and prioritized.
+优先保留人物与编辑范围、衣片构造和最高影响的视觉关系；再删除重复质量词与反复枚举，不机械截断字数。可用简洁中文，但必须保留语义标签。

@@ -1,22 +1,7 @@
-# OpenAI — Human Presence v3 Compiler
+# OpenAI：面容与人物真实感
 
-Use the already accepted output as the direct edit target. This round should be short and narrow.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/human-presence-v3-pipeline.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-Official OpenAI guidance favors explicit change-vs-preserve instructions, reference-role assignment, and deliberate iteration one change at a time. Human Presence v3 therefore compiles as:
+主体和衣装已经成立时，以现图为编辑对象，保持身份、已选比例、动作、服装和当前场景。只修实际失败的眼部、肤质、妆面或发束表现；摄影质感服务精致妆容，不以粗毛孔和噪点替代体积。面部光源与环境一致，全身衣装仍清楚，不统一白底或浅景深。
 
-1. lock identity + P9 proportion + costume + composition
-2. request eye/skin/makeup/hair/camera optical refinement only
-3. restate the locked items once
-4. inspect the result before adding another concern
-
-Do not repeat the entire costume specification if it is already correct.
-
-For the current silver-haired asset, prefer language such as:
-
-- same face identity and same P9 body proportions
-- natural off-white sclera, non-gem-like iris and catchlights consistent with the existing key light
-- youthful skin color remains even, with region-dependent sheen/diffusion instead of random mottling
-- makeup remains refined but does not erase skin texture
-- face is the strongest focus while the full outfit stays readable
-
-If a single optical subsystem remains wrong, patch that subsystem in the next edit rather than regenerating the full image.
+按当前宿主图像工具接口提交中文原文与实际参考。分开说明变化项与保持项，局部修订不重复无关服装设计；每次查看输出并记录范围漂移，未知执行设置保持未知。

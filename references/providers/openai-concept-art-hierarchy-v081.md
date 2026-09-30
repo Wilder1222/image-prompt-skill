@@ -1,12 +1,7 @@
-# OpenAI Image — v0.8.1 Concept Art Hierarchy
+# OpenAI：原画细节层次
 
-Use a narrow edit instruction once the main style is correct. State what must remain unchanged, then describe only the hierarchy changes.
+先按 [工具适配公共规则](provider-adaptation.md) 确认接口与实际输入，再读取 [专项流程](../routes/concept-art-hierarchy-pipeline-v081.md)。以下是提示词编写策略，不是该平台效果已验证的声明。
 
-Recommended order:
-1. lock identity/style/motion/costume
-2. focal detail distribution
-3. highlight hierarchy
-4. background submission
-5. selective hard/soft/lost edges
+保持已通过的身份、媒介、配色、衣装与动作，仅调整焦点细节、高光和边缘。脸与指定焦点清楚，主衣片保留体积，外围适度概括；没有建筑、武器或头冠时不新增。
 
-Do not repeat the entire costume brief during this repair round; doing so risks semantic redesign.
+按当前宿主图像工具接口提交中文原文与实际参考。分开说明变化项与保持项，局部修订不重复无关服装设计；每次查看输出并记录范围漂移，未知执行设置保持未知。

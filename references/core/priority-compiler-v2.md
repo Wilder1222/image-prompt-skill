@@ -1,48 +1,7 @@
-# Priority Compiler v2.1
+# 旧版优先级兼容说明
 
-## P0 — Identity Invariants
-- face identity geometry
-- age identity
+当前优先级见 [完整优先级说明](priority-compiler-v3.md)，实际生产按 [主流程](../routes/prompt-production.md)。旧标识保留供历史计划解释，不替代中文语义标签或用户当前要求。
 
-No maturity, beauty or lighting instruction may override P0.
+P0 是人物身份与已选年龄，P0T 是保持身份的气质调整；P1 是母图仍有效的身体、衣装、动作、构图和发型连续性；P2 是人物与材料真实感；P3 是场景或摄影布光；P4 是真实输出尺寸及后期放大。
 
-## P0T — Facial Trait Calibration
-- maturity level
-- gaze stability
-- expression restraint
-- cheek softness delta
-- eye openness delta
-- makeup restraint
-- editorial tone
-
-P0T can change presentation but not P0 geometry.
-
-## P1 — Asset Continuity
-- composition
-- body proportion
-- pose
-- garment silhouette / structure / palette
-- hairstyle silhouette
-- footwear family
-
-## P2 — Realism
-- regional skin optics
-- hair strands
-- materials
-- embroidery
-- garment physics
-
-## P3 — Photography
-- key/fill
-- white-on-white separation
-- rim separation
-- micro contrast
-- specular balance
-
-## P4 — Resolution
-- actual pixel target
-- upscale
-- final sharpen / denoise
-
-## Compile Rule
-If the current issue is “too childish / not sophisticated enough” while identity is already stable, compile only **P0T + one compact P0 lock statement + necessary P1 locks**. Do not reopen the full identity or costume description.
+仅气质不符而身份已稳定时，写清允许的表情与妆容变化，简洁说明人物和其他保持项，不重开全身设计。用户明确要求换装、改动作或改背景时，旧母图锁定不能覆盖新要求。
