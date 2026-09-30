@@ -1,35 +1,11 @@
 {
-  "阶段": "第十二阶段",
+  "阶段": "第十三阶段",
   "说明": "候选扫描用于安排人工核对，不是确认缺陷数；短词、混排与兼容标识仍需人工区分。历史执行、编译示例和计划译文均关联不可变源提交；档案译文不充当当前生成结果。",
-  "待人工核对文件数": 62,
-  "英文候选数": 371,
+  "待人工核对文件数": 31,
+  "英文候选数": 178,
   "知识目录长段落候选": 0,
   "资源目录长段落候选": 0,
   "待核对文件": [
-    {
-      "文件": "docs/v0.7.9-warrior-face-plan.json",
-      "候选数": 22
-    },
-    {
-      "文件": "docs/visual-evaluations/material-generation-v091.json",
-      "候选数": 22
-    },
-    {
-      "文件": "docs/visual-evaluations/guardian-framing-v094.json",
-      "候选数": 19
-    },
-    {
-      "文件": "docs/v0.8.0-black-red-image4-plan.json",
-      "候选数": 18
-    },
-    {
-      "文件": "docs/v0.8.0-white-style-asset-plan.json",
-      "候选数": 18
-    },
-    {
-      "文件": "docs/v0.7.7-design.md",
-      "候选数": 13
-    },
     {
       "文件": "examples/silver-b-round1-p9-proportion-patch.md",
       "候选数": 12
@@ -43,20 +19,8 @@
       "候选数": 11
     },
     {
-      "文件": "docs/visual-evaluations/wardrobe-reference-v095.json",
-      "候选数": 10
-    },
-    {
       "文件": "examples/silver-b-round2-human-presence-v21.md",
       "候选数": 10
-    },
-    {
-      "文件": "docs/cyber-style-asset-plan.json",
-      "候选数": 9
-    },
-    {
-      "文件": "docs/silver-style-asset-plan.json",
-      "候选数": 9
     },
     {
       "文件": "examples/black-red-gold-warrior-queen-hybrid.md",
@@ -67,16 +31,8 @@
       "候选数": 9
     },
     {
-      "文件": "docs/visual-evaluations/current-overview.json",
-      "候选数": 8
-    },
-    {
       "文件": "examples/black-red-v081-hierarchy-test.md",
       "候选数": 8
-    },
-    {
-      "文件": "docs/visual-evaluations/character-layout-v092.json",
-      "候选数": 7
     },
     {
       "文件": "examples/ancient-white-asset-v082-test.md",
@@ -95,10 +51,6 @@
       "候选数": 7
     },
     {
-      "文件": "docs/sample-trait-plan.json",
-      "候选数": 6
-    },
-    {
       "文件": "examples/black-red-image4-style-test-v080.md",
       "候选数": 6
     },
@@ -113,6 +65,10 @@
     {
       "文件": "examples/silver-v078-round1-p9-body-presence.md",
       "候选数": 6
+    },
+    {
+      "文件": "docs/v0.7.7-design.md",
+      "候选数": 5
     },
     {
       "文件": "examples/cyber-character-v073-plan.md",
@@ -135,18 +91,6 @@
       "候选数": 4
     },
     {
-      "文件": "docs/sample-hybrid-style-plan.json",
-      "候选数": 4
-    },
-    {
-      "文件": "docs/visual-evaluations/identity-review-v096.json",
-      "候选数": 4
-    },
-    {
-      "文件": "docs/visual-evaluations/wardrobe-redesign-v093.json",
-      "候选数": 4
-    },
-    {
       "文件": "examples/black-red-humanized-real-test.md",
       "候选数": 4
     },
@@ -163,14 +107,6 @@
       "候选数": 3
     },
     {
-      "文件": "docs/verification-v0.7.4.json",
-      "候选数": 3
-    },
-    {
-      "文件": "docs/visual-evaluations/maturity-v0120-results.json",
-      "候选数": 3
-    },
-    {
       "文件": "examples/silver-humanized-real-control.md",
       "候选数": 3
     },
@@ -179,72 +115,12 @@
       "候选数": 3
     },
     {
-      "文件": "docs/sample-conflict-resolution.json",
-      "候选数": 2
-    },
-    {
-      "文件": "docs/v0.8.4-verification.json",
-      "候选数": 2
-    },
-    {
-      "文件": "docs/visual-evaluations/chinese-natural-proportion-v097.json",
-      "候选数": 2
-    },
-    {
-      "文件": "docs/visual-evaluations/prompt-density-20260929.json",
-      "候选数": 2
-    },
-    {
       "文件": "examples/human-presence-v31-ab-plan.md",
       "候选数": 2
     },
     {
       "文件": "RELEASE-MANIFEST-v0.8.0.json",
       "候选数": 2
-    },
-    {
-      "文件": "docs/reference-role-report.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/restoration-role-report.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/round1-plan.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/round2-plan.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/round3-plan.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/sample-next-plan.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/sample-restoration-next-plan.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/v0.7.4-hand-repair-plan.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/verification-v0.7.5.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/verification-v0.7.6.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/verification-v0.7.7.json",
-      "候选数": 1
     },
     {
       "文件": "examples/four-look-series-template.md",

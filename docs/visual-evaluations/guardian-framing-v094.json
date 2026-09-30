@@ -7,7 +7,7 @@
   "original_only_generations": 2,
   "candidate_edits": 1,
   "benchmark_usage": "evaluation_only",
-  "comparison_limit": "Original 5 target changed from assistant-authored two dragons to observed four heads. Original 6 is a transfer test, C is candidate editing. Unknown model/seed; no statistical stability or pixel identity claim.",
+  "comparison_limit": "原图5目标从助手自定的两条龙改为观察到的四个头。原图6属于迁移测试，C属于候选编辑。模型与种子未知，不宣称统计稳定性或像素一致性。",
   "artifact_directory": "dist/visual-tests/goal-cycle-04/",
   "records": [
     {
@@ -15,7 +15,7 @@
       "original_reference": 5,
       "benchmark": 1,
       "experiment_type": "independent_original_generation",
-      "authoring": "Project character asset route; correct self-imposed two-dragon constraint to observed four-head design; moderate contained guardian and costume redesign",
+      "authoring": "项目角色资产路线；将自行添加的两龙限制纠正为观察到的四首设计；适度重设计守护者与衣装并收拢于画内。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -47,16 +47,16 @@
           "attribute": "visible_guardian_head_count",
           "target": 4,
           "source": "observed_reference",
-          "note": "Count visible heads, not unseen complete animal bodies."
+          "note": "统计可见头部，不统计未见的完整动物身体。"
         },
         {
           "attribute": "complete_visible_ensemble",
           "source": "explicit_design_proposal",
-          "note": "Prior assistant-authored full-containment test; user benchmark itself permits cropped feathers."
+          "note": "此前由助手制定的完整收纳测试；用户标杆图本身允许羽毛裁切。"
         }
       ],
       "observation": "四首、龙冠、羽尖、裙尾、双靴均在画内；低垂目光与长波浪发保留；顶部仍紧，肩颈局部拥挤，内裙有边缘金纹。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "checks": {
         "visible_head_count": {
           "verdict": "pass",
@@ -65,15 +65,15 @@
         },
         "complete_visible_ensemble": {
           "verdict": "pass",
-          "evidence": "Visible heads, crests, feathers, hem and boots inside canvas; not a claim about complete unseen animal anatomy."
+          "evidence": "可见头部、冠、羽毛、裙摆和靴子在画内；不代表未见的动物解剖完整。"
         },
         "spacious_margin": {
           "verdict": "fail",
-          "evidence": "Highest crest remains close to upper edge"
+          "evidence": "最高冠饰仍靠近上边缘。"
         },
         "identity": {
           "verdict": "pending",
-          "evidence": "Reference-specific expression, hair and pose visually recognizable; no user acceptance"
+          "evidence": "参考特有的表情、头发和姿态目视可辨；尚无用户验收。"
         }
       },
       "user_approval": "pending",
@@ -84,7 +84,7 @@
       "original_reference": 6,
       "benchmark": 1,
       "experiment_type": "independent_original_generation",
-      "authoring": "Project character asset route; transfer contained four-head assembly design to original 6 with its own face, hair, turn and armor brief",
+      "authoring": "项目角色资产路线；将收拢的四首组合设计迁移到原图6，同时使用其自身面容、头发、转身与铠甲方案。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -116,16 +116,16 @@
           "attribute": "visible_guardian_head_count",
           "target": 4,
           "source": "explicit_design_proposal",
-          "note": "Count visible heads, not unseen complete animal bodies."
+          "note": "统计可见头部，不统计未见的完整动物身体。"
         },
         {
           "attribute": "complete_visible_ensemble",
           "source": "explicit_design_proposal",
-          "note": "Prior assistant-authored full-containment test; user benchmark itself permits cropped feathers."
+          "note": "此前由助手制定的完整收纳测试；用户标杆图本身允许羽毛裁切。"
         }
       ],
       "observation": "四首组合完整，警觉直视、较短头发、转身和不对称手势可辨；双靴可见；顶部仍紧，近肩处并非处处有白色空隙。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "checks": {
         "visible_head_count": {
           "verdict": "pass",
@@ -134,15 +134,15 @@
         },
         "complete_visible_ensemble": {
           "verdict": "pass",
-          "evidence": "Visible heads, crests, feathers, hem and boots inside canvas; not a claim about complete unseen animal anatomy."
+          "evidence": "可见头部、冠、羽毛、裙摆和靴子在画内；不代表未见的动物解剖完整。"
         },
         "spacious_margin": {
           "verdict": "fail",
-          "evidence": "Highest crest remains close to upper edge"
+          "evidence": "最高冠饰仍靠近上边缘。"
         },
         "identity": {
           "verdict": "pending",
-          "evidence": "Reference-specific expression, hair and pose visually recognizable; no user acceptance"
+          "evidence": "参考特有的表情、头发和姿态目视可辨；尚无用户验收。"
         }
       },
       "user_approval": "pending",
@@ -153,7 +153,7 @@
       "original_reference": 6,
       "benchmark": 1,
       "experiment_type": "candidate_framing_edit",
-      "authoring": "Narrow framing edit of current unapproved candidate, based on iterative repair route; original reference and user benchmark for evaluation only",
+      "authoring": "按迭代修复路线对当前尚未获认可的候选作小范围取景编辑；原参考与用户标杆只用于评估。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -190,16 +190,16 @@
           "attribute": "visible_guardian_head_count",
           "target": 4,
           "source": "current_edit_target",
-          "note": "Count visible heads, not unseen complete animal bodies."
+          "note": "统计可见头部，不统计未见的完整动物身体。"
         },
         {
           "attribute": "complete_visible_ensemble",
           "source": "explicit_design_proposal",
-          "note": "Prior assistant-authored full-containment test; user benchmark itself permits cropped feathers."
+          "note": "此前由助手制定的完整收纳测试；用户标杆图本身允许羽毛裁切。"
         }
       ],
       "observation": "候选图编辑后明显增加顶部与两侧白边；四首、人物朝向、服装布局整体保留；人物像素占比减少，未经逐像素或身份定量验证。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "checks": {
         "visible_head_count": {
           "verdict": "pass",
@@ -208,19 +208,26 @@
         },
         "complete_visible_ensemble": {
           "verdict": "pass",
-          "evidence": "Visible heads, crests, feathers, hem and boots inside canvas; not a claim about complete unseen animal anatomy."
+          "evidence": "可见头部、冠、羽毛、裙摆和靴子在画内；不代表未见的动物解剖完整。"
         },
         "spacious_margin": {
           "verdict": "pass",
-          "evidence": "Clearly visible surrounding white bands"
+          "evidence": "四周白色留边清楚可见。"
         },
         "identity": {
           "verdict": "pending",
-          "evidence": "Reference-specific expression, hair and pose visually recognizable; no user acceptance"
+          "evidence": "参考特有的表情、头发和姿态目视可辨；尚无用户验收。"
         }
       },
       "user_approval": "pending",
       "visual_quality_verified": false
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/visual-evaluations/guardian-framing-v094.json",
+    "源文件摘要": "917de8e75672b9dd7d319b7c9124780d9b3334e8b53c253a10207213c781cffb",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

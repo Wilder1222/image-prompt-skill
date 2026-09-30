@@ -44,5 +44,12 @@
     "human_face_optical_refine",
     "human_camera_hair_refine"
   ],
-  "note": "Pass verifies local planning/routing/lock logic. It does not prove H2.7 visual performance until new image A/B tests are run."
+  "note": "通过验证本地计划、路由与锁定逻辑；新图A/B测试完成前，不能证明H2.7的视觉效果。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/verification-v0.7.7.json",
+    "源文件摘要": "f59f529cb30e56e2a5d0829c473b78f9424df873ce379e3079152f49be150f70",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

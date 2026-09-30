@@ -56,5 +56,12 @@
       ]
     }
   },
-  "rule": "style_restoration controls visual-language channels only; asset_master controls identity and structural continuity."
+  "rule": "style_restoration只控制视觉语言通道；asset_master控制身份与结构连续性。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/restoration-role-report.json",
+    "源文件摘要": "e3e2e37597a5d877596baed603222d218615b49309942818fd99e61fec8777f1",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

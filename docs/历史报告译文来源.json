@@ -136,6 +136,14 @@
       "译文文件": "docs/research/human-presence-v3-sources.json",
       "译文摘要": "c7cde4fb0b8e0d177595a5280b7ab5a6e8b060b9ef91c914e7acfc5be737932f",
       "性质": "历史研究或实施记录的中文译文，未重新核验外部文档，非新执行证据"
+    },
+    {
+      "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+      "源文件": "docs/v0.7.7-design.md",
+      "源文件摘要": "03a2237a0396256a069bb7f94ace9dbe402a6675280f53e48d447f7032c16a4b",
+      "译文文件": "docs/v0.7.7-design.md",
+      "译文摘要": "def37bb7095a1aba6fdef144b51c30b3298f00c17f2837ab6d8cdc6905f890a6",
+      "性质": "历史模块设计方案的中文整理；YAML结构与值保持，不作为当前规则或新验证"
     }
   ]
 }

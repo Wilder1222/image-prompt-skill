@@ -39,5 +39,12 @@
       ]
     }
   ],
-  "rule": "A controls asset continuity; B controls face identity only. B forbidden_authority must not overwrite A."
+  "rule": "A控制资产连续性；B只控制面容身份。B的禁止权限不得覆盖A。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/reference-role-report.json",
+    "源文件摘要": "4fc5c3723e4e9247d62ba2f6fb4170f4d765ca0e045c48790e3b09806425c46c",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

@@ -3,16 +3,39 @@
   "date": "2026-09-29",
   "status": "pass",
   "test_runs": [
-    { "command": "npm test", "tests": 233, "passed": 233, "failed": 0, "exit_code": 0 },
-    { "command": "node --test --test-reporter=dot tests/asset-prompt.test.mjs tests/asset-presentation.test.mjs tests/release-check.test.mjs", "tests": 30, "passed": 30, "failed": 0, "exit_code": 0, "reason": "Rechecked after narrowing focused-edit plan metadata to its actual scope." }
+    {
+      "command": "npm test",
+      "tests": 233,
+      "passed": 233,
+      "failed": 0,
+      "exit_code": 0
+    },
+    {
+      "command": "node --test --test-reporter=dot tests/asset-prompt.test.mjs tests/asset-presentation.test.mjs tests/release-check.test.mjs",
+      "tests": 30,
+      "passed": 30,
+      "failed": 0,
+      "exit_code": 0,
+      "reason": "已在局部编辑计划元数据收窄到实际范围后重新检查。"
+    }
   ],
   "skill_quick_validate": "pass",
   "catalog_validation": "pass",
   "release_structure_validation": "pass",
   "generated_images": 4,
-  "generated_image_dimensions": [1086, 1448],
+  "generated_image_dimensions": [
+    1086,
+    1448
+  ],
   "visual_reviewer_type": "assistant_visual_inspection",
   "user_approval": "pending",
   "batch_reliability_verified": false,
-  "scope_note": "Automated checks verify compiler behavior and release structure, not image beauty or identity similarity. The final release manifest records content hashes; packaging checks are recorded with the build artifacts."
+  "scope_note": "自动检查验证编译器行为与发布结构，不验证图像美感或身份相似度。最终发布清单记录内容摘要；打包检查随构建产物保存。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/v0.8.4-verification.json",
+    "源文件摘要": "812bdae1a50cd69721aa53355089bf5972fe95527aba7183dd469133bd9c50c3",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

@@ -5,12 +5,12 @@
   "goal_status": "active",
   "new_images": 7,
   "benchmark_usage": "evaluation_only",
-  "comparison_type": "A to B changes prompt ordering, repetition, spatial layout and train containment together; no fixed seed or causal isolation",
+  "comparison_type": "A到B同时改变提示词顺序、重复程度、空间布局与拖尾收拢；没有固定种子或因果隔离。",
   "records": [
     {
       "id": "a-03-silver-white",
       "original_reference": 3,
-      "authoring": "asset-prompt compiler + observed features + moderate styling brief",
+      "authoring": "asset-prompt编译器、已观察特征与适度造型方案共同编写。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -40,14 +40,14 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-8d92e3e7-2e5b-42c5-827f-390c6ffb4163.png",
       "observation": "银灰腰带和侧衣片可读，自身面容与粉白内领保留；顶部留白紧，内裙有柔亮反光。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
     {
       "id": "a-04-ceremonial-armor",
       "original_reference": 4,
-      "authoring": "project character-asset route, moderate redesign, observed original 4 only",
+      "authoring": "项目角色资产路线、适度再设计，仅依据已查看的原图4。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -77,14 +77,14 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-0b210662-a630-41a6-88bc-df1dfdbf103f.png",
       "observation": "全身与两处靴履落地可读；肩甲、后景金鳞和前臂附近较拥挤。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
     {
       "id": "a-06-turning-armor",
       "original_reference": 6,
-      "authoring": "project character-asset route, moderate redesign, observed original 6 only",
+      "authoring": "项目角色资产路线、适度再设计，仅依据已查看的原图6。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -114,14 +114,14 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-0f97d5db-4cba-4da5-8ed5-a2de3cf263b9.png",
       "observation": "转身、波浪发和警觉神情保留；白色拖尾左右被画框截断，近肩细节拥挤。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
     {
       "id": "b-04-separated-planes",
       "original_reference": 4,
-      "authoring": "Updated project character-asset route: compact ordering plus front/rear plane separation and contained costume footprint; combined intervention, not single-variable causal test",
+      "authoring": "更新后的角色资产路线采用紧凑排序、前后层面分离与收拢衣装占地；属于联合干预，不是单变量因果测试。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -151,14 +151,14 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-49a9508c-4ef9-4ae5-a213-4a1f186992e6.png",
       "observation": "龙颈靠外、肩与前臂附近空隙增多；衣摆和靴履在画内。后景龙冠有上缘裁切。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
     {
       "id": "b-06-separated-planes",
       "original_reference": 6,
-      "authoring": "Updated project character-asset route: compact ordering plus front/rear plane separation and contained costume footprint; combined intervention, not single-variable causal test",
+      "authoring": "更新后的角色资产路线采用紧凑排序、前后层面分离与收拢衣装占地；属于联合干预，不是单变量因果测试。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -188,14 +188,14 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-2787f16e-f359-46de-8f16-4e2aef2b911d.png",
       "observation": "裙尾收回画内，人物与龙颈较易分开；后方腿部被遮挡，不能检查不可见关节。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
     {
       "id": "c-02-blue-white",
       "original_reference": 2,
-      "authoring": "updated project character-asset route with concise reference-specific design brief, moderate redesign; no guardian clauses copied into ordinary clothes",
+      "authoring": "更新后的角色资产路线采用简洁且针对参考的设计方案与适度再设计；未将守护者条款复制到普通服装。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -225,14 +225,14 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-c3c6a589-7286-4bd5-90a4-f7e30236a0dd.png",
       "observation": "雾蓝衣片、白花枝、外纱与中心浅色层可读；未带入铠甲或神兽，手势略有变化。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
     {
       "id": "c-08-teal-brocade",
       "original_reference": 8,
-      "authoring": "updated project character-asset route with concise reference-specific design brief, moderate redesign; no guardian clauses copied into ordinary clothes",
+      "authoring": "更新后的角色资产路线采用简洁且针对参考的设计方案与适度再设计；未将守护者条款复制到普通服装。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -262,9 +262,16 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-e5ae32f1-b3b6-43a1-aa4f-ebc0931a7c2b.png",
       "observation": "前中内裙整图观看下未见大片花纹，锦纱区别较清楚；主要只有一只鞋尖可读。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/visual-evaluations/character-layout-v092.json",
+    "源文件摘要": "9fc357553fd10b5700d31c805199b2b6231c664949cdc9689331354b2beac2d2",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

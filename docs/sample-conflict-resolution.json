@@ -2,11 +2,11 @@
   "conflicts": [
     {
       "id": "asset_pose_vs_dynamic_style",
-      "hybrid_resolution": "keep core pose unless authorized; move dynamic style into hair/fabric/composition energy"
+      "hybrid_resolution": "未获授权时保持核心姿态，将动态风格表现用于头发、布料与构图动势。"
     },
     {
       "id": "realism_vs_painterly_atmosphere",
-      "hybrid_resolution": "apply realism to human/material behavior; preserve stylized atmosphere at R1/R2"
+      "hybrid_resolution": "真实感用于人物与材料行为；R1/R2保留风格化氛围。"
     }
   ],
   "priority_order": [
@@ -18,5 +18,12 @@
     "P3_material_lighting",
     "P4_micro_quality"
   ],
-  "status": "needs_resolution"
+  "status": "needs_resolution",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/sample-conflict-resolution.json",
+    "源文件摘要": "d0949d073fddbb1d8cf23a2da35cb63da44cefc6054a4c3ed3938a29b117f8e7",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

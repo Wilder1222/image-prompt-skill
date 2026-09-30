@@ -5,14 +5,14 @@
     "resolved_mode": "humanized_real",
     "maturity_guard": "young_adult_20_26",
     "age_impression": "20_26",
-    "reason": "warrior-queen assets benefit from stronger human presence and composed maturity",
+    "reason": "女战士或女王资产可通过更强的人物生命感与沉稳成熟表现获益。",
     "override_applied": false,
-    "rule": "route by character and output intent; user-explicit face mode always overrides automatic routing."
+    "rule": "按角色与输出意图选择路线；用户明确指定的面容模式始终优先于自动路由。"
   },
   "face_mode": {
     "mode": "humanized_real",
-    "label": "Humanized Real Face",
-    "goal": "increase photographic human presence while preserving identity and attractiveness",
+    "label": "真人化面容。",
+    "goal": "增加摄影式人物生命感，同时保留身份与吸引力。",
     "age_target": "22_28",
     "preserve_beauty_priority": "medium",
     "face_realism": "medium_high",
@@ -31,24 +31,24 @@
       "reflectance_variation": "medium"
     },
     "preferred_signals": [
-      "believable eyelid anatomy",
-      "regional skin optics",
-      "natural nose and lip structure",
-      "soft tissue planes",
-      "photographic restraint"
+      "可信的眼睑解剖。",
+      "分区皮肤光学。",
+      "自然鼻部与嘴唇结构。",
+      "软组织体面。",
+      "克制的摄影表现。"
     ],
     "avoid": [
-      "plastic skin",
-      "overly idealized game face",
-      "flat facial planes",
-      "identity reshaping"
+      "塑料皮肤。",
+      "过度理想化的游戏脸。",
+      "扁平的面部体面。",
+      "身份重塑。"
     ],
     "prompt_translation": [
-      "Increase realistic human presence in the face while preserving the approved identity and attractiveness.",
-      "Use believable eyelid anatomy, soft tissue, regional skin response and natural nose/lip structure instead of plastic CG smoothness.",
-      "Keep the face young and attractive; realism must not become fatigue, hollowness or age inflation."
+      "增加面部真人感，同时保留已认可的身份与吸引力。",
+      "使用可信眼睑解剖、软组织、分区皮肤反应与自然鼻唇结构，避免塑料般光滑的计算机渲染表面。",
+      "保持面容年轻且有吸引力；真实感不能变成疲态、凹陷或年龄增加。"
     ],
-    "principle": "face direction is style-dependent; beauty, age impression and identity can take priority over maximum facial photorealism."
+    "principle": "面容方向依赖风格；美感、年龄观感与身份可以优先于最大面部照片真实度。"
   },
   "maturity_guard": {
     "profile": "young_adult_20_26",
@@ -67,10 +67,10 @@
       "stable_identity"
     ],
     "prompt_translation": [
-      "Keep a refined young-adult impression without aging the character up.",
-      "Allow restrained maturity through gaze and presentation, not through fatigue or facial hollowing."
+      "保持精致的年轻成年观感，不把角色变老。",
+      "通过目光与表现方式传达克制的成熟感，而不是疲态或面部凹陷。"
     ],
-    "principle": "maturity guard limits unwanted age drift; it does not force childishness."
+    "principle": "成熟度保护限制非预期年龄漂移，不强求幼态。"
   },
   "realism_scope": {
     "mode": "humanized_real",
@@ -88,7 +88,7 @@
       "lighting",
       "camera_response"
     ],
-    "rule": "never infer that high non-face realism requires high face realism."
+    "rule": "不推断非面部高真实度必须对应面部高真实度。"
   },
   "round_plan": {
     "round": "face_mode_calibration",
@@ -119,17 +119,24 @@
       "age_up_without_user_request",
       "copy_face_from_style_reference"
     ],
-    "prompt_strategy": "face-mode-only calibration: protect identity and age impression, tune beauty/realism direction without changing body, costume or composition"
+    "prompt_strategy": "仅校准面容模式：保护身份与年龄观感，调整美感和真实度方向，不改变身体、衣装或构图。"
   },
   "prompt_skeleton": [
-    "Face mode: humanized_real.",
-    "Increase realistic human presence in the face while preserving the approved identity and attractiveness.",
-    "Use believable eyelid anatomy, soft tissue, regional skin response and natural nose/lip structure instead of plastic CG smoothness.",
-    "Keep the face young and attractive; realism must not become fatigue, hollowness or age inflation.",
-    "Keep a refined young-adult impression without aging the character up.",
-    "Allow restrained maturity through gaze and presentation, not through fatigue or facial hollowing.",
-    "Face realism scope: medium_high; non-face realism scope: high.",
-    "Do not infer that stronger hair, fabric, body or lighting realism requires a more mature or more photoreal face."
+    "面容模式：humanized_real。",
+    "增加面部真人感，同时保留已认可的身份与吸引力。",
+    "使用可信眼睑解剖、软组织、分区皮肤反应与自然鼻唇结构，避免塑料般光滑的计算机渲染表面。",
+    "保持面容年轻且有吸引力；真实感不能变成疲态、凹陷或年龄增加。",
+    "保持精致的年轻成年观感，不把角色变老。",
+    "通过目光与表现方式传达克制的成熟感，而不是疲态或面部凹陷。",
+    "面部真实度范围：medium_high；非面部真实度范围：high。",
+    "不推断更真实的头发、布料、身体或灯光需要更成熟、更像照片的面容。"
   ],
-  "note": "Face beauty, age impression and realism intensity are routed separately from non-face realism."
+  "note": "面部美感、年龄观感与真实度强度独立于非面部真实度路由。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/v0.7.9-warrior-face-plan.json",
+    "源文件摘要": "ff49c38560e07755fcbf19e289d3c9beb8ee6db072da9d20138e43685d150693",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

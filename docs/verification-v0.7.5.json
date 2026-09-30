@@ -32,5 +32,12 @@
     "human_presence_v21_levels": 4
   },
   "media_tests": "not_run_for_v0.7.5",
-  "interpretation": "Pass validates local planning/catalog/routing logic only. It does not prove generated-image anatomy, exact nine-head proportion, or photographic realism."
+  "interpretation": "通过仅验证本地计划、目录与路由逻辑，不证明生成图的解剖、精确九头身或摄影真实感。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/verification-v0.7.5.json",
+    "源文件摘要": "ef4576b80de6d8902198c79137a7fe51631fa2aac30d99f872f343ef44f4c952",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

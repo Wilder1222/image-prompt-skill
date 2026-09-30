@@ -26,7 +26,7 @@
       "costume_redesign",
       "identity_change"
     ],
-    "prompt_strategy": "local hand/foot anatomy patch only; lock passed identity, costume, composition and lighting"
+    "prompt_strategy": "仅作局部手脚解剖修订；锁定已通过的身份、衣装、构图与灯光。"
   },
   "failures": [
     {
@@ -34,5 +34,12 @@
       "priority": "P1E",
       "round": "extremity_integrity"
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/v0.7.4-hand-repair-plan.json",
+    "源文件摘要": "698cd8cc1e3aad20e3f9f41a5a880507d64529024d02945b548bf1cf1f65eb19",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

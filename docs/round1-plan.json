@@ -23,5 +23,12 @@
     "new_slit",
     "new_pose"
   ],
-  "prompt_strategy": "short patch prompt; mention locked asset master once, expand editable dimensions only"
+  "prompt_strategy": "简短局部修订提示词：只提一次锁定的资产母图，仅展开可编辑维度。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/round1-plan.json",
+    "源文件摘要": "d8f913c82d118ea3baa4bd7f95906e2f65bfd1cbc5b788993137d1933870fa9f",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

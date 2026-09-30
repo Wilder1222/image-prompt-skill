@@ -5,14 +5,14 @@
   "goal_status": "active",
   "new_images": 3,
   "benchmark_usage": "evaluation_only",
-  "comparison_type": "black-gold A/B changes wardrobe design paragraph only; several construction variables change together, original reference unchanged, no fixed seed",
+  "comparison_type": "黑金A/B仅改变衣装设计段落，但其中多个构造变量同时改变；原始参考不变，种子未固定。",
   "artifact_directory": "dist/visual-tests/goal-cycle-03/",
   "records": [
     {
       "id": "a-08-black-gold",
       "original_reference": 8,
       "benchmark": 4,
-      "authoring": "Project character-asset-pipeline; concrete moderate wardrobe redesign derived from inspected user benchmark; manually authored, not unchanged ancient-gown CLI output",
+      "authoring": "项目角色资产流程；根据已查看的用户标杆形成具体的适度衣装再设计；由手工编写，并非古风长袍CLI原样输出。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -40,7 +40,7 @@
         "height": 1448
       },
       "observation": "黑纱、浅色袖里、金纹与中心裙面区分可读；身体、衣摆和鞋尖完整；中心深色裙面积大而沉重，肩饰外展，顶部紧。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
@@ -48,7 +48,7 @@
       "id": "a-07-blue-short",
       "original_reference": 7,
       "benchmark": 5,
-      "authoring": "Project character-asset-pipeline; concrete moderate wardrobe redesign derived from inspected user benchmark; manually authored, not unchanged ancient-gown CLI output",
+      "authoring": "项目角色资产流程；根据已查看的用户标杆形成具体的适度衣装再设计；由手工编写，并非古风长袍CLI原样输出。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -76,7 +76,7 @@
         "height": 1448
       },
       "observation": "针织、碎花内搭、短裙与袜鞋区分可读，闭唇微笑与侧垂低马尾保留；相叠手指和遮挡的骨盆无法全面评估。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
@@ -84,7 +84,7 @@
       "id": "b-08-layered-black-gold",
       "original_reference": 8,
       "benchmark": 4,
-      "authoring": "Project character-asset-pipeline; concrete moderate wardrobe redesign derived from inspected user benchmark; manually authored, not unchanged ancient-gown CLI output",
+      "authoring": "项目角色资产流程；根据已查看的用户标杆形成具体的适度衣装再设计；由手工编写，并非古风长袍CLI原样输出。",
       "provider": "image_gen.imagegen",
       "model": null,
       "seed": null,
@@ -112,9 +112,16 @@
         "height": 1448
       },
       "observation": "浅色内层和错落侧片可读，深色中心变窄，肩饰更贴合；发髻仍高且顶部留白仍紧，中心仍有纹理与柔亮反光。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/visual-evaluations/wardrobe-redesign-v093.json",
+    "源文件摘要": "b560f68562617f9d49f90ad1794ada8ec29415d69f5a3055eed247e35141c42e",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

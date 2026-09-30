@@ -1,7 +1,7 @@
 {
   "version": "0.12.0",
   "date": "2026-09-29",
-  "scope": "29 saved images: 4 pilots, 5 superseded initial outputs, 14 repeated pose outputs, 2 frame edits, 1 independent modern output, 1 color edit, 1 studio-light edit, 1 face-clear hair edit. Nine interrupted old records have unknown dispatch. No universal success claim.",
+  "scope": "共保存29张图：4张试样、5张被替代的初始输出、14张重复姿态输出、2张取景编辑、1张独立现代装、1张色彩编辑、1张棚光编辑、1张面部无遮挡发型编辑。9条已中断旧记录的派发状态未知。不宣称普遍成功。",
   "summary": {
     "cohorts": {
       "pilot-v012": {
@@ -102,7 +102,7 @@
       }
     },
     "user_acceptance": "not_inferred",
-    "note": "Counts are observer results for this sample; reused outputs and changed targets do not create initial successes."
+    "note": "数量为该样本的观察者结果；复用输出和改变目标不能算作首次成功。"
   },
   "runs": [
     {
@@ -3162,7 +3162,7 @@
       "feedback": "面部有些光影斑驳，白底应该使用摄影灯光。",
       "resolution_run": "modern-studio-light-edit",
       "user_acceptance": "not_yet_provided",
-      "note": "Original observer review preserved as historical record; user identified a facial-lighting defect. Background and facial-lighting checks are now separate."
+      "note": "原观察者评审作为历史记录保留；用户指出了面部布光缺陷。现已将背景与面部布光分开检查。"
     },
     {
       "run_id": "modern-studio-light-edit",
@@ -3170,5 +3170,12 @@
       "resolution_run": "modern-face-clear-edit",
       "user_acceptance": "not_yet_provided"
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/visual-evaluations/maturity-v0120-results.json",
+    "源文件摘要": "9a628970854986f5af0c42a0538aefcb055c06257c9a07928739486efe790665",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

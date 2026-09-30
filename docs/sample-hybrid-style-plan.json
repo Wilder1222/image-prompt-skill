@@ -63,9 +63,9 @@
     ]
   },
   "reference_roles": {
-    "A": "style_restoration only",
+    "A": "仅style_restoration通道。",
     "B": "asset_master",
-    "C": "optional facial_trait only"
+    "C": "可选的facial_trait通道，除此之外无权限。"
   },
   "locks": [
     "face_identity_geometry",
@@ -115,11 +115,18 @@
     ]
   },
   "prompt_skeleton": [
-    "Assign reference roles first.",
-    "Render mode: hybrid. Style restoration: S2. Reality gain: R2.",
-    "Keep asset identity/body/garment architecture locked.",
-    "Restore only authorized mood/motion/lighting/atmosphere/medium channels from the style reference.",
-    "Apply realism to human skin, hair, materials and lighting without erasing the restored fantasy language."
+    "先分配参考职责。",
+    "渲染模式：hybrid；风格恢复：S2；真实感增益：R2。",
+    "锁定资产身份、身体与衣装构造。",
+    "仅从风格参考恢复获准的情绪、运动、光线、氛围和媒介通道。",
+    "为皮肤、头发、材料与光线增加真实感，不抹去已恢复的幻想语言。"
   ],
-  "note": "S/R levels are project heuristics, not vendor parameters."
+  "note": "S/R等级是项目经验规则，不是厂商参数。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/sample-hybrid-style-plan.json",
+    "源文件摘要": "33a9b4e0d0b7f598d286a5532de7d8f8a6840a56e98c9985889fae48e63079a2",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }
