@@ -46,8 +46,8 @@ export function validateProject(base, { manifest = true } = {}) {
     const frontmatter = skill.match(/^---\r?\n([\s\S]*?)\r?\n---/);
     if (!frontmatter || !/^name: image-prompt-skill$/m.test(frontmatter[1]) || !/^description: .+/m.test(frontmatter[1])) errors.push('SKILL.md requires name and description frontmatter');
   }
-  // Validate linked files in maintained instructions; historical reports can link old artifacts.
-  for (const file of files.filter(f => f.endsWith('.md') && (['SKILL.md', 'README.md'].includes(f) || f.startsWith('references/') || f.startsWith('templates/') || f.startsWith('skills/')))) {
+  // Only current documents are shipped; verify links in every Markdown document.
+  for (const file of files.filter(f => f.endsWith('.md'))) {
     const body = fs.readFileSync(path.join(base, file), 'utf8');
     for (const match of body.matchAll(/\[[^\]]*\]\(([^)\s]+)\)/g)) {
       const target = match[1];
