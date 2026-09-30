@@ -1,10 +1,18 @@
-# Silver Character — humanized_real control
+# 银发角色真人化模式历史对照
 
-Control condition for A/B comparison only.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Use the same silver-haired P9 Asset Master and lock identity, body, costume, background and composition.
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/silver-humanized-real-control.md)；源文件SHA-256：`6b3607cf19b99683a59438cf2c1a9100a0d46eb1f2e023b97c93b59ca7319830`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-Face mode: humanized_real.
-Increase realistic eyelid anatomy, regional skin response, soft tissue and natural nose/lip structure while preserving attractiveness. Keep the face young-adult and avoid fatigue or age inflation.
 
-Compare against beauty_first for: attractiveness, age impression, ethereal quality, identity continuity and human presence.
+【用途】
+仅作为A/B比较的对照条件。
+
+【编辑对象与保持项】
+使用同一银发P9资产母图，锁定身份、身体、衣装、背景和构图。
+
+【面容方向】
+面容模式humanized_real。增强真实眼睑解剖、分区肤质、软组织和自然鼻唇结构，同时保持吸引力。面容保持年轻成年，不增加疲态或年龄。
+
+【比较项目】
+与beauty_first比较吸引力、年龄观感、空灵感、身份连续性及人物生命感。

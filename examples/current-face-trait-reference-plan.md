@@ -1,37 +1,25 @@
-# Current Case — A/B Trait Reference Plan
+# 历史案例：A/B面部气质参考计划
 
-## A — Asset Master + Identity Geometry Source
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Use the current white-background full-body character asset.
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/current-face-trait-reference-plan.md)；源文件SHA-256：`f4f91629e8d2c5db227c6edd445d819e8e572e89d4d33c14ece8afa008fb2cde`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-A controls and locks:
-- face identity geometry
-- full-body composition
-- body / pose
-- hair silhouette / crown
-- costume / palette / accessories
-- white studio background
 
-## B — Facial Trait Reference only
+## A：资产母图与身份几何
+使用当时的白底全身角色资产。A控制并锁定：
+- 面容身份几何。
+- 全身构图。
+- 身体与姿态。
+- 发型轮廓与冠饰。
+- 衣装、配色与饰件。
+- 白色棚景。
 
-B contributes only:
-- less childishness
-- steadier gaze
-- lighter mature impression
-- restrained editorial makeup
-- calm high-end temperament
+## B：仅面部气质
+B只提供减少幼态、稳定目光、轻熟观感、克制时尚妆容及平静高级气质。
 
-B does **not** control:
-- face shape
-- eye spacing / eye geometry
-- nose / lip / jaw geometry
-- hairstyle
-- costume
-- body
-- scene / lighting / camera
+B不控制脸型、眼距与眼部几何、鼻唇下颌几何、发型、衣装、身体、场景、灯光或镜头。
 
-## Target
+## 目标
+M2.5：轻熟、高级的年轻成年人。
 
-`M2.5 — light mature, high-end young adult`
-
-The target is not “make A look like B.” The target is “keep A the same person and borrow only selected maturity / temperament signals from B.”
+目标不是让A长得像B，而是保持A为同一人，只借用B中指定的成熟与气质线索。

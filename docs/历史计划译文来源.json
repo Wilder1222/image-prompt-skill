@@ -5740,6 +5740,56 @@
           "译文摘要": "041eafd7bdb9abf59019ab7f6e50b627b939b656ef6eb0ad3005eec2ea0b0071"
         }
       ]
+    },
+    {
+      "源提交": "861084f7e612f7e69ab1b9ea07df7cc6753569dc",
+      "源文件": "RELEASE-MANIFEST-v0.8.0.json",
+      "源文件摘要": "380c103527cb45644cacdca364d26b2bee93ad9bf910a711442c0a6552e3cc91",
+      "译文文件": "RELEASE-MANIFEST-v0.8.0.json",
+      "译文摘要": "05924ff3577e4e058dc84c281ee1427f75ff8c672c9f0e3f9b8518629ae9b312",
+      "翻译字段数": 4,
+      "字段": [
+        {
+          "位置": "$.theme",
+          "原文摘要": "79e36e9bc112f4ccf5e9438766b5999ee94d0ab429f5aa4698fc21bd24737f66",
+          "译文摘要": "b2e661ae15efbe10d9c94960c38ce0ac0a07ebae56273f9a245dfa51d281f494"
+        },
+        {
+          "位置": "$.notes[0]",
+          "原文摘要": "3f741a135cacd3ec8612fc792aa53aa23821aade27a7035e80d1718a7c9d9e08",
+          "译文摘要": "886e551483e34c6f9345120aaec82e4644e1230bcbac0e45e963ba7f3e4096ef"
+        },
+        {
+          "位置": "$.notes[1]",
+          "原文摘要": "894b178c8685eb04014f08c102dd23ec6c3e708d560f2e58810980446c293e31",
+          "译文摘要": "b590ab88ba65a1d94a943e9a9363bbb2ff5dee5234ed7e3f923eb4025d390523"
+        },
+        {
+          "位置": "$.notes[2]",
+          "原文摘要": "f2d4da59f82477a32e623bf986502af2a8b2401fa8f3e337d2753c1ffdb483a5",
+          "译文摘要": "1b075abdcb8831b1b7517e8b263a6845709b37924a9ad0038c2881d26eb413d8"
+        }
+      ]
+    },
+    {
+      "源提交": "861084f7e612f7e69ab1b9ea07df7cc6753569dc",
+      "源文件": "RELEASE-MANIFEST-v0.8.1.json",
+      "源文件摘要": "4cbc1ab2b8aee887747013a919c1a1517ed94b50ff1e07947abd84f9fb80f554",
+      "译文文件": "RELEASE-MANIFEST-v0.8.1.json",
+      "译文摘要": "314b0495de5cca0528b896600c8c8c438c4d78f67e65eeb699e7fce847ebdaf4",
+      "翻译字段数": 2,
+      "字段": [
+        {
+          "位置": "$.theme",
+          "原文摘要": "5895f02295b7e8d4d46645aa66195996882b867ce72a8669c4a4aa979e47ee70",
+          "译文摘要": "ee375ab8106ec6c5b6bfdfb8857b591ea01553db0a43722ad86b7c4c0c446778"
+        },
+        {
+          "位置": "$.visual_validation",
+          "原文摘要": "59e58ece53a18aab2465b0bb82ffe7abc871b856dfe78bf6544c78a70bd14e8f",
+          "译文摘要": "fcdb1c1cf6aa2b3da2de06319beb26b6805c804327b7c957d42db7a5aa5db3ac"
+        }
+      ]
     }
   ]
 }

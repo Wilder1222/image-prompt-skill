@@ -1,12 +1,20 @@
-# Silver Test 3 → H2.5 Human Presence v3 Patch
+# 银发测试3至H2.5人物生命感v3的历史修订
 
-Use the accepted Test 3 image as the **only direct edit target**. P9 fashion proportion is already approved.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
+
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/silver-test3-h25-optical-patch.md)；源文件SHA-256：`6acd66d859e63d6535a3acefb45246634c6f92052ba97ed5a7245c9f3f0100f8`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
+
+
+原示例以已接受的测试3图作为唯一直接编辑对象，并认为P9时装比例已通过；这不是本次新验收。
 
 ```text
+【编辑对象】
 以当前已经通过P9比例测试的银发白底全身图作为唯一直接编辑对象。
 
+【保持不变】
 严格保持人物身份、脸型与五官比例、银白长发主轮廓、发型发饰、P9九头身时装比例、肩颈、躯干长度、腰线、腿部比例、站姿、双手、服装设计、米白＋灰蓝紫配色、鞋履、白色无缝背景和现有棚拍光位全部不变。
 
+【编辑范围】
 本轮只修“真人存在感”，不重新设计任何人物或服装结构。
 
 【1. 眼睛光学真实感】
@@ -36,5 +44,6 @@ Use the accepted Test 3 image as the **only direct edit target**. P9 fashion pro
 【严格锁定】
 不修改P9比例，不缩头，不改腰线，不拉腿；不改变人物身份，不改变脸型、眼距、鼻唇与下颌；不改变服装、配色、双手、鞋履、白底背景和灯光方向。
 
+【最终目标】
 最终效果：同一个银发P9角色资产，不改变已经通过的比例和设计，只让面部从“高质量CG仙侠角色”进一步接近真实年轻女演员的高级白底古装Lookbook摄影，同时仍保持清冷、细腻、漂亮和年轻。
 ```

@@ -1,17 +1,24 @@
-# Trait Calibration Prompt — Current Case
+# 历史案例：面部气质校准提示词
 
-```text
-Image A is the Asset Master and the facial identity geometry source. Image B is only a Facial Trait Reference.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Keep Image A as the same person. Preserve A's face shape, eye spacing, eye-shape geometry, nose proportions, lip shape, jaw/chin structure, skin-tone baseline, hairstyle, crown, body, pose, costume, background and framing.
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/round-trait-calibration-prompt.md)；源文件SHA-256：`e56fd059b16e8b4dbaca7911c761a169fa050e749d8a7e48b80c678b238c47ff`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-Change only the facial presentation from slightly youthful/childish toward M2.5 light-mature: make the gaze steadier and more composed, reduce only a small amount of babyish cheek softness while keeping youthful soft tissue, slightly reduce the overly innocent wide-eyed impression without changing the eye shape or size, keep the jaw transition clearer but still soft, and make the natural makeup more restrained and editorial.
 
-The result should remain a young adult, refined and high-end, not older, severe, hollow-cheeked, overly cold, or “queen-like.” Do not sharpen the chin, narrow the face, shrink the nose, change the eyes, or redesign the lips.
+【参考职责】
+图A为资产母图与面容身份几何来源。图B仅为面部气质参考。
 
-Use Image B only as a reference for maturity level, gaze restraint, expression composure and makeup restraint. Do not copy Image B's face geometry, hair, costume, body type, background, lighting, color grading or camera framing.
-```
+【保持不变】
+保持A是同一人，保留脸型、眼距、眼形几何、鼻部比例、唇形、颊颌下巴结构、肤色基底、发型、冠饰、身体、姿态、衣装、背景和取景。
 
-## Why this is shorter than the previous round
+【气质调整】
+仅将略显年轻幼态的面部表现调整至M2.5轻熟：目光更稳定沉着，只略减少幼态面颊柔软感，仍保留年轻软组织；稍收敛过分天真的睁大眼印象，不改变眼形或眼睛大小；下颌过渡更清楚但仍柔和；自然妆容更克制，偏时尚编辑表现。
 
-The asset master already passed composition, costume, pose and styling. Repeating those sections would reopen design dimensions that are not failing. This prompt keeps only one compact continuity lock plus the editable P0T traits.
+【年龄与身份边界】
+仍是精致高级的年轻成年人，不变老、不严厉、不凹颊、不冷过头或变成女王气质。不削尖下巴、削窄脸、缩鼻、改眼或重设计嘴唇。
+
+【参考B权限】
+B只提供成熟程度、目光克制、表情从容和妆容克制。不复制B的面部几何、头发、衣装、体型、背景、灯光、调色或镜头取景。
+
+## 当时为何缩短提示词
+原计划认为母图的构图、衣装、姿态与造型已通过。重复这些段落可能重新开放本来未失败的设计维度，因此只保留紧凑连续性约束与可编辑P0T气质。

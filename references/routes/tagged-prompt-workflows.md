@@ -6,13 +6,13 @@
 
 | 设置 | 古风材质定妆照 | 东方幻想原画资产 |
 | --- | --- | --- |
-| style workflow | material_realistic_asset | dark_fantasy_asset |
-| render mode | style_asset | style_asset |
-| face mode | beauty_first | beauty_first |
-| proportion mode | P9 Fashion | P9 Fashion |
-| detail budget | material_priority | concept_art_priority |
-| highlight hierarchy | focal_brightness | focal_brightness |
-| edge control | soft_realistic | painterly_selective |
+| 风格路线 | material_realistic_asset | dark_fantasy_asset |
+| 渲染模式 | style_asset | style_asset |
+| 面容模式 | beauty_first | beauty_first |
+| 比例模式 | P9 Fashion | P9 Fashion |
+| 细节预算 | material_priority | concept_art_priority |
+| 高光层次 | focal_brightness | focal_brightness |
+| 边缘控制 | soft_realistic | painterly_selective |
 | 面部 | 自然精致妆容与轻度真实肌肤 | 保留冷艳精致原画面容，不强行照片化 |
 | 细节 | 面料重量、透光、织纹、缝合与反射差异 | 面部与主饰最清楚，大衣片中等细节，边缘选择性概括 |
 | 边缘 | 柔光下真实的发丝、纱边与接缝 | 焦点结构清楚，发梢、披帛、次要裙边保留笔触 |

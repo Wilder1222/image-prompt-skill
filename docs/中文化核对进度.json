@@ -1,134 +1,26 @@
 {
-  "阶段": "第十三阶段",
-  "说明": "候选扫描用于安排人工核对，不是确认缺陷数；短词、混排与兼容标识仍需人工区分。历史执行、编译示例和计划译文均关联不可变源提交；档案译文不充当当前生成结果。",
-  "待人工核对文件数": 31,
-  "英文候选数": 178,
+  "阶段": "第十四阶段",
+  "说明": "扫描算法保持不变。剩余12条均经人工确认是厂商或模型名称，予以保留；另核对短词、混排与历史代码块。兼容字段、命令和模式值不翻译，自然语言采用中文。扫描不能单独证明完整性。",
+  "待人工核对文件数": 3,
+  "英文候选数": 12,
   "知识目录长段落候选": 0,
   "资源目录长段落候选": 0,
+  "人工核对结论": "12条均为保留的专有名称，无待翻译长段落候选",
   "待核对文件": [
     {
-      "文件": "examples/silver-b-round1-p9-proportion-patch.md",
-      "候选数": 12
-    },
-    {
-      "文件": "examples/black-red-image4-style-plan-v080.md",
-      "候选数": 11
-    },
-    {
-      "文件": "examples/silver-v078-round2-fabric-white.md",
-      "候选数": 11
-    },
-    {
-      "文件": "examples/silver-b-round2-human-presence-v21.md",
-      "候选数": 10
-    },
-    {
-      "文件": "examples/black-red-gold-warrior-queen-hybrid.md",
-      "候选数": 9
-    },
-    {
-      "文件": "examples/silver-b-regression-plan-v075.md",
-      "候选数": 9
-    },
-    {
-      "文件": "examples/black-red-v081-hierarchy-test.md",
-      "候选数": 8
-    },
-    {
-      "文件": "examples/ancient-white-asset-v082-test.md",
-      "候选数": 7
-    },
-    {
-      "文件": "examples/face-mode-validation-matrix.md",
-      "候选数": 7
-    },
-    {
-      "文件": "examples/human-presence-v3-ab-plan.md",
-      "候选数": 7
-    },
-    {
-      "文件": "examples/round-trait-calibration-prompt.md",
-      "候选数": 7
-    },
-    {
-      "文件": "examples/black-red-image4-style-test-v080.md",
-      "候选数": 6
-    },
-    {
-      "文件": "examples/cyber-character-v074-plan.md",
-      "候选数": 6
-    },
-    {
-      "文件": "examples/silver-character-v074-plan.md",
-      "候选数": 6
-    },
-    {
-      "文件": "examples/silver-v078-round1-p9-body-presence.md",
-      "候选数": 6
-    },
-    {
-      "文件": "docs/v0.7.7-design.md",
-      "候选数": 5
-    },
-    {
-      "文件": "examples/cyber-character-v073-plan.md",
-      "候选数": 5
-    },
-    {
-      "文件": "examples/local-hand-repair-v074.md",
-      "候选数": 5
-    },
-    {
-      "文件": "examples/silver-beauty-first-test.md",
-      "候选数": 5
-    },
-    {
-      "文件": "examples/silver-character-v073-plan.md",
-      "候选数": 5
+      "文件": "docs/research/reference-fidelity-human-presence-research.md",
+      "候选数": 3,
+      "结论": "品牌或模型标题，保留"
     },
     {
       "文件": "docs/research/style-restoration-realism-research.md",
-      "候选数": 4
+      "候选数": 4,
+      "结论": "品牌或模型标题，保留"
     },
     {
-      "文件": "examples/black-red-humanized-real-test.md",
-      "候选数": 4
-    },
-    {
-      "文件": "examples/current-face-trait-reference-plan.md",
-      "候选数": 4
-    },
-    {
-      "文件": "examples/face-classification-example.md",
-      "候选数": 4
-    },
-    {
-      "文件": "docs/research/reference-fidelity-human-presence-research.md",
-      "候选数": 3
-    },
-    {
-      "文件": "examples/silver-humanized-real-control.md",
-      "候选数": 3
-    },
-    {
-      "文件": "examples/silver-v078-round3-final-polish.md",
-      "候选数": 3
-    },
-    {
-      "文件": "examples/human-presence-v31-ab-plan.md",
-      "候选数": 2
-    },
-    {
-      "文件": "RELEASE-MANIFEST-v0.8.0.json",
-      "候选数": 2
-    },
-    {
-      "文件": "examples/four-look-series-template.md",
-      "候选数": 1
-    },
-    {
-      "文件": "examples/silver-test3-h25-optical-patch.md",
-      "候选数": 1
+      "文件": "docs/v0.7.7-design.md",
+      "候选数": 5,
+      "结论": "品牌或模型标题，保留"
     }
   ]
 }

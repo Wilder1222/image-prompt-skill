@@ -1,17 +1,30 @@
-# Black / Red / Gold Queen — v0.8.1 Hierarchy Test
+# 黑红金女王v0.8.1视觉层次测试
 
-Use the current approved epic black-red-gold queen image as the direct edit target.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Keep unchanged: the same woman, beauty-first face, crown, black-white-gold-crimson costume family, staff, full-body heroic composition, large sweeping hair and fabric motion, luminous oriental fantasy environment, backlight, mythic scale and overall color system.
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/black-red-v081-hierarchy-test.md)；源文件SHA-256：`96161b4816218a31782e6db3d7beddfdd6010e959dcb8f3b2c3d3a1238635f3e`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-This round changes only visual hierarchy and painterly completion rhythm.
 
-Concentrate the highest detail on the face, eyes, crown core, chest-neck focal area, waist core ornament and the focal structure of the staff. Keep the main skirt, sleeves, primary hair masses and major crimson ribbons at medium detail. Let hair tails, peripheral ribbons, distant palaces, banners, clouds, mist, ground reflections and edge effects become more selective, atmospheric and painterly instead of fully rendered.
+【编辑对象】
+使用当时已认可的史诗黑红金女王图作为直接编辑对象。
 
-Create a strict brightness hierarchy. The strongest light concentration belongs around the face, crown, upper torso and staff core. Waist metal and selected fabric turns may carry secondary highlights. Distant architecture, clouds, outer ribbons and floor reflections remain visibly dimmer and must not compete with the character.
+【保持不变】
+同一女性、美感优先面容、冠饰、黑白金绯红服装体系、权杖、英雄式全身构图、大幅流动头发与衣料、明亮东方幻想环境、逆光、神话尺度及整体色彩体系保持。
 
-Keep the background monumental but visually subordinate. Preserve palace scale, towers, banners and sacred architecture, but reduce local architectural resolution and hard contrast, especially behind the head and upper torso. Express distance through mist, silhouettes, layered light and atmospheric depth rather than literal building detail.
+【编辑范围】
+仅改变视觉层次与绘画完成度节奏。
 
-Use selective edge control: crisp edges at eyes, facial focal contour, crown core, waist metal and staff core; softer edges in hair tails, outer gauze, secondary skirt edges and ribbons; partially lost edges at strong backlight, misty architecture intersections and reflected light.
+【细节分配】
+最高细节集中于脸、眼睛、冠饰核心、胸颈焦点区、腰部核心饰件与权杖焦点结构。主裙、袖子、主体发量和主要绯红飘带保持中等细节。发尾、外围飘带、远宫殿、旗帜、云雾、地面反射与边缘特效有选择地描绘，更有空气感与笔触，不全部画满。
 
-Do not redesign the character, face, costume, palette, pose language, motion language or environment type. Do not add more ornament. Do not increase global sharpness. The result should feel less like an over-finished commercial fantasy illustration and more like premium oriental epic concept key art with visual breathing room.
+【明度层次】
+最强光亮集中于脸、冠饰、上躯干和权杖核心。腰部金属与选定衣褶承载次级高光。远建筑、云、外飘带和地面反射明显更暗，不与人物争夺注意。
+
+【背景】
+保持宏大但从属的背景。保留宫殿尺度、塔楼、旗帜与神圣建筑，但降低局部建筑解析度和硬对比，尤其头部与上躯干后方。用雾、剪影、层叠光和空气透视表达距离，不逐一刻画建筑细节。
+
+【边缘】
+眼睛、面部焦点轮廓、冠饰核心、腰部金属和权杖核心边缘清楚；发尾、外纱、次级裙边与飘带较柔；强逆光、雾中建筑交界和反射光处允许局部边缘消隐。
+
+【限制与目标】
+不改人物、面容、衣装、配色、姿态语言、动作语言或环境类型，不增加饰物，不增强全局锐度。减轻过度画满的商业幻想插画感，呈现有视觉留白的高级东方史诗概念主视觉。

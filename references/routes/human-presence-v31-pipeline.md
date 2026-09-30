@@ -1,13 +1,13 @@
-# Human Presence v3.1 Pipeline
+# 人物生命感v3.1修订流程
 
 ```text
-P9 accepted
-→ human_face_optical_refine
-→ diagnose / lock
-→ human_camera_hair_refine
-→ diagnose / lock
-→ studio_polish
-→ upscale
+已确认本轮比例
+→ 面部光学精修（human_face_optical_refine）
+→ 诊断并保持通过项
+→ 头发与相机表现精修（human_camera_hair_refine）
+→ 诊断并保持通过项
+→ 棚拍精修（studio_polish，仅棚拍任务需要）
+→ 放大（upscale，仅实际需要且工具支持时）
 ```
 
-若身份或 P9 失败，先回对应上游 Round；不得用 H2.7 覆盖身份或比例失败。
+这是历史银发P9案例的修订次序，按当前问题选择必要步骤，不要求每张图重走全部轮次。若身份或已选比例失败，先处理对应问题，不能用H2.7纹理增强掩盖它们。表情、发型、动作与背景已获授权变化时更新联动范围，不拿旧锁定阻止适配。精致妆容、面容美感与人物辨识度优先，细微纹理只服务自然度。

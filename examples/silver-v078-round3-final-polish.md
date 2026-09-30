@@ -1,7 +1,15 @@
-# Silver Asset — Round 3: Final Photographic Polish
+# 银发资产第三轮：最终摄影精修
 
-Use the approved Round-2 asset as the direct edit target. All semantic design dimensions are locked.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Only refine final camera response: natural local microcontrast, soft highlight roll-off, face-priority focus hierarchy, material-specific highlight balance and clean white-background tone. The face should remain the strongest focus; upper-body garment and hands stay asset-readable; peripheral sheer layers and hem edges may resolve slightly softer.
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/silver-v078-round3-final-polish.md)；源文件SHA-256：`fa2244a87921f3ee8f0e866a535b4a8232a06ab55dd9c524a8f35d3485062696`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-Avoid global sharpening, HDR clarity, halo edges, extreme shallow depth of field or any semantic redesign.
+
+【编辑对象与锁定】
+使用已认可的第二轮资产作为直接编辑对象。所有语义设计维度锁定。
+
+【摄影调整】
+只精修相机响应：自然局部微对比、柔和高光衰减、面部优先焦点层次、分材料高光平衡及干净白底色调。脸部仍是最强焦点，上半身衣装和双手保持资产可读性，外围薄纱与衣摆边缘可略柔。
+
+【限制】
+避免全局锐化、高动态范围式清晰度、边缘光晕、极浅景深及任何语义重设计。

@@ -144,6 +144,14 @@
       "译文文件": "docs/v0.7.7-design.md",
       "译文摘要": "def37bb7095a1aba6fdef144b51c30b3298f00c17f2837ab6d8cdc6905f890a6",
       "性质": "历史模块设计方案的中文整理；YAML结构与值保持，不作为当前规则或新验证"
+    },
+    {
+      "源提交": "861084f7e612f7e69ab1b9ea07df7cc6753569dc",
+      "源文件": "docs/v0.7-implementation-report.md",
+      "源文件摘要": "b43c221c8026ba1026f0b7b00fde878962c0c95a20fa86d907ee97788d577aae",
+      "译文文件": "docs/v0.7-implementation-report.md",
+      "译文摘要": "6cbaaed383d517862198e02e7cbe6a0929444f93ec4d1bc7ec16fd881f1aef23",
+      "性质": "历史实施报告中文整理，不作为当前默认或新执行证据"
     }
   ]
 }

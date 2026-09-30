@@ -1,6 +1,6 @@
-# Attachment Logic + Footwear System
+# 饰物连接与鞋履设计
 
-## 1. Attachment Logic
+## 1. 饰物连接
 
 所有主要装饰都应回答三个问题：
 
@@ -14,7 +14,7 @@
 - 肩部金属件固定于肩部衣片与内衬结构，而非悬浮
 - 吊坠挂在主腰饰或袖口环扣上，而不是直接从空气中垂下
 
-## 2. Footwear System
+## 2. 鞋履设计
 
 “古风鞋履”太模糊，容易被模型翻译成西式尖头礼鞋。
 
@@ -27,10 +27,10 @@
 - material_family：锦缎 / 皮革 / 软甲 / 刺绣面
 - relation_to_costume：与腰饰、护腕、主配色呼应
 
-### 推荐鞋履族
-- eastern_flat_brocade
-- eastern_lowheel_wrap
-- ceremonial_flat_shoe
-- armored_soft_boot
+### 古风案例的鞋履选项
+- eastern_flat_brocade：东方平底织锦鞋。
+- eastern_lowheel_wrap：东方低跟包裹式鞋。
+- ceremonial_flat_shoe：礼仪平底鞋。
+- armored_soft_boot：带甲片的软靴。
 
-默认不建议：现代细高跟礼鞋
+古风采集任务不自动换成现代细高跟礼鞋。用户明确选择现代装、特定鞋型或允许改造时按本轮方案设计；鞋是否露出由姿态与衣摆决定，不为展示连接结构强行掀裙或改裙长。

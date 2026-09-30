@@ -1,41 +1,41 @@
-# v0.7.3 Reference Fidelity & Human Presence Pipeline
+# 参考忠实度与人物生命感流程
 
-## 1. Decompose Reference
+## 1. 拆分参考
 
-即使只有一张参考图，也先拆成 Identity / Costume / Material / Pose / Style / Lighting / Environment。
+即使只有一张参考图，也区分身份、衣装、材料、姿态、风格、光线与环境职责。以当前[提示词生产流程](prompt-production.md)为入口，本页的旧等级只辅助记录。
 
-## 2. Assign Fidelity
+## 2. 确定继承强度
 
-使用 0–3 权重。白底角色资产默认环境 0；身份与服装通常 3；材质 2；风格/光线根据用户目标设 1–2。
+0–3为内部继承强度，不是模型权重。选择白底替换时可将原环境设0；保留或调整场景时不能套用环境清零。身份、衣装、材料、风格与光线按当前要求分别确定，允许的衣装再设计不得被统一严格锁定覆盖。
 
-## 3. Visible / Inferred
+## 3. 区分可见与推断
 
-只有实际可见的部分才能被严格锁定。未展示区域进入 Completion。
+只有实际可见的部分才能作为严格继承的观察事实。未展示区域进入补全设计。
 
-## 4. Completion Level
+## 4. 补全等级
 
-默认 C1 Conservative Completion。只补必要全身结构，不增加新的主色、主装甲、主图腾和设计体系。
+未授权再设计的扩身可采用C1保守补全，只补必要结构，不增加新主色、主装甲、主图腾或设计体系。已授权造型优化时按明确方案适度调整，不把保守案例当作全局禁止。
 
-## 5. Density & Wear Lock
+## 5. 密度与磨损
 
-记录参考的设计密度和破损等级。扩展新区域不提升复杂度，不自动把 distressed 变成 ruined。
+记录参考设计密度和破损等级。仅扩展新区域不自动提升复杂度，不把受损状态distressed升级为毁坏状态ruined。
 
-## 6. Render Mode
+## 6. 渲染模式
 
 - asset：纯资产中性呈现
-- style_asset：白/中性背景但保留参考风格、材料和人物气质
+- style_asset：以资产展示为目标保留参考风格、材料和人物气质；旧白色或中性背景只是该案例选择，当前背景按用户任务确定
 - restoration：原题氛围恢复
 - hybrid：资产连续性 + 原题场景/风格融合
 
-## 7. Human Presence
+## 7. 人物生命感
 
-角色资产默认 H2：软组织 + 区域皮肤反射 + 微小自然非对称 + 真实镜头响应。身份几何保持锁定。
+历史H2方案通过软组织、分区皮肤反射与真实镜头响应增加摄影感。是否采用取决于本轮媒介；不默认增龄、做歪五官或强化所有皮肤纹理。精致妆容与美感优先，保留人物身份；表情变化允许自然的五官运动，不等同换脸。
 
-## 8. Compile
+## 8. 编译
 
 最终提示词优先顺序：
-Identity → Costume Architecture → Completion Boundaries → Material/Style → Human Presence → Lighting/Camera → Quality。
+身份 → 衣装构造 → 补全边界 → 材料与风格 → 人物生命感 → 灯光与镜头 → 质量目标。交付时按实际内容加中文语义标签，不输出只有模式名的空框架。
 
-## 9. Diagnose
+## 9. 诊断
 
 重点识别：reference_channel_leak、completion_overdesign、design_density_inflation、wear_state_inflation、human_presence_undershoot、camera_cg_render、style_asset_environment_leak。

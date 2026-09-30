@@ -22,7 +22,7 @@
 
 - **中性资产检查**：复用既有 `neutral_asset`，服装结构和姿态由实际任务决定。自然垂手只是可选姿态。
 - **服装定妆展示**：`costume_showcase` 仅供流动袖摆与长裙层次的造型参考。具体站姿和手势按需求选择，腰前叠手只是其中一种；见 [站姿决策](../core/standing-pose-direction.md)。腰部收束和前中长线维持修长感，裙摆可以适量展开和铺地，允许自然遮住一脚或双脚，不强制鞋尖可见。
-- **已有好母图**：直接保留最省损失。只有用户要求出图或有明确待修处时才生成候选；使用 `full_body_anchor` 保留全身设计，或者使用具体 edit stage / focus 修局部。不要为了走完流程重做脸、年龄和身材。
+- **已有好母图**：直接保留最省损失。只有用户要求出图或有明确待修处时才生成候选；使用 `full_body_anchor` 保留全身设计，或者使用具体 编辑阶段与焦点 修局部。不要为了走完流程重做脸、年龄和身材。
 
 ```bash
 node scripts/iteration-director.mjs asset-prompt --presentation costume_showcase --maturity-guard none --format text

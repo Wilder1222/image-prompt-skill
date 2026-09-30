@@ -1,21 +1,36 @@
-# Silver Character B — Round 2 Human Presence v2.1
+# 银发角色B：第二轮人物生命感v2.1
 
-Run only after the P9 full-body proportion has been accepted.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Keep unchanged: face identity geometry, age, P9 body proportion, pose, costume design, palette, white background, current materials, hand anatomy and overall composition.
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/silver-b-round2-human-presence-v21.md)；源文件SHA-256：`ef904ad892da1cb987c28a8963af4145dea57cc355c32679b8cbf75798ce4d53`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-This round changes only human presence and photographic realism.
 
-Preserve the same face, but make the cheeks, eyelids, nose wings, mouth corners and jaw-to-neck transition feel like real young-adult soft tissue rather than smooth CG geometry.
+【执行前提】
+仅在P9全身比例获认可后执行。
 
-Give different facial regions different optical response: restrained forehead sheen, slightly stronger nose-bridge and nose-tip reflection, subtle inner-cheek microtexture, softer diffuse outer cheeks, thinner eye-area skin response and an independent natural lip material.
+【保持不变】
+面容身份几何、年龄、P9身材比例、姿态、衣装设计、配色、白底、现有材料、手部解剖及整体构图保持。
 
-Allow extremely small natural asymmetry in eyebrow height, eyelid openness, mouth-corner balance and highlight distribution. Do not change eye spacing, nose proportion, jaw shape or overall identity.
+【编辑范围】
+只调整人物生命感与摄影真实感。
 
-Make the eyes physically believable: natural eyeball-to-socket relationship, real upper/lower eyelid thickness, believable inner/outer eye corners, eyelashes integrated into the lash roots and sclera that is not unnaturally pure white.
+【面部软组织】
+保持同一张脸，让面颊、眼睑、鼻翼、嘴角与下颌至颈部过渡呈现真实年轻成年人的软组织，而非光滑计算机渲染几何。
 
-Build the silver hair from primary masses, secondary strand groups and only a few fine irregular hairs, with non-uniform highlight flow instead of perfectly smooth CG ribbons.
+【分区肤质】
+额头光泽克制，鼻梁鼻尖反射略强，内颊有细微纹理，外颊漫反射更柔，眼周皮肤反应较薄，嘴唇具有独立自然材质。
 
-Use photographic lens response: soft highlight roll-off, retained shadow detail, natural local micro-contrast, no sharpened face cut-out, no edge halos, no global clarity/HDR effect. Keep the face as the sharpest focus while peripheral sheer cloth may resolve slightly softer.
+【微小差异与身份】
+允许眉高、眼睑开合、嘴角平衡和高光分布有极小自然不对称，不改眼距、鼻部比例、下颌形状及整体身份。
 
-Final target: the same beautiful silver-haired character, still clean and elegant, but reading first as a real photographed person in a high-end costume lookbook rather than a polished fantasy CG render.
+【眼部】
+眼球与眼窝关系自然，上下眼睑厚度真实，内外眼角可信，睫毛融入根部，巩膜不呈不自然的纯白。
+
+【头发】
+银发由主体发量、次级发束与少量不规则细发组成；高光走向不均一，不呈完全平滑的计算机渲染丝带。
+
+【摄影成像】
+高光柔和衰减，暗部有细节，局部微对比自然；脸部不似锐化抠出，不加边缘光晕，不用全局清晰度或高动态范围效果。脸部焦点最清楚，外围纱料可以略柔。
+
+【最终目标】
+同一个漂亮银发角色，干净优雅，首先读作高端古装造型册中的真实摄影人物，而非抛光幻想渲染。

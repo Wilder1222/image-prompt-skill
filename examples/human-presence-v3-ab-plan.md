@@ -1,31 +1,30 @@
-# Human Presence v3 A/B Regression Plan
+# 人物生命感v3历史A/B回归计划
 
-Base image: accepted P9 Test 3 asset.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-## A — H2 legacy-control group
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/human-presence-v3-ab-plan.md)；源文件SHA-256：`706349889cbde6f5f8eb33bb3267bc2dba95eb5ea222a4a9aa8ebddc3bd0df64`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-Use the v0.7.5 H2 human-presence patch without changing P9.
 
-Purpose: establish whether the old soft-tissue / eye / hair / lens language still plateaus at high-quality CG.
+基图：当时已接受的P9测试3资产。
 
-## B — H2.5 Human Presence v3
+## A：旧H2对照
+使用v0.7.5 H2人物生命感修订，不改P9。
+目的：判断旧软组织、眼睛、头发与镜头语言是否仍停留在高质量计算机渲染观感。
 
-Use `silver-test3-h25-optical-patch.md`.
+## B：H2.5人物生命感v3
+使用silver-test3-h25-optical-patch.md。
+目的：测试光学一致性，而非增加微小细节。
 
-Purpose: test optical coherence rather than additional micro-detail.
+## 只比较这些维度
+1. 巩膜自然度。
+2. 虹膜与眼部高光真实感。
+3. 不斑驳的分区皮肤光学。
+4. 妆容融合。
+5. 发束尺度变化。
+6. 焦点层次。
+7. 眼、皮肤与头发真实感一致性。
+8. 身份保持。
+9. P9保持。
 
-## Compare only these dimensions
-
-1. eye sclera naturalness
-2. iris / catchlight realism
-3. skin optical regionality without mottling
-4. makeup integration
-5. hair scale variation
-6. focus hierarchy
-7. eye/skin/hair realism consistency
-8. identity preservation
-9. P9 preservation
-
-## Pass condition
-
-B should look more like a photographed young actor/model while preserving identity, P9 proportions, costume, background and age intent. If B merely adds texture or makes the face older/rougher, the test fails.
+## 当时通过条件
+B应更像摄影中的年轻演员或模特，同时保留身份、P9比例、服装、背景及年龄意图。若只增加纹理，或让脸更老、更粗糙，则失败。

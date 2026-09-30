@@ -1,35 +1,35 @@
-# v0.7.4 Constraint Budget & Human Realism Pipeline
+# 补全预算与人物真实感流程
 
-## 1. Reference Fidelity
-先完成 v0.7.3 的通道拆分。
+## 1. 参考权限
+按当前[提示词生产流程](prompt-production.md)拆分参考职责，并明确本轮允许变化的内容。旧v0.7.4预算标识仍可用于记录，但不替代用户要求。
 
-## 2. Visible / Inferred
-只有可见内容可以 strict preserve；不可见区域进入 completion budget。
+## 2. 可见与推断
+只有可见内容可以作为严格继承的观察事实；不可见区域按补全预算设计，不冒称原图已有。
 
-## 3. Constraint Budgets
+## 3. 预算选择
 为本次任务选择：
-- Completion C0–C3
-- Density preserve / reduce / enrich
-- Wear W0–W4
-- Extremity E0–E3
+- 补全C0–C3。
+- 密度preserve / reduce / enrich，分别表示保持、减少或丰富。
+- 磨损W0–W4。
+- 手脚完整性E0–E3。
 
-角色资产默认：C1 + density preserve + 原 wear state + E2。
+未授权再设计的保守扩身案例可采用C1、保持密度、原磨损状态及E2。已授权衣装优化时按明确方案调整设计，不用旧预算阻止合理变化；局部编辑保持原范围。
 
-## 4. Human Presence v2
-角色资产默认 H2。身份几何继续锁定。
+## 4. 人物生命感
+H2为历史摄影化方案之一，不是全部角色默认。真实感强度由媒介和任务决定，精致妆容与视觉美感优先，不通过换脸、增龄或增加粗糙皮肤实现。
 
-## 5. Prompt Compile
+## 5. 编译提示词
 把内部预算翻译成自然语言。优先级：
-P0 identity → P1 reference/completion/extremity → P2 human presence/material → P3 lighting/optics。
+P0身份 → P1参考、补全与手脚 → P2人物生命感与材料 → P3灯光与光学。最终文本按中文语义标签组织，优先级编号不替代内容分类。
 
-## 6. Generate and Diagnose
+## 6. 生成与诊断
 结果图必须检查：
 - 是否换脸
 - 补全区域是否过度设计
 - 设计密度是否上涨
-- wear 是否升级
-- 真人感是否仍为 CG
+- 磨损是否未经授权升级
+- 目标为摄影时是否仍显得像计算机渲染
 - 手指与脚部是否正确
 
-## 7. Local Patch
-单点失败优先局部 patch，不回到整图重生成。
+## 7. 局部修复
+整体成立时，单点失败优先限定范围修复；人体大关系或整体设计从起点错误时允许重建。可见手脚与自然遮挡分开检查，未知结构不算通过，也不要求隐藏部分强行显露。
