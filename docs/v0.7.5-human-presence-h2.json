@@ -1,4 +1,14 @@
 {
+  "档案说明": {
+    "性质": "历史计划的中文译文，非当前命令重新生成结果，非实际生图验收回执。",
+    "原始版本": "0.7.5",
+    "源提交": "c22950353e6f00b93870c7dc3fb9315b94609667",
+    "源文件": "docs/v0.7.5-human-presence-h2.json",
+    "源文件摘要": "0906dca4eed4abccd965d1ec24f152ec17bafb839daa950a4aa8424b7dfe72ab",
+    "适用范围": "正文忠实保留当时的年龄、露鞋、缩头/拉腿措辞、袖摆控制、补光与阶段顺序；仅记录历史，不覆盖当前用户要求和主工作流。当前取景不能单独修复头身，鞋可自然遮挡，妆容美感优先，不强迫微不对称或全面重修。",
+    "片段说明": "提示词数组是当时计划片段的译文，不是可直接提交的完整分类提示词；本轮生产须由当前主流程按参考与描述另行编写中文语义标签。",
+    "来源记录": "docs/历史计划译文来源.json"
+  },
   "level": "H2",
   "label": "human_presence_refined",
   "soft_structure_fidelity": 0.75,
@@ -9,34 +19,34 @@
   "lens_response_realism": 0.8,
   "age_shift": "none",
   "prompt_translation": [
-    "Keep the locked face identity but give the cheeks, eyelids, nose wings, mouth corners and jaw-to-neck transition believable soft-tissue volume.",
-    "Use subtle regional skin response instead of one uniform polished surface: restrained forehead sheen, slightly stronger nose highlight, softer cheek diffusion, thinner eye-area response and independent lip material.",
-    "Allow extremely small natural asymmetries in brow height, eyelid openness, mouth-corner balance and highlight distribution without changing the character identity.",
-    "Make eye anatomy physically believable: natural eyeball-to-socket relationship, real upper/lower lid thickness, inner/outer canthus structure, integrated lash roots and non-pure-white sclera.",
-    "Build hair from primary masses, secondary strand groups and only a few fine irregular hairs, with non-uniform specular flow.",
-    "Use photographic highlight roll-off, preserved shadow detail, natural local micro-contrast and no global mathematical sharpness or edge halos."
+    "保持已锁定面容身份，为面颊、眼睑、鼻翼、嘴角及下颌至颈部过渡增加可信软组织体积。",
+    "使用细微分区皮肤反应，不做统一抛光表面：额头光泽克制，鼻部高光稍强，面颊漫反射较柔，眼区反应较薄，嘴唇材质独立。",
+    "允许眉高、眼睑开合、嘴角平衡及高光分布有极小自然不对称，不改变人物身份。",
+    "眼部解剖可信：眼球与眼窝关系自然、上下眼睑厚度真实、内外眼角结构清楚、睫毛根部融合自然、眼白非纯白。",
+    "头发分为主体发量、次级发束与少量细微不规则发丝，高光走向不均一。",
+    "采用摄影式柔和高光衰减，保留暗部细节、自然局部微对比，不作全局数学式锐化或边缘光晕。"
   ],
   "soft_structure_rules": [
-    "cheek soft tissue remains continuous with the original identity",
-    "nose wings have soft volume instead of hard modeled edges",
-    "lower eyelids carry subtle volume",
-    "jaw-to-neck transition is soft and anatomical rather than razor-sharp"
+    "面颊软组织延续原有人物辨识。",
+    "鼻翼有柔和体积，不呈硬建模边缘。",
+    "下眼睑有细微体积。",
+    "下颌到颈部过渡柔和、符合解剖，不锐利如刀。"
   ],
   "micro_asymmetry_rules": [
-    "tiny left/right brow height variation",
-    "tiny eyelid openness variation",
-    "tiny mouth-corner variation",
-    "small highlight-distribution variation",
-    "never alter eye spacing, nose proportion, jaw geometry or overall face identity"
+    "左右眉高有细微变化。",
+    "眼睑开合有细微变化。",
+    "嘴角有细微变化。",
+    "高光分布有少量变化。",
+    "不改变眼距、鼻部比例、下颌几何或整体面容身份。"
   ],
   "lens_response_rules": [
-    "soft highlight roll-off",
-    "shadow detail retention",
-    "natural local micro-contrast",
-    "face focus strongest but not digitally cut out",
-    "peripheral cloth can resolve slightly softer than the face",
-    "no edge halos",
-    "no global clarity/HDR look"
+    "高光柔和衰减。",
+    "保留暗部细节。",
+    "自然局部微对比。",
+    "脸部焦点最强，但不像数字抠出。",
+    "外围衣料可比面部稍柔。",
+    "不出现边缘光晕。",
+    "不做全局清晰度增强或高动态范围处理感。"
   ],
-  "principle": "Beauty without CG: realism should come from soft structure, regional optics, small asymmetries, eye anatomy, hair irregularity and camera response rather than larger pores, aging cues or global sharpening."
+  "principle": "美感不带计算机渲染感：真实感来自软组织、分区光学、微小不对称、眼部解剖、头发不规则性与相机反应，不来自大毛孔、老化或全局锐化。"
 }

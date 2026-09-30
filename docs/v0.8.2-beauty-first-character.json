@@ -1,4 +1,14 @@
 {
+  "档案说明": {
+    "性质": "历史计划的中文译文，非当前命令重新生成结果，非实际生图验收回执。",
+    "原始版本": "0.8.2",
+    "源提交": "c22950353e6f00b93870c7dc3fb9315b94609667",
+    "源文件": "docs/v0.8.2-beauty-first-character.json",
+    "源文件摘要": "9285c57a788d32c6f4ad1baab00e2a5580717daa009e89e53e94f45187e45d31",
+    "适用范围": "正文忠实保留当时的年龄、露鞋、缩头/拉腿措辞、袖摆控制、补光与阶段顺序；仅记录历史，不覆盖当前用户要求和主工作流。当前取景不能单独修复头身，鞋可自然遮挡，妆容美感优先，不强迫微不对称或全面重修。",
+    "片段说明": "提示词数组是当时计划片段的译文，不是可直接提交的完整分类提示词；本轮生产须由当前主流程按参考与描述另行编写中文语义标签。",
+    "来源记录": "docs/历史计划译文来源.json"
+  },
   "profile": "beauty_first_character",
   "base_mode": "beauty_first",
   "age_range": "18_22",
@@ -7,24 +17,24 @@
   "beauty_priority": "very_high",
   "maturity_guard": "youthful_18_22",
   "signals": [
-    "beauty-first identity",
-    "subtle cheek volume",
-    "natural eyelid structure",
-    "individual mouth-corner placement",
-    "soft regional skin response",
-    "character-specific eye expression"
+    "美感优先的人物身份。",
+    "细微面颊体积。",
+    "自然眼睑结构。",
+    "人物特有的嘴角位置。",
+    "柔和分区皮肤反应。",
+    "该角色特有的眼神。"
   ],
   "avoid": [
-    "generic AI beauty template",
+    "通用人工智能美人模板。",
     "age_up",
     "hollowing",
-    "hard cheekbone carving",
-    "perfectly averaged facial symmetry"
+    "生硬雕刻的颧骨。",
+    "完全平均化的面部对称。"
   ],
   "prompt_translation": [
-    "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
-    "Retain subtle youthful cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.",
-    "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity."
+    "面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。",
+    "保留轻微年轻面颊体积、自然眼睑、个人嘴角位置和属于该角色的平静目光。",
+    "只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。"
   ],
-  "principle": "Choose a granular face profile independently from non-face realism. Beauty, age and character specificity may outrank maximal facial photorealism."
+  "principle": "面容细分方案与非面部真实度独立选择。美感、年龄和人物独特性可优先于最大面部照片真实感。"
 }

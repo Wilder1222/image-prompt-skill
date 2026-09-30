@@ -1,4 +1,14 @@
 {
+  "档案说明": {
+    "性质": "历史计划的中文译文，非当前命令重新生成结果，非实际生图验收回执。",
+    "原始版本": "0.8.2",
+    "源提交": "c22950353e6f00b93870c7dc3fb9315b94609667",
+    "源文件": "docs/v0.8.2-studio-light.json",
+    "源文件摘要": "a8af163e96b7b67f0b2640776ba4d0b7713bdd15812c269f713e126e901148aa",
+    "适用范围": "正文忠实保留当时的年龄、露鞋、缩头/拉腿措辞、袖摆控制、补光与阶段顺序；仅记录历史，不覆盖当前用户要求和主工作流。当前取景不能单独修复头身，鞋可自然遮挡，妆容美感优先，不强迫微不对称或全面重修。",
+    "片段说明": "提示词数组是当时计划片段的译文，不是可直接提交的完整分类提示词；本轮生产须由当前主流程按参考与描述另行编写中文语义标签。",
+    "来源记录": "docs/历史计划译文来源.json"
+  },
   "profile": "studio_soft_separation",
   "key": "front_left_upper_large_softbox",
   "fill": "front_low_weaker_fill",
@@ -13,7 +23,7 @@
     "no_flat_even_light"
   ],
   "prompt_translation": [
-    "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
-    "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+    "高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。",
+    "白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。"
   ]
 }

@@ -1,31 +1,11 @@
 {
-  "阶段": "第八阶段",
-  "说明": "候选扫描用于安排人工核对，不是确认缺陷数；短词、混排与兼容标识仍需人工区分。历史执行与编译示例分别标记，译文关联源提交和原始摘要。",
-  "待人工核对文件数": 123,
-  "英文候选数": 1488,
+  "阶段": "第九阶段",
+  "说明": "候选扫描用于安排人工核对，不是确认缺陷数；短词、混排与兼容标识仍需人工区分。历史执行、编译示例和计划译文均关联不可变源提交；档案译文不充当当前生成结果。",
+  "待人工核对文件数": 106,
+  "英文候选数": 1055,
   "知识目录长段落候选": 0,
   "资源目录长段落候选": 0,
   "待核对文件": [
-    {
-      "文件": "docs/v0.7.5-fashion-human-plan.json",
-      "候选数": 69
-    },
-    {
-      "文件": "docs/v0.8.2-ancient-white-plan.json",
-      "候选数": 61
-    },
-    {
-      "文件": "docs/v0.7.6-fashion-human-v3-plan.json",
-      "候选数": 57
-    },
-    {
-      "文件": "docs/v0.8.3-asset-plan.json",
-      "候选数": 50
-    },
-    {
-      "文件": "docs/v0.8.4-asset-plan.json",
-      "候选数": 50
-    },
     {
       "文件": "examples/prompt-density-20260929-prompts.md",
       "候选数": 48
@@ -33,10 +13,6 @@
     {
       "文件": "docs/v0.8.1-black-red-plan.json",
       "候选数": 47
-    },
-    {
-      "文件": "docs/v0.8.2-asset-master-plan.json",
-      "候选数": 43
     },
     {
       "文件": "docs/v0.7.4-cyber-constraint-plan.json",
@@ -87,10 +63,6 @@
       "候选数": 21
     },
     {
-      "文件": "docs/v0.7.6-human-optical-plan.json",
-      "候选数": 21
-    },
-    {
       "文件": "docs/v0.8.0-image-comparison.md",
       "候选数": 20
     },
@@ -109,18 +81,6 @@
     {
       "文件": "docs/v0.8.0-white-style-asset-plan.json",
       "候选数": 18
-    },
-    {
-      "文件": "docs/v0.8.2-implementation-report.md",
-      "候选数": 18
-    },
-    {
-      "文件": "docs/v0.7.5-p9-profile.json",
-      "候选数": 17
-    },
-    {
-      "文件": "docs/v0.7.5-human-presence-h2.json",
-      "候选数": 16
     },
     {
       "文件": "examples/wardrobe-reference-v095-prompts.md",
@@ -231,10 +191,6 @@
       "候选数": 8
     },
     {
-      "文件": "docs/v0.7.6-human-presence-h25.json",
-      "候选数": 8
-    },
-    {
       "文件": "docs/v0.7.7-implementation-report.md",
       "候选数": 8
     },
@@ -245,14 +201,6 @@
     {
       "文件": "examples/black-red-v081-hierarchy-test.md",
       "候选数": 8
-    },
-    {
-      "文件": "docs/v0.8.2-beauty-first-character.json",
-      "候选数": 7
-    },
-    {
-      "文件": "docs/v0.8.2-p9-fashion-asset.json",
-      "候选数": 7
     },
     {
       "文件": "docs/visual-evaluations/character-layout-v092.json",
@@ -371,14 +319,6 @@
       "候选数": 4
     },
     {
-      "文件": "docs/v0.8.2-hand-pose.json",
-      "候选数": 3
-    },
-    {
-      "文件": "docs/v0.8.2-material-separation.json",
-      "候选数": 3
-    },
-    {
       "文件": "docs/verification-v0.7.4.json",
       "候选数": 3
     },
@@ -403,15 +343,7 @@
       "候选数": 3
     },
     {
-      "文件": "RELEASE-MANIFEST-v0.8.0.json",
-      "候选数": 2
-    },
-    {
       "文件": "docs/sample-conflict-resolution.json",
-      "候选数": 2
-    },
-    {
-      "文件": "docs/v0.8.2-studio-light.json",
       "候选数": 2
     },
     {
@@ -428,6 +360,10 @@
     },
     {
       "文件": "examples/human-presence-v31-ab-plan.md",
+      "候选数": 2
+    },
+    {
+      "文件": "RELEASE-MANIFEST-v0.8.0.json",
       "候选数": 2
     },
     {
@@ -468,10 +404,6 @@
     },
     {
       "文件": "docs/v0.7.4-hand-repair-plan.json",
-      "候选数": 1
-    },
-    {
-      "文件": "docs/v0.7.5-next-plan.json",
       "候选数": 1
     },
     {
