@@ -1,6 +1,6 @@
 {
   "name": "image-prompt-skill",
-  "version": "0.14.2",
+  "version": "0.14.3",
   "manifest_schema": 2,
   "excludes": [
     "*.log",
@@ -223,19 +223,19 @@
     "tests/wardrobe-reference-authority.test.mjs"
   ],
   "sha256": {
-    ".codex-plugin/plugin.json": "8ad18466c69331f17aced15cc86ff67aa970f4d566fb55c13ab116abadb8f349",
+    ".codex-plugin/plugin.json": "df01f76c1ad84c6b8f330d916f94ee0001f0204f17a2e436c6ee54808aa58ab0",
     ".gitattributes": "695321e5f5e2f7837d0e5906727f8f9fefb2574edd98dffc7f9542b9741ee63c",
     ".gitignore": "f92287acbbc166f14d0d309d6ee37ef1e3f30a6e4b3d6038eb5bdda04d2af06d",
-    "README.md": "4af691d0ac20335d7227f2db1f3f589b5a9a8a8b78cf55a78424eb8b1d8b2c7b",
+    "README.md": "da7998cf07b55dc369c625ea9cf93062795f2cc5a74959556fce8745f0bcda31",
     "SKILL.md": "438e47174dcdb0f02e151d6ef54bc947306592d0019c88739f43203ea24848de",
     "agents/openai.yaml": "63505257df2ff916d34be335c5dfb7b302aff0121f8ee0b900f56803cbcaeb89",
     "docs/codex-plugin.md": "c4eab65e4478159852366ae5341034e0bfbfd3745fbf7047a2eeffdbbe63f0e5",
     "docs/current-asset-plan.json": "0530b98ee72e3c902d211a4e67203d2627f58b65174b32c94bbd77c522a0532e",
-    "docs/current-status.md": "697b65996651be7ab98dc905ac9f1b1f2b37f9c31793110b5022b5dc2fe4c3b3",
-    "docs/current-visual-evaluation.json": "6b3a30c754d983433776369ba7536e775cc0f123ae5fc4acd0cf769fd227bb10",
+    "docs/current-status.md": "185fb398d55608ca37f73b7128a6e230e4e5a22330069d679cd5fb88026adb29",
+    "docs/current-visual-evaluation.json": "755250053fc12d8d2d1ed2df72311e15506a25f2741a1f00ccdaa9cca0378f16",
     "examples/ancient-white-asset-current-prompts.md": "6cf7eddf3cbb74590947a3958a8de7f99c67a242839f21f898393a4601b7e3e2",
     "examples/user-reference-tagged-prompts.md": "e2b94569c8bfa9007316cc3f5aa779c0f3d3121c850df9541a488c7a58327366",
-    "package.json": "029234a1e4c62da5aa169283e9e7694c8a4dadf17097eacb776d9dca45e664c7",
+    "package.json": "c5e957f03d9b93ab7fe34ebcb3106a2577d22782907bdbc97e73ad102b16b529",
     "references/core/action-direction.md": "0385714aee60af423896eca26a13c56bf21f3b1036ab6044bdb767bd6c61cb6d",
     "references/core/anti-borrow-guard.md": "16f9cf100732f4376610da0d4cb7dc3218ed7a1bd938a99bff1d179952c63045",
     "references/core/attachment-logic-footwear.md": "c0ac8711e2fe4fc362ced66b4ea59bb844f47bf41a7720670eef072480522966",
