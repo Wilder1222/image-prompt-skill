@@ -55,7 +55,7 @@ description: 将参考图和自然语言描述转化为参考专属的中文分�
 | 面容气质与身份不一致 | [身份与气质诊断](references/core/identity-vs-temperament-diagnostics.md) |
 | 返回图问题排序 | [迭代修复](references/routes/iterative-repair.md)，`resources/diagnostic_catalog.v07.json` |
 
-按任务读取对应参考，避免加载所有历史文档。`docs/v0.*` 是历史快照，当前行为以此入口、当前工作流、资源目录和运行结果为准。
+按任务读取对应参考。当前行为以此入口、当前工作流、资源目录和运行结果为准；工作树仅保留现行资料，旧版本从 Git 历史追溯。
 
 ## 提示词交付
 
