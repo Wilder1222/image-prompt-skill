@@ -1,0 +1,52 @@
+{
+  "说明": "历史执行文本的可追溯中文译文，分类标签是译文组织方式；原始提交不变，不作为新出图记录。",
+  "源提交": "e842593a04b354ae642e147f0ebcd6c8125b4bf6",
+  "源文件": "examples/character-layout-v092-prompts.md",
+  "源文件摘要": "cdf62dd3ee0545cc225834824a3bd33a117d8010f1dae474b9fa8f811377cc02",
+  "译文文件": "examples/character-layout-v092-prompts.md",
+  "译文摘要": "ec639f6465df7ffa13b55549de23ff86a1874199cf2d8395a900414aabf38afb",
+  "逐块": [
+    {
+      "运行": "a-03-silver-white",
+      "原始提示词摘要": "2ce6c6a97f01a8543ee83906fbe968884ac5ad95caeb41d23bdab2909c08fb3b",
+      "原始段落数": 23,
+      "译文段落数": 23
+    },
+    {
+      "运行": "a-04-ceremonial-armor",
+      "原始提示词摘要": "12c7021bf09b596ebfaa5a9bc11c39af3487d9ffa9a1001eca4077e74f2ff4f1",
+      "原始段落数": 8,
+      "译文段落数": 8
+    },
+    {
+      "运行": "a-06-turning-armor",
+      "原始提示词摘要": "a302a9e63b3cc618f32ba26c2336f2f55336ceb87e90a22973ccd12a492a69ba",
+      "原始段落数": 8,
+      "译文段落数": 8
+    },
+    {
+      "运行": "b-04-separated-planes",
+      "原始提示词摘要": "938b861715b678699cdd2fcdd42e3052fee50e22b0a099e486a09cb44aead9e1",
+      "原始段落数": 3,
+      "译文段落数": 3
+    },
+    {
+      "运行": "b-06-separated-planes",
+      "原始提示词摘要": "623071585dd0ac262c41bb2c42d64c904ab1f9363dccddc5c4a4e9cd0f4658fb",
+      "原始段落数": 3,
+      "译文段落数": 3
+    },
+    {
+      "运行": "c-02-blue-white",
+      "原始提示词摘要": "7bb7c54cfaf533da36063eba98666ffd85e530b9bb45866c9a31503a0db1d100",
+      "原始段落数": 3,
+      "译文段落数": 3
+    },
+    {
+      "运行": "c-08-teal-brocade",
+      "原始提示词摘要": "a02d2f752f0937e60037ca28a5fb82b4ef480bbc37cab65b81220dc1b08d7023",
+      "原始段落数": 3,
+      "译文段落数": 3
+    }
+  ]
+}
