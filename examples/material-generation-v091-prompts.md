@@ -1,48 +1,71 @@
-# v0.9.1 真实测试提示词
+# v0.9.1 实际执行提示词中文译文
 
-以下是实际发送的完整文本，不是事后改写。图片只在本机测试目录中；原图编号对应用户附件。R2 数值取景实验无可靠收益，已撤回源码。H1 按项目角色资产流程人工编写并直接附加当前材质段，没有套用古风 CLI 预设。
+这11份文本为当时实际发送提示词的逐段中文译文，新增分类标签便于阅读，**不是当时实际发送原文或本次新执行记录**。图片仍在本机测试目录，原图编号对应用户附件。第二轮数值取景实验无可靠收益、已撤回源码；H1当时按角色资产流程人工编写并附加材质段，没有套用古风命令行预设。
+
+[原始文件的不可变源提交](https://github.com/Wilder1222/image-prompt-skill/blob/2d930ae9fa9283d848fd340d038c8dbaa31d10e7/examples/material-generation-v091-prompts.md)；源文件SHA-256：`c632c49efe19778a103441bfbfc9c2395d53cebdc9de01a5c1d12fa8e6d9049b`。逐块摘要与段落数量见[译文来源记录](../docs/历史提示词译文来源.json)。
+
+译文忠实保留当时的年龄范围、正面白底、鞋履展示、袖摆控制、较弱正面补光等条件，不把当前规则倒写成历史。这些仅属原实验或旧示例，不能覆盖当前用户年龄、体型、背景、动作及自然遮鞋要求。中文标签为阅读组织，不构成新增图像指令。原有中文补充与结果短评保留。
 
 ## r0-08-teal
 
 米白内裙大片同色纹样，锦纱层次存在，顶部紧。
 
 ```text
-Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.
+【任务与画幅】
+依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。
 
-Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.
+【参考继承与补全】
+保留已观察的面容身份、表观年龄、发型、饰品、可见衣装构造与配色。未见下身按明确设计方案延展；没有方案时沿同一设计语言保守补全。这些属于设计延展，不是观察事实。
 
-Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.
+【面容美感】
+面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。
 
-Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.
+【面部辨识】
+保留参考的面颊体积、自然眼睑、独特嘴角位置，以及属于该角色的平静目光。
 
-Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.
+【肤质】
+只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。
 
-Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.
+【全身取景】
+纯白无缝背景中的单人完整全身服装肖像；最高发饰、完整衣装轮廓与鞋履接地点均在画内，上下保留呼吸空间。
 
-Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.
+【衣摆与鞋履】
+已认可的裙袖轮廓保持宽裕。长裙自然遮脚时，鞋尖和接地衣摆即可，不为完整露出两鞋而缩短裙长。
 
-Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.
+【整体身材】
+通过清楚的颈肩线、明确腰部和纵向中央衣片建立高挑均衡轮廓，同时保留完整躯干结构与参考头部尺度。
 
-For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.
+【长袍轮廓】
+流动长袍从腰下逐渐展开为接地的伞形衣摆；保留既定袖量与小拖尾，不将整套衣服收窄成直筒。
 
-Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.
+【手势】
+右手轻覆左手手背，置于小腹前；手指放松，两腕方向清楚，不交叉穿插手指。
 
-Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area.
+【手部结构】
+每手解剖上为五指，即一拇指和四指。自然交叠可遮住部分手指，不强求十指全露。可见指段、指节与手腕连接连贯，袖口避开双手接触区域。
 
-Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.
+【材料区分】
+清楚区分参考中实际存在的衣料：主袍更厚密、有结构；已有纱层更轻、半透明；已有金花纹表现为织造或刺绣而非印花；原有腰、领、系带结构更明确。不添加原本不存在的纱、金纹或饰品。
 
-Do not let all layers share the same soft glossy fantasy surface.
+【表面差异】
+不要让所有衣层都呈相同柔亮的幻想材质表面。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 
-Arrange the costume around its waist and central vertical panels: the selected hand gesture must work with the sleeve drape, and the face, collar and waist remain readable.
+【衣装与手势配合】
+围绕腰部和中央纵向衣片组织衣装；所选手势配合袖布垂坠，脸、领口与腰部清楚可读。
 
-Separate only the layers present in the reference or explicitly requested in the design brief. Give dense patterned fabric weighted folds, any sheer overlayer thin overlapping edges, and the inner skirt a quieter matte surface. Keep quieter areas between concentrated ornament; do not cover every layer with identical gold pattern.
+【衣层与装饰密度】
+仅区分参考已有或设计方案明确要求的衣层。厚密纹样织物有重量感褶皱，已有薄纱罩层有轻薄叠边，内裙呈较安静的哑光表面。密集装饰之间留出素净区域，不让各层覆盖相同金纹。
 
-A cropped reference does not specify the unseen skirt. Follow the stated extension brief and identify those additions as design choices; without such a brief, keep the extension restrained and do not invent extra jewelry or gauze.
+【未见区域补全】
+局部参考不能确定未见裙装。按明确延展方案处理，并将新增内容标明为设计选择；没有该方案时保守补全，不自行增加首饰或轻纱。
 
+【本轮补充】
 参考图观察与本次补全方案：唯一图像输入是这张青金古风女性半身参考。身份、表观年龄和眉眼鼻唇关系以她为准；保留乌黑高盘发、花枝发饰、青色小饰件和细长耳坠。可见服装是青灰绿底的暖金织金花卉、浅色内领、斜襟和少量锈红装饰。未展示的腰以下由本轮明确设计：青灰腰封与细锈红束带收束腰线；两条青金长衣片沿前侧垂落；前中是素净米白内裙；袖外和裙边增加薄青灰纱层，花纹主要集中在主衣片。前中浅色层要完整可读，宽袖随腰前叠手向下垂落，裙摆逐渐展开并少量铺地，青灰绣鞋尖自然露出。保留青年成人的柔和脸部体积与安静目光。纯白无缝背景，完整呈现发饰、袖摆和落地裙摆，顶部和底部留少量安全白边，无文字或多视图。
 ```
 
@@ -51,42 +74,61 @@ A cropped reference does not specify the unseen skirt. Follow the stated extensi
 细碎褶皱贯穿多层，浅色层厚薄区别弱；保留黑发银饰。
 
 ```text
-Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.
+【任务与画幅】
+依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。
 
-Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.
+【参考继承与补全】
+保留已观察的面容身份、表观年龄、发型、饰品、可见衣装构造与配色。未见下身按明确设计方案延展；没有方案时沿同一设计语言保守补全。这些属于设计延展，不是观察事实。
 
-Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.
+【面容美感】
+面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。
 
-Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.
+【面部辨识】
+保留参考的面颊体积、自然眼睑、独特嘴角位置，以及属于该角色的平静目光。
 
-Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.
+【肤质】
+只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。
 
-Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.
+【全身取景】
+纯白无缝背景中的单人完整全身服装肖像；最高发饰、完整衣装轮廓与鞋履接地点均在画内，上下保留呼吸空间。
 
-Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.
+【衣摆与鞋履】
+已认可的裙袖轮廓保持宽裕。长裙自然遮脚时，鞋尖和接地衣摆即可，不为完整露出两鞋而缩短裙长。
 
-Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.
+【整体身材】
+通过清楚的颈肩线、明确腰部和纵向中央衣片建立高挑均衡轮廓，同时保留完整躯干结构与参考头部尺度。
 
-For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.
+【长袍轮廓】
+流动长袍从腰下逐渐展开为接地的伞形衣摆；保留既定袖量与小拖尾，不将整套衣服收窄成直筒。
 
-Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.
+【手势】
+右手轻覆左手手背，置于小腹前；手指放松，两腕方向清楚，不交叉穿插手指。
 
-Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area.
+【手部结构】
+每手解剖上为五指，即一拇指和四指。自然交叠可遮住部分手指，不强求十指全露。可见指段、指节与手腕连接连贯，袖口避开双手接触区域。
 
-Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.
+【材料区分】
+清楚区分参考中实际存在的衣料：主袍更厚密、有结构；已有纱层更轻、半透明；已有金花纹表现为织造或刺绣而非印花；原有腰、领、系带结构更明确。不添加原本不存在的纱、金纹或饰品。
 
-Do not let all layers share the same soft glossy fantasy surface.
+【表面差异】
+不要让所有衣层都呈相同柔亮的幻想材质表面。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 
-Arrange the costume around its waist and central vertical panels: the selected hand gesture must work with the sleeve drape, and the face, collar and waist remain readable.
+【衣装与手势配合】
+围绕腰部和中央纵向衣片组织衣装；所选手势配合袖布垂坠，脸、领口与腰部清楚可读。
 
-Separate only the layers present in the reference or explicitly requested in the design brief. Give dense patterned fabric weighted folds, any sheer overlayer thin overlapping edges, and the inner skirt a quieter matte surface. Keep quieter areas between concentrated ornament; do not cover every layer with identical gold pattern.
+【衣层与装饰密度】
+仅区分参考已有或设计方案明确要求的衣层。厚密纹样织物有重量感褶皱，已有薄纱罩层有轻薄叠边，内裙呈较安静的哑光表面。密集装饰之间留出素净区域，不让各层覆盖相同金纹。
 
-A cropped reference does not specify the unseen skirt. Follow the stated extension brief and identify those additions as design choices; without such a brief, keep the extension restrained and do not invent extra jewelry or gauze.
+【未见区域补全】
+局部参考不能确定未见裙装。按明确延展方案处理，并将新增内容标明为设计选择；没有该方案时保守补全，不自行增加首饰或轻纱。
 
+【本轮补充】
 参考图观察与本次补全方案：唯一图像输入是这张黑发白衣女性近景参考。保留她原有的脸型、眼距、浅棕灰色眼睛、细软面颊、自然唇形和表观年龄。保留乌黑半挽长发、银色小花发饰和细长银色耳坠；不能染成银发，不能加额心花钿、金色肩饰或大冠。可见服装为白色交叠领缘、很淡的粉白内层和带细微纵向肌理的白色薄纱。腰以下是本轮明确设计：白色细织腰带收住腰部，素面米白长内裙从腰垂到脚边；两条淡灰白长衣片位于两侧，外层白纱袖随腰前叠手弧形下坠，薄纱外裙稍长于内裙，形成轻缓展开的A形轮廓和少量铺地。每层厚薄不同，主衣柔韧、外纱轻薄、内裙柔哑光，不添加金花或银色满版刺绣。浅米白绣鞋尖自然露出。纯白无缝背景，发饰、全部衣摆与鞋尖完整入画，上下留少量安全白边，无文字或多视图。
 ```
 
@@ -95,44 +137,64 @@ A cropped reference does not specify the unseen skirt. Follow the stated extensi
 前中素面区扩大；下摆仍有隐约纹样，未完全通过。
 
 ```text
-Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.
+【任务与画幅】
+依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。
 
-Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.
+【参考继承与补全】
+保留已观察的面容身份、表观年龄、发型、饰品、可见衣装构造与配色。未见下身按明确设计方案延展；没有方案时沿同一设计语言保守补全。这些属于设计延展，不是观察事实。
 
-Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.
+【面容美感】
+面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。
 
-Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.
+【面部辨识】
+保留参考的面颊体积、自然眼睑、独特嘴角位置，以及属于该角色的平静目光。
 
-Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.
+【肤质】
+只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。
 
-Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.
+【全身取景】
+纯白无缝背景中的单人完整全身服装肖像；最高发饰、完整衣装轮廓与鞋履接地点均在画内，上下保留呼吸空间。
 
-Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.
+【衣摆与鞋履】
+已认可的裙袖轮廓保持宽裕。长裙自然遮脚时，鞋尖和接地衣摆即可，不为完整露出两鞋而缩短裙长。
 
-Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.
+【整体身材】
+通过清楚的颈肩线、明确腰部和纵向中央衣片建立高挑均衡轮廓，同时保留完整躯干结构与参考头部尺度。
 
-For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.
+【长袍轮廓】
+流动长袍从腰下逐渐展开为接地的伞形衣摆；保留既定袖量与小拖尾，不将整套衣服收窄成直筒。
 
-Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.
+【手势】
+右手轻覆左手手背，置于小腹前；手指放松，两腕方向清楚，不交叉穿插手指。
 
-Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area.
+【手部结构】
+每手解剖上为五指，即一拇指和四指。自然交叠可遮住部分手指，不强求十指全露。可见指段、指节与手腕连接连贯，袖口避开双手接触区域。
 
-Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.
+【材质来源】
+使用参考中可见、以及补全方案明确指定的材料。只有方案要求时才增加未见衣层，否则保守延展现有构造。不自动将素布改成织锦，也不自行增加轻纱、金属纹样或饰品。
 
-Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.
+【分层材质表现】
+每个已指定衣层具有各自的物理反应：不透明内层形成宽阔平缓褶皱，反光克制；主衣保留观察到的织法与重量；方案指定的罩纱边缘轻薄半透，下面衣层透过纱可见。通过褶皱尺度、叠压和克制高光区分材料，不靠增加饰物或加深轮廓阴影。
 
-Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen.
+【素面与纹样分布】
+方案指定的素面区域不添加纹样，包括同色提花。原有刺绣或织纹限于指定衣片，不扩散到内裙或每一层。保留细微自然表面纹理，不让所有面料都覆盖相同细皱或油亮光泽。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 
-Arrange the costume around its waist and central vertical panels: the selected hand gesture must work with the sleeve drape, and the face, collar and waist remain readable.
+【衣装与手势配合】
+围绕腰部和中央纵向衣片组织衣装；所选手势配合袖布垂坠，脸、领口与腰部清楚可读。
 
-Separate only the layers present in the reference or explicitly requested in the design brief. Give dense patterned fabric weighted folds, any sheer overlayer thin overlapping edges, and the inner skirt a quieter matte surface. Keep quieter areas between concentrated ornament; do not cover every layer with identical gold pattern.
+【衣层与装饰密度】
+仅区分参考已有或设计方案明确要求的衣层。厚密纹样织物有重量感褶皱，已有薄纱罩层有轻薄叠边，内裙呈较安静的哑光表面。密集装饰之间留出素净区域，不让各层覆盖相同金纹。
 
-A cropped reference does not specify the unseen skirt. Follow the stated extension brief and identify those additions as design choices; without such a brief, keep the extension restrained and do not invent extra jewelry or gauze.
+【未见区域补全】
+局部参考不能确定未见裙装。按明确延展方案处理，并将新增内容标明为设计选择；没有该方案时保守补全，不自行增加首饰或轻纱。
 
+【本轮补充】
 参考图观察与本次补全方案：唯一图像输入是这张青金古风女性半身参考。身份、表观年龄和眉眼鼻唇关系以她为准；保留乌黑高盘发、花枝发饰、青色小饰件和细长耳坠。可见服装是青灰绿底的暖金织金花卉、浅色内领、斜襟和少量锈红装饰。未展示的腰以下由本轮明确设计：青灰腰封与细锈红束带收束腰线；两条青金长衣片沿前侧垂落；前中是素净米白内裙；袖外和裙边增加薄青灰纱层，花纹主要集中在主衣片。前中浅色层要完整可读，宽袖随腰前叠手向下垂落，裙摆逐渐展开并少量铺地，青灰绣鞋尖自然露出。保留青年成人的柔和脸部体积与安静目光。纯白无缝背景，完整呈现发饰、袖摆和落地裙摆，顶部和底部留少量安全白边，无文字或多视图。
 ```
 
@@ -141,44 +203,64 @@ A cropped reference does not specify the unseen skirt. Follow the stated extensi
 宽褶内裙与透叠纱层更容易辨认；顶部紧、侧衣片仍弱。
 
 ```text
-Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.
+【任务与画幅】
+依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。
 
-Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.
+【参考继承与补全】
+保留已观察的面容身份、表观年龄、发型、饰品、可见衣装构造与配色。未见下身按明确设计方案延展；没有方案时沿同一设计语言保守补全。这些属于设计延展，不是观察事实。
 
-Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.
+【面容美感】
+面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。
 
-Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.
+【面部辨识】
+保留参考的面颊体积、自然眼睑、独特嘴角位置，以及属于该角色的平静目光。
 
-Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.
+【肤质】
+只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。
 
-Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.
+【全身取景】
+纯白无缝背景中的单人完整全身服装肖像；最高发饰、完整衣装轮廓与鞋履接地点均在画内，上下保留呼吸空间。
 
-Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.
+【衣摆与鞋履】
+已认可的裙袖轮廓保持宽裕。长裙自然遮脚时，鞋尖和接地衣摆即可，不为完整露出两鞋而缩短裙长。
 
-Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.
+【整体身材】
+通过清楚的颈肩线、明确腰部和纵向中央衣片建立高挑均衡轮廓，同时保留完整躯干结构与参考头部尺度。
 
-For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.
+【长袍轮廓】
+流动长袍从腰下逐渐展开为接地的伞形衣摆；保留既定袖量与小拖尾，不将整套衣服收窄成直筒。
 
-Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.
+【手势】
+右手轻覆左手手背，置于小腹前；手指放松，两腕方向清楚，不交叉穿插手指。
 
-Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area.
+【手部结构】
+每手解剖上为五指，即一拇指和四指。自然交叠可遮住部分手指，不强求十指全露。可见指段、指节与手腕连接连贯，袖口避开双手接触区域。
 
-Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.
+【材质来源】
+使用参考中可见、以及补全方案明确指定的材料。只有方案要求时才增加未见衣层，否则保守延展现有构造。不自动将素布改成织锦，也不自行增加轻纱、金属纹样或饰品。
 
-Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.
+【分层材质表现】
+每个已指定衣层具有各自的物理反应：不透明内层形成宽阔平缓褶皱，反光克制；主衣保留观察到的织法与重量；方案指定的罩纱边缘轻薄半透，下面衣层透过纱可见。通过褶皱尺度、叠压和克制高光区分材料，不靠增加饰物或加深轮廓阴影。
 
-Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen.
+【素面与纹样分布】
+方案指定的素面区域不添加纹样，包括同色提花。原有刺绣或织纹限于指定衣片，不扩散到内裙或每一层。保留细微自然表面纹理，不让所有面料都覆盖相同细皱或油亮光泽。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 
-Arrange the costume around its waist and central vertical panels: the selected hand gesture must work with the sleeve drape, and the face, collar and waist remain readable.
+【衣装与手势配合】
+围绕腰部和中央纵向衣片组织衣装；所选手势配合袖布垂坠，脸、领口与腰部清楚可读。
 
-Separate only the layers present in the reference or explicitly requested in the design brief. Give dense patterned fabric weighted folds, any sheer overlayer thin overlapping edges, and the inner skirt a quieter matte surface. Keep quieter areas between concentrated ornament; do not cover every layer with identical gold pattern.
+【衣层与装饰密度】
+仅区分参考已有或设计方案明确要求的衣层。厚密纹样织物有重量感褶皱，已有薄纱罩层有轻薄叠边，内裙呈较安静的哑光表面。密集装饰之间留出素净区域，不让各层覆盖相同金纹。
 
-A cropped reference does not specify the unseen skirt. Follow the stated extension brief and identify those additions as design choices; without such a brief, keep the extension restrained and do not invent extra jewelry or gauze.
+【未见区域补全】
+局部参考不能确定未见裙装。按明确延展方案处理，并将新增内容标明为设计选择；没有该方案时保守补全，不自行增加首饰或轻纱。
 
+【本轮补充】
 参考图观察与本次补全方案：唯一图像输入是这张黑发白衣女性近景参考。保留她原有的脸型、眼距、浅棕灰色眼睛、细软面颊、自然唇形和表观年龄。保留乌黑半挽长发、银色小花发饰和细长银色耳坠；不能染成银发，不能加额心花钿、金色肩饰或大冠。可见服装为白色交叠领缘、很淡的粉白内层和带细微纵向肌理的白色薄纱。腰以下是本轮明确设计：白色细织腰带收住腰部，素面米白长内裙从腰垂到脚边；两条淡灰白长衣片位于两侧，外层白纱袖随腰前叠手弧形下坠，薄纱外裙稍长于内裙，形成轻缓展开的A形轮廓和少量铺地。每层厚薄不同，主衣柔韧、外纱轻薄、内裙柔哑光，不添加金花或银色满版刺绣。浅米白绣鞋尖自然露出。纯白无缝背景，发饰、全部衣摆与鞋尖完整入画，上下留少量安全白边，无文字或多视图。
 ```
 
@@ -187,44 +269,64 @@ A cropped reference does not specify the unseen skirt. Follow the stated extensi
 数值留白未呈现可靠收益；此提示词取景修改已撤回。
 
 ```text
-Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.
+【任务与画幅】
+依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。
 
-Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.
+【参考继承与补全】
+保留已观察的面容身份、表观年龄、发型、饰品、可见衣装构造与配色。未见下身按明确设计方案延展；没有方案时沿同一设计语言保守补全。这些属于设计延展，不是观察事实。
 
-Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.
+【面容美感】
+面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。
 
-Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.
+【面部辨识】
+保留参考的面颊体积、自然眼睑、独特嘴角位置，以及属于该角色的平静目光。
 
-Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.
+【肤质】
+只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。
 
-Compose one complete full-body costume portrait on seamless white. Fit the entire silhouette, including the highest hair ornament, widest sleeve or train and lowest shoe or hem, within the central 90 percent of both image height and width. Leave approximately 5 percent clear white margin on every side. Obtain this space by pulling the camera back evenly, preserving the character's head scale relative to the body and the full costume silhouette.
+【数值取景实验】
+纯白无缝背景中的完整全身服装肖像。完整轮廓，包括最高发饰、最宽袖或拖尾、最低鞋或衣摆，均放在画高与画宽中央90%的范围。四边各约留5%的干净白边。通过均匀拉远相机取得空间，保留人物内部头身尺度及完整衣装轮廓。
 
-Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.
+【衣摆与鞋履】
+已认可的裙袖轮廓保持宽裕。长裙自然遮脚时，鞋尖和接地衣摆即可，不为完整露出两鞋而缩短裙长。
 
-Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.
+【整体身材】
+通过清楚的颈肩线、明确腰部和纵向中央衣片建立高挑均衡轮廓，同时保留完整躯干结构与参考头部尺度。
 
-For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.
+【长袍轮廓】
+流动长袍从腰下逐渐展开为接地的伞形衣摆；保留既定袖量与小拖尾，不将整套衣服收窄成直筒。
 
-Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.
+【手势】
+右手轻覆左手手背，置于小腹前；手指放松，两腕方向清楚，不交叉穿插手指。
 
-Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area.
+【手部结构】
+每手解剖上为五指，即一拇指和四指。自然交叠可遮住部分手指，不强求十指全露。可见指段、指节与手腕连接连贯，袖口避开双手接触区域。
 
-Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.
+【材质来源】
+使用参考中可见、以及补全方案明确指定的材料。只有方案要求时才增加未见衣层，否则保守延展现有构造。不自动将素布改成织锦，也不自行增加轻纱、金属纹样或饰品。
 
-Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.
+【分层材质表现】
+每个已指定衣层具有各自的物理反应：不透明内层形成宽阔平缓褶皱，反光克制；主衣保留观察到的织法与重量；方案指定的罩纱边缘轻薄半透，下面衣层透过纱可见。通过褶皱尺度、叠压和克制高光区分材料，不靠增加饰物或加深轮廓阴影。
 
-Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen.
+【素面与纹样分布】
+方案指定的素面区域不添加纹样，包括同色提花。原有刺绣或织纹限于指定衣片，不扩散到内裙或每一层。保留细微自然表面纹理，不让所有面料都覆盖相同细皱或油亮光泽。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 
-Arrange the costume around its waist and central vertical panels: the selected hand gesture must work with the sleeve drape, and the face, collar and waist remain readable.
+【衣装与手势配合】
+围绕腰部和中央纵向衣片组织衣装；所选手势配合袖布垂坠，脸、领口与腰部清楚可读。
 
-Separate only the layers present in the reference or explicitly requested in the design brief. Give dense patterned fabric weighted folds, any sheer overlayer thin overlapping edges, and the inner skirt a quieter matte surface. Keep quieter areas between concentrated ornament; do not cover every layer with identical gold pattern.
+【衣层与装饰密度】
+仅区分参考已有或设计方案明确要求的衣层。厚密纹样织物有重量感褶皱，已有薄纱罩层有轻薄叠边，内裙呈较安静的哑光表面。密集装饰之间留出素净区域，不让各层覆盖相同金纹。
 
-A cropped reference does not specify the unseen skirt. Follow the stated extension brief and identify those additions as design choices; without such a brief, keep the extension restrained and do not invent extra jewelry or gauze.
+【未见区域补全】
+局部参考不能确定未见裙装。按明确延展方案处理，并将新增内容标明为设计选择；没有该方案时保守补全，不自行增加首饰或轻纱。
 
+【本轮补充】
 参考图观察与本次补全方案：唯一图像输入是这张青金古风女性半身参考。身份、表观年龄和眉眼鼻唇关系以她为准；保留乌黑高盘发、花枝发饰、青色小饰件和细长耳坠。可见服装是青灰绿底的暖金织金花卉、浅色内领、斜襟和少量锈红装饰。未展示的腰以下由本轮明确设计：青灰腰封与细锈红束带收束腰线；两条青金长衣片沿前侧垂落；前中是素净米白内裙；袖外和裙边增加薄青灰纱层，花纹主要集中在主衣片。前中浅色层要完整可读，宽袖随腰前叠手向下垂落，裙摆逐渐展开并少量铺地，青灰绣鞋尖自然露出。保留青年成人的柔和脸部体积与安静目光。纯白无缝背景，完整呈现发饰、袖摆和落地裙摆，顶部和底部留少量安全白边，无文字或多视图。
 ```
 
@@ -233,44 +335,64 @@ A cropped reference does not specify the unseen skirt. Follow the stated extensi
 头顶依旧接近画框；此提示词取景修改已撤回。
 
 ```text
-Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.
+【任务与画幅】
+依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。
 
-Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.
+【参考继承与补全】
+保留已观察的面容身份、表观年龄、发型、饰品、可见衣装构造与配色。未见下身按明确设计方案延展；没有方案时沿同一设计语言保守补全。这些属于设计延展，不是观察事实。
 
-Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.
+【面容美感】
+面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。
 
-Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.
+【面部辨识】
+保留参考的面颊体积、自然眼睑、独特嘴角位置，以及属于该角色的平静目光。
 
-Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.
+【肤质】
+只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。
 
-Compose one complete full-body costume portrait on seamless white. Fit the entire silhouette, including the highest hair ornament, widest sleeve or train and lowest shoe or hem, within the central 90 percent of both image height and width. Leave approximately 5 percent clear white margin on every side. Obtain this space by pulling the camera back evenly, preserving the character's head scale relative to the body and the full costume silhouette.
+【数值取景实验】
+纯白无缝背景中的完整全身服装肖像。完整轮廓，包括最高发饰、最宽袖或拖尾、最低鞋或衣摆，均放在画高与画宽中央90%的范围。四边各约留5%的干净白边。通过均匀拉远相机取得空间，保留人物内部头身尺度及完整衣装轮廓。
 
-Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.
+【衣摆与鞋履】
+已认可的裙袖轮廓保持宽裕。长裙自然遮脚时，鞋尖和接地衣摆即可，不为完整露出两鞋而缩短裙长。
 
-Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.
+【整体身材】
+通过清楚的颈肩线、明确腰部和纵向中央衣片建立高挑均衡轮廓，同时保留完整躯干结构与参考头部尺度。
 
-For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.
+【长袍轮廓】
+流动长袍从腰下逐渐展开为接地的伞形衣摆；保留既定袖量与小拖尾，不将整套衣服收窄成直筒。
 
-Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.
+【手势】
+右手轻覆左手手背，置于小腹前；手指放松，两腕方向清楚，不交叉穿插手指。
 
-Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area.
+【手部结构】
+每手解剖上为五指，即一拇指和四指。自然交叠可遮住部分手指，不强求十指全露。可见指段、指节与手腕连接连贯，袖口避开双手接触区域。
 
-Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.
+【材质来源】
+使用参考中可见、以及补全方案明确指定的材料。只有方案要求时才增加未见衣层，否则保守延展现有构造。不自动将素布改成织锦，也不自行增加轻纱、金属纹样或饰品。
 
-Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.
+【分层材质表现】
+每个已指定衣层具有各自的物理反应：不透明内层形成宽阔平缓褶皱，反光克制；主衣保留观察到的织法与重量；方案指定的罩纱边缘轻薄半透，下面衣层透过纱可见。通过褶皱尺度、叠压和克制高光区分材料，不靠增加饰物或加深轮廓阴影。
 
-Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen.
+【素面与纹样分布】
+方案指定的素面区域不添加纹样，包括同色提花。原有刺绣或织纹限于指定衣片，不扩散到内裙或每一层。保留细微自然表面纹理，不让所有面料都覆盖相同细皱或油亮光泽。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 
-Arrange the costume around its waist and central vertical panels: the selected hand gesture must work with the sleeve drape, and the face, collar and waist remain readable.
+【衣装与手势配合】
+围绕腰部和中央纵向衣片组织衣装；所选手势配合袖布垂坠，脸、领口与腰部清楚可读。
 
-Separate only the layers present in the reference or explicitly requested in the design brief. Give dense patterned fabric weighted folds, any sheer overlayer thin overlapping edges, and the inner skirt a quieter matte surface. Keep quieter areas between concentrated ornament; do not cover every layer with identical gold pattern.
+【衣层与装饰密度】
+仅区分参考已有或设计方案明确要求的衣层。厚密纹样织物有重量感褶皱，已有薄纱罩层有轻薄叠边，内裙呈较安静的哑光表面。密集装饰之间留出素净区域，不让各层覆盖相同金纹。
 
-A cropped reference does not specify the unseen skirt. Follow the stated extension brief and identify those additions as design choices; without such a brief, keep the extension restrained and do not invent extra jewelry or gauze.
+【未见区域补全】
+局部参考不能确定未见裙装。按明确延展方案处理，并将新增内容标明为设计选择；没有该方案时保守补全，不自行增加首饰或轻纱。
 
+【本轮补充】
 参考图观察与本次补全方案：唯一图像输入是这张黑发白衣女性近景参考。保留她原有的脸型、眼距、浅棕灰色眼睛、细软面颊、自然唇形和表观年龄。保留乌黑半挽长发、银色小花发饰和细长银色耳坠；不能染成银发，不能加额心花钿、金色肩饰或大冠。可见服装为白色交叠领缘、很淡的粉白内层和带细微纵向肌理的白色薄纱。腰以下是本轮明确设计：白色细织腰带收住腰部，素面米白长内裙从腰垂到脚边；两条淡灰白长衣片位于两侧，外层白纱袖随腰前叠手弧形下坠，薄纱外裙稍长于内裙，形成轻缓展开的A形轮廓和少量铺地。每层厚薄不同，主衣柔韧、外纱轻薄、内裙柔哑光，不添加金花或银色满版刺绣。浅米白绣鞋尖自然露出。纯白无缝背景，发饰、全部衣摆与鞋尖完整入画，上下留少量安全白边，无文字或多视图。
 ```
 
@@ -279,15 +401,20 @@ A cropped reference does not specify the unseen skirt. Follow the stated extensi
 保留哑光粗织物，无金纹纱层；侧脸可读，正脸未评估。
 
 ```text
-Create one complete full-body costume portrait on seamless white, 3:4 vertical. Use the supplied original as the only identity, hair and visible garment reference. Keep her apparent adult age, observed facial profile, dark loose half-up hair, small muted floral hair ornament and unadorned ivory cross-wrap collar. Show her standing with the head gently turned toward the same side as the reference; do not invent a sharply different front-facing beauty face. Keep natural adult proportions. Full hair, complete hem and footwear inside the frame, comfortable clear white space around the entire figure.
+【任务、身份与站姿】
+生成纯白无缝背景、3:4竖幅的完整全身服装肖像。仅提供的原图作为身份、头发与可见衣装参考。保留成年表观年龄、观察到的面部侧轮廓、深色松散半挽发、小型低饱和花饰及无装饰象牙白交叠领。站立时头轻转向与参考相同的一侧，不另造差异鲜明的正面美人脸。自然成年人体比例，全部头发、完整衣摆与鞋均在画内，人物周围有舒适清楚白地。
 
-Visible material: dry, matte, irregularly woven ivory cloth with soft creases and visible small fibers; preserve this humble tactile character. The white outfit is opaque, unpatterned and unembroidered. Designed extension, not observed in the cropped source: a simple same-cloth tie at the natural waist, broad loose sleeves, a single wrapped ankle-length skirt with modest width, plain cream cloth shoes; no train. Both arms rest at the sides with fingers loosely curved and coherent wrists. No new jewelry, gauze, brocade or metallic pattern. Avoid polished silk and glossy skin. Light from a large soft source above front-left with gentle fill and a small floor contact shadow. Keep the original soft face volumes; remove the outdoor blue environment and wind-driven action for a calm standing costume record.
+【素衣材料、补全与光线】
+可见材料是干燥哑光、织法不均匀的象牙白布，带柔皱及可见细纤维，保留朴素触感。白衣不透明，无纹、无绣。局部原图未见处的设计延展：自然腰位的同布简系带、宽松袖、单层交叠及踝裙且裙幅适中、素奶油色布鞋，无拖尾。双臂放松垂于两侧，手指松曲、腕部连贯。不添新首饰、纱、锦或金属纹，不用光亮丝绸或油亮皮肤。左前上方大柔光源配温和补光、小接地阴影。保留原柔和面部体积，去除室外蓝色环境及风吹动态，成为平静站立的服装记录照。
 
-Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.
+【材质来源】
+使用参考中可见、以及补全方案明确指定的材料。只有方案要求时才增加未见衣层，否则保守延展现有构造。不自动将素布改成织锦，也不自行增加轻纱、金属纹样或饰品。
 
-Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.
+【分层材质表现】
+每个已指定衣层具有各自的物理反应：不透明内层形成宽阔平缓褶皱，反光克制；主衣保留观察到的织法与重量；方案指定的罩纱边缘轻薄半透，下面衣层透过纱可见。通过褶皱尺度、叠压和克制高光区分材料，不靠增加饰物或加深轮廓阴影。
 
-Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen.
+【素面与纹样分布】
+方案指定的素面区域不添加纹样，包括同色提花。原有刺绣或织纹限于指定衣片，不扩散到内裙或每一层。保留细微自然表面纹理，不让所有面料都覆盖相同细皱或油亮光泽。
 ```
 
 ## h1-07-knit
@@ -295,15 +422,20 @@ Keep any areas assigned as plain in the brief unpatterned, including tone-on-ton
 保留针织与棉布区分；原图闭唇微笑变成略张嘴，表情未通过。
 
 ```text
-Create one complete full-body modern wardrobe portrait on seamless white, 3:4 vertical. Use the supplied original as the only identity, hairstyle and visible clothing reference. Preserve the woman's apparent adult age, soft cheek contours, natural slightly uneven smile, relaxed eyes, brown loosely tied low ponytail over the shoulder and face-framing wisps. Keep natural adult body proportions and a calm front-facing standing pose. Arms hang loosely at the sides, hands relaxed with coherent visible finger segments. Entire hair, hands and shoes inside the image with comfortable white space around the figure.
+【现代全身服装肖像】
+生成纯白无缝背景、3:4竖幅的完整现代全身服装肖像。仅原图提供身份、发型及可见衣装。保留女性成年表观年龄、柔和颊部轮廓、自然略不对称微笑、放松双眼、搭肩的棕色松束低马尾与脸侧碎发。自然成年比例、平静正面站姿，双臂松垂，双手放松，可见指段连贯。整头、双手与鞋均在画内，周围白地舒适。
 
-Visible wardrobe: dusty lavender-grey open knitted cardigan with clearly readable ribbed and cable-knit structures, and an opaque cream crew-neck cotton T-shirt. Preserve this casual construction, color and knit thickness. Designed extension for unseen lower body: cardigan ends just below the hips, a plain straight-cut warm-grey cotton trouser with natural ease and a normal waistband, and simple ivory canvas low-top shoes. Keep ordinary practical clothing, no long skirt, no dress, no gold ornament, no gauze, no invented necklace. Knit loops have soft raised wool texture and a matte response; the T-shirt has finer smooth cotton grain; trousers have broad soft creases. Use gentle neutral soft studio illumination and a small grounding shadow; keep facial modeling and the original friendly expression without smoothing into plastic.
+【日常穿搭、材料与棚光】
+可见衣装：灰紫色敞襟针织开衫，罗纹与绞花结构清楚，内穿不透明奶油圆领棉质短袖。保留日常构造、配色与针织厚度。未见下身的设计延展：开衫长至臀下，素暖灰直筒棉长裤，松量自然、普通腰头，简洁象牙白低帮帆布鞋。保持实用日常服，不加长裙、连衣裙、金饰、纱或项链。针织线圈有柔软凸起毛线质感、哑光反应；内搭棉纹更细腻平滑，裤子为宽软褶。柔和中性棚光配小接地阴影，保留面部塑形和原友好表情，不磨成塑料。
 
-Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.
+【材质来源】
+使用参考中可见、以及补全方案明确指定的材料。只有方案要求时才增加未见衣层，否则保守延展现有构造。不自动将素布改成织锦，也不自行增加轻纱、金属纹样或饰品。
 
-Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.
+【分层材质表现】
+每个已指定衣层具有各自的物理反应：不透明内层形成宽阔平缓褶皱，反光克制；主衣保留观察到的织法与重量；方案指定的罩纱边缘轻薄半透，下面衣层透过纱可见。通过褶皱尺度、叠压和克制高光区分材料，不靠增加饰物或加深轮廓阴影。
 
-Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen.
+【素面与纹样分布】
+方案指定的素面区域不添加纹样，包括同色提花。原有刺绣或织纹限于指定衣片，不扩散到内裙或每一层。保留细微自然表面纹理，不让所有面料都覆盖相同细皱或油亮光泽。
 ```
 
 ## d1-02-blue-white
@@ -311,48 +443,70 @@ Keep any areas assigned as plain in the brief unpatterned, including tone-on-ton
 授权再设计后，雾蓝腰封与侧衣片、白花枝和流苏形成更丰富层次；脸未换成标杆，顶部仍紧。
 
 ```text
-Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.
+【任务与画幅】
+依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。
 
-Keep the reference person's recognizable facial features, apparent age and characteristic expression. Treat the visible costume and styling as a design starting point, not a frozen garment: moderate redesign is authorized. Follow the explicit styling brief for changes to silhouette, layered panels, collar, sleeves, waist treatment, material distribution, restrained accent colors and ornaments. Keep the character's overall theme recognizable; identify redesigned and unseen details as design choices rather than observed facts.
+【人物与设计权限】
+保留参考人物可辨识的面部特征、表观年龄及特有表情。可见服装和造型是设计起点，并非冻结衣装：允许适度再设计。轮廓、层叠衣片、领口、袖型、腰部处理、材料分布、克制点缀色及饰物按明确造型方案调整。人物整体主题仍可辨识；再设计和未见细节须视为设计选择，不冒称观察事实。
 
-Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.
+【面容美感】
+面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。
 
-Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.
+【面部辨识】
+保留参考的面颊体积、自然眼睑、独特嘴角位置，以及属于该角色的平静目光。
 
-Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.
+【肤质】
+只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。
 
-Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.
+【全身取景】
+纯白无缝背景中的单人完整全身服装肖像；最高发饰、完整衣装轮廓与鞋履接地点均在画内，上下保留呼吸空间。
 
-Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.
+【衣摆与鞋履】
+已认可的裙袖轮廓保持宽裕。长裙自然遮脚时，鞋尖和接地衣摆即可，不为完整露出两鞋而缩短裙长。
 
-Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.
+【整体身材】
+通过清楚的颈肩线、明确腰部和纵向中央衣片建立高挑均衡轮廓，同时保留完整躯干结构与参考头部尺度。
 
-For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.
+【长袍轮廓】
+流动长袍从腰下逐渐展开为接地的伞形衣摆；保留既定袖量与小拖尾，不将整套衣服收窄成直筒。
 
-Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.
+【手势】
+右手轻覆左手手背，置于小腹前；手指放松，两腕方向清楚，不交叉穿插手指。
 
-Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area.
+【手部结构】
+每手解剖上为五指，即一拇指和四指。自然交叠可遮住部分手指，不强求十指全露。可见指段、指节与手腕连接连贯，袖口避开双手接触区域。
 
-Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.
+【材质来源】
+使用参考中可见、以及补全方案明确指定的材料。只有方案要求时才增加未见衣层，否则保守延展现有构造。不自动将素布改成织锦，也不自行增加轻纱、金属纹样或饰品。
 
-Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.
+【分层材质表现】
+每个已指定衣层具有各自的物理反应：不透明内层形成宽阔平缓褶皱，反光克制；主衣保留观察到的织法与重量；方案指定的罩纱边缘轻薄半透，下面衣层透过纱可见。通过褶皱尺度、叠压和克制高光区分材料，不靠增加饰物或加深轮廓阴影。
 
-Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen.
+【素面与纹样分布】
+方案指定的素面区域不添加纹样，包括同色提花。原有刺绣或织纹限于指定衣片，不扩散到内裙或每一层。保留细微自然表面纹理，不让所有面料都覆盖相同细皱或油亮光泽。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 
-Arrange the costume around its waist and central vertical panels: the selected hand gesture must work with the sleeve drape, and the face, collar and waist remain readable.
+【衣装与手势配合】
+围绕腰部和中央纵向衣片组织衣装；所选手势配合袖布垂坠，脸、领口与腰部清楚可读。
 
-Separate only the layers present in the reference or explicitly requested in the design brief. Give dense patterned fabric weighted folds, any sheer overlayer thin overlapping edges, and the inner skirt a quieter matte surface. Keep quieter areas between concentrated ornament; do not cover every layer with identical gold pattern.
+【衣层与装饰密度】
+仅区分参考已有或设计方案明确要求的衣层。厚密纹样织物有重量感褶皱，已有薄纱罩层有轻薄叠边，内裙呈较安静的哑光表面。密集装饰之间留出素净区域，不让各层覆盖相同金纹。
 
-A cropped reference does not specify the unseen skirt. Follow the stated extension brief and identify those additions as design choices; without such a brief, keep the extension restrained and do not invent extra jewelry or gauze.
+【未见区域补全】
+局部参考不能确定未见裙装。按明确延展方案处理，并将新增内容标明为设计选择；没有该方案时保守补全，不自行增加首饰或轻纱。
 
-Build one coherent outfit with a clear face, neckline, waist and flowing or fitted silhouette appropriate to this character. Concentrate craft detail in chosen areas, balancing them with quieter fabric; more refinement does not require more ornament on every surface.
+【整体衣装组织】
+形成一套连贯衣装，脸、领口、腰部清楚，流动或贴体轮廓适合该角色。工艺细节集中于选定区域，配以较安静的布面；精致不要求每块表面都增加装饰。
 
-For wardrobe attributes, the explicit redesign brief takes precedence over reference-preservation defaults. Small hairstyle, accessory and pose refinements may support the outfit when specified. Do not copy another reference person's face, change apparent age, or default every character to the same gown, hairstyle or jewelry.
+【再设计权限】
+衣装属性以明确的再设计方案优先于默认保留参考规则。已指定时，可用小幅发型、配饰和姿态调整配合衣装。不复制另一参考人物的脸，不改变表观年龄，也不把所有角色都变成同一长裙、发型或首饰。
 
+【本轮补充】
 本轮造型方案（用户授权服装与造型适度优化）：原图是唯一身份输入，保留黑色半挽长发、柔和面颊、浅棕灰眼睛、自然唇形和安静目光。将原有白衣发展成浅蓝白色花枝定妆造型。白色交领内衣保持轻柔领缘；浅雾蓝宽腰封在自然腰位收束，细银绣线与少量珠白小花集中在腰封一侧；米白中心裙以宽长褶垂落，留出安静完整的浅色纵向区域。两侧冰蓝长衣片比中裙略长，白色外纱从肩沿宽袖自然下垂并在裙边轻铺地；稀疏白色立体小花和银线枝梗沿袖外缘、侧衣片下段分组点缀，花之间留大块纱面，不做满版。加入一根细灰蓝流苏从腰间垂落，顶部银色小花发饰稍作精简、细长银耳坠呼应。肩颈清爽，腕部轻叠在腰前组织袖布，鞋尖露出。头部大小自然，完整发饰和裙摆入画。面料分为柔软主衣、哑光素面内裙、略有透光的薄纱，纱只在边缘与重叠处透叠。整套主次清晰、精细而轻盈，禁止银发和金色大肩甲。
 ```
 
@@ -361,21 +515,29 @@ For wardrobe attributes, the explicit redesign brief takes precedence over refer
 针织配长裙与低位合手更接近新标杆方向；闭唇微笑恢复，原图辨识度待用户验收。
 
 ```text
-Create a single complete full-body modern wardrobe portrait on seamless white, vertical 3:4. The supplied portrait is the only face and identity reference. Keep the adult woman's soft cheeks, brown eyes, natural face shape, loosely tied brown low ponytail and gentle CLOSED-LIP smile, lips together without visible teeth. Preserve her recognizable warm, unforced expression. The user authorizes moderate improvement of clothes and styling.
+【任务、身份与表情】
+单一完整全身现代穿搭肖像，纯白无缝背景，3:4竖幅。所提供肖像是唯一面孔和身份参考。保留成年女性柔和面颊、棕眼、自然脸型、松束棕色低马尾和温柔闭唇微笑，双唇相合、不露牙。保持她可辨识的温暖、自然表情。用户允许适度改善衣服和造型。
 
-Styling design: keep the lavender-grey knit cardigan and cream crew-neck top as the core. Refine the cardigan to a relaxed hip-length silhouette with slightly dropped shoulders, a clear ribbed hem and cuff and a few small warm-beige buttons; keep subtle cable-knit accents near the opening instead of covering the whole garment with chunky cables. Tuck the fine cotton cream top softly into a high-waisted long ivory A-line cotton skirt, with broad, quiet folds and an ankle-revealing hem; this unseen lower half is an intentional design choice. Pair with simple cream low-top canvas sneakers. The cardigan and skirt overlap naturally at the waist without a stiff corset effect. Knit should remain soft matte wool with readable loops, T-shirt fine cotton, skirt a supple opaque fabric with a little weight. No gauze, metal ornament or brocade.
+【针织与长裙再设计】
+以灰紫针织开衫和奶油圆领上衣为核心。开衫优化为宽松及臀轮廓，轻落肩、清楚罗纹下摆与袖口、少量暖米色小纽扣；绞花仅在开口附近轻点缀，不以粗绞花铺满。细棉奶油上衣柔软塞入高腰象牙白长棉裙，裙形渐展、宽阔安静褶皱、裙边露踝；未见下身是有意设计。配简洁奶油低帮帆布运动鞋。开衫和裙在腰部自然叠压，无僵硬束腰效果。针织保留柔软哑光毛线和可读线圈，内搭细棉，裙布不透明、柔韧且略有重量。不加纱、金属饰或锦。
 
-Use a subtle weight shift, shoulders relaxed, torso facing the camera, head tipped only slightly; both hands gently meet low in front, fingertips relaxed and sleeve cuffs softly bunching above the hands, no interlaced fingers. The pose supports a friendly, quiet everyday look. Keep the entire hair, skirt, ankles and shoes inside the frame with visible white space above and below. Gentle soft studio light, natural face modeling, small grounding shadow. Individual face and expression matter more than a generic fashion-model face.
+【放松站姿与构图】
+轻微重心偏移，肩放松、躯干正对相机，头只轻倾；双手在身前低处温柔相合，指尖放松，袖口在手上方柔堆，不交织手指。姿态服务友好安静日常感。全部头发、裙、踝与鞋均在画内，上下白地可见。柔和棚光、自然面部塑形、小接地阴影。本人面孔与表情优先于通用时装模特脸。
 
-Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.
+【材质来源】
+使用参考中可见、以及补全方案明确指定的材料。只有方案要求时才增加未见衣层，否则保守延展现有构造。不自动将素布改成织锦，也不自行增加轻纱、金属纹样或饰品。
 
-Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.
+【分层材质表现】
+每个已指定衣层具有各自的物理反应：不透明内层形成宽阔平缓褶皱，反光克制；主衣保留观察到的织法与重量；方案指定的罩纱边缘轻薄半透，下面衣层透过纱可见。通过褶皱尺度、叠压和克制高光区分材料，不靠增加饰物或加深轮廓阴影。
 
-Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen.
+【素面与纹样分布】
+方案指定的素面区域不添加纹样，包括同色提花。原有刺绣或织纹限于指定衣片，不扩散到内裙或每一层。保留细微自然表面纹理，不让所有面料都覆盖相同细皱或油亮光泽。
 
-Build one coherent outfit with a clear face, neckline, waist and flowing or fitted silhouette appropriate to this character. Concentrate craft detail in chosen areas, balancing them with quieter fabric; more refinement does not require more ornament on every surface.
+【整体衣装组织】
+形成一套连贯衣装，脸、领口、腰部清楚，流动或贴体轮廓适合该角色。工艺细节集中于选定区域，配以较安静的布面；精致不要求每块表面都增加装饰。
 
-For wardrobe attributes, the explicit redesign brief takes precedence over reference-preservation defaults. Small hairstyle, accessory and pose refinements may support the outfit when specified. Do not copy another reference person's face, change apparent age, or default every character to the same gown, hairstyle or jewelry.
+【再设计权限】
+衣装属性以明确的再设计方案优先于默认保留参考规则。已指定时，可用小幅发型、配饰和姿态调整配合衣装。不复制另一参考人物的脸，不改变表观年龄，也不把所有角色都变成同一长裙、发型或首饰。
 ```
 
 ## d1-05-dragon-armor
@@ -383,19 +545,27 @@ For wardrobe attributes, the explicit redesign brief takes precedence over refer
 胸腰甲、裙片、甲靴与守护形象完整；要求两条龙却出现四个龙首，翼尖裁切，数量与取景未完全执行。
 
 ```text
-Create one full-body Chinese fantasy character costume portrait on a clean white background, vertical 3:4. The provided scene is the only identity and existing-costume reference. Retain the adult woman's recognizable soft facial features, dark loose long hair, calm solemn gaze, teal ribbons, ivory cloth and antique-gold sculpted armor vocabulary. Moderate costume and styling redesign is authorized, including completion of the lower body not shown in the original. Render the face softly with its distinct cheek and eyelid shapes; do not replace it with another woman's face.
+【幻想角色与参考权限】
+单张中国幻想角色全身服装肖像，干净白底，3:4竖幅。所提供场景是唯一身份与已有服装参考。保留成年女性可辨识的柔和五官、松散深色长发、平静庄重目光，以及青绿飘带、象牙白衣布和古金雕塑护甲语言。允许适度衣装造型再设计，包括补全原图未见下身。面容柔和，保留特有颊部与眼睑形状，不替换成另一女性面孔。
 
-Design a coherent complete ceremonial dragon-warrior outfit. Keep a white wrapped opaque bodice with shaped antique-gold collar, dragon-feather shoulder guards, a defined gold-and-dark-teal waist assembly and blue-green stone clasps. Articulate overlapping armor plates around the waist and hips so the flexible torso is readable. Add long divided teal silk panels from the belt, an ivory softly pleated inner skirt visible between the panels and lightweight white gauze at the back. Sparse fine gold branch and feather motifs run mainly near panel borders; leave broad teal fabric areas quiet. Refine the forearm bracers and repeated small blue stone clasps into one consistent design. Complete the lower legs with fitted antique-gold calf guards and matching low-heeled armored boots whose toes touch the floor visibly. These lower-body details are designed extensions. Keep long dark hair partly drawn away from the shoulders with two small gold combs; allow a few fine wisps.
+【龙战士礼仪衣装】
+设计连贯完整的礼仪龙战士服装。保留白色不透明裹身上衣、造型古金领、龙羽肩甲、明确的古金深青绿腰部组件及蓝绿石扣。腰胯周围护甲分节叠压，使柔韧躯干可读。腰带下加分开的青绿长丝衣片，中间可见柔褶象牙白内裙，轻白纱置于背后。稀疏细金枝羽纹主要沿衣片边缘，大青绿布面安静。前臂甲及重复蓝石小扣优化为统一设计。小腿补贴体古金护甲与配套低跟甲靴，鞋尖明显触地；这些下身细节是设计延展。深色长发以两枚小金梳部分梳离肩部，保留少量细发。
 
-Retain the source's dragon guardian imagery as part of the full character presentation: two separate slender gold-scaled guardian dragons rise behind her shoulders, with pearl-ivory feathered wings arching outward. Their bodies remain visually separate from her arms and costume. Their heads look slightly inward; distribute the wings around a generous clear opening for her face and torso. Keep every wingtip and dragon crest inside the canvas by framing the whole assembly, not cutting the wing edges. A slender pale-gold circular ornament behind the head provides a quiet halo shape. Teal ribbons form a few clear flowing arcs toward the lower sides, with attached weighted ends. Hands open gently to either side of the waist, wrists and fingers anatomically coherent, a faint restrained golden glow above each palm. No landscape, no dust cloud, no opaque fire covering the hands. Entire body, boots, train and guardian assembly visible on white. Use soft frontal studio illumination to separate restrained metal highlights, matte silk and thin gauze. Keep enough empty space between major shapes to read the face, armor connections and limbs.
+【神兽框景、动作与灯光】
+保留原神龙守护意象作为完整角色展示：两条独立纤长金鳞龙在肩后升起，珍珠象牙白羽翼向外成拱，神兽身体与手臂衣装视觉分离。龙头微向内，羽翼围绕脸和躯干留出宽裕清楚开口。完整框取组合，所有翼尖和龙冠都在画内，不裁羽边。头后纤细浅金圆饰形成安静光环。青绿飘带以少数清楚弧线向下方两侧流动，末端连接配重。双手在腰两侧轻展，腕指结构连贯，各掌上方有微弱克制金辉。无地貌、尘云或遮手的不透明火焰。全身、靴、拖尾和神兽组合均在白底可见。柔和正面棚光区分克制金属高光、哑光丝料及薄纱。主要形体之间留足空隙，使脸、甲片连接及四肢清楚。
 
-Use the materials visible in the reference and those explicitly assigned in the completion brief. Add an unseen garment layer only when the brief specifies it; otherwise extend the existing construction conservatively. Do not automatically turn plain cloth into brocade or add gauze, metallic motifs or accessories.
+【材质来源】
+使用参考中可见、以及补全方案明确指定的材料。只有方案要求时才增加未见衣层，否则保守延展现有构造。不自动将素布改成织锦，也不自行增加轻纱、金属纹样或饰品。
 
-Give each specified layer its own physical response: an opaque inner layer has broad quiet folds and subdued highlights; the main cloth keeps its observed weave and weight; a specified gauze overlay has thin translucent edges, with the underlying layer visible through it. Keep these differences readable through fold scale, overlap and restrained highlights rather than extra ornament or stronger outline shadows.
+【分层材质表现】
+每个已指定衣层具有各自的物理反应：不透明内层形成宽阔平缓褶皱，反光克制；主衣保留观察到的织法与重量；方案指定的罩纱边缘轻薄半透，下面衣层透过纱可见。通过褶皱尺度、叠压和克制高光区分材料，不靠增加饰物或加深轮廓阴影。
 
-Keep any areas assigned as plain in the brief unpatterned, including tone-on-tone jacquard. Confine existing embroidery or woven motifs to their assigned panels; do not spread them across the inner skirt or every layer. Retain fine natural surface texture without covering every fabric in the same fine crinkles or glossy sheen.
+【素面与纹样分布】
+方案指定的素面区域不添加纹样，包括同色提花。原有刺绣或织纹限于指定衣片，不扩散到内裙或每一层。保留细微自然表面纹理，不让所有面料都覆盖相同细皱或油亮光泽。
 
-Build one coherent outfit with a clear face, neckline, waist and flowing or fitted silhouette appropriate to this character. Concentrate craft detail in chosen areas, balancing them with quieter fabric; more refinement does not require more ornament on every surface.
+【整体衣装组织】
+形成一套连贯衣装，脸、领口、腰部清楚，流动或贴体轮廓适合该角色。工艺细节集中于选定区域，配以较安静的布面；精致不要求每块表面都增加装饰。
 
-For wardrobe attributes, the explicit redesign brief takes precedence over reference-preservation defaults. Small hairstyle, accessory and pose refinements may support the outfit when specified. Do not copy another reference person's face, change apparent age, or default every character to the same gown, hairstyle or jewelry.
+【再设计权限】
+衣装属性以明确的再设计方案优先于默认保留参考规则。已指定时，可用小幅发型、配饰和姿态调整配合衣装。不复制另一参考人物的脸，不改变表观年龄，也不把所有角色都变成同一长裙、发型或首饰。
 ```

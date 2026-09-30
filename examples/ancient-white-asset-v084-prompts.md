@@ -1,181 +1,257 @@
-# v0.8.4 白底角色资产测试提示词
+# v0.8.4 历史编译示例中文译文
 
-由 `npm run examples:build` 自动生成。A/B 使用同一张参考图、相同画幅与模型设置，只改变面部渲染方向；不要将 A 的输出作为 B 的输入。局部编辑使用最新已接受母图。
+这些是对应旧版本的通用编译示例译文，**不是当前命令重新生成的结果，也没有对应图像实测**。当时A/B方案以同一参考、画幅和模型设置比较面部方向；局部编辑使用已接受母图。具体服装与参考权限仍需按当时任务补充。
 
-以下是通用编译示例，仍需填写本套服装的具体构造和参考权限。展示型仅适合用户需要的流动长袍；全身母图模式保留自身造型。这些示例本身没有对应生成图，实际回归另存输入输出回执。
+[原始文件的不可变源提交](https://github.com/Wilder1222/image-prompt-skill/blob/2d930ae9fa9283d848fd340d038c8dbaa31d10e7/examples/ancient-white-asset-v084-prompts.md)；源文件SHA-256：`777762dae7ab7bf555945bea0890b8e3942c3fe8c0a9e2a4a0109b27cf7d2469`。逐块摘要与段落数量见[译文来源记录](../docs/历史提示词译文来源.json)。
+
+译文忠实保留当时的年龄范围、正面白底、鞋履展示、袖摆控制、较弱正面补光等条件，不把当前规则倒写成历史。这些仅属原实验或旧示例，不能覆盖当前用户年龄、体型、背景、动作及自然遮鞋要求。中文标签为阅读组织，不构成新增图像指令。原有中文补充与结果短评保留。
 
 ## A：角色感优先的全身白底生成
 
 ```text
-Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.
+【任务与画幅】
+依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。
 
-Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.
+【参考继承与补全】
+保留已观察的面容身份、表观年龄、发型、饰品、可见衣装构造与配色。未见下身按明确设计方案延展；没有方案时沿同一设计语言保守补全。这些属于设计延展，不是观察事实。
 
-Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.
+【面容美感】
+面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。
 
-Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.
+【面部辨识】
+保留参考的面颊体积、自然眼睑、独特嘴角位置，以及属于该角色的平静目光。
 
-Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.
+【肤质】
+只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。
 
-Keep the visual age in the youthful 18–22 range.
+【本例年龄】
+视觉年龄保持在年轻的18–22岁范围。
 
-Do not create mature fatigue, hollow cheeks, deep eye sockets, heavy under-eye darkness or a stern older fashion-model impression.
+【年龄表现限制】
+不出现成熟疲态、凹陷面颊、深眼窝、重眼下暗沉或严厉年长时装模特感。
 
-Preserve youthful cheek softness and clear facial energy while allowing only subtle natural skin realism.
+【年轻面部表现】
+保留年轻柔软面颊和清晰面部活力，只允许轻微自然皮肤真实感。
 
-Compose the character as a clean master asset portrait: full body visible from the top of the hair ornament to the shoes, centered, front-facing and upright, with balanced negative space and a pure white seamless background.
+【母版构图】
+清爽角色母版肖像：从发饰顶部到鞋完整全身可见，居中、正面、直立，负空间均衡，纯白无缝背景。
 
-Keep the hem controlled rather than excessively spread, and keep the footwear clearly readable so the full-body scale and costume construction can be used as a reusable character asset master.
+【衣摆与鞋的历史要求】
+衣摆保持受控而非过度铺展，鞋履清楚可读，使全身尺度和衣装构造适合作为可复用角色资产母版。
 
-Maintain a clear tall, balanced fashion proportion with an approximately nine-head visual read even under layered long robes: refined head-to-body read, elongated neck-to-waist rhythm, naturally elevated waist, strong vertical garment lines and a readable foot-to-hem relationship.
+【九头身时装观感】
+即使穿层叠长袍，也保持明确高挑、均衡、约九头身观感：头身关系精致，颈至腰的节奏修长，腰位自然偏高，衣装纵线明确，脚与衣摆关系可读。
 
-Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.
+【躯干与下肢】
+保持解剖完整的躯干，通过协调的髋、膝、踝关系呈现较长下身观感，不做人工式拉腿。
 
-Control sleeve and hem width so the costume supports height instead of visually compressing it.
+【袖摆宽度】
+控制袖和裙摆宽度，让服装支持身高观感，不在视觉上将人物压短。
 
-Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.
+【手势】
+右手轻覆左手手背，置于小腹前；手指放松，两腕方向清楚，不交叉穿插手指。
 
-Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area.
+【手部结构】
+每手解剖上为五指，即一拇指和四指。自然交叠可遮住部分手指，不强求十指全露。可见指段、指节与手腕连接连贯，袖口避开双手接触区域。
 
-Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.
+【材料区分】
+清楚区分参考中实际存在的衣料：主袍更厚密、有结构；已有纱层更轻、半透明；已有金花纹表现为织造或刺绣而非印花；原有腰、领、系带结构更明确。不添加原本不存在的纱、金纹或饰品。
 
-Do not let all layers share the same soft glossy fantasy surface.
+【表面差异】
+不要让所有衣层都呈相同柔亮的幻想材质表面。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 ```
 
 ## B：轻度真人感；其余条件与 A 相同
 
 ```text
-Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.
+【任务与画幅】
+依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。
 
-Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.
+【参考继承与补全】
+保留已观察的面容身份、表观年龄、发型、饰品、可见衣装构造与配色。未见下身按明确设计方案延展；没有方案时沿同一设计语言保守补全。这些属于设计延展，不是观察事实。
 
-Increase believable human facial presence while keeping the character attractive, identity-stable and consistent with the approved apparent age.
+【真人面容表现】
+提升可信的真人面容感，同时保持美感、身份稳定及已认可表观年龄。
 
-Use realistic eyelid structure, regional skin optics and natural nose/lip anatomy without pushing the face toward mature documentary realism.
+【眼睑与肤质】
+采用真实眼睑结构、分区皮肤光学反应及自然鼻唇解剖，不将面孔推向成熟纪实风格。
 
-Keep the visual age in the youthful 18–22 range.
+【本例年龄】
+视觉年龄保持在年轻的18–22岁范围。
 
-Do not create mature fatigue, hollow cheeks, deep eye sockets, heavy under-eye darkness or a stern older fashion-model impression.
+【年龄表现限制】
+不出现成熟疲态、凹陷面颊、深眼窝、重眼下暗沉或严厉年长时装模特感。
 
-Preserve youthful cheek softness and clear facial energy while allowing only subtle natural skin realism.
+【年轻面部表现】
+保留年轻柔软面颊和清晰面部活力，只允许轻微自然皮肤真实感。
 
-Compose the character as a clean master asset portrait: full body visible from the top of the hair ornament to the shoes, centered, front-facing and upright, with balanced negative space and a pure white seamless background.
+【母版构图】
+清爽角色母版肖像：从发饰顶部到鞋完整全身可见，居中、正面、直立，负空间均衡，纯白无缝背景。
 
-Keep the hem controlled rather than excessively spread, and keep the footwear clearly readable so the full-body scale and costume construction can be used as a reusable character asset master.
+【衣摆与鞋的历史要求】
+衣摆保持受控而非过度铺展，鞋履清楚可读，使全身尺度和衣装构造适合作为可复用角色资产母版。
 
-Maintain a clear tall, balanced fashion proportion with an approximately nine-head visual read even under layered long robes: refined head-to-body read, elongated neck-to-waist rhythm, naturally elevated waist, strong vertical garment lines and a readable foot-to-hem relationship.
+【九头身时装观感】
+即使穿层叠长袍，也保持明确高挑、均衡、约九头身观感：头身关系精致，颈至腰的节奏修长，腰位自然偏高，衣装纵线明确，脚与衣摆关系可读。
 
-Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.
+【躯干与下肢】
+保持解剖完整的躯干，通过协调的髋、膝、踝关系呈现较长下身观感，不做人工式拉腿。
 
-Control sleeve and hem width so the costume supports height instead of visually compressing it.
+【袖摆宽度】
+控制袖和裙摆宽度，让服装支持身高观感，不在视觉上将人物压短。
 
-Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.
+【手势】
+右手轻覆左手手背，置于小腹前；手指放松，两腕方向清楚，不交叉穿插手指。
 
-Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area.
+【手部结构】
+每手解剖上为五指，即一拇指和四指。自然交叠可遮住部分手指，不强求十指全露。可见指段、指节与手腕连接连贯，袖口避开双手接触区域。
 
-Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.
+【材料区分】
+清楚区分参考中实际存在的衣料：主袍更厚密、有结构；已有纱层更轻、半透明；已有金花纹表现为织造或刺绣而非印花；原有腰、领、系带结构更明确。不添加原本不存在的纱、金纹或饰品。
 
-Do not let all layers share the same soft glossy fantasy surface.
+【表面差异】
+不要让所有衣层都呈相同柔亮的幻想材质表面。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 ```
 
 ## 服装定妆展示：有层次的长袍与袖摆
 
 ```text
-Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.
+【任务与画幅】
+依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。
 
-Preserve the observed facial identity, apparent age, hairstyle, accessories, visible costume construction and palette. Extend unseen lower-body regions following the explicit design brief, or conservatively in the same design language if none is supplied; these are designed extensions, not observed facts.
+【参考继承与补全】
+保留已观察的面容身份、表观年龄、发型、饰品、可见衣装构造与配色。未见下身按明确设计方案延展；没有方案时沿同一设计语言保守补全。这些属于设计延展，不是观察事实。
 
-Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.
+【面容美感】
+面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。
 
-Retain the reference cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.
+【面部辨识】
+保留参考的面颊体积、自然眼睑、独特嘴角位置，以及属于该角色的平静目光。
 
-Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.
+【肤质】
+只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。
 
-Compose one complete full-body costume portrait on seamless white, with the highest hair ornament, the entire garment silhouette and the shoe contact inside the frame, leaving breathing room above and below.
+【全身取景】
+纯白无缝背景中的单人完整全身服装肖像；最高发饰、完整衣装轮廓与鞋履接地点均在画内，上下保留呼吸空间。
 
-Let the approved skirt and sleeve silhouette remain generous. Shoe tips and a grounded hem are sufficient when the long dress naturally covers the feet; do not shorten the dress to expose both shoes fully.
+【衣摆与鞋履】
+已认可的裙袖轮廓保持宽裕。长裙自然遮脚时，鞋尖和接地衣摆即可，不为完整露出两鞋而缩短裙长。
 
-Build a tall, balanced silhouette through a readable neck and shoulder line, a defined waist and long central garment panels, while retaining complete torso anatomy and the reference head scale.
+【整体身材】
+通过清楚的颈肩线、明确腰部和纵向中央衣片建立高挑均衡轮廓，同时保留完整躯干结构与参考头部尺度。
 
-For a flowing robe, let the silhouette open gradually below the waist into a grounded A-line hem; preserve the intended sleeve volume and small train instead of narrowing the entire garment into a tube.
+【长袍轮廓】
+流动长袍从腰下逐渐展开为接地的伞形衣摆；保留既定袖量与小拖尾，不将整套衣服收窄成直筒。
 
-Place the right hand gently over the back of the left hand in front of the lower abdomen, with relaxed fingers and distinct wrist directions; avoid interlacing.
+【手势】
+右手轻覆左手手背，置于小腹前；手指放松，两腕方向清楚，不交叉穿插手指。
 
-Each hand has exactly five digits anatomically: one thumb and four fingers. Natural overlap may hide some digits; do not force all ten digits into view. Keep visible finger segments, knuckles and wrist connections coherent, with sleeve openings clear of the hand contact area.
+【手部结构】
+每手解剖上为五指，即一拇指和四指。自然交叠可遮住部分手指，不强求十指全露。可见指段、指节与手腕连接连贯，袖口避开双手接触区域。
 
-Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.
+【材料区分】
+清楚区分参考中实际存在的衣料：主袍更厚密、有结构；已有纱层更轻、半透明；已有金花纹表现为织造或刺绣而非印花；原有腰、领、系带结构更明确。不添加原本不存在的纱、金纹或饰品。
 
-Do not let all layers share the same soft glossy fantasy surface.
+【表面差异】
+不要让所有衣层都呈相同柔亮的幻想材质表面。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 
-Arrange the costume around its waist and central vertical panels: the selected hand gesture must work with the sleeve drape, and the face, collar and waist remain readable.
+【衣装与手势配合】
+围绕腰部和中央纵向衣片组织衣装；所选手势配合袖布垂坠，脸、领口与腰部清楚可读。
 
-Separate only the layers present in the reference or explicitly requested in the design brief. Give dense patterned fabric weighted folds, any sheer overlayer thin overlapping edges, and the inner skirt a quieter matte surface. Keep quieter areas between concentrated ornament; do not cover every layer with identical gold pattern.
+【衣层与装饰密度】
+仅区分参考已有或设计方案明确要求的衣层。厚密纹样织物有重量感褶皱，已有薄纱罩层有轻薄叠边，内裙呈较安静的哑光表面。密集装饰之间留出素净区域，不让各层覆盖相同金纹。
 
-A cropped reference does not specify the unseen skirt. Follow the stated extension brief and identify those additions as design choices; without such a brief, keep the extension restrained and do not invent extra jewelry or gauze.
+【未见区域补全】
+局部参考不能确定未见裙装。按明确延展方案处理，并将新增内容标明为设计选择；没有该方案时保守补全，不自行增加首饰或轻纱。
 ```
 
 ## 已有优质全身参考：保留原造型，不重新套用预设
 
 ```text
-Use the supplied full-body image as the complete character and costume design anchor for a single 3:4 white-background full-body portrait.
+【完整母图参考】
+以所提供全身图为完整人物与衣装设计依据，生成单张3:4白底全身肖像。
 
-Preserve its facial identity, apparent age, facial rendering, head scale, body proportions, hairstyle, ornaments, garment construction, colors, pattern placement, waist position, sleeve volume, train, hand gesture and visible footwear.
+【母图保持项】
+保留面容身份、表观年龄、面部渲染、头部尺度、身体比例、发型、饰物、衣装构造、颜色、纹样位置、腰位、袖量、拖尾、手势及可见鞋履。
 
-Keep the complete silhouette comfortably inside the frame, including the highest ornament and the grounded hem. Preserve naturally covered shoes and overlapped fingers; retain the existing soft light and material hierarchy.
+【母图轮廓与遮挡】
+完整轮廓舒适置于画内，包括最高饰物与接地衣摆。保留自然遮鞋及手指交叠，保持已有柔光与材质层次。
 
-Do not reconstruct an unseen lower body: it is already supplied. Do not add garment layers, jewelry, new translucency or a different face, and do not apply a generic nine-head proportion or neutral standing pose.
+【母图范围限制】
+下身已经提供，不再重构所谓未见下身。不添衣层、首饰、新透明效果或另一张脸，不强加通用九头身或中性站姿。
 ```
 
 ## 只修手部，锁定已通过的比例与构图
 
 ```text
-Edit the supplied current asset image. Use it as the only direct edit target.
+【局部编辑对象】
+编辑所提供当前资产图，以它为唯一直接编辑对象。
 
-Preserve facial identity, apparent age, approved facial rendering, hairstyle, costume design, palette, materials, background type and lighting layout.
+【局部保持项】
+保留面容身份、表观年龄、已认可面部渲染、发型、衣装设计、配色、材料、背景类型及灯光布局。
 
-Keep body proportions, garment drape, framing and footwear unchanged. Repair only the hands and their wrist/sleeve contact locally, retaining the existing gesture.
+【手部局部修复】
+身体比例、衣料垂坠、取景与鞋履不变。仅局部修复双手及其与腕、袖的接触，保持现有手势。
 
-Each hand has one thumb and four fingers anatomically. Preserve natural occlusion; only visible segments need to be resolved. Correct fused or duplicated visible digits and incoherent knuckle/wrist connections without forcing hidden fingers into view.
+【可见手指结构】
+每手解剖上有一拇指和四指。保留自然遮挡，仅需厘清可见指段。纠正可见手指融合或重复、指节腕部连接不连贯，不强行露出被遮指头。
 
-Also preserve these accepted dimensions: fashion asset proportion, asset framing.
+【已认可项目】
+同时保留已通过的时装资产比例与资产取景。
 ```
 
 ## 只修材质，保持脸、姿态与灯光
 
 ```text
-Edit the supplied current asset image. Use it as the only direct edit target.
+【局部编辑对象】
+编辑所提供当前资产图，以它为唯一直接编辑对象。
 
-Preserve facial identity, apparent age and approved facial rendering, body proportions, hairstyle, pose, hands, footwear shape, costume construction, palette and framing.
+【材料与灯光修复保持项】
+保留面容身份、表观年龄及已认可面部渲染、身体比例、发型、姿态、手、鞋形、衣装构造、配色与取景。
 
-Keep the current light positions, background and floor shadow unchanged. Refine only the response of materials already present.
+【仅修材料】
+当前灯位、背景与接地阴影不变，仅优化已经存在的材料反应。
 
-Separate the garment materials clearly where present in the reference: the main robe should feel denser and more structured, any existing gauze lighter and semi-transparent, existing gold floral patterns woven or embroidered rather than printed, and existing waist/collar/tie structures visibly more defined. Do not add missing gauze, gold motifs or accessories.
+【材料区分】
+清楚区分参考中实际存在的衣料：主袍更厚密、有结构；已有纱层更轻、半透明；已有金花纹表现为织造或刺绣而非印花；原有腰、领、系带结构更明确。不添加原本不存在的纱、金纹或饰品。
 
-Do not let all layers share the same soft glossy fantasy surface.
+【表面差异】
+不要让所有衣层都呈相同柔亮的幻想材质表面。
 ```
 
 ## 只修灯光与白纱边缘分离
 
 ```text
-Edit the supplied current asset image. Use it as the only direct edit target.
+【局部编辑对象】
+编辑所提供当前资产图，以它为唯一直接编辑对象。
 
-Preserve facial identity, apparent age and approved facial rendering, body proportions, hairstyle, pose, hands, footwear shape, costume construction, palette and framing.
+【材料与灯光修复保持项】
+保留面容身份、表观年龄及已认可面部渲染、身体比例、发型、姿态、手、鞋形、衣装构造、配色与取景。
 
-Keep the existing garment materials and textures unchanged. Refine only studio illumination, pale-edge separation and contact shadow.
+【仅修灯光】
+已有衣装材料与纹理不变，仅优化棚拍照明、浅色边缘分离和接触阴影。
 
-Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.
+【棚拍灯光】
+高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。
 
-Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.
+【白底与明暗】
+白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。
 ```

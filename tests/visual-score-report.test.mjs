@@ -9,3 +9,11 @@ test('duplicated image and missing evidence cannot manufacture a score',()=>{con
 test('critical failures are capped and numerical success cannot override visual failure',()=>{const a=row('a');a.score.关键失败封顶=true;a.score.封顶原因='合成的严重解剖错误';assert.throws(()=>summarizeScores([a],{cases:['案例甲']}),/均分/);a.score.平均分=6;assert.equal(summarizeScores([a],{cases:['案例甲']}).全部尝试平均分,6);const b=row('b');b.qualified=false;assert.equal(summarizeScores([b],{cases:['案例甲']}).视觉分数目标达成,false);});
 test('complete qualified final cohort and all attempts at 9.5 meet only the visual gate',()=>{const r=summarizeScores([row('a'),row('b','案例乙')],{cases:['案例甲','案例乙']});assert.equal(r.视觉分数目标达成,true);});
 test('a final 9.5 does not erase earlier below-target attempts',()=>{const r=summarizeScores([row('a','案例甲',1,9),row('b')],{cases:['案例甲']});assert.equal(r.全部尝试平均分,9.25);assert.equal(r.最终轮平均分,9.5);assert.equal(r.视觉分数目标达成,false);});
+
+test('an explicitly selected later complete round keeps earlier edits in the denominator',()=>{
+  const rows=[row('a','案例甲',2,9),row('b','案例甲',3,9),row('c','案例乙',4,9),row('d','案例甲',5,10),row('e','案例乙',5,10)];
+  const r=summarizeScores(rows,{cases:['案例甲','案例乙'],finalRound:5});
+  assert.equal(r.最终轮图数,2);assert.equal(r.最终轮平均分,10);assert.equal(r.全部尝试平均分,9.4);assert.equal(r.视觉分数目标达成,false);
+  assert.throws(()=>summarizeScores(rows,{finalRound:0}),/正整数/);
+  assert.throws(()=>summarizeScores(rows,{finalRound:NaN}),/正整数/);
+});
