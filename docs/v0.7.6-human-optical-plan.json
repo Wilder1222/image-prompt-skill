@@ -1,4 +1,14 @@
 {
+  "档案说明": {
+    "性质": "历史计划的中文译文，非当前命令重新生成结果，非实际生图验收回执。",
+    "原始版本": "0.7.6",
+    "源提交": "c22950353e6f00b93870c7dc3fb9315b94609667",
+    "源文件": "docs/v0.7.6-human-optical-plan.json",
+    "源文件摘要": "afc894cacf319ef57465a2864fe6486f2e93d2f4f1ce8037e3e3bcaf1c77180c",
+    "适用范围": "正文忠实保留当时的年龄、露鞋、缩头/拉腿措辞、袖摆控制、补光与阶段顺序；仅记录历史，不覆盖当前用户要求和主工作流。当前取景不能单独修复头身，鞋可自然遮挡，妆容美感优先，不强迫微不对称或全面重修。",
+    "片段说明": "提示词数组是当时计划片段的译文，不是可直接提交的完整分类提示词；本轮生产须由当前主流程按参考与描述另行编写中文语义标签。",
+    "来源记录": "docs/历史计划译文来源.json"
+  },
   "human_presence": {
     "level": "H2.5",
     "label": "photographic_human",
@@ -12,13 +22,13 @@
     "asymmetry_policy": "optional_natural",
     "age_shift": "none",
     "prompt_translation": [
-      "Keep the approved face identity and P9 body proportions unchanged; refine only photographic human presence.",
-      "Make the eyes optically believable: natural lid-to-eyeball contact, realistic lash roots, natural off-white sclera, non-gem-like iris texture, and catchlights consistent with the existing key light.",
-      "Keep young skin relatively even in color while adding region-dependent optical response: soft forehead sheen, slightly stronger nose response, fine inner-cheek texture, softer outer-cheek diffusion, thinner eye-area response, and independent lip material.",
-      "Integrate makeup into real skin instead of replacing skin texture; keep brows, eyeliner, lashes and lip finish refined but not vector-clean or glass-plastic.",
-      "Build hair at multiple scales: primary masses, secondary bundles and only a small amount of fine irregular hair, with non-uniform highlight flow.",
-      "Use a photographic focus hierarchy and soft highlight roll-off rather than global digital sharpness; the face is the strongest focus while the full costume remains clearly readable.",
-      "Keep eyes, skin, lips, hair, makeup and nearby materials at a coherent realism level; do not overprocess one subsystem relative to the others."
+      "已认可面容身份和P9身体比例不变，仅精修摄影真人感。",
+      "眼部光学可信：眼睑自然贴合眼球，睫毛根真实，眼白自然偏灰白，虹膜不是宝石纹理，眼内高光与已有主光一致。",
+      "年轻皮肤颜色相对均匀，同时加入分区光学反应：额头柔光、鼻部反应稍强、内侧面颊细纹、外侧面颊较柔漫反射、眼区较薄反应、独立唇部材质。",
+      "妆容融合真实皮肤而非取代肤质；眉、眼线、睫毛与唇面精致，但不如矢量线般绝对干净，也不呈玻璃塑料感。",
+      "头发以多尺度组织：主体发量、次级束与少量不规则细发，高光流动不均一。",
+      "采用摄影焦点层次和柔和高光衰减，不做全局数字锐化；面部是最强焦点，完整衣装仍清楚可读。",
+      "眼睛、皮肤、嘴唇、头发、妆容及邻近材料的真实度连贯，不让其中一部分相对其他过度处理。"
     ],
     "detail_budget": {
       "full_body": {
@@ -82,7 +92,7 @@
       "global_sharpening",
       "hdr_clarity_surface"
     ],
-    "principle": "Photographic human presence comes from coherent eye/skin/hair/makeup/camera behavior, not maximum texture, forced asymmetry, aging cues or global sharpening."
+    "principle": "摄影真人感来自眼、肤、发、妆和相机反应的一致性，不来自最大纹理、强制不对称、老化或全局锐化。"
   },
   "focus": {
     "profile": "full_body_asset",
@@ -104,7 +114,7 @@
       "adjacent_costume",
       "camera_response"
     ],
-    "rule": "adjacent realism channels should stay within one internal tier",
+    "rule": "相邻真实度通道保持在一个内部档位差以内。",
     "repair_order": [
       "eyes_skin",
       "makeup_skin",
@@ -159,19 +169,19 @@
       "proportion_reopen",
       "costume_reopen"
     ],
-    "prompt_strategy": "optical-human patch: eyes + skin optics + makeup integration + hair frequency + camera/focus coherence while locking identity, P9 proportion, costume and lighting layout"
+    "prompt_strategy": "仅修真人光学表现：眼睛、皮肤光学、妆肤融合、头发细节频率、相机与焦点一致；锁定身份、P9比例、衣装及灯光布局。"
   },
   "prompt_skeleton": [
-    "Keep the approved face identity and P9 body proportions unchanged; refine only photographic human presence.",
-    "Make the eyes optically believable: natural lid-to-eyeball contact, realistic lash roots, natural off-white sclera, non-gem-like iris texture, and catchlights consistent with the existing key light.",
-    "Keep young skin relatively even in color while adding region-dependent optical response: soft forehead sheen, slightly stronger nose response, fine inner-cheek texture, softer outer-cheek diffusion, thinner eye-area response, and independent lip material.",
-    "Integrate makeup into real skin instead of replacing skin texture; keep brows, eyeliner, lashes and lip finish refined but not vector-clean or glass-plastic.",
-    "Build hair at multiple scales: primary masses, secondary bundles and only a small amount of fine irregular hair, with non-uniform highlight flow.",
-    "Use a photographic focus hierarchy and soft highlight roll-off rather than global digital sharpness; the face is the strongest focus while the full costume remains clearly readable.",
-    "Keep eyes, skin, lips, hair, makeup and nearby materials at a coherent realism level; do not overprocess one subsystem relative to the others.",
-    "Focus hierarchy: face/eyes strongest; upper costume crisp; full garment and footwear remain asset-readable; peripheral translucent edges may resolve slightly softer.",
-    "Preserve youthful skin color homogeneity; add realism through regional optical response, not random pigment noise.",
-    "Treat micro-asymmetry as optional: preserve naturally observed variation but do not deliberately deform a symmetrical face."
+    "已认可面容身份和P9身体比例不变，仅精修摄影真人感。",
+    "眼部光学可信：眼睑自然贴合眼球，睫毛根真实，眼白自然偏灰白，虹膜不是宝石纹理，眼内高光与已有主光一致。",
+    "年轻皮肤颜色相对均匀，同时加入分区光学反应：额头柔光、鼻部反应稍强、内侧面颊细纹、外侧面颊较柔漫反射、眼区较薄反应、独立唇部材质。",
+    "妆容融合真实皮肤而非取代肤质；眉、眼线、睫毛与唇面精致，但不如矢量线般绝对干净，也不呈玻璃塑料感。",
+    "头发以多尺度组织：主体发量、次级束与少量不规则细发，高光流动不均一。",
+    "采用摄影焦点层次和柔和高光衰减，不做全局数字锐化；面部是最强焦点，完整衣装仍清楚可读。",
+    "眼睛、皮肤、嘴唇、头发、妆容及邻近材料的真实度连贯，不让其中一部分相对其他过度处理。",
+    "焦点层次：脸与眼最强，上身衣装清楚，完整衣服及鞋保持资产可读性，外围半透边可略柔。",
+    "保留年轻肌肤颜色均匀，通过分区光学反应增加真实感，不添加随机色素噪点。",
+    "微不对称是可选项：保留自然观察到的变化，不故意扭曲对称脸。"
   ],
-  "note": "Run after P9 is accepted. This round does not reopen body proportion, identity geometry, costume architecture or lighting layout."
+  "note": "P9通过后执行。本轮不重开身体比例、身份几何、衣装构造或灯光布局。"
 }

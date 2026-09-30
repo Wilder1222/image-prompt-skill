@@ -1,4 +1,14 @@
 {
+  "档案说明": {
+    "性质": "历史计划的中文译文，非当前命令重新生成结果，非实际生图验收回执。",
+    "原始版本": "0.8.2",
+    "源提交": "c22950353e6f00b93870c7dc3fb9315b94609667",
+    "源文件": "docs/v0.8.2-ancient-white-plan.json",
+    "源文件摘要": "66be49473ce2fa95eaf8f567f63fc5b3186eb7d0c5bbdd53d9a209785da3781e",
+    "适用范围": "正文忠实保留当时的年龄、露鞋、缩头/拉腿措辞、袖摆控制、补光与阶段顺序；仅记录历史，不覆盖当前用户要求和主工作流。当前取景不能单独修复头身，鞋可自然遮挡，妆容美感优先，不强迫微不对称或全面重修。",
+    "片段说明": "提示词数组是当时计划片段的译文，不是可直接提交的完整分类提示词；本轮生产须由当前主流程按参考与描述另行编写中文语义标签。",
+    "来源记录": "docs/历史计划译文来源.json"
+  },
   "plan": {
     "preset": "ancient_female_white_master",
     "configuration": {
@@ -47,7 +57,7 @@
           "costume_redesign",
           "body_reshape"
         ],
-        "prompt_strategy": "asset-face profile only: preserve identity geometry and age, increase character specificity without reopening body, costume, hands or lighting"
+        "prompt_strategy": "仅修资产面容方案：保留身份几何与年龄，增强人物独特性，不重开身体、衣装、手或灯光。"
       },
       "face_profile": {
         "profile": "beauty_first_character",
@@ -58,32 +68,32 @@
         "beauty_priority": "very_high",
         "maturity_guard": "youthful_18_22",
         "signals": [
-          "beauty-first identity",
-          "subtle cheek volume",
-          "natural eyelid structure",
-          "individual mouth-corner placement",
-          "soft regional skin response",
-          "character-specific eye expression"
+          "美感优先的人物身份。",
+          "细微面颊体积。",
+          "自然眼睑结构。",
+          "人物特有的嘴角位置。",
+          "柔和分区皮肤反应。",
+          "该角色特有的眼神。"
         ],
         "avoid": [
-          "generic AI beauty template",
+          "通用人工智能美人模板。",
           "age_up",
           "hollowing",
-          "hard cheekbone carving",
-          "perfectly averaged facial symmetry"
+          "生硬雕刻的颧骨。",
+          "完全平均化的面部对称。"
         ],
         "prompt_translation": [
-          "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
-          "Retain subtle youthful cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.",
-          "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity."
+          "面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。",
+          "保留轻微年轻面颊体积、自然眼睑、个人嘴角位置和属于该角色的平静目光。",
+          "只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。"
         ],
-        "principle": "Choose a granular face profile independently from non-face realism. Beauty, age and character specificity may outrank maximal facial photorealism."
+        "principle": "面容细分方案与非面部真实度独立选择。美感、年龄和人物独特性可优先于最大面部照片真实感。"
       },
       "prompt_skeleton": [
-        "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
-        "Retain subtle youthful cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.",
-        "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.",
-        "Keep maturity guard youthful_18_22; do not age the face up."
+        "面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。",
+        "保留轻微年轻面颊体积、自然眼睑、个人嘴角位置和属于该角色的平静目光。",
+        "只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。",
+        "保持 youthful_18_22 年龄保护，不把脸做老。"
       ]
     },
     "stage_2": {
@@ -112,7 +122,7 @@
           "extreme_leg_stretch",
           "head_shrink_shortcut"
         ],
-        "prompt_strategy": "asset-structure only: strengthen P9 robe-aware read, master-sheet framing, hand integrity and footwear readability while locking approved face and costume design"
+        "prompt_strategy": "仅修资产结构：强化长袍下P9观感、母版取景、手部完整及鞋履可读性，锁定已认可面容与服装设计。"
       },
       "fashion_asset": {
         "profile": "P9_FASHION_ASSET",
@@ -131,16 +141,16 @@
           "foot_visibility": "clear_enough_for_scale_read"
         },
         "robe_rules": [
-          "Use waist placement, central vertical panels, hem opening and visible foot-to-hem relation to preserve the tall read under long robes.",
-          "Do not let oversized sleeves or excessive hem width suppress the lower-body visual length.",
-          "Do not shorten the torso, extreme-shrink the head, or stretch only one leg segment."
+          "通过腰位、中央纵向衣片、衣摆开度及可见脚摆关系，保持长袍下的高挑观感。",
+          "不要让过大袖子或过宽衣摆压短下身视觉长度。",
+          "不压短躯干、不极端缩头、不只拉长一段腿。"
         ],
         "prompt_translation": [
-          "Maintain a clear P9 fashion-asset proportion even under layered long robes: refined head-to-body read, elongated neck-to-waist rhythm, naturally elevated waist, strong vertical garment lines and a readable foot-to-hem relationship.",
-          "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
-          "Control sleeve and hem width so the costume supports height instead of visually compressing it."
+          "层叠长袍下仍有明确P9时装资产比例：精致头身关系、修长颈腰节奏、自然偏高腰位、明确衣装纵线与可读脚摆关系。",
+          "保持解剖完整的躯干，通过协调的髋、膝、踝关系呈现较长下身观感，不做人工式拉腿。",
+          "控制袖和裙摆宽度，让服装支持身高观感，不在视觉上将人物压短。"
         ],
-        "principle": "P9 asset proportion is preserved through body landmarks AND garment visual cues; never solve a robe-covered figure by simply stretching the legs."
+        "principle": "P9资产比例通过身体结构标志和服装视觉线索共同保持；不靠简单拉腿解决长袍遮盖的人物。"
       },
       "hand_pose": {
         "mode": "elegant_crossed_hands_safe",
@@ -156,10 +166,10 @@
           "hand_scale_matches_face_and_forearm"
         ],
         "prompt_translation": [
-          "Place both hands in a clean elegant crossed-hand arrangement in front of the body, with a clear primary hand and supporting hand rather than ambiguous interlacing.",
-          "Each visible hand must have exactly five anatomically coherent digits, natural finger-length hierarchy, believable knuckles and a clear wrist direction; sleeves must not obscure the critical finger-root structure."
+          "双手在身前清楚优雅交叠，主手与承托手分明，不作含混穿插。",
+          "每只可见手必须有五根解剖连贯的手指，指长层级自然、指节可信、腕向清楚；袖子不得遮挡关键指根结构。"
         ],
-        "principle": "Hands are a generation-time structural constraint for asset portraits, not only a post-generation repair item."
+        "principle": "手部是角色资产生成时的结构约束，不只是生成后修复项。"
       },
       "asset_master": {
         "profile": "master_sheet_single",
@@ -178,18 +188,18 @@
           "no_capture_motion"
         ],
         "prompt_translation": [
-          "Compose the character as a clean master asset portrait: full body visible from the top of the hair ornament to the shoes, centered, front-facing and upright, with balanced negative space and a pure white seamless background.",
-          "Keep the hem controlled rather than excessively spread, and keep the footwear clearly readable so the full-body scale and costume construction can be used as a reusable character asset master."
+          "清爽角色母版肖像：从发饰顶部到鞋完整全身可见，居中、正面、直立，负空间均衡，纯白无缝背景。",
+          "衣摆保持受控而非过度铺展，鞋履清楚可读，使全身尺度和衣装构造适合作为可复用角色资产母版。"
         ]
       },
       "prompt_skeleton": [
-        "Compose the character as a clean master asset portrait: full body visible from the top of the hair ornament to the shoes, centered, front-facing and upright, with balanced negative space and a pure white seamless background.",
-        "Keep the hem controlled rather than excessively spread, and keep the footwear clearly readable so the full-body scale and costume construction can be used as a reusable character asset master.",
-        "Maintain a clear P9 fashion-asset proportion even under layered long robes: refined head-to-body read, elongated neck-to-waist rhythm, naturally elevated waist, strong vertical garment lines and a readable foot-to-hem relationship.",
-        "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
-        "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
-        "Place both hands in a clean elegant crossed-hand arrangement in front of the body, with a clear primary hand and supporting hand rather than ambiguous interlacing.",
-        "Each visible hand must have exactly five anatomically coherent digits, natural finger-length hierarchy, believable knuckles and a clear wrist direction; sleeves must not obscure the critical finger-root structure."
+        "清爽角色母版肖像：从发饰顶部到鞋完整全身可见，居中、正面、直立，负空间均衡，纯白无缝背景。",
+        "衣摆保持受控而非过度铺展，鞋履清楚可读，使全身尺度和衣装构造适合作为可复用角色资产母版。",
+        "层叠长袍下仍有明确P9时装资产比例：精致头身关系、修长颈腰节奏、自然偏高腰位、明确衣装纵线与可读脚摆关系。",
+        "保持解剖完整的躯干，通过协调的髋、膝、踝关系呈现较长下身观感，不做人工式拉腿。",
+        "控制袖和裙摆宽度，让服装支持身高观感，不在视觉上将人物压短。",
+        "双手在身前清楚优雅交叠，主手与承托手分明，不作含混穿插。",
+        "每只可见手必须有五根解剖连贯的手指，指长层级自然、指节可信、腕向清楚；袖子不得遮挡关键指根结构。"
       ]
     },
     "stage_3": {
@@ -220,7 +230,7 @@
           "costume_redesign",
           "background_scene_invention"
         ],
-        "prompt_strategy": "asset material/light only: separate fabric layers, embroidery and gauze response, improve white-edge separation and grounded studio light while locking identity, proportion and framing"
+        "prompt_strategy": "仅修资产材料与灯光：区分布层、刺绣和纱的反应，改善白色边缘分离及棚拍接地光，锁定身份、比例和取景。"
       },
       "material_separation": {
         "profile": "ancient_asset_material_split",
@@ -264,10 +274,10 @@
           }
         },
         "prompt_translation": [
-          "Separate the garment materials clearly: the main robe should feel denser and more structured, the outer gauze lighter and semi-transparent, the gold floral patterns woven or embroidered rather than printed, and the waist/collar/tie structures visibly more defined.",
-          "Do not let all layers share the same soft glossy fantasy surface."
+          "清楚区分衣料：主袍较厚密有结构，外纱较轻半透，金花纹为织造或刺绣而非印花，腰领系带结构更明确。",
+          "不要让所有衣层都呈相同柔亮的幻想材质表面。"
         ],
-        "principle": "Material separation is a structural readability problem, not a request for more texture everywhere."
+        "principle": "材料区分是结构可读性问题，不是各处增加纹理的要求。"
       },
       "studio_lighting": {
         "profile": "studio_soft_separation",
@@ -284,15 +294,15 @@
           "no_flat_even_light"
         ],
         "prompt_translation": [
-          "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
-          "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+          "高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。",
+          "白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。"
         ]
       },
       "prompt_skeleton": [
-        "Separate the garment materials clearly: the main robe should feel denser and more structured, the outer gauze lighter and semi-transparent, the gold floral patterns woven or embroidered rather than printed, and the waist/collar/tie structures visibly more defined.",
-        "Do not let all layers share the same soft glossy fantasy surface.",
-        "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
-        "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights."
+        "清楚区分衣料：主袍较厚密有结构，外纱较轻半透，金花纹为织造或刺绣而非印花，腰领系带结构更明确。",
+        "不要让所有衣层都呈相同柔亮的幻想材质表面。",
+        "高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。",
+        "白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。"
       ]
     },
     "order": [
@@ -302,26 +312,26 @@
       "final_photographic_polish",
       "upscale"
     ],
-    "rule": "Choose face beauty/character specificity first, then structure integrity and P9 asset read, then material/studio realism. Never trade a passed face for stronger non-face realism."
+    "rule": "先选面容美感及人物独特性，再处理结构完整与P9资产观感，最后处理材料棚拍真实度；不为强化非面部真实感牺牲已通过的脸。"
   },
   "prompt_skeleton": [
-    "Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.",
-    "Strictly preserve observed face identity, hairstyle direction, accessories, visible garment language and palette; conservatively extend unseen lower-body design without inventing a new costume system.",
-    "Keep the face beautiful first, but preserve character-specific facial identity rather than averaging it into a generic AI beauty face.",
-    "Retain subtle youthful cheek volume, natural eyelids, individual mouth-corner placement and a calm character-specific gaze.",
-    "Add only restrained regional skin response and soft-tissue realism; do not increase maturity, fatigue or facial severity.",
-    "Keep maturity guard youthful_18_22; do not age the face up.",
-    "Compose the character as a clean master asset portrait: full body visible from the top of the hair ornament to the shoes, centered, front-facing and upright, with balanced negative space and a pure white seamless background.",
-    "Keep the hem controlled rather than excessively spread, and keep the footwear clearly readable so the full-body scale and costume construction can be used as a reusable character asset master.",
-    "Maintain a clear P9 fashion-asset proportion even under layered long robes: refined head-to-body read, elongated neck-to-waist rhythm, naturally elevated waist, strong vertical garment lines and a readable foot-to-hem relationship.",
-    "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
-    "Control sleeve and hem width so the costume supports height instead of visually compressing it.",
-    "Place both hands in a clean elegant crossed-hand arrangement in front of the body, with a clear primary hand and supporting hand rather than ambiguous interlacing.",
-    "Each visible hand must have exactly five anatomically coherent digits, natural finger-length hierarchy, believable knuckles and a clear wrist direction; sleeves must not obscure the critical finger-root structure.",
-    "Separate the garment materials clearly: the main robe should feel denser and more structured, the outer gauze lighter and semi-transparent, the gold floral patterns woven or embroidered rather than printed, and the waist/collar/tie structures visibly more defined.",
-    "Do not let all layers share the same soft glossy fantasy surface.",
-    "Use a premium high-key studio setup: a large soft key from slightly front-left and above, weaker frontal fill, and only a very subtle separation light for pale gauze edges.",
-    "Keep the white background clean but not clipped; preserve a soft grounded floor shadow, clear face modeling, readable fabric hierarchy and restrained gold-thread highlights.",
-    "Keep the final result suitable as a reusable character Asset Master rather than a generic beauty image."
+    "依据所提供的参考，生成一张3:4竖幅、完整全身、正面朝向、白色背景的古风幻想角色资产图。",
+    "严格保留已观察的面容身份、发型方向、饰物、可见衣装语言与配色，保守延展未见下身，不另造服装体系。",
+    "面容美感优先，同时保留该角色的独特身份，不平均化成通用人工智能美人脸。",
+    "保留轻微年轻面颊体积、自然眼睑、个人嘴角位置和属于该角色的平静目光。",
+    "只增加克制的分区皮肤反应和软组织真实感，不增加成熟感、疲态或严厉感。",
+    "保持 youthful_18_22 年龄保护，不把脸做老。",
+    "清爽角色母版肖像：从发饰顶部到鞋完整全身可见，居中、正面、直立，负空间均衡，纯白无缝背景。",
+    "衣摆保持受控而非过度铺展，鞋履清楚可读，使全身尺度和衣装构造适合作为可复用角色资产母版。",
+    "层叠长袍下仍有明确P9时装资产比例：精致头身关系、修长颈腰节奏、自然偏高腰位、明确衣装纵线与可读脚摆关系。",
+    "保持解剖完整的躯干，通过协调的髋、膝、踝关系呈现较长下身观感，不做人工式拉腿。",
+    "控制袖和裙摆宽度，让服装支持身高观感，不在视觉上将人物压短。",
+    "双手在身前清楚优雅交叠，主手与承托手分明，不作含混穿插。",
+    "每只可见手必须有五根解剖连贯的手指，指长层级自然、指节可信、腕向清楚；袖子不得遮挡关键指根结构。",
+    "清楚区分衣料：主袍较厚密有结构，外纱较轻半透，金花纹为织造或刺绣而非印花，腰领系带结构更明确。",
+    "不要让所有衣层都呈相同柔亮的幻想材质表面。",
+    "高级高调摄影棚布光：略偏左前上方的大面积柔和主光、较弱的正面补光，以及只用于浅色纱边的极轻分离光。",
+    "白背景干净但不过曝截白；保留柔和接地阴影、清楚的面部塑形、可读的衣料层次与克制织金高光。",
+    "最终结果适合作为可复用角色资产母版，而不是通用美人图。"
   ]
 }

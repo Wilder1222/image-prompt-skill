@@ -1,4 +1,14 @@
 {
+  "档案说明": {
+    "性质": "历史计划的中文译文，非当前命令重新生成结果，非实际生图验收回执。",
+    "原始版本": "0.8.2",
+    "源提交": "c22950353e6f00b93870c7dc3fb9315b94609667",
+    "源文件": "docs/v0.8.2-p9-fashion-asset.json",
+    "源文件摘要": "b03e996aa73ad7fb43c0dde7bf40379f1989af7cf0df00c3ea3c3f61dabba72a",
+    "适用范围": "正文忠实保留当时的年龄、露鞋、缩头/拉腿措辞、袖摆控制、补光与阶段顺序；仅记录历史，不覆盖当前用户要求和主工作流。当前取景不能单独修复头身，鞋可自然遮挡，妆容美感优先，不强迫微不对称或全面重修。",
+    "片段说明": "提示词数组是当时计划片段的译文，不是可直接提交的完整分类提示词；本轮生产须由当前主流程按参考与描述另行编写中文语义标签。",
+    "来源记录": "docs/历史计划译文来源.json"
+  },
   "profile": "P9_FASHION_ASSET",
   "visual_head_count_target": "8.6_9.0",
   "head_ornaments_excluded": true,
@@ -15,14 +25,14 @@
     "foot_visibility": "clear_enough_for_scale_read"
   },
   "robe_rules": [
-    "Use waist placement, central vertical panels, hem opening and visible foot-to-hem relation to preserve the tall read under long robes.",
-    "Do not let oversized sleeves or excessive hem width suppress the lower-body visual length.",
-    "Do not shorten the torso, extreme-shrink the head, or stretch only one leg segment."
+    "通过腰位、中央纵向衣片、衣摆开度及可见脚摆关系，保持长袍下的高挑观感。",
+    "不要让过大袖子或过宽衣摆压短下身视觉长度。",
+    "不压短躯干、不极端缩头、不只拉长一段腿。"
   ],
   "prompt_translation": [
-    "Maintain a clear P9 fashion-asset proportion even under layered long robes: refined head-to-body read, elongated neck-to-waist rhythm, naturally elevated waist, strong vertical garment lines and a readable foot-to-hem relationship.",
-    "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching.",
-    "Control sleeve and hem width so the costume supports height instead of visually compressing it."
+    "层叠长袍下仍有明确P9时装资产比例：精致头身关系、修长颈腰节奏、自然偏高腰位、明确衣装纵线与可读脚摆关系。",
+    "保持解剖完整的躯干，通过协调的髋、膝、踝关系呈现较长下身观感，不做人工式拉腿。",
+    "控制袖和裙摆宽度，让服装支持身高观感，不在视觉上将人物压短。"
   ],
-  "principle": "P9 asset proportion is preserved through body landmarks AND garment visual cues; never solve a robe-covered figure by simply stretching the legs."
+  "principle": "P9资产比例通过身体结构标志和服装视觉线索共同保持；不靠简单拉腿解决长袍遮盖的人物。"
 }
