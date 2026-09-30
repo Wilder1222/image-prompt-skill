@@ -255,6 +255,176 @@
           "译文提示词摘要": "85a683ad9c4763c09a1c91d48ba71a302002d6020a45506d43734750721a7407"
         }
       ]
+    },
+    {
+      "源提交": "60a7c258dd74bc4f832227bc8eea0ebc6eb8e1ac",
+      "源文件": "examples/wardrobe-reference-v095-prompts.md",
+      "源文件摘要": "f98c42a3f2bc064dd19a8b946b86e5998c71239b824d027c6192857c28eef079",
+      "译文文件": "examples/wardrobe-reference-v095-prompts.md",
+      "译文摘要": "d3bc8c4bd8cf76a20fc5c17910a0400b6cc5eadd16acd12feee2eb56b708cf80",
+      "性质": "历史实际执行文本的中文整理，原有中文段落保留；未新增图像执行",
+      "逐块": [
+        {
+          "运行或示例": "a-02-text-wardrobe",
+          "原始提示词摘要": "beea4025c862e5c734fe309ba5850e8bc81c63424be75dba9ebfabf4311a35f4",
+          "原始段落数": 5,
+          "译文段落数": 5,
+          "译文提示词摘要": "44d6c805688979d7a0e2d56eca29719f8f23c2e5e1795fbfb6847dd31f89a538",
+          "原有中文段落数": 0
+        },
+        {
+          "运行或示例": "b-02-visual-wardrobe",
+          "原始提示词摘要": "f586de7af69bb960e9d016d571fa54c98c128d160e4a1011e4a8f04fcccfad1d",
+          "原始段落数": 5,
+          "译文段落数": 5,
+          "译文提示词摘要": "95076f3598962b0afc589bd53c44197fe75f1e4efeb6a6df66441b512ca5f306",
+          "原有中文段落数": 0
+        },
+        {
+          "运行或示例": "c-08-visual-wardrobe",
+          "原始提示词摘要": "d312b0f596357b193e9feccf3ebc9c008b99e9df97fd235b106d07439340ed18",
+          "原始段落数": 6,
+          "译文段落数": 6,
+          "译文提示词摘要": "43428734598be12b965c58def58586469e1b035b4302fc98f9dfe9a67117f5df",
+          "原有中文段落数": 0
+        }
+      ]
+    },
+    {
+      "源提交": "60a7c258dd74bc4f832227bc8eea0ebc6eb8e1ac",
+      "源文件": "examples/wardrobe-redesign-v093-prompts.md",
+      "源文件摘要": "d1dcf2a18f4d0151c9971abdde471da14fcd28cbc5fb463db4d87e64e80d2228",
+      "译文文件": "examples/wardrobe-redesign-v093-prompts.md",
+      "译文摘要": "bd7753af61f305af5607eeecb92324fa8a587254c608396ebbfb268c0ac93571",
+      "性质": "历史实际执行文本的中文整理，原有中文段落保留；未新增图像执行",
+      "逐块": [
+        {
+          "运行或示例": "a-08-black-gold",
+          "原始提示词摘要": "eee23e2330b4bcc906e5a54005ae3b6717854ce9765f5ee268e1cfa9359ce644",
+          "原始段落数": 4,
+          "译文段落数": 4,
+          "译文提示词摘要": "8a73722ab84eef2d1bc3926254e585a083ced48e75f03fef36cd1ded5a266f96",
+          "原有中文段落数": 0
+        },
+        {
+          "运行或示例": "a-07-blue-short",
+          "原始提示词摘要": "c9fa6808863ba72c902b22fd16ff26cce9db56a4061e15eadaa16453cf287424",
+          "原始段落数": 4,
+          "译文段落数": 4,
+          "译文提示词摘要": "f5b2fa400050ab44903f8589e9fc07310395c5d5097e636512fb54dfffebc4b5",
+          "原有中文段落数": 0
+        },
+        {
+          "运行或示例": "b-08-layered-black-gold",
+          "原始提示词摘要": "45f1848fe9a84bff778f8f0ae5eae84b2b3952753ddc42c787f311622ce1799f",
+          "原始段落数": 5,
+          "译文段落数": 5,
+          "译文提示词摘要": "4bcc2fbf723aeee875820b569c83191b8a91a9a1484f1f384135772dcc3fddaf",
+          "原有中文段落数": 0
+        }
+      ]
+    },
+    {
+      "源提交": "60a7c258dd74bc4f832227bc8eea0ebc6eb8e1ac",
+      "源文件": "examples/guardian-framing-v094-prompts.md",
+      "源文件摘要": "1352f404e906d1d97b65f2173011be5df0e26b00ab8f7cfdbcadb98755b9f2f0",
+      "译文文件": "examples/guardian-framing-v094-prompts.md",
+      "译文摘要": "248011bf426a62e97a7547d5821c84c3be6a7a744db53aca6c2247f96d0c6513",
+      "性质": "历史实际执行文本的中文整理，原有中文段落保留；未新增图像执行",
+      "逐块": [
+        {
+          "运行或示例": "a-05-four-head-contained",
+          "原始提示词摘要": "8079891d358a37f2929e9fe868100da696b643ec3ad0534d1769fa8b82c5fbbd",
+          "原始段落数": 4,
+          "译文段落数": 4,
+          "译文提示词摘要": "3a692ae14803e5d33285a1192ad555ea67d9c6bf635de2d373d039cab61989f2",
+          "原有中文段落数": 0
+        },
+        {
+          "运行或示例": "b-06-contained-holdout",
+          "原始提示词摘要": "2460e0ee23582d51ea969f401e92ddbe6214fc948801516cb1d092400c1929dc",
+          "原始段落数": 4,
+          "译文段落数": 4,
+          "译文提示词摘要": "a8fb4813b1aad4d0233779b96617da823e7b8af3e7c9c310fd46cc8fbc9182c0",
+          "原有中文段落数": 0
+        },
+        {
+          "运行或示例": "c-06-framing-edit",
+          "原始提示词摘要": "20d42517b026283c237d757a99a7806cb54c0ae4e5ed26afabef9a264ac4c0f1",
+          "原始段落数": 1,
+          "译文段落数": 1,
+          "译文提示词摘要": "54a76f8e3e36e9cb8f68498f6edc61f94c6e57578978f2447d7052eecc36d70c",
+          "原有中文段落数": 0
+        }
+      ]
+    },
+    {
+      "源提交": "60a7c258dd74bc4f832227bc8eea0ebc6eb8e1ac",
+      "源文件": "examples/identity-review-v096-prompts.md",
+      "源文件摘要": "0436be9f694f3df4764d4105ed965acd1b71f147a2bb76151d7c9fd640a49372",
+      "译文文件": "examples/identity-review-v096-prompts.md",
+      "译文摘要": "4ee2cb7136f133e2c4886eb1088eec9d0be396727d8afb6cfd4ff9b8be6c62c1",
+      "性质": "历史实际执行文本的中文整理，原有中文段落保留；未新增图像执行",
+      "逐块": [
+        {
+          "运行或示例": "a-02-face-reference-edit",
+          "原始提示词摘要": "0216ae95aa78eee0146da71a6024eadbf681419e88c010331820bbbdafaa28e9",
+          "原始段落数": 2,
+          "译文段落数": 2,
+          "译文提示词摘要": "cc0a43c1944423fd9edf25e43f8c09259ed3b925c65aaa1c9a9786cf90ac7089",
+          "原有中文段落数": 0
+        },
+        {
+          "运行或示例": "b-03-same-wardrobe-identity",
+          "原始提示词摘要": "4a33777d2dc5dbe9cb26bc78163f177098cb2697b7c946160dfda7c11a2b5032",
+          "原始段落数": 5,
+          "译文段落数": 5,
+          "译文提示词摘要": "fef2502b8251efe452889d187a305625649b613531878330dfaff6fc1e5a6b69",
+          "原有中文段落数": 0
+        }
+      ]
+    },
+    {
+      "源提交": "60a7c258dd74bc4f832227bc8eea0ebc6eb8e1ac",
+      "源文件": "examples/benchmark-costume-v084-prompts.md",
+      "源文件摘要": "83b93997cb1d6c9f455f7e175f60bbf27958a7ff46834314c896f0e9271a3e95",
+      "译文文件": "examples/benchmark-costume-v084-prompts.md",
+      "译文摘要": "0248d585b1d0bb0459fad90489cd4294d0de33dbb190169ca0fdba5f8191152a",
+      "性质": "历史实际执行文本的中文整理，原有中文段落保留；未新增图像执行",
+      "逐块": [
+        {
+          "运行或示例": "A-teal-prompt-only — 青金 · 原半身参考重做",
+          "原始提示词摘要": "1fd032bee824b12f50cd8ffe541dd86589fc26f20cc8ab9627968590d2072e51",
+          "原始段落数": 5,
+          "译文段落数": 5,
+          "译文提示词摘要": "cafc0e6ec35d4f8d87b178aaf784d406b7d157bedbc839e3301d30401ddc37e6",
+          "原有中文段落数": 5
+        },
+        {
+          "运行或示例": "B-teal-full-body-anchor — 青金 · 全身母图保真测试",
+          "原始提示词摘要": "cee282b9f565ae528d9180e9657d2a383695ab4bc89a3da28128a285b7039824",
+          "原始段落数": 4,
+          "译文段落数": 4,
+          "译文提示词摘要": "b6979b7dbcb18c04aaaf034421d729fda2c5af1d3be5e78a5bc3aa62ed51955d",
+          "原有中文段落数": 4
+        },
+        {
+          "运行或示例": "C-silver-full-body-anchor — 银紫 · 全身母图保真测试",
+          "原始提示词摘要": "d0249ee09ef89446f22050971bdc6d052e70919ef60e01972cd6572712453d29",
+          "原始段落数": 4,
+          "译文段落数": 4,
+          "译文提示词摘要": "fd4359e7f70edceab9cef81f504bf69e2ad5c39063390dc6489b8effd475d767",
+          "原有中文段落数": 4
+        },
+        {
+          "运行或示例": "D-teal-material-refine — 青金 · 一轮材质局部调整",
+          "原始提示词摘要": "3e7cda2204fa29e98f45e0061c506531edd1a96edad2930bc20d86a87061be6c",
+          "原始段落数": 6,
+          "译文段落数": 6,
+          "译文提示词摘要": "1c3888b59530994fb283544764c5ce02fc15e185285427d7add6dd4be5d3df68",
+          "原有中文段落数": 1
+        }
+      ]
     }
   ]
 }

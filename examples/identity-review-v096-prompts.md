@@ -1,15 +1,22 @@
-# v0.9.6 面部评审与同衣装实际提示词
+# v0.9.6 面部评审与同衣装历史执行提示词中文整理
 
-A 编辑现有全身候选，以原图 2 作为面部细节参考；B 以原图 3 和银发优秀图生成新衣装候选。提示词为项目 skill 路线下手工编写的实际发送文本，不声称是未经修改的 CLI 输出。
+历史执行文本的可追溯中文整理；英文译为中文，原有中文段落保持，语义标签仅组织阅读。没有用整理后的文本新增出图。旧固定鞋尖可见、手势、碎发、白底、数字留白与参考权限只对应当时实验，不覆盖当前任务。
+
+[不可变原始文件](https://github.com/Wilder1222/image-prompt-skill/blob/60a7c258dd74bc4f832227bc8eea0ebc6eb8e1ac/examples/identity-review-v096-prompts.md)；源文件SHA-256：`0436be9f694f3df4764d4105ed965acd1b71f147a2bb76151d7c9fd640a49372`。逐块来源和段落数见[译文记录](../docs/历史提示词译文来源.json)。
+
+
+A 编辑现有全身候选，以原图 2 作为面部细节参考；B 以原图 3 和银发优秀图生成新衣装候选。原始提示词为当时项目技能路线下手工编写的实际发送文本；以下为中文整理，不声称是未经修改的 CLI 输出。
 
 ## a-02-face-reference-edit
 
 输入角色：current_edit_target / identity_detail_reference。
 
 ```text
-Edit Image 1, the black-haired woman in a full-body ivory and lavender-grey gown on white. Image 2, the original close portrait, supplies ONLY facial features and expression for this correction. Keep Image 1's exact full-body composition, head size and orientation, hair silhouette and ornaments, clothing layers, shoulder clasps, sash, hands, pose, train, shoe tip, white background and soft studio lighting.
+【编辑对象与参考权限】
+编辑图1，即白底穿象牙与灰紫长裙的黑发女性全身图。图2原始近景仅提供本次校正的面部特征与表情。保持图1精确的全身构图、头部大小与朝向、头发轮廓及饰物、衣层、肩扣、腰带、双手、姿态、拖尾、鞋尖、白底及柔和棚光。
 
-Adjust only the facial region to better match Image 2: restore its softly rounded cheek volume and gently curved lower face rather than a narrowed V-shaped jaw, its natural upper eyelids and softly open eye shape, pale brown-grey irises, natural nose width and tip, and its own lip outline with relaxed slightly parted lips. Retain the original's quiet direct gaze and apparent adult age. Adapt those facial features to Image 1's existing head angle and lighting. Keep fine natural skin detail with soft transitions; do not add harder cheekbone shadows or hollow cheeks. Do not import Image 2's outdoor light, close-up framing, old clothes or flyaway strands covering additional facial features. Leave all non-face content unchanged. Return the complete full-body image in the same 3:4 format, not a headshot.
+【局部面容校正与保留边界】
+仅调整面部以更接近图2：恢复柔圆面颊体积与缓曲下脸，不用窄V形下颌；恢复自然上眼睑与柔和睁开眼型、浅棕灰虹膜、自然鼻宽鼻尖、自身唇线及放松微张双唇。保留原安静直视目光与成年表观年龄，将这些特征适配图1现有头角和灯光。细腻自然肤质、柔和过渡，不加硬颧骨阴影或凹颊。不引入图2的室外光、近景、旧衣或更多遮住五官的碎发。全部非面部内容保持，返回同一3:4完整全身图，不是头像。
 ```
 
 ## b-03-same-wardrobe-identity
@@ -17,13 +24,18 @@ Adjust only the facial region to better match Image 2: restore its softly rounde
 输入角色：identity_source / wardrobe_design_reference。
 
 ```text
-Reference binding: Image 1, the black-haired close portrait, is the ONLY identity and hair source. Image 2, the silver-haired full-body gown portrait, supplies clothing construction, ivory/lavender-grey palette, draping layers, gold shoulder clasps and material relationships ONLY. Do not copy Image 2's face, body proportions, silver hair, high bun, long hairpin or forehead mark. The specific adaptation below takes precedence over clothing details in either image.
+【参考绑定与权限】
+图1黑发近景是唯一身份和头发来源。图2银发全身裙装仅提供服装结构、象牙白与灰紫配色、垂坠衣层、金肩扣及材料关系。不复制图2的脸、身体比例、银发、高髻、长簪或额心印记。下文具体适配要求优先于两图的服装细节。
 
-Make one full-body costume portrait of the adult woman from the identity portrait on a seamless white background, vertical 3:4. Show the whole hair silhouette, sleeves, gown hem and a visible embroidered shoe tip, with a little white breathing room around the complete figure. Soft neutral studio light gives gentle facial modeling and a faint floor contact shadow.
+【任务、构图与棚光】
+为身份肖像中的成年女性生成一张完整全身服装肖像，无缝白底、3:4竖幅。完整呈现头发轮廓、袖子、裙摆及可见绣鞋尖，完整人物四周有少量白色呼吸空间。柔和中性棚光形成轻柔面部体积与淡接地阴影。
 
-Retain this identity portrait woman's own facial geometry and apparent adult age: softly modeled cheeks with her natural jaw curve, dark brown-grey eyes with the original slightly intent eyelid expression, subtly angled brows, natural nose and defined relaxed lips. Preserve her slight head tilt and attentive direct gaze, rather than replacing them with a neutral generic beauty expression. Keep black half-up long hair, loose strands across the temples and small silver hair ornaments. Her forehead stays unadorned. Render her recognizable face with delicate realistic skin texture. Do not borrow the wardrobe reference woman's facial proportions or silver hair.
+【人物身份、表情与发型】
+保留身份肖像女性自己的面部几何与成年表观年龄：柔和面颊和自然颌线、深棕灰眼、原本略专注的眼睑表情、微斜眉、自然鼻及清楚放松的唇。保留轻微头倾与专注直视，不替换成中性通用美人表情。黑色半挽长发、鬓边松发及小银发饰保持，额头不加装饰。以细腻真实肤质呈现可辨识面容，不借衣装参考女性的脸部比例或银发。
 
-Moderate wardrobe redesign is authorized. Create an ivory and muted lavender-grey layered ceremonial gown. A soft opaque ivory crossover blouse has broad folds and a narrow pale pink inner collar edge. A lavender-grey woven sash shapes the natural waist with a fine warm-gold cord. Small antique-gold shoulder clasps support the light outer robe, with only a few slender hanging gold chains. Broad lavender-grey sleeve bands fall from her gently overlapping hands at the lower waist, making relaxed long draping arcs. The central ivory skirt is plain softly matte cloth, with generous vertical folds. Two long lavender-grey silk panels flank it and carry sparse fine gold botanical embroidery close to their lower edges. Lightweight ivory gauze overlaps the outer sleeves and side skirt, revealing the underlying panel edges in thin transparent layers. Let the center, side panels and outer gauze finish at slightly different lengths, opening into a modest soft train. The waist remains readable and the silhouette gradually widens below the hips. A slender lavender tassel hangs from the waist. One ivory embroidered shoe tip establishes contact with the white floor.
+【衣装设计与延展】
+允许适度重设计衣装。制作象牙白与低饱和灰紫层叠礼服。柔软不透明象牙白交领上衣有宽褶和窄淡粉内领边。灰紫织带配细暖金绳，塑造自然腰线。小型古金肩扣承托轻外袍，仅少量细金链垂下。宽灰紫袖带从下腰处轻覆的双手旁垂落，形成放松长弧。中央象牙白裙为素面柔哑光布，纵褶宽阔。两条灰紫长丝绸衣片分列两侧，下缘附近有稀疏细金植物刺绣。轻薄象牙纱覆盖外袖与侧裙，透明薄层透出下方衣片边缘。中央、侧片和外纱长短略错开，展开为适度柔软拖尾。腰部清楚，轮廓从臀下逐渐变宽。腰间垂一条细灰紫流苏，一只象牙绣鞋尖交代与白地的接触。
 
-Keep construction readable: quiet opaque inner cloth, slightly lustrous colored silk and thin gauze respond differently to light and gravity. Keep hands relaxed with coherent visible wrists and fingers. No huge crown, silver hair, forehead jewel, scenery or lettering.
+【材料与手部完整性】
+结构清楚：安静不透明内布、略带丝光的彩色丝绸和薄纱对光线与重力反应不同。双手放松，可见手腕和手指连贯。不加巨大冠、银发、额饰、场景或文字。
 ```

@@ -1,8 +1,8 @@
 {
-  "阶段": "第十一阶段",
+  "阶段": "第十二阶段",
   "说明": "候选扫描用于安排人工核对，不是确认缺陷数；短词、混排与兼容标识仍需人工区分。历史执行、编译示例和计划译文均关联不可变源提交；档案译文不充当当前生成结果。",
-  "待人工核对文件数": 70,
-  "英文候选数": 468,
+  "待人工核对文件数": 62,
+  "英文候选数": 371,
   "知识目录长段落候选": 0,
   "资源目录长段落候选": 0,
   "待核对文件": [
@@ -13,10 +13,6 @@
     {
       "文件": "docs/visual-evaluations/material-generation-v091.json",
       "候选数": 22
-    },
-    {
-      "文件": "docs/research/style-restoration-realism-research.md",
-      "候选数": 19
     },
     {
       "文件": "docs/visual-evaluations/guardian-framing-v094.json",
@@ -31,28 +27,12 @@
       "候选数": 18
     },
     {
-      "文件": "examples/wardrobe-reference-v095-prompts.md",
-      "候选数": 16
-    },
-    {
-      "文件": "docs/research/human-presence-v3-sources.json",
-      "候选数": 13
-    },
-    {
       "文件": "docs/v0.7.7-design.md",
-      "候选数": 13
-    },
-    {
-      "文件": "examples/wardrobe-redesign-v093-prompts.md",
       "候选数": 13
     },
     {
       "文件": "examples/silver-b-round1-p9-proportion-patch.md",
       "候选数": 12
-    },
-    {
-      "文件": "docs/research/reference-fidelity-human-presence-research.md",
-      "候选数": 11
     },
     {
       "文件": "examples/black-red-image4-style-plan-v080.md",
@@ -80,10 +60,6 @@
     },
     {
       "文件": "examples/black-red-gold-warrior-queen-hybrid.md",
-      "候选数": 9
-    },
-    {
-      "文件": "examples/guardian-framing-v094-prompts.md",
       "候选数": 9
     },
     {
@@ -115,19 +91,11 @@
       "候选数": 7
     },
     {
-      "文件": "examples/identity-review-v096-prompts.md",
-      "候选数": 7
-    },
-    {
       "文件": "examples/round-trait-calibration-prompt.md",
       "候选数": 7
     },
     {
       "文件": "docs/sample-trait-plan.json",
-      "候选数": 6
-    },
-    {
-      "文件": "docs/v0.7.3-implementation-report.md",
       "候选数": 6
     },
     {
@@ -147,14 +115,6 @@
       "候选数": 6
     },
     {
-      "文件": "docs/research/reference-fidelity-human-presence-sources.json",
-      "候选数": 5
-    },
-    {
-      "文件": "examples/benchmark-costume-v084-prompts.md",
-      "候选数": 5
-    },
-    {
       "文件": "examples/cyber-character-v073-plan.md",
       "候选数": 5
     },
@@ -169,6 +129,10 @@
     {
       "文件": "examples/silver-character-v073-plan.md",
       "候选数": 5
+    },
+    {
+      "文件": "docs/research/style-restoration-realism-research.md",
+      "候选数": 4
     },
     {
       "文件": "docs/sample-hybrid-style-plan.json",
@@ -193,6 +157,10 @@
     {
       "文件": "examples/face-classification-example.md",
       "候选数": 4
+    },
+    {
+      "文件": "docs/research/reference-fidelity-human-presence-research.md",
+      "候选数": 3
     },
     {
       "文件": "docs/verification-v0.7.4.json",

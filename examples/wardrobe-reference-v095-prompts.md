@@ -1,21 +1,31 @@
-# v0.9.5 身份与服装参考实际提示词
+# v0.9.5 身份与服装参考历史执行提示词中文整理
 
-A 仅输入原图 2；B 输入原图 2 与银发白紫衣装参考；C 输入原图 8 与黑金衣装参考。下列文字为内置工具实际发送文本，手工按项目路线编写，非古风 CLI 原样输出。
+历史执行文本的可追溯中文整理；英文译为中文，原有中文段落保持，语义标签仅组织阅读。没有用整理后的文本新增出图。旧固定鞋尖可见、手势、碎发、白底、数字留白与参考权限只对应当时实验，不覆盖当前任务。
+
+[不可变原始文件](https://github.com/Wilder1222/image-prompt-skill/blob/60a7c258dd74bc4f832227bc8eea0ebc6eb8e1ac/examples/wardrobe-reference-v095-prompts.md)；源文件SHA-256：`f98c42a3f2bc064dd19a8b946b86e5998c71239b824d027c6192857c28eef079`。逐块来源和段落数见[译文记录](../docs/历史提示词译文来源.json)。
+
+
+A 仅输入原图 2；B 输入原图 2 与银发白紫衣装参考；C 输入原图 8 与黑金衣装参考。原文是内置工具当时实际发送的文本；下列为中文整理，手工按项目路线编写，非古风 CLI 原样输出。
 
 ## a-02-text-wardrobe
 
 模式：original_plus_text。
 
 ```text
-Reference binding: the single attached black-haired close portrait supplies identity and hair. The new clothing design is specified in the text below.
+【参考绑定】
+唯一附带的黑发近景肖像提供身份和头发；新服装设计由下文指定。
 
-Make one full-body costume portrait of the adult woman from the identity portrait on a seamless white background, vertical 3:4. Show the whole hair silhouette, sleeves, gown hem and a visible embroidered shoe tip, with a little white breathing room around the complete figure. Soft neutral studio light gives gentle facial modeling and a faint floor contact shadow.
+【任务、构图与棚光】
+为身份肖像中的成年女性生成一张完整全身服装肖像，无缝白底、3:4竖幅。完整呈现头发轮廓、袖子、裙摆及可见绣鞋尖，完整人物四周有少量白色呼吸空间。柔和中性棚光形成轻柔面部体积与淡接地阴影。
 
-Retain the identity portrait woman's soft cheek volume, natural eyelids and eye spacing, pale brown-grey eyes, natural nose and lips, quiet direct gaze and apparent adult age. Keep her black half-up long hair, loose face-framing strands, small silver floral hair ornaments and slim silver earrings. Her forehead stays unadorned. Render her recognizable face with delicate realistic skin texture.
+【人物面容与发型】
+保留身份肖像女性的柔软面颊体积、自然眼睑与眼距、浅棕灰眼睛、自然鼻唇、安静直视目光及成年表观年龄。保留黑色半挽长发、松散脸侧发丝、小型银色花饰和纤细银耳坠。额头不加装饰，以细腻真实肤质呈现可辨识面容。
 
-Moderate wardrobe redesign is authorized. Create an ivory and muted lavender-grey layered ceremonial gown. A soft opaque ivory crossover blouse has broad folds and a narrow pale pink inner collar edge. A lavender-grey woven sash shapes the natural waist with a fine warm-gold cord. Small antique-gold shoulder clasps support the light outer robe, with only a few slender hanging gold chains. Broad lavender-grey sleeve bands fall from her gently overlapping hands at the lower waist, making relaxed long draping arcs. The central ivory skirt is plain softly matte cloth, with generous vertical folds. Two long lavender-grey silk panels flank it and carry sparse fine gold botanical embroidery close to their lower edges. Lightweight ivory gauze overlaps the outer sleeves and side skirt, revealing the underlying panel edges in thin transparent layers. Let the center, side panels and outer gauze finish at slightly different lengths, opening into a modest soft train. The waist remains readable and the silhouette gradually widens below the hips. A slender lavender tassel hangs from the waist. One ivory embroidered shoe tip establishes contact with the white floor.
+【衣装设计与延展】
+允许适度重设计衣装。制作象牙白与低饱和灰紫层叠礼服。柔软不透明象牙白交领上衣有宽褶和窄淡粉内领边。灰紫织带配细暖金绳，塑造自然腰线。小型古金肩扣承托轻外袍，仅少量细金链垂下。宽灰紫袖带从下腰处轻覆的双手旁垂落，形成放松长弧。中央象牙白裙为素面柔哑光布，纵褶宽阔。两条灰紫长丝绸衣片分列两侧，下缘附近有稀疏细金植物刺绣。轻薄象牙纱覆盖外袖与侧裙，透明薄层透出下方衣片边缘。中央、侧片和外纱长短略错开，展开为适度柔软拖尾。腰部清楚，轮廓从臀下逐渐变宽。腰间垂一条细灰紫流苏，一只象牙绣鞋尖交代与白地的接触。
 
-Keep construction readable: quiet opaque inner cloth, slightly lustrous colored silk and thin gauze respond differently to light and gravity. Keep hands relaxed with coherent visible wrists and fingers. No huge crown, silver hair, forehead jewel, scenery or lettering.
+【材料与手部完整性】
+结构清楚：安静不透明内布、略带丝光的彩色丝绸和薄纱对光线与重力反应不同。双手放松，可见手腕和手指连贯。不加巨大冠、银发、额饰、场景或文字。
 ```
 
 ## b-02-visual-wardrobe
@@ -23,15 +33,20 @@ Keep construction readable: quiet opaque inner cloth, slightly lustrous colored 
 模式：identity_plus_wardrobe_image。
 
 ```text
-Reference binding: Image 1, the black-haired close portrait, is the ONLY identity and hair source. Image 2, the silver-haired full-body gown portrait, supplies clothing construction, ivory/lavender-grey palette, draping layers, gold shoulder clasps and material relationships ONLY. Do not copy Image 2's face, body proportions, silver hair, high bun, long hairpin or forehead mark. The specific adaptation below takes precedence over clothing details in either image.
+【参考绑定与权限】
+图1黑发近景是唯一身份和头发来源。图2银发全身裙装仅提供服装结构、象牙白与灰紫配色、垂坠衣层、金肩扣及材料关系。不复制图2的脸、身体比例、银发、高髻、长簪或额心印记。下文具体适配要求优先于两图的服装细节。
 
-Make one full-body costume portrait of the adult woman from the identity portrait on a seamless white background, vertical 3:4. Show the whole hair silhouette, sleeves, gown hem and a visible embroidered shoe tip, with a little white breathing room around the complete figure. Soft neutral studio light gives gentle facial modeling and a faint floor contact shadow.
+【任务、构图与棚光】
+为身份肖像中的成年女性生成一张完整全身服装肖像，无缝白底、3:4竖幅。完整呈现头发轮廓、袖子、裙摆及可见绣鞋尖，完整人物四周有少量白色呼吸空间。柔和中性棚光形成轻柔面部体积与淡接地阴影。
 
-Retain the identity portrait woman's soft cheek volume, natural eyelids and eye spacing, pale brown-grey eyes, natural nose and lips, quiet direct gaze and apparent adult age. Keep her black half-up long hair, loose face-framing strands, small silver floral hair ornaments and slim silver earrings. Her forehead stays unadorned. Render her recognizable face with delicate realistic skin texture.
+【人物面容与发型】
+保留身份肖像女性的柔软面颊体积、自然眼睑与眼距、浅棕灰眼睛、自然鼻唇、安静直视目光及成年表观年龄。保留黑色半挽长发、松散脸侧发丝、小型银色花饰和纤细银耳坠。额头不加装饰，以细腻真实肤质呈现可辨识面容。
 
-Moderate wardrobe redesign is authorized. Create an ivory and muted lavender-grey layered ceremonial gown. A soft opaque ivory crossover blouse has broad folds and a narrow pale pink inner collar edge. A lavender-grey woven sash shapes the natural waist with a fine warm-gold cord. Small antique-gold shoulder clasps support the light outer robe, with only a few slender hanging gold chains. Broad lavender-grey sleeve bands fall from her gently overlapping hands at the lower waist, making relaxed long draping arcs. The central ivory skirt is plain softly matte cloth, with generous vertical folds. Two long lavender-grey silk panels flank it and carry sparse fine gold botanical embroidery close to their lower edges. Lightweight ivory gauze overlaps the outer sleeves and side skirt, revealing the underlying panel edges in thin transparent layers. Let the center, side panels and outer gauze finish at slightly different lengths, opening into a modest soft train. The waist remains readable and the silhouette gradually widens below the hips. A slender lavender tassel hangs from the waist. One ivory embroidered shoe tip establishes contact with the white floor.
+【衣装设计与延展】
+允许适度重设计衣装。制作象牙白与低饱和灰紫层叠礼服。柔软不透明象牙白交领上衣有宽褶和窄淡粉内领边。灰紫织带配细暖金绳，塑造自然腰线。小型古金肩扣承托轻外袍，仅少量细金链垂下。宽灰紫袖带从下腰处轻覆的双手旁垂落，形成放松长弧。中央象牙白裙为素面柔哑光布，纵褶宽阔。两条灰紫长丝绸衣片分列两侧，下缘附近有稀疏细金植物刺绣。轻薄象牙纱覆盖外袖与侧裙，透明薄层透出下方衣片边缘。中央、侧片和外纱长短略错开，展开为适度柔软拖尾。腰部清楚，轮廓从臀下逐渐变宽。腰间垂一条细灰紫流苏，一只象牙绣鞋尖交代与白地的接触。
 
-Keep construction readable: quiet opaque inner cloth, slightly lustrous colored silk and thin gauze respond differently to light and gravity. Keep hands relaxed with coherent visible wrists and fingers. No huge crown, silver hair, forehead jewel, scenery or lettering.
+【材料与手部完整性】
+结构清楚：安静不透明内布、略带丝光的彩色丝绸和薄纱对光线与重力反应不同。双手放松，可见手腕和手指连贯。不加巨大冠、银发、额饰、场景或文字。
 ```
 
 ## c-08-visual-wardrobe
@@ -39,15 +54,21 @@ Keep construction readable: quiet opaque inner cloth, slightly lustrous colored 
 模式：identity_plus_wardrobe_image。
 
 ```text
-Reference binding: Image 1, the grey-teal floral close portrait, is the ONLY source of the woman's facial identity, apparent age, black hair and quiet intent expression. Image 2, the black-gold full-body costume portrait, is a wardrobe-design reference ONLY: borrow its black-and-gold clothing construction, long layered panels, ivory lining and gauze relationships. Do not copy its face, head tilt, body proportions, crown or long projecting hairpin. Use the specific adaptation below wherever it differs from Image 2.
+【参考绑定与权限】
+图1灰青花卉近景是女性面容身份、成年表观年龄、黑发与安静专注表情的唯一来源。图2黑金全身仅作衣装设计参考：借黑金服装构造、层叠长衣片、象牙内衬与纱的关系。不复制其脸、头倾、身体比例、冠或长伸簪饰；与图2不同处以下文适配为准。
 
-Create one full-body costume portrait of the adult woman in the supplied portrait, on seamless white, vertical 3:4. Her complete hair ornaments, flowing sleeves, compact rounded train and visible embroidered shoe tip fit inside the picture with white space around the silhouette. Soft neutral studio light preserves dimensional facial modeling and a small floor contact shadow.
+【任务、构图与棚光】
+为所给肖像中的成年女性生成一张完整全身服装肖像，无缝白底、3:4竖幅。完整发饰、流动袖子、紧凑圆拖尾和可见绣鞋尖均在画内，轮廓周围有白地。柔和中性棚光保留立体面部塑形与小接地阴影。
 
-Use the supplied portrait for her identity: retain her own almond-shaped eyes and eye spacing, soft cheek volume, natural lips, quiet intent gaze and apparent adult age. Keep recognizable black hair with a high gathered bun and loose fine strands near the temples. Keep her face softly realistic and detailed as in the reference.
+【人物身份与发型】
+以所给肖像为身份来源：保留她自己的杏眼、眼距、柔软面颊体积、自然嘴唇、安静专注目光及成年表观年龄。黑发高髻与鬓边少量细发保持可辨识，面容保留参考中的柔和真实感与细节。
 
-Design a new black-and-warm-gold outfit for this same woman. Costume, accessories, palette and pose may be moderately redesigned; the old grey-teal floral robe is not a required garment. Keep the finished silhouette long and gently asymmetric, with a defined waist and an airy outer robe. A fitted black wrap bodice has a shallow curved neckline, an antique-gold feather motif crossing diagonally over one side and a narrow overlapping waist belt. Small flat gold shoulder fittings follow the shoulder curve, without projecting spikes or broad feather fans. The robe slips slightly off the outer shoulder, exposing a narrow soft ivory lining edge. One sleeve hangs lower than the other and the open sleeve interiors reveal ivory silk.
+【黑金服装重设计】
+为同一女性设计新黑暖金服装。允许适度重设计服装、饰品、配色和姿态，旧灰青花袍不是必须保留的服装。成品轮廓修长、轻微不对称，腰线明确、外袍轻盈。合体黑色裹身上衣有浅弧领口，一侧斜跨古金羽纹，窄叠腰带收束。小型扁金肩件沿肩曲线贴合，不加尖刺或宽羽扇。袍子略滑离外肩，露出窄柔象牙内衬边。一袖低于另一袖，开口袖内露出象牙丝绸。
 
-Below the belt, divide the front into overlapping long panels rather than one large plain black triangle. A narrow charcoal panel follows the center leg line; two embroidered black panels overlap beside it, one ending a little higher. Slender ivory inner layers show intermittently through the openings from below the waist to the floor, making several soft long diagonal folds. Keep most of the dress black, with ivory occupying only these restrained openings and sleeve interiors. The outer black gauze floats slightly away from the weighted inner layers along the sides. Place detailed gold vines and feather embroidery on selected panel edges and sleeve borders, with quiet black intervals between motifs, not a dense all-over print. Reduce the side volume above the knee; let the hem open gently near the ankles into a short asymmetric train contained inside the picture, with an embroidered shoe tip visible. Use matte inner cloth, softly lustrous black silk panels, thin transparent outer gauze and small antique-metal fastenings. Keep her black gathered bun compact and close to the head, with a low gold comb and one slender hanging ornament; leave a little white air above it. One fine waist pendant completes the outfit.
+【裙片、材料与饰物】
+腰带下前方分成相叠长衣片，不做巨大纯黑三角。窄炭灰片沿中央腿线，两条黑色绣片在旁重叠，其中一条略短。细窄象牙内层从腰下至地面的开口间断可见，形成数道柔长斜褶。裙装以黑色为主，象牙色只出现在克制开口与袖内。两侧外黑纱略离开有重量的内层。精选衣片边缘及袖缘布置精细金藤与羽绣，纹样间留安静黑面，不作全身密印花。减小膝上侧向体量，裙摆在踝旁缓缓展开为画内短不对称拖尾，露绣鞋尖。材料为哑光内布、柔丝光黑衣片、薄透明外纱与小古金属扣。黑色盘髻紧凑贴头，配低金梳及一条细垂饰，头上稍留白。一件细腰坠完成造型。
 
-She stands nearly frontal with a subtle turn at the shoulders, one hand resting naturally near the waist and the other hanging relaxed beside the sleeve opening. Wrists and visible fingers have coherent natural structure. Keep the face, neck, waist and separate sleeve outlines legible. Her expression remains calm and intent, not a new severe character. The result is an elegant black-gold costume design with readable construction, photographed on pure white. No guardian creatures, weapons, text or scenery.
+【姿态、表情与限制】
+近正面站立，双肩轻微转动，一手自然放腰旁，另一手在袖口旁放松下垂。手腕与可见手指结构连贯自然。脸、颈、腰和分开的袖轮廓清楚。表情仍安静专注，不改成新的严厉角色。结果为纯白背景拍摄的优雅黑金服装设计，结构可读。不加守护兽、武器、文字或场景。
 ```

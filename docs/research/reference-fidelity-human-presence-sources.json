@@ -4,40 +4,41 @@
     {
       "id": "OPENAI-IMAGE-PROMPTING",
       "url": "https://developers.openai.com/api/docs/guides/image-prompting",
-      "note": "Assign roles to references; separate changes from constraints; iterate deliberately."
+      "note": "为参考分配职责，区分改动与保持约束，有目的地迭代。"
     },
     {
       "id": "MIDJOURNEY-EDIT",
       "url": "https://docs.midjourney.com/hc/en-us/articles/48495453462797-Edit-Model",
-      "note": "V8.2 Edit Model supports editing and up to four reference images."
+      "note": "原记录称 V8.2 编辑模型支持编辑与最多四张参考图。"
     },
     {
       "id": "MIDJOURNEY-STYLE",
       "url": "https://docs.midjourney.com/hc/en-us/articles/32180011136653-Style-Reference",
-      "note": "Style Reference is a distinct input type for look and feel."
+      "note": "风格参考是传达整体观感的独立输入类型。"
     },
     {
       "id": "GEMINI-IMAGE",
       "url": "https://ai.google.dev/gemini-api/docs/image-generation",
-      "note": "Multiple references and character consistency workflows; editing guidance emphasizes preserving non-target content."
+      "note": "多参考与人物一致性工作流；编辑指导强调保持非目标内容。"
     },
     {
       "id": "BFL-FLUX2-EDIT",
       "url": "https://docs.bfl.ai/flux_2/flux2_image_editing",
-      "note": "FLUX.2 supports multi-reference image editing."
+      "note": "原记录称 FLUX.2 支持多参考图像编辑。"
     },
     {
       "id": "BFL-FLUX2-PROMPTING",
       "url": "https://docs.bfl.ai/guides/prompting_guide_flux2",
-      "note": "Word order matters; put main subject and critical constraints first; no negative prompts."
+      "note": "词序重要，主要主体和关键约束在前；原记录称不支持负向提示词。"
     }
   ],
   "project_heuristics": [
-    "Reference Fidelity 0-3",
-    "Completion C0-C3",
-    "Human Presence H0-H3",
-    "Design Density Preservation",
-    "Wear State W0-W4",
-    "Style-on-Asset render mode"
-  ]
+    "参考忠实度 0–3",
+    "补全等级 C0–C3",
+    "人物生命感 H0–H3",
+    "保持设计密度",
+    "磨损状态 W0–W4",
+    "资产上的风格渲染模式"
+  ],
+  "译文说明": "历史来源索引的中文整理；原核查日期、网址和标识保留。本次未重新核验外部内容，来源与摘要见 docs/历史报告译文来源.json。"
 }
