@@ -17,7 +17,7 @@
     {
       "id": "r0-08-teal",
       "decision": "baseline",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "米白内裙大片同色纹样，锦纱层次存在，顶部紧。",
       "user_approval": "pending",
       "model": null,
@@ -45,15 +45,15 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-6ee815b5-7145-4940-a1f1-2504b84b76dc.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     },
     {
       "id": "r0-02-white",
       "decision": "baseline",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "细碎褶皱贯穿多层，浅色层厚薄区别弱；保留黑发银饰。",
       "user_approval": "pending",
       "model": null,
@@ -81,15 +81,15 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-21ded26a-08df-4597-881c-3722a3ba26fa.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     },
     {
       "id": "r1-08-teal",
       "decision": "material_candidate",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "前中素面区扩大；下摆仍有隐约纹样，未完全通过。",
       "user_approval": "pending",
       "model": null,
@@ -121,15 +121,15 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-f9ea8451-3cc5-4d1f-8f78-0d90b80d9c17.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     },
     {
       "id": "r1-02-white",
       "decision": "material_candidate",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "宽褶内裙与透叠纱层更容易辨认；顶部紧、侧衣片仍弱。",
       "user_approval": "pending",
       "model": null,
@@ -161,15 +161,15 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-d56b59a5-ba7f-4014-99e1-bd99b4401101.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     },
     {
       "id": "r2-08-teal",
       "decision": "framing_rule_rejected",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "数值留白未呈现可靠收益；此提示词取景修改已撤回。",
       "user_approval": "pending",
       "model": null,
@@ -201,15 +201,15 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-17fb175c-4c09-4a49-8852-935cc2accb42.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     },
     {
       "id": "r2-02-white",
       "decision": "framing_rule_rejected",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "头顶依旧接近画框；此提示词取景修改已撤回。",
       "user_approval": "pending",
       "model": null,
@@ -241,15 +241,15 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-bf706a34-78b2-4863-b10d-6156db0108f6.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     },
     {
       "id": "h1-01-cloth",
       "decision": "holdout_candidate",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "保留哑光粗织物，无金纹纱层；侧脸可读，正脸未评估。",
       "user_approval": "pending",
       "model": null,
@@ -272,15 +272,15 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-4b298611-f699-4706-bc97-b7ade7d15293.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     },
     {
       "id": "h1-07-knit",
       "decision": "holdout_candidate",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "保留针织与棉布区分；原图闭唇微笑变成略张嘴，表情未通过。",
       "user_approval": "pending",
       "model": null,
@@ -303,15 +303,15 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-5805b549-1473-47d6-9a18-7abdf4fd34ed.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     },
     {
       "id": "d1-02-blue-white",
       "decision": "moderate_redesign_candidate",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "授权再设计后，雾蓝腰封与侧衣片、白花枝和流苏形成更丰富层次；脸未换成标杆，顶部仍紧。",
       "user_approval": "pending",
       "model": null,
@@ -339,15 +339,15 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-bd422c9e-151e-402d-b30e-46273c4c70ca.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     },
     {
       "id": "d1-07-knit-skirt",
       "decision": "moderate_redesign_candidate",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "针织配长裙与低位合手更接近新标杆方向；闭唇微笑恢复，原图辨识度待用户验收。",
       "user_approval": "pending",
       "model": null,
@@ -375,15 +375,15 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-c2882d47-8a46-45f5-8644-50ff8ae02aae.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     },
     {
       "id": "d1-05-dragon-armor",
       "decision": "moderate_redesign_partial",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "observation": "胸腰甲、裙片、甲靴与守护形象完整；要求两条龙却出现四个龙首，翼尖裁切，数量与取景未完全执行。",
       "user_approval": "pending",
       "model": null,
@@ -411,10 +411,17 @@
       },
       "generated_source": "C:\\Users\\ww\\.codex\\generated_images\\01a0eab6-cb38-78a3-bc3f-f58f23b591f1\\exec-765e0ae2-6963-48cd-9463-d6cdb4a79505.png",
       "limitations": [
-        "single stochastic sample",
-        "identity is visual judgment, not a face-recognition score",
-        "occluded anatomy not assessable"
+        "单次随机样本。",
+        "身份为目视判断，不是人脸识别分数。",
+        "遮挡的解剖结构不可判断。"
       ]
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/visual-evaluations/material-generation-v091.json",
+    "源文件摘要": "1a21e4a2901b4f25cf4078620f24455840c8306c9aeea7ae7530081e4cb3055b",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

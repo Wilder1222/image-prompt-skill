@@ -35,5 +35,12 @@
     "focus_profiles": 3
   },
   "new_media_ab_test": "not_run",
-  "interpretation": "Pass covers project logic, routing and configuration only. It does not establish vendor image-generation success rates or visual quality."
+  "interpretation": "通过仅覆盖项目逻辑、路由与配置，不证明厂商生图成功率或视觉质量。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/verification-v0.7.6.json",
+    "源文件摘要": "9f5da8ccaa1a192f80735138fbbaf130ebe5e1461cbfbed66223bb9b48176ea7",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

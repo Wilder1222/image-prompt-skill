@@ -5,7 +5,7 @@
   "goal_status": "active",
   "new_images": 3,
   "shared_core_verified": true,
-  "comparison": "White A/B share exactly the core prompt, with changed reference-binding preamble and added image. Black C shares the historical cycle03 b-08 core, adds binding and wardrobe image. Unknown model/seed; added images prevent a prompt-only causal claim.",
+  "comparison": "白衣A/B核心提示词完全相同，但参考绑定前言改变且增加图片；黑衣C沿用历史cycle03的b-08核心，增加绑定与服装图。模型与种子未知，增加图片使其不能作为纯提示词因果证据。",
   "artifact_directory": "dist/visual-tests/goal-cycle-05/",
   "records": [
     {
@@ -13,7 +13,7 @@
       "original_reference": 2,
       "benchmark": "earlier-excellent-2",
       "experiment_type": "original_plus_text",
-      "authoring": "Project reference-authority and moderate wardrobe route; shared concrete wardrobe brief; single-original baseline",
+      "authoring": "项目参考权限与适度衣装路线；共用具体衣装方案；单原图基线。",
       "source_commit": "d5589c5b55efcf517bada11e7a414dd36eae7c74",
       "provider": "image_gen.imagegen",
       "model": null,
@@ -44,13 +44,13 @@
         "height": 1448
       },
       "observation": "黑发、安静直视与浅粉内领可辨；白紫衣片与薄纱成立；肩扣较小、袖带与长片较简单；顶部偏紧，鞋尖与衣摆在画内。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "identity_verdict": "pending",
       "user_approval": "pending",
       "visual_quality_verified": false,
       "regressions": [
-        "top margin remains limited",
-        "identity not quantitatively verified"
+        "顶部留白仍有限。",
+        "身份未经量化验证。"
       ]
     },
     {
@@ -58,7 +58,7 @@
       "original_reference": 2,
       "benchmark": "earlier-excellent-2",
       "experiment_type": "identity_plus_wardrobe_image",
-      "authoring": "Project reference-authority principle with explicit authorized wardrobe-design role under test; same core wardrobe brief as A",
+      "authoring": "测试项目参考权限原则与明确授权的衣装设计职责；核心衣装方案与A相同。",
       "source_commit": "d5589c5b55efcf517bada11e7a414dd36eae7c74",
       "provider": "image_gen.imagegen",
       "model": null,
@@ -88,13 +88,13 @@
         "height": 1448
       },
       "observation": "肩扣垂链、袖带和裙片错层更接近服装参考；保持黑发与小银饰，未见银发、长簪、额饰迁移；面容相似度仍待独立评审。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "identity_verdict": "pending",
       "user_approval": "pending",
       "visual_quality_verified": false,
       "regressions": [
-        "top margin remains limited",
-        "identity not quantitatively verified"
+        "顶部留白仍有限。",
+        "身份未经量化验证。"
       ]
     },
     {
@@ -102,7 +102,7 @@
       "original_reference": 8,
       "benchmark": "new-excellent-4",
       "experiment_type": "identity_plus_wardrobe_image",
-      "authoring": "Same wardrobe core as cycle03 b-08, adding explicit second-image wardrobe-only binding and visual input; historical baseline, unknown model/seed",
+      "authoring": "核心衣装方案同cycle03的b-08，增加明确的第二图仅服装绑定及视觉输入；属于历史基线，模型与种子未知。",
       "source_commit": "d5589c5b55efcf517bada11e7a414dd36eae7c74",
       "provider": "image_gen.imagegen",
       "model": null,
@@ -132,15 +132,22 @@
         "height": 1448
       },
       "observation": "黑金领肩、腰封与错落长片更接近服装参考；原图式花饰高髻仍可见；装饰密度提高，腰饰多于一件，发髻仍高且顶部紧。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "identity_verdict": "pending",
       "user_approval": "pending",
       "visual_quality_verified": false,
       "regressions": [
-        "multiple waist pendants despite one specified",
-        "higher ornament density",
-        "high bun and tight top margin persist"
+        "要求单个腰坠，但出现多个。",
+        "装饰密度更高。",
+        "高发髻和紧张的顶部留白仍存在。"
       ]
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/visual-evaluations/wardrobe-reference-v095.json",
+    "源文件摘要": "f00c1e4f685a0b3d1d9c893e4802529de8064a18dc0c3f6958e9a31835543e9d",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

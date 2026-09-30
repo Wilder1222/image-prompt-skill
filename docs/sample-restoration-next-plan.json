@@ -26,7 +26,7 @@
       "copy_style_reference_body",
       "copy_style_reference_costume_geometry"
     ],
-    "prompt_strategy": "restore authorized style channels only; lock identity/body/garment architecture"
+    "prompt_strategy": "只恢复获准的风格通道；锁定身份、身体和衣装构造。"
   },
   "failures": [
     {
@@ -39,5 +39,12 @@
       "priority": "P2R",
       "round": "realism_merge"
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/sample-restoration-next-plan.json",
+    "源文件摘要": "ee49a120b9623c5c75b297abc553ec1dc7670afa9413f8543d71dcb94506dfca",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

@@ -1,7 +1,7 @@
 {
   "date": "2026-09-29",
   "version": "0.9.6",
-  "scope": "Seven recorded iteration cycles; excludes earlier initial and v084 image tests.",
+  "scope": "七个已记录迭代周期；不包括更早的初始测试与v084图像测试。",
   "record_count": 33,
   "baseline_records": 2,
   "new_images": 31,
@@ -16,23 +16,23 @@
     8
   ],
   "checks": [
-    "request prompt equals prompt file except explicitly recorded trailing LF",
-    "request and report prompt SHA-256",
-    "actual references and evaluation-only files SHA-256",
-    "archived input SHA-256 and ordered role correspondence",
-    "output PNG SHA-256 and dimensions",
-    "all eight originals have independent generation"
+    "请求提示词与提示词文件一致，明确记录的末尾LF换行差异除外。",
+    "请求与报告中的提示词SHA-256。",
+    "实际参考与仅评估文件的SHA-256。",
+    "归档输入SHA-256及按序参考职责对应关系。",
+    "输出PNG的SHA-256与尺寸。",
+    "八张原图均有独立生成记录。"
   ],
   "text_serialization_differences": [
     {
       "id": "r0-08-teal",
-      "difference": "prompt.txt has one additional trailing LF",
+      "difference": "prompt.txt末尾多一个LF换行。",
       "request_sha256": "b583226f25fe40207cde91fef70ef5fc9c624ab6d6d91e650c0928daa7573603",
       "text_file_sha256": "030da674c70667343bd582e317e4f1e9532ad3b79ccd7bbc6f201078b37dcae5"
     },
     {
       "id": "r0-02-white",
-      "difference": "prompt.txt has one additional trailing LF",
+      "difference": "prompt.txt末尾多一个LF换行。",
       "request_sha256": "95a830de0f08b6586e75d9bf672762ac878f8c93bf0349745a6b777636637adf",
       "text_file_sha256": "49a1a82f970b02cf7971448483c9a0f936c496d6018718401695315fee79a0b8"
     }
@@ -560,5 +560,12 @@
       "observation": "保留侧向头部和无花纹素布，叠手与袖摆收束，背景更接近白色；布面比简洁版平顺；未出现华服装饰污染。",
       "user_approval": "pending"
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/visual-evaluations/current-overview.json",
+    "源文件摘要": "bd80244fc004afd4ac3cd38fc2d2189058c91f52f515266dd8f717c6d8ba7805",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

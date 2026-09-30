@@ -45,7 +45,7 @@
         "label": "ignore"
       }
     },
-    "rule": "one output attribute should have at most one strict source; these levels are project heuristics, not vendor parameters."
+    "rule": "同一输出属性最多有一个严格来源；这些等级是项目经验规则，不是厂商参数。"
   },
   "completion": {
     "level": "C1",
@@ -53,7 +53,7 @@
     "new_major_design": false,
     "new_secondary_design": true,
     "density_delta": 0,
-    "rule": "not-visible regions remain designed extensions, never observed facts."
+    "rule": "不可见区域仍是设计延展，不能视为观察事实。"
   },
   "human_presence": {
     "level": "H2",
@@ -69,7 +69,7 @@
       "natural_asymmetry",
       "camera_response"
     ],
-    "rule": "human presence changes presentation, not identity geometry or age unless explicitly requested."
+    "rule": "人物生命感改变表现方式，不改变身份几何或年龄，除非用户明确要求。"
   },
   "density": {
     "design_density": "high",
@@ -93,11 +93,18 @@
     }
   },
   "prompt_skeleton": [
-    "Keep the reference identity and costume architecture as the primary asset source.",
-    "Use the reference style/material/lighting channels according to the fidelity matrix, but keep the background white or neutral.",
-    "Complete unseen lower-body or footwear regions conservatively at the selected completion level; do not invent new major design motifs.",
-    "Preserve design density and wear state across newly completed regions.",
-    "Increase human presence through soft tissue, regional skin response, subtle natural asymmetry and camera realism without reshaping the face."
+    "将参考中的人物身份与衣装构造作为主要资产来源。",
+    "按忠实度矩阵使用参考的风格、材质和灯光通道，但保持白色或中性背景。",
+    "按所选补全等级保守延展未见的下半身或鞋履，不创造新的主要设计纹样。",
+    "新补全部分保持原有设计密度与磨损状态。",
+    "通过软组织、分区肤质、细微自然不对称与摄影表现增加人物生命感，不重塑面容。"
   ],
-  "note": "Style-on-Asset preserves reference flavor without copying the original environment."
+  "note": "资产上的风格模式保留参考韵味，但不复制原环境。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/cyber-style-asset-plan.json",
+    "源文件摘要": "c55f071e7a65f38ae4f976f1a5c0b04def557ca2b391da5c843be5528d52c86a",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

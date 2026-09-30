@@ -1,7 +1,7 @@
 {
   "date": "2026-09-29",
   "version": "0.9.7",
-  "trigger": "User rejected prior English output and figure proportions",
+  "trigger": "用户否定此前英文输出及人物比例。",
   "previous_batch": "seven-reference-photoreal-20260929",
   "status": "format_fixed_visual_proportion_unresolved",
   "generated_count": 2,
@@ -13,7 +13,7 @@
     5,
     7
   ],
-  "comparison_limit": "Language, prompt structure and proportion clauses all changed; this is not evidence that Chinese itself improves anatomy.",
+  "comparison_limit": "语言、提示词结构和比例条款都发生变化，不能据此证明中文本身改善了解剖。",
   "records": [
     {
       "id": "01",
@@ -92,5 +92,12 @@
       "user_approval": "pending",
       "proportion_accepted": false
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/visual-evaluations/chinese-natural-proportion-v097.json",
+    "源文件摘要": "9b36bac7187d69c1ed29061fd3cf76e5f150ddddcddfe63500326e695244a7ad",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

@@ -6,8 +6,8 @@
   "new_images": 4,
   "compiler_changed": false,
   "default_changed": false,
-  "decision": "Do not replace detailed compiler with a shorter default; revise clauses by observed failure, not character count.",
-  "comparison": "Same image and reference-specific brief within each pair. Generic scaffolds differ in semantic clauses and length, not a pure token-length experiment. No fixed model or seed.",
+  "decision": "不要用更短的默认文本替代详细编译器；应根据观察到的失败修改条款，而不是按字符数修改。",
+  "comparison": "每组使用相同图片和针对参考的方案。通用框架的语义条款与长度均有差异，不是纯词元长度实验；没有固定模型或种子。",
   "compiled_base": {
     "sha256": "11c490b59d82372e07f3408f09daa9213d1390c974987a578f0512b414a8b678",
     "characters": 5032,
@@ -51,7 +51,7 @@
         "height": 1448
       },
       "observation": "完整全身与衣摆；青灰锈红延续原图；织锦和浅色袖里花纹较密，浅色中部窄，整体偏厚重。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
@@ -94,7 +94,7 @@
         "height": 1448
       },
       "observation": "完整全身与衣摆；浅色内裙及花纹集中区更清楚，叠手与袖布关系可读；本对更适合展示分层。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
@@ -127,7 +127,7 @@
         "height": 1448
       },
       "observation": "侧向面容与松散黑发、素布交领及粗褶皱可读；背景偏浅灰，侧向投影较重；粗布感更明显。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     },
@@ -164,9 +164,16 @@
         "height": 1448
       },
       "observation": "保留侧向头部和无花纹素布，叠手与袖摆收束，背景更接近白色；布面比简洁版平顺；未出现华服装饰污染。",
-      "observer": "Codex visual inspection",
+      "observer": "Codex目视评审。",
       "user_approval": "pending",
       "visual_quality_verified": false
     }
-  ]
+  ],
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/visual-evaluations/prompt-density-20260929.json",
+    "源文件摘要": "76e07a06df817891eafdfbc2163edca6c76d67b0ec96476485cd6e05d120b60f",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }

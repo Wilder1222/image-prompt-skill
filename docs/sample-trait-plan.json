@@ -31,8 +31,8 @@
     ]
   },
   "reference_roles": {
-    "A": "asset_master + identity geometry",
-    "B": "facial_trait only"
+    "A": "资产母图与身份几何。",
+    "B": "仅facial_trait通道。"
   },
   "round_plan": {
     "round": "trait_calibration",
@@ -70,14 +70,21 @@
       "add_wrinkles_or_sagging",
       "major_face_shape_change"
     ],
-    "prompt_strategy": "short trait patch; lock identity geometry; borrow only allowed traits"
+    "prompt_strategy": "简短气质修订：锁定身份几何，只借用允许的气质特征。"
   },
   "prompt_skeleton": [
-    "Image A is the Asset Master and identity geometry source.",
-    "Image B is only a Facial Trait Reference.",
-    "Keep A face shape, eye spacing/core geometry, nose proportions, lips and jaw/chin unchanged.",
-    "Shift only facial presentation toward M2.5: steadier gaze, restrained expression, small cheek-softness reduction, slightly less wide-eyed openness, more editorial natural makeup.",
-    "Do not copy B's face geometry, hair, costume, body, background, lighting or camera framing."
+    "图A是资产母图与身份几何来源。",
+    "图B仅为面部气质参考。",
+    "保持A的脸型、眼距与核心几何、鼻部比例、嘴唇和下颌下巴不变。",
+    "仅将面部表现调整至M2.5：目光更稳定、表情克制、面颊柔软感略降、眼睛张开程度略收敛，采用更自然的时尚编辑妆容。",
+    "不复制B的面部几何、头发、服装、身体、背景、灯光或镜头取景。"
   ],
-  "note": "High-end is achieved primarily through presentation, not facial reshaping."
+  "note": "高级感主要通过表现方式实现，不通过重塑面容实现。",
+  "档案说明": {
+    "性质": "历史计划或结果记录的中文译文；非当前默认，非新执行或重新评审",
+    "源提交": "c8561d11115bc05c5e3e3c530cbc9320ecf8f857",
+    "源文件": "docs/sample-trait-plan.json",
+    "源文件摘要": "e91ef987aa19e9fe02aba9de4a8a8ffc4a3669a91baabc6726c72bc14ea0f1b6",
+    "边界": "原始输入输出摘要、分数、状态、时间、数量、命令、标识与结构保留。历史参考权限、白底、年龄、比例及手脚要求不覆盖当前用户任务。"
+  }
 }
