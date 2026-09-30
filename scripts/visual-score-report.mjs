@@ -9,6 +9,7 @@ export const expectedCases=['青黛花卉','现代针织','黑金幻想','青橙
 export const scoreTarget=9.5;
 
 export function summarizeScores(rows,{cases=expectedCases,finalRound=2}={}) {
+  if(!Number.isInteger(finalRound)||finalRound<1)throw new Error('最终轮次必须是正整数');
   const outputs=new Set(),runs=new Set();
   const verified=rows.map(row=>{
     const s=row.score;
@@ -34,7 +35,7 @@ export function summarizeScores(rows,{cases=expectedCases,finalRound=2}={}) {
   return {目标最低平均分:scoreTarget,已评审图数:verified.length,全部尝试平均分:allMean,最终轮图数:final.length,最终轮平均分:finalMean,最终轮缺少案例:missing,最终轮未合格:final.filter(r=>!r.视觉合格).map(r=>r.运行),视觉分数目标达成:missing.length===0&&final.length===cases.length&&final.every(r=>r.视觉合格)&&allMean>=scoreTarget&&finalMean>=scoreTarget,逐图:verified,说明:'仅统计实际查看并有输出摘要的本轮图像；不是用户验收或普遍成功率。中文化、项目一致性和发布条件需另行完成。'};
 }
 
-export function reportDirectory(dir){
+export function reportDirectory(dir,options={}){
   const read=f=>JSON.parse(fs.readFileSync(path.join(dir,f),'utf8').replace(/^\uFEFF/,''));
   const snapshots=fs.readdirSync(dir).filter(f=>f.endsWith('.snapshot.json'));
   const rows=[],pending=[];
@@ -49,11 +50,16 @@ export function reportDirectory(dir){
     if(finishProductionRun(snapshot,receipt,dir).status!==outcome.status)throw new Error('视觉结论与实际验收记录不同');
     rows.push({score,caseName:snapshot.case_id,qualified:outcome.status==='reviewer_qualified'});
   }
-  const report=summarizeScores(rows);
+  const report=summarizeScores(rows,options);
   return {...report,未完成或未评审运行:pending,视觉分数目标达成:report.视觉分数目标达成&&pending.length===0};
 }
 
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
-  try{console.log(JSON.stringify(reportDirectory(path.resolve(process.argv[2]??'.')),null,2));}
+  try{
+    const args=process.argv.slice(3);
+    if(args.length&&!(args.length===2&&args[0]==='--final-round'))throw new Error('用法：目录 [--final-round 正整数]');
+    const options=args.length?{finalRound:Number(args[1])}:{};
+    console.log(JSON.stringify(reportDirectory(path.resolve(process.argv[2]??'.'),options),null,2));
+  }
   catch(e){console.error(e.message);process.exitCode=1;}
 }
