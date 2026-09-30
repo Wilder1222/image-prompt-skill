@@ -1,8 +1,18 @@
 {
+  "档案说明": {
+    "性质": "历史计划与配置的中文译文，不是当前命令重新生成结果，也不是新增图像执行或验收记录。",
+    "原始版本": "0.8.1",
+    "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+    "源文件": "docs/v0.8.1-black-red-plan.json",
+    "源文件摘要": "fff553c1143643db0309587eb9a4cd0157957a68acc8afca645209d5af6688b2",
+    "适用范围": "忠实保留当时固定年龄、鹅蛋脸、手足可见、参考权重、白底与阶段顺序等措辞，仅记录历史，不覆盖当前用户明确要求、人物身份及主工作流。当前不要求十指、双脚必露，不以服装遮挡处虚构测量，不把内部经验预算当厂商参数。",
+    "片段说明": "提示词数组是旧计划片段译文；生产时须由当前主流程按实际参考和描述另行编写完整中文语义标签，不直接提交旧片段。",
+    "来源记录": "docs/历史计划译文来源.json"
+  },
   "style_stage": {
     "style_intent": {
       "intent": "style_target_match",
-      "description": "match a supplied visual style reference as the dominant final look",
+      "description": "将提供的视觉风格参考作为主导的最终观感。",
       "signals": [
         "match_reference_style",
         "restore_original_style",
@@ -22,15 +32,15 @@
         "generic_default"
       ],
       "rules": [
-        "If the user explicitly requests a white/neutral background and a style reference, use style_asset.",
-        "If the user explicitly requests the supplied style/final-art look and does not lock a white/neutral background, use cinematic_hybrid when an asset master exists.",
-        "Never infer white background merely because the character was previously represented as an asset image.",
-        "Face mode and render mode are independent decisions."
+        "用户明确要求白色或中性背景及风格参考时，使用style_asset。",
+        "用户明确要求所提供的风格或成品原画观感，且未锁定白色或中性背景时，已有资产母版则使用cinematic_hybrid。",
+        "不要只因角色此前以资产图呈现，就推断需要白底。",
+        "面容模式与渲染模式独立决策。"
       ]
     },
     "style_target": {
       "profile": "oriental_epic_painterly",
-      "label": "Oriental Epic Painterly Fantasy",
+      "label": "东方史诗厚涂幻想。",
       "medium_language": [
         "painterly_cinematic",
         "concept_art_brushwork",
@@ -81,7 +91,7 @@
         "front_static_asset_pose",
         "uniform_global_sharpness",
         "clean_catalog_lighting",
-        "literal_every-detail rendering"
+        "逐项照实刻画全部细节。"
       ],
       "recommended_face_mode": "stylized_beauty",
       "alternate_face_modes": [
@@ -143,20 +153,20 @@
         "2": "strong",
         "3": "strict"
       },
-      "principle": "each visual attribute should have one dominant reference authority; style target never owns identity geometry or garment architecture unless explicitly authorized."
+      "principle": "每个视觉属性应有一个主导参考来源；未经明确授权，风格目标不能决定身份几何或衣装构造。"
     },
     "face_compatibility": {
       "style_profile": "oriental_epic_painterly",
       "recommended": "stylized_beauty",
       "resolved_face_mode": "beauty_first",
       "override_applied": true,
-      "reason": "the target look uses idealized painterly facial treatment; stronger photographic face realism can fight the medium",
+      "reason": "目标观感采用理想化绘画面容，更强的面部照片真实感可能与媒介冲突。",
       "allowed": [
         "stylized_beauty",
         "beauty_first",
         "humanized_real"
       ],
-      "principle": "face mode is independent from render mode; style may recommend a face treatment but explicit user face preference wins."
+      "principle": "面容模式独立于渲染模式；风格可建议面容处理，但用户明确的面容偏好优先。"
     },
     "preservation_guard": {
       "profile": "cinematic_target",
@@ -167,9 +177,9 @@
         "atmosphere",
         "composition_energy"
       ],
-      "background_rule": "follow explicit user target or style target; never reset to white studio from prior asset history",
-      "pose_rule": "dynamic pose/motion is authorized when required by the style target unless user explicitly locks pose",
-      "realism_rule": "realism may refine human/material behavior but must not erase painterly medium, motion or atmosphere",
+      "background_rule": "遵循用户明确目标或风格目标，不因旧资产历史重置为白色摄影棚。",
+      "pose_rule": "风格目标需要时允许动态姿态或运动，除非用户明确锁定姿态。",
+      "realism_rule": "真实化可改善人体与材料行为，但不能抹去绘画媒介、运动或氛围。",
       "anti_drift": [
         "flat_white_background",
         "static_asset_pose",
@@ -198,17 +208,17 @@
         "infer_white_background_from_asset_history",
         "let_character_archetype_override_explicit_style_target"
       ],
-      "prompt_strategy": "resolve explicit output/style intent first: choose render mode, background policy and style target authority without touching identity or costume architecture"
+      "prompt_strategy": "先解析明确输出与风格意图：选择渲染模式、背景策略和风格参考权限，不改身份或衣装构造。"
     },
     "prompt_skeleton": [
-      "Render mode: cinematic_hybrid.",
-      "Image A is the Style Target; Image B is the Asset Master.",
-      "Keep B identity and garment architecture; borrow A medium, motion, lighting, atmosphere and composition energy only.",
-      "Face mode: beauty_first.",
-      "Do not inherit the Asset Master white background; follow the cinematic style target environment/presentation.",
-      "Do not flatten painterly motion/atmosphere during realism refinement."
+      "渲染模式：cinematic_hybrid。",
+      "图A为风格目标；图B为资产母版。",
+      "保持B的身份与衣装构造，仅借用A的媒介、运动、灯光、氛围及构图张力。",
+      "面容模式：beauty_first。",
+      "不继承资产母版的白底，遵循电影风格目标的环境与呈现。",
+      "真实化精修时不把绘画运动和氛围压平。"
     ],
-    "note": "Explicit style intent and background constraints are resolved before archetype defaults."
+    "note": "明确风格意图与背景约束先于角色类型默认值解析。"
   },
   "hierarchy_stage": {
     "hierarchy": {
@@ -233,11 +243,11 @@
         "detail_budget_edge_control",
         "output_polish"
       ],
-      "target_read": "high-end oriental fantasy concept key art with breathing room and selective completion, not uniformly finished commercial character illustration"
+      "target_read": "高级东方幻想概念主视觉，留有呼吸空间并选择性完成，不将商业角色插画各处均匀画满。"
     },
     "detail_budget": {
       "profile": "concept_art_priority",
-      "goal": "selective detail concentration for high-end concept art rather than uniform completion",
+      "goal": "高级概念原画采用选择性细节集中，不追求各处相同完成度。",
       "primary_detail": {
         "level": "high",
         "regions": [
@@ -272,10 +282,10 @@
         ]
       },
       "compiler_rules": [
-        "Concentrate the highest detail at focal structures only.",
-        "Keep major body and costume masses readable at medium detail.",
-        "Render peripheral and distant areas selectively, with impressionistic or atmospheric omission.",
-        "Do not increase detail merely because empty space exists."
+        "仅在焦点结构集中最高细节。",
+        "主体身体与衣装体块保持中等细节且清楚可读。",
+        "外围与远处选择性描绘，允许写意或氛围化省略。",
+        "不因为有空白就增加细节。"
       ],
       "anti_patterns": [
         "uniform_microdetail",
@@ -306,10 +316,10 @@
         "peripheral_effects"
       ],
       "rules": [
-        "Primary highlights must remain the strongest value concentration.",
-        "Secondary highlights support form but cannot equal primary brightness density.",
-        "Tertiary highlights are sparse and subordinate.",
-        "Do not make every gold edge or fabric rim luminous."
+        "主要高光保持最强的明度集中。",
+        "次级高光支撑形体，但不能与主高光拥有相同的亮度密度。",
+        "第三层高光稀疏且从属。",
+        "不要让每条金边或布料边都发亮。"
       ],
       "anti_patterns": [
         "highlight_everywhere",
@@ -339,10 +349,10 @@
         "luminous_depth_layers"
       ],
       "rules": [
-        "Keep monumental scale but lower local architectural resolution.",
-        "Use mist, silhouette layering and atmospheric separation instead of literal architectural description.",
-        "Do not place the strongest background contrast or hard edges directly behind the face.",
-        "Background should support the character, never form a second subject."
+        "保持宏伟尺度，但降低局部建筑刻画精度。",
+        "以薄雾、剪影层次与空气分离代替逐项建筑描绘。",
+        "最强的背景反差或硬边不要直接放在脸后。",
+        "背景支撑人物，不能形成第二主体。"
       ],
       "anti_patterns": [
         "second_subject_background",
@@ -374,10 +384,10 @@
         "ground_light_reflections"
       ],
       "rules": [
-        "Use crisp edges only where they reinforce the focal hierarchy.",
-        "Allow soft and partially lost edges in wind-driven and atmospheric regions.",
-        "Let backlight erase selected contours naturally.",
-        "Do not sharpen every silhouette equally."
+        "清晰锐边仅用于加强焦点层级。",
+        "风吹与空气感区域允许柔边及局部隐没的边缘。",
+        "让逆光自然吞没选定轮廓。",
+        "不把所有剪影同等锐化。"
       ],
       "anti_patterns": [
         "uniform_edge_sharpness",
@@ -426,24 +436,24 @@
         "uniform_detail_increase",
         "highlight_everywhere"
       ],
-      "prompt_strategy": "concept-art hierarchy only: redistribute detail, brightness, background resolution and edge sharpness while locking style target, identity, face mode, motion, palette, costume architecture and composition energy"
+      "prompt_strategy": "仅调整概念原画层级：重新分配细节、亮度、背景刻画精度与边缘锐度，同时锁定风格目标、身份、面容模式、运动、配色、衣装构造及构图张力。"
     },
     "prompt_skeleton": [
-      "Keep the approved oriental epic painterly style, black-white-gold-crimson palette, beauty-first/stylized-beauty face direction, full-body epic composition and large-scale motion unchanged.",
-      "Concentrate highest detail on face, crown, chest-neck focal area, waist core ornament and weapon core.",
-      "Keep main garment masses, primary sleeves and major hair volumes at medium detail.",
-      "Let hair tails, outer ribbons, distant architecture, mist, clouds, ground reflections and peripheral effects remain selectively resolved and more impressionistic.",
-      "Use the strongest highlights near the face/crown/upper torso/weapon core; keep secondary garment highlights lower and peripheral/background light subordinate.",
-      "Keep monumental background scale but lower architectural resolution and contrast around the face and upper-body focal zone.",
-      "Use crisp edges only at focal structures; soften or partially lose edges in hair tails, drifting cloth, haze and distant architecture.",
-      "Do not redesign identity, costume, palette, motion language or composition energy."
+      "保持已认可的东方史诗厚涂风格、黑白古金暗红配色、美感优先或风格化美感面容方向、全身史诗构图与大尺度运动。",
+      "最高细节集中在面部、冠饰、胸颈焦点区、腰部核心饰件与武器核心。",
+      "主要衣装体块、主体袖子与大块头发保持中等细节。",
+      "发尾、外侧飘带、远处建筑、薄雾、云、地面反射与外围效果保留选择性完成和更写意的处理。",
+      "最强高光放在面部、冠、上身或武器核心附近；次级衣装高光降低，外围和背景光从属。",
+      "保持背景宏伟尺度，但降低面部及上身焦点区周围的建筑刻画精度与反差。",
+      "仅焦点结构使用清晰锐边；发尾、飘动布料、雾气和远处建筑边缘柔化或局部隐没。",
+      "不重新设计身份、衣装、配色、运动语言或构图张力。"
     ],
-    "note": "Use after style target direction is approved. This round reduces over-completion without weakening the cinematic style target."
+    "note": "风格目标方向认可后使用，此阶段减少过度完成，不削弱电影风格目标。"
   },
   "order": [
     "style_intent_alignment",
     "style_target_restoration",
     "concept_art_hierarchy_refine"
   ],
-  "rule": "First restore the target style; then redistribute detail, highlights, background emphasis and edge sharpness without reopening identity or style intent."
+  "rule": "先恢复目标风格，再重新分配细节、高光、背景强调与边缘锐度，不重开身份或风格意图。"
 }

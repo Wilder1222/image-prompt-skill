@@ -2490,6 +2490,1646 @@
           "译文摘要": "6648a3bd08030dada489b88e5e8843259012e7b18f7bba7bba08ecb20ec4010b"
         }
       ]
+    },
+    {
+      "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+      "源文件": "docs/v0.7.4-cyber-constraint-plan.json",
+      "源文件摘要": "4a021182d6ea5f831e1e386c94cb8e5024a176642e8b87364c388e665ad8ed39",
+      "译文文件": "docs/v0.7.4-cyber-constraint-plan.json",
+      "译文摘要": "7d8d7b00456bbbe0d180ed8670fbd9bbac5737405db426a928ee68509c44f11a",
+      "翻译字段数": 43,
+      "字段": [
+        {
+          "位置": "$.completion.prompt_translation[0]",
+          "原文摘要": "6f4cac923cb015c6a6c46e5eddae3eeda07a0b5903961fb5333d0b2cc2177f8e",
+          "译文摘要": "2bffb37a54f5b34531a62a1332ada9b31a9490f15dc66effc5f04927c0fbe6b3"
+        },
+        {
+          "位置": "$.completion.prompt_translation[1]",
+          "原文摘要": "be7b342cddfe42c0b7329d2feff7e67c8e9997316e9e4db134c33b8b655d5cec",
+          "译文摘要": "731a073c5764b6fa842c49d1bc581fe06b673137f1d095efe883c6bfb1c0ad6e"
+        },
+        {
+          "位置": "$.completion.rule",
+          "原文摘要": "3beeca1f47d03dc92a6e4c51f349ef4aec2d3dea78c5f3f67b9b11d88acdc113",
+          "译文摘要": "2feb864ce99175ad16be2eef87df47aadbaabf7b93d6e723df93d9367a432e7f"
+        },
+        {
+          "位置": "$.design_density.prompt_translation[0]",
+          "原文摘要": "b0cd35e1f2b39807cc2390614677547fc465c8c729ae20763d6b5dd12953e07d",
+          "译文摘要": "432473f0cd2ab7ee6153ceb8e9fcd668cc27236876dd9d498a31d9395ff05e93"
+        },
+        {
+          "位置": "$.design_density.prompt_translation[1]",
+          "原文摘要": "ad5a0dbb311e85c148bd4cf65104716bff6a4feeda2b00e6bc4645a1521961cc",
+          "译文摘要": "50e3b89b3321257faff4164e06602aab27e7c94ce3ec1b45e46ae5ad6efd33c3"
+        },
+        {
+          "位置": "$.design_density.note",
+          "原文摘要": "20f1e5253c79ba770d0ff6ab90a71970822239860ee4e262a9d7fa304ceeb7b7",
+          "译文摘要": "7049b6d58cb685e8fa412586616ca170d6dac4a830df304a66231f6b3ed63144"
+        },
+        {
+          "位置": "$.wear.rule",
+          "原文摘要": "e7e183d613b5e0594e27ed094d374207752fee5bf855086fdf19636f5a4134c8",
+          "译文摘要": "72e48bad9ab5f545cbf778dc320c2f60c2c3d89abbe21501ee5c822d174ea6a8"
+        },
+        {
+          "位置": "$.human_presence.prompt_translation[0]",
+          "原文摘要": "d0f7098a528aead24f3ff0e1b4663162a3d5b049eead34ad864093d999b104f6",
+          "译文摘要": "4ced25bf5daf2a749a9c410545f43fc7fb2c546c8b0085630c83102e8461ebf6"
+        },
+        {
+          "位置": "$.human_presence.prompt_translation[1]",
+          "原文摘要": "d8c9b23d88d779481f846e9d24656eb6dbebeef80719a2e9b2e465eb6e77a00a",
+          "译文摘要": "d51a8b454e3d4558ef34229883372c375c15d42bc52b1135fc6320080fba56a2"
+        },
+        {
+          "位置": "$.human_presence.regions.forehead",
+          "原文摘要": "b332fb717f591709be2eafffefc3e1666c8722220f680d99b0411ce158391442",
+          "译文摘要": "2890f639503f67b92a35a6784e3fbd669f578018a42eb0b0e1f1a7fffede03f8"
+        },
+        {
+          "位置": "$.human_presence.regions.eyelids",
+          "原文摘要": "45cfa6fa791656b13bc00c4a1b93429c2fd4bea538d2ccc1cb17122b7945b959",
+          "译文摘要": "ed2474965d71bff61f9b4f39a0f7bae95990fb404f9d06a9d8f5aa359c5e8730"
+        },
+        {
+          "位置": "$.human_presence.regions.nose",
+          "原文摘要": "95aea36ed2710817fa9229b9e4a7ee10806d61abbdcfc09b84f68e074c6c3a03",
+          "译文摘要": "e54de47f898917c5de3d633216d87d97b70b5c9029bed3ec4812e5c064d0f38f"
+        },
+        {
+          "位置": "$.human_presence.regions.inner_cheeks",
+          "原文摘要": "b2069fe731494b9d85ec70c1dadbcb0afcdcf1eb309079769837c1c9d3d0516e",
+          "译文摘要": "5d1512664dc06760ec645b18221414d4d0367401d7a616f0722b8be7a0907196"
+        },
+        {
+          "位置": "$.human_presence.regions.outer_cheeks",
+          "原文摘要": "fbaeb9575f6a4918fc09d28851bf7ee506801df5b55b7dcc6adb3a2c1854d079",
+          "译文摘要": "121ddfef20180fef27f234077da75372005872cd6e0518b3b56ee9a9bdc47246"
+        },
+        {
+          "位置": "$.human_presence.regions.lips",
+          "原文摘要": "9aecda4af92c0495813926cd472ec82bf578739abbab87beb5d7f5543bd9ad49",
+          "译文摘要": "f739a1393f164c45dddc646134e2cbc14382c960f8bbe6a7ef1ed668e42b8735"
+        },
+        {
+          "位置": "$.human_presence.regions.jaw_neck",
+          "原文摘要": "212ecb218a8efc59d7f69155610208048bf968ab5b8f6ea67af26bc39aeed6fe",
+          "译文摘要": "6a414aaab263720baf575f46ca7354ac01398e010c54325661ae0ab053c94dfd"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[0]",
+          "原文摘要": "e4d2de31933edb4a32f8bcd28e47f0694505b2c08675fb3ac461fcf5122c9626",
+          "译文摘要": "b51c41011c6071ed9496705bd4b868d0ea5ae2e74243510835e1c4635b14f71e"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[1]",
+          "原文摘要": "a12236e05cb8217ed3f3bcb198bda8c965da20db1d3901037ec2870d7c2e8ecd",
+          "译文摘要": "014f8bd2c830b01ec4c4dd0f54395b684cf6afb119218a0bb68b917a6cb15e05"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[2]",
+          "原文摘要": "4a8171801a046360c85c3b3e2d7d65b2106ad364b2e98bfdb3842593fb1e7ba0",
+          "译文摘要": "3ccd12d1b8378344686affbb007dff3236e3d5b41ddbbd586812e83442ec6523"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[3]",
+          "原文摘要": "59044c44e60d20102254e22aba6baf50798b16bb68cf87d69ac07e3b5e9ad019",
+          "译文摘要": "5bd07d1cfc625fb221ee3868a76197f2d5683ef28cdf0c57fa1854efa1ed9560"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[4]",
+          "原文摘要": "c8d8c0725247f10af6d004d5839594dd2ee91b01759a5aa468c51c55e488aadb",
+          "译文摘要": "08f4f2a25ce819717ba26d492ddfe0c158dd3adbf1dc56c45c39318dbfeaec14"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[5]",
+          "原文摘要": "f0a91d4ba3422814d360cd2f56e1d41a81a9ec588274bdcedaba38cae33e7a9d",
+          "译文摘要": "cdaf7cbbd35568a8439fe10976099f687031ba52887841dc09b9cb98d39fb997"
+        },
+        {
+          "位置": "$.human_presence.rule",
+          "原文摘要": "cef8a93c4a9eed2623f84e6b993eb3c0cbc02d15c65ecce6dca961e6a554f6b5",
+          "译文摘要": "57bb14b698ec1677047826e9c80064b19b1e562a255d7a2c65d6688d48c38870"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[0]",
+          "原文摘要": "8a5502c2182a1e03757e24b4c09a96e3b0469ebb9f3334745c404d7f16dcdeb0",
+          "译文摘要": "7075a912885b8dc88ab453b4c73fc5bae50dacda1a35f250f8fdd530bf7c5f9f"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[1]",
+          "原文摘要": "80f4013bcf90318bc365e6f31ce01282bde67a8e7944b819fa68f748003b092e",
+          "译文摘要": "e67e51363a00f467cb7224038303983f620eb2e4d693e620c7af4267bbdd62fd"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[2]",
+          "原文摘要": "c252e38a39e84407f9600489281652f53c5e93b8238d107aa4ceaaed4e0d05c7",
+          "译文摘要": "9ca83881e27ed8186deed15dca7025ffb67ebca7291e35d115fa572fc9fc1c77"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[3]",
+          "原文摘要": "dfbc486a4dbc2617cab4ffbb7a1673ebfd54c49839c34cd267c77562bc625d55",
+          "译文摘要": "5b2ae67ece8f8d834c90ef2d11858573294272a0c4a09e9f34adf0baec576816"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[4]",
+          "原文摘要": "35c44ef5b1ab2b55f48eb6b4d60136441f0297f9a109d1e13937464a5199ccba",
+          "译文摘要": "2d26ef37380f37afa28072f7e795fab0db6e079b914cf2723da5904aaa4c78dc"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[5]",
+          "原文摘要": "533cb6839825594646783f574c321cad3dfab936f2d3bcef1b87bb69efdcff36",
+          "译文摘要": "8819602adb4f047ce949ed0200233dac034ea6b8fa5104a57ced9243d63cbb04"
+        },
+        {
+          "位置": "$.extremity.foot_requirements[0]",
+          "原文摘要": "c8a29174b4391859364b908ccabe2e8805c7d507e18b8ca82748f0f9b4474a7b",
+          "译文摘要": "27b0e4289b8f98d9ba24cf634f63596a35f66b44172afa9b810d59e5c347353a"
+        },
+        {
+          "位置": "$.extremity.foot_requirements[1]",
+          "原文摘要": "270f99d465ace3b20ef2bf9dbb0b8d6779078b951c50fa07bd949c225ea6de79",
+          "译文摘要": "5592ef35ead0f37c39a49df56469492784e70964ddd22d4df751efcbad123415"
+        },
+        {
+          "位置": "$.extremity.foot_requirements[2]",
+          "原文摘要": "aa78b6a79a6a55ae8f36beef2a26b0507016364a26b6e19d1fc8932dd10f72e1",
+          "译文摘要": "7a5741864bc51ff2ac8b788abb1dd3f81ea56f7ee4eae9cbd4692bdab2e6e26b"
+        },
+        {
+          "位置": "$.extremity.foot_requirements[3]",
+          "原文摘要": "f3cecda6bb5f7277a1c176bd63674600667ff9e864a808e053dee01a8bb92a31",
+          "译文摘要": "88404d637e5510e0ec197fb06d0cc759870726346c08deb160cfc5ce9f736faa"
+        },
+        {
+          "位置": "$.extremity.repair_policy",
+          "原文摘要": "33f5204ea116028edf3f0233c952446b0a77f8bff16e714eec85f75da17bb246",
+          "译文摘要": "89a8cb1ac6beed7562e1c6824eab304aeb4af1fdf0c6db4ef146fcdf4213cf2f"
+        },
+        {
+          "位置": "$.prompt_skeleton[0]",
+          "原文摘要": "6f4cac923cb015c6a6c46e5eddae3eeda07a0b5903961fb5333d0b2cc2177f8e",
+          "译文摘要": "2bffb37a54f5b34531a62a1332ada9b31a9490f15dc66effc5f04927c0fbe6b3"
+        },
+        {
+          "位置": "$.prompt_skeleton[1]",
+          "原文摘要": "be7b342cddfe42c0b7329d2feff7e67c8e9997316e9e4db134c33b8b655d5cec",
+          "译文摘要": "731a073c5764b6fa842c49d1bc581fe06b673137f1d095efe883c6bfb1c0ad6e"
+        },
+        {
+          "位置": "$.prompt_skeleton[2]",
+          "原文摘要": "b0cd35e1f2b39807cc2390614677547fc465c8c729ae20763d6b5dd12953e07d",
+          "译文摘要": "432473f0cd2ab7ee6153ceb8e9fcd668cc27236876dd9d498a31d9395ff05e93"
+        },
+        {
+          "位置": "$.prompt_skeleton[3]",
+          "原文摘要": "ad5a0dbb311e85c148bd4cf65104716bff6a4feeda2b00e6bc4645a1521961cc",
+          "译文摘要": "50e3b89b3321257faff4164e06602aab27e7c94ce3ec1b45e46ae5ad6efd33c3"
+        },
+        {
+          "位置": "$.prompt_skeleton[4]",
+          "原文摘要": "9c6f6636a4a7fe30468bc797bef49cccb15b0d343ca3b146edd05419d5523da5",
+          "译文摘要": "89ffb7e0f0be8f315e9476f113eb96c23577edc78a2284048dc05861253a1915"
+        },
+        {
+          "位置": "$.prompt_skeleton[5]",
+          "原文摘要": "d0f7098a528aead24f3ff0e1b4663162a3d5b049eead34ad864093d999b104f6",
+          "译文摘要": "4ced25bf5daf2a749a9c410545f43fc7fb2c546c8b0085630c83102e8461ebf6"
+        },
+        {
+          "位置": "$.prompt_skeleton[6]",
+          "原文摘要": "d8c9b23d88d779481f846e9d24656eb6dbebeef80719a2e9b2e465eb6e77a00a",
+          "译文摘要": "d51a8b454e3d4558ef34229883372c375c15d42bc52b1135fc6320080fba56a2"
+        },
+        {
+          "位置": "$.prompt_skeleton[7]",
+          "原文摘要": "6559f9bd8710606424d11420676ea272b8ffedf47de3e0e62c4fe169bffc142c",
+          "译文摘要": "6e7a78c27733d1006ee880442cb12ecf6c0851f03de35c26e05edc52457f80cd"
+        },
+        {
+          "位置": "$.note",
+          "原文摘要": "c9c082747fe01eeaf40d184b88b9a4c135096b33cfa891c3a1a68bf730500728",
+          "译文摘要": "6812365d3be57e1618160ade065e48393c53a4e6f605fdfb9feb6244fb569630"
+        }
+      ]
+    },
+    {
+      "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+      "源文件": "docs/v0.7.4-silver-constraint-plan.json",
+      "源文件摘要": "f77c957060e81f822b35c0547d77c5f8d8e3af92991a6afcf203d35dc0fa0ba7",
+      "译文文件": "docs/v0.7.4-silver-constraint-plan.json",
+      "译文摘要": "749e4f31209d9a3675319680229f04009bf8ee28f611cf860d8dd703af6038ef",
+      "翻译字段数": 43,
+      "字段": [
+        {
+          "位置": "$.completion.prompt_translation[0]",
+          "原文摘要": "6f4cac923cb015c6a6c46e5eddae3eeda07a0b5903961fb5333d0b2cc2177f8e",
+          "译文摘要": "2bffb37a54f5b34531a62a1332ada9b31a9490f15dc66effc5f04927c0fbe6b3"
+        },
+        {
+          "位置": "$.completion.prompt_translation[1]",
+          "原文摘要": "be7b342cddfe42c0b7329d2feff7e67c8e9997316e9e4db134c33b8b655d5cec",
+          "译文摘要": "731a073c5764b6fa842c49d1bc581fe06b673137f1d095efe883c6bfb1c0ad6e"
+        },
+        {
+          "位置": "$.completion.rule",
+          "原文摘要": "3beeca1f47d03dc92a6e4c51f349ef4aec2d3dea78c5f3f67b9b11d88acdc113",
+          "译文摘要": "2feb864ce99175ad16be2eef87df47aadbaabf7b93d6e723df93d9367a432e7f"
+        },
+        {
+          "位置": "$.design_density.prompt_translation[0]",
+          "原文摘要": "b0cd35e1f2b39807cc2390614677547fc465c8c729ae20763d6b5dd12953e07d",
+          "译文摘要": "432473f0cd2ab7ee6153ceb8e9fcd668cc27236876dd9d498a31d9395ff05e93"
+        },
+        {
+          "位置": "$.design_density.prompt_translation[1]",
+          "原文摘要": "ad5a0dbb311e85c148bd4cf65104716bff6a4feeda2b00e6bc4645a1521961cc",
+          "译文摘要": "50e3b89b3321257faff4164e06602aab27e7c94ce3ec1b45e46ae5ad6efd33c3"
+        },
+        {
+          "位置": "$.design_density.note",
+          "原文摘要": "20f1e5253c79ba770d0ff6ab90a71970822239860ee4e262a9d7fa304ceeb7b7",
+          "译文摘要": "7049b6d58cb685e8fa412586616ca170d6dac4a830df304a66231f6b3ed63144"
+        },
+        {
+          "位置": "$.wear.rule",
+          "原文摘要": "e7e183d613b5e0594e27ed094d374207752fee5bf855086fdf19636f5a4134c8",
+          "译文摘要": "72e48bad9ab5f545cbf778dc320c2f60c2c3d89abbe21501ee5c822d174ea6a8"
+        },
+        {
+          "位置": "$.human_presence.prompt_translation[0]",
+          "原文摘要": "d0f7098a528aead24f3ff0e1b4663162a3d5b049eead34ad864093d999b104f6",
+          "译文摘要": "4ced25bf5daf2a749a9c410545f43fc7fb2c546c8b0085630c83102e8461ebf6"
+        },
+        {
+          "位置": "$.human_presence.prompt_translation[1]",
+          "原文摘要": "d8c9b23d88d779481f846e9d24656eb6dbebeef80719a2e9b2e465eb6e77a00a",
+          "译文摘要": "d51a8b454e3d4558ef34229883372c375c15d42bc52b1135fc6320080fba56a2"
+        },
+        {
+          "位置": "$.human_presence.regions.forehead",
+          "原文摘要": "b332fb717f591709be2eafffefc3e1666c8722220f680d99b0411ce158391442",
+          "译文摘要": "2890f639503f67b92a35a6784e3fbd669f578018a42eb0b0e1f1a7fffede03f8"
+        },
+        {
+          "位置": "$.human_presence.regions.eyelids",
+          "原文摘要": "45cfa6fa791656b13bc00c4a1b93429c2fd4bea538d2ccc1cb17122b7945b959",
+          "译文摘要": "ed2474965d71bff61f9b4f39a0f7bae95990fb404f9d06a9d8f5aa359c5e8730"
+        },
+        {
+          "位置": "$.human_presence.regions.nose",
+          "原文摘要": "95aea36ed2710817fa9229b9e4a7ee10806d61abbdcfc09b84f68e074c6c3a03",
+          "译文摘要": "e54de47f898917c5de3d633216d87d97b70b5c9029bed3ec4812e5c064d0f38f"
+        },
+        {
+          "位置": "$.human_presence.regions.inner_cheeks",
+          "原文摘要": "b2069fe731494b9d85ec70c1dadbcb0afcdcf1eb309079769837c1c9d3d0516e",
+          "译文摘要": "5d1512664dc06760ec645b18221414d4d0367401d7a616f0722b8be7a0907196"
+        },
+        {
+          "位置": "$.human_presence.regions.outer_cheeks",
+          "原文摘要": "fbaeb9575f6a4918fc09d28851bf7ee506801df5b55b7dcc6adb3a2c1854d079",
+          "译文摘要": "121ddfef20180fef27f234077da75372005872cd6e0518b3b56ee9a9bdc47246"
+        },
+        {
+          "位置": "$.human_presence.regions.lips",
+          "原文摘要": "9aecda4af92c0495813926cd472ec82bf578739abbab87beb5d7f5543bd9ad49",
+          "译文摘要": "f739a1393f164c45dddc646134e2cbc14382c960f8bbe6a7ef1ed668e42b8735"
+        },
+        {
+          "位置": "$.human_presence.regions.jaw_neck",
+          "原文摘要": "212ecb218a8efc59d7f69155610208048bf968ab5b8f6ea67af26bc39aeed6fe",
+          "译文摘要": "6a414aaab263720baf575f46ca7354ac01398e010c54325661ae0ab053c94dfd"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[0]",
+          "原文摘要": "e4d2de31933edb4a32f8bcd28e47f0694505b2c08675fb3ac461fcf5122c9626",
+          "译文摘要": "b51c41011c6071ed9496705bd4b868d0ea5ae2e74243510835e1c4635b14f71e"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[1]",
+          "原文摘要": "a12236e05cb8217ed3f3bcb198bda8c965da20db1d3901037ec2870d7c2e8ecd",
+          "译文摘要": "014f8bd2c830b01ec4c4dd0f54395b684cf6afb119218a0bb68b917a6cb15e05"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[2]",
+          "原文摘要": "4a8171801a046360c85c3b3e2d7d65b2106ad364b2e98bfdb3842593fb1e7ba0",
+          "译文摘要": "3ccd12d1b8378344686affbb007dff3236e3d5b41ddbbd586812e83442ec6523"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[3]",
+          "原文摘要": "59044c44e60d20102254e22aba6baf50798b16bb68cf87d69ac07e3b5e9ad019",
+          "译文摘要": "5bd07d1cfc625fb221ee3868a76197f2d5683ef28cdf0c57fa1854efa1ed9560"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[4]",
+          "原文摘要": "c8d8c0725247f10af6d004d5839594dd2ee91b01759a5aa468c51c55e488aadb",
+          "译文摘要": "08f4f2a25ce819717ba26d492ddfe0c158dd3adbf1dc56c45c39318dbfeaec14"
+        },
+        {
+          "位置": "$.human_presence.camera_rules[5]",
+          "原文摘要": "f0a91d4ba3422814d360cd2f56e1d41a81a9ec588274bdcedaba38cae33e7a9d",
+          "译文摘要": "cdaf7cbbd35568a8439fe10976099f687031ba52887841dc09b9cb98d39fb997"
+        },
+        {
+          "位置": "$.human_presence.rule",
+          "原文摘要": "cef8a93c4a9eed2623f84e6b993eb3c0cbc02d15c65ecce6dca961e6a554f6b5",
+          "译文摘要": "57bb14b698ec1677047826e9c80064b19b1e562a255d7a2c65d6688d48c38870"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[0]",
+          "原文摘要": "8a5502c2182a1e03757e24b4c09a96e3b0469ebb9f3334745c404d7f16dcdeb0",
+          "译文摘要": "7075a912885b8dc88ab453b4c73fc5bae50dacda1a35f250f8fdd530bf7c5f9f"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[1]",
+          "原文摘要": "80f4013bcf90318bc365e6f31ce01282bde67a8e7944b819fa68f748003b092e",
+          "译文摘要": "e67e51363a00f467cb7224038303983f620eb2e4d693e620c7af4267bbdd62fd"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[2]",
+          "原文摘要": "c252e38a39e84407f9600489281652f53c5e93b8238d107aa4ceaaed4e0d05c7",
+          "译文摘要": "9ca83881e27ed8186deed15dca7025ffb67ebca7291e35d115fa572fc9fc1c77"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[3]",
+          "原文摘要": "dfbc486a4dbc2617cab4ffbb7a1673ebfd54c49839c34cd267c77562bc625d55",
+          "译文摘要": "5b2ae67ece8f8d834c90ef2d11858573294272a0c4a09e9f34adf0baec576816"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[4]",
+          "原文摘要": "35c44ef5b1ab2b55f48eb6b4d60136441f0297f9a109d1e13937464a5199ccba",
+          "译文摘要": "2d26ef37380f37afa28072f7e795fab0db6e079b914cf2723da5904aaa4c78dc"
+        },
+        {
+          "位置": "$.extremity.hand_requirements[5]",
+          "原文摘要": "533cb6839825594646783f574c321cad3dfab936f2d3bcef1b87bb69efdcff36",
+          "译文摘要": "8819602adb4f047ce949ed0200233dac034ea6b8fa5104a57ced9243d63cbb04"
+        },
+        {
+          "位置": "$.extremity.foot_requirements[0]",
+          "原文摘要": "c8a29174b4391859364b908ccabe2e8805c7d507e18b8ca82748f0f9b4474a7b",
+          "译文摘要": "27b0e4289b8f98d9ba24cf634f63596a35f66b44172afa9b810d59e5c347353a"
+        },
+        {
+          "位置": "$.extremity.foot_requirements[1]",
+          "原文摘要": "270f99d465ace3b20ef2bf9dbb0b8d6779078b951c50fa07bd949c225ea6de79",
+          "译文摘要": "5592ef35ead0f37c39a49df56469492784e70964ddd22d4df751efcbad123415"
+        },
+        {
+          "位置": "$.extremity.foot_requirements[2]",
+          "原文摘要": "aa78b6a79a6a55ae8f36beef2a26b0507016364a26b6e19d1fc8932dd10f72e1",
+          "译文摘要": "7a5741864bc51ff2ac8b788abb1dd3f81ea56f7ee4eae9cbd4692bdab2e6e26b"
+        },
+        {
+          "位置": "$.extremity.foot_requirements[3]",
+          "原文摘要": "f3cecda6bb5f7277a1c176bd63674600667ff9e864a808e053dee01a8bb92a31",
+          "译文摘要": "88404d637e5510e0ec197fb06d0cc759870726346c08deb160cfc5ce9f736faa"
+        },
+        {
+          "位置": "$.extremity.repair_policy",
+          "原文摘要": "33f5204ea116028edf3f0233c952446b0a77f8bff16e714eec85f75da17bb246",
+          "译文摘要": "89a8cb1ac6beed7562e1c6824eab304aeb4af1fdf0c6db4ef146fcdf4213cf2f"
+        },
+        {
+          "位置": "$.prompt_skeleton[0]",
+          "原文摘要": "6f4cac923cb015c6a6c46e5eddae3eeda07a0b5903961fb5333d0b2cc2177f8e",
+          "译文摘要": "2bffb37a54f5b34531a62a1332ada9b31a9490f15dc66effc5f04927c0fbe6b3"
+        },
+        {
+          "位置": "$.prompt_skeleton[1]",
+          "原文摘要": "be7b342cddfe42c0b7329d2feff7e67c8e9997316e9e4db134c33b8b655d5cec",
+          "译文摘要": "731a073c5764b6fa842c49d1bc581fe06b673137f1d095efe883c6bfb1c0ad6e"
+        },
+        {
+          "位置": "$.prompt_skeleton[2]",
+          "原文摘要": "b0cd35e1f2b39807cc2390614677547fc465c8c729ae20763d6b5dd12953e07d",
+          "译文摘要": "432473f0cd2ab7ee6153ceb8e9fcd668cc27236876dd9d498a31d9395ff05e93"
+        },
+        {
+          "位置": "$.prompt_skeleton[3]",
+          "原文摘要": "ad5a0dbb311e85c148bd4cf65104716bff6a4feeda2b00e6bc4645a1521961cc",
+          "译文摘要": "50e3b89b3321257faff4164e06602aab27e7c94ce3ec1b45e46ae5ad6efd33c3"
+        },
+        {
+          "位置": "$.prompt_skeleton[4]",
+          "原文摘要": "43e1c7ef505fdc2d8725b2fcf2e051ee6b7e2e446c373c26025f14565a602cbd",
+          "译文摘要": "fb3b63f5c78d966409337ef5bf4983af52a06467774ee0b46b35122bdb39018d"
+        },
+        {
+          "位置": "$.prompt_skeleton[5]",
+          "原文摘要": "d0f7098a528aead24f3ff0e1b4663162a3d5b049eead34ad864093d999b104f6",
+          "译文摘要": "4ced25bf5daf2a749a9c410545f43fc7fb2c546c8b0085630c83102e8461ebf6"
+        },
+        {
+          "位置": "$.prompt_skeleton[6]",
+          "原文摘要": "d8c9b23d88d779481f846e9d24656eb6dbebeef80719a2e9b2e465eb6e77a00a",
+          "译文摘要": "d51a8b454e3d4558ef34229883372c375c15d42bc52b1135fc6320080fba56a2"
+        },
+        {
+          "位置": "$.prompt_skeleton[7]",
+          "原文摘要": "6559f9bd8710606424d11420676ea272b8ffedf47de3e0e62c4fe169bffc142c",
+          "译文摘要": "6e7a78c27733d1006ee880442cb12ecf6c0851f03de35c26e05edc52457f80cd"
+        },
+        {
+          "位置": "$.note",
+          "原文摘要": "c9c082747fe01eeaf40d184b88b9a4c135096b33cfa891c3a1a68bf730500728",
+          "译文摘要": "6812365d3be57e1618160ade065e48393c53a4e6f605fdfb9feb6244fb569630"
+        }
+      ]
+    },
+    {
+      "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+      "源文件": "docs/v0.7.8-fabric-white-plan.json",
+      "源文件摘要": "3c49fef976353bf08d4850124d17d06341b6085290c1dece293470d17d99bf7d",
+      "译文文件": "docs/v0.7.8-fabric-white-plan.json",
+      "译文摘要": "9e38859dda2adf353410c6cc568d44f8d61e76fc076e582170918f5b68459564",
+      "翻译字段数": 10,
+      "字段": [
+        {
+          "位置": "$.fabric_white.prompt_translation[0]",
+          "原文摘要": "e76be822447703b470c0ff67b7f43abf0388b3e040b6e03b4f2f6485cf26b298",
+          "译文摘要": "34aa76bc46f57673bec056b9bd42b0ea6a2e7f0ef59764a1d269a9577d64b65e"
+        },
+        {
+          "位置": "$.fabric_white.prompt_translation[1]",
+          "原文摘要": "f6ae0b160fc4e2b4ff61b8bf97790bfa815713fa9f326f33396c070847c38bec",
+          "译文摘要": "e2bffb958d6e91a3e59ea0b1cc6a0c809be1021f604be24ad31b8562d391d5c2"
+        },
+        {
+          "位置": "$.fabric_white.prompt_translation[2]",
+          "原文摘要": "bb72a4a6a5a97249b57d1997d402b95d62ad3feffe64466907b0f8b71a5001cf",
+          "译文摘要": "0a98c7ca3e2d22672e8bacff02134f566af38046c106fe6930f433646ed77887"
+        },
+        {
+          "位置": "$.fabric_white.principle",
+          "原文摘要": "094f46a1961d57424e021407c6484b3eedc0150d744c16fd21f147074aeffff7",
+          "译文摘要": "1f5abefe907956e4a0e8628f548956943a75b3e9f7df20f906f0d92d1d292052"
+        },
+        {
+          "位置": "$.round_plan.prompt_strategy",
+          "原文摘要": "934e611d4e53989031f71cee0dd7fcb2f2bf72fc6e09643f7800baf850803163",
+          "译文摘要": "848f637640b157a0d4d5676fa01ee5c4daf2bea682f973eb4863964104dc1e13"
+        },
+        {
+          "位置": "$.prompt_skeleton[0]",
+          "原文摘要": "e76be822447703b470c0ff67b7f43abf0388b3e040b6e03b4f2f6485cf26b298",
+          "译文摘要": "34aa76bc46f57673bec056b9bd42b0ea6a2e7f0ef59764a1d269a9577d64b65e"
+        },
+        {
+          "位置": "$.prompt_skeleton[1]",
+          "原文摘要": "f6ae0b160fc4e2b4ff61b8bf97790bfa815713fa9f326f33396c070847c38bec",
+          "译文摘要": "e2bffb958d6e91a3e59ea0b1cc6a0c809be1021f604be24ad31b8562d391d5c2"
+        },
+        {
+          "位置": "$.prompt_skeleton[2]",
+          "原文摘要": "bb72a4a6a5a97249b57d1997d402b95d62ad3feffe64466907b0f8b71a5001cf",
+          "译文摘要": "0a98c7ca3e2d22672e8bacff02134f566af38046c106fe6930f433646ed77887"
+        },
+        {
+          "位置": "$.prompt_skeleton[3]",
+          "原文摘要": "6980d0bbdef50f9096aa4da2d5882a27b48ed15edb4a194017c983373874bd44",
+          "译文摘要": "b9c37d1acc1e27f0b0e7fe955c93cd61bc93b5114f1e2b8fde087304ac2eb41b"
+        },
+        {
+          "位置": "$.note",
+          "原文摘要": "ef27e956c3a6f76e32252550100f29157a3b3a647fcfe7f4694a200a07665b6c",
+          "译文摘要": "9d45e42de1686160049ad80cfd571dda2c2fe9c45f749cef3004c9a34a7ca5d8"
+        }
+      ]
+    },
+    {
+      "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+      "源文件": "docs/v0.7.8-final-polish-plan.json",
+      "源文件摘要": "fdd5d4b902218d91b703de2eb2b159e0c4bdf00c29866fb0d788bd570864534a",
+      "译文文件": "docs/v0.7.8-final-polish-plan.json",
+      "译文摘要": "40fa67f291d4cd6442102e42cbc6c9bf0d4fa18d0c2fa239eeee4ba20b0a6b8a",
+      "翻译字段数": 5,
+      "字段": [
+        {
+          "位置": "$.round_plan.prompt_strategy",
+          "原文摘要": "63ea0203bff1240bb8ae14e5cc3ecb98e1061b5755ed1f20dcade6a0a48b81c1",
+          "译文摘要": "0eba46d20f7c1878058c4d1e762dde797d5d4a29583d480d808fc778b7cc00d2"
+        },
+        {
+          "位置": "$.prompt_skeleton[0]",
+          "原文摘要": "3147f9f97f1f0045c012a1d78a74412e6e8e6eb387048cb22d744a346e42b18a",
+          "译文摘要": "b0daebd2d356a7007a1cad3913cee7ba5ef96f017b53b3b1be0dcd6ba6c8b3a4"
+        },
+        {
+          "位置": "$.prompt_skeleton[1]",
+          "原文摘要": "cc79f5d3ff21a905012ea857714263cb6d5d4161c1212cc4e0db5b0d1e47e098",
+          "译文摘要": "6058a45d0261a366c01cf2d7333f2573d5255e5934b25f469a0a3e99fea9560c"
+        },
+        {
+          "位置": "$.prompt_skeleton[2]",
+          "原文摘要": "c365acc8d93f8084533cbf515e7fcd21ee7c05a2e06eff77063992a5e61365f6",
+          "译文摘要": "b5f9c77c7a1e585f897d0a13adfc30096da1188deb8e9aa64cbc0e179778a9a1"
+        },
+        {
+          "位置": "$.note",
+          "原文摘要": "e31d66d2067d6f14269419cb6627024910ad1c87694add1d218124437c25dce7",
+          "译文摘要": "e6e9941424fb720c3e2e84ccb807ab6f0880999d2a033b98a2ebcf945cd3f7be"
+        }
+      ]
+    },
+    {
+      "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+      "源文件": "docs/v0.7.8-full-pipeline.json",
+      "源文件摘要": "01cfafdc0786863db4c0e2ccbb8525112ed147f19b06e525910c225aaa3a082a",
+      "译文文件": "docs/v0.7.8-full-pipeline.json",
+      "译文摘要": "2b6919793edaf30f82448a855fab4da0fcda1001407d3476f6c20ae4bc0352eb",
+      "翻译字段数": 31,
+      "字段": [
+        {
+          "位置": "$.stage_1.p9_persistence.prompt_translation[0]",
+          "原文摘要": "9222afe20980bf6a9306230f379620163501b00b4f08d3940b379d80600d57a1",
+          "译文摘要": "edd1713c6d0b1b9cde34b23330378dcd8244dfe2b9640fec27623838dcf3250b"
+        },
+        {
+          "位置": "$.stage_1.p9_persistence.prompt_translation[1]",
+          "原文摘要": "398cbc1c7ec1a854276483391d320d2550dfc5c5f24740f3a62613a08835768f",
+          "译文摘要": "647d7227bf176bff60bd77581f184d78a83a499863940dc53dff13291d91fe16"
+        },
+        {
+          "位置": "$.stage_1.p9_persistence.principle",
+          "原文摘要": "98f1883c653e6f11bdd6effae9943cbc48815ee4e5615f2e86a18298de0af17b",
+          "译文摘要": "f0ff48cbfe7f333df281d09551c4748cb37453ac431280c1b5e1a6bbebda0caf"
+        },
+        {
+          "位置": "$.stage_1.body_presence.prompt_translation[0]",
+          "原文摘要": "9f5189c8b06ebe4f1d8bfa11ab0b1a1e5be0a4310acfe395f315a3234f653d99",
+          "译文摘要": "1a237089dfbb36a09aadf8a250583dd54c7303b955f5b1d90873b5c9833c0018"
+        },
+        {
+          "位置": "$.stage_1.body_presence.prompt_translation[1]",
+          "原文摘要": "f4956b919dc463a52f730c4d560851b4c9a77e20321b35c859051b97a9ef2132",
+          "译文摘要": "169a8286ae926ff12658499fb0e49c3690803716917b59422179c41af551aac2"
+        },
+        {
+          "位置": "$.stage_1.body_presence.prompt_translation[2]",
+          "原文摘要": "522f1c3f02e98b0568f4e3a204df78b44f60900b9aca069ee7dafa32903d68a8",
+          "译文摘要": "9a7e57656b0a94d09aba32c9134bfe9139aaba33e3b97c653a1414b3cf872b12"
+        },
+        {
+          "位置": "$.stage_1.body_presence.principle",
+          "原文摘要": "661c922dfade9645e7f167cc76ac4ef0c6ff1844d520b3eec1e10c278dffc5af",
+          "译文摘要": "a2f21270aca553949cf7499cdfa193bd788f8b5be55107bc5927ccb16275f455"
+        },
+        {
+          "位置": "$.stage_1.round_plan.prompt_strategy",
+          "原文摘要": "1d88c33749fa39200e6c91de82d2299d7fa92d012395485bc9580c3d195f9129",
+          "译文摘要": "5e0b4acd1e2b64f4fbfbacf5e1457d11244c89f6a1496d33e51e33fcdf190bb3"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[0]",
+          "原文摘要": "9222afe20980bf6a9306230f379620163501b00b4f08d3940b379d80600d57a1",
+          "译文摘要": "edd1713c6d0b1b9cde34b23330378dcd8244dfe2b9640fec27623838dcf3250b"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[1]",
+          "原文摘要": "398cbc1c7ec1a854276483391d320d2550dfc5c5f24740f3a62613a08835768f",
+          "译文摘要": "647d7227bf176bff60bd77581f184d78a83a499863940dc53dff13291d91fe16"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[2]",
+          "原文摘要": "9f5189c8b06ebe4f1d8bfa11ab0b1a1e5be0a4310acfe395f315a3234f653d99",
+          "译文摘要": "1a237089dfbb36a09aadf8a250583dd54c7303b955f5b1d90873b5c9833c0018"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[3]",
+          "原文摘要": "f4956b919dc463a52f730c4d560851b4c9a77e20321b35c859051b97a9ef2132",
+          "译文摘要": "169a8286ae926ff12658499fb0e49c3690803716917b59422179c41af551aac2"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[4]",
+          "原文摘要": "522f1c3f02e98b0568f4e3a204df78b44f60900b9aca069ee7dafa32903d68a8",
+          "译文摘要": "9a7e57656b0a94d09aba32c9134bfe9139aaba33e3b97c653a1414b3cf872b12"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[5]",
+          "原文摘要": "a9d28b80ac0f9a0d29019c3ff4105d1cc8b0d6006ad68fb8dccfc9ed6cdb68b7",
+          "译文摘要": "005f3e553a55d63bb3dd5a2462a40e9fda3b64421a5881d81821d11f059ca448"
+        },
+        {
+          "位置": "$.stage_1.note",
+          "原文摘要": "a2ca4543711382000d47ac076bd85574caa70294206c5037e2159e164b791863",
+          "译文摘要": "43501c48711efbd5a60bc1aca6b84a0e8c6d0c1b90b3573721d27ae191436ac8"
+        },
+        {
+          "位置": "$.stage_2.fabric_white.prompt_translation[0]",
+          "原文摘要": "e76be822447703b470c0ff67b7f43abf0388b3e040b6e03b4f2f6485cf26b298",
+          "译文摘要": "34aa76bc46f57673bec056b9bd42b0ea6a2e7f0ef59764a1d269a9577d64b65e"
+        },
+        {
+          "位置": "$.stage_2.fabric_white.prompt_translation[1]",
+          "原文摘要": "f6ae0b160fc4e2b4ff61b8bf97790bfa815713fa9f326f33396c070847c38bec",
+          "译文摘要": "e2bffb958d6e91a3e59ea0b1cc6a0c809be1021f604be24ad31b8562d391d5c2"
+        },
+        {
+          "位置": "$.stage_2.fabric_white.prompt_translation[2]",
+          "原文摘要": "bb72a4a6a5a97249b57d1997d402b95d62ad3feffe64466907b0f8b71a5001cf",
+          "译文摘要": "0a98c7ca3e2d22672e8bacff02134f566af38046c106fe6930f433646ed77887"
+        },
+        {
+          "位置": "$.stage_2.fabric_white.principle",
+          "原文摘要": "094f46a1961d57424e021407c6484b3eedc0150d744c16fd21f147074aeffff7",
+          "译文摘要": "1f5abefe907956e4a0e8628f548956943a75b3e9f7df20f906f0d92d1d292052"
+        },
+        {
+          "位置": "$.stage_2.round_plan.prompt_strategy",
+          "原文摘要": "934e611d4e53989031f71cee0dd7fcb2f2bf72fc6e09643f7800baf850803163",
+          "译文摘要": "848f637640b157a0d4d5676fa01ee5c4daf2bea682f973eb4863964104dc1e13"
+        },
+        {
+          "位置": "$.stage_2.prompt_skeleton[0]",
+          "原文摘要": "e76be822447703b470c0ff67b7f43abf0388b3e040b6e03b4f2f6485cf26b298",
+          "译文摘要": "34aa76bc46f57673bec056b9bd42b0ea6a2e7f0ef59764a1d269a9577d64b65e"
+        },
+        {
+          "位置": "$.stage_2.prompt_skeleton[1]",
+          "原文摘要": "f6ae0b160fc4e2b4ff61b8bf97790bfa815713fa9f326f33396c070847c38bec",
+          "译文摘要": "e2bffb958d6e91a3e59ea0b1cc6a0c809be1021f604be24ad31b8562d391d5c2"
+        },
+        {
+          "位置": "$.stage_2.prompt_skeleton[2]",
+          "原文摘要": "bb72a4a6a5a97249b57d1997d402b95d62ad3feffe64466907b0f8b71a5001cf",
+          "译文摘要": "0a98c7ca3e2d22672e8bacff02134f566af38046c106fe6930f433646ed77887"
+        },
+        {
+          "位置": "$.stage_2.prompt_skeleton[3]",
+          "原文摘要": "6980d0bbdef50f9096aa4da2d5882a27b48ed15edb4a194017c983373874bd44",
+          "译文摘要": "b9c37d1acc1e27f0b0e7fe955c93cd61bc93b5114f1e2b8fde087304ac2eb41b"
+        },
+        {
+          "位置": "$.stage_2.note",
+          "原文摘要": "ef27e956c3a6f76e32252550100f29157a3b3a647fcfe7f4694a200a07665b6c",
+          "译文摘要": "9d45e42de1686160049ad80cfd571dda2c2fe9c45f749cef3004c9a34a7ca5d8"
+        },
+        {
+          "位置": "$.stage_3.round_plan.prompt_strategy",
+          "原文摘要": "63ea0203bff1240bb8ae14e5cc3ecb98e1061b5755ed1f20dcade6a0a48b81c1",
+          "译文摘要": "0eba46d20f7c1878058c4d1e762dde797d5d4a29583d480d808fc778b7cc00d2"
+        },
+        {
+          "位置": "$.stage_3.prompt_skeleton[0]",
+          "原文摘要": "3147f9f97f1f0045c012a1d78a74412e6e8e6eb387048cb22d744a346e42b18a",
+          "译文摘要": "b0daebd2d356a7007a1cad3913cee7ba5ef96f017b53b3b1be0dcd6ba6c8b3a4"
+        },
+        {
+          "位置": "$.stage_3.prompt_skeleton[1]",
+          "原文摘要": "cc79f5d3ff21a905012ea857714263cb6d5d4161c1212cc4e0db5b0d1e47e098",
+          "译文摘要": "6058a45d0261a366c01cf2d7333f2573d5255e5934b25f469a0a3e99fea9560c"
+        },
+        {
+          "位置": "$.stage_3.prompt_skeleton[2]",
+          "原文摘要": "c365acc8d93f8084533cbf515e7fcd21ee7c05a2e06eff77063992a5e61365f6",
+          "译文摘要": "b5f9c77c7a1e585f897d0a13adfc30096da1188deb8e9aa64cbc0e179778a9a1"
+        },
+        {
+          "位置": "$.stage_3.note",
+          "原文摘要": "e31d66d2067d6f14269419cb6627024910ad1c87694add1d218124437c25dce7",
+          "译文摘要": "e6e9941424fb720c3e2e84ccb807ab6f0880999d2a033b98a2ebcf945cd3f7be"
+        },
+        {
+          "位置": "$.rule",
+          "原文摘要": "4b8f4caa4eae9e4822e91e36efb85f047020992e514cbf03adccb26e45f86e83",
+          "译文摘要": "6cd848277f8034e2b4b79f22c4d3817752044a911979897ec41daeb7d27b527c"
+        }
+      ]
+    },
+    {
+      "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+      "源文件": "docs/v0.7.8-p9-body-plan.json",
+      "源文件摘要": "de92142ff7a9afe5ca8c571da94767bcdee398b52c0a48c7b79a8251b63ca6eb",
+      "译文文件": "docs/v0.7.8-p9-body-plan.json",
+      "译文摘要": "cfb2ff33592374c1f4aaf889cb813a1ad57dde4671686ae2aa918f1edbf6d9ec",
+      "翻译字段数": 15,
+      "字段": [
+        {
+          "位置": "$.p9_persistence.prompt_translation[0]",
+          "原文摘要": "9222afe20980bf6a9306230f379620163501b00b4f08d3940b379d80600d57a1",
+          "译文摘要": "edd1713c6d0b1b9cde34b23330378dcd8244dfe2b9640fec27623838dcf3250b"
+        },
+        {
+          "位置": "$.p9_persistence.prompt_translation[1]",
+          "原文摘要": "398cbc1c7ec1a854276483391d320d2550dfc5c5f24740f3a62613a08835768f",
+          "译文摘要": "647d7227bf176bff60bd77581f184d78a83a499863940dc53dff13291d91fe16"
+        },
+        {
+          "位置": "$.p9_persistence.principle",
+          "原文摘要": "98f1883c653e6f11bdd6effae9943cbc48815ee4e5615f2e86a18298de0af17b",
+          "译文摘要": "f0ff48cbfe7f333df281d09551c4748cb37453ac431280c1b5e1a6bbebda0caf"
+        },
+        {
+          "位置": "$.body_presence.prompt_translation[0]",
+          "原文摘要": "9f5189c8b06ebe4f1d8bfa11ab0b1a1e5be0a4310acfe395f315a3234f653d99",
+          "译文摘要": "1a237089dfbb36a09aadf8a250583dd54c7303b955f5b1d90873b5c9833c0018"
+        },
+        {
+          "位置": "$.body_presence.prompt_translation[1]",
+          "原文摘要": "f4956b919dc463a52f730c4d560851b4c9a77e20321b35c859051b97a9ef2132",
+          "译文摘要": "169a8286ae926ff12658499fb0e49c3690803716917b59422179c41af551aac2"
+        },
+        {
+          "位置": "$.body_presence.prompt_translation[2]",
+          "原文摘要": "522f1c3f02e98b0568f4e3a204df78b44f60900b9aca069ee7dafa32903d68a8",
+          "译文摘要": "9a7e57656b0a94d09aba32c9134bfe9139aaba33e3b97c653a1414b3cf872b12"
+        },
+        {
+          "位置": "$.body_presence.principle",
+          "原文摘要": "661c922dfade9645e7f167cc76ac4ef0c6ff1844d520b3eec1e10c278dffc5af",
+          "译文摘要": "a2f21270aca553949cf7499cdfa193bd788f8b5be55107bc5927ccb16275f455"
+        },
+        {
+          "位置": "$.round_plan.prompt_strategy",
+          "原文摘要": "1d88c33749fa39200e6c91de82d2299d7fa92d012395485bc9580c3d195f9129",
+          "译文摘要": "5e0b4acd1e2b64f4fbfbacf5e1457d11244c89f6a1496d33e51e33fcdf190bb3"
+        },
+        {
+          "位置": "$.prompt_skeleton[0]",
+          "原文摘要": "9222afe20980bf6a9306230f379620163501b00b4f08d3940b379d80600d57a1",
+          "译文摘要": "edd1713c6d0b1b9cde34b23330378dcd8244dfe2b9640fec27623838dcf3250b"
+        },
+        {
+          "位置": "$.prompt_skeleton[1]",
+          "原文摘要": "398cbc1c7ec1a854276483391d320d2550dfc5c5f24740f3a62613a08835768f",
+          "译文摘要": "647d7227bf176bff60bd77581f184d78a83a499863940dc53dff13291d91fe16"
+        },
+        {
+          "位置": "$.prompt_skeleton[2]",
+          "原文摘要": "9f5189c8b06ebe4f1d8bfa11ab0b1a1e5be0a4310acfe395f315a3234f653d99",
+          "译文摘要": "1a237089dfbb36a09aadf8a250583dd54c7303b955f5b1d90873b5c9833c0018"
+        },
+        {
+          "位置": "$.prompt_skeleton[3]",
+          "原文摘要": "f4956b919dc463a52f730c4d560851b4c9a77e20321b35c859051b97a9ef2132",
+          "译文摘要": "169a8286ae926ff12658499fb0e49c3690803716917b59422179c41af551aac2"
+        },
+        {
+          "位置": "$.prompt_skeleton[4]",
+          "原文摘要": "522f1c3f02e98b0568f4e3a204df78b44f60900b9aca069ee7dafa32903d68a8",
+          "译文摘要": "9a7e57656b0a94d09aba32c9134bfe9139aaba33e3b97c653a1414b3cf872b12"
+        },
+        {
+          "位置": "$.prompt_skeleton[5]",
+          "原文摘要": "a9d28b80ac0f9a0d29019c3ff4105d1cc8b0d6006ad68fb8dccfc9ed6cdb68b7",
+          "译文摘要": "005f3e553a55d63bb3dd5a2462a40e9fda3b64421a5881d81821d11f059ca448"
+        },
+        {
+          "位置": "$.note",
+          "原文摘要": "a2ca4543711382000d47ac076bd85574caa70294206c5037e2159e164b791863",
+          "译文摘要": "43501c48711efbd5a60bc1aca6b84a0e8c6d0c1b90b3573721d27ae191436ac8"
+        }
+      ]
+    },
+    {
+      "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+      "源文件": "docs/v0.7.9-silver-face-nonface-pipeline.json",
+      "源文件摘要": "2dedd30a95908da35a07f546ed1bf2ad2215509720b1f8001dd09a4e4cbdb3f2",
+      "译文文件": "docs/v0.7.9-silver-face-nonface-pipeline.json",
+      "译文摘要": "89a6d59824a4d42153fc2ca85b2156ba38409db4a2ea5ad8d437315be8ef66cd",
+      "翻译字段数": 45,
+      "字段": [
+        {
+          "位置": "$.stage_1.route.reason",
+          "原文摘要": "2b13944cd64e7d464f24533aaa3a228d7d4cf5604b3eaf0964f73570a4eb26ab",
+          "译文摘要": "6fc9b6d8df4992f46e30add8cd6cff54a5af6dc61fc6c43a198e9fccd2d90b2a"
+        },
+        {
+          "位置": "$.stage_1.route.rule",
+          "原文摘要": "e8fef4d06a64a01650ea463b154df31381dc6f2742e88b0c0f5c83d88424bab6",
+          "译文摘要": "bc8d693ab76e7cf830be31359eb19177468b08d47782891a047859189213b17b"
+        },
+        {
+          "位置": "$.stage_1.face_mode.label",
+          "原文摘要": "7d7819edc25c206778984eff0c96d23517e45f62d9736b839c657b3e6f2b5007",
+          "译文摘要": "3304283de120c235ded5e1ff59638a1065cfe1b3c8051e039b026b1f94b4cce4"
+        },
+        {
+          "位置": "$.stage_1.face_mode.goal",
+          "原文摘要": "5f400d0c901123dfa59ea9a0e2618c2bff76cf9becb06128432a60812ec36a44",
+          "译文摘要": "abecc50e768208943a5a23164804475855ad33648361f50edb7462010a0ba020"
+        },
+        {
+          "位置": "$.stage_1.face_mode.preferred_signals[0]",
+          "原文摘要": "453015fc95953b616602a9f048ade00b1644abb56cc9403e19fd2431efcf92ee",
+          "译文摘要": "2dc5ea196d156f61a168fbcd80bcfe5cd9957166e8418a829cce7600b4ff17bb"
+        },
+        {
+          "位置": "$.stage_1.face_mode.preferred_signals[1]",
+          "原文摘要": "e3ed39953abd7a02f3f857d73359c0bfd954cf91c20529e1e4b04824175e551f",
+          "译文摘要": "d8a68b5b0d7a49d5d136ebc593e2ac582375334abaf25003bb7c7521ef598ebb"
+        },
+        {
+          "位置": "$.stage_1.face_mode.preferred_signals[2]",
+          "原文摘要": "f74fd14f52dca5e6e0a815c9197fdff48fbb10aef10bbf9aa27f9de2cbd30ef7",
+          "译文摘要": "a4e2ece8848442e4454a53f900b47e5d15b34d9634fa913a1e161be31eb1f896"
+        },
+        {
+          "位置": "$.stage_1.face_mode.preferred_signals[3]",
+          "原文摘要": "e8ba74b47ced6e53480fdeeba583fd255ff297df021b9b194cd2763691e67db5",
+          "译文摘要": "1acee4732639b3fc1d6fa101a085063a63f43346b712a68295b4d094593a5212"
+        },
+        {
+          "位置": "$.stage_1.face_mode.preferred_signals[4]",
+          "原文摘要": "1571af9aca66b56ded5ee5230968f66712843b8fa4294888a5506b0237a81718",
+          "译文摘要": "0414945c39883dfb4a00ff765ffedd85e4b1530011f490b07a42c1f6f86f39c7"
+        },
+        {
+          "位置": "$.stage_1.face_mode.avoid[0]",
+          "原文摘要": "68b517b867002763692d3f3cacaeab90618466a91fb1883efb439bf8bfcb60b3",
+          "译文摘要": "b82f056c041d6287b5e6efd4864df535c26313d1c9fb176bc342f931fed73574"
+        },
+        {
+          "位置": "$.stage_1.face_mode.avoid[1]",
+          "原文摘要": "503f7a552aaebd37c3f7ed3aaa3b6c465c9bdeeb332684a9d1c07a5800ab16aa",
+          "译文摘要": "c897f68d4346b425c070b0eb098b5e34a6c9b6a0e781c401662489c60a730440"
+        },
+        {
+          "位置": "$.stage_1.face_mode.avoid[2]",
+          "原文摘要": "e844c08276318de491ddfb248fde27f84c97586e697b6c6af01e5c6c5d8599fe",
+          "译文摘要": "929c9ca73f6ce45142022d1a88b0e5e6a3a4c5a85557e6d34a9c17250e51ed74"
+        },
+        {
+          "位置": "$.stage_1.face_mode.avoid[3]",
+          "原文摘要": "6caf5e2d1041af997555fd6402dd52c5354184337fc9075309216d7d9c2e53ae",
+          "译文摘要": "f4697ef267e63a66e9d5f1da0283e34d08f1868955f5122486475ccc41f0d394"
+        },
+        {
+          "位置": "$.stage_1.face_mode.avoid[4]",
+          "原文摘要": "a6de16d33edd0d895bed1e060a110220f9187ed4a008e84dc1501b42de6bb1a9",
+          "译文摘要": "346e85f58f5b9f5f0e45ed021b856c5cce7e30b0a19095ce0baa54cc03ba499c"
+        },
+        {
+          "位置": "$.stage_1.face_mode.avoid[5]",
+          "原文摘要": "facda0c9d2ff6f163cb7094c256332639c6fa52e05e39afef980771c9fa94135",
+          "译文摘要": "2dc29b98129d751c8005acfc08e669945a5c93755ea728da0522c2a997d0be1c"
+        },
+        {
+          "位置": "$.stage_1.face_mode.avoid[6]",
+          "原文摘要": "69bf081fd73a25ba96506c59a9694dcf74f7bf59efb51789aad16bd84e946460",
+          "译文摘要": "5719ef9c2faf74edc53cbf7310f09818470f8449d7721c4f5f268bf136b4b90c"
+        },
+        {
+          "位置": "$.stage_1.face_mode.prompt_translation[0]",
+          "原文摘要": "a9abb176205ba51d6f091150d961b0390455513c1c3725497bc9fa2de7b394b0",
+          "译文摘要": "f932df24be3cb02b6b6f08c509d3a244e8eddc87b233a9ad40b08e014d7f3648"
+        },
+        {
+          "位置": "$.stage_1.face_mode.prompt_translation[1]",
+          "原文摘要": "aba70f2fc71a5706652e7eb4eae0d10377a626604ae0939fd042cd33c6d88a3e",
+          "译文摘要": "c856eef07db4d7e59b1b8d96d192fe0a2aacbbaa12e241cdcb0db70a6f05b258"
+        },
+        {
+          "位置": "$.stage_1.face_mode.prompt_translation[2]",
+          "原文摘要": "b61ab90e58bd4deb1f7566dd4146316790aa5240cc10f1d45103517c488b4d77",
+          "译文摘要": "2b101489ad0b2d3294fc22d5c117150b6f19b135c42e46d5f3f7677e78922cbb"
+        },
+        {
+          "位置": "$.stage_1.face_mode.prompt_translation[3]",
+          "原文摘要": "96fc5061b3933c83df7bb219f901d149b1c418ac4524b12b3b9bffeba1715da2",
+          "译文摘要": "15c2d7f940bf7780685a2d9a0dae3fdd30d84a22d557e1ff22b03cbd3faed91b"
+        },
+        {
+          "位置": "$.stage_1.face_mode.principle",
+          "原文摘要": "620727ec7ca18e47d9b22de160da9eff7f5a057c7753eedfa1c338397e352374",
+          "译文摘要": "de981da4750540ee640b1bf6f2ced2a56b1e613b7d02ad5f3614844211a3476f"
+        },
+        {
+          "位置": "$.stage_1.maturity_guard.prompt_translation[0]",
+          "原文摘要": "4018dfd0d525df38c1257fa9393432116db0b8e767f9ee951950cc21ed07c598",
+          "译文摘要": "643f08d47dfc3d417db5dd2559e27fc8d3282001c3f0705fd72a33064ef7b021"
+        },
+        {
+          "位置": "$.stage_1.maturity_guard.prompt_translation[1]",
+          "原文摘要": "73f59b33d017c2cde265b5ccfe73e8c8c38ff86412f18630f35d5011fa94b234",
+          "译文摘要": "da5d66f0b090412483819c529ff11108a311b6d6f32cb71b2a11c60f28b50947"
+        },
+        {
+          "位置": "$.stage_1.maturity_guard.prompt_translation[2]",
+          "原文摘要": "24321bf3a5ee80ec1982e7738c55941b5193c76d93ec8dfee1f0c137d9178954",
+          "译文摘要": "d0f967ce705b9c8db23d2eb61b534c95bd61a8f2cadcec967074a5b8152bfd41"
+        },
+        {
+          "位置": "$.stage_1.maturity_guard.principle",
+          "原文摘要": "20b1843aee091aa22ee3d718b8335f0a28ce2a4c0f635394392218ff20a25b15",
+          "译文摘要": "da2e9a3bb0b81ecd97fe81f89aa1c4e1b8bc98a5d8e7e0ea64d617aaa0c1bc7c"
+        },
+        {
+          "位置": "$.stage_1.realism_scope.rule",
+          "原文摘要": "31d6992e0b97f7840fd893f62748bb4bf11703d3c46caab90cf8296686310633",
+          "译文摘要": "a532a10a4b6f7256d711ce2a24bb0fc00780d0c2f2b10b2976d1c11a9f2c2c81"
+        },
+        {
+          "位置": "$.stage_1.round_plan.prompt_strategy",
+          "原文摘要": "149c73fc0a3d4590416831df940dd91bb14c40ce0fe963f5c6b0b3eaeb39513a",
+          "译文摘要": "c29b2a1722a5e91d46803dc205776adeb92c0cb54e4ff4bf594db361be7f4178"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[0]",
+          "原文摘要": "29185446bd578999030f199b38257baa0e5e5513fc8ae8534a8fb9901b901a39",
+          "译文摘要": "faeb64de738c9779ef701518a3098f89bee20311c1debde4b2727383bfa75515"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[1]",
+          "原文摘要": "a9abb176205ba51d6f091150d961b0390455513c1c3725497bc9fa2de7b394b0",
+          "译文摘要": "f932df24be3cb02b6b6f08c509d3a244e8eddc87b233a9ad40b08e014d7f3648"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[2]",
+          "原文摘要": "aba70f2fc71a5706652e7eb4eae0d10377a626604ae0939fd042cd33c6d88a3e",
+          "译文摘要": "c856eef07db4d7e59b1b8d96d192fe0a2aacbbaa12e241cdcb0db70a6f05b258"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[3]",
+          "原文摘要": "b61ab90e58bd4deb1f7566dd4146316790aa5240cc10f1d45103517c488b4d77",
+          "译文摘要": "2b101489ad0b2d3294fc22d5c117150b6f19b135c42e46d5f3f7677e78922cbb"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[4]",
+          "原文摘要": "96fc5061b3933c83df7bb219f901d149b1c418ac4524b12b3b9bffeba1715da2",
+          "译文摘要": "15c2d7f940bf7780685a2d9a0dae3fdd30d84a22d557e1ff22b03cbd3faed91b"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[5]",
+          "原文摘要": "4018dfd0d525df38c1257fa9393432116db0b8e767f9ee951950cc21ed07c598",
+          "译文摘要": "643f08d47dfc3d417db5dd2559e27fc8d3282001c3f0705fd72a33064ef7b021"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[6]",
+          "原文摘要": "73f59b33d017c2cde265b5ccfe73e8c8c38ff86412f18630f35d5011fa94b234",
+          "译文摘要": "da5d66f0b090412483819c529ff11108a311b6d6f32cb71b2a11c60f28b50947"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[7]",
+          "原文摘要": "24321bf3a5ee80ec1982e7738c55941b5193c76d93ec8dfee1f0c137d9178954",
+          "译文摘要": "d0f967ce705b9c8db23d2eb61b534c95bd61a8f2cadcec967074a5b8152bfd41"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[8]",
+          "原文摘要": "d6fdd7596b9a0977188e958075e4047b527e3f9d4367374f6e8e8923671f2fb1",
+          "译文摘要": "5d802f7fbefdd634dcf8e2da02eabc08133852b233408b0eae9fd8dd52094186"
+        },
+        {
+          "位置": "$.stage_1.prompt_skeleton[9]",
+          "原文摘要": "bf8a2cb02cc68a61a83b17ec21036f9aeb6b05a8edbd57cd83dfe8fd1fada07c",
+          "译文摘要": "8a375a80d4a8de444eba51db09d51875db3471055693bd29f099f9b09281da48"
+        },
+        {
+          "位置": "$.stage_1.note",
+          "原文摘要": "d556495c29fbc98eee719cd5cdcc2d102d0c46b5a7f5997333931502658b2bae",
+          "译文摘要": "ba701b5404947dde984ca84849cdaef406ebe9d7c45d99bfb43ebe68d4a53247"
+        },
+        {
+          "位置": "$.stage_2.realism_scope.rule",
+          "原文摘要": "31d6992e0b97f7840fd893f62748bb4bf11703d3c46caab90cf8296686310633",
+          "译文摘要": "a532a10a4b6f7256d711ce2a24bb0fc00780d0c2f2b10b2976d1c11a9f2c2c81"
+        },
+        {
+          "位置": "$.stage_2.round_plan.prompt_strategy",
+          "原文摘要": "34ba7ff9f325b1d94f0ec6fcb022baf0a7bc7496ecbf6e35432f2fdfa32f5139",
+          "译文摘要": "b3ea426ebbe5a42c05ea0767738a7ccf0b210a3e0deaee8a3dfc982a4b3880f5"
+        },
+        {
+          "位置": "$.stage_2.prompt_skeleton[0]",
+          "原文摘要": "691c5c23be065bba70e52fc318bab12970e8ba1e2037f595005b3c92eb58f900",
+          "译文摘要": "11b8e19ef846db851bfa604a367a380f3b11a2bb197eaab618f52dc5b1fbdb05"
+        },
+        {
+          "位置": "$.stage_2.prompt_skeleton[1]",
+          "原文摘要": "0ffa3e6afb5fdb8fed66ebb3fff37c96d7e16374c465e02e7c15705b2b98df54",
+          "译文摘要": "efdce3916343d221361bd3aeed84794a96fdcf9119be3ff1987628d346a460c6"
+        },
+        {
+          "位置": "$.stage_2.prompt_skeleton[2]",
+          "原文摘要": "6f3787fe0475bb738ab39681d19966e75bf67ebb0601532f2e79b47f1c84bc28",
+          "译文摘要": "461f1e9ff8b2ecb8bf38458c5aa63a2efbaaa23043817d309220a482c63a4405"
+        },
+        {
+          "位置": "$.stage_2.note",
+          "原文摘要": "e219f79e5223b5dfb795592c3deb16b7e9ced75c183dd2e1c86e7df61fd7432a",
+          "译文摘要": "133601a6df5228686559fd9a5a2a4f476c069a7642596a39cca9db8d5e8af02e"
+        },
+        {
+          "位置": "$.rule",
+          "原文摘要": "083b340a2ad2bac7a7bae7a3d124e0c322d7bc6c2acee6883d2ae16a9792177e",
+          "译文摘要": "b3b786bd2105c9b88fd9cb2b1a9142a07bb87f0bf9f9099c5e5a0d0d47f7be85"
+        }
+      ]
+    },
+    {
+      "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+      "源文件": "docs/v0.7.9-silver-face-plan.json",
+      "源文件摘要": "74640be639f34b30b5ec743fddefb8b531db7cd6c2be112dbc8c8652e3d5ad5b",
+      "译文文件": "docs/v0.7.9-silver-face-plan.json",
+      "译文摘要": "e47afcf9d9e4ab749de8e8e694ab378b39e242c26c8a1a75093f4627a8fb7411",
+      "翻译字段数": 38,
+      "字段": [
+        {
+          "位置": "$.route.reason",
+          "原文摘要": "2b13944cd64e7d464f24533aaa3a228d7d4cf5604b3eaf0964f73570a4eb26ab",
+          "译文摘要": "6fc9b6d8df4992f46e30add8cd6cff54a5af6dc61fc6c43a198e9fccd2d90b2a"
+        },
+        {
+          "位置": "$.route.rule",
+          "原文摘要": "e8fef4d06a64a01650ea463b154df31381dc6f2742e88b0c0f5c83d88424bab6",
+          "译文摘要": "bc8d693ab76e7cf830be31359eb19177468b08d47782891a047859189213b17b"
+        },
+        {
+          "位置": "$.face_mode.label",
+          "原文摘要": "7d7819edc25c206778984eff0c96d23517e45f62d9736b839c657b3e6f2b5007",
+          "译文摘要": "3304283de120c235ded5e1ff59638a1065cfe1b3c8051e039b026b1f94b4cce4"
+        },
+        {
+          "位置": "$.face_mode.goal",
+          "原文摘要": "5f400d0c901123dfa59ea9a0e2618c2bff76cf9becb06128432a60812ec36a44",
+          "译文摘要": "abecc50e768208943a5a23164804475855ad33648361f50edb7462010a0ba020"
+        },
+        {
+          "位置": "$.face_mode.preferred_signals[0]",
+          "原文摘要": "453015fc95953b616602a9f048ade00b1644abb56cc9403e19fd2431efcf92ee",
+          "译文摘要": "2dc5ea196d156f61a168fbcd80bcfe5cd9957166e8418a829cce7600b4ff17bb"
+        },
+        {
+          "位置": "$.face_mode.preferred_signals[1]",
+          "原文摘要": "e3ed39953abd7a02f3f857d73359c0bfd954cf91c20529e1e4b04824175e551f",
+          "译文摘要": "d8a68b5b0d7a49d5d136ebc593e2ac582375334abaf25003bb7c7521ef598ebb"
+        },
+        {
+          "位置": "$.face_mode.preferred_signals[2]",
+          "原文摘要": "f74fd14f52dca5e6e0a815c9197fdff48fbb10aef10bbf9aa27f9de2cbd30ef7",
+          "译文摘要": "a4e2ece8848442e4454a53f900b47e5d15b34d9634fa913a1e161be31eb1f896"
+        },
+        {
+          "位置": "$.face_mode.preferred_signals[3]",
+          "原文摘要": "e8ba74b47ced6e53480fdeeba583fd255ff297df021b9b194cd2763691e67db5",
+          "译文摘要": "1acee4732639b3fc1d6fa101a085063a63f43346b712a68295b4d094593a5212"
+        },
+        {
+          "位置": "$.face_mode.preferred_signals[4]",
+          "原文摘要": "1571af9aca66b56ded5ee5230968f66712843b8fa4294888a5506b0237a81718",
+          "译文摘要": "0414945c39883dfb4a00ff765ffedd85e4b1530011f490b07a42c1f6f86f39c7"
+        },
+        {
+          "位置": "$.face_mode.avoid[0]",
+          "原文摘要": "68b517b867002763692d3f3cacaeab90618466a91fb1883efb439bf8bfcb60b3",
+          "译文摘要": "b82f056c041d6287b5e6efd4864df535c26313d1c9fb176bc342f931fed73574"
+        },
+        {
+          "位置": "$.face_mode.avoid[1]",
+          "原文摘要": "503f7a552aaebd37c3f7ed3aaa3b6c465c9bdeeb332684a9d1c07a5800ab16aa",
+          "译文摘要": "c897f68d4346b425c070b0eb098b5e34a6c9b6a0e781c401662489c60a730440"
+        },
+        {
+          "位置": "$.face_mode.avoid[2]",
+          "原文摘要": "e844c08276318de491ddfb248fde27f84c97586e697b6c6af01e5c6c5d8599fe",
+          "译文摘要": "929c9ca73f6ce45142022d1a88b0e5e6a3a4c5a85557e6d34a9c17250e51ed74"
+        },
+        {
+          "位置": "$.face_mode.avoid[3]",
+          "原文摘要": "6caf5e2d1041af997555fd6402dd52c5354184337fc9075309216d7d9c2e53ae",
+          "译文摘要": "f4697ef267e63a66e9d5f1da0283e34d08f1868955f5122486475ccc41f0d394"
+        },
+        {
+          "位置": "$.face_mode.avoid[4]",
+          "原文摘要": "a6de16d33edd0d895bed1e060a110220f9187ed4a008e84dc1501b42de6bb1a9",
+          "译文摘要": "346e85f58f5b9f5f0e45ed021b856c5cce7e30b0a19095ce0baa54cc03ba499c"
+        },
+        {
+          "位置": "$.face_mode.avoid[5]",
+          "原文摘要": "facda0c9d2ff6f163cb7094c256332639c6fa52e05e39afef980771c9fa94135",
+          "译文摘要": "2dc29b98129d751c8005acfc08e669945a5c93755ea728da0522c2a997d0be1c"
+        },
+        {
+          "位置": "$.face_mode.avoid[6]",
+          "原文摘要": "69bf081fd73a25ba96506c59a9694dcf74f7bf59efb51789aad16bd84e946460",
+          "译文摘要": "5719ef9c2faf74edc53cbf7310f09818470f8449d7721c4f5f268bf136b4b90c"
+        },
+        {
+          "位置": "$.face_mode.prompt_translation[0]",
+          "原文摘要": "a9abb176205ba51d6f091150d961b0390455513c1c3725497bc9fa2de7b394b0",
+          "译文摘要": "f932df24be3cb02b6b6f08c509d3a244e8eddc87b233a9ad40b08e014d7f3648"
+        },
+        {
+          "位置": "$.face_mode.prompt_translation[1]",
+          "原文摘要": "aba70f2fc71a5706652e7eb4eae0d10377a626604ae0939fd042cd33c6d88a3e",
+          "译文摘要": "c856eef07db4d7e59b1b8d96d192fe0a2aacbbaa12e241cdcb0db70a6f05b258"
+        },
+        {
+          "位置": "$.face_mode.prompt_translation[2]",
+          "原文摘要": "b61ab90e58bd4deb1f7566dd4146316790aa5240cc10f1d45103517c488b4d77",
+          "译文摘要": "2b101489ad0b2d3294fc22d5c117150b6f19b135c42e46d5f3f7677e78922cbb"
+        },
+        {
+          "位置": "$.face_mode.prompt_translation[3]",
+          "原文摘要": "96fc5061b3933c83df7bb219f901d149b1c418ac4524b12b3b9bffeba1715da2",
+          "译文摘要": "15c2d7f940bf7780685a2d9a0dae3fdd30d84a22d557e1ff22b03cbd3faed91b"
+        },
+        {
+          "位置": "$.face_mode.principle",
+          "原文摘要": "620727ec7ca18e47d9b22de160da9eff7f5a057c7753eedfa1c338397e352374",
+          "译文摘要": "de981da4750540ee640b1bf6f2ced2a56b1e613b7d02ad5f3614844211a3476f"
+        },
+        {
+          "位置": "$.maturity_guard.prompt_translation[0]",
+          "原文摘要": "4018dfd0d525df38c1257fa9393432116db0b8e767f9ee951950cc21ed07c598",
+          "译文摘要": "643f08d47dfc3d417db5dd2559e27fc8d3282001c3f0705fd72a33064ef7b021"
+        },
+        {
+          "位置": "$.maturity_guard.prompt_translation[1]",
+          "原文摘要": "73f59b33d017c2cde265b5ccfe73e8c8c38ff86412f18630f35d5011fa94b234",
+          "译文摘要": "da5d66f0b090412483819c529ff11108a311b6d6f32cb71b2a11c60f28b50947"
+        },
+        {
+          "位置": "$.maturity_guard.prompt_translation[2]",
+          "原文摘要": "24321bf3a5ee80ec1982e7738c55941b5193c76d93ec8dfee1f0c137d9178954",
+          "译文摘要": "d0f967ce705b9c8db23d2eb61b534c95bd61a8f2cadcec967074a5b8152bfd41"
+        },
+        {
+          "位置": "$.maturity_guard.principle",
+          "原文摘要": "20b1843aee091aa22ee3d718b8335f0a28ce2a4c0f635394392218ff20a25b15",
+          "译文摘要": "da2e9a3bb0b81ecd97fe81f89aa1c4e1b8bc98a5d8e7e0ea64d617aaa0c1bc7c"
+        },
+        {
+          "位置": "$.realism_scope.rule",
+          "原文摘要": "31d6992e0b97f7840fd893f62748bb4bf11703d3c46caab90cf8296686310633",
+          "译文摘要": "a532a10a4b6f7256d711ce2a24bb0fc00780d0c2f2b10b2976d1c11a9f2c2c81"
+        },
+        {
+          "位置": "$.round_plan.prompt_strategy",
+          "原文摘要": "149c73fc0a3d4590416831df940dd91bb14c40ce0fe963f5c6b0b3eaeb39513a",
+          "译文摘要": "c29b2a1722a5e91d46803dc205776adeb92c0cb54e4ff4bf594db361be7f4178"
+        },
+        {
+          "位置": "$.prompt_skeleton[0]",
+          "原文摘要": "29185446bd578999030f199b38257baa0e5e5513fc8ae8534a8fb9901b901a39",
+          "译文摘要": "faeb64de738c9779ef701518a3098f89bee20311c1debde4b2727383bfa75515"
+        },
+        {
+          "位置": "$.prompt_skeleton[1]",
+          "原文摘要": "a9abb176205ba51d6f091150d961b0390455513c1c3725497bc9fa2de7b394b0",
+          "译文摘要": "f932df24be3cb02b6b6f08c509d3a244e8eddc87b233a9ad40b08e014d7f3648"
+        },
+        {
+          "位置": "$.prompt_skeleton[2]",
+          "原文摘要": "aba70f2fc71a5706652e7eb4eae0d10377a626604ae0939fd042cd33c6d88a3e",
+          "译文摘要": "c856eef07db4d7e59b1b8d96d192fe0a2aacbbaa12e241cdcb0db70a6f05b258"
+        },
+        {
+          "位置": "$.prompt_skeleton[3]",
+          "原文摘要": "b61ab90e58bd4deb1f7566dd4146316790aa5240cc10f1d45103517c488b4d77",
+          "译文摘要": "2b101489ad0b2d3294fc22d5c117150b6f19b135c42e46d5f3f7677e78922cbb"
+        },
+        {
+          "位置": "$.prompt_skeleton[4]",
+          "原文摘要": "96fc5061b3933c83df7bb219f901d149b1c418ac4524b12b3b9bffeba1715da2",
+          "译文摘要": "15c2d7f940bf7780685a2d9a0dae3fdd30d84a22d557e1ff22b03cbd3faed91b"
+        },
+        {
+          "位置": "$.prompt_skeleton[5]",
+          "原文摘要": "4018dfd0d525df38c1257fa9393432116db0b8e767f9ee951950cc21ed07c598",
+          "译文摘要": "643f08d47dfc3d417db5dd2559e27fc8d3282001c3f0705fd72a33064ef7b021"
+        },
+        {
+          "位置": "$.prompt_skeleton[6]",
+          "原文摘要": "73f59b33d017c2cde265b5ccfe73e8c8c38ff86412f18630f35d5011fa94b234",
+          "译文摘要": "da5d66f0b090412483819c529ff11108a311b6d6f32cb71b2a11c60f28b50947"
+        },
+        {
+          "位置": "$.prompt_skeleton[7]",
+          "原文摘要": "24321bf3a5ee80ec1982e7738c55941b5193c76d93ec8dfee1f0c137d9178954",
+          "译文摘要": "d0f967ce705b9c8db23d2eb61b534c95bd61a8f2cadcec967074a5b8152bfd41"
+        },
+        {
+          "位置": "$.prompt_skeleton[8]",
+          "原文摘要": "d6fdd7596b9a0977188e958075e4047b527e3f9d4367374f6e8e8923671f2fb1",
+          "译文摘要": "5d802f7fbefdd634dcf8e2da02eabc08133852b233408b0eae9fd8dd52094186"
+        },
+        {
+          "位置": "$.prompt_skeleton[9]",
+          "原文摘要": "bf8a2cb02cc68a61a83b17ec21036f9aeb6b05a8edbd57cd83dfe8fd1fada07c",
+          "译文摘要": "8a375a80d4a8de444eba51db09d51875db3471055693bd29f099f9b09281da48"
+        },
+        {
+          "位置": "$.note",
+          "原文摘要": "d556495c29fbc98eee719cd5cdcc2d102d0c46b5a7f5997333931502658b2bae",
+          "译文摘要": "ba701b5404947dde984ca84849cdaef406ebe9d7c45d99bfb43ebe68d4a53247"
+        }
+      ]
+    },
+    {
+      "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+      "源文件": "docs/v0.8.1-black-red-plan.json",
+      "源文件摘要": "fff553c1143643db0309587eb9a4cd0157957a68acc8afca645209d5af6688b2",
+      "译文文件": "docs/v0.8.1-black-red-plan.json",
+      "译文摘要": "f84153c3f7edc3522474a483f7986b60cc9963dd40b54fed1e367e9a3afac2ea",
+      "翻译字段数": 50,
+      "字段": [
+        {
+          "位置": "$.style_stage.style_intent.description",
+          "原文摘要": "356e267195de508a688a03f6171c8fe074e2df7b62f85953263a8834f716ad9f",
+          "译文摘要": "7931c3d8ad1b87f2ddac69319400bd8705ab10aa071752c332ac970dec5b15f5"
+        },
+        {
+          "位置": "$.style_stage.style_intent.rules[0]",
+          "原文摘要": "6c7918808aa037146bd52d947218d109d9f2fd00c1fa32df7b31697162ba8153",
+          "译文摘要": "2b726820ea95915ad329ea433f84e096aed5f3b1775079604527f9c1485a2d87"
+        },
+        {
+          "位置": "$.style_stage.style_intent.rules[1]",
+          "原文摘要": "13ff6124212f7e44690ecbe49f691b246239eb6b2283850dd84d5a0b3f0a3370",
+          "译文摘要": "dd8dc70d9d8b001959429019c5fb65326cfc21145b4989870d86897d8853e2e2"
+        },
+        {
+          "位置": "$.style_stage.style_intent.rules[2]",
+          "原文摘要": "9a36166076e41507dcfa56df292e9153bb93aa29efaa12823931a5ff4d2ad4ed",
+          "译文摘要": "d3af9a32f05911baf89526289f3b01f9e53d0919d7b650dc3bc9fd8ac45d7ef4"
+        },
+        {
+          "位置": "$.style_stage.style_intent.rules[3]",
+          "原文摘要": "cc81cd52116a14288604d1486ba1ead29e550e67fdefa40ef7e2e2c2c6083414",
+          "译文摘要": "6d87518e79513c357e42e800d9cd84fe51d0928da3300bf49b81765070a2fba7"
+        },
+        {
+          "位置": "$.style_stage.style_target.label",
+          "原文摘要": "d5233124918635b4398144e296ba384c82998d110406384f2cd1deb590a7e663",
+          "译文摘要": "77ff54f36e1e88dc6f69cf5c89e7fa073164fd977bb294333ffcfcbac46d9fa5"
+        },
+        {
+          "位置": "$.style_stage.style_target.anti_patterns[4]",
+          "原文摘要": "3ff5a3744c7a3855e0d31be497bea62a984d3b25c7c15315af0320e854e789e4",
+          "译文摘要": "73aed1ae5af4a97b70813d0421cac86fdef380c3e91fc6bf6f5ded0524e9a297"
+        },
+        {
+          "位置": "$.style_stage.reference_authority.principle",
+          "原文摘要": "6c2e903095283ae752017f7e0977f0b649625a294d3752f097064ade31e4c758",
+          "译文摘要": "2b52d77ec0f87c65686a6d764f7e47f4419e308c8028ddb04112f3a8e56268c7"
+        },
+        {
+          "位置": "$.style_stage.face_compatibility.reason",
+          "原文摘要": "2e2b9ce237cdb5f876dd4d52c1f1ab1425339071086be464bb9cf109afc9d227",
+          "译文摘要": "3905562ed7b17fc3e5c7be2a6d0a0dce8b9ff35c3e2a5daff71508683efc4724"
+        },
+        {
+          "位置": "$.style_stage.face_compatibility.principle",
+          "原文摘要": "63c4bcaf605adaf37ce8af778ba766edd9227b77db18213a852820712c683c80",
+          "译文摘要": "79dbc0886af347a289f048559c37c853c09af5fbca83c028759e3a2e790c8850"
+        },
+        {
+          "位置": "$.style_stage.preservation_guard.background_rule",
+          "原文摘要": "13f4120902a842181e609cfd8befbbd90f77de0a1f6b78ca7d34c9b6a471a6c0",
+          "译文摘要": "e15f85dd982f780ab66e76e3571e89e2ffb3b9300825381938a325b6ba46c31d"
+        },
+        {
+          "位置": "$.style_stage.preservation_guard.pose_rule",
+          "原文摘要": "c4f7df415ad50001feae5a1941c334f131846f1fb14e318440dd9c107df473d7",
+          "译文摘要": "b43d25409f5285c3256c783b13dad43b28b24fcdd701beec0d8cc79ccf8488da"
+        },
+        {
+          "位置": "$.style_stage.preservation_guard.realism_rule",
+          "原文摘要": "7e6cb1f0e929f602fced4ec12d851168de524a29c33842ea063a74735f733e99",
+          "译文摘要": "1e8bbccfffb02e86afa613e874f616930cef810e1c56611728c30ec7635f6cf4"
+        },
+        {
+          "位置": "$.style_stage.round_plan.prompt_strategy",
+          "原文摘要": "1a0ea5450f2deb30d5b725a2640669c20a84257043087fac4c07156dcb6496b4",
+          "译文摘要": "d40ef439072bc699ddb1bb23ef2ed118957b0e26d254ded6561d065d59b843fd"
+        },
+        {
+          "位置": "$.style_stage.prompt_skeleton[0]",
+          "原文摘要": "632add201542965cf13424e8274f0a899b9c8cf5119e5379c2de4731758fd2d2",
+          "译文摘要": "2c683e1be5d02777825f24d3144bfc084842078b7cc9d2b3f24376edb77203cb"
+        },
+        {
+          "位置": "$.style_stage.prompt_skeleton[1]",
+          "原文摘要": "e1a367a9925abe482a285aec0064837d85bd4409853be47fc02f6687a0c7b987",
+          "译文摘要": "5dd5c927686a15f04a25bea22b8ec75ba0d6420ac2b26e8d428687709380c4de"
+        },
+        {
+          "位置": "$.style_stage.prompt_skeleton[2]",
+          "原文摘要": "788b8b8eb934739608a1e1e1993ea5cb199fc50ea858d499ad7825e91305a03c",
+          "译文摘要": "279e8668939f80696a84323767d3c44283aa5bf86a2990645b73b03ad83f58c6"
+        },
+        {
+          "位置": "$.style_stage.prompt_skeleton[3]",
+          "原文摘要": "29185446bd578999030f199b38257baa0e5e5513fc8ae8534a8fb9901b901a39",
+          "译文摘要": "faeb64de738c9779ef701518a3098f89bee20311c1debde4b2727383bfa75515"
+        },
+        {
+          "位置": "$.style_stage.prompt_skeleton[4]",
+          "原文摘要": "5e45cffd5ed18141eee7cc7e26c0f5fe49942501f74d12695e36dfdbe037c6e5",
+          "译文摘要": "c95d953617be7d95506a0d0ec316960f9a2b2e7eed1f810e4e87fc27de6847a0"
+        },
+        {
+          "位置": "$.style_stage.prompt_skeleton[5]",
+          "原文摘要": "a8f0fae38a1d6ed672a6710acd8f2aa25b79219755a8e3e37736f79ba9d9019f",
+          "译文摘要": "1e4d3357548acd98f7562d4cadbb31a3dcad7675dbb376e2006bf8d0973092b2"
+        },
+        {
+          "位置": "$.style_stage.note",
+          "原文摘要": "cfe56f5fff2adc586303ada3e48f0507e746fc3e00cd148149bd425a7eabe4bf",
+          "译文摘要": "a73b168d5dc503cebd9868410b7fd329be092bcf360a27c18aa13848ca941cf5"
+        },
+        {
+          "位置": "$.hierarchy_stage.hierarchy.target_read",
+          "原文摘要": "3f432bcb860cf0474cc205453e340495ee34e3e28789226b30378abb08c48399",
+          "译文摘要": "c67af3408f33b815a32587665d0c3b458a582b22566c35a81871ef991626d16c"
+        },
+        {
+          "位置": "$.hierarchy_stage.detail_budget.goal",
+          "原文摘要": "c128bfceb23cd8ea2196a5dcec75b67e11da528f31591495953a32e8d0dc40c3",
+          "译文摘要": "c23b8294c74f367ee1a6a5cb14519aad803672464f5723c553827943bd6b76c1"
+        },
+        {
+          "位置": "$.hierarchy_stage.detail_budget.compiler_rules[0]",
+          "原文摘要": "44d42dde73333f77cb11158dc17d5c744d17d1829419bcde551ec8f9b9391e04",
+          "译文摘要": "9be61077f867006698d529d35ae0df6b43cd7a88abac66626cadd12d795b6b5a"
+        },
+        {
+          "位置": "$.hierarchy_stage.detail_budget.compiler_rules[1]",
+          "原文摘要": "41f7f6a3e24d23d31ca3d1b85a4702a952f2922b24ca6f9d178f18cb5fd41141",
+          "译文摘要": "268fff95a65380da3c94c48c3ec25426e8aa7d616a45619f2008acf19b9add4f"
+        },
+        {
+          "位置": "$.hierarchy_stage.detail_budget.compiler_rules[2]",
+          "原文摘要": "a6b7777979fb1b36239568d243a568417f8079244a1aba648057b4e565126eb1",
+          "译文摘要": "52372e966fa99c801f58febfdb8a1f1a7adfb83a2596ace1ff6bc02dea8e8aac"
+        },
+        {
+          "位置": "$.hierarchy_stage.detail_budget.compiler_rules[3]",
+          "原文摘要": "5e6fbd44b73cc2f5b499901654cc3dcd618c295c84bdee70619a6e95637861a3",
+          "译文摘要": "f005095a64e35704712266a507dee2d9997eaae6673fdc14b8a1ff62d5930e9a"
+        },
+        {
+          "位置": "$.hierarchy_stage.highlight_hierarchy.rules[0]",
+          "原文摘要": "7b9c86b0b9cc1784645678d87618bbf3202c7076f76e2ab76a181530b974eaa1",
+          "译文摘要": "7a685b92d9e109a6cf11c90653a2370916095e533230d9bbe83d372d3a4923ab"
+        },
+        {
+          "位置": "$.hierarchy_stage.highlight_hierarchy.rules[1]",
+          "原文摘要": "9bbead4acfb26b1d0b60b4d375754643abd6b7d19c7d43eab3ef4a0371b40cf8",
+          "译文摘要": "c6f13575b0b943b561ef1676f16108f3d76c4f2ae9ddae7b2f3351e0c39f7882"
+        },
+        {
+          "位置": "$.hierarchy_stage.highlight_hierarchy.rules[2]",
+          "原文摘要": "488c37e936b5f95e92841004d4f2fd03e9b0033b6719d0e6e8e3435e1ab15892",
+          "译文摘要": "1e7ee9c230ff08988643eeb05d6d38152ea2efa00705e1e2ea8981c1d6e14970"
+        },
+        {
+          "位置": "$.hierarchy_stage.highlight_hierarchy.rules[3]",
+          "原文摘要": "c11d3d81d030e35fa40292114ec8238d6722772a37a25077b71459b34d3ff008",
+          "译文摘要": "c1f05ee2f06f477f134ee5ee753e72fdf408fa4ca752f5474cf3cdab2f4c625d"
+        },
+        {
+          "位置": "$.hierarchy_stage.background_submission.rules[0]",
+          "原文摘要": "0856da09f262d87a4cb50383d5c4f0756fab7030dccdb7a315609175984f1e85",
+          "译文摘要": "a34e1c88736ae78192ac73859f1b2a5f99caf8365e007f153ce8da45556ecaf7"
+        },
+        {
+          "位置": "$.hierarchy_stage.background_submission.rules[1]",
+          "原文摘要": "9bfcf67bcccf81fc66754f1c025f717d350fb2cf498523a86d58cfd3d3db5c73",
+          "译文摘要": "ae16d1c9b2c1bcf9db6c967cb79dd06298a80d58027616737cd0b6ebd8213c01"
+        },
+        {
+          "位置": "$.hierarchy_stage.background_submission.rules[2]",
+          "原文摘要": "6ccbd8c0857fd3823c3de9757579a189278bf54c82d637bb5a838847938401bc",
+          "译文摘要": "5f70020c0c922589eab560fef9e47b1bb3b00f5b87f7a621c90eecbac07253b0"
+        },
+        {
+          "位置": "$.hierarchy_stage.background_submission.rules[3]",
+          "原文摘要": "0a1ecae23a1465fa02966ac401dd11ae617feccdc55cd72722991f21eddccf30",
+          "译文摘要": "be3d6cc2a0b56a929e4bbf1511c4d0eeda140f38f4f4cf5a9d3f287d7701f638"
+        },
+        {
+          "位置": "$.hierarchy_stage.painterly_edge.rules[0]",
+          "原文摘要": "a86b6335583469199ca5a73f896d534bbfb6d074093023b2fbacadab12ee9b79",
+          "译文摘要": "3e2080d628c99e5080aae68ef99698a877e83556e91ea05b6076d399d08efe98"
+        },
+        {
+          "位置": "$.hierarchy_stage.painterly_edge.rules[1]",
+          "原文摘要": "3a5e08fdf9252cc6a5c30094c672c84f87d37860ed7a9e49bc6fb8a794bca079",
+          "译文摘要": "4cbb5ac6dae7f6e246c0abd2ff9fb5b24c21b17c3bca20cea964c7cec5172738"
+        },
+        {
+          "位置": "$.hierarchy_stage.painterly_edge.rules[2]",
+          "原文摘要": "f9194e6fe8274e9670018e3cb431068b3edc88b90d01b1372c70316d5a9b730c",
+          "译文摘要": "43302ea8e7275ed66b30ca103a8a428c2dc93b5015de20f54c4eee1f1452390b"
+        },
+        {
+          "位置": "$.hierarchy_stage.painterly_edge.rules[3]",
+          "原文摘要": "5f791c7206285f0e0be6bac12cdf6ffc32b77d54aea554df11defe3a7fc51e5b",
+          "译文摘要": "3af2da3ee87c4f8befacb112d14addd735df2dd9e0a666386b91578cae88b015"
+        },
+        {
+          "位置": "$.hierarchy_stage.round_plan.prompt_strategy",
+          "原文摘要": "65dcc5cf727bae4176831bc6020f0bacfda45ba97aaa177aa0d6c699edd98ee7",
+          "译文摘要": "75f5d96a68507bb8a3876989296c206a0395acf184bd049844fe9e52866edb20"
+        },
+        {
+          "位置": "$.hierarchy_stage.prompt_skeleton[0]",
+          "原文摘要": "52d519f184ddbb337a8cceee2ce35ceb8f1c84d7dfec06b51db32070bb89bb8b",
+          "译文摘要": "9b58a3f22dadafe9ae29db911bd2782ac76ef4d2f3bfed8b28d6748880bf2845"
+        },
+        {
+          "位置": "$.hierarchy_stage.prompt_skeleton[1]",
+          "原文摘要": "dbe45eb3d08a19c17b14ea8ddb32f4fc9f721aa901a292c3a2dccacd20982641",
+          "译文摘要": "9f876d9ce9c5c7d847dd3477aa32072155c501b04deb3913edd8552d86443f80"
+        },
+        {
+          "位置": "$.hierarchy_stage.prompt_skeleton[2]",
+          "原文摘要": "332f92a621fc2b157fb872247e0ecfb8a9cd39b70e892f91db24bcf99d7789a0",
+          "译文摘要": "57f8a767303aedd0454284875073034ab78bcc6646fd80f04a27b55eaf2a4df5"
+        },
+        {
+          "位置": "$.hierarchy_stage.prompt_skeleton[3]",
+          "原文摘要": "3c91d99c80689fb90ce1aada0e58de02b37673844f45e619091727794e664bc7",
+          "译文摘要": "e834346f293a38aa1a15da36a6e869927c36244c7ca281f1ee48ed4221b9cdfc"
+        },
+        {
+          "位置": "$.hierarchy_stage.prompt_skeleton[4]",
+          "原文摘要": "900c88bc3060ae929bb5387034537f8da4b03dcf282c193535b7a97c0aefaf0e",
+          "译文摘要": "915cb0855c2e6a823974f74979564c68814347948e4be059eed1ddf57179183b"
+        },
+        {
+          "位置": "$.hierarchy_stage.prompt_skeleton[5]",
+          "原文摘要": "32d86d4b84f3412c50d8ba0a62d2f9806a7b311775a5c9b1f1cc1b81af8727e3",
+          "译文摘要": "6ab06d1d89e21def6500a9f67f79eeeb0993cf0952f150f02912274c4041b84d"
+        },
+        {
+          "位置": "$.hierarchy_stage.prompt_skeleton[6]",
+          "原文摘要": "aceb50c342e1f811b3998e439305c7e7172743a8b7f401d8e1d114c1b0a0d312",
+          "译文摘要": "7b04731fa7406189bed172cc44eb82324dfbfbbc4844377936fc8e66f7f52462"
+        },
+        {
+          "位置": "$.hierarchy_stage.prompt_skeleton[7]",
+          "原文摘要": "5791bc0f0b2255c34d7e3f06be210d83b062dfca9eff28cde38d96bf6c81388b",
+          "译文摘要": "37072f14028965c108027db710df4af96338ef4156120d5446ee9122e17f5bfc"
+        },
+        {
+          "位置": "$.hierarchy_stage.note",
+          "原文摘要": "5df8ee7b3fe1ca234b9d71497ec371c10b3894b84ad5aa7c71f88ce571a5d797",
+          "译文摘要": "b38960faf858b9a3462406dcbce9f7a0da4507767f2e12cdd1e2b12c379b2e46"
+        },
+        {
+          "位置": "$.rule",
+          "原文摘要": "97f4c5e80dd49af4e5b5498ba13cbfcccf6e75c53f0048a9916495e01cc89375",
+          "译文摘要": "e18af3f24c0df8abcd690a3adb2fc2b923677be855a41723b1f356a8c3d99a10"
+        }
+      ]
+    },
+    {
+      "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+      "源文件": "docs/v0.8.1-concept-art-hierarchy-plan.json",
+      "源文件摘要": "2dc46ee10fe11b478d2b0ff2e0b4838442db0f6ea2b316c351c180466f132dc5",
+      "译文文件": "docs/v0.8.1-concept-art-hierarchy-plan.json",
+      "译文摘要": "541de4077458829b9ca11438de590dbc01e3e761d2c5e70f8c6e9a17a20cd27e",
+      "翻译字段数": 28,
+      "字段": [
+        {
+          "位置": "$.hierarchy.target_read",
+          "原文摘要": "3f432bcb860cf0474cc205453e340495ee34e3e28789226b30378abb08c48399",
+          "译文摘要": "c67af3408f33b815a32587665d0c3b458a582b22566c35a81871ef991626d16c"
+        },
+        {
+          "位置": "$.detail_budget.goal",
+          "原文摘要": "c128bfceb23cd8ea2196a5dcec75b67e11da528f31591495953a32e8d0dc40c3",
+          "译文摘要": "c23b8294c74f367ee1a6a5cb14519aad803672464f5723c553827943bd6b76c1"
+        },
+        {
+          "位置": "$.detail_budget.compiler_rules[0]",
+          "原文摘要": "44d42dde73333f77cb11158dc17d5c744d17d1829419bcde551ec8f9b9391e04",
+          "译文摘要": "9be61077f867006698d529d35ae0df6b43cd7a88abac66626cadd12d795b6b5a"
+        },
+        {
+          "位置": "$.detail_budget.compiler_rules[1]",
+          "原文摘要": "41f7f6a3e24d23d31ca3d1b85a4702a952f2922b24ca6f9d178f18cb5fd41141",
+          "译文摘要": "268fff95a65380da3c94c48c3ec25426e8aa7d616a45619f2008acf19b9add4f"
+        },
+        {
+          "位置": "$.detail_budget.compiler_rules[2]",
+          "原文摘要": "a6b7777979fb1b36239568d243a568417f8079244a1aba648057b4e565126eb1",
+          "译文摘要": "52372e966fa99c801f58febfdb8a1f1a7adfb83a2596ace1ff6bc02dea8e8aac"
+        },
+        {
+          "位置": "$.detail_budget.compiler_rules[3]",
+          "原文摘要": "5e6fbd44b73cc2f5b499901654cc3dcd618c295c84bdee70619a6e95637861a3",
+          "译文摘要": "f005095a64e35704712266a507dee2d9997eaae6673fdc14b8a1ff62d5930e9a"
+        },
+        {
+          "位置": "$.highlight_hierarchy.rules[0]",
+          "原文摘要": "7b9c86b0b9cc1784645678d87618bbf3202c7076f76e2ab76a181530b974eaa1",
+          "译文摘要": "7a685b92d9e109a6cf11c90653a2370916095e533230d9bbe83d372d3a4923ab"
+        },
+        {
+          "位置": "$.highlight_hierarchy.rules[1]",
+          "原文摘要": "9bbead4acfb26b1d0b60b4d375754643abd6b7d19c7d43eab3ef4a0371b40cf8",
+          "译文摘要": "c6f13575b0b943b561ef1676f16108f3d76c4f2ae9ddae7b2f3351e0c39f7882"
+        },
+        {
+          "位置": "$.highlight_hierarchy.rules[2]",
+          "原文摘要": "488c37e936b5f95e92841004d4f2fd03e9b0033b6719d0e6e8e3435e1ab15892",
+          "译文摘要": "1e7ee9c230ff08988643eeb05d6d38152ea2efa00705e1e2ea8981c1d6e14970"
+        },
+        {
+          "位置": "$.highlight_hierarchy.rules[3]",
+          "原文摘要": "c11d3d81d030e35fa40292114ec8238d6722772a37a25077b71459b34d3ff008",
+          "译文摘要": "c1f05ee2f06f477f134ee5ee753e72fdf408fa4ca752f5474cf3cdab2f4c625d"
+        },
+        {
+          "位置": "$.background_submission.rules[0]",
+          "原文摘要": "0856da09f262d87a4cb50383d5c4f0756fab7030dccdb7a315609175984f1e85",
+          "译文摘要": "a34e1c88736ae78192ac73859f1b2a5f99caf8365e007f153ce8da45556ecaf7"
+        },
+        {
+          "位置": "$.background_submission.rules[1]",
+          "原文摘要": "9bfcf67bcccf81fc66754f1c025f717d350fb2cf498523a86d58cfd3d3db5c73",
+          "译文摘要": "ae16d1c9b2c1bcf9db6c967cb79dd06298a80d58027616737cd0b6ebd8213c01"
+        },
+        {
+          "位置": "$.background_submission.rules[2]",
+          "原文摘要": "6ccbd8c0857fd3823c3de9757579a189278bf54c82d637bb5a838847938401bc",
+          "译文摘要": "5f70020c0c922589eab560fef9e47b1bb3b00f5b87f7a621c90eecbac07253b0"
+        },
+        {
+          "位置": "$.background_submission.rules[3]",
+          "原文摘要": "0a1ecae23a1465fa02966ac401dd11ae617feccdc55cd72722991f21eddccf30",
+          "译文摘要": "be3d6cc2a0b56a929e4bbf1511c4d0eeda140f38f4f4cf5a9d3f287d7701f638"
+        },
+        {
+          "位置": "$.painterly_edge.rules[0]",
+          "原文摘要": "a86b6335583469199ca5a73f896d534bbfb6d074093023b2fbacadab12ee9b79",
+          "译文摘要": "3e2080d628c99e5080aae68ef99698a877e83556e91ea05b6076d399d08efe98"
+        },
+        {
+          "位置": "$.painterly_edge.rules[1]",
+          "原文摘要": "3a5e08fdf9252cc6a5c30094c672c84f87d37860ed7a9e49bc6fb8a794bca079",
+          "译文摘要": "4cbb5ac6dae7f6e246c0abd2ff9fb5b24c21b17c3bca20cea964c7cec5172738"
+        },
+        {
+          "位置": "$.painterly_edge.rules[2]",
+          "原文摘要": "f9194e6fe8274e9670018e3cb431068b3edc88b90d01b1372c70316d5a9b730c",
+          "译文摘要": "43302ea8e7275ed66b30ca103a8a428c2dc93b5015de20f54c4eee1f1452390b"
+        },
+        {
+          "位置": "$.painterly_edge.rules[3]",
+          "原文摘要": "5f791c7206285f0e0be6bac12cdf6ffc32b77d54aea554df11defe3a7fc51e5b",
+          "译文摘要": "3af2da3ee87c4f8befacb112d14addd735df2dd9e0a666386b91578cae88b015"
+        },
+        {
+          "位置": "$.round_plan.prompt_strategy",
+          "原文摘要": "65dcc5cf727bae4176831bc6020f0bacfda45ba97aaa177aa0d6c699edd98ee7",
+          "译文摘要": "75f5d96a68507bb8a3876989296c206a0395acf184bd049844fe9e52866edb20"
+        },
+        {
+          "位置": "$.prompt_skeleton[0]",
+          "原文摘要": "52d519f184ddbb337a8cceee2ce35ceb8f1c84d7dfec06b51db32070bb89bb8b",
+          "译文摘要": "9b58a3f22dadafe9ae29db911bd2782ac76ef4d2f3bfed8b28d6748880bf2845"
+        },
+        {
+          "位置": "$.prompt_skeleton[1]",
+          "原文摘要": "dbe45eb3d08a19c17b14ea8ddb32f4fc9f721aa901a292c3a2dccacd20982641",
+          "译文摘要": "9f876d9ce9c5c7d847dd3477aa32072155c501b04deb3913edd8552d86443f80"
+        },
+        {
+          "位置": "$.prompt_skeleton[2]",
+          "原文摘要": "332f92a621fc2b157fb872247e0ecfb8a9cd39b70e892f91db24bcf99d7789a0",
+          "译文摘要": "57f8a767303aedd0454284875073034ab78bcc6646fd80f04a27b55eaf2a4df5"
+        },
+        {
+          "位置": "$.prompt_skeleton[3]",
+          "原文摘要": "3c91d99c80689fb90ce1aada0e58de02b37673844f45e619091727794e664bc7",
+          "译文摘要": "e834346f293a38aa1a15da36a6e869927c36244c7ca281f1ee48ed4221b9cdfc"
+        },
+        {
+          "位置": "$.prompt_skeleton[4]",
+          "原文摘要": "900c88bc3060ae929bb5387034537f8da4b03dcf282c193535b7a97c0aefaf0e",
+          "译文摘要": "915cb0855c2e6a823974f74979564c68814347948e4be059eed1ddf57179183b"
+        },
+        {
+          "位置": "$.prompt_skeleton[5]",
+          "原文摘要": "32d86d4b84f3412c50d8ba0a62d2f9806a7b311775a5c9b1f1cc1b81af8727e3",
+          "译文摘要": "6ab06d1d89e21def6500a9f67f79eeeb0993cf0952f150f02912274c4041b84d"
+        },
+        {
+          "位置": "$.prompt_skeleton[6]",
+          "原文摘要": "aceb50c342e1f811b3998e439305c7e7172743a8b7f401d8e1d114c1b0a0d312",
+          "译文摘要": "7b04731fa7406189bed172cc44eb82324dfbfbbc4844377936fc8e66f7f52462"
+        },
+        {
+          "位置": "$.prompt_skeleton[7]",
+          "原文摘要": "5791bc0f0b2255c34d7e3f06be210d83b062dfca9eff28cde38d96bf6c81388b",
+          "译文摘要": "37072f14028965c108027db710df4af96338ef4156120d5446ee9122e17f5bfc"
+        },
+        {
+          "位置": "$.note",
+          "原文摘要": "5df8ee7b3fe1ca234b9d71497ec371c10b3894b84ad5aa7c71f88ce571a5d797",
+          "译文摘要": "b38960faf858b9a3462406dcbce9f7a0da4507767f2e12cdd1e2b12c379b2e46"
+        }
+      ]
     }
   ]
 }
