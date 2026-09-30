@@ -1,48 +1,56 @@
-# v0.8.2 Ancient White Asset Regression Checklist
+# v0.8.2 古装白底资产历史回归清单
 
-Use the latest successful white-background ancient-costume full-body result as the visual regression case.
+> 历史中文译文，记录该版本当时的方案、观察或测试结论，不代表当前配置或新增验收。旧固定年龄、脸型、鞋履展示、白底、阶段顺序与厂商适配仅限历史语境，当前以用户要求及主工作流为准。原始提交：`505a9c25ae6c822b62d834f9a60ff6918b30e782`；源文件：`examples/ancient-white-asset-v082-regression-checklist.md`；源文件SHA-256：`c4ba7820d01a5ee44999402cc088fa7b7d44e8103d75e72cb976790e51355bfd`。
 
-## Pass criteria
+当时使用最新成功的古装白底全身图作为视觉回归案例。下列规则记录该案例的验收，不是所有任务的通用标准。
 
-### Face
-- beauty is maintained or improved
-- visual age stays youthful
-- face feels more character-specific, not more generic
-- no maturity/fatigue inflation
+## 通过条件
 
-### P9 / body read
-- tall fashion read is clearer under the long robe
-- torso remains complete and natural
-- no head-shrink shortcut
-- no isolated thigh/calf stretching
-- shoes remain clearly readable
+### 面容
 
-### Hands
-- clean crossed-hand relationship
-- one thumb and four fingers anatomically per hand; judge visible segments and natural occlusion without requiring all ten digits in view
-- finger roots not swallowed by sleeves
-- natural hand scale and wrist direction
+- 美感保持或改善。
+- 视觉年龄保持年轻。
+- 面容更具人物独特性，而非更模板化。
+- 不增加成熟度或疲态。
 
-### Materials
-- main robe has more weight than outer gauze
-- gauze has real layered transparency
-- gold floral pattern reads woven/embroidered, not printed
-- sash/collar/ties are structurally clearer
+### P9与身体观感
 
-### Asset master framing
-- top ornament and shoes fully visible
-- controlled hem spread
-- balanced negative space
-- stable frontal body axis
+- 长袍下高挑时装观感更清楚。
+- 躯干完整自然。
+- 不靠缩头取巧。
+- 不单独拉长大腿或小腿。
+- 鞋履保持清楚可读。
 
-### Lighting
-- pale fabric separates from white background without dark outlines
-- face remains primary read
-- gold-thread highlights are restrained
-- soft floor contact shadow grounds the character
+### 手部
 
-## Failure routing
+- 交叠关系清楚。
+- 每只手在解剖上有一拇指、四手指；按可见指段与自然遮挡判断，不要求十指全部入眼。
+- 袖子不吞没指根。
+- 手部尺度与手腕朝向自然。
 
-- generic face → `asset_master_face_refine`
-- weak P9 / hands / framing → `asset_master_structure_refine`
-- merged materials / flat light / weak white separation → `asset_master_material_light_refine`
+### 材料
+
+- 主袍比外纱更有重量。
+- 纱具有真实层叠透明度。
+- 金花纹表现为织造或刺绣，不像印花。
+- 腰带、领口与系带结构更清楚。
+
+### 资产母版取景
+
+- 顶部饰物与鞋履完整可见。
+- 衣摆开度受控。
+- 负空间均衡。
+- 正面身体轴线稳定。
+
+### 灯光
+
+- 浅色衣料不用暗描边即可与白底分离。
+- 面部仍为主要视觉重点。
+- 金线高光克制。
+- 柔和地面接触影让人物接地。
+
+## 失败路由
+
+- 通用模板脸 → `asset_master_face_refine`。
+- P9观感、手或取景不足 → `asset_master_structure_refine`。
+- 材料混合、灯光平板或白色分离不足 → `asset_master_material_light_refine`。

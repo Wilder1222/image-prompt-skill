@@ -1,20 +1,17 @@
-# Template: Single Reference → Full-body Asset
+# 单参考全身资产：写作辅助
 
-Image A is the only reference and the identity/costume source.
+用于一张参考图加描述生成完整人物资产。图A是否提供身份、服装、风格、动作或背景，按观察与用户要求分别确定，不使用固定权重表替代分析。
 
-Use Image A with this authority:
-- Identity: strict
-- Costume architecture: strict for visible regions
-- Material language: strong
-- Pose: strong
-- Style: weak
-- Lighting: weak
-- Environment: ignore
+【任务与参考】写清主体、用途、画幅、景别与参考权限。全身、正面、白底均在实际要求成立时写入；用户允许背景、姿态或表情适配时给出具体自然协调方案。
 
-Create a complete full-body front-facing character asset on a pure white seamless background. Preserve all visible identity, hairstyle, costume architecture, palette, signature accessories, and asymmetry from Image A.
+【人物与妆容】保留参考可辨识特征与既定年龄，真实感建立在精致妆容上，不统一换成鹅蛋脸或刻意制造不对称。发型允许调整时整理结构并减少跨脸碎发，不能默认锁死。
 
-For parts not visible in Image A, use C1 conservative completion. Extend only the existing design language and do not introduce new primary colors, major armor, new symbols, a new costume family, or a higher design density. Keep the same wear state as the reference.
+【服装与补全】区分可见设计和未见区域。无再设计要求时沿现有设计语言克制延展；已授权适度优化时明确调整剪裁、衣层或饰物，不把“保留”变成拒绝用户优化的理由。磨损与装饰密度不自动增加。
 
-Increase human presence to H2: believable eyelid and cheek soft tissue, regional skin response, subtle natural facial asymmetry, realistic hair grouping, and photographic camera response. Keep face geometry and age identity unchanged.
+【体型与动作】沿用本轮选定比例，分别协调头颈肩、躯干、腰臀与四肢，保留适度肌肉和软组织。动作、表情、手势与衣料受力一起考虑，屈腿与透视不硬算画面头数。
 
-Render materials distinctly and physically: cloth, silk, leather, metal, mechanical parts, embroidery, and translucent layers should not share the same surface response. Keep the figure fully visible from the highest hair ornament to the footwear, with natural floor contact and soft studio lighting.
+【材质与布光】仅区分实际存在或已授权设计的材料，按重量、折叠、反射和透光表现。白底采用合适摄影灯光；保留环境时让面部与环境受光协调，不强套棚拍。
+
+【构图与完整性】按目标容纳完整人物及附属衣发；鞋可以自然被遮挡，不为露脚缩短裙摆。若要求严格留白，实际查看输出是否成立，不能仅凭文字宣称精确控制。
+
+结合[主生产流程](../references/routes/prompt-production.md)逐项填写，交付具体角色提示词而非通用模板。

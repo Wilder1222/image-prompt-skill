@@ -1,0 +1,101 @@
+{
+  "说明": "历史报告翻译保留原始提交、文件摘要及译文摘要；历史测试数量和能力断言不视为本次重新验证结果。",
+  "文件": [
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.7.1-implementation-report.md",
+      "源文件摘要": "50ed1f253a5688b32dc1c45a21b26202773fcd2a0f30d08b9cebb5446067a128",
+      "译文文件": "docs/v0.7.1-implementation-report.md",
+      "译文摘要": "45e76a86e353237f2a988b873fed9f434293558aab3e9ce3bf53c782a65fe047",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.7.2-implementation-report.md",
+      "源文件摘要": "72ceba08cfdd752f2c0d24e62c0a2419c5179d1da911d6359c94e91110af8fda",
+      "译文文件": "docs/v0.7.2-implementation-report.md",
+      "译文摘要": "70a3a88d2f91762e6c5cbc5f3d84678c9a7814b86fafd8fd6a2523d7cb4e2320",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.7.4-implementation-report.md",
+      "源文件摘要": "24ed4064818da8398b4945d2983b349de1649e580f8a0e0c7d3cac13825cd5f8",
+      "译文文件": "docs/v0.7.4-implementation-report.md",
+      "译文摘要": "2860752c727d370d30c1374e66bbf2e9bd397c8176213313ef95d1be60fc534a",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.7.5-implementation-report.md",
+      "源文件摘要": "a5f026cc62f2a69c4bce45d6c5512411c64e80f2ff24f4c3967c8dc1e53664d8",
+      "译文文件": "docs/v0.7.5-implementation-report.md",
+      "译文摘要": "fdf579696a4a4cab62f3fc7d86c443c02ce10552797b77bb0c90b524f45872cf",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.7.6-implementation-report.md",
+      "源文件摘要": "f820dc4dd2ef0dec96c75e762441bc5e6fbc503bf89eebdf3a4a635ffa98b6c8",
+      "译文文件": "docs/v0.7.6-implementation-report.md",
+      "译文摘要": "c2684b513e0e5a736bc8d59dde17734ccabdb6c9c2a709dc65e8ed78fea7a617",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.7.7-implementation-report.md",
+      "源文件摘要": "637f718606961113054d672324b2750a8bce47f384b335c5f815dd837548bc74",
+      "译文文件": "docs/v0.7.7-implementation-report.md",
+      "译文摘要": "f973461f8835038787c24305a14e51cdbe94dac16b0ced1845c7d5273c623f5b",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.7.8-implementation-report.md",
+      "源文件摘要": "aaddb6451d1b3c65a7705643a77cfb4e4e844f92e153494f47dafcb29901078a",
+      "译文文件": "docs/v0.7.8-implementation-report.md",
+      "译文摘要": "29d8930e85c56f46d810121f894d32078daf1e33dbce754a536ea8e2dc467b2f",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.7.9-implementation-report.md",
+      "源文件摘要": "7e53a233b1b4b049c3f90739105006d8593d7a9e0d21a3136193d961d12821fe",
+      "译文文件": "docs/v0.7.9-implementation-report.md",
+      "译文摘要": "03e0dbe9e86ad80465742f636a7a5160414dc0a6047b45e5c9897426f4a243fd",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.8.0-implementation-report.md",
+      "源文件摘要": "64018831d0d81b7319a46b586046faf35f6b77d52f0649570934c91090215fdf",
+      "译文文件": "docs/v0.8.0-implementation-report.md",
+      "译文摘要": "05fa9214a83c10c8d1fac820f2980254c2f0b37635c6ae1708013e69580405b8",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.8.1-implementation-report.md",
+      "源文件摘要": "306beceb2fe5f395bbe0ba6d1a559fe6ef52179bec549482563e8392843a7cbc",
+      "译文文件": "docs/v0.8.1-implementation-report.md",
+      "译文摘要": "d15b18dd4b3d359f22d8de265a85e9942183f77c2c5c0a93ab4467bef0cb6285",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "docs/v0.8.0-image-comparison.md",
+      "源文件摘要": "4a792c29477746e4cd11f9f256de9ffa8de6848c98aa1ad9b27f1f670d5b74fe",
+      "译文文件": "docs/v0.8.0-image-comparison.md",
+      "译文摘要": "ea89d045a44062ef7b48f89dcce9925698303192a931658e043220fd0bda45ea",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    },
+    {
+      "源提交": "505a9c25ae6c822b62d834f9a60ff6918b30e782",
+      "源文件": "examples/ancient-white-asset-v082-regression-checklist.md",
+      "源文件摘要": "c4ba7820d01a5ee44999402cc088fa7b7d44e8103d75e72cb976790e51355bfd",
+      "译文文件": "examples/ancient-white-asset-v082-regression-checklist.md",
+      "译文摘要": "7d970db8e72c0c937824fbc257db17f31965eb5ca2197ea6fe5f7e3a3d56d999",
+      "性质": "历史报告或回归清单的中文译文，非新执行证据"
+    }
+  ]
+}

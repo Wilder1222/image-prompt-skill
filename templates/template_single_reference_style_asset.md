@@ -1,20 +1,15 @@
-# Template: Single Reference → Style-on-Asset
+# 单参考风格资产：写作辅助
 
-Image A is the only reference.
+用于从一张图提取人物及视觉风格、生成角色资产。图A的身份、衣装、材质、媒介、光线、动作与环境是独立通道，按用户要求和实际可见内容分配权限。
 
-Reference channel authority:
-- Identity: strict
-- Costume architecture: strict for visible regions
-- Material language: strong
-- Pose: strong
-- Style: strong
-- Lighting language: strong
-- Environment: ignore
+【任务与参考】写出目标画幅、景别、用途，以及图A提供哪些属性。需要白色或中性背景时明确写出；需要保留或调整场景时保留对应环境信息。
 
-Create a complete full-body front-facing character asset on a pure white or neutral seamless background.
+【人物面容与妆容】保持辨识和既定年龄，精致妆容、美感与生命感优先。面容真实程度与整体媒介协调，不自动升到H2或强制增加不对称。
 
-Preserve all visible identity and costume architecture from Image A. For lower-body, footwear, back-side, or other regions not visible in Image A, use conservative completion: extend only the existing design language and do not introduce new primary colors, major armor, symbols, or a new costume system. Keep overall design density and wear state consistent with the visible reference.
+【服装设计与材质】可见衣装、配色和材料语言作为设计依据；未见下身、鞋或背部是补全方案而非观察事实。允许优化时写清调整项，未授权时不增加大面积护甲、新符号或新的服装体系。保持适当设计密度和原定磨损。
 
-Increase human presence to H2: believable facial soft tissue, regional skin reflectance, subtle natural asymmetry, realistic hair grouping, and photographic camera response. Preserve the original face geometry and age identity.
+【动作与造型】按任务调整或保持姿态、表情、发型和饰物，让动作、重心、披帛与衣摆协调。不能仅因参考是侧脸近景，就把姿势强锁为近景方向。
 
-Keep Image A's material language, palette relationships, and character temperament, but do not copy its original environment. The final image should feel like the same character professionally photographed as an asset, not a redesign.
+【表现方向与灯光】明确保留哪种摄影或绘画语言，按所选背景重建光线。摄影真实度不应自动覆盖所需厚涂风格，风格保持也不能阻止明确要求的摄影化。
+
+【验收】区分主体完整、比例协调、身份保持和风格成立；这些需分别看实际图像。按[主生产流程](../references/routes/prompt-production.md)完成具体中文标签正文。

@@ -1,18 +1,20 @@
-# Stylized-Beauty Face Asset Template
+# 风格化美感的面容方向片段
 
-Use for poster art, stylized character sheets and semi-realistic illustration assets where idealized beauty is intentional.
+适用于明确选择 `stylized_beauty` 的海报、风格化角色资产或半写实插画。理想化程度和具体笔触由参考与任务确定，不默认某个年龄、脸型或五官尺寸。
 
-## Face Mode
+## 使用规则
 
-`stylized_beauty`
+- 保留已认可的人物面容设计、精致妆容和辨识特征。
+- 真实感服务指定媒介：眼神、表情和软组织有生命力，皮肤细节保持适度，不强推照片化或塑料质感。
+- 头发、手、身体、衣装材料及灯光也按整体风格呈现，不自动把面部以外全部改成高真实度。
+- 风格化不能掩盖明显解剖问题；动作张力和夸张程度按本轮要求处理。
 
-## Core behavior
+## 分类提示词写法
 
-- Keep the approved stylized facial design.
-- Use minimal pore/skin detail.
-- Preserve idealized eye and face aesthetics.
-- Improve non-face realism without forcing the face toward photography.
+【人物面容】说明需保持的参考五官、人物气质与理想化程度。表情按任务适配，保留角色本身的吸引力。
 
-## Prompt block
+【妆容与肌肤】说明精致妆面、柔和皮肤体积和适合该媒介的选择性细节，不用密集毛孔或统一磨皮破坏美感。
 
-Preserve the stylized beauty design and idealized facial appeal. Use only minimal facial realism and keep the face polished, youthful and intentionally stylized. Apply stronger realism to hair physics, hands, costume materials, body presence and lighting without forcing the facial design into photographic realism.
+【表现方向】说明本轮的厚涂、半写实或其他已指定媒介，使脸、头发、材料与灯光协调。仅编辑面部时不扩大到全图重绘。
+
+以上需按实际角色填写，不能代替[主生产流程](../../references/routes/prompt-production.md)要求的完整中文分类提示词。

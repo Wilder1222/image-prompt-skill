@@ -1,23 +1,11 @@
 {
-  "阶段": "第十阶段",
+  "阶段": "第十一阶段",
   "说明": "候选扫描用于安排人工核对，不是确认缺陷数；短词、混排与兼容标识仍需人工区分。历史执行、编译示例和计划译文均关联不可变源提交；档案译文不充当当前生成结果。",
-  "待人工核对文件数": 95,
-  "英文候选数": 740,
+  "待人工核对文件数": 70,
+  "英文候选数": 468,
   "知识目录长段落候选": 0,
   "资源目录长段落候选": 0,
   "待核对文件": [
-    {
-      "文件": "docs/v0.7.6-implementation-report.md",
-      "候选数": 29
-    },
-    {
-      "文件": "examples/ancient-white-asset-v082-regression-checklist.md",
-      "候选数": 28
-    },
-    {
-      "文件": "docs/v0.7.9-implementation-report.md",
-      "候选数": 23
-    },
     {
       "文件": "docs/v0.7.9-warrior-face-plan.json",
       "候选数": 22
@@ -25,14 +13,6 @@
     {
       "文件": "docs/visual-evaluations/material-generation-v091.json",
       "候选数": 22
-    },
-    {
-      "文件": "docs/v0.7.1-implementation-report.md",
-      "候选数": 21
-    },
-    {
-      "文件": "docs/v0.8.0-image-comparison.md",
-      "候选数": 20
     },
     {
       "文件": "docs/research/style-restoration-realism-research.md",
@@ -55,10 +35,6 @@
       "候选数": 16
     },
     {
-      "文件": "tests/README.md",
-      "候选数": 16
-    },
-    {
       "文件": "docs/research/human-presence-v3-sources.json",
       "候选数": 13
     },
@@ -71,31 +47,11 @@
       "候选数": 13
     },
     {
-      "文件": "docs/v0.8.1-implementation-report.md",
-      "候选数": 12
-    },
-    {
       "文件": "examples/silver-b-round1-p9-proportion-patch.md",
       "候选数": 12
     },
     {
-      "文件": "templates/face/template_beauty_first_asset.md",
-      "候选数": 12
-    },
-    {
       "文件": "docs/research/reference-fidelity-human-presence-research.md",
-      "候选数": 11
-    },
-    {
-      "文件": "docs/v0.7.2-implementation-report.md",
-      "候选数": 11
-    },
-    {
-      "文件": "docs/v0.7.4-implementation-report.md",
-      "候选数": 11
-    },
-    {
-      "文件": "docs/v0.8.0-implementation-report.md",
       "候选数": 11
     },
     {
@@ -107,19 +63,11 @@
       "候选数": 11
     },
     {
-      "文件": "docs/v0.7.8-implementation-report.md",
-      "候选数": 10
-    },
-    {
       "文件": "docs/visual-evaluations/wardrobe-reference-v095.json",
       "候选数": 10
     },
     {
       "文件": "examples/silver-b-round2-human-presence-v21.md",
-      "候选数": 10
-    },
-    {
-      "文件": "templates/face/template_humanized_real_asset.md",
       "候选数": 10
     },
     {
@@ -141,18 +89,6 @@
     {
       "文件": "examples/silver-b-regression-plan-v075.md",
       "候选数": 9
-    },
-    {
-      "文件": "templates/face/template_stylized_beauty_asset.md",
-      "候选数": 9
-    },
-    {
-      "文件": "docs/v0.7.5-implementation-report.md",
-      "候选数": 8
-    },
-    {
-      "文件": "docs/v0.7.7-implementation-report.md",
-      "候选数": 8
     },
     {
       "文件": "docs/visual-evaluations/current-overview.json",
@@ -211,18 +147,6 @@
       "候选数": 6
     },
     {
-      "文件": "templates/template_asset_humanized_restoration.md",
-      "候选数": 6
-    },
-    {
-      "文件": "templates/template_single_reference_asset.md",
-      "候选数": 6
-    },
-    {
-      "文件": "templates/template_single_reference_style_asset.md",
-      "候选数": 6
-    },
-    {
       "文件": "docs/research/reference-fidelity-human-presence-sources.json",
       "候选数": 5
     },
@@ -271,10 +195,6 @@
       "候选数": 4
     },
     {
-      "文件": "templates/template_style_target_asset_fusion.md",
-      "候选数": 4
-    },
-    {
       "文件": "docs/verification-v0.7.4.json",
       "候选数": 3
     },
@@ -288,14 +208,6 @@
     },
     {
       "文件": "examples/silver-v078-round3-final-polish.md",
-      "候选数": 3
-    },
-    {
-      "文件": "templates/template_asset_to_restoration.md",
-      "候选数": 3
-    },
-    {
-      "文件": "templates/template_restoration_to_humanization.md",
       "候选数": 3
     },
     {
@@ -320,14 +232,6 @@
     },
     {
       "文件": "RELEASE-MANIFEST-v0.8.0.json",
-      "候选数": 2
-    },
-    {
-      "文件": "templates/benchmark-comparison-record.json",
-      "候选数": 2
-    },
-    {
-      "文件": "templates/template_white_background_ancient_asset_v082.md",
       "候选数": 2
     },
     {
@@ -380,10 +284,6 @@
     },
     {
       "文件": "examples/silver-test3-h25-optical-patch.md",
-      "候选数": 1
-    },
-    {
-      "文件": "templates/visual-regression-record.json",
       "候选数": 1
     }
   ]

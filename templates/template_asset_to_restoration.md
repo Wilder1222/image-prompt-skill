@@ -1,17 +1,15 @@
-# Template — Asset → Restoration
+# 资产转风格恢复：写作辅助
 
-Reference roles:
-- Image A = Style Restoration Reference only.
-- Image B = Asset Master.
+适用于已有角色资产母版，需要转入指定视觉风格的任务。图A为风格来源，图B为角色资产；来源与权限须以实际任务确认。
 
-Primary goal:
-Restore the mood, motion language, atmosphere, lighting language and painterly-cinematic energy of A while keeping B's identity, body, garment architecture and signature accessories intact.
+【任务与参考】说明A、B的具体作用和实际顺序，不把两个人物合并成新身份。
 
-Allowed transfer from A:
-[mood / motion / lighting / atmosphere / medium / environment scale]
+【人物与服装】从B保留人物辨识、身体设计、衣装构造与标志饰物；有明确造型调整时单列调整内容。未观察的细节与设计补全分开说明。
 
-Locked from B:
-[identity / body / costume architecture / signature accessories]
+【表现方向】只从A借入任务授权的情绪、媒介、灯光、氛围与空间尺度。身体动作可以适配时再借运动语言，动作被锁定时保持原姿态。
 
-Final target:
-A finished cinematic fantasy image that clearly belongs to A's visual world but remains unmistakably the B character asset.
+【背景与构图】按本轮要求决定沿用、调整或替换背景，不自动继承B白底，也不忽略用户指定的纯白背景。全身、半身、正面或动态构图按目标选择。
+
+【最终目标】画面呈现获准风格，同时保持B角色的身份与服装连续性。真实化与细节强度不能抹去所需绘画或幻想表现。
+
+上述类别需填入可见描述，不能原样充当成品提示词；按[主生产流程](../references/routes/prompt-production.md)核对来源与覆盖。

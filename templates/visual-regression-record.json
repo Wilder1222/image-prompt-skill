@@ -6,22 +6,65 @@
   "baseline_image": null,
   "controlled_variable": "face_profile",
   "runs": [
-    {"label": "A", "face_profile": "beauty_first_character", "prompt": null, "model": null, "settings": {}, "output_image": null},
-    {"label": "B", "face_profile": "humanized_real_light", "prompt": null, "model": null, "settings": {}, "output_image": null}
+    {
+      "label": "A",
+      "face_profile": "beauty_first_character",
+      "prompt": null,
+      "model": null,
+      "settings": {},
+      "output_image": null
+    },
+    {
+      "label": "B",
+      "face_profile": "humanized_real_light",
+      "prompt": null,
+      "model": null,
+      "settings": {},
+      "output_image": null
+    }
   ],
   "reviewer": null,
   "reviewed_at": null,
-  "allowed_verdicts": ["pending", "pass", "fail", "not_assessable"],
+  "allowed_verdicts": [
+    "pending",
+    "pass",
+    "fail",
+    "not_assessable"
+  ],
   "checks": {
-    "identity": {"verdict": "pending", "evidence": null},
-    "apparent_age": {"verdict": "pending", "evidence": null},
-    "face_direction": {"verdict": "pending", "evidence": null},
-    "proportion": {"verdict": "pending", "evidence": null},
-    "visible_hand_anatomy": {"verdict": "pending", "evidence": null},
-    "costume_continuity": {"verdict": "pending", "evidence": null},
-    "material_separation": {"verdict": "pending", "evidence": null},
-    "white_background_separation": {"verdict": "pending", "evidence": null}
+    "identity": {
+      "verdict": "pending",
+      "evidence": null
+    },
+    "apparent_age": {
+      "verdict": "pending",
+      "evidence": null
+    },
+    "face_direction": {
+      "verdict": "pending",
+      "evidence": null
+    },
+    "proportion": {
+      "verdict": "pending",
+      "evidence": null
+    },
+    "visible_hand_anatomy": {
+      "verdict": "pending",
+      "evidence": null
+    },
+    "costume_continuity": {
+      "verdict": "pending",
+      "evidence": null
+    },
+    "material_separation": {
+      "verdict": "pending",
+      "evidence": null
+    },
+    "white_background_separation": {
+      "verdict": "pending",
+      "evidence": null
+    }
   },
   "decision": null,
-  "notes": "Template only. Populate from actual images and human review; automated prompt tests cannot mark visual checks passed."
+  "notes": "仅为记录模板。根据实际图像与人工评审填写，不能用提示词程序测试将视觉检查标记为通过。"
 }

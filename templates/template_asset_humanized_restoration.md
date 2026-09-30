@@ -1,17 +1,15 @@
-# Template — Asset → Humanized Restoration
+# 资产转风格恢复与真人质感：写作辅助
 
-Image A = Style Restoration Reference.
-Image B = Asset Master.
-Optional Image C = Facial Trait Reference only.
+用于用户同时要求恢复指定视觉风格和改善人物、材料真实感的任务。不是固定提示词，也不自动选择强度；旧 `hybrid`、S2、R2只是可用项目配置，按本轮目的解析。
 
-Mode: hybrid
-Style restoration: S2
-Reality gain: R2
+【任务与参考】明确图A仅提供获准的风格属性，图B提供人物身份、身体与衣装。若有图C，仅按明确授权借面部神态，不取得换脸、换装权限。实际输入顺序与编号需一致。
 
-P0 — Keep B's identity geometry.
-P1 — Keep B's body, garment architecture and signature accessories.
-P2 — Restore A's mood, motion, lighting language, atmosphere, color relationships and painterly-cinematic energy.
-P2R — Make the person, hair and costume materials physically believable without erasing the restored fantasy language.
-P3 — Reconstruct cinematic key/fill/rim and route highlights by material.
+【人物与服装】按图B写出已观察的辨识点、衣装结构与标志饰物。身体、服装和发型能否改变由任务决定；局部修复不扩大范围，完整母图保留已通过内容。
 
-Do not copy A's face/body/costume geometry. Do not let realism reset the image to flat studio presentation.
+【风格与动作】从A逐项选择媒介、情绪、运动、光线、氛围、色彩关系与构图张力。只借获准属性，不复制A的人物脸型、身体或服装几何；指定静态姿势时不因风格参考动态而自动改动作。
+
+【妆容与材质】真实感先服务人物美感和精致妆容，再落实为软组织、发束、衣料重量和材料反射。不同材质按实际存在项区分，不添加新纱层或金属来凑层次。
+
+【背景与灯光】按任务选保留、调整、替换背景或白底；重建获准光线时，使主光、补光、轮廓光和材质高光协调，不因真实化自动重置为普通白底棚拍。
+
+最终按[主生产流程](../references/routes/prompt-production.md)写成具体中文提示词；内部优先级不能替代语义标签。
