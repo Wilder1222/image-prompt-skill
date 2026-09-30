@@ -2,19 +2,15 @@
 
 以下是审美知识与对照样例。实际任务先走 [提示词生产流程](prompt-production.md)，由参考和描述决定内容；不是先选本页模板再填空。分类与模式只帮助组织表达，不证明效果。
 
-用户提供两份参考提示词作为编写范式。共同要求是单一人物身份、正面完整全身、白底、beauty_first 与协调的 P9 Fashion。两份范式有不同的表面表现，不能因背景都是白色而统一真人化。
+用户提供两份参考提示词作为编写范式。共同要求是单一人物身份、正面完整全身、白底、精致面容美感与协调的九头身时装观感。两份范式有不同的表面表现，不能因背景都是白色而统一真人化。
 
-| 设置 | 古风材质定妆照 | 东方幻想原画资产 |
+| 视觉要求 | 古风材质定妆照 | 东方幻想原画资产 |
 | --- | --- | --- |
-| 风格路线 | material_realistic_asset | dark_fantasy_asset |
-| 渲染模式 | style_asset | style_asset |
-| 面容模式 | beauty_first | beauty_first |
-| 比例模式 | P9 Fashion | P9 Fashion |
-| 细节预算 | material_priority | concept_art_priority |
-| 高光层次 | focal_brightness | focal_brightness |
-| 边缘控制 | soft_realistic | painterly_selective |
+| 整体表现 | 精致定妆摄影感，衣料具有真实厚度与反射 | 保留厚涂原画、柔和笔触和幻想气质 |
 | 面部 | 自然精致妆容与轻度真实肌肤 | 保留冷艳精致原画面容，不强行照片化 |
+| 身体 | 修长匀称，头肩、完整躯干和四肢共同协调 | 同样保持完整人体结构，不用缩头或拉腿追求修长 |
 | 细节 | 面料重量、透光、织纹、缝合与反射差异 | 面部与主饰最清楚，大衣片中等细节，边缘选择性概括 |
+| 亮度 | 面部与邻近头饰为重点，衣摆高光克制 | 面部与主饰突出，次要金属和裙摆不争夺焦点 |
 | 边缘 | 柔光下真实的发丝、纱边与接缝 | 焦点结构清楚，发梢、披帛、次要裙边保留笔触 |
 
 使用 [当前生成示例](../../examples/ancient-white-asset-current-prompts.md) 编译通用规则，或对照 [两份参考专属提示词](../../examples/user-reference-tagged-prompts.md) 理解每类应填写的可见内容。后者是用户范例的分类整理，不是本版本生成实测。第一份已有用户提供的成功结果，第二份只有提示词范式，不冒称有配套新图。
@@ -37,6 +33,6 @@ node scripts/iteration-director.mjs asset-prompt --detail-budget concept_art_pri
 
 可分别调整 `--detail-budget material_priority|concept_art_priority`、`--highlight-hierarchy focal_brightness`、`--edge-control soft_realistic|painterly_selective`；正文必须反映设置。当前资产模式配置以 [资源目录](../../resources/asset_style_workflows.json) 为准，历史原画目录中的 `selective_painterly` 是旧名，不是当前资产命令的选项值。
 
-CLI 和 `compileAssetPrompt()` 都默认中文；显式 `language: 'en'` / `--language en` 输出同样有类别的英文。已有程序若依赖旧的默认英文，需要显式指定。用户给出的模式标签保留在文本中并用自然语言落实，不作为 API 字段发送。
+CLI 和 `compileAssetPrompt()` 都默认中文；显式 `language: 'en'` / `--language en` 输出同样有类别的英文。已有程序若依赖旧的默认英文，需要显式指定。旧模式标签只作为理解意图的输入，最终文本不保留设置块、参数赋值或孤立代号；其效果融入各类自然语言描述，也不作为 API 字段发送。
 
 纯保留完整母图使用 `full_body_anchor`，拒绝风格、比例或细节覆盖。局部修复按已接受图保留风格，不因为选择某个工作流重新处理整个角色。内部英文计划片段不属于最终交付；所有最终新图提示词仍需分类并保存实际提交正文。

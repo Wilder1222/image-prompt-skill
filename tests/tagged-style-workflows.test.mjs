@@ -6,6 +6,21 @@ import { compileAssetPrompt, createAssetPlan } from '../scripts/asset-master.mjs
 const cli = fileURLToPath(new URL('../scripts/iteration-director.mjs', import.meta.url));
 const run = args => spawnSync(process.execPath, [cli, 'asset-prompt', ...args], { encoding: 'utf8' });
 
+test('mode selections survive as visible prose without a settings block in either language',()=>{
+  const settings=/\b(?:render mode|style workflow|face mode|proportion mode|detail budget|highlight hierarchy|edge control)\s*[=:]|【(?:本轮模式|Mode settings)】/i;
+  for(const language of ['zh-CN','en']) for(const styleWorkflow of ['material_realistic_asset','dark_fantasy_asset']){
+    const r=compileAssetPrompt({language,styleWorkflow});
+    assert.equal(r.configuration.style_workflow,styleWorkflow);
+    assert.doesNotMatch(r.prompt,settings);
+    assert.doesNotMatch(r.prompt,/\b(?:P9[ _]+Fashion|beauty_first|style_asset|material_priority|concept_art_priority|focal_brightness|soft_realistic|painterly_selective)\b/);
+    if(language==='zh-CN'){
+      assert.match(r.prompt,/约九头身/);
+      assert.match(r.prompt,/视觉亮度焦点/);
+      assert.match(r.prompt,styleWorkflow==='dark_fantasy_asset'?/柔和笔触与选择性虚实/:/轮廓服从柔和棚光和真实材质/);
+    }
+  }
+});
+
 test('CLI and library deliver the same ten categorized Chinese sections by default', () => {
   const r = run(['--format', 'text']);
   assert.equal(r.status, 0, r.stderr);
@@ -24,7 +39,7 @@ test('project P9 and explicit natural proportions remain independent of presenta
   for (const presentation of ['neutral_asset', 'costume_showcase']) {
     assert.equal(createAssetPlan({ presentation }).configuration.proportion_profile, 'P9_FASHION_ASSET');
     const fashion = compileAssetPrompt({ presentation }).prompt;
-    assert.match(fashion, /proportion mode = P9 Fashion/);
+    assert.match(fashion, /约九头身/);
     assert.match(fashion, /不要极端缩头、纸片腰/);
     assert.doesNotMatch(fashion, /七至七点五/);
     const natural = compileAssetPrompt({ presentation, proportionProfile: 'NATURAL_ADULT' }).prompt;

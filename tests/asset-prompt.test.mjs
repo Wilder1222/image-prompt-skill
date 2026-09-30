@@ -40,10 +40,10 @@ test('hand override changes structure only', () => {
   assert.notDeepEqual(a.stage_2.prompt_skeleton, b.stage_2.prompt_skeleton);
 });
 
-test('generation exposes requested mode labels but has no edit-only locks', () => {
+test('generation describes proportion in prose without mode settings or edit-only locks', () => {
   const result = compileAssetPrompt();
   assert.doesNotMatch(result.prompt, /only direct edit target|Change only|youthful_18_22/);
-  assert.match(result.prompt, /proportion mode = P9 Fashion/);
+  assert.match(result.prompt, /approximately nine-head fashion proportions/);
   assert.equal(result.status, 'scaffold_only');
   assert.equal(result.requires_reference_analysis, true);
   assert.deepEqual(result.evidence, { image_generated: false, visual_quality_verified: false });

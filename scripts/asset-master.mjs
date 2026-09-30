@@ -195,7 +195,6 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
     const section = (label, items) => `【${label}】\n${items.map(text => text.trim()).filter(Boolean).join('\n')}`;
     lines = [
       section('Task and reference', ['Create a 3:4 full-body front-facing white-background ancient-fantasy character asset from the supplied reference.', plan.design_freedom.reference_prompt]),
-      section('Mode settings', [`render mode = ${c.render_mode}`, `style workflow = ${c.style_workflow}`, `face mode = ${c.legacy_face_mode}`, `proportion mode = ${c.proportion_profile === 'P9_FASHION_ASSET' ? 'P9 Fashion' : 'Natural Adult'}`, `detail budget = ${c.detail_budget}`, `highlight hierarchy = ${c.highlight_hierarchy}`, `edge control = ${c.edge_control}`]),
       section('Core goal', [workflowEnglish.profiles[c.style_workflow]]),
       section('1. Identity and face', plan.stage_1.prompt_skeleton.slice(3)),
       section('Expression and gaze', ['Allow the expression to adapt to the current character, pose, setting and purpose while retaining facial identity and apparent age. Select coherent gaze, brow and eyelid tension, mouth-corner movement and lip opening; do not freeze the original expression or impose a universal smile. Explicit expression and gaze requirements take precedence. Natural expression movement is allowed without redesigning the face or changing a locked head angle.']),

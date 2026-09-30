@@ -370,7 +370,7 @@ export const catalogEnglish = [
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.P9_FASHION_ASSET.prompt_translation[0]",
     "zh": "层叠长袍下仍保持清楚的 P9 时装比例：整体修长协调，肩颈舒展、自然腰位明确、轮廓完整；鞋脚是否可见由姿态与衣裙决定。不极端缩头、拉长脖子或上提人体骨盆。",
-    "en": "Maintain a clear P9 fashion-asset proportion even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and complete silhouette. Foot visibility depends on pose and clothing. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward."
+    "en": "Maintain coordinated, approximately nine-head fashion proportions even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and complete silhouette. Foot visibility depends on pose and clothing. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
