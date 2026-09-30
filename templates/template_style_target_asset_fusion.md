@@ -1,10 +1,11 @@
-# Style Target + Asset Master Fusion Template
+# 风格目标与角色母版融合：写作辅助
 
-Image A = Style Target. It controls medium, atmosphere, motion, lighting language, composition energy and authorized scene scale.
-Image B = Asset Master. It controls identity, hairstyle silhouette, costume architecture, signature accessories and character continuity.
+【参考权限】图A仅负责获准的媒介、氛围、运动、光线、构图张力与场景尺度；图B负责人物身份、发型方向、衣装构造、标志饰物及角色连续性。具体权限可按用户要求调整，输入编号与实际提交顺序保持一致。
 
-Final target: [render mode].
-Face mode: [face mode].
-Style profile: [style profile].
+【本轮模式】根据目标分别选择渲染模式、面容模式及风格方向，并把内部模式落实为可见的中文描述。模式名不能代替主体和材料描述，也不是厂商质量参数。
 
-Preserve B's identity and costume architecture. Rebuild the presentation using A's visual language. Do not copy A's face or costume geometry. Do not inherit B's previous background unless explicitly requested.
+【保持与调整】保留B的人物辨识和衣装设计语言，用A获准的视觉语言重建呈现。不复制A的脸或服装几何，不默认继承B原来的背景。若用户明确保持B姿态或背景，风格迁移不能覆盖这些要求。
+
+【画面目标】写清实际动作、表情、造型、背景、构图和光位。人物要自然协调、有生命力；夸张动作允许时仍需可信的重心、解剖与衣料受力。
+
+此文件只帮助组织参考分工，不能原样发送。按[主生产流程](../references/routes/prompt-production.md)基于实际图片编写完整提示词。

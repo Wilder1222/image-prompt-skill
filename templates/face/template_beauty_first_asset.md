@@ -1,20 +1,18 @@
-# Beauty-First Face Asset Template
+# 美感优先的面容方向片段
 
-Use when the character's visual appeal, youth and ethereal beauty are more important than maximum facial photorealism.
+适用于明确选择 `beauty_first`，优先保留人物吸引力、精致妆容和既定气质的任务。它是面容段落的写作辅助，不是完整生图提示词，也不固定人物年龄、脸型、背景或站姿。
 
-## Face Mode
+## 使用规则
 
-`beauty_first`
+- 以当前参考和用户要求确定人物辨识、成年年龄观感、脸型和五官；不套用统一鹅蛋脸或默认18–22岁。
+- 保持精致贴肤妆面，用柔和软组织和鼻、颊、唇的不同反射支持真实感。皮肤纹理服务美感，不用粗毛孔、疲态或削瘦增加真实感。
+- 面部与非面部真实程度分别选择，并与指定摄影、厚涂或其他媒介协调；不自动提高整张图的真实度。
+- 仅修面容时，头发、身体、服装、姿态、背景与灯光不随之重做。表情或发型可以调整时，按实际授权另写对应标签。
 
-## Core behavior
+## 分类提示词写法
 
-- Preserve the approved identity geometry.
-- Preserve a youthful 18–22 visual age unless the user says otherwise.
-- Keep soft cheek tissue, a refined oval facial read and clear youthful eyes.
-- Use only light facial realism: subtle skin response, natural brows/lips, restrained eyelid anatomy.
-- Put stronger realism into hair, hands, body presence, costume materials and lighting.
-- Do not age the face up to make it look "more real".
+【人物面容】写出参考中已观察的眼型、颊颌与鼻唇关系，以及本轮需要保留或调整的气质。将年轻感、美感与身份分别说明，不用通用脸型替换辨识点。
 
-## Prompt block
+【妆容与肌肤】写出本轮精致妆容、贴肤底妆、唇部质感及光照下可见的柔和体积。按画幅选择纹理强度，保留自然皮肤反应，避免磨成塑料或增加非预期年龄感。
 
-Preserve a youthful, elegant and beautiful face as the highest facial priority. Keep the same identity, soft cheek tissue, refined oval facial read and clear youthful eyes. Use only light facial realism, with subtle natural skin response, delicate lip texture and clean natural makeup. Do not deepen the eye sockets, hollow the cheeks, harden the jaw or increase under-eye darkness. Stronger realism should be expressed through hair, body presence, hands, costume materials, cloth physics and photographic lighting rather than by making the face older or harsher.
+以上是填写方法，不是已完成的角色描述。最终提示词须按[主生产流程](../../references/routes/prompt-production.md)结合本轮参考与描述编写并检查覆盖。

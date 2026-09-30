@@ -1,23 +1,16 @@
-# Template — Restoration → Humanization
+# 风格恢复后增加真人质感：局部编辑辅助
 
-Use the current restored image as the direct edit target.
+以当前已恢复风格的图像为直接编辑对象，先确认哪些维度确实失败，再选择最小修改范围。R2是旧项目真实感增益选项，不是所有任务的固定默认值。
 
-Reality gain: R2.
+【编辑目标】写明本轮只改面部、头发、材料或获准灯光中的哪一项，避免将下列备选项全部叠加：
 
-Change only:
-- regional skin optics and soft tissue
-- natural makeup
-- hair strand behavior
-- structural fabric / gauze / metal / leather separation
-- coherent cinematic key/fill/rim behavior
+- 面部：精致妆容下的柔和软组织与分区光学反应。
+- 头发：发束层级、自然发丝行为与受光。
+- 材料：实际存在的厚布、纱、金属或皮革的不同反应。
+- 灯光：明确获准时才调整主光、补光与轮廓光的协调。
 
-Keep unchanged:
-- identity geometry
-- garment architecture
-- mood
-- motion language
-- painterly-cinematic atmosphere
-- environment scale
+【保留内容】写明保持的身份几何、年龄观感、衣装构造、情绪、运动、媒介、环境尺度与构图；只有用户明确修改的类别可以重新打开。
 
-Goal:
-Increase believable human and material presence without flattening the restored fantasy style into ordinary studio photography.
+【表现要求】增加可信人体与材料表现，同时保留所需幻想风格；不为了“真实”自动改成普通棚拍、增加疲态或破坏已认可妆面。
+
+【验收】查看实际输出，复核编辑收益和保留项；自然语言锁定不等于像素保护。按[迭代修复流程](../references/routes/iterative-repair.md)决定接受、回退或停止。

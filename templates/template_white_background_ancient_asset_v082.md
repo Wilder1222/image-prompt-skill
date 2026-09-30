@@ -1,12 +1,27 @@
-# v0.8.2 White Background Ancient Asset Template
+# 古装白底资产兼容方案（v0.8.2入口）
 
-Default configuration:
-- render mode: style_asset
-- face profile: beauty_first_character
-- proportion: P9_FASHION_ASSET
-- material: ancient_asset_material_split
-- hands: elegant_crossed_hands_safe
-- asset: master_sheet_single
-- lighting: studio_soft_separation
+此入口仅用于用户确实要求古装白底全身资产的任务，不把白底、正面或交叠手推广为其他任务默认值。当前生产须读取[主生产流程](../references/routes/prompt-production.md)。
 
-Preserve observed identity and visible design; conservatively extend unseen lower-body design. Keep the face beautiful and character-specific, preserve a robe-aware P9 read, treat hands as anatomy-critical, separate material layers, and keep a clean white high-key studio presentation.
+## 旧配置对照
+
+下列是v0.8.2的配置名称，用于理解兼容命令，不是必须全选的生图参数：
+
+- 渲染：`style_asset`。
+- 面容：`beauty_first_character`。
+- 比例：`P9_FASHION_ASSET`。
+- 材料：`ancient_asset_material_split`。
+- 手势：`elegant_crossed_hands_safe`。
+- 资产：`master_sheet_single`。
+- 灯光：`studio_soft_separation`。
+
+## 当前写作要点
+
+【人物与妆容】写出已观察的辨识点与精致妆容，让细腻真实肌肤服务人物美感。年龄与脸型按参考及任务确定。
+
+【服装与材质】保留可见设计语言，未见下身按任务延展；已授权造型优化时明确调整。真实材料层次不等于自动增加纱、锦或金饰。
+
+【身材与动作】P9已选时保持协调的修长观感，躯干、腰臀、上下臂腿共同成立。手势按具体站姿或动作设定，不强制交叠，也不要求十指全部可见。
+
+【背景与灯光】本场景采用干净白底及适当柔和摄影灯光，面部清楚、没有不需要的斑驳。浅色服装与白底保留层次，接地自然。
+
+【构图与完整性】按本轮指定景别保留人物和自然衣发轮廓。长裙可以遮住鞋，双脚不是默认必露项；完整入画与准确头身比例须分别检查。

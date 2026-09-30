@@ -1,31 +1,31 @@
-# Verification
+# 验证说明
 
-The production workflow is now `prompt-build` / `prompt-review`. Tests cover source authority, reference inspection declarations, visible-versus-inferred locks, required-instruction coverage, missing acceptance criteria, unfinished clauses, exact prompt hashes and uncertain image reviews. Legacy `asset-prompt` emits `scaffold_only` because it has no reference-specific visual analysis.
+当前生产工作流使用 `prompt-build` / `prompt-review`。测试覆盖来源权限、参考已查看声明、可见事实与推断的区分、必要指令覆盖、缺失验收项、未完成语句、精确提示词摘要和图像评审不确定性。旧 `asset-prompt` 没有按参考进行视觉分析，因此输出标记为 `scaffold_only`。
 
-These checks validate declared data and artifact integrity. They cannot prove that the agent interpreted the image correctly or that a prompt will yield a good image. The host agent must inspect actual inputs, review the meaning of the final prompt, then inspect actual outputs when generation is requested.
+这些检查验证声明数据和文件完整性，不能证明代理正确理解了图像，也不能保证提示词能生成好图。宿主代理必须查看实际输入、审阅最终提示词含义；请求生图时还要查看实际输出。
 
-The v0.12 production-run tests cover immutable run snapshots, exact reference order and content hashes, output/target binding, same-person supporting views, scoped category edits, user changes to stance and shoe visibility, changed-goal exclusion, duplicate outputs, interrupted queues with unknown dispatch, and same-goal repair statistics. The compatibility asset case now allows natural footwear occlusion. These are contract tests, not visual anatomy or pose recognition.
+v0.12生产运行测试覆盖不可变快照、参考顺序与内容摘要、输出与目标绑定、同一人物补充视角、限定类别编辑、用户对站姿及露鞋要求的修改、目标变更排除、重复输出、派发状态不明的中断队列，以及同目标修复统计。兼容资产案例允许鞋履自然遮挡。这些是契约测试，不是图像解剖或姿态识别。
 
-Run `npm test` for the Node.js test suite and `npm run validate` for catalog, skill-entrypoint, linked-file, JSON, reference-binding and release-hash validation. No npm dependencies are required.
+运行 `npm test` 执行Node.js测试，运行 `npm run validate` 检查资源目录、技能入口、文件链接、JSON、参考绑定及发布哈希。不需要安装npm依赖。
 
-After editing prompt catalogs or the compiler, run `npm run examples:build` to regenerate current examples and the plan. After completing intended file changes, run `npm run release:build` to update the current manifest, then `npm run validate`. Keep versioned historical manifests unchanged.
+修改提示词资源或编译器后，运行 `npm run examples:build` 重建当前示例与计划。完成预期修改后，运行 `npm run release:build` 更新当前清单，再运行 `npm run validate`。带版本号的历史发布清单保持原样。
 
-The current tests exercise face A/B isolation, effective age preservation, hand overrides, copyable text output, explicit edit locks, narrow repair scopes, rejected conflicting passed dimensions, invalid CLI arguments, and legacy command compatibility. Published current examples must equal compiler output.
+当前测试包括面部A/B隔离、有效年龄保持、手势覆盖、可复制正文、明确编辑锁、小范围修复、已通过维度冲突拒绝、无效命令行参数及旧命令兼容。发布的当前示例必须与编译器输出一致。
 
-The v0.8.4 cases also verify presentation selection without face/material drift, user hand-pose priority, local-repair isolation, full-body anchor preservation without hidden preset application, rejected conflicting anchor overrides, CLI dispatch, and presentation catalog validation.
+v0.8.4案例还验证呈现方案切换不导致面部或材质漂移、用户手势优先、局部修复隔离、完整全身参考不被隐藏预设改变、冲突覆盖拒绝、命令派发及呈现资源校验。
 
-Release tests mutate temporary copies to verify missing entrypoints, broken links, invalid preset references, changed file content and unlisted files are detected. Temporary copies are removed after each test.
+发布测试会修改临时副本，确认缺少入口、链接损坏、无效预设引用、内容改变和清单外文件都能被发现。各测试结束后清理自己的临时副本。
 
-Existing suites cover earlier reference-role, style, proportion, human-presence and diagnostic routing behavior. These tests do not inspect images, measure identity similarity, or establish visual quality or batch reliability.
+已有测试覆盖较早的参考角色、风格、比例、真人感及诊断路由。它们不查看图像、不测量身份相似度，也不证明视觉质量或批量稳定性。
 
-Production-run tests also cover the independent background channel: retained, adjusted, replaced and white backgrounds; background-only edits preserve lighting and identity, and environment references cannot acquire identity authority implicitly. These are compilation and scope checks, not rendered scene-quality evidence.
+生产运行测试另覆盖独立背景通道：保留、调整、替换及白底。只改背景时保留灯光与身份，环境参考不能隐式取得身份权限。这些仍是编译与范围检查，不是已渲染场景的质量证据。
 
-Expression checks cover independent expression-reference authority and scoped expression edits: identity, age instructions, appearance, composition, background and lighting remain outside an expression-only update. They do not establish visual identity preservation under a changed expression.
+表情检查覆盖独立表情参考权限及局部表情编辑：身份、年龄指令、外观、构图、背景与灯光不属于仅改表情的范围。它们不证明实际变换表情后身份一定保持。
 
-Action checks cover action-reference permissions and coordinated changes to movement, expression, composition, visible extremities and material response while preserving identity and wardrobe. A change from standing to airborne uses a new target, not a silent relaxation of the old stance check. These checks do not judge anatomy or liveliness in rendered images.
+动作检查覆盖动作参考权限，以及运动、表情、构图、可见手足和材料反应的协调修改，同时保留身份与衣装。站立改为腾空属于新目标，不能静默放宽旧站姿验收。这些检查不判断图像中的解剖或生命感。
 
-Use `templates/visual-regression-record.json` for actual image evaluation. Do not mark image checks passed from CLI output alone.
+实际图像评估使用 `templates/visual-regression-record.json`。不能仅凭命令行输出就把图像验收标为通过。
 
-Use `templates/benchmark-comparison-record.json` when the user supplies a better reference. Record whether the benchmark was only inspected to write the prompt or actually sent to the image model. Keep observer review and user approval separate.
+用户提供更好的参考时，使用 `templates/benchmark-comparison-record.json`，记录标杆仅被查看用于写提示词，还是确实送入图像模型。观察者评审与用户认可分开记录。
 
-The v0.9.0 plugin tests cover standard skill discovery, canonical metadata synchronization, manifest/path/version drift, official cachebuster preservation, compilation from an isolated installed directory, clean rebuilds, stale-source refusal, preservation of edited build outputs, and exclusion of generated files and credentials. `npm run release:build` synchronizes the plugin before updating hashes. Run `npm run plugin:build` to verify the complete portable plugin directory.
+v0.9.0插件测试覆盖标准技能发现、权威元数据同步、清单与路径及版本漂移、官方缓存版本后缀保持、隔离安装目录内编译、干净重建、过期源拒绝、已编辑构建目录保护，以及生成文件与凭证排除。`npm run release:build` 先同步插件再更新哈希；运行 `npm run plugin:build` 验证完整可移植插件目录。

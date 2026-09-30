@@ -1,18 +1,18 @@
-# Humanized-Real Face Asset Template
+# 真人质感的面容方向片段
 
-Use for warrior queens, cyber-oriental characters and assets where stronger photographic human presence is desired.
+适用于明确选择 `humanized_real`、需要摄影式面部真实感的任务。女将、女王或赛博题材本身不决定面容模式，用户选择与实际媒介优先。
 
-## Face Mode
+## 使用规则
 
-`humanized_real`
+- 保留参考人物辨识、既定年龄与视觉吸引力，真实感建立在精致妆容之上。
+- 通过眼睑包裹、柔和面部体积、自然鼻翼与唇面、分区光学反应增加真人感，不靠统一锐化或放大毛孔。
+- 气质可以通过目光、表情与妆面调整；不把疲惫、凹脸、深眼窝或年龄上移当成真实感要求。
+- 仅修面部时不自动修改身体、衣装、发型、姿态与场景。面部和环境的光线需协调，但改灯光必须符合本轮范围。
 
-## Core behavior
+## 分类提示词写法
 
-- Preserve identity geometry and attractiveness.
-- Increase realistic eyelid anatomy, soft tissue planes, natural nose/lip structure and regional skin optics.
-- Allow restrained young-adult maturity through gaze and presentation, not fatigue.
-- Never turn realism into age inflation, hollowness or harshness.
+【人物面容】按参考写出需保持的五官与软组织特征，并明确本轮所需的表情或目光。不要仅因题材强势就加深轮廓或改成另一张模特脸。
 
-## Prompt block
+【妆容与肌肤】先写妆容的完整、精致和贴肤程度，再写符合景别的眼睑、鼻翼、面颊与唇部反射差异。面部保留柔和真实体积，细纹与肤质不压过人物美感。
 
-Increase realistic human presence in the face while preserving the approved identity and attractiveness. Use believable eyelid anatomy, soft tissue, regional skin response and natural nose/lip structure instead of plastic CG smoothness. Keep the face young and refined; realism must not become fatigue, hollow cheeks, deep eye sockets or age inflation.
+这些是写作要点，不能直接作为完整角色提示词。按[主生产流程](../../references/routes/prompt-production.md)补全当前参考、目标与编辑边界。

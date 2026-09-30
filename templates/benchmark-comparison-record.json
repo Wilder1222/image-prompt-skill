@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "status": "pending",
-  "purpose": "Compare a costume portrait against a user-preferred benchmark without conflating new visual inputs with prompt-only changes.",
+  "purpose": "将服装肖像与用户偏好的标杆对照，区分新增图像输入与仅修改提示词。",
   "baseline_image": null,
   "benchmarks": [],
   "cases": [
@@ -39,6 +39,6 @@
       "human_approval": "pending"
     }
   ],
-  "causal_claim_limit": "Different image inputs are separate tests; unknown model settings prevent a strict controlled comparison. A single sample cannot establish repeatability.",
+  "causal_claim_limit": "不同图像输入属于不同试验；模型设置未知时不能作严格控制比较。单个样本不能证明可重复性。",
   "promote_output_to_master": false
 }
