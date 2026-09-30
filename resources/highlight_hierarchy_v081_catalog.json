@@ -23,10 +23,10 @@
         "peripheral_effects"
       ],
       "rules": [
-        "Primary highlights must remain the strongest value concentration.",
-        "Secondary highlights support form but cannot equal primary brightness density.",
-        "Tertiary highlights are sparse and subordinate.",
-        "Do not make every gold edge or fabric rim luminous."
+        "主要高光形成明确焦点，同时保留妆面与金属层次，不以过曝抢眼。",
+        "辅助高光表现形体，不与主焦点形成同等密度的亮点。",
+        "外围高光疏落，服务既定层级。",
+        "不让每条金边、衣缘或发丝同时发光。"
       ],
       "anti_patterns": [
         "highlight_everywhere",
@@ -35,5 +35,6 @@
         "ground_reflection_competes"
       ]
     }
-  }
+  },
+  "scope": "高光区域是候选，不授权新增物件；以当前焦点与真实材料反射决定明暗主次。"
 }

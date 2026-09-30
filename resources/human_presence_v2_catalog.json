@@ -1,7 +1,7 @@
 {
   "version": "0.7.4",
   "default": "H2",
-  "note": "Weights are internal attention heuristics for prompt compilation, not model parameters.",
+  "note": "数值为历史内部注意力权重，不是模型参数；仅在本轮需要相应真人感时采用，不能主动制造五官不对称或改变年龄。",
   "levels": {
     "H0": {
       "label": "stylized",
@@ -31,8 +31,8 @@
       "camera_response": 0.7,
       "age_shift": "none",
       "prompt_translation": [
-        "Keep identity geometry unchanged while adding believable facial soft tissue, realistic eyelid and eye-socket structure, regional skin response, subtle natural asymmetry, non-uniform hair grouping, and photographic camera response.",
-        "Realism must come from anatomy, material response, and optics rather than larger pores, aging, or stronger sharpening."
+        "保持人物辨识点，在精致妆面下表现可信的面颊软组织、眼睑与眼眶连接、分区反射和自然发束层次；保留已有自然差异，不主动挪动五官。",
+        "真实感来自柔和体积、材料反射与成像协调，不靠粗大毛孔、老化或全局锐化。"
       ]
     },
     "H3": {
@@ -45,25 +45,25 @@
       "camera_response": 0.9,
       "age_shift": "none_by_default",
       "prompt_translation": [
-        "Push toward convincing photographed-human presence while preserving locked facial geometry and character identity."
+        "本轮要求摄影化时，加强镜头中的人物可信度，保持已确认的五官、年龄、体型与编辑范围。"
       ]
     }
   },
   "region_rules": {
-    "forehead": "smooth fine texture with restrained sebum reflection",
-    "eyelids": "thin skin, believable thickness and fold structure, subtle lower-lid volume",
-    "nose": "slightly stronger specular response with fine texture around alae",
-    "inner_cheeks": "subtle microtexture and gentle color variation",
-    "outer_cheeks": "softer diffuse response",
-    "lips": "independent moist material with fine lip lines",
-    "jaw_neck": "natural soft-tissue transition without razor-sharp contour"
+    "forehead": "精致底妆下的细腻表面与克制额部光泽",
+    "eyelids": "眼周轻薄，眼睑厚度和褶皱自然，下睑保留柔和体积",
+    "nose": "鼻部反射略集中，鼻翼纹理按景别克制呈现",
+    "inner_cheeks": "面颊内侧保留妆面覆盖下的轻微纹理与柔和肤色过渡",
+    "outer_cheeks": "外颊呈柔和漫反射",
+    "lips": "唇部有独立润泽和细微唇纹，符合既定唇妆",
+    "jaw_neck": "下颌到颈部柔和连续，不刻成刀削轮廓"
   },
   "camera_rules": [
-    "soft highlight roll-off",
-    "shadow detail retention",
-    "natural local micro-contrast",
-    "no global mathematical sharpness",
-    "no edge halos",
-    "face focus is strongest while peripheral cloth may resolve slightly softer"
+    "高光柔和过渡",
+    "暗部仍有可读层次",
+    "局部微对比自然",
+    "不将所有区域同等锐化",
+    "不出现边缘光晕",
+    "面部焦点清楚，外围衣料可略柔和但保持结构可读"
   ]
 }

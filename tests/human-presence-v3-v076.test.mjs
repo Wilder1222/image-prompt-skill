@@ -12,17 +12,17 @@ test('H2.5 is the photographic-human default',()=>{const r=run(['human-presence-
 
 test('H2.5 locks age and does not use asymmetry as mandatory realism shortcut',()=>{const r=run(['human-presence-v3','--level','H2.5']);assert.equal(r.json.age_shift,'none');assert.equal(r.json.asymmetry_policy,'optional_natural');assert.ok(r.json.forbidden_shortcuts.includes('forced_face_asymmetry'));});
 
-test('young skin policy rejects random mottling and pore stacking',()=>{const r=run(['human-presence-v3','--level','H2.5']);assert.ok(r.json.forbidden_shortcuts.includes('random_skin_mottling'));assert.ok(r.json.forbidden_shortcuts.includes('coarse_pore_stack'));assert.match(r.json.prompt_translation.join(' '),/young skin relatively even|region-dependent optical response/i);});
+test('young skin policy rejects random mottling and pore stacking',()=>{const r=run(['human-presence-v3','--level','H2.5']);assert.ok(r.json.forbidden_shortcuts.includes('random_skin_mottling'));assert.ok(r.json.forbidden_shortcuts.includes('coarse_pore_stack'));assert.match(r.json.prompt_translation.join(' '),/精致底妆保持肤色均匀.*局部反射有区别/);});
 
-test('eye optics target natural sclera instead of super-white eyes',()=>{const r=run(['human-presence-v3','--level','H2.5']);assert.match(r.json.prompt_translation.join(' '),/off-white sclera/i);assert.ok(r.json.forbidden_shortcuts.includes('paper_white_sclera'));});
+test('eye optics target natural sclera instead of super-white eyes',()=>{const r=run(['human-presence-v3','--level','H2.5']);assert.match(r.json.prompt_translation.join(' '),/眼白为有柔和层次的自然灰白/);assert.ok(r.json.forbidden_shortcuts.includes('paper_white_sclera'));});
 
-test('realism coherence tracks eye skin hair makeup and camera',()=>{const r=run(['realism-coherence']);assert.equal(r.status,0,r.stderr);for(const id of ['eyes','skin','hair','makeup','camera_response'])assert.ok(r.json.channels.includes(id),id);assert.match(r.json.rule,/within one internal tier/i);});
+test('realism coherence tracks eye skin hair makeup and camera',()=>{const r=run(['realism-coherence']);assert.equal(r.status,0,r.stderr);for(const id of ['eyes','skin','hair','makeup','camera_response'])assert.ok(r.json.channels.includes(id),id);assert.match(r.json.rule,/相差不超过一个等级/);});
 
 test('full body focus profile keeps costume readable while face is strongest',()=>{const r=run(['photographic-focus','--profile','full_body_asset']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.face_focus,'strongest');assert.equal(r.json.lower_costume,'clear_asset_readable');assert.equal(r.json.depth_policy,'moderate_depth_not_shallow_portrait_blur');});
 
 test('optical refine round locks P9 identity costume and lighting layout',()=>{const r=run(['human-optical-plan','--level','H2.5']);assert.equal(r.status,0,r.stderr);for(const id of ['face_identity_geometry','fashion_proportion','garment_structure','lighting_design'])assert.ok(r.json.round_plan.locked.includes(id),id);assert.ok(r.json.round_plan.forbidden.includes('proportion_reopen'));assert.ok(r.json.round_plan.forbidden.includes('random_skin_mottling'));});
 
-test('optical refine prompt prioritizes coherence not more detail everywhere',()=>{const r=run(['human-optical-plan','--level','H2.5']);const p=r.json.prompt_skeleton.join(' ');assert.match(p,/coherent realism level/i);assert.match(p,/Focus hierarchy/i);assert.match(p,/not random pigment noise/i);});
+test('optical refine prompt prioritizes coherence not more detail everywhere',()=>{const r=run(['human-optical-plan','--level','H2.5']);const p=r.json.prompt_skeleton.join(' ');assert.match(p,/眼、肤、唇、发、妆面和邻近材料的真实感协调/);assert.match(p,/Focus hierarchy/i);assert.match(p,/not random pigment noise/i);});
 
 test('fashion-human-v3 keeps staged P9 then optical refinement',()=>{const r=run(['fashion-human-v3-plan','--proportion','P9','--human','H2.5']);assert.equal(r.status,0,r.stderr);assert.deepEqual(r.json.order.slice(0,2),['fashion_proportion','human_presence_optical_refine']);assert.equal(r.json.stage_1.proportion.level,'P9');assert.equal(r.json.stage_2.human_presence.level,'H2.5');});
 

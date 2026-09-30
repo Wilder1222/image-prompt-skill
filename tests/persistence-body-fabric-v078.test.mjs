@@ -18,7 +18,7 @@ test('p9 regression routes to persistence round before photographic polish',()=>
 
 test('plastic hands route to body presence persistence round',()=>{const r=run(['next','--failures','hand_too_plastic']);assert.equal(r.json.recommended_round,'p9_persistence_body_presence');assert.ok(r.json.round_plan.editable.includes('wrist_hand_presence'));});
 
-test('photographic white profile forbids dark outline separation',()=>{const r=run(['photographic-fabric-white']);assert.equal(r.json.edge_outline,'forbidden');assert.match(r.json.prompt_translation.join(' '),/never through a dark outline/i);});
+test('photographic white profile forbids dark outline separation',()=>{const r=run(['photographic-fabric-white']);assert.equal(r.json.edge_outline,'forbidden');assert.match(r.json.prompt_translation.join(' '),/不用深色描边/);});
 
 test('photographic white profile separates five material response types',()=>{const r=run(['photographic-fabric-white']);for(const k of ['silk','gauze','brocade','embroidery','metal'])assert.ok(r.json.materials[k],k);});
 
@@ -37,3 +37,5 @@ test('fashion persistence pipeline orders body then fabric then final polish',()
 test('human face optical failure still outranks body presence cosmetic issue',()=>{const r=run(['next','--failures','sclera_too_clean,hand_too_plastic']);assert.equal(r.json.first_focus,'sclera_too_clean');assert.equal(r.json.recommended_round,'human_face_optical_refine');});
 
 test('P9 regression outranks face optical refinement',()=>{const r=run(['next','--failures','p9_regression,sclera_too_clean']);assert.equal(r.json.first_focus,'p9_regression');assert.equal(r.json.recommended_round,'p9_persistence_body_presence');});
+
+test('white fabric refinement balances face fill without adding material layers',()=>{const r=run(['photographic-fabric-white']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.fill,'balanced_frontal_soft');const text=r.json.prompt_translation.join(' ');assert.match(text,/充分正面柔和补光/);assert.match(text,/不为凑齐材质增加衣层/);});

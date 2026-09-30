@@ -1,14 +1,14 @@
 {
   "version": "0.7.8",
   "default": "white_asset_photographic",
-  "principle": "White-on-white asset photography must separate garment from background through material response, tonal spacing, edge transmission and contact shadow rather than artificial outlines.",
+  "principle": "本轮选择白底摄影时，以材料反射、明度层次、薄边透光和自然接地影分离浅衣与背景，不添加人工描边。",
   "profiles": {
     "white_asset_photographic": {
       "background": "near_pure_white",
       "garment_background_tonal_gap": "subtle_visible",
       "edge_outline": "forbidden",
       "key_light": "soft_directional",
-      "fill": "weaker",
+      "fill": "balanced_frontal_soft",
       "separation_light": "very_subtle",
       "materials": {
         "silk": "continuous_soft_directional_highlight",
@@ -24,9 +24,10 @@
         "sheer_edge_perfection": "reduce"
       },
       "prompt_translation": [
-        "Separate pale garments from the white background through subtle tonal and material differences, never through a dark outline.",
-        "Make silk, gauze, brocade, embroidery and metal respond differently to the same studio light instead of sharing one fantasy gloss.",
-        "Use believable gravity and slightly irregular ground folds; avoid perfectly mirrored sleeves, hems and sheer edges."
+        "以微妙明度与材质差异分离浅衣和白底，不用深色描边。",
+        "同一柔和棚光下，当前已有的丝料、薄纱、织锦、刺绣与金属分别体现其反射，不共用一种幻想光泽，也不为凑齐材质增加衣层。",
+        "大面积扩散主光配合充分正面柔和补光，面部干净均匀且保留体积，浅衣边缘不过曝。",
+        "衣料受重力自然垂坠；两侧褶皱可随动作不同，不刻意做镜像，也不为制造差异擅自改变衣片。"
       ]
     }
   },

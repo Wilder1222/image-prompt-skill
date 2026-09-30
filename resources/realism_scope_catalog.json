@@ -1,6 +1,6 @@
 {
   "version": "0.7.9",
-  "principle": "face realism and non-face realism are independent control axes.",
+  "principle": "面部与非面部真实感分别选择，再检查整体协调；精致妆面与视觉美感优先。",
   "modes": {
     "beauty_first": {
       "face_realism": "low_medium",
@@ -31,5 +31,5 @@
     "lighting",
     "camera_response"
   ],
-  "rule": "never infer that high non-face realism requires high face realism."
+  "rule": "非面部的高真实感不自动要求面部同等摄影化；编辑预算只描述内部范围，不授权额外改脸、改身材或换装。"
 }

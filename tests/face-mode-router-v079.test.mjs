@@ -4,9 +4,9 @@ function run(args){const r=spawnSync(process.execPath,[tool,...args],{cwd:root,e
 
 test('v079 catalog validation passes',()=>{const r=run(['validate']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.status,'pass');assert.equal(r.json.face_modes,3);assert.equal(r.json.maturity_guard_profiles,3);assert.equal(r.json.realism_scope_modes,3);assert.equal(r.json.face_route_archetypes,4);});
 
-test('beauty_first protects youthful beauty',()=>{const r=run(['face-mode','--mode','beauty_first']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.age_target,'18_22');assert.equal(r.json.preserve_beauty_priority,'high');assert.equal(r.json.face_realism,'low_medium');assert.ok(r.json.avoid.includes('hollow cheeks'));});
+test('beauty_first protects youthful beauty',()=>{const r=run(['face-mode','--mode','beauty_first']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.age_target,'18_22');assert.equal(r.json.preserve_beauty_priority,'high');assert.equal(r.json.face_realism,'low_medium');assert.ok(r.json.avoid.includes('无依据削空面颊'));});
 
-test('humanized_real uses stronger face realism without age inflation',()=>{const r=run(['face-mode','--mode','humanized_real']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.face_realism,'medium_high');assert.equal(r.json.non_face_realism,'high');assert.ok(r.json.avoid.includes('identity reshaping'));});
+test('humanized_real uses stronger face realism without age inflation',()=>{const r=run(['face-mode','--mode','humanized_real']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.face_realism,'medium_high');assert.equal(r.json.non_face_realism,'high');assert.ok(r.json.avoid.includes('未经授权重塑身份'));});
 
 test('stylized_beauty keeps low facial realism',()=>{const r=run(['face-mode','--mode','stylized_beauty']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.face_realism,'low');assert.equal(r.json.preserve_beauty_priority,'very_high');});
 
@@ -43,3 +43,5 @@ test('identity drift still outranks face-mode mismatch',()=>{const r=run(['next'
 test('P9 regression still outranks non-face realism refinement',()=>{const r=run(['next','--failures','p9_regression,non_face_realism_undershoot']);assert.equal(r.json.first_focus,'p9_regression');assert.equal(r.json.recommended_round,'p9_persistence_body_presence');});
 
 test('unknown face mode fails closed',()=>{const r=run(['face-mode','--mode','invented']);assert.equal(r.status,1);assert.match(r.stderr,/unknown face mode/);});
+
+test('legacy face defaults carry their scope through a nested plan',()=>{const r=run(['face-mode-plan','--archetype','ancient_ethereal_female']);assert.equal(r.status,0,r.stderr);assert.match(r.json.face_mode.scope,/不是新人物默认设定/);assert.match(r.json.face_mode.scope,/当前参考年龄、脸型/);assert.match(r.json.route.rule,/不能覆盖新任务/);});

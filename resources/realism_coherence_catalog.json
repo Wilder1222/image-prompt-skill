@@ -1,8 +1,23 @@
 {
   "version": "0.7.6",
-  "channels": ["eyes", "skin", "lips", "brows_lashes", "hair", "makeup", "adjacent_costume", "camera_response"],
-  "default_rule": "adjacent realism channels should stay within one internal tier",
-  "repair_order": ["eyes_skin", "makeup_skin", "hair", "camera_focus", "adjacent_material_highlights"],
+  "channels": [
+    "eyes",
+    "skin",
+    "lips",
+    "brows_lashes",
+    "hair",
+    "makeup",
+    "adjacent_costume",
+    "camera_response"
+  ],
+  "default_rule": "相邻表现通道的真实感应协调，内部通常相差不超过一个等级；等级不是客观测量。按当前媒介判断，不让眼睛、脸部和衣装像未经协调地拼接，原画不强制全部摄影化。",
+  "repair_order": [
+    "eyes_skin",
+    "makeup_skin",
+    "hair",
+    "camera_focus",
+    "adjacent_material_highlights"
+  ],
   "failure_codes": [
     "realism_mismatch_eye_skin",
     "realism_mismatch_face_hair",

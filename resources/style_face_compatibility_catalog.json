@@ -1,10 +1,10 @@
 {
   "version": "0.8.0",
-  "principle": "face mode is independent from render mode; style may recommend a face treatment but explicit user face preference wins.",
+  "principle": "面部处理与整体渲染分别选择；风格可建议面部方向，用户明确要求优先，再检查相互协调。",
   "profiles": {
     "oriental_epic_painterly": {
       "recommended": "stylized_beauty",
-      "reason": "the target look uses idealized painterly facial treatment; stronger photographic face realism can fight the medium",
+      "reason": "本案例采用理想化原画面容；强行摄影化可能破坏媒介，若用户明确要求转换则按新目标执行。",
       "allowed": [
         "stylized_beauty",
         "beauty_first",
@@ -13,7 +13,7 @@
     },
     "clean_asset_studio": {
       "recommended": "beauty_first",
-      "reason": "neutral asset presentation benefits from preserving character beauty unless archetype/user asks for stronger realism",
+      "reason": "干净资产展示仍优先人物自身美感；是否增强面部摄影感取决于本轮目标，而非背景颜色。",
       "allowed": [
         "beauty_first",
         "humanized_real",

@@ -9,9 +9,9 @@
         "atmosphere",
         "composition_energy"
       ],
-      "background_rule": "follow explicit user target or style target; never reset to white studio from prior asset history",
-      "pose_rule": "dynamic pose/motion is authorized when required by the style target unless user explicitly locks pose",
-      "realism_rule": "realism may refine human/material behavior but must not erase painterly medium, motion or atmosphere",
+      "background_rule": "跟随当前明确的背景和风格目标，不因历史资产图为白底就重置场景。",
+      "pose_rule": "当前允许动作适配且未锁定姿态时，可按目标选择生动或夸张动作，保持受力与衣装连接。",
+      "realism_rule": "真实感可改善人物和材料表现，但不能抹去本轮仍要求的原画媒介、动势或氛围。",
       "anti_drift": [
         "flat_white_background",
         "static_asset_pose",
@@ -27,9 +27,9 @@
         "material_language",
         "lighting_language"
       ],
-      "background_rule": "keep white/neutral background; do not copy environment",
-      "pose_rule": "keep asset-readable pose unless user requests motion",
-      "realism_rule": "style language may affect surface, lighting and materials without importing scene environment",
+      "background_rule": "背景按本轮明确意图决定；选择白底或中性背景时不借入原场景，允许保留或调整环境时另按该目标执行。",
+      "pose_rule": "动作服务当前人物展示用途，允许自然或夸张变化；明确的朝向、取景与动作要求优先。",
+      "realism_rule": "风格可以影响获准的表面、布光与材料，环境是否继承单独决定，不借风格之名越权改脸或改衣装。",
       "anti_drift": [
         "environment_copy",
         "identity_drift",

@@ -3,7 +3,7 @@
   "default": "oriental_epic_painterly",
   "profiles": {
     "oriental_epic_painterly": {
-      "label": "Oriental Epic Painterly Fantasy",
+      "label": "东方史诗幻想原画",
       "medium_language": [
         "painterly_cinematic",
         "concept_art_brushwork",
@@ -54,7 +54,7 @@
         "front_static_asset_pose",
         "uniform_global_sharpness",
         "clean_catalog_lighting",
-        "literal_every-detail rendering"
+        "uniform_literal_detail"
       ],
       "recommended_face_mode": "stylized_beauty",
       "alternate_face_modes": [
@@ -63,7 +63,7 @@
       ]
     },
     "clean_asset_studio": {
-      "label": "Clean Asset Studio",
+      "label": "干净棚拍式资产展示",
       "medium_language": [
         "clean_asset_render",
         "controlled_detail"
@@ -100,5 +100,6 @@
         "stylized_beauty"
       ]
     }
-  }
+  },
+  "scope": "两套方案是旧案例方向，不是通用默认。媒介、背景、配色、动作、逆光和环境物件分别按当前参考与描述决定；列表不是必须添加的元素。"
 }

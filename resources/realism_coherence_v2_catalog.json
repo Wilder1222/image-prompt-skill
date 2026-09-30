@@ -10,7 +10,7 @@
     "lighting",
     "camera_response"
   ],
-  "default_rule": "adjacent realism channels should remain within one internal realism tier; do not let one subsystem read as photographic while another remains CG.",
+  "default_rule": "相邻表现通道的真实感应协调，内部通常相差不超过一个等级；等级不是客观测量。按当前媒介判断，不让眼睛、脸部和衣装像未经协调地拼接，原画不强制全部摄影化。",
   "repair_order": [
     "eyes_skin",
     "soft_tissue_makeup",

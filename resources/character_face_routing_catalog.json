@@ -6,26 +6,26 @@
       "face_mode": "beauty_first",
       "maturity_guard": "youthful_18_22",
       "age_impression": "18_22",
-      "reason": "young ethereal ancient-fantasy assets prioritize beauty, youth and spirit over maximal facial photorealism"
+      "reason": "旧年轻古风案例优先清雅美感与灵动气质；不能由古风标签推断所有人物年龄。"
     },
     "warrior_queen": {
       "face_mode": "humanized_real",
       "maturity_guard": "young_adult_20_26",
       "age_impression": "20_26",
-      "reason": "warrior-queen assets benefit from stronger human presence and composed maturity"
+      "reason": "女王或女将可选择沉稳神态与人物体积，但身份、年龄和媒介按当前参考决定。"
     },
     "cyber_oriental_female": {
       "face_mode": "humanized_real",
       "maturity_guard": "young_adult_20_26",
       "age_impression": "20_26",
-      "reason": "cyber-oriental characters benefit from stronger human realism against mechanical materials"
+      "reason": "机械材料旁的人物需要协调反射和体积，不因此强制换成摄影脸或增加年龄。"
     },
     "stylized_poster_character": {
       "face_mode": "stylized_beauty",
       "maturity_guard": "youthful_18_22",
       "age_impression": "18_24",
-      "reason": "poster and illustration assets prioritize stylized visual appeal"
+      "reason": "海报与插画可优先风格化美感，但明确的摄影化目标仍优先。"
     }
   },
-  "rule": "route by character and output intent; user-explicit face mode always overrides automatic routing."
+  "rule": "按当前人物和输出意图选择，用户明确的面部、年龄与媒介要求优先。旧角色分类只提供候选方向，不能覆盖新任务。"
 }

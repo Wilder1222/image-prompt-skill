@@ -1,0 +1,518 @@
+{
+  "阶段": "第六阶段",
+  "说明": "候选扫描用于安排人工核对，不是确认缺陷数；短词、混排与兼容标识仍需人工区分。历史执行原文不可静默改写，译文须关联源提交和原始摘要。",
+  "待人工核对文件数": 127,
+  "英文候选数": 1822,
+  "知识目录长段落候选": 0,
+  "资源目录长段落候选": 0,
+  "待核对文件": [
+    {
+      "文件": "examples/material-generation-v091-prompts.md",
+      "候选数": 159
+    },
+    {
+      "文件": "examples/ancient-white-asset-v084-prompts.md",
+      "候选数": 74
+    },
+    {
+      "文件": "docs/v0.7.5-fashion-human-plan.json",
+      "候选数": 69
+    },
+    {
+      "文件": "docs/v0.8.2-ancient-white-plan.json",
+      "候选数": 61
+    },
+    {
+      "文件": "docs/v0.7.6-fashion-human-v3-plan.json",
+      "候选数": 57
+    },
+    {
+      "文件": "examples/ancient-white-asset-v083-prompts.md",
+      "候选数": 52
+    },
+    {
+      "文件": "docs/v0.8.3-asset-plan.json",
+      "候选数": 50
+    },
+    {
+      "文件": "docs/v0.8.4-asset-plan.json",
+      "候选数": 50
+    },
+    {
+      "文件": "examples/character-layout-v092-prompts.md",
+      "候选数": 49
+    },
+    {
+      "文件": "examples/prompt-density-20260929-prompts.md",
+      "候选数": 48
+    },
+    {
+      "文件": "docs/v0.8.1-black-red-plan.json",
+      "候选数": 47
+    },
+    {
+      "文件": "docs/v0.8.2-asset-master-plan.json",
+      "候选数": 43
+    },
+    {
+      "文件": "docs/v0.7.4-cyber-constraint-plan.json",
+      "候选数": 37
+    },
+    {
+      "文件": "docs/v0.7.4-silver-constraint-plan.json",
+      "候选数": 37
+    },
+    {
+      "文件": "docs/v0.7.9-silver-face-nonface-pipeline.json",
+      "候选数": 32
+    },
+    {
+      "文件": "docs/v0.7.8-full-pipeline.json",
+      "候选数": 31
+    },
+    {
+      "文件": "docs/v0.7.6-implementation-report.md",
+      "候选数": 29
+    },
+    {
+      "文件": "docs/v0.8.1-concept-art-hierarchy-plan.json",
+      "候选数": 28
+    },
+    {
+      "文件": "examples/ancient-white-asset-v082-regression-checklist.md",
+      "候选数": 28
+    },
+    {
+      "文件": "docs/v0.7.9-silver-face-plan.json",
+      "候选数": 25
+    },
+    {
+      "文件": "docs/v0.7.9-implementation-report.md",
+      "候选数": 23
+    },
+    {
+      "文件": "docs/v0.7.9-warrior-face-plan.json",
+      "候选数": 22
+    },
+    {
+      "文件": "docs/visual-evaluations/material-generation-v091.json",
+      "候选数": 22
+    },
+    {
+      "文件": "docs/v0.7.1-implementation-report.md",
+      "候选数": 21
+    },
+    {
+      "文件": "docs/v0.7.6-human-optical-plan.json",
+      "候选数": 21
+    },
+    {
+      "文件": "docs/v0.8.0-image-comparison.md",
+      "候选数": 20
+    },
+    {
+      "文件": "docs/research/style-restoration-realism-research.md",
+      "候选数": 19
+    },
+    {
+      "文件": "docs/visual-evaluations/guardian-framing-v094.json",
+      "候选数": 19
+    },
+    {
+      "文件": "docs/v0.8.0-black-red-image4-plan.json",
+      "候选数": 18
+    },
+    {
+      "文件": "docs/v0.8.0-white-style-asset-plan.json",
+      "候选数": 18
+    },
+    {
+      "文件": "docs/v0.8.2-implementation-report.md",
+      "候选数": 18
+    },
+    {
+      "文件": "docs/v0.7.5-p9-profile.json",
+      "候选数": 17
+    },
+    {
+      "文件": "docs/v0.7.5-human-presence-h2.json",
+      "候选数": 16
+    },
+    {
+      "文件": "examples/wardrobe-reference-v095-prompts.md",
+      "候选数": 16
+    },
+    {
+      "文件": "tests/README.md",
+      "候选数": 16
+    },
+    {
+      "文件": "docs/v0.7.8-p9-body-plan.json",
+      "候选数": 15
+    },
+    {
+      "文件": "docs/research/human-presence-v3-sources.json",
+      "候选数": 13
+    },
+    {
+      "文件": "docs/v0.7.7-design.md",
+      "候选数": 13
+    },
+    {
+      "文件": "examples/wardrobe-redesign-v093-prompts.md",
+      "候选数": 13
+    },
+    {
+      "文件": "docs/v0.8.1-implementation-report.md",
+      "候选数": 12
+    },
+    {
+      "文件": "examples/silver-b-round1-p9-proportion-patch.md",
+      "候选数": 12
+    },
+    {
+      "文件": "templates/face/template_beauty_first_asset.md",
+      "候选数": 12
+    },
+    {
+      "文件": "docs/research/reference-fidelity-human-presence-research.md",
+      "候选数": 11
+    },
+    {
+      "文件": "docs/v0.7.2-implementation-report.md",
+      "候选数": 11
+    },
+    {
+      "文件": "docs/v0.7.4-implementation-report.md",
+      "候选数": 11
+    },
+    {
+      "文件": "docs/v0.8.0-implementation-report.md",
+      "候选数": 11
+    },
+    {
+      "文件": "examples/black-red-image4-style-plan-v080.md",
+      "候选数": 11
+    },
+    {
+      "文件": "examples/silver-v078-round2-fabric-white.md",
+      "候选数": 11
+    },
+    {
+      "文件": "docs/v0.7.8-fabric-white-plan.json",
+      "候选数": 10
+    },
+    {
+      "文件": "docs/v0.7.8-implementation-report.md",
+      "候选数": 10
+    },
+    {
+      "文件": "docs/visual-evaluations/wardrobe-reference-v095.json",
+      "候选数": 10
+    },
+    {
+      "文件": "examples/silver-b-round2-human-presence-v21.md",
+      "候选数": 10
+    },
+    {
+      "文件": "templates/face/template_humanized_real_asset.md",
+      "候选数": 10
+    },
+    {
+      "文件": "docs/cyber-style-asset-plan.json",
+      "候选数": 9
+    },
+    {
+      "文件": "docs/silver-style-asset-plan.json",
+      "候选数": 9
+    },
+    {
+      "文件": "examples/black-red-gold-warrior-queen-hybrid.md",
+      "候选数": 9
+    },
+    {
+      "文件": "examples/guardian-framing-v094-prompts.md",
+      "候选数": 9
+    },
+    {
+      "文件": "examples/silver-b-regression-plan-v075.md",
+      "候选数": 9
+    },
+    {
+      "文件": "templates/face/template_stylized_beauty_asset.md",
+      "候选数": 9
+    },
+    {
+      "文件": "docs/v0.7.5-implementation-report.md",
+      "候选数": 8
+    },
+    {
+      "文件": "docs/v0.7.6-human-presence-h25.json",
+      "候选数": 8
+    },
+    {
+      "文件": "docs/v0.7.7-implementation-report.md",
+      "候选数": 8
+    },
+    {
+      "文件": "docs/visual-evaluations/current-overview.json",
+      "候选数": 8
+    },
+    {
+      "文件": "examples/black-red-v081-hierarchy-test.md",
+      "候选数": 8
+    },
+    {
+      "文件": "docs/v0.8.2-beauty-first-character.json",
+      "候选数": 7
+    },
+    {
+      "文件": "docs/v0.8.2-p9-fashion-asset.json",
+      "候选数": 7
+    },
+    {
+      "文件": "docs/visual-evaluations/character-layout-v092.json",
+      "候选数": 7
+    },
+    {
+      "文件": "examples/ancient-white-asset-v082-test.md",
+      "候选数": 7
+    },
+    {
+      "文件": "examples/face-mode-validation-matrix.md",
+      "候选数": 7
+    },
+    {
+      "文件": "examples/human-presence-v3-ab-plan.md",
+      "候选数": 7
+    },
+    {
+      "文件": "examples/identity-review-v096-prompts.md",
+      "候选数": 7
+    },
+    {
+      "文件": "examples/round-trait-calibration-prompt.md",
+      "候选数": 7
+    },
+    {
+      "文件": "docs/sample-trait-plan.json",
+      "候选数": 6
+    },
+    {
+      "文件": "docs/v0.7.3-implementation-report.md",
+      "候选数": 6
+    },
+    {
+      "文件": "examples/black-red-image4-style-test-v080.md",
+      "候选数": 6
+    },
+    {
+      "文件": "examples/cyber-character-v074-plan.md",
+      "候选数": 6
+    },
+    {
+      "文件": "examples/silver-character-v074-plan.md",
+      "候选数": 6
+    },
+    {
+      "文件": "examples/silver-v078-round1-p9-body-presence.md",
+      "候选数": 6
+    },
+    {
+      "文件": "templates/template_asset_humanized_restoration.md",
+      "候选数": 6
+    },
+    {
+      "文件": "templates/template_single_reference_asset.md",
+      "候选数": 6
+    },
+    {
+      "文件": "templates/template_single_reference_style_asset.md",
+      "候选数": 6
+    },
+    {
+      "文件": "docs/research/reference-fidelity-human-presence-sources.json",
+      "候选数": 5
+    },
+    {
+      "文件": "docs/v0.7.8-final-polish-plan.json",
+      "候选数": 5
+    },
+    {
+      "文件": "examples/benchmark-costume-v084-prompts.md",
+      "候选数": 5
+    },
+    {
+      "文件": "examples/cyber-character-v073-plan.md",
+      "候选数": 5
+    },
+    {
+      "文件": "examples/local-hand-repair-v074.md",
+      "候选数": 5
+    },
+    {
+      "文件": "examples/silver-beauty-first-test.md",
+      "候选数": 5
+    },
+    {
+      "文件": "examples/silver-character-v073-plan.md",
+      "候选数": 5
+    },
+    {
+      "文件": "docs/sample-hybrid-style-plan.json",
+      "候选数": 4
+    },
+    {
+      "文件": "docs/visual-evaluations/identity-review-v096.json",
+      "候选数": 4
+    },
+    {
+      "文件": "docs/visual-evaluations/wardrobe-redesign-v093.json",
+      "候选数": 4
+    },
+    {
+      "文件": "examples/black-red-humanized-real-test.md",
+      "候选数": 4
+    },
+    {
+      "文件": "examples/current-face-trait-reference-plan.md",
+      "候选数": 4
+    },
+    {
+      "文件": "examples/face-classification-example.md",
+      "候选数": 4
+    },
+    {
+      "文件": "templates/template_style_target_asset_fusion.md",
+      "候选数": 4
+    },
+    {
+      "文件": "docs/v0.8.2-hand-pose.json",
+      "候选数": 3
+    },
+    {
+      "文件": "docs/v0.8.2-material-separation.json",
+      "候选数": 3
+    },
+    {
+      "文件": "docs/verification-v0.7.4.json",
+      "候选数": 3
+    },
+    {
+      "文件": "docs/visual-evaluations/maturity-v0120-results.json",
+      "候选数": 3
+    },
+    {
+      "文件": "examples/silver-humanized-real-control.md",
+      "候选数": 3
+    },
+    {
+      "文件": "examples/silver-v078-round3-final-polish.md",
+      "候选数": 3
+    },
+    {
+      "文件": "templates/template_asset_to_restoration.md",
+      "候选数": 3
+    },
+    {
+      "文件": "templates/template_restoration_to_humanization.md",
+      "候选数": 3
+    },
+    {
+      "文件": "RELEASE-MANIFEST-v0.8.0.json",
+      "候选数": 2
+    },
+    {
+      "文件": "docs/sample-conflict-resolution.json",
+      "候选数": 2
+    },
+    {
+      "文件": "docs/v0.8.2-studio-light.json",
+      "候选数": 2
+    },
+    {
+      "文件": "docs/v0.8.4-verification.json",
+      "候选数": 2
+    },
+    {
+      "文件": "docs/visual-evaluations/chinese-natural-proportion-v097.json",
+      "候选数": 2
+    },
+    {
+      "文件": "docs/visual-evaluations/prompt-density-20260929.json",
+      "候选数": 2
+    },
+    {
+      "文件": "examples/human-presence-v31-ab-plan.md",
+      "候选数": 2
+    },
+    {
+      "文件": "templates/benchmark-comparison-record.json",
+      "候选数": 2
+    },
+    {
+      "文件": "templates/template_white_background_ancient_asset_v082.md",
+      "候选数": 2
+    },
+    {
+      "文件": "docs/reference-role-report.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/restoration-role-report.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/round1-plan.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/round2-plan.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/round3-plan.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/sample-next-plan.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/sample-restoration-next-plan.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/v0.7.4-hand-repair-plan.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/v0.7.5-next-plan.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/verification-v0.7.5.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/verification-v0.7.6.json",
+      "候选数": 1
+    },
+    {
+      "文件": "docs/verification-v0.7.7.json",
+      "候选数": 1
+    },
+    {
+      "文件": "examples/four-look-series-template.md",
+      "候选数": 1
+    },
+    {
+      "文件": "examples/silver-test3-h25-optical-patch.md",
+      "候选数": 1
+    },
+    {
+      "文件": "templates/visual-regression-record.json",
+      "候选数": 1
+    }
+  ]
+}

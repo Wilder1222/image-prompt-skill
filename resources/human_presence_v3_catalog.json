@@ -1,7 +1,7 @@
 {
   "version": "0.7.6",
   "default": "H2.5",
-  "principle": "Photographic human presence comes from coherent eye/skin/hair/makeup/camera behavior, not maximum texture, forced asymmetry, aging cues or global sharpening.",
+  "principle": "摄影真人感来自眼部、肌肤、头发、精致妆面和成像的一致性，不追求最大纹理量，不强制不对称、老化或全局锐化。档位数值是内部方向，不是厂商参数。",
   "levels": {
     "H0": {
       "label": "stylized",
@@ -51,13 +51,13 @@
       "asymmetry_policy": "optional_natural",
       "age_shift": "none",
       "prompt_translation": [
-        "Keep the approved face identity and P9 body proportions unchanged; refine only photographic human presence.",
-        "Make the eyes optically believable: natural lid-to-eyeball contact, realistic lash roots, natural off-white sclera, non-gem-like iris texture, and catchlights consistent with the existing key light.",
-        "Keep young skin relatively even in color while adding region-dependent optical response: soft forehead sheen, slightly stronger nose response, fine inner-cheek texture, softer outer-cheek diffusion, thinner eye-area response, and independent lip material.",
-        "Integrate makeup into real skin instead of replacing skin texture; keep brows, eyeliner, lashes and lip finish refined but not vector-clean or glass-plastic.",
-        "Build hair at multiple scales: primary masses, secondary bundles and only a small amount of fine irregular hair, with non-uniform highlight flow.",
-        "Use a photographic focus hierarchy and soft highlight roll-off rather than global digital sharpness; the face is the strongest focus while the full costume remains clearly readable.",
-        "Keep eyes, skin, lips, hair, makeup and nearby materials at a coherent realism level; do not overprocess one subsystem relative to the others."
+        "保留已确认的面容、年龄和身体比例，仅在本轮摄影目标下精修人物表现；已选 P9 保持，其他体型不自动改为 P9。",
+        "眼部光学可信：眼睑贴合眼球，睫毛根部自然，眼白为有柔和层次的自然灰白，虹膜不呈宝石纹理，眼神光符合当前主光。",
+        "精致底妆保持肤色均匀，局部反射有区别：额部克制，鼻部稍集中，内颊细腻，外颊柔和，眼周轻薄，唇部润泽独立。纹理按景别呈现，不主动添加色斑。",
+        "眉、眼线、睫毛与唇妆精致且贴合皮肤，既不画成矢量边缘，也不磨成玻璃塑料；肌肤纹理服务完整妆面。",
+        "用主发束、次级发束和少量细发建立层次，高光随方向变化，减少面部中央遮挡。",
+        "使用摄影焦点层级与柔和高光过渡，面部清楚、衣装完整可读，不对全图同等锐化。",
+        "眼、肤、唇、发、妆面和邻近材料的真实感协调，不单独过度处理某一部分。"
       ]
     },
     "H3": {
@@ -72,26 +72,60 @@
       "asymmetry_policy": "preserve_or_observed_only",
       "age_shift": "none_by_default",
       "prompt_translation": [
-        "Push toward convincing photographed-human presence while preserving all identity geometry, age intent, accepted P9 proportion, costume design and composition.",
-        "Do not use coarse pores, blotchy pigment variation, paper-white sclera, deliberate facial distortion, aging cues or stronger global sharpening as realism shortcuts."
+        "在当前摄影目标下进一步增强人物可信度，保留人物辨识、年龄、已选比例、衣装和构图。",
+        "不使用粗毛孔、随机斑驳、纯白眼球、刻意五官变形、老化或全局锐化来冒充真实。"
       ]
     }
   },
   "detail_budget": {
     "full_body": {
-      "primary": ["eye_optics_realism", "skin_optical_coherence", "realism_coherence", "camera_optics_hierarchy"],
-      "secondary": ["soft_structure_fidelity", "makeup_skin_integration", "hair_frequency_variation"],
-      "support": ["fine_pores", "micro_asymmetry"]
+      "primary": [
+        "eye_optics_realism",
+        "skin_optical_coherence",
+        "realism_coherence",
+        "camera_optics_hierarchy"
+      ],
+      "secondary": [
+        "soft_structure_fidelity",
+        "makeup_skin_integration",
+        "hair_frequency_variation"
+      ],
+      "support": [
+        "fine_pores",
+        "micro_asymmetry"
+      ]
     },
     "half_body": {
-      "primary": ["eye_optics_realism", "skin_optical_coherence", "soft_structure_fidelity", "makeup_skin_integration"],
-      "secondary": ["hair_frequency_variation", "camera_optics_hierarchy", "realism_coherence"],
-      "support": ["micro_asymmetry"]
+      "primary": [
+        "eye_optics_realism",
+        "skin_optical_coherence",
+        "soft_structure_fidelity",
+        "makeup_skin_integration"
+      ],
+      "secondary": [
+        "hair_frequency_variation",
+        "camera_optics_hierarchy",
+        "realism_coherence"
+      ],
+      "support": [
+        "micro_asymmetry"
+      ]
     },
     "close_up": {
-      "primary": ["eye_optics_realism", "skin_optical_coherence", "soft_structure_fidelity", "makeup_skin_integration", "realism_coherence"],
-      "secondary": ["hair_frequency_variation", "camera_optics_hierarchy"],
-      "support": ["micro_asymmetry"]
+      "primary": [
+        "eye_optics_realism",
+        "skin_optical_coherence",
+        "soft_structure_fidelity",
+        "makeup_skin_integration",
+        "realism_coherence"
+      ],
+      "secondary": [
+        "hair_frequency_variation",
+        "camera_optics_hierarchy"
+      ],
+      "support": [
+        "micro_asymmetry"
+      ]
     }
   },
   "forbidden_shortcuts": [

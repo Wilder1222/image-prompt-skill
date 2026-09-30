@@ -24,7 +24,7 @@ test('human presence v2.1 H2 prioritizes soft structure eye hair and lens realis
 
 test('human refine locks identity and fashion proportion',()=>{const r=run(['human-refine-plan','--level','H2']);assert.equal(r.status,0,r.stderr);assert.ok(r.json.round_plan.locked.includes('face_identity_geometry'));assert.ok(r.json.round_plan.locked.includes('fashion_proportion'));assert.ok(r.json.round_plan.forbidden.includes('proportion_reopen'));});
 
-test('human presence v2.1 rejects CG beauty through principle not aging',()=>{const r=run(['human-presence-v21','--level','H2']);assert.match(r.json.principle,/Beauty without CG/i);assert.match(r.json.prompt_translation.join(' '),/without changing the character identity/i);});
+test('human presence v2.1 rejects CG beauty through principle not aging',()=>{const r=run(['human-presence-v21','--level','H2']);assert.match(r.json.principle,/美感优先并减少塑料渲染感/);assert.match(r.json.prompt_translation.join(' '),/不主动改变左右高度、开合或稳定五官关系/);});
 
 test('fashion-human plan is staged proportion then human presence',()=>{const r=run(['fashion-human-plan','--proportion','P9','--human','H2']);assert.equal(r.status,0,r.stderr);assert.deepEqual(r.json.order.slice(0,2),['fashion_proportion','human_presence_refine']);assert.equal(r.json.stage_1.proportion.level,'P9');assert.equal(r.json.stage_2.human_presence.level,'H2');});
 

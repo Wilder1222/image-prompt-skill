@@ -22,10 +22,10 @@
         "luminous_depth_layers"
       ],
       "rules": [
-        "Keep monumental scale but lower local architectural resolution.",
-        "Use mist, silhouette layering and atmospheric separation instead of literal architectural description.",
-        "Do not place the strongest background contrast or hard edges directly behind the face.",
-        "Background should support the character, never form a second subject."
+        "需要宏大空间时保持尺度感，同时降低非重点建筑的细节密度。",
+        "按场景需要使用轮廓叠层与空气透视，不把所有建筑都画得一样清楚；雾气并非必选。",
+        "脸部后方避免无意争夺焦点的强反差硬边。",
+        "背景服务本轮人物展示；用户明确要求环境主体时另按该构图安排。"
       ],
       "anti_patterns": [
         "second_subject_background",
@@ -34,5 +34,6 @@
         "overdescribed_palaces"
       ]
     }
-  }
+  },
+  "scope": "仅适用于当前明确要求宏大背景的案例；允许元素不是必须添加的物件，白底或清简场景不套用此预设。"
 }
