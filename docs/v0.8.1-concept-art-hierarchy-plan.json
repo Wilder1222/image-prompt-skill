@@ -1,4 +1,14 @@
 {
+  "档案说明": {
+    "性质": "历史计划与配置的中文译文，不是当前命令重新生成结果，也不是新增图像执行或验收记录。",
+    "原始版本": "0.8.1",
+    "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+    "源文件": "docs/v0.8.1-concept-art-hierarchy-plan.json",
+    "源文件摘要": "2dc46ee10fe11b478d2b0ff2e0b4838442db0f6ea2b316c351c180466f132dc5",
+    "适用范围": "忠实保留当时固定年龄、鹅蛋脸、手足可见、参考权重、白底与阶段顺序等措辞，仅记录历史，不覆盖当前用户明确要求、人物身份及主工作流。当前不要求十指、双脚必露，不以服装遮挡处虚构测量，不把内部经验预算当厂商参数。",
+    "片段说明": "提示词数组是旧计划片段译文；生产时须由当前主流程按实际参考和描述另行编写完整中文语义标签，不直接提交旧片段。",
+    "来源记录": "docs/历史计划译文来源.json"
+  },
   "hierarchy": {
     "profile": "oriental_epic_concept",
     "detail_budget": "concept_art_priority",
@@ -21,11 +31,11 @@
       "detail_budget_edge_control",
       "output_polish"
     ],
-    "target_read": "high-end oriental fantasy concept key art with breathing room and selective completion, not uniformly finished commercial character illustration"
+    "target_read": "高级东方幻想概念主视觉，留有呼吸空间并选择性完成，不将商业角色插画各处均匀画满。"
   },
   "detail_budget": {
     "profile": "concept_art_priority",
-    "goal": "selective detail concentration for high-end concept art rather than uniform completion",
+    "goal": "高级概念原画采用选择性细节集中，不追求各处相同完成度。",
     "primary_detail": {
       "level": "high",
       "regions": [
@@ -60,10 +70,10 @@
       ]
     },
     "compiler_rules": [
-      "Concentrate the highest detail at focal structures only.",
-      "Keep major body and costume masses readable at medium detail.",
-      "Render peripheral and distant areas selectively, with impressionistic or atmospheric omission.",
-      "Do not increase detail merely because empty space exists."
+      "仅在焦点结构集中最高细节。",
+      "主体身体与衣装体块保持中等细节且清楚可读。",
+      "外围与远处选择性描绘，允许写意或氛围化省略。",
+      "不因为有空白就增加细节。"
     ],
     "anti_patterns": [
       "uniform_microdetail",
@@ -94,10 +104,10 @@
       "peripheral_effects"
     ],
     "rules": [
-      "Primary highlights must remain the strongest value concentration.",
-      "Secondary highlights support form but cannot equal primary brightness density.",
-      "Tertiary highlights are sparse and subordinate.",
-      "Do not make every gold edge or fabric rim luminous."
+      "主要高光保持最强的明度集中。",
+      "次级高光支撑形体，但不能与主高光拥有相同的亮度密度。",
+      "第三层高光稀疏且从属。",
+      "不要让每条金边或布料边都发亮。"
     ],
     "anti_patterns": [
       "highlight_everywhere",
@@ -127,10 +137,10 @@
       "luminous_depth_layers"
     ],
     "rules": [
-      "Keep monumental scale but lower local architectural resolution.",
-      "Use mist, silhouette layering and atmospheric separation instead of literal architectural description.",
-      "Do not place the strongest background contrast or hard edges directly behind the face.",
-      "Background should support the character, never form a second subject."
+      "保持宏伟尺度，但降低局部建筑刻画精度。",
+      "以薄雾、剪影层次与空气分离代替逐项建筑描绘。",
+      "最强的背景反差或硬边不要直接放在脸后。",
+      "背景支撑人物，不能形成第二主体。"
     ],
     "anti_patterns": [
       "second_subject_background",
@@ -162,10 +172,10 @@
       "ground_light_reflections"
     ],
     "rules": [
-      "Use crisp edges only where they reinforce the focal hierarchy.",
-      "Allow soft and partially lost edges in wind-driven and atmospheric regions.",
-      "Let backlight erase selected contours naturally.",
-      "Do not sharpen every silhouette equally."
+      "清晰锐边仅用于加强焦点层级。",
+      "风吹与空气感区域允许柔边及局部隐没的边缘。",
+      "让逆光自然吞没选定轮廓。",
+      "不把所有剪影同等锐化。"
     ],
     "anti_patterns": [
       "uniform_edge_sharpness",
@@ -212,17 +222,17 @@
       "uniform_detail_increase",
       "highlight_everywhere"
     ],
-    "prompt_strategy": "concept-art hierarchy only: redistribute detail, brightness, background resolution and edge sharpness while locking style target, identity, face mode, motion, palette, costume architecture and composition energy"
+    "prompt_strategy": "仅调整概念原画层级：重新分配细节、亮度、背景刻画精度与边缘锐度，同时锁定风格目标、身份、面容模式、运动、配色、衣装构造及构图张力。"
   },
   "prompt_skeleton": [
-    "Keep the approved oriental epic painterly style, black-white-gold-crimson palette, beauty-first/stylized-beauty face direction, full-body epic composition and large-scale motion unchanged.",
-    "Concentrate highest detail on face, crown, chest-neck focal area, waist core ornament and weapon core.",
-    "Keep main garment masses, primary sleeves and major hair volumes at medium detail.",
-    "Let hair tails, outer ribbons, distant architecture, mist, clouds, ground reflections and peripheral effects remain selectively resolved and more impressionistic.",
-    "Use the strongest highlights near the face/crown/upper torso/weapon core; keep secondary garment highlights lower and peripheral/background light subordinate.",
-    "Keep monumental background scale but lower architectural resolution and contrast around the face and upper-body focal zone.",
-    "Use crisp edges only at focal structures; soften or partially lose edges in hair tails, drifting cloth, haze and distant architecture.",
-    "Do not redesign identity, costume, palette, motion language or composition energy."
+    "保持已认可的东方史诗厚涂风格、黑白古金暗红配色、美感优先或风格化美感面容方向、全身史诗构图与大尺度运动。",
+    "最高细节集中在面部、冠饰、胸颈焦点区、腰部核心饰件与武器核心。",
+    "主要衣装体块、主体袖子与大块头发保持中等细节。",
+    "发尾、外侧飘带、远处建筑、薄雾、云、地面反射与外围效果保留选择性完成和更写意的处理。",
+    "最强高光放在面部、冠、上身或武器核心附近；次级衣装高光降低，外围和背景光从属。",
+    "保持背景宏伟尺度，但降低面部及上身焦点区周围的建筑刻画精度与反差。",
+    "仅焦点结构使用清晰锐边；发尾、飘动布料、雾气和远处建筑边缘柔化或局部隐没。",
+    "不重新设计身份、衣装、配色、运动语言或构图张力。"
   ],
-  "note": "Use after style target direction is approved. This round reduces over-completion without weakening the cinematic style target."
+  "note": "风格目标方向认可后使用，此阶段减少过度完成，不削弱电影风格目标。"
 }

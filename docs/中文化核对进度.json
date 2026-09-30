@@ -1,50 +1,18 @@
 {
-  "阶段": "第九阶段",
+  "阶段": "第十阶段",
   "说明": "候选扫描用于安排人工核对，不是确认缺陷数；短词、混排与兼容标识仍需人工区分。历史执行、编译示例和计划译文均关联不可变源提交；档案译文不充当当前生成结果。",
-  "待人工核对文件数": 106,
-  "英文候选数": 1055,
+  "待人工核对文件数": 95,
+  "英文候选数": 740,
   "知识目录长段落候选": 0,
   "资源目录长段落候选": 0,
   "待核对文件": [
-    {
-      "文件": "examples/prompt-density-20260929-prompts.md",
-      "候选数": 48
-    },
-    {
-      "文件": "docs/v0.8.1-black-red-plan.json",
-      "候选数": 47
-    },
-    {
-      "文件": "docs/v0.7.4-cyber-constraint-plan.json",
-      "候选数": 37
-    },
-    {
-      "文件": "docs/v0.7.4-silver-constraint-plan.json",
-      "候选数": 37
-    },
-    {
-      "文件": "docs/v0.7.9-silver-face-nonface-pipeline.json",
-      "候选数": 32
-    },
-    {
-      "文件": "docs/v0.7.8-full-pipeline.json",
-      "候选数": 31
-    },
     {
       "文件": "docs/v0.7.6-implementation-report.md",
       "候选数": 29
     },
     {
-      "文件": "docs/v0.8.1-concept-art-hierarchy-plan.json",
-      "候选数": 28
-    },
-    {
       "文件": "examples/ancient-white-asset-v082-regression-checklist.md",
       "候选数": 28
-    },
-    {
-      "文件": "docs/v0.7.9-silver-face-plan.json",
-      "候选数": 25
     },
     {
       "文件": "docs/v0.7.9-implementation-report.md",
@@ -89,10 +57,6 @@
     {
       "文件": "tests/README.md",
       "候选数": 16
-    },
-    {
-      "文件": "docs/v0.7.8-p9-body-plan.json",
-      "候选数": 15
     },
     {
       "文件": "docs/research/human-presence-v3-sources.json",
@@ -141,10 +105,6 @@
     {
       "文件": "examples/silver-v078-round2-fabric-white.md",
       "候选数": 11
-    },
-    {
-      "文件": "docs/v0.7.8-fabric-white-plan.json",
-      "候选数": 10
     },
     {
       "文件": "docs/v0.7.8-implementation-report.md",
@@ -264,10 +224,6 @@
     },
     {
       "文件": "docs/research/reference-fidelity-human-presence-sources.json",
-      "候选数": 5
-    },
-    {
-      "文件": "docs/v0.7.8-final-polish-plan.json",
       "候选数": 5
     },
     {

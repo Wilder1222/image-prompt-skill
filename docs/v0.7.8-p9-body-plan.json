@@ -1,4 +1,14 @@
 {
+  "档案说明": {
+    "性质": "历史计划与配置的中文译文，不是当前命令重新生成结果，也不是新增图像执行或验收记录。",
+    "原始版本": "0.7.8",
+    "源提交": "0ff9a66535ad3f53d003eb5e2925c1feccb8b552",
+    "源文件": "docs/v0.7.8-p9-body-plan.json",
+    "源文件摘要": "de92142ff7a9afe5ca8c571da94767bcdee398b52c0a48c7b79a8251b63ca6eb",
+    "适用范围": "忠实保留当时固定年龄、鹅蛋脸、手足可见、参考权重、白底与阶段顺序等措辞，仅记录历史，不覆盖当前用户明确要求、人物身份及主工作流。当前不要求十指、双脚必露，不以服装遮挡处虚构测量，不把内部经验预算当厂商参数。",
+    "片段说明": "提示词数组是旧计划片段译文；生产时须由当前主流程按实际参考和描述另行编写完整中文语义标签，不直接提交旧片段。",
+    "来源记录": "docs/历史计划译文来源.json"
+  },
   "p9_persistence": {
     "profile": "P9_locked",
     "source_level": "P9",
@@ -16,10 +26,10 @@
       "hem_width"
     ],
     "prompt_translation": [
-      "Preserve the already-approved P9 fashion silhouette exactly: do not let later realism edits enlarge the head, lower the waistline, shorten the leg read or widen the skirt silhouette.",
-      "Keep the accepted torso length, pelvis-to-knee-to-ankle relationship, footwear scale and vertical garment flow unchanged."
+      "精确保留已认可P9时装轮廓：后续真实化不得放大头部、降低腰线、削弱长腿观感或加宽裙形。",
+      "保持已接受的躯干长度、骨盆至膝至踝关系、鞋履尺度与服装纵向走向。"
     ],
-    "principle": "Once a fashion proportion passes, later realism and polish rounds must preserve the accepted whole-figure visual ratio instead of quietly returning toward a shorter natural proportion.",
+    "principle": "时装比例一旦通过，后续真实化和润饰须保留已接受的全身视觉比例，不悄然退回更短的自然比例。",
     "failure_codes": [
       "p9_regression",
       "head_scale_rebound",
@@ -45,11 +55,11 @@
       "body_soft_tissue_hint": "subtle"
     },
     "prompt_translation": [
-      "Keep the P9 anatomy unchanged but give the neck, clavicle, wrists, hands, ankles and foot contact believable human soft-tissue volume.",
-      "Hands should read as real young-adult hands: subtle knuckles and joints, natural nail presence, soft skin and no plastic mannequin surface.",
-      "Keep clavicles and neck transitions soft and anatomical rather than graphic CG lines."
+      "保持P9解剖不变，让颈部、锁骨、手腕、手、脚踝及脚部接触处具有可信的人体软组织体积。",
+      "手应呈现真实年轻成年人的手：指节与关节细微，指甲自然存在，皮肤柔软，没有塑料模特表面。",
+      "锁骨与颈部过渡柔和、符合解剖，不呈图形化的计算机渲染线条。"
     ],
-    "principle": "Extend human presence beyond the face into neck, clavicle, hands, wrists, ankle/foot contact and subtle body soft-tissue cues without changing accepted fashion anatomy.",
+    "principle": "将生命感从面部延伸至颈、锁骨、手、腕、踝与脚部接触，以及细微身体软组织线索，不改变已接受的时装解剖。",
     "forbidden": [
       "body_reshape",
       "p9_reopen",
@@ -99,15 +109,15 @@
       "costume_redesign",
       "face_reopen"
     ],
-    "prompt_strategy": "preserve approved P9 proportions and add body-level human presence only; do not reopen face, costume or framing"
+    "prompt_strategy": "保留已认可P9比例，仅增加身体层面的真人感；不重开面容、衣装或取景。"
   },
   "prompt_skeleton": [
-    "Preserve the already-approved P9 fashion silhouette exactly: do not let later realism edits enlarge the head, lower the waistline, shorten the leg read or widen the skirt silhouette.",
-    "Keep the accepted torso length, pelvis-to-knee-to-ankle relationship, footwear scale and vertical garment flow unchanged.",
-    "Keep the P9 anatomy unchanged but give the neck, clavicle, wrists, hands, ankles and foot contact believable human soft-tissue volume.",
-    "Hands should read as real young-adult hands: subtle knuckles and joints, natural nail presence, soft skin and no plastic mannequin surface.",
-    "Keep clavicles and neck transitions soft and anatomical rather than graphic CG lines.",
-    "Do not reopen face optics, costume architecture, pose, composition or lighting layout."
+    "精确保留已认可P9时装轮廓：后续真实化不得放大头部、降低腰线、削弱长腿观感或加宽裙形。",
+    "保持已接受的躯干长度、骨盆至膝至踝关系、鞋履尺度与服装纵向走向。",
+    "保持P9解剖不变，让颈部、锁骨、手腕、手、脚踝及脚部接触处具有可信的人体软组织体积。",
+    "手应呈现真实年轻成年人的手：指节与关节细微，指甲自然存在，皮肤柔软，没有塑料模特表面。",
+    "锁骨与颈部过渡柔和、符合解剖，不呈图形化的计算机渲染线条。",
+    "不重开面部光学、衣装构造、姿态、构图或灯光布局。"
   ],
-  "note": "Use after P9 and face optics are approved. This round preserves proportion while extending human presence beyond the face."
+  "note": "P9和面部光学通过后使用，此阶段保留比例并将真人感延伸到面部以外。"
 }
