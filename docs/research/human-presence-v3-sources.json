@@ -4,73 +4,74 @@
   "sources": [
     {
       "id": "OAI-IMAGE-PROMPT",
-      "title": "OpenAI Image prompting",
+      "title": "OpenAI 图像提示指导",
       "url": "https://developers.openai.com/api/docs/guides/image-prompting",
       "kind": "official_documentation",
-      "scope": "reference roles, change-vs-preserve, iterative editing"
+      "scope": "参考职责、改动与保持的区分、迭代编辑"
     },
     {
       "id": "GEMINI-IMAGE",
-      "title": "Gemini image generation",
+      "title": "Gemini 图像生成",
       "url": "https://ai.google.dev/gemini-api/docs/image-generation",
       "kind": "official_documentation",
-      "scope": "multi-turn image editing, photorealistic camera language, reference fidelity"
+      "scope": "多轮图像编辑、摄影真实感的相机语言、参考忠实度"
     },
     {
       "id": "FLUX2-PROMPT",
-      "title": "FLUX.2 prompting guide",
+      "title": "FLUX.2 提示指导",
       "url": "https://docs.bfl.ai/guides/prompting_guide_flux2",
       "kind": "official_documentation",
-      "scope": "word order, photorealism, camera/lens references, multi-reference roles"
+      "scope": "词序、摄影真实感、相机与镜头参考、多参考职责"
     },
     {
       "id": "SEEDREAM-API",
-      "title": "Volcengine Image Generation API",
+      "title": "火山引擎图像生成接口",
       "url": "https://docs.volcengine.com/docs/ark/image-generation-api?lang=en",
       "kind": "official_documentation",
-      "scope": "multi-reference image generation and prompt-length guidance"
+      "scope": "多参考图像生成与提示词长度指导"
     },
     {
       "id": "MJ-EDIT",
-      "title": "Midjourney Edit Model",
+      "title": "Midjourney 编辑模型",
       "url": "https://docs.midjourney.com/hc/en-us/articles/48495453462797-Edit-Model",
       "kind": "official_documentation",
-      "scope": "instruction-based editing, multi-reference, inpainting/outpainting"
+      "scope": "指令编辑、多参考、局部修补与扩图"
     },
     {
       "id": "PMC-SKIN-OPTICS",
-      "title": "Effect of skin color on optical properties and implications for medical optical technologies",
+      "title": "肤色对光学性质的影响及其对医疗光学技术的意义",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10807857/",
       "kind": "peer_reviewed_review",
-      "scope": "human skin absorption and scattering behavior"
+      "scope": "人类皮肤的吸收与散射行为"
     },
     {
       "id": "PMC-SKIN-HOMOGENEITY",
-      "title": "Your face looks the same as before, only prettier",
+      "title": "你的脸看起来与以前一样，只是更漂亮了",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9667065/",
       "kind": "peer_reviewed_article",
-      "scope": "skin homogeneity, youth/health/attractiveness perception"
+      "scope": "肤质均匀度与年轻、健康、吸引力的感知"
     },
     {
       "id": "PMC-UNCANNY-CG",
-      "title": "Too real for comfort? Uncanny responses to computer generated faces",
+      "title": "真实得令人不适？对计算机生成人脸的诡异感反应",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4264966/",
       "kind": "peer_reviewed_article",
-      "scope": "eye/skin realism mismatch and CG face perception"
+      "scope": "眼睛与皮肤真实度不匹配，以及计算机生成人脸的感知"
     },
     {
       "id": "PMC-SCLERA",
-      "title": "The adaptive significance of human scleral brightness",
+      "title": "人类巩膜亮度的适应意义",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9691750/",
       "kind": "peer_reviewed_article",
-      "scope": "scleral brightness, youth/health cues, limits of extra whitening"
+      "scope": "巩膜亮度、年轻与健康线索，以及额外增白的限度"
     },
     {
       "id": "PMC-SYMMETRY",
-      "title": "Attraction independent of detection suggests special mechanisms for symmetry preferences in human face perception",
+      "title": "独立于检测的吸引力提示人脸知觉中存在对称偏好的专门机制",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1679900/",
       "kind": "peer_reviewed_article",
-      "scope": "facial symmetry preference; basis for downgrading forced asymmetry"
+      "scope": "面部对称偏好；当时降低强制不对称要求的依据"
     }
-  ]
+  ],
+  "译文说明": "历史研究来源索引；中文标题为原题翻译，网址、来源标识、类型标识及原核查日期保持。本次未重新核验文章内容或推论，来源与摘要见 docs/历史报告译文来源.json。"
 }

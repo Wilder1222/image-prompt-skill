@@ -1,19 +1,28 @@
-# v0.9.4 四龙首与取景修复实际提示词
+# v0.9.4 四龙首与取景修复历史执行提示词中文整理
 
-A/B 各自仅用原图 5/6；C 仅编辑本轮 B 候选。优秀效果图未作为生成输入。以下按项目角色资产与迭代修复路线手工编写，非古风 CLI 原样输出。
+历史执行文本的可追溯中文整理；英文译为中文，原有中文段落保持，语义标签仅组织阅读。没有用整理后的文本新增出图。旧固定鞋尖可见、手势、碎发、白底、数字留白与参考权限只对应当时实验，不覆盖当前任务。
+
+[不可变原始文件](https://github.com/Wilder1222/image-prompt-skill/blob/60a7c258dd74bc4f832227bc8eea0ebc6eb8e1ac/examples/guardian-framing-v094-prompts.md)；源文件SHA-256：`1352f404e906d1d97b65f2173011be5df0e26b00ab8f7cfdbcadb98755b9f2f0`。逐块来源和段落数见[译文记录](../docs/历史提示词译文来源.json)。
+
+
+A/B 各自仅用原图 5/6；C 仅编辑本轮 B 候选。优秀效果图未作为生成输入。原文按当时项目角色资产与迭代修复路线手工编写；以下为中文整理，非古风 CLI 原样输出。
 
 ## a-05-four-head-contained
 
 输入模式：independent_original_generation
 
 ```text
-Create a full-body white-background costume portrait based on the supplied scene, vertical 3:4. Compose the entire visible ceremonial ensemble within the canvas: the adult woman, four guardian heads with their curved necks and ivory feather fans, the halo, ribbon ends, gown hem and both armored boots. Leave a continuous clean white border around the outer silhouette, including above the highest dragon crest and beside the outermost feather. This requires a contained arrangement of the feather fans, not a close crop of the original scene.
+【任务与整体构图】
+按所给场景制作白底全身服装肖像，3:4竖幅。将完整可见仪式组合安排在画内：成年女性、四个带曲颈和象牙羽扇的守护头、光环、飘带末端、裙摆和双甲靴。外围轮廓四周留连续干净白边，包括最高龙冠上方和最外羽毛侧面。羽扇须收束排列，不直接近裁原场景。
 
-The original visibly has four guardian heads. Preserve this four-head design: one upper head and one lower head on the viewer's left, and one upper head and one lower head on the viewer's right. The upper pair look inward above her head, flanking a small quiet gold halo. The lower pair look outward at roughly shoulder height, clearly separate from her small shoulder armor. Each visible head has one readable scaled neck; no fifth head, no extra miniature heads on her armor. The necks belong to the rear decorative guardian ensemble, not to the woman's body. The pearl-ivory feathers form compact swept-back fans beside the necks, bending down toward the outer hips rather than opening horizontally beyond the canvas. Keep all the visible crests and feather tips in frame. Place clean white gaps between the rear necks and her shoulders, and between the fans and her open forearms. Preserve the original's rich gold-scaled and ivory-feathered visual character while reorganizing its footprint. Do not invent an exposed full animal body where the original only shows necks and feathers.
+【守护组合的数量与空间】
+原图可见四个守护头，保留四头设计：观者左侧上、下各一头，右侧同样上下各一头。上方一对在她头顶向内看，分列小而安静的金环两侧。下方一对约在肩高向外看，与小肩甲清楚分开。每个可见头连接一条可读的鳞颈；不加第五头或甲上微型额外头。颈部属于后方装饰守护组合，不属于女性身体。珠光象牙羽毛在颈旁形成紧凑后掠扇，向外臀方向弯下，不横向张出画外。所有可见冠与羽尖在画内。后颈与肩之间、羽扇与张开的前臂之间保留干净白缝。重排占位时保留丰富金鳞与象牙羽的视觉特征。原图仅显颈与羽时，不另造外露完整动物身体。
 
-Keep this woman's recognizable adult facial features, soft cheeks, eyelid and lip shapes, calm solemn expression and slightly lowered gaze from the source. Dark long wavy hair falls naturally with a few fine loose strands; two small gold combs coordinate with her armor. Render her own face delicately with natural skin detail, without substituting another woman's face.
+【人物面容与发型】
+保留原女性可辨识成年五官、柔软面颊、眼睑和唇形、平静庄重表情与略低目光。深色长卷发自然落下，少量细散发；两件小金梳与护甲协调。细腻描绘她自己的面容及自然肤质，不替换成另一女性。
 
-Moderate costume redesign is authorized. An ivory wrap bodice sits beneath an articulated antique-gold collar and modest layered shoulder armor that follows her shoulder joints. A fitted dark-teal-and-gold waist assembly connects to overlapping hip plates, with small blue-green stone clasps. Two long teal silk panels frame a quiet matte ivory inner skirt; their different hem lengths and overlapping edges make the construction readable. Thin ivory gauze trails briefly behind the skirt. Use sparse gold motifs near panel borders, broad quiet silk areas and restrained polished edges on solid armor. The skirt opens enough in front to reveal the paired fitted gold calf guards and low-heeled armored boots resting on the floor. The train is short and rounded, completely contained inside the picture. Teal ribbons make only a few compact arcs and end inside the outer feather silhouette. Her arms open gently beside the waist with softly upturned palms, coherent visible fingers and wrists; a faint gold glimmer stays above rather than covering each palm. Keep her face, torso, arms and costume clearly legible in front of the rear ensemble. Soft neutral studio lighting separates metal, silk and gauze. Pure white seamless background and subtle grounding shadow; no landscape, fog, text or explosive fire.
+【衣甲、动作与棚光】
+允许适度重设计服装。象牙裹身上衣置于可活动古金领甲下，小型层叠肩甲顺肩关节。合体深青金腰件连相叠髋甲，配小蓝绿石扣。两条青丝长片夹安静哑光象牙内裙，长短错落与重叠边缘使构造清楚。薄象牙纱在裙后短垂。衣片边界附近稀疏金纹，丝料大面积安静，实心甲边抛光克制。前裙开口足以露出成对贴合小腿的金护胫及落地低跟甲靴。拖尾短圆且完全在画内。青飘带只有少量紧凑弧线，末端不超过外羽轮廓。手臂在腰侧轻展，掌心柔和上翻，可见指腕连贯；淡金微光在掌上，不遮掌。人物脸、躯干、手臂与服装在后方组合前清楚可读。柔和中性棚光区分金属、丝绸与纱，纯白无缝背景及细微接地影；没有山水、雾、文字或爆燃火焰。
 ```
 
 ## b-06-contained-holdout
@@ -21,13 +30,17 @@ Moderate costume redesign is authorized. An ivory wrap bodice sits beneath an ar
 输入模式：independent_original_generation
 
 ```text
-Create a full-body white-background costume portrait based on the supplied scene, vertical 3:4. Compose the entire visible ceremonial ensemble within the canvas: the adult woman, four guardian heads with their curved necks and ivory feather fans, the halo, ribbon ends, gown hem and both armored boots. Leave a continuous clean white border around the outer silhouette, including above the highest dragon crest and beside the outermost feather. This requires a contained arrangement of the feather fans, not a close crop of the original scene.
+【任务与整体构图】
+按所给场景制作白底全身服装肖像，3:4竖幅。将完整可见仪式组合安排在画内：成年女性、四个带曲颈和象牙羽扇的守护头、光环、飘带末端、裙摆和双甲靴。外围轮廓四周留连续干净白边，包括最高龙冠上方和最外羽毛侧面。羽扇须收束排列，不直接近裁原场景。
 
-For this new arrangement, use four visible guardian heads based on the source's surrounding guardian motif: one upper head and one lower head on the viewer's left, and one upper head and one lower head on the viewer's right. The upper pair look inward above her head, flanking a small quiet gold halo. The lower pair look outward at roughly shoulder height, clearly separate from her small shoulder armor. Each visible head has one readable scaled neck; no fifth head, no extra miniature heads on her armor. The necks belong to the rear decorative guardian ensemble, not to the woman's body. The pearl-ivory feathers form compact swept-back fans beside the necks, bending down toward the outer hips rather than opening horizontally beyond the canvas. Keep all the visible crests and feather tips in frame. Place clean white gaps between the rear necks and her shoulders, and between the fans and her open forearms. Preserve the original's rich gold-scaled and ivory-feathered visual character while reorganizing its footprint. Do not invent an exposed full animal body where the original only shows necks and feathers.
+【守护组合的设计延展】
+此新布局依据原图周围的守护纹样采用四个可见守护头：观者左侧上、下各一头，右侧同样上下各一头。上方一对在她头顶向内看，分列小而安静的金环两侧。下方一对约在肩高向外看，与小肩甲清楚分开。每个可见头连接一条可读鳞颈；不加第五头或甲上微型额外头。颈部属于后方装饰守护组合，不属于女性身体。珠光象牙羽毛在颈旁形成紧凑后掠扇，向外臀方向弯下，不横向张出画外。所有可见冠与羽尖在画内。后颈与肩之间、羽扇与张开的前臂之间留干净白缝。重排占位时保留丰富金鳞与象牙羽的视觉特征。原图仅显颈与羽时，不另造外露完整动物身体。
 
-Keep this original woman's recognizable adult face: soft cheek planes, her own eye spacing and eyelids, narrow natural lips and restrained slightly stern direct gaze. Keep her dark wavy shoulder-to-chest-length hair, loose diagonal face-framing strands and small gold hair ornaments. Preserve the source's alert character and calm three-quarter torso turn, with the face directed toward the camera. Do not borrow a lowered gaze or longer hairstyle from another reference. Render her own face delicately with natural skin detail.
+【人物身份、发型与朝向】
+保留原女性可辨识成年面容：柔和面颊体面、自身眼距眼睑、自然窄唇与克制略严肃的直视目光。保持深色波浪发，长度从肩至胸、斜向松发修饰脸侧，配小金发饰。保留原机警气质与平静四分之三侧向躯干，脸朝相机。不借其他参考的低垂目光或更长发型。以细腻自然肤质呈现她自己的脸。
 
-Moderate costume redesign is authorized. An opaque ivory wrap chest panel sits beneath an articulated antique-gold collar and modest layered shoulder armor that follows her turned shoulders. Preserve the source's small midriff opening and complete flexible torso. A fitted dark-teal-and-gold waist assembly connects to overlapping hip plates, with small blue-green stone clasps. Two long teal silk panels frame a quiet matte ivory inner skirt; their different hem lengths and overlapping edges make the construction readable. Thin ivory gauze trails briefly behind the skirt. Use sparse gold motifs near panel borders, broad quiet silk areas and restrained polished edges on solid armor. The skirt opens enough in front to reveal the paired fitted gold calf guards and low-heeled armored boots resting on the floor. The train is short and rounded, completely contained inside the picture. Teal ribbons make only a few compact arcs and end inside the outer feather silhouette. Her near forearm reaches softly forward with the palm up, while the other hand stays lower in a relaxed open gesture as in the source. Visible fingers and wrists connect naturally; tiny gold sparks stay above rather than covering each palm. Keep her face, torso, arms and costume clearly legible in front of the rear ensemble. Soft neutral studio lighting separates metal, silk and gauze. Pure white seamless background and subtle grounding shadow; no landscape, fog, text or explosive fire.
+【衣甲、动作与棚光】
+允许适度重设计服装。不透明象牙裹胸衣片置于可活动古金领甲下，小型层叠肩甲顺转动的双肩。保留原小腹开口与完整灵活躯干。合体深青金腰件连相叠髋甲，配小蓝绿石扣。两条青丝长片夹安静哑光象牙内裙，长短错落及重叠边缘让构造可读。薄象牙纱在裙后短垂。衣片边界附近稀疏金纹，丝料大片安静，实心甲边抛光克制。前裙开口足以露出成对贴合小腿的金护胫及落地低跟甲靴。拖尾短圆且全在画内。青飘带只有少量紧凑弧线，末端不超过外羽轮廓。近侧前臂柔和前伸，掌心向上，另一手如原图保持较低且放松张开。可见指腕自然连接，小金火星在掌上而不遮掌。脸、躯干、手臂及衣装在后方组合前清楚。柔和中性棚光区分金属、丝与纱；纯白无缝背景及细微接地影，无山水、雾、文字或爆燃火焰。
 ```
 
 ## c-06-framing-edit
@@ -35,5 +48,6 @@ Moderate costume redesign is authorized. An opaque ivory wrap chest panel sits b
 输入模式：candidate_framing_edit
 
 ```text
-Edit this provided full-body character image only to give the entire existing composition more white breathing room. Keep the same vertical 3:4 canvas. Scale the whole existing ensemble down together and center it, so an obvious band of pure white separates the highest dragon horn from the top edge and all outer feather tips from the side edges. Maintain the internal positions and proportions of the woman, all four guardian heads, feathers, halo, ribbons, costume and feet relative to each other. Preserve this exact adult woman's recognizable face, alert gaze, wavy dark hair, three-quarter body turn, asymmetric hands, gold-and-teal armor, ivory garment folds, exposed midriff and paired boots. Keep the present four guardian heads and their directions unchanged. Preserve the complete hem and faint floor shadow. This is a framing adjustment of the current candidate, with no costume redesign, no new ornament, no new dragon head and no pose change. Extend only the surrounding seamless white studio space; do not crop any original element. Keep the existing fine image detail and soft lighting.
+【仅修取景与保留项】
+仅编辑所给全身角色图，为既有整套构图增加白色呼吸空间。保持3:4竖幅画布，整体一同缩小并居中，使最高龙角与上边、所有外侧羽尖与侧边之间有明显纯白带。人物、四个守护头、羽、环、飘带、衣装与脚的内部位置和相对比例保持。保留此成年女性的辨识面容、机警目光、深色卷发、四分之三侧向身体、不对称手势、金青护甲、象牙衣褶、露腹及双靴。四个守护头及其方向不变，完整裙摆和淡接地影保留。仅调整当前候选取景，不重设计服装、不加饰物或龙头、不换姿态。只延展周围无缝白色棚空间，不裁原有元素，保持已有精细画面与柔光。
 ```

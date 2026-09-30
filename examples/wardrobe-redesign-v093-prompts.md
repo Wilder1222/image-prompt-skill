@@ -1,19 +1,28 @@
-# v0.9.3 黑金与现代短裙实际提示词
+# v0.9.3 黑金与现代短裙历史执行提示词中文整理
 
-每次只输入对应原图。优秀效果图用于观察和评审，未作为生成输入。以下为手工按项目角色资产路线编写的实际发送文本。
+历史执行文本的可追溯中文整理；英文译为中文，原有中文段落保持，语义标签仅组织阅读。没有用整理后的文本新增出图。旧固定鞋尖可见、手势、碎发、白底、数字留白与参考权限只对应当时实验，不覆盖当前任务。
+
+[不可变原始文件](https://github.com/Wilder1222/image-prompt-skill/blob/60a7c258dd74bc4f832227bc8eea0ebc6eb8e1ac/examples/wardrobe-redesign-v093-prompts.md)；源文件SHA-256：`d1dcf2a18f4d0151c9971abdde471da14fcd28cbc5fb463db4d87e64e80d2228`。逐块来源和段落数见[译文记录](../docs/历史提示词译文来源.json)。
+
+
+每次只输入对应原图。优秀效果图用于观察和评审，未作为生成输入。原文为按项目角色资产路线手工编写的实际发送文本；以下为中文整理。
 
 ## a-08-black-gold
 
 原图 8；标杆 4 仅供评审。
 
 ```text
-Create one full-body costume portrait of the adult woman in the supplied portrait, on seamless white, vertical 3:4. Her complete hair ornaments, flowing sleeves, compact rounded train and visible embroidered shoe tip fit inside the picture with white space around the silhouette. Soft neutral studio light preserves dimensional facial modeling and a small floor contact shadow.
+【任务、构图与棚光】
+为所给肖像中的成年女性生成一张完整全身服装肖像，无缝白底、3:4竖幅。完整发饰、流动袖子、紧凑圆拖尾和可见绣鞋尖均在画内，轮廓周围有白地。柔和中性棚光保留立体面部塑形与小接地阴影。
 
-Use the supplied portrait for her identity: retain her own almond-shaped eyes and eye spacing, soft cheek volume, natural lips, quiet intent gaze and apparent adult age. Keep recognizable black hair with a high gathered bun and loose fine strands near the temples. Keep her face softly realistic and detailed as in the reference.
+【人物身份与发型】
+以所给肖像为身份来源：保留她自己的杏眼、眼距、柔软面颊体积、自然嘴唇、安静专注目光及成年表观年龄。黑发高髻与鬓边少量细发保持可辨识，面容保留参考中的柔和真实感与细节。
 
-Design a new black-and-warm-gold outfit for this same woman. Costume, accessories, palette and pose may be moderately redesigned; the old grey-teal floral robe is not a required garment. A fitted black silk bodice has a gently curved neckline and a restrained gold feather motif, meeting a structured narrow black waist belt with small antique-gold fastenings. A soft ivory edge rests at the outer shoulders below small layered gold shoulder ornaments. A light black outer robe hangs from the shoulders into broad sleeves; ivory sleeve linings become visible where the arms bend. Long narrow black panels with gold botanical embroidery descend from the waist and frame a quiet plain charcoal center skirt. The outer side layers are fine translucent black gauze with sparse gold stems; keep large unpatterned fabric areas. Distinguish the bodice's supple satin highlights, weighted matte skirt folds, thin gauze edges and small solid metal ornaments. The fitted waist opens into a graceful long skirt with a modest rounded train, not an enormous cone. A refined gold comb and one slender hanging hair ornament echo the waist hardware without overwhelming her head. One slim waist pendant is enough.
+【黑金服装与材料重设计】
+为同一女性设计新黑暖金服装。服装、饰品、配色及姿态可适度重设计，旧灰青花袍不必保留。合体黑丝上衣有柔弧领口与克制金羽纹，连接有结构的窄黑腰带及小古金扣。小层叠金肩饰下方，柔软象牙边落在外肩。轻黑外袍从肩垂为宽袖，弯臂处露象牙袖衬。窄长黑衣片自腰下垂，带金植物绣，夹出安静素炭灰中央裙。外侧为薄透明黑纱，稀疏金茎纹之间保留大片素面。区分上衣柔缎光、有重量的哑光裙褶、薄纱边与小实心金属饰。收腰向下展开成优雅长裙与适度圆拖尾，不呈巨大锥形。精细金梳及一条细垂发饰呼应腰间金属，不压过头部；一条细腰坠即可。
 
-She stands nearly frontal with a subtle turn at the shoulders, one hand resting naturally near the waist and the other hanging relaxed beside the sleeve opening. Wrists and visible fingers have coherent natural structure. Keep the face, neck, waist and separate sleeve outlines legible. Her expression remains calm and intent, not a new severe character. The result is an elegant black-gold costume design with readable construction, photographed on pure white. No guardian creatures, weapons, text or scenery.
+【姿态、表情与限制】
+近正面站立，双肩轻微转动，一手自然放腰旁，另一手在袖口旁放松下垂。手腕与可见手指结构连贯自然。脸、颈、腰和分开的袖轮廓清楚。表情仍安静专注，不改成新的严厉角色。结果为纯白背景拍摄的优雅黑金服装设计，结构可读。不加守护兽、武器、文字或场景。
 ```
 
 ## a-07-blue-short
@@ -21,13 +30,17 @@ She stands nearly frontal with a subtle turn at the shoulders, one hand resting 
 原图 7；标杆 5 仅供评审。
 
 ```text
-Create one full-body white-background wardrobe portrait of the adult woman in the supplied photo, vertical 3:4. Her complete head, hair, hands, skirt, legs, socks and sneakers fit comfortably inside the picture with visible white space above the hair and below the soles. Soft neutral studio light, natural skin texture and a subtle floor contact shadow.
+【任务、构图与棚光】
+为所给照片中的成年女性生成一张白底全身穿搭肖像，3:4竖幅。头、发、手、裙、腿、袜与运动鞋完整舒适地入画，发顶上和鞋底下有可见白地。柔和中性棚光、自然肤质与细微接地影。
 
-Use this original portrait alone for her identity. Preserve her soft cheeks, natural eye shape and spacing, nose and lip shape, apparent adult age and gentle closed-lip smile. Keep her brown hair loosely gathered into a low ponytail resting over one shoulder, with a few fine face-framing strands. Do not exaggerate her eyes, sharpen her jaw or change her into a teenage character.
+【人物身份与发型】
+仅用原肖像确定身份。保留柔软面颊、自然眼型眼距、鼻唇形状、成年表观年龄及温柔闭唇微笑。棕发松束低马尾搭在一侧肩上，少量细发修饰脸侧。不夸大眼睛、削尖下颌或变成少女角色。
 
-Moderate wardrobe and styling redesign is authorized. Dress her in a pale powder-blue soft knitted cardigan with relaxed long sleeves, a clear fine knit texture, ribbed cuffs and small matching buttons, worn open. Under it is an ivory camisole with tiny sparse blue flowers and a narrow delicate lace neckline. An ivory short skirt ends at mid-thigh and uses two light gathered tiers with a slightly irregular soft hem; show gentle fabric folds and opaque lining. The skirt remains light and wearable, without a stiff tutu shape. White softly scrunched ankle socks meet cream lace-up sneakers with moderately chunky soles. Add a small cream shoulder bag tucked beside her hip, a little white rabbit charm attached to the bag, and a fine silver necklace. Keep the knit matte and tactile, the printed camisole smooth and lightweight, the skirt softly woven and the sneakers visibly constructed from canvas and rubber. Avoid glossy synthetic skin or metallic decoration.
+【现代服装与造型重设计】
+允许适度重设计衣装和造型。穿浅粉蓝柔针织开衫，长袖放松、细针织清楚、罗纹袖口及同色小扣，敞开穿。内搭象牙吊带衫，稀疏小蓝花与窄精细蕾丝领。象牙短裙到大腿中段，两层轻聚褶裙片，略不规则柔裙边，布褶柔和、内衬不透明。裙子轻巧可穿，不呈僵硬芭蕾裙。白色微堆踝袜配奶油系带运动鞋，鞋底适度厚。小奶油肩包贴臀侧，包上挂小白兔挂件，配细银项链。针织哑光有触感，印花吊带平滑轻薄，裙料柔织，鞋可见帆布与橡胶构造。不用亮滑合成皮肤或金属装饰。
 
-Her posture is relaxed and adult: shoulders easy, weight resting on one leg, the other knee gently bent, both feet visibly supported on the floor. Her hands meet loosely low in front of the skirt without gripping the fabric, showing coherent relaxed fingers and natural wrists. Keep the original friendly restrained smile. This is a coordinated everyday outfit, not a fashion runway pose. Pure white studio background, no lettering, furniture or extra people.
+【成年放松姿态与表情】
+肩放松，重心落一腿，另一膝轻弯，双脚可见且由地面支撑。双手在裙前低处松合，不抓布，可见手指放松、腕部自然。保持原友好克制微笑，这是协调日常穿搭，不是走秀姿态。纯白棚背景，不加文字、家具或其他人。
 ```
 
 ## b-08-layered-black-gold
@@ -35,13 +48,18 @@ Her posture is relaxed and adult: shoulders easy, weight resting on one leg, the
 原图 8；标杆 4 仅供评审。
 
 ```text
-Create one full-body costume portrait of the adult woman in the supplied portrait, on seamless white, vertical 3:4. Her complete hair ornaments, flowing sleeves, compact rounded train and visible embroidered shoe tip fit inside the picture with white space around the silhouette. Soft neutral studio light preserves dimensional facial modeling and a small floor contact shadow.
+【任务、构图与棚光】
+为所给肖像中的成年女性生成一张完整全身服装肖像，无缝白底、3:4竖幅。完整发饰、流动袖子、紧凑圆拖尾和可见绣鞋尖均在画内，轮廓周围有白地。柔和中性棚光保留立体面部塑形与小接地阴影。
 
-Use the supplied portrait for her identity: retain her own almond-shaped eyes and eye spacing, soft cheek volume, natural lips, quiet intent gaze and apparent adult age. Keep recognizable black hair with a high gathered bun and loose fine strands near the temples. Keep her face softly realistic and detailed as in the reference.
+【人物身份与发型】
+以所给肖像为身份来源：保留她自己的杏眼、眼距、柔软面颊体积、自然嘴唇、安静专注目光及成年表观年龄。黑发高髻与鬓边少量细发保持可辨识，面容保留参考中的柔和真实感与细节。
 
-Design a new black-and-warm-gold outfit for this same woman. Costume, accessories, palette and pose may be moderately redesigned; the old grey-teal floral robe is not a required garment. Keep the finished silhouette long and gently asymmetric, with a defined waist and an airy outer robe. A fitted black wrap bodice has a shallow curved neckline, an antique-gold feather motif crossing diagonally over one side and a narrow overlapping waist belt. Small flat gold shoulder fittings follow the shoulder curve, without projecting spikes or broad feather fans. The robe slips slightly off the outer shoulder, exposing a narrow soft ivory lining edge. One sleeve hangs lower than the other and the open sleeve interiors reveal ivory silk.
+【黑金服装重设计】
+为同一女性设计新黑暖金服装。允许适度重设计服装、饰品、配色和姿态，旧灰青花袍不是必须保留的服装。成品轮廓修长、轻微不对称，腰线明确、外袍轻盈。合体黑色裹身上衣有浅弧领口，一侧斜跨古金羽纹，窄叠腰带收束。小型扁金肩件沿肩曲线贴合，不加尖刺或宽羽扇。袍子略滑离外肩，露出窄柔象牙内衬边。一袖低于另一袖，开口袖内露出象牙丝绸。
 
-Below the belt, divide the front into overlapping long panels rather than one large plain black triangle. A narrow charcoal panel follows the center leg line; two embroidered black panels overlap beside it, one ending a little higher. Slender ivory inner layers show intermittently through the openings from below the waist to the floor, making several soft long diagonal folds. Keep most of the dress black, with ivory occupying only these restrained openings and sleeve interiors. The outer black gauze floats slightly away from the weighted inner layers along the sides. Place detailed gold vines and feather embroidery on selected panel edges and sleeve borders, with quiet black intervals between motifs, not a dense all-over print. Reduce the side volume above the knee; let the hem open gently near the ankles into a short asymmetric train contained inside the picture, with an embroidered shoe tip visible. Use matte inner cloth, softly lustrous black silk panels, thin transparent outer gauze and small antique-metal fastenings. Keep her black gathered bun compact and close to the head, with a low gold comb and one slender hanging ornament; leave a little white air above it. One fine waist pendant completes the outfit.
+【裙片、材料与饰物】
+腰带下前方分成相叠长衣片，不做巨大纯黑三角。窄炭灰片沿中央腿线，两条黑色绣片在旁重叠，其中一条略短。细窄象牙内层从腰下至地面的开口间断可见，形成数道柔长斜褶。裙装以黑色为主，象牙色只出现在克制开口与袖内。两侧外黑纱略离开有重量的内层。精选衣片边缘及袖缘布置精细金藤与羽绣，纹样间留安静黑面，不作全身密印花。减小膝上侧向体量，裙摆在踝旁缓缓展开为画内短不对称拖尾，露绣鞋尖。材料为哑光内布、柔丝光黑衣片、薄透明外纱与小古金属扣。黑色盘髻紧凑贴头，配低金梳及一条细垂饰，头上稍留白。一件细腰坠完成造型。
 
-She stands nearly frontal with a subtle turn at the shoulders, one hand resting naturally near the waist and the other hanging relaxed beside the sleeve opening. Wrists and visible fingers have coherent natural structure. Keep the face, neck, waist and separate sleeve outlines legible. Her expression remains calm and intent, not a new severe character. The result is an elegant black-gold costume design with readable construction, photographed on pure white. No guardian creatures, weapons, text or scenery.
+【姿态、表情与限制】
+近正面站立，双肩轻微转动，一手自然放腰旁，另一手在袖口旁放松下垂。手腕与可见手指结构连贯自然。脸、颈、腰和分开的袖轮廓清楚。表情仍安静专注，不改成新的严厉角色。结果为纯白背景拍摄的优雅黑金服装设计，结构可读。不加守护兽、武器、文字或场景。
 ```
