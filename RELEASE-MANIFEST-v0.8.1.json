@@ -1,7 +1,7 @@
 {
   "name": "image-prompt-skill",
   "version": "0.8.1",
-  "theme": "Detail Budget & Visual Hierarchy",
+  "theme": "细节预算与视觉层次",
   "base_version": "0.8.0",
   "test_summary": {
     "tests": 186,
@@ -1620,5 +1620,11 @@
       "sha256": "e84eb95edbf438dfd95a433bf9ebfd11bf14b5927bd5db2252fab3662d406c8d"
     }
   ],
-  "visual_validation": "pending real image A/B test"
+  "visual_validation": "等待实际图像A/B测试。",
+  "档案说明": {
+    "性质": "历史发布清单的说明文字译文；文件列表、字节数、摘要和状态保持，非当前发布清单",
+    "源提交": "861084f7e612f7e69ab1b9ea07df7cc6753569dc",
+    "源文件": "RELEASE-MANIFEST-v0.8.1.json",
+    "源文件摘要": "4cbc1ab2b8aee887747013a919c1a1517ed94b50ff1e07947abd84f9fb80f554"
+  }
 }

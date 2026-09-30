@@ -1,25 +1,30 @@
-# Silver Character B — Round 1 P9 Proportion Patch
+# 银发角色B：第一轮P9比例修订
 
-Use the current accepted full-body silver-haired asset as the direct edit target.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Keep unchanged: character identity, face, silver-white hair, hairstyle and hair ornaments, makeup, hand pose, costume design, ivory + gray-blue-lavender palette, material treatment, white seamless background, studio lighting and footwear design.
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/silver-b-round1-p9-proportion-patch.md)；源文件SHA-256：`5afb614ca89ff8a34a1f756be1b8521f18694be4ca0dfb38242a321e2e0030a5`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-This round changes **only overall visual body proportion**.
 
-Adjust the figure toward a believable high-fashion nine-head visual proportion. Measure the visual relationship from the real top of the skull to the shoe sole; do not count the bun, hairpin or other head ornaments as head length.
+【编辑对象】
+以当时已接受的银发全身资产作为直接编辑对象。
 
-Slightly reduce the head’s visual share of the complete figure, but do not narrow the face, shrink facial features or change the face identity.
+【保持不变】
+人物身份、面容、银白发色、发型发饰、妆容、手势、衣装设计、米白与灰蓝紫配色、材料表现、白色无缝背景、棚光及鞋履设计保持。
 
-Open the neck and shoulders slightly so the upper body feels more elegant and elongated, while keeping a natural shoulder width.
+【编辑范围】
+本轮只改变整体视觉身体比例。
 
-Preserve a complete realistic ribcage and torso. Do not shorten or compress the torso to create longer legs, and do not create an extreme tiny waist.
+【头身关系】
+调整为可信的高级时装九头身观感。按真实颅顶至鞋底判断全身关系，发髻、发簪和其他头饰不计入头长。略降低头部在全身中的视觉占比，但不削窄脸、不缩小五官或改变面容身份。
 
-Raise the waistline only visually through the current sash position, skirt-panel starting point and long vertical garment lines. Do not anatomically shorten the waist or torso.
+【肩颈与躯干】
+肩颈略舒展，使上半身更优雅修长，同时保持自然肩宽。胸廓和躯干完整可信，不压短躯干制造长腿，不制造极细腰。
 
-Lengthen the hip-to-knee and knee-to-ankle segments in balance. Keep pelvis width, knee placement, ankle scale and lower-limb soft tissue believable. Do not lengthen only the thigh or only the calf.
+【腰线与腿部】
+只通过现有束带位置、裙片起点和长纵向衣线在视觉上抬高腰线，不缩短解剖腰腹或躯干。髋至膝与膝至踝均衡延长，骨盆宽度、膝位、踝部尺度和下肢软组织可信，不只拉长大腿或小腿。
 
-Keep footwear scale coordinated with the taller figure; do not enlarge the feet.
+【衣装与鞋履】
+鞋履尺度与修长身形协调，不放大脚。用现有衣装辅助高挑轮廓：加强中央纵线，略控制过量横向袖幅与裙宽，适当多露鞋履。不删标志衣层，不重新设计长袍。
 
-Use the existing costume to support the taller silhouette: strengthen vertical center lines, slightly control excessive lateral sleeve spread and skirt width, and keep a little more footwear visible. Do not remove signature layers or redesign the robe.
-
-Final target: a tall, elegant, realistic young woman with a clear nine-head fashion-model visual proportion, not an anime body and not a game-CG extreme long-leg proportion.
+【最终目标】
+高挑、优雅、真实的年轻女性，具有明确九头身时装模特观感，不呈动漫身体或游戏渲染式极端长腿。

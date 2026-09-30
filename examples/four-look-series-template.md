@@ -1,44 +1,49 @@
-# 四套服装系列模板
+# 四套服装系列的历史案例
 
-## Character Signature
-- 柔和偏长鹅蛋脸
-- 修长杏眼，眼尾轻扬但不过分
-- 纤秀鼻梁，鼻尖圆润
-- 上唇偏薄，下唇略柔和
-- 中分高半束发，金色高冠，长直黑发
-- 身形高挑修长但比例可信
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-## LOOK 01 月白银金
-- silhouette: wide_sleeve_long_skirt
-- neckline: crossed_v
-- armor_ratio: low
-- ornament_budget: low
-- transparency_budget: 20-30
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/four-look-series-template.md)；源文件SHA-256：`b8e1e0fb17a91ab51b36b69b868ab1b563ba2f348c901afd0123faa424e806e6`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-## LOOK 02 白金赤缨
-- silhouette: asymmetric_battle_skirt
-- neckline: high_collar
-- armor_ratio: medium
-- ornament_budget: medium
-- transparency_budget: 10-20
 
-## LOOK 03 青瓷银灰
-- silhouette: robe_layered
-- neckline: layered_collar
-- armor_ratio: low
-- ornament_budget: medium
-- transparency_budget: 20-30
+## 本案例人物特征
+- 柔和偏长鹅蛋脸。
+- 修长杏眼，眼尾轻扬不过分。
+- 纤秀鼻梁，鼻尖圆润。
+- 上唇偏薄，下唇略柔和。
+- 中分高半束发、金色高冠、长直黑发。
+- 身形高挑修长且比例可信。
 
-## LOOK 04 玄黑赤金
-- silhouette: column_vertical
-- neckline: halter_collar
-- armor_ratio: medium
-- ornament_budget: medium
-- transparency_budget: 10-20
+这些只描述该历史案例，不是新人物通用脸型或发型。
 
-## 共性要求
-- 同一人物身份
-- 白色影棚背景
-- 全身完整入镜
-- 真人肤感优先
-- 东方体系鞋履
+## 造型01：月白银金
+- 轮廓：宽袖长裙，对应wide_sleeve_long_skirt。
+- 领口：交叠V领，对应crossed_v。
+- 甲片比例：低，对应low。
+- 饰物预算：低，对应low。
+- 透明度预算：20–30。
+
+## 造型02：白金赤缨
+- 轮廓：不对称战裙，对应asymmetric_battle_skirt。
+- 领口：高领，对应high_collar。
+- 甲片比例：中，对应medium。
+- 饰物预算：中，对应medium。
+- 透明度预算：10–20。
+
+## 造型03：青瓷银灰
+- 轮廓：层叠袍装，对应robe_layered。
+- 领口：层叠领，对应layered_collar。
+- 甲片比例：低，对应low。
+- 饰物预算：中，对应medium。
+- 透明度预算：20–30。
+
+## 造型04：玄黑赤金
+- 轮廓：纵向柱形，对应column_vertical。
+- 领口：挂颈领，对应halter_collar。
+- 甲片比例：中，对应medium。
+- 饰物预算：中，对应medium。
+- 透明度预算：10–20。
+
+## 当时共性要求
+同一人物身份、白色影棚背景、完整全身入镜、真人肤感优先、东方体系鞋履。
+
+透明度数值为历史设计预算，不能据此推断模型能精确控制透光，也不授权新的露肤设计。

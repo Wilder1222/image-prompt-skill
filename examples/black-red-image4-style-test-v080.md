@@ -1,17 +1,29 @@
-# v0.8.0 validation prompt — black/red/gold character in Image 4 style
+# v0.8.0历史验证提示词：黑红金角色采用图4风格
 
-Use Image A as the **Style Target** and Image B as the **Asset Master**.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Image A controls only the final visual language: painterly-cinematic oriental fantasy, sweeping large-scale motion, luminous back/rim light, atmospheric haze, asymmetric S-curve composition, expressive brush-like edges, mythic environmental depth, ivory/black/antique-gold mass relationships and restrained crimson accents. Do not copy Image A's exact face or garment geometry.
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/black-red-image4-style-test-v080.md)；源文件SHA-256：`7c64d4bda05e93437ca1be9bae7dd17fb1fc3a6ff57dfddcd0b884af5f1e7987`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-Image B controls the character identity and costume architecture: the same woman, long black hair family, gold crown and earrings, black/deep-red/antique-gold warrior-queen costume, shoulder and waist armor language, layered skirt, hanging ornaments and signature accessories. Preserve these design identities, but do not preserve Image B's previous white studio background or static catalog presentation.
 
-Render mode = cinematic_hybrid.
-Style profile = oriental_epic_painterly.
-Face mode = stylized_beauty.
+【参考职责】
+图A作为风格目标，图B作为资产母图。
 
-Restore the target style strongly: allow the pose to become more dynamic and elegant; let hair, sleeves, ribbons and skirt form broad sweeping arcs; use asymmetrical negative space and a heroic full-body silhouette. Create a luminous mythic environment rather than a blank studio. Use soft directional key light plus glowing warm rim/backlight, deep painterly shadow masses and selective golden highlights. Keep the face beautiful and intentionally idealized rather than forcing documentary realism.
+【图A权限】
+A只控制最终视觉语言：绘画与电影式东方幻想、大幅流动动作、明亮逆光或轮廓光、氛围雾、不对称S形构图、有表现力的笔触边缘、神话环境深度、米白黑古金的色块关系与克制绯红点缀。不复制A的具体面容或衣装几何。
 
-Materials should remain believable, but realism must support the painterly medium rather than flatten it into a clean product render. Use selective detail: face and primary gold ornament are the sharpest focal areas; peripheral fabric, hair ends, particles and environment may resolve with softer painterly edges. Avoid uniform global sharpness, flat catalog lighting, a centered static asset pose and blank white background.
+【图B权限】
+B控制人物身份与衣装构造：同一女性、长黑发体系、金冠耳饰、黑深红古金女战士或女王衣装、肩腰甲语言、层叠裙、垂饰和标志配件。保留设计身份，但不保持B此前的白色棚景或静态目录展示。
 
-Final result: the black-red-gold warrior queen from Image B, unmistakably the same character and costume family, but presented with the dynamic, luminous, painterly oriental-fantasy visual language of Image A.
+【本轮模式】
+渲染模式：cinematic_hybrid。
+风格配置：oriental_epic_painterly。
+面容模式：stylized_beauty。
+
+【风格与动作】
+强恢复目标风格。姿态更动态优雅；头发、袖子、飘带和裙摆形成宽阔流动弧线；使用不对称负空间与英雄式全身轮廓。生成明亮神话环境，而非空白摄影棚。柔和方向主光搭配发亮暖逆光或轮廓光、深绘画暗面及选择性金色高光。面容漂亮且有意理想化，不强制纪实真实感。
+
+【材料、细节与边缘】
+材料可信，真实感服务绘画媒介，不将其压成干净产品渲染。脸部和主要金饰为最清楚的焦点；外围布料、发尾、粒子及环境可用较柔绘画边缘。避免全局均匀锐度、平目录光、居中静态资产姿态和空白白底。
+
+【最终目标】
+明确为B的黑红金女战士或女王及其衣装体系，以A动态、明亮、绘画式东方幻想语言呈现。

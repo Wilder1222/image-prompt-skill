@@ -1,12 +1,21 @@
-# Silver Asset — Round 1: P9 Persistence + Body Presence
+# 银发资产第一轮：保持P9与身体体积
 
-Use the current accepted silver-haired P9 Asset Master as the only direct edit target.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Keep identity, face, approved eye/skin result, hair design, costume design, palette, pose, composition, white background and lighting layout unchanged.
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/silver-v078-round1-p9-body-presence.md)；源文件SHA-256：`17cdb8cc963bcb50a6ac1a5f519efc42a0301bba5712f8a670afd0a491c77692`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-This round has two goals only:
 
-1. Preserve the approved P9 silhouette exactly. Do not enlarge the head, lower the waist, shorten the leg read, widen the skirt or reduce vertical garment flow. Keep the accepted torso length, pelvis-knee-ankle relationship, footwear scale and overall tall fashion proportion unchanged.
-2. Add believable full-body human presence without changing anatomy: soften the jaw-to-neck transition, keep clavicles subtle rather than graphic, give wrists and hands natural young-adult volume, preserve subtle finger joints and low-key nails, and make ankle/foot-ground contact credible.
+【编辑对象】
+以当时已接受的银发P9资产母图作为唯一直接编辑对象。
 
-Do not reshape the face, reopen P9, redesign clothing, change sleeves, change skirt width, change lighting or alter the hand pose.
+【保持不变】
+身份、脸部、已认可的眼睛肤质结果、发型设计、衣装设计、配色、姿态、构图、白底和灯光布局保持。
+
+【比例保持】
+精确保留已认可的P9轮廓。不放大头、不降低腰线、不缩短腿部观感、不加宽裙摆或减少纵向衣线。保持既有躯干长度、骨盆膝踝关系、鞋履尺度和整体高挑时装比例。
+
+【身体体积】
+不改变解剖，增加可信全身真人感：下颌到颈部过渡柔和，锁骨含蓄而非图形刻线；手腕双手有自然年轻成年体积，保留细微指节和低调指甲，脚踝、脚与地面接触可信。
+
+【禁止越界】
+不重塑脸、不重开P9、不重新设计衣服，不改袖子、裙宽、灯光或手势。

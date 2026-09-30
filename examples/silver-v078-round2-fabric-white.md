@@ -1,16 +1,24 @@
-# Silver Asset — Round 2: Photographic Fabric & White Separation
+# 银发资产第二轮：摄影衣料与白底分离
 
-Use the approved Round-1 image as the only direct edit target. Lock identity, P9 proportion, face/skin/hair result, body presence, pose, costume architecture, palette and composition.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Refine only fabric photography and white-background separation:
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/silver-v078-round2-fabric-white.md)；源文件SHA-256：`08fc8fa9258c426011b3ec4cb7aedefe4de031e2d6aa32197ab6491a0808c8ce`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-- Keep the background near pure white but separate pale clothing through subtle tonal and material differences, never through a dark outline.
-- Ivory silk: soft continuous directional highlight and believable thickness.
-- Gray-blue/lavender brocade or satin: heavier weave and more structured directional reflection.
-- Outer gauze: translucent layering, soft transmitted light and visible edge thickness.
-- Gold embroidery: raised thread with small localized specular response.
-- Metal ornaments: small crisp highlights without overexposure.
-- Make sleeve and hem drape slightly irregular and gravity-led; avoid perfect left-right mirroring and overly neat ground folds.
-- Maintain soft photographic highlight roll-off and a gentle contact shadow so the character does not float.
 
-Do not alter face, P9 proportion, garment design, color palette, hand pose, footwear or background type.
+【编辑对象与保持项】
+以已认可的第一轮图作为唯一直接编辑对象。锁定身份、P9比例、脸部肤质与头发结果、身体体积、姿态、衣装构造、配色及构图。
+
+【编辑范围】
+只精修衣料摄影表现与白底分离。
+
+【背景与浅色衣料】
+背景接近纯白，通过细微明度和材料差异分离浅色衣料，不能加深色描边。
+
+【材料分工】
+米白丝绸具有柔和连续的方向性高光与可信厚度；灰蓝或灰紫织锦、丝缎有较厚织纹和更具结构的方向反射；外纱半透明叠层，有柔和透射光及可见边缘厚度；金绣为凸起绣线，局部有小范围镜面反射；金属饰件有小而清楚的亮点，但不过曝。
+
+【垂坠与成像】
+袖子与衣摆垂坠略有不规则，服从重力，避免左右完全镜像及过分整齐的落地褶皱。保持柔和摄影高光衰减与轻接触阴影，人物不悬浮。
+
+【禁止越界】
+不改面容、P9比例、衣装设计、配色、手势、鞋履或背景类型。

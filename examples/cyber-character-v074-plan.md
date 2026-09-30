@@ -1,24 +1,23 @@
-# Cyber Character v0.7.4 Regression Plan
+# 赛博角色v0.7.4历史回归计划
 
-Observed from v0.7.3 test:
-- environment suppression: pass
-- identity/design family: pass
-- completion conservatism: partial
-- lower-body mechanical density: inflated
-- wear state: slightly inflated
-- human presence: partial
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Recommended:
-- render mode: style_asset
-- fidelity: cyber_asset_case
-- completion budget: C1
-- density budget: preserve
-- wear: W2
-- human presence: H2 v2
-- extremity: E2
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/cyber-character-v074-plan.md)；源文件SHA-256：`c368f267e7c2d041b38819a527a24497aa3cab73289e1e4ca7ee99cc97ee28f2`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-Prompt compiler emphasis:
-1. newly completed lower body must not contain more mechanical modules than the visible upper body density suggests;
-2. no new primary armor system, weapon, major motif, or material family;
-3. maintain W2, with limited tears/stains and no structural ruin;
-4. improve real-person eye/skin/hair/camera behavior without changing identity geometry.
+
+## v0.7.3观察
+- 环境抑制：通过。
+- 身份与设计体系：通过。
+- 保守补全：部分通过。
+- 下半身机械密度：膨胀。
+- 磨损：略有膨胀。
+- 人物生命感：部分通过。
+
+## 当时建议
+渲染模式style_asset；忠实度cyber_asset_case；补全C1；密度preserve；磨损W2；人物生命感H2 v2；手脚E2。
+
+## 编译重点
+1. 新补全下半身的机械模块不能超过可见上半身密度所支持的程度。
+2. 不新增主装甲体系、武器、主要纹样或材料家族。
+3. 保持W2，仅有限破口与污迹，不出现结构性毁坏。
+4. 改善真人眼睛、肤质、头发和相机行为，不改变身份几何。

@@ -1,11 +1,19 @@
-# Local Hand Repair v0.7.4
+# v0.7.4历史手部局部修复示例
 
-Use when the character, costume, composition, and lighting have passed but finger anatomy is wrong.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-```text
-Use the current generated image as the direct edit target. Keep the same character identity, face, hair, costume, body proportions, pose, background, lighting, and all non-hand details unchanged.
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/local-hand-repair-v074.md)；源文件SHA-256：`6f3ee61755b84e9c3c6819dda82b0f5a2d27e351d80b2ccc753e6e634740214f`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-Repair only the visible hands. Each visible hand must have exactly five anatomically plausible digits: one thumb with natural opposition and four fingers with believable length hierarchy, separate joints, natural spacing, and relaxed curvature. Preserve the intended elegant hand placement. Do not redesign the sleeves, torso, face, or overall pose.
-```
 
-This is a local patch. Do not add extra realism instructions unrelated to the hands.
+当时适用于人物、服装、构图和灯光已通过，但手指解剖错误的情况。
+
+【编辑对象与保持项】
+使用当前生成图作为直接编辑对象。人物身份、面容、头发、衣装、身体比例、姿态、背景、灯光及所有非手部细节保持。
+
+【手部修复】
+只修可见双手。每只可见手恰有五个解剖可信的手指：一个自然对掌的拇指和四个长短层次可信的手指，关节独立、间距自然、弯曲放松。保持既定优雅手位，不重设计袖子、躯干、面容或整体姿态。
+
+【范围限制】
+局部修订不增加与手无关的真实感指令。
+
+以上保留历史文本的五指要求。当前执行按实际遮挡检查可见结构，不要求被袖子或其他手指自然遮挡的部分强行全部展开。

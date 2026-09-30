@@ -28,9 +28,9 @@ node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anch
 
 `--presentation neutral_asset` 兼容原有预设；`costume_showcase` 适用于需要长袍层次与袖摆的服装定妆展示，允许原设计的宽裙、短拖尾与自然遮鞋，修长感通过颈肩腰和长衣片组织。它不改变脸、年龄、材质与用户显式选择的手势。需要填写本套衣服的具体构造，不能直接把通用提示词当作完整设计。
 
-`--reference-mode portrait_expand` 为默认扩身路线；`full_body_anchor` 则保留已给全身造型的脸、渲染、比例、手势、材料和光线，绕过通用预设，不编造新的下半身。后者只用于保留式生成，拒绝相冲突的预设覆盖或编辑锁；局部修复直接选 edit stage / focus。遇到用户提供更好的旧图时读取 [标杆对照](benchmark-costume-refinement.md)。
+`--reference-mode portrait_expand` 为默认扩身路线；`full_body_anchor` 则保留已给全身造型的脸、渲染、比例、手势、材料和光线，绕过通用预设，不编造新的下半身。后者只用于保留式生成，拒绝相冲突的预设覆盖或编辑锁；局部修复直接选 编辑阶段与焦点。遇到用户提供更好的旧图时读取 [标杆对照](benchmark-costume-refinement.md)。
 
-Face profile 有 `beauty_first_clean`、`beauty_first_character`、`humanized_real_light`、`humanized_real_full`、`stylized_beauty`。切换只改变面部渲染，不顺带改变年龄目标、手势或服装。年龄独立选择 `youthful_18_22`、`young_adult_20_26` 或 `none`；后者保留参考年龄，不能据此推断人物年龄。默认成年青年预设与参考年龄不符时，选择 `none` 并在最终文本明确用户的年龄要求。
+面容配置有 `beauty_first_clean`、`beauty_first_character`、`humanized_real_light`、`humanized_real_full`、`stylized_beauty`。切换只改变面部渲染，不顺带改变年龄目标、手势或服装。年龄独立选择 `youthful_18_22`、`young_adult_20_26` 或 `none`；后者保留参考年龄，不能据此推断人物年龄。默认成年青年预设与参考年龄不符时，选择 `none` 并在最终文本明确用户的年龄要求。
 
 旧 `face` 编辑阶段只修面部渲染，保留原表情；`full_body_anchor` 属于明确保留式生成。这些局部锁定不适用于已授权的表情改案。需要适配或修改表情时用生产入口的 expression 通道，独立写明眼神、眉眼与唇部动作及身份保留范围。
 
@@ -69,7 +69,7 @@ node scripts/iteration-director.mjs next --failures material_layers_merged
 
 ## 视觉回归
 
-保持相同参考、基础母图、模型设置和画幅，A/B 只更换 face profile。两组编辑从同一母图开始，不能把 A 的结果作为 B 输入；如果平台支持种子可记录，但相同种子也不是严格同条件的保证。
+保持相同参考、基础母图、模型设置和画幅，A/B 只更换面容配置。两组编辑从同一母图开始，不能把 A 的结果作为 B 输入；如果平台支持种子可记录，但相同种子也不是严格同条件的保证。
 
 用 [记录模板](../../templates/visual-regression-record.json) 保存参考路径/标识、母图、实际输出、最终提示词、可获得的模型设置和人工评审。未支持或未知的参数填 null。至少分别检查身份、年龄、脸部方向、比例、可见手部、服装连续性、材料和白底分离；遮挡不可判断的项记录 `not_assessable`，不能视为通过。
 
@@ -80,6 +80,6 @@ node scripts/iteration-director.mjs next --failures material_layers_merged
 ## 依据
 
 - [Anthropic 技能编写实践](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)：保持入口精简，按任务逐步加载参考，以实际行为评估技能。
-- [OpenAI Image prompting](https://developers.openai.com/api/docs/guides/image-prompting)：局部编辑明确要改与要保持的内容，迭代使用前一张已接受图像。
+- [OpenAI图像提示指导](https://developers.openai.com/api/docs/guides/image-prompting)：局部编辑明确要改与要保持的内容，迭代使用前一张已接受图像。
 
 检索日期：2026-09-29。以上原则用于组织本地技能；P9、年龄范围和材质层均为项目预设，不是厂商参数或生成质量保证。

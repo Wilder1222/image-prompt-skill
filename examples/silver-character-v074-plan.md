@@ -1,25 +1,24 @@
-# Silver Character v0.7.4 Regression Plan
+# 银发角色v0.7.4历史回归计划
 
-Observed from v0.7.3 test:
-- environment suppression: pass
-- identity family: pass
-- full-body completion: pass
-- human presence: partial
-- silhouette/density growth: mild
-- initial hand anatomy: fail, later local patch succeeded
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
 
-Recommended:
-- render mode: style_asset
-- fidelity: silver_asset_case
-- completion budget: C1
-- density budget: preserve
-- wear: W0
-- human presence: H2 v2
-- extremity: E2
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/silver-character-v074-plan.md)；源文件SHA-256：`b76df8f58c97c5a770b2cf5840a4dea09f2ebed943d0b2334a5a9ba5194cc730`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
 
-Prompt compiler emphasis:
-1. keep the visible upper-body design and material family;
-2. extend lower body conservatively, with no new primary motifs and no extra embroidery density;
-3. preserve the calm silver-haired identity;
-4. humanize eyes, soft tissue, regional skin and camera response;
-5. visibly inspect both hands after generation.
+
+## v0.7.3观察
+- 环境抑制：通过。
+- 身份体系：通过。
+- 全身补全：通过。
+- 人物生命感：部分通过。
+- 轮廓与密度增长：轻微。
+- 初始手部解剖：失败，后续局部修复成功。
+
+## 当时建议
+渲染模式style_asset；忠实度silver_asset_case；补全C1；密度preserve；磨损W0；人物生命感H2 v2；手脚E2。
+
+## 编译重点
+1. 保持可见上半身设计与材料家族。
+2. 保守延展下半身，不新增主要纹样，不提高刺绣密度。
+3. 保留平静银发人物身份。
+4. 将眼睛、软组织、分区肤质及相机响应真人化。
+5. 生成后实际查看双手。

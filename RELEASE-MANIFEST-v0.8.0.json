@@ -1,7 +1,7 @@
 {
   "name": "image-prompt-skill",
   "version": "0.8.0",
-  "theme": "Style Intent & Reference Authority",
+  "theme": "风格意图与参考权限",
   "base_version": "0.7.9",
   "files": [
     {
@@ -1517,8 +1517,14 @@
   ],
   "new_visual_ab_tests": "not_run",
   "notes": [
-    "Face Mode and final Render/Style Mode are independent",
-    "explicit style target outranks inherited asset presentation",
-    "Image 4 profile = oriental_epic_painterly"
-  ]
+    "面容模式与最终渲染或风格模式相互独立。",
+    "明确风格目标优先于继承的资产展示方式。",
+    "图4配置为oriental_epic_painterly。"
+  ],
+  "档案说明": {
+    "性质": "历史发布清单的说明文字译文；文件列表、字节数、摘要和状态保持，非当前发布清单",
+    "源提交": "861084f7e612f7e69ab1b9ea07df7cc6753569dc",
+    "源文件": "RELEASE-MANIFEST-v0.8.0.json",
+    "源文件摘要": "380c103527cb45644cacdca364d26b2bee93ad9bf910a711442c0a6552e3cc91"
+  }
 }

@@ -1,10 +1,15 @@
-# Ancient White Asset v0.8.2 Regression
+# 古风白底资产v0.8.2历史回归清单
 
-Success criteria:
-- youthful attractive face becomes less generic without age-up;
-- P9 read improves without head shrinking or leg distortion;
-- footwear remains clearly readable;
-- crossed hands are anatomically coherent;
-- main fabric, sheer gauze, gold embroidery and waist structure are visibly distinct;
-- pale garment edges separate from the white background;
-- result reads as a reusable Asset Master rather than only a pretty illustration.
+本文件是历史示例的中文整理，分类标签用于组织提示词；不据此宣称已执行新图或已获用户验收。旧白底、年龄、鞋履、姿态、发型、真人化和比例条件只属于当时案例，不覆盖当前主工作流与用户要求。原例中的“已接受”“已通过”保留其历史语境。
+
+[不可变原文](https://github.com/Wilder1222/image-prompt-skill/blob/861084f7e612f7e69ab1b9ea07df7cc6753569dc/examples/ancient-white-asset-v082-test.md)；源文件SHA-256：`763601c3c17d505175eb0426500bd3441019b8ab2c7f8311a3a28c6786c12273`。见[历史示例译文来源](../docs/历史示例译文来源.json)。
+
+
+当时的成功条件：
+- 年轻漂亮的脸更有个人辨识度，不变老。
+- P9观感改善，不缩头或扭曲腿部。
+- 鞋履保持清楚可读。
+- 交叠双手解剖连贯。
+- 主布、薄纱、金绣与腰部结构明显不同。
+- 浅色服装边缘与白底分离。
+- 结果可作为复用资产母图，不只是一张漂亮插画。
