@@ -46,3 +46,5 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 统计输入是 snapshot/outcome 文件路径列表，`report --input entries.json` 输出每组的初始完成数、首次通过数、同目标修订后完成数、工具错误、未评审、待审、重复图和目标变化。路径相对执行目录。参考样本是已知回归图还是未参与调参的图，另在实验说明中写清。
 
 保留全部尝试，不删除失败后只展示胜出图。统计脚本验证引用关系与声明状态；报告前仍要核对 outcome 的真实文件、检查证据及调用记录，不能把任意手写结果当成自动视觉判断。
+
+量化图像测试采用 `scripts/visual-score-report.mjs` 汇总时，还会读取运行目录的 `review-notes.json`，处理绑定原图与冻结检查的撤回通过注记，格式和边界见 [评分标准](../core/图像评分标准.md)。原始执行统计保留历史回执结论；有复核时不能单独用它证明当前视觉合格，应同时报告生效复核。两种视角的差异需要说明，不覆盖原文件制造一致。

@@ -8,6 +8,24 @@ export const dimensions=['参考或描述遵循','面容与妆容美感','真实
 export const expectedCases=['青黛花卉','现代针织','黑金幻想','青橙古装','纯文本舞者','纯文本时装'];
 export const scoreTarget=9.5;
 
+// Corrections only withdraw approval; they never rewrite frozen evidence or scores.
+export function applyReviewNotes(rows,notes=[]) {
+  if(!Array.isArray(notes))throw new Error('复核注记必须是数组');
+  const indexed=new Map(rows.map(r=>[r.score.运行,r])),seen=new Set(),byRun=new Map();
+  for(const note of notes){
+    const row=indexed.get(note.运行),key=`${note.运行}:${note.检查}`;
+    if(!row||seen.has(key))throw new Error('复核运行未知或检查重复');
+    seen.add(key);
+    const check=row.receipt?.checks.find(c=>c.id===note.检查);
+    const acceptance=row.snapshot?.target.acceptance.find(c=>c.id===note.检查);
+    if(!row.snapshot||!check||!acceptance||note.快照摘要!==row.snapshot.snapshot_sha256||note.输出摘要!==row.score.输出摘要)throw new Error('复核注记未绑定原图和冻结检查');
+    if(note.原结论!==check.verdict||note.原结论!=='pass'||!['fail','uncertain'].includes(note.复核结论))throw new Error('复核注记仅允许撤回原通过结论，不能提升结果');
+    if(typeof note.理由!=='string'||!note.理由.trim()||typeof note.复核者!=='string'||!note.复核者.trim())throw new Error('复核注记需要理由和复核者');
+    const records=byRun.get(note.运行)??[];records.push({...note,关键项:acceptance.critical===true});byRun.set(note.运行,records);
+  }
+  return rows.map(row=>({...row,qualified:row.qualified&&!byRun.get(row.score.运行)?.some(n=>n.关键项),reviewNotes:byRun.get(row.score.运行)??[]}));
+}
+
 export function summarizeScores(rows,{cases=expectedCases,finalRound=2}={}) {
   if(!Number.isInteger(finalRound)||finalRound<1)throw new Error('最终轮次必须是正整数');
   const outputs=new Set(),runs=new Set();
@@ -25,7 +43,7 @@ export function summarizeScores(rows,{cases=expectedCases,finalRound=2}={}) {
     const average=s.关键失败封顶?Math.min(raw,6):raw;
     if(Math.abs(average-s.平均分)>1e-9)throw new Error('保存的均分不符合固定算法');
     if(!cases.includes(row.caseName)||!Number.isInteger(s.轮次)||s.轮次<1)throw new Error('未知案例或轮次');
-    return {运行:s.运行,案例:row.caseName,轮次:s.轮次,平均分:average,视觉合格:row.qualified===true};
+    return {运行:s.运行,案例:row.caseName,轮次:s.轮次,平均分:average,视觉合格:row.qualified===true,...(row.reviewNotes?.length?{验收复核:row.reviewNotes}:{})};
   });
   const final=verified.filter(r=>r.轮次===finalRound);
   if(new Set(final.map(r=>r.案例)).size!==final.length)throw new Error('最终轮同一案例存在重复，不能挑选候选计分');
@@ -48,10 +66,11 @@ export function reportDirectory(dir,options={}){
     const hash=promptHash(fs.readFileSync(path.resolve(dir,receipt.output_image)));
     if(score.输出摘要!==hash||receipt.output_sha256!==hash||outcome.output_sha256!==hash)throw new Error('实际输出与评分摘要不同');
     if(finishProductionRun(snapshot,receipt,dir).status!==outcome.status)throw new Error('视觉结论与实际验收记录不同');
-    rows.push({score,caseName:snapshot.case_id,qualified:outcome.status==='reviewer_qualified'});
+    rows.push({score,snapshot,receipt,caseName:snapshot.case_id,qualified:outcome.status==='reviewer_qualified'});
   }
-  const report=summarizeScores(rows,options);
-  return {...report,未完成或未评审运行:pending,视觉分数目标达成:report.视觉分数目标达成&&pending.length===0};
+  const notes=fs.existsSync(path.join(dir,'review-notes.json'))?read('review-notes.json'):[];
+  const report=summarizeScores(applyReviewNotes(rows,notes),options);
+  return {...report,验收复核注记数:notes.length,未完成或未评审运行:pending,视觉分数目标达成:report.视觉分数目标达成&&pending.length===0};
 }
 
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
