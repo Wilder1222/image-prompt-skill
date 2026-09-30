@@ -1,7 +1,7 @@
 {
   "version": "0.7.5",
   "default": "H2",
-  "principle": "Beauty without CG: realism should come from soft structure, regional optics, small asymmetries, eye anatomy, hair irregularity and camera response rather than larger pores, aging cues or global sharpening.",
+  "principle": "美感优先并减少塑料渲染感：以精致妆容下的柔和结构、分区反射、眼部连接、发束和成像体现真实；保留已有自然差异，不制造五官错位，不靠粗毛孔、老化或全局锐化。",
   "levels": {
     "H0": {
       "label": "stylized",
@@ -33,12 +33,12 @@
       "lens_response_realism": 0.8,
       "age_shift": "none",
       "prompt_translation": [
-        "Keep the locked face identity but give the cheeks, eyelids, nose wings, mouth corners and jaw-to-neck transition believable soft-tissue volume.",
-        "Use subtle regional skin response instead of one uniform polished surface: restrained forehead sheen, slightly stronger nose highlight, softer cheek diffusion, thinner eye-area response and independent lip material.",
-        "Allow extremely small natural asymmetries in brow height, eyelid openness, mouth-corner balance and highlight distribution without changing the character identity.",
-        "Make eye anatomy physically believable: natural eyeball-to-socket relationship, real upper/lower lid thickness, inner/outer canthus structure, integrated lash roots and non-pure-white sclera.",
-        "Build hair from primary masses, secondary strand groups and only a few fine irregular hairs, with non-uniform specular flow.",
-        "Use photographic highlight roll-off, preserved shadow detail, natural local micro-contrast and no global mathematical sharpness or edge halos."
+        "保持人物辨识，面颊、眼睑、鼻翼、嘴角与下颌至颈部有可信的柔和软组织体积。",
+        "按妆面分区反射：额部光泽克制，鼻部高光稍集中，面颊柔和，眼周轻薄，唇部润泽独立；避免统一磨亮表面。",
+        "保留实际存在的眉眼、嘴角和受光自然差异，不主动改变左右高度、开合或稳定五官关系。",
+        "眼睑包裹眼球，上下睑厚度、内外眼角和睫毛根部自然连续，眼白有柔和层次而非纯白色块。",
+        "头发由主发束、次级发束和少量轮廓细发组成，高光走向随发束变化；减少横跨眼鼻口的碎发。",
+        "按摄影目标保留柔和高光、阴影细节与自然局部对比，不全局锐化或产生边缘光晕。"
       ]
     },
     "H3": {
@@ -51,31 +51,31 @@
       "lens_response_realism": 0.92,
       "age_shift": "none_by_default",
       "prompt_translation": [
-        "Push toward convincing photographed-human presence while preserving all locked identity geometry and age intent.",
-        "Do not achieve realism through coarse pores, aging, rough skin, or stronger global sharpening."
+        "本轮要求摄影时增强人物真实感，保持已确认的五官与年龄。",
+        "不以粗大毛孔、老化、粗糙皮肤或全局锐化换取真实感。"
       ]
     }
   },
   "soft_structure_rules": [
-    "cheek soft tissue remains continuous with the original identity",
-    "nose wings have soft volume instead of hard modeled edges",
-    "lower eyelids carry subtle volume",
-    "jaw-to-neck transition is soft and anatomical rather than razor-sharp"
+    "面颊体积保持原有辨识关系",
+    "鼻翼柔和有体积，不做硬质建模边缘",
+    "下睑有细微体积",
+    "下颌至颈部自然连续，不刻成锋利切边"
   ],
   "micro_asymmetry_rules": [
-    "tiny left/right brow height variation",
-    "tiny eyelid openness variation",
-    "tiny mouth-corner variation",
-    "small highlight-distribution variation",
-    "never alter eye spacing, nose proportion, jaw geometry or overall face identity"
+    "保留已有眉部自然差异，不人为调高一侧",
+    "保留随表情变化的眼睑开合，不主动制造大小眼",
+    "嘴角随当前表情自然变化，不为真实感强行歪嘴",
+    "高光差异服从实际光源与表面方向",
+    "不改变眼距、鼻部比例、下颌轮廓或人物辨识点"
   ],
   "lens_response_rules": [
-    "soft highlight roll-off",
-    "shadow detail retention",
-    "natural local micro-contrast",
-    "face focus strongest but not digitally cut out",
-    "peripheral cloth can resolve slightly softer than the face",
-    "no edge halos",
-    "no global clarity/HDR look"
+    "高光柔和过渡",
+    "阴影保留细节",
+    "局部微对比自然",
+    "面部焦点清楚，不像数字抠贴",
+    "外围衣料可以略柔于面部，结构仍可读",
+    "无锐化边缘光晕",
+    "不全局增强清晰度或制造夸张动态范围质感"
   ]
 }

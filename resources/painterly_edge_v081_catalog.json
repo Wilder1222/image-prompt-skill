@@ -24,10 +24,10 @@
         "ground_light_reflections"
       ],
       "rules": [
-        "Use crisp edges only where they reinforce the focal hierarchy.",
-        "Allow soft and partially lost edges in wind-driven and atmospheric regions.",
-        "Let backlight erase selected contours naturally.",
-        "Do not sharpen every silhouette equally."
+        "重点部位的清楚边缘支持焦点，不把全图描成硬线。",
+        "衣发与环境外围可有柔边和局部弱化，主要结构仍可读。",
+        "已选逆光时允许局部轮廓自然融入光线，不能使关键人体或衣装消失。",
+        "不将所有轮廓同等锐化。"
       ],
       "anti_patterns": [
         "uniform_edge_sharpness",
@@ -36,5 +36,6 @@
         "sharp_mist"
       ]
     }
-  }
+  },
+  "scope": "仅在本轮保留原画媒介时使用；区域列表不要求新增薄纱、武器、雾气或逆光。"
 }

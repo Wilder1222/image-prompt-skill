@@ -1,11 +1,11 @@
 {
   "version": "0.7.9",
   "default": "beauty_first",
-  "principle": "Face direction is style-dependent. Facial realism and skin texture support refined makeup and visual appeal while preserving identity and apparent age; maximum texture is not the objective.",
+  "principle": "面部方向由人物与媒介共同决定。真人感与肌肤纹理建立在精致妆容之上，服务视觉美感并保留身份与表观年龄；不以纹理数量为目标。",
   "modes": {
     "beauty_first": {
-      "label": "Beauty-First Face",
-      "goal": "preserve youthful attractiveness, elegance and character appeal before increasing facial realism",
+      "label": "美感优先",
+      "goal": "先保持本人的吸引力、精致妆容与角色气质，再按当前媒介增加真实表现",
       "age_target": "18_22",
       "preserve_beauty_priority": "high",
       "face_realism": "low_medium",
@@ -24,31 +24,31 @@
         "reflectance_variation": "subtle"
       },
       "preferred_signals": [
-        "youthful cheek softness",
-        "clear lively eyes",
-        "soft oval facial read",
-        "delicate natural makeup",
-        "clean youthful skin"
+        "符合参考年龄的柔和面颊",
+        "清楚且有焦点的眼神",
+        "保留本人的脸型与辨识点",
+        "精致自然且符合角色的妆容",
+        "干净完整妆面下的克制肤质"
       ],
       "avoid": [
-        "heavy eyelid depth",
-        "strong under-eye darkness",
-        "hollow cheeks",
-        "harsh cheekbone carving",
-        "severe jaw definition",
-        "mature editorial fatigue",
-        "age-up through realism"
+        "无依据加深眼窝",
+        "过强眼下暗影",
+        "无依据削空面颊",
+        "生硬雕刻颧骨",
+        "过度刻画下颌",
+        "用疲态冒充高级感",
+        "为真实感擅自增加年龄"
       ],
       "prompt_translation": [
-        "Preserve a youthful, elegant and beautiful face as the highest facial priority.",
-        "Keep soft cheek tissue, a refined oval facial read and clear youthful eyes; do not age the character up in order to make the face more realistic.",
-        "Build facial realism on refined makeup: delicate skin response, natural lips and brows, restrained eye definition and soft facial volume; keep texture subordinate to the finished face and framing.",
-        "Put stronger realism into hair, body, hands, costume materials and lighting rather than forcing the face toward a mature fashion-model look."
+        "以人物自身的美感、精致妆容和角色气质为面部优先目标。",
+        "保持原有脸型、面颊体积和眼神辨识，不因追求更真实而改成统一美人脸或擅自改变年龄。",
+        "在精致妆容基础上表现细腻皮肤反射、自然唇眉、克制眼妆与柔和体积；纹理服从妆面和景别。",
+        "头发、身体、手部、衣料与灯光可以按目标增强可信度，但不强迫面部变成熟或改变指定媒介。"
       ]
     },
     "humanized_real": {
-      "label": "Humanized Real Face",
-      "goal": "increase photographic human presence while preserving identity and attractiveness",
+      "label": "摄影真人面容",
+      "goal": "增强摄影中的人物可信度，同时保持原有辨识点和美感",
       "age_target": "22_28",
       "preserve_beauty_priority": "medium",
       "face_realism": "medium_high",
@@ -67,27 +67,27 @@
         "reflectance_variation": "medium"
       },
       "preferred_signals": [
-        "believable eyelid anatomy",
-        "regional skin optics",
-        "natural nose and lip structure",
-        "soft tissue planes",
-        "photographic restraint"
+        "可信眼睑连接",
+        "分区肌肤反射",
+        "自然鼻翼和唇部结构",
+        "柔和软组织体积",
+        "克制的摄影成像"
       ],
       "avoid": [
-        "plastic skin",
-        "overly idealized game face",
-        "flat facial planes",
-        "identity reshaping"
+        "塑料肌肤",
+        "与摄影目标不符的游戏渲染脸",
+        "平板面容体积",
+        "未经授权重塑身份"
       ],
       "prompt_translation": [
-        "Increase realistic human presence in the face while preserving the approved identity and attractiveness.",
-        "Establish refined makeup first; believable eyelids, soft tissue, restrained regional skin response and natural nose/lip structure should support an attractive finish rather than compete with it. Scale texture to framing without coarse sharpening or plastic smoothing.",
-        "Keep the face young and attractive; realism must not become fatigue, hollowness or age inflation."
+        "增强人物面容的真实表现，保持已确认身份与美感。",
+        "先建立精致妆面；眼睑、软组织、分区反射与鼻唇结构共同支持好看的成片，肤质按景别克制呈现，不粗糙锐化或塑料磨平。",
+        "保持原有表观年龄与角色气质，不将真实感变成疲态、凹陷或年龄膨胀。"
       ]
     },
     "stylized_beauty": {
-      "label": "Stylized Beauty Face",
-      "goal": "preserve idealized visual appeal and stylized facial design with only minimal realism pressure",
+      "label": "风格化美感面容",
+      "goal": "保留风格化面容设计与视觉美感，仅按目标加入少量真实表现",
       "age_target": "18_24",
       "preserve_beauty_priority": "very_high",
       "face_realism": "low",
@@ -106,21 +106,22 @@
         "reflectance_variation": "subtle"
       },
       "preferred_signals": [
-        "idealized beauty",
-        "clean facial design",
-        "controlled stylization",
-        "soft luminous complexion"
+        "符合角色的理想化美感",
+        "清楚的面容设计",
+        "克制且一致的风格化",
+        "柔和通透且符合妆面的肤色"
       ],
       "avoid": [
-        "excessive realism aging",
-        "harsh texture emphasis",
-        "strong photographic age cues"
+        "写实处理导致年龄改变",
+        "生硬强调皮肤纹理",
+        "未经要求加入摄影老化特征"
       ],
       "prompt_translation": [
-        "Preserve the stylized beauty design and idealized facial appeal.",
-        "Use only minimal skin realism and keep the face polished, youthful and intentionally stylized.",
-        "Apply stronger realism to materials, body, hands, hair physics and lighting without forcing the face into photographic realism."
+        "保留既定风格化面容与美感设计。",
+        "少量肤质服务精致妆容，保持原有年龄和绘画媒介，不强行添加摄影细节。",
+        "衣料、身体、手部、发束和光线可更可信，同时保持面容与全图风格协调。"
       ]
     }
-  }
+  },
+  "scope": "以下年龄与强度是旧成年女性案例的兼容值，不是新人物默认设定；当前参考年龄、脸型、用户描述和允许编辑范围优先。美感优先不等于统一鹅蛋脸或更幼态，摄影化不自动增加年龄。"
 }

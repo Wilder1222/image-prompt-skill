@@ -32,5 +32,5 @@
     "studio_polish",
     "upscale"
   ],
-  "note": "v0.7 identity-reference workflow retained for cases with a true face_identity reference; v0.7.1 adds separate facial_trait workflow."
+  "note": "旧身份参考流程示例，仅在确有身份参考时适用；表情气质参考另走相应流程。示例中的通过项不是新任务验收证据，不自动执行所有修订轮次。"
 }

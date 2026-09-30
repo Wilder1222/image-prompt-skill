@@ -1,7 +1,7 @@
 {
   "version": "0.7.7",
   "default": "H2.7",
-  "principle": "Photographic human presence comes from optical coherence, soft-tissue plausibility, makeup-skin integration, hair frequency hierarchy and photographic focus behavior while identity geometry and accepted P9 proportion remain locked.",
+  "principle": "人物摄影表现由光学一致性、柔和软组织、精致妆面、发束层次和焦点共同形成；保持人物辨识与已选体型，P9 只在本轮已选时保持。",
   "levels": {
     "H2": {
       "label": "refined_human_presence",
@@ -43,8 +43,8 @@
     "gem_eye_rendering"
   ],
   "prompt_translation": [
-    "Keep the approved identity geometry and P9 fashion proportion locked; change photographic human presence only.",
-    "Solve face optics first, then lock that result before hair and camera refinement.",
-    "Do not use more pores, stronger sharpening, aging cues or deliberate facial asymmetry as realism shortcuts."
+    "保持已确认的人物五官与身体比例，仅修本轮未通过的摄影表现。",
+    "面部光学失败时先处理面部；通过后保持结果，再按实际问题决定是否修发束或成像，不强制每张图分两轮。",
+    "不以更多毛孔、全局锐化、老化或人为不对称作为真实感捷径。"
   ]
 }

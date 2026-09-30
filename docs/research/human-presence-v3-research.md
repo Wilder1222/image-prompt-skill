@@ -1,111 +1,55 @@
-# Human Presence v3 Research Notes
+# 人物真实感第三版研究笔记（中文整理）
 
-Version: 0.7.6\
-Date: 2026-09-27
+原版本：0.7.6；原记录日期：2026-09-27。
 
-This document separates three things:
+中文整理来源：提交 `a0432e3657152d696330a021311688462f1d31dd` 中的同路径文件；原文件 SHA-256 为 `46d68160f147ef39ec5730c79a51528fdd8a596a0fea6b4bcfe74d5faba4a784`。[查看保留的历史原文](https://github.com/Wilder1222/image-prompt-skill/blob/a0432e3657152d696330a021311688462f1d31dd/docs/research/human-presence-v3-research.md)。此处为中文整理与适用边界说明，不是新实测记录。
 
-1. **Official model behavior and prompting guidance** from model vendors.
-2. **Human-perception / optical evidence** from published research.
-3. **Project heuristics** used by image-prompt-skill. Project heuristics are workflow rules, not claims about model internals or universal facial beauty.
+本笔记区分三类内容：厂商文档中的模型行为与提示建议、已发表的人类感知或光学研究、项目自己的工作流启发规则。项目规则不能当作模型内部原理或通用美学定律。本轮只整理历史笔记，未重新核验其中全部外部来源；原文也未逐项提供研究链接。当前工具能力以 [工具适配公共规则](../../references/providers/provider-adaptation.md) 和实际接口为准。
 
-## 1. What recent model docs imply for this stage
+## 一、原记录中的工具文档启示
 
-### OpenAI GPT Image
+- **OpenAI 图像工具**：原笔记归纳了区分变化项与保持项、按图序指定职责、每次集中修改一个问题并检查结果的建议；反复编辑仍可能改变锁定细节。该案例因此将人物真实感安排在已通过 P9 比例后的局部轮次，不重开身体、衣装、背景或五官设计。此顺序仅属于当时案例，不是所有任务必走步骤。
+- **Gemini 图像工具**：原笔记记录多轮编辑、具体描述与相机、镜头、灯光语言对摄影目标的作用，并要求精细保持人物与衣装。当前不同模型的多图、多轮能力仍需分别确认，不能由系列名称推出统一能力。
+- **FLUX.2**：原笔记记录重要信息靠前、多参考职责明确、摄影目标使用具体成像描述，以及不支持负面提示的规则。项目取舍是先说明身份与资产连续性，再写人物光学和摄影语境，将排除项尽量转为正向目标。
+- **Seedream**：原笔记记录多参考编辑及长文本可能分散注意力，并引用当时中文约 300 字、英文约 600 词的建议。此处保留历史来源意思，不将字数变成全项目硬上限；当前提示词以覆盖必要约束、减少重复为准。
+- **Midjourney 编辑工具**：原笔记将 V8.2 编辑能力概括为指令编辑、多参考、区域修订和扩图；仅面部光学失败时优先考虑局部编辑。具体版本、参考额度和入口可用性不能由这份旧记录决定，也不能外推到当前内置图像工具。
 
-OpenAI's current image prompting guide recommends identifying what must change versus what must stay fixed, assigning roles to reference images, and iterating deliberately with one primary change at a time. It also warns that repeated edits can still change supposedly preserved details, so constraints should be restated and results inspected after each step.
+## 二、感知研究对旧规则的影响
 
-Project implication: Human Presence v3 must be a **narrow edit round** after P9 proportion is accepted. It should not reopen body proportion, garment architecture, background, or identity geometry.
+### 肌肤细节越多，不代表越真实
 
-### Gemini Image
+原笔记归纳：相对均匀的肤色常与年轻、健康和吸引力印象有关，但不代表应把皮肤涂成统一塑料色。项目因此区分局部光学反应和随机色素变化：额、鼻、颊、眼周与嘴唇可以有不同光泽、漫反射和透光；随机斑点、粗毛孔或色噪不作为年轻人物的默认真实感线索。
 
-Google's image-generation docs recommend multi-turn image editing, highly specific prompts, explicit camera / lens / lighting language for photorealism, and detailed preservation instructions for high-fidelity edits.
+### 肌肤不是统一的光亮外壳
 
-Project implication: Gemini adapter can express H3/H2.5 realism with photographic language while keeping the approved character and costume locked.
+原笔记将肌肤外观概括为组织对不同波长光的吸收与散射，其具体数值随肤质及测量方法变化。项目推论是描述分层和分区反射，而非只要求更亮或更多毛孔；薄处可有克制透光，但不能声称提示词在精确模拟生物组织。
 
-### FLUX.2
+### 眼睛与肌肤的表现需要协调
 
-BFL's FLUX.2 prompting guide says word order matters, important information should come first, photorealistic output benefits from camera/lens references, and multi-reference workflows should state the role of each image. FLUX.2 does not support negative prompts.
+原笔记引用的计算机生成面孔研究指出，眼睛与肌肤真实程度不一致、眼部尺度或纹理不协调，可能增加怪异感。项目因此检查眼、肤、唇、发与周围面容的一致性，避免摄影肌肤上出现宝石式眼球。这是需要看图判断的关系，不是统一数字等级能证明的结论。
 
-Project implication: put identity and accepted asset continuity first, then human-optics cues, then photographic context. Convert negative phrasing into positive target-state wording.
+### 眼白保持自然层次
 
-### Seedream
+原笔记记录眼白亮度与视线、健康或年轻感知有关，同时指出将眼白进一步增白不一定提高吸引力。项目采用自然灰白眼白，只有景别允许时才呈现克制细节，不做纸白或自发光眼球。
 
-Volcengine's current image-generation API documents multi-reference editing and advises keeping Chinese prompts around 300 characters / English prompts around 600 words because very long prompts can diffuse attention.
+### 对称不等于塑料感
 
-Project implication: the internal H3 plan can be detailed, but Seedream output should be compressed to the highest-impact human-presence signals.
+原笔记认为将微小不对称强制作为真人感线索过于武断，因为对称面容也可以有吸引力。第三版因此把不对称改为可选、基于观察的保持项：原本自然存在的差异可以保留，不为证明真人感故意扭曲已经好看的面孔。
 
-### Midjourney Edit
+## 三、当时形成的设计结论
 
-Midjourney V8.2 Edit supports instruction-based edits, multiple references, region editing, and outpainting.
+不将更多毛孔、瑕疵、不对称、锐度或高光作为下一阶段的默认方向，而分别处理：
 
-Project implication: when only facial optical realism is failing, the preferred MJ workflow is a localized Edit/Editor patch rather than regenerating the entire character.
+1. 眼部光学：自然眼白、虹膜层次、可信眼神光和眼睑贴合。
+2. 肌肤反射：保持均匀妆面，并有适度的局部光泽、漫反射和透光差异。
+3. 妆肤关系：妆容贴合肌肤，细节服务精致成片，不替换为塑料表面。
+4. 发束层次：主发块、次级发束与少量细发，高光随方向变化。
+5. 摄影焦点：面部清楚、衣装可读，必要时外围轻薄层略柔和。
+6. 表现一致性：不让某一部分比其他部位过分合成或过度摄影化。
+7. 细节分配：使用与当前问题有关的线索，不追求全图细节最大化。
 
-## 2. Human-perception evidence that changes our previous rules
+## 四、原银发案例的下一步建议
 
-### A. More skin detail is not automatically more realistic
+原笔记称当时银发案例的 P9 比例已获接受，并建议保持该比例、人物辨识、年龄、衣装材料设计与灯位，以 H2.5 方向只修眼部、肌肤、妆肤结合、发束和镜头焦点。
 
-Research on facial skin perception repeatedly finds that relatively homogeneous skin coloration is associated with youth, health, and attractiveness. This does **not** mean skin should be a uniform plastic color. It means Human Presence v3 should avoid turning "realism" into mottling, age spots, coarse pore fields, or random color noise.
-
-**Project rule:** distinguish **regional optical response** from **pigment heterogeneity**.
-
-- Regional optical response: allowed and useful. Forehead, nose, cheeks, eye area and lips can differ in sheen / diffusion / translucency.
-- Random pigment heterogeneity: not a default realism signal for a young character.
-
-### B. Skin is optically complex, not a uniform glossy shell
-
-Optical studies of human skin describe appearance as the result of wavelength-dependent absorption and scattering through tissue. Exact coefficients vary with skin type and measurement method.
-
-**Project inference:** prompts should seek layered, region-dependent response rather than "more gloss" or "more pores." Subtle translucency at thin regions can be useful, but the Skill should not pretend to simulate a physically exact biological renderer.
-
-### C. Eye / skin realism mismatch can trigger an uncanny effect
-
-Research on CG faces found that mismatches between eye realism and skin realism can increase eeriness; eye size/texture inconsistencies were particularly problematic.
-
-**Project rule:** add a **Realism Coherence Guard**. Eyes, skin, lips, hair and surrounding face should live at roughly the same realism level. Do not create gemstone eyes inside otherwise photographic skin.
-
-### D. Sclera should be natural, not "super white"
-
-Research on scleral brightness shows natural white sclera contributes to gaze perception and health/youth cues, but experimentally making sclera whiter than their original values did not necessarily improve attractiveness.
-
-**Project rule:** use natural off-white sclera with subtle vascular / gray warmth only when visible. Avoid paper-white or luminous sclera.
-
-### E. Perfect symmetry is not a reliable "CG detector"
-
-Face-perception research often finds symmetry attractive. Therefore our previous "micro-asymmetry" rule was too strong if treated as a mandatory realism cue.
-
-**Correction in v0.7.6:** micro-asymmetry becomes **optional / observational**, not a required edit. Do not deliberately deform a good symmetrical face merely to make it look human. Natural variation may be preserved if already present.
-
-## 3. Human Presence v3 design conclusion
-
-The next realism step should not be:
-
-- more pores
-- more blemishes
-- more asymmetry
-- stronger sharpness
-- stronger highlights
-
-It should be:
-
-1. **Eye Optical Realism** — natural sclera, iris variation, believable catchlights, real lid/eye contact.
-2. **Skin Optical Coherence** — youthful color homogeneity plus regional sheen/diffusion/translucency.
-3. **Makeup-Skin Integration** — makeup sitting on real skin instead of replacing skin texture.
-4. **Hair Frequency Variation** — large masses, medium bundles, fine hairs, nonuniform specular response.
-5. **Photographic Focus Hierarchy** — face strongest, garments readable, peripheral fine layers slightly softer when appropriate.
-6. **Realism Coherence Guard** — prevent one facial subsystem from being more synthetic or more photoreal than the rest.
-7. **Detail Budget** — realism uses the right clues, not maximum detail everywhere.
-
-## 4. Recommended target for current silver-haired asset
-
-The P9 test is already accepted. The next pass should use:
-
-- Fashion proportion: locked P9
-- Human Presence v3: **H2.5 Photographic Human**
-- Identity geometry: locked
-- Age intent: locked
-- Costume / material design: locked
-- Lighting layout: locked
-- Editable: eye optics, skin optics, makeup integration, hair frequency variation, lens/focus response, realism coherence
-
-This is intentionally narrower than the old H2 prompt.
+这是历史案例的状态与计划，不证明当前测试已通过，也不要求所有人物先改成 P9。当前流程按实际失败和编辑权限选择范围，精致妆容、美感与用户明确的媒介目标优先。

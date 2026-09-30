@@ -3,7 +3,7 @@
   "default": "concept_art_priority",
   "profiles": {
     "concept_art_priority": {
-      "goal": "selective detail concentration for high-end concept art rather than uniform completion",
+      "goal": "将细节集中于原画视觉重点，外围按用途适度概括。",
       "primary_detail": {
         "level": "high",
         "regions": [
@@ -38,10 +38,10 @@
         ]
       },
       "compiler_rules": [
-        "Concentrate the highest detail at focal structures only.",
-        "Keep major body and costume masses readable at medium detail.",
-        "Render peripheral and distant areas selectively, with impressionistic or atmospheric omission.",
-        "Do not increase detail merely because empty space exists."
+        "最高细节集中在现有焦点结构。",
+        "主要身体与衣装体块保持清楚可读。",
+        "外围与远处可选择性概括，不能因此遗漏用户要求的衣装或全身轮廓。",
+        "不因空白存在就增加纹样或饰品。"
       ],
       "anti_patterns": [
         "uniform_microdetail",
@@ -51,7 +51,7 @@
       ]
     },
     "commercial_balanced": {
-      "goal": "balanced commercial illustration detail",
+      "goal": "商业插画中平衡人物、衣装与必要环境的细节。",
       "primary_detail": {
         "level": "high",
         "regions": [
@@ -79,5 +79,6 @@
         "background_sharper_than_subject"
       ]
     }
-  }
+  },
+  "scope": "区域列表仅处理当前设计实际存在的元素，不为补齐列表添加武器、冠饰、飘带或建筑。"
 }

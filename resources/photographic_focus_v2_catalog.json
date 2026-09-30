@@ -41,7 +41,8 @@
     "no_global_equal_sharpness"
   ],
   "prompt_translation": [
-    "Keep the face as the strongest focus, the upper body and hands crisp, the full costume asset-readable, and allow peripheral sheer layers and hem edges to resolve slightly softer.",
-    "Use natural highlight roll-off and moderate depth rather than equal digital sharpness across the whole frame."
-  ]
+    "人物展示时面部焦点清楚，上身和手部易读，全套服装结构完整可辨；外围轻薄层和衣摆可以略柔和，但不模糊关键采集细节。",
+    "使用自然高光过渡和适当景深，不将整幅图同等数字锐化；当前要求的其他焦点优先。"
+  ],
+  "note": "数值仅表示旧人物展示案例的内部关注程度，不是相机或模型参数；只处理本轮实际存在的身体、衣装与背景。"
 }
