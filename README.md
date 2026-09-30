@@ -1,6 +1,6 @@
 # 图像提示词技能
 
-当前版本 **0.14.0**。输入参考图和自然语言描述，输出参考专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
+当前版本 **0.14.1**。输入参考图和自然语言描述，输出参考专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
 
 ## 使用
 
@@ -42,6 +42,6 @@ npm run plugin:build
 
 ## 当前结果与安装
 
-[当前状态](docs/current-status.md) 记录尚未完成的视觉目标；[完整当前测试账本](docs/current-visual-evaluation.json) 保留所有实际尝试、评分和失败项。当前累计28张均分9.1839，尚未达到9.5。
+[当前状态](docs/current-status.md) 记录尚未完成的视觉目标；[完整当前测试账本](docs/current-visual-evaluation.json) 保留所有实际尝试、评分和失败项。当前累计31张均分9.1613，尚未达到9.5。
 
 [Codex插件安装与更新](docs/codex-plugin.md) 使用同一份技能和资源，构建输出为 `dist/codex-plugin/image-prompt-skill/`。发布清单仅维护 `RELEASE-MANIFEST.json`。

@@ -94,6 +94,6 @@ node scripts/iteration-director.mjs asset-prompt --stage material-light --focus 
 
 用户要求量化效果时，先固定 [图像评分标准](references/core/图像评分标准.md)，逐图保留证据与全部尝试。`scripts/visual-score-report.mjs` 检查评分与实际文件绑定，不能自动看图或代替审美判断；达到平均分也不等于关键项全部通过。
 
-开发检查：`npm test`、`npm run validate`。中文化检查用 `node scripts/audit-language.mjs`，候选仍需人工区分命令、标识和正文。修改发布文件后先运行 `npm run release:build` 更新当前清单，再验证。历史版本清单保留作为快照。
+开发检查：`npm test`、`npm run validate`。中文化检查用 `node scripts/audit-language.mjs`，候选仍需人工区分命令、标识和正文。修改发布文件后先运行 `npm run release:build` 更新当前清单，再验证。工作树仅保留当前发布清单，历史版本通过 Git 追溯。
 
 Codex 插件支持使用同一主工作流；插件入口、构建和个人安装方式见 [插件说明](docs/codex-plugin.md)。
