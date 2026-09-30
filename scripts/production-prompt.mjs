@@ -58,6 +58,8 @@ export function compileProductionPrompt(input) {
     const texts = [];
     for (const item of section?.items ?? []) {
       if (!nonempty(item?.text) || /【|】|\bTODO\b|待填写|逐项填写|填写本套/.test(item.text)) errors.push(`unfinished clause in ${section.label}`);
+      if (/\b(?:render[ _-]+mode|style[ _-]+workflow|face[ _-]+mode|proportion[ _-]+mode|detail[ _-]+budget|highlight[ _-]+hierarchy|edge[ _-]+control)\s*[=:：＝]/i.test(item?.text ?? '')) errors.push(`replace mode settings with concrete visual prose in ${section.label}`);
+      if (/\b(?:style_asset|material_realistic_asset|dark_fantasy_asset|beauty_first|humanized_real|stylized_beauty|P9[ _]+Fashion|P9_FASHION_ASSET|NATURAL_ADULT|material_priority|concept_art_priority|focal_brightness|soft_realistic|painterly_selective)\b/i.test(item?.text ?? '')) errors.push(`replace internal mode identifiers with concrete visual prose in ${section.label}`);
       if (!['retain','design','remove','constraint'].includes(item?.intent)) errors.push(`invalid clause intent in ${section.label}`);
       if (item?.intent === 'design' && !nonempty(item.reason)) errors.push(`design extension needs a reason in ${section.label}`);
       if (!Array.isArray(item?.basis) || !item.basis.length) errors.push(`untraceable clause in ${section.label}`);

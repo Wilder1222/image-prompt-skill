@@ -18,7 +18,7 @@ node scripts/iteration-director.mjs asset-prompt --presentation costume_showcase
 node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anchor --format text
 ```
 
-`--format json`（默认）返回配置、文本、编辑范围和未生成图像的证据状态；`text` 只输出提示词。`asset-prompt` 和 `compileAssetPrompt()` 均默认中文。生成正文采用模式块和十类语义标签，局部编辑使用编辑对象、锁定范围和变化类别；不以 P0/P1 优先级替代分类。`--language en` / `language: 'en'` 显式切换英文后仍分类。图像调用使用与交付相同的完整正文。
+`--format json`（默认）返回配置、文本、编辑范围和未生成图像的证据状态；`text` 只输出提示词。`asset-prompt` 和 `compileAssetPrompt()` 均默认中文。生成正文采用核心目标和十类语义标签，内部模式选择转为各类中的具体视觉描述，不输出模式设置块，局部编辑使用编辑对象、锁定范围和变化类别；不以 P0/P1 优先级替代分类。`--language en` / `language: 'en'` 显式切换英文后仍分类。图像调用使用与交付相同的完整正文。
 
 支持选项：`--preset`、`--face-profile`、`--hand-mode`、`--maturity-guard`、`--presentation`、`--proportion-profile`、`--design-freedom`、`--style-workflow`、`--detail-budget`、`--highlight-hierarchy`、`--edge-control`、`--reference-mode`、`--stage`、`--focus`、`--passed`、`--format`、`--language`。参数缺值、拼写错误、未知模式会失败，不会悄悄退回默认。风格及细节选项见 [两条风格路线](tagged-prompt-workflows.md)。
 

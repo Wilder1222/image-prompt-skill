@@ -40,6 +40,18 @@ function receipt(compiled, verdict='pass') {
   return {prompt_sha256:compiled.prompt_sha256,output_image:'actual-output.png',output_sha256:'a'.repeat(64),inspected:true,reviewer:'test reviewer',checks:compiled.acceptance.map(c=>({id:c.id,verdict,evidence:'Synthetic test evidence; no real image approval.'}))};
 }
 
+test('authored delivery rejects mode assignments and bare mode identifiers but keeps request provenance',()=>{
+  for(const text of ['render mode = style_asset','Face_Mode：beauty_first','detail-budget = material_priority','edge control: soft_realistic','采用 P9 Fashion，人物修长。','本轮使用 beauty_first。']){
+    const p=fixture();p.sections[0].items[0].text=text;
+    assert.throws(()=>compileProductionPrompt(p),/replace .* with concrete visual prose/);
+  }
+  const p=fixture();p.request+=' 原始要求：face mode = beauty_first';
+  p.sections[0].items[0].text='保持参考的同一成年女性，精致妆面完整，皮肤有柔和体积，避免粗糙锐化和塑料磨皮。';
+  const result=compileProductionPrompt(p);
+  assert.match(result.prompt,/精致妆面完整/);
+  assert.doesNotMatch(result.prompt,/face mode|beauty_first/);
+});
+
 test('production text comes only from observed facts and authored decisions, with no costume preset leakage',()=>{
   const result=compileProductionPrompt(fixture());
   assert.equal(result.status,'prompt_ready');
