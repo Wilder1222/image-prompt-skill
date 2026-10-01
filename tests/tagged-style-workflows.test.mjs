@@ -26,12 +26,14 @@ test('CLI and library deliver the same ten categorized Chinese sections by defau
   assert.equal(r.status, 0, r.stderr);
   assert.equal(r.stdout.trim(), compileAssetPrompt().prompt);
   assert.ok(r.stdout.trim().split('\n\n').every(x => /^【[^】]+】\n/.test(x)));
-  assert.deepEqual([...r.stdout.matchAll(/【(\d+)\. /g)].map(m => Number(m[1])), [1,2,3,4,5,6,7,8,9,10]);
+  for (const label of ['人物身份与面容','妆容与肌肤','发型与头饰','服装设计','材质与服装真实感','构图与姿态','身材比例','手部与脚部完整性','背景与灯光','最终目标']) assert.ok(r.stdout.includes(`【${label}】`), label);
+  assert.doesNotMatch(r.stdout, /【\s*\d+[.、．]/);
   assert.doesNotMatch(r.stdout, /【P[012] |Create a|Preserve the/);
   const en = run(['--language', 'en', '--format', 'text']);
   assert.equal(en.status, 0, en.stderr);
   assert.equal(en.stdout.trim(), compileAssetPrompt({ language: 'en' }).prompt);
   assert.ok(en.stdout.trim().split('\n\n').every(x => /^【[^】]+】/.test(x)));
+  assert.doesNotMatch(en.stdout, /【\s*\d+[.、．]/);
   assert.equal(run(['--language','fr']).status, 1);
 });
 
@@ -69,9 +71,9 @@ test('detail and edge adjustments compile visible changes while unrelated catego
   const options = { detailBudget: 'concept_art_priority', edgeControl: 'painterly_selective' };
   const a = compileAssetPrompt(), b = compileAssetPrompt(options);
   const sections = r => Object.fromEntries(r.prompt.split('\n\n').map(s => [s.slice(0,s.indexOf('\n')), s]));
-  assert.equal(sections(a)['【1. 人物身份与面容】'], sections(b)['【1. 人物身份与面容】']);
-  assert.equal(sections(a)['【7. 身材比例】'], sections(b)['【7. 身材比例】']);
-  assert.notEqual(sections(a)['【5. 材质与服装真实感】'], sections(b)['【5. 材质与服装真实感】']);
+  assert.equal(sections(a)['【人物身份与面容】'], sections(b)['【人物身份与面容】']);
+  assert.equal(sections(a)['【身材比例】'], sections(b)['【身材比例】']);
+  assert.notEqual(sections(a)['【材质与服装真实感】'], sections(b)['【材质与服装真实感】']);
   assert.match(b.prompt, /柔和笔触与选择性虚实/);
   const r = run(['--detail-budget','concept_art_priority','--edge-control','painterly_selective']);
   assert.equal(r.status, 0, r.stderr); assert.equal(JSON.parse(r.stdout).prompt, b.prompt);

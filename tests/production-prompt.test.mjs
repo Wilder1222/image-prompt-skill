@@ -53,6 +53,10 @@ test('authored delivery rejects mode assignments and bare mode identifiers but k
 });
 
 test('production text comes only from observed facts and authored decisions, with no costume preset leakage',()=>{
+  for (const label of ['1. 人物', '２．人物'.normalize('NFKC'), '一、人物', '（一）人物', '(1) 人物', 'P0 人物']) {
+    const numbered=fixture(); numbered.sections[0].label=label;
+    assert.throws(()=>compileProductionPrompt(numbered),/unnumbered semantic section label/);
+  }
   const result=compileProductionPrompt(fixture());
   assert.equal(result.status,'prompt_ready');
   assert.match(result.prompt,/灰蓝针织开衫/);
