@@ -53,6 +53,7 @@ export function compileProductionPrompt(input) {
   for (const section of input.sections ?? []) {
     if (!nonempty(section?.label) || /[【】\r\n]/.test(section.label) || labels.has(section.label)) errors.push(`invalid or duplicate section label: ${section?.label}`);
     labels.add(section?.label);
+    if (/^\s*(?:\d+\s*[.．、:：)）]|[（(]?\d+[)）]|[一二三四五六七八九十百]+\s*[、.．:：)）]|[（(][一二三四五六七八九十百]+[)）]|P[012]\s)/.test(section?.label ?? '')) errors.push(`use an unnumbered semantic section label: ${section.label}`);
     if (!channels.has(section?.channel)) errors.push(`unknown section channel: ${section?.channel}`);
     if (!Array.isArray(section?.items) || !section.items.length) errors.push(`empty section: ${section?.label}`);
     const texts = [];
