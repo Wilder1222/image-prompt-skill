@@ -36,6 +36,7 @@ export function validateProject(base, { manifest = true } = {}) {
   const files = releaseFiles(base);
   const json = name => JSON.parse(fs.readFileSync(path.join(base, name), 'utf8'));
   for (const file of ['SKILL.md', 'package.json', 'agents/openai.yaml', 'scripts/iteration-director.mjs',
+    'scripts/model-adapter.mjs', 'resources/image_model_catalog.json', 'references/providers/text-to-image-models.md', 'examples/text-to-image-brief.json',
     'scripts/asset-master.mjs', 'scripts/asset-catalog-en.mjs', 'scripts/production-prompt.mjs', 'scripts/production-run.mjs', 'references/core/standing-pose-direction.md', 'references/core/visual-acceptance.md', 'references/routes/prompt-production.md', 'references/routes/asset-master-workflow.md',
     'resources/asset_presentation_v084_catalog.json', 'references/routes/benchmark-costume-refinement.md',
     '.codex-plugin/plugin.json', 'skills/image-prompt-skill/SKILL.md', 'scripts/plugin-support.mjs']) {

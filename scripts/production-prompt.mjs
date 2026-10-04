@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import {adaptModelPrompt} from './model-adapter.mjs';
 
 // The host agent performs visual observation and design reasoning. This compiler only
 // checks declared provenance, coverage and delivery integrity; it does not see images.
@@ -94,7 +95,7 @@ export function compileProductionPrompt(input) {
   }
   if (errors.length) throw new Error(errors.join('\n'));
   const prompt = paragraphs.join('\n\n');
-  return {
+  const compiled = {
     status: 'prompt_ready', prompt, prompt_sha256: promptHash(prompt),
     reference_inputs: input.references.filter(r => r.generation_input).map(r => ({id:r.id, source:r.source})),
     acceptance: input.acceptance,
@@ -102,6 +103,8 @@ export function compileProductionPrompt(input) {
     evidence: { provenance_checked:true, semantic_quality_verified:false, image_generated:false, visual_quality_verified:false, user_accepted:false },
     note: 'The agent must review meaning against the actual images and request. Declared provenance and complete coverage do not prove good visual results.',
   };
+  if (input.target !== undefined) compiled.model_execution = adaptModelPrompt(compiled, input.target);
+  return compiled;
 }
 
 // Apply only the categories the current user change permits. The agent still reviews meaning.
@@ -134,6 +137,7 @@ export function reviseProductionInput(input, change) {
 }
 
 export function reviewProductionResult(compiled, review) {
+  if (compiled.model_execution && review?.execution_sha256 !== compiled.model_execution.execution_sha256) throw new Error('review must reference the exact model execution_sha256');
   if (!review || review.prompt_sha256 !== compiled.prompt_sha256) throw new Error('review must reference the exact submitted prompt');
   if (!nonempty(review.output_image) || !/^[a-f0-9]{64}$/.test(review.output_sha256 ?? '')) throw new Error('review needs an actual output image and its SHA-256');
   if (review.inspected !== true || !nonempty(review.reviewer)) throw new Error('output must be inspected by a named reviewer');

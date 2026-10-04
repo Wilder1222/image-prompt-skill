@@ -1,0 +1,21 @@
+{
+  "request": "生成雨巷书店的竖版插画海报。雨后傍晚，青绿色木门和暖黄色窗光，招牌写雨巷书店。不要人物。",
+  "references": [],
+  "requirements": [
+    {"id":"scene","channel":"background","priority":"must","text":"雨后傍晚的书店，青绿色木门与暖黄色窗光。"},
+    {"id":"title","channel":"output","priority":"must","text":"招牌准确写雨巷书店。"},
+    {"id":"frame","channel":"composition","priority":"must","text":"竖版插画海报，画面没有人物。"}
+  ],
+  "unresolved": [],
+  "sections": [
+    {"label":"场景与灯光","channel":"background","items":[{"text":"雨后傍晚的小书店，青绿色木门半开，窗内暖黄色灯光照亮木质书架，湿润石板映出柔和窗光。","basis":["scene"],"intent":"constraint"}]},
+    {"label":"招牌文字","channel":"output","items":[{"text":"门楣招牌上仅写“雨巷书店”四个汉字，横向排列，笔画清楚，招牌完整可见。","basis":["title"],"intent":"constraint"}]},
+    {"label":"构图与媒介","channel":"composition","items":[{"text":"竖版插画海报，以店门为视觉中心，门前空巷保持安静，画面没有人物。纸张上的水彩晕染保留柔软边缘，招牌文字清晰。","basis":["frame"],"intent":"constraint"}]}
+  ],
+  "acceptance": [
+    {"id":"scene-check","basis":"scene","critical":true,"question":"是否呈现雨后傍晚书店、青绿色木门和暖黄色窗光？"},
+    {"id":"title-check","basis":"title","critical":true,"question":"招牌是否完整准确显示雨巷书店四字？"},
+    {"id":"frame-check","basis":"frame","critical":true,"question":"是否是没有人物的竖版插画海报？"}
+  ],
+  "target": {"profile":"gemini-3.1-flash-image","settings":{"aspect_ratio":"3:4","image_size":"2K"}}
+}

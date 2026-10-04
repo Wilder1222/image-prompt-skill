@@ -4,6 +4,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createAssetPlan, compileAssetPrompt} from './asset-master.mjs';
 import {compileProductionPrompt, reviewProductionResult, promptHash} from './production-prompt.mjs';
+import {listModelProfiles} from './model-adapter.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=p=>JSON.parse(fs.readFileSync(path.join(ROOT,p),'utf8'));
 const ROLE=read('resources/reference_role_manifest.template.json');
@@ -267,7 +268,11 @@ function assetOptions(o,extra=[]){
 }
 function conflictCheck(keys){const found=[];for(const id of keys){const row=CONFLICT.conflicts[id];if(row)found.push({id,...row});}return {conflicts:found,priority_order:CONFLICT.priority_order,status:found.length?'needs_resolution':'clear'};}
 const o=argv();try{const cmd=o._[0];let out;
- if(cmd==='prompt-build'||cmd==='prompt-review'){
+ if(cmd==='model-list'){
+  if(o._.length!==1||Object.keys(o).some(k=>k!=='_'))throw new Error('model-list 不接受额外参数');
+  out=listModelProfiles();
+ }
+ else if(cmd==='prompt-build'||cmd==='prompt-review'){
   const allowed=new Set(['_','input','format',...(cmd==='prompt-review'?['review']:[])]);
   for(const [key,value] of Object.entries(o)){
    if(!allowed.has(key))throw new Error(`unknown production option --${key}`);

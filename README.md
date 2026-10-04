@@ -1,6 +1,8 @@
 # 图像提示词技能
 
-当前版本 **0.14.5**。输入参考图和自然语言描述，输出参考专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
+当前版本 **0.15.0**。输入文字描述与可选参考图，输出任务专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
+
+支持纯文字描述，参考图可选。新增 OpenAI GPT Image、Gemini、FLUX、Midjourney、Seedream、Stable Diffusion、Qwen-Image 的指定版本适配，提供独立请求设置、参数检查和执行摘要绑定；停用的 Imagen Gemini API 入口会明确报错。详见 [文生图模型指南](references/providers/text-to-image-models.md)。这是提示词与请求编译支持，尚未完成各供应商的联网出图验证。
 
 ## 使用
 
@@ -30,6 +32,8 @@
 
 ```bash
 node scripts/iteration-director.mjs prompt-build --input path/to/agent-authored-brief.json --format text
+node scripts/iteration-director.mjs model-list
+node scripts/iteration-director.mjs prompt-build --input examples/text-to-image-brief.json
 node scripts/iteration-director.mjs prompt-review --input path/to/agent-authored-brief.json --review path/to/review.json
 npm run examples:build
 npm run release:build

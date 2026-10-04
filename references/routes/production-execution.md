@@ -1,6 +1,6 @@
 # 执行记录与按标签修订
 
-用户无需填写以下记录；代理在已经看图并独立编写正文后操作。只需要提示词时无需强制生成图片。生产流程见 [主路线](prompt-production.md)，评审口径见 [视觉验收](../core/visual-acceptance.md)。
+用户无需填写以下记录；代理在理解文字、查看实际提供的参考并独立编写正文后操作。纯文生图不需要参考图。只需要提示词时无需强制生成图片。生产流程见 [主路线](prompt-production.md)，评审口径见 [视觉验收](../core/visual-acceptance.md)。
 
 ## 生成前固定目标
 
@@ -12,6 +12,8 @@ node scripts/production-run.mjs inspect --snapshot run-01.snapshot.json
 ```
 
 `inspect` 重新核对参考内容，并返回可传入宿主图像工具的实际参数。逐字发送返回的 prompt 与输入路径。文件路径相对 brief 所在目录解析；内部记录可以含本机路径，公开报告不携带私人附件路径或图片。
+
+指定 `target` 时按 [文生图模型指南](../providers/text-to-image-models.md) 冻结模型与设置，`inspect` 改为返回 `transport`、`model`、`request`、`runtime` 和 `execution_sha256`。按对应入口解释请求，不能把所有模型都发送给宿主图像工具。生成完成回执还须带同一 `execution_sha256`；正文相同但模型、设置、负面或原生后缀不同，属于不同执行计划。未指定 `target` 的旧记录保持兼容。
 
 ## 生成后记录
 

@@ -1,4 +1,4 @@
 interface:
-  display_name: "角色资产提示词"
-  short_description: "从参考图和描述形成专属提示词，检查冲突并按实图修订"
-  default_prompt: "使用 $image-prompt-skill，观察我提供的参考图并理解描述，完成设计判断、中文分类提示词和提交前审查；如果已要求出图，则执行测试、对照目标检查并修订。不要让我选择模板或填写参数。"
+  display_name: "多模型图像提示词"
+  short_description: "从文字和可选参考图编写中文提示词，适配指定模型并检查冲突"
+  default_prompt: "使用 $image-prompt-skill，根据我的描述和可选参考图编写中文分类提示词，按指定模型适配并检查遗漏与冲突；若已要求出图则执行验证和修订。"

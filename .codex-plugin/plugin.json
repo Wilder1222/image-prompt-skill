@@ -1,7 +1,7 @@
 {
   "name": "image-prompt-skill",
-  "version": "0.14.5",
-  "description": "将参考图与描述转成专属生图提示词，执行来源与约束检查，并根据实际出图诊断修订。",
+  "version": "0.15.0",
+  "description": "将文字和可选参考图转成中文提示词，适配指定文生图模型，检查约束并根据实图修订。",
   "author": {
     "name": "wangwei97"
   },
@@ -14,14 +14,14 @@
     "visual-review"
   ],
   "interface": {
-    "displayName": "角色定妆与提示词",
-    "shortDescription": "提供参考图和描述，完成观察、判断、提示词与实图修订",
-    "longDescription": "由代理观察参考图、解析描述并决定继承与设计范围，撰写专属中文分类提示词，检查来源权限与要求覆盖；获生成授权后使用宿主工具出图并评审修订。无需用户选择模板或填写参数。编译检查与视觉评审分开，不以格式合格代替效果。",
+    "displayName": "多模型图像提示词",
+    "shortDescription": "从文字与可选参考图编写中文提示词，适配指定模型与执行设置",
+    "longDescription": "由代理解析文字与可选参考图，撰写中文分类提示词，检查来源和要求覆盖，按具体模型与入口编译执行设置；获生成授权后调用可用工具出图并评审修订。支持文生图、角色、场景、产品与局部修复。编译检查与视觉评审分开，不以参数合法代替效果。",
     "developerName": "wangwei97",
     "category": "Productivity",
     "capabilities": [],
     "defaultPrompt": [
-      "使用 $image-prompt-skill，根据我的参考图和描述编写可直接使用的中文生图提示词，并检查遗漏与冲突。",
+      "使用 $image-prompt-skill，根据我的文字描述和可选参考图编写中文提示词，适配我指定的图像模型，并检查遗漏与冲突。",
       "使用 $image-prompt-skill，对比这两张角色图，制定并执行改进方案。",
       "使用 $image-prompt-skill，保留当前母图，只修复我指出的局部问题。"
     ],

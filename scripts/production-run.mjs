@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {adaptModelPrompt,verifyModelPlan} from './model-adapter.mjs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {compileProductionPrompt, reviewProductionResult, promptHash} from './production-prompt.mjs';
@@ -24,9 +25,12 @@ export function freezeProductionRun(input, options={}) {
   const target={requirements:input.requirements,acceptance:compiled.acceptance};
   const targetHash=objectHash(target);
   const refs=input.references.map(r=>({...r,source:path.resolve(options.base_dir??process.cwd(),r.source),content_sha256:fileHash(path.resolve(options.base_dir??process.cwd(),r.source))}));
+  if(compiled.model_execution)compiled.model_execution=adaptModelPrompt({...compiled,reference_inputs:refs.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source}))},input.target);
   if(options.parent&&(options.parent.case_id!==options.case_id||options.parent.cohort!==options.cohort))throw new Error('revision case and cohort must match parent');
   const record={schema_version:1,run_id:options.run_id,case_id:options.case_id,cohort:options.cohort,kind,
-    created_at:new Date().toISOString(),tool:'built-in image_gen',tool_parameters:{model:null,seed:null},
+    created_at:new Date().toISOString(),tool:compiled.model_execution?.transport??'built-in image_gen',
+    tool_parameters:compiled.model_execution?{model:compiled.model_execution.model,...compiled.model_execution.settings}:{model:null,seed:null},
+    ...(compiled.model_execution?{model_execution:compiled.model_execution}:{}),
     parent:options.parent?{run_id:options.parent.run_id,snapshot_sha256:options.parent.snapshot_sha256}:null,
     goal_changed:options.parent?options.parent.target_sha256!==targetHash:false,
     request:input.request,target,target_sha256:targetHash,references:refs,
@@ -43,6 +47,13 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true}={}) {
   const inputs=snapshot.references.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source,content_sha256:r.content_sha256}));
   if(objectHash(inputs)!==objectHash(snapshot.actual_inputs))throw new Error('actual input order or roles changed');
   if(verifyFiles)for(const ref of snapshot.references)if(fileHash(ref.source)!==ref.content_sha256)throw new Error(`reference content changed: ${ref.id}`);
+  if(snapshot.model_execution){
+    verifyModelPlan(snapshot.model_execution);
+    if(snapshot.model_execution.prompt_sha256!==snapshot.prompt_sha256)throw new Error('模型执行计划与正文不一致');
+    return {transport:snapshot.model_execution.transport,model:snapshot.model_execution.model,
+      request:snapshot.model_execution.request,runtime:snapshot.model_execution.runtime,
+      execution_sha256:snapshot.model_execution.execution_sha256};
+  }
   return {prompt:snapshot.prompt,...(inputs.length?{referenced_image_paths:inputs.map(r=>r.source)}:{})};
 }
 
@@ -58,6 +69,7 @@ export function finishProductionRun(snapshot, receipt, baseDir=process.cwd()) {
     return {run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,status:'interrupted',reason:receipt.reason,dispatch_state:receipt.dispatch_state,recorded_at:new Date().toISOString()};
   }
   if(receipt.status!=='completed')throw new Error('receipt status must be completed, tool_error or interrupted');
+  if(snapshot.model_execution && receipt.execution_sha256!==snapshot.model_execution.execution_sha256)throw new Error('回执必须绑定实际模型、参数与完整请求的 execution_sha256');
   const output=path.resolve(baseDir,receipt.output_image??'');
   if(fileHash(output)!==receipt.output_sha256)throw new Error('output content changed');
   if(receipt.target_sha256!==snapshot.target_sha256)throw new Error('review target changed');

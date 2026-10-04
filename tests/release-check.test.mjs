@@ -24,6 +24,12 @@ test('missing skill entrypoint fails even when catalogs exist', t => {
   assert.ok(validateProject(dir, { manifest: false }).errors.some(e => e.includes('missing required file: SKILL.md')));
 });
 
+test('a release missing its model adapter catalog cannot pass', t => {
+  const dir=fixture(t);
+  fs.unlinkSync(path.join(dir,'resources/image_model_catalog.json'));
+  assert.ok(validateProject(dir,{manifest:false}).errors.includes('missing required file: resources/image_model_catalog.json'));
+});
+
 test('broken maintained reference is detected', t => {
   const dir = fixture(t);
   fs.appendFileSync(path.join(dir, 'SKILL.md'), '\n[Missing](references/missing.md)\n');
