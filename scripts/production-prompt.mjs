@@ -137,7 +137,8 @@ export function compileProductionPrompt(input) {
       if (labels.has('本次编辑范围') || criterionIds.has('__edit_scope__')) errors.push('reserved edit scope label or criterion');
       for(const text of [...scope.changes,...scope.preserve])checkProse(text,'本次编辑范围');
       editScope=structuredClone(scope);
-      paragraphs.push(`【本次编辑范围】\n允许修改：${scope.changes.join('；')}。\n必须保持：${scope.preserve.join('；')}。`);
+      const scopeList=items=>items.map(text=>`- ${text.trim()}`).join('\n');
+      paragraphs.push(`【本次编辑范围】\n允许修改：\n${scopeList(scope.changes)}\n\n必须保持：\n${scopeList(scope.preserve)}`);
     }
   }
   if (errors.length) throw new Error(errors.join('\n'));

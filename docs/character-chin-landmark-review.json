@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-07",
+  "purpose": "明确两个历史研究点的不同来源，停止将窗口最低样点作为待替换的下巴端点；旧记录从未授予解剖认证。",
+  "sources": [
+    {
+      "url": "https://stacks.cdc.gov/view/cdc/181482/cdc_181482_DS1.pdf",
+      "pdf_page_index": 57,
+      "printed_page": 53,
+      "used": "NIOSH资料将menton定义为下颌正中下缘，定位流程包括规定头位、牙齿合拢及触诊。这里只借鉴端点定义与条件，未进行人体触诊或下颌骨识别。",
+      "evidence_read": "已读取页面文字；网页截图接口仅返回引用，未取得可查看图像，不以示意图作视觉证据。"
+    },
+    {
+      "url": "https://static.makehumancommunity.org/mpfb/developer/rigging_and_posing.html",
+      "used": "官方绑定文档中的VERTEX策略取单个顶点位置；这说明绑定定位方式，不认证该顶点是人体测量标志。"
+    }
+  ],
+  "visual_review": {
+    "file": "dist/technical-studies/anny-20261006/sagittal-landmarks-01/section-inspection.png",
+    "sha256": "01410a8a5491e28555abd6dd5318fbc5f15f158db64050364b4111470912c749",
+    "inspected": true,
+    "mesh_changed": false,
+    "observation": "重新查看完整头部及下巴至颈部放大剖面：5209位于前下巴轮廓转折附近；991更靠后，处于继续向颈部下降的颏下轮廓上。不能由991较低就认定其更接近解剖标志。",
+    "limitation": "剖面保留内外轮廓；没有下颌骨、实际触诊或经核验的头位标志。表面位置观察不是骨性menton认证。"
+  },
+  "prior_records": [
+    {
+      "path": "docs/character-parametric-mesh-evidence.json",
+      "sha256": "1ac1b8daf926e7bdfd6271b9c3ade6626e67efb0b7dc4b0773a8e643b223c4c3"
+    },
+    {
+      "path": "docs/character-protected-head-evidence.json",
+      "sha256": "56e28ff7e8ac392724de477aa6363fb9618343571c114f5628d1c334b0079126"
+    }
+  ],
+  "numeric_audit": {
+    "date": "2026-10-07",
+    "source_sha256": "b512d4ebd956e7566a942dcd3d32ec1764829e26420e7f911164bc3246d5f4f4",
+    "candidate_sha256": "81054b4d90a86dbb8f2d7c3d39cbded697937c762a41ef5c897492395dc68463",
+    "script_sha256": "f2241b1aff7ae5434f373499b646077431dcfde4be7d068fb7509eff4935c5f0",
+    "plan_sha256": "1342a9f656e7aa4b8c613071d4d8eb069865737dcc8d32cc709c5085f2070e01",
+    "rows": [
+      {
+        "y_upper": -0.13,
+        "vertices_in_window": 200,
+        "selected_native_vertex": 5146,
+        "selected_base_vertex": 5162,
+        "selected_original_xyz": [
+          0.0001443109504180029,
+          -0.13078562915325165,
+          0.554044783115387
+        ],
+        "selected_candidate_xyz": [
+          0.00011731557465040163,
+          -0.11193227171166194,
+          0.545805592206046
+        ],
+        "candidate_ratio_with_this_point": 9.465160906442824
+      },
+      {
+        "y_upper": -0.12,
+        "vertices_in_window": 304,
+        "selected_native_vertex": 5209,
+        "selected_base_vertex": 5225,
+        "selected_original_xyz": [
+          0.00014431013551075011,
+          -0.1223614364862442,
+          0.5434414148330688
+        ],
+        "selected_candidate_xyz": [
+          0.00011731491218291478,
+          -0.10508394176280458,
+          0.537185731830469
+        ],
+        "candidate_ratio_with_this_point": 9
+      },
+      {
+        "y_upper": -0.11,
+        "vertices_in_window": 428,
+        "selected_native_vertex": 747,
+        "selected_base_vertex": 747,
+        "selected_original_xyz": [
+          0.00014945697330404073,
+          -0.11016380786895752,
+          0.5405330657958984
+        ],
+        "selected_candidate_xyz": [
+          0.00012149896219161716,
+          -0.09516804968071171,
+          0.5348214300391545
+        ],
+        "candidate_ratio_with_this_point": 8.880296906717419
+      },
+      {
+        "y_upper": -0.1,
+        "vertices_in_window": 478,
+        "selected_native_vertex": 780,
+        "selected_base_vertex": 780,
+        "selected_original_xyz": [
+          0.00015332427574321628,
+          -0.10304296761751175,
+          0.5396997928619385
+        ],
+        "selected_candidate_xyz": [
+          0.0001246428317779835,
+          -0.08937926190215201,
+          0.53414403242792
+        ],
+        "candidate_ratio_with_this_point": 8.846585313067617
+      },
+      {
+        "y_upper": -0.09,
+        "vertices_in_window": 511,
+        "selected_native_vertex": 991,
+        "selected_base_vertex": 991,
+        "selected_original_xyz": [
+          0.00015743912081234157,
+          -0.09433707594871521,
+          0.5390129685401917
+        ],
+        "selected_candidate_xyz": [
+          0.00012798793769325562,
+          -0.08230192867823058,
+          0.5335856881736813
+        ],
+        "candidate_ratio_with_this_point": 8.818990398280514
+      },
+      {
+        "y_upper": -0.08,
+        "vertices_in_window": 535,
+        "selected_native_vertex": 783,
+        "selected_base_vertex": 783,
+        "selected_original_xyz": [
+          0.00016439850151073188,
+          -0.08403424173593521,
+          0.5378717184066772
+        ],
+        "selected_candidate_xyz": [
+          0.00013364546917979706,
+          -0.07392638328337939,
+          0.5326579247929727
+        ],
+        "candidate_ratio_with_this_point": 8.773516492305854
+      },
+      {
+        "y_upper": -0.07,
+        "vertices_in_window": 562,
+        "selected_native_vertex": 7486,
+        "selected_base_vertex": 7502,
+        "selected_original_xyz": [
+          0.005811081733554602,
+          -0.07420096546411514,
+          0.5345302820205688
+        ],
+        "selected_candidate_xyz": [
+          0.004724037856709755,
+          -0.06593255846839974,
+          0.5299415506809693
+        ],
+        "candidate_ratio_with_this_point": 8.643031121918787
+      },
+      {
+        "y_upper": -0.06,
+        "vertices_in_window": 588,
+        "selected_native_vertex": 791,
+        "selected_base_vertex": 791,
+        "selected_original_xyz": [
+          0.00009790762851480395,
+          -0.06862115859985352,
+          0.5252809524536133
+        ],
+        "selected_candidate_xyz": [
+          0.00007959264122786468,
+          -0.06139653229143231,
+          0.522422437196266
+        ],
+        "candidate_ratio_with_this_point": 8.301279775972315
+      }
+    ],
+    "vertex991_lower_immediate_neighbors": [
+      {
+        "index": 783,
+        "xyz": [
+          0.00016439850151073188,
+          -0.08403424173593521,
+          0.5378717184066772
+        ]
+      }
+    ],
+    "rig_chin": {
+      "native_index": 5209,
+      "base_index": 5225,
+      "xyz": [
+        0.00014431013551075011,
+        -0.1223614364862442,
+        0.5434414148330688
+      ]
+    },
+    "decision": "991保留为原窗口选出的敏感性样点，不再作为可直接替换绑定chin的解剖下巴候选。5209保留为绑定来源代理，仍不授予解剖或比例验收。",
+    "historical_arithmetic_changed": false,
+    "candidate_mesh_changed": false,
+    "anatomical_endpoint_certified": false,
+    "accepted_character_asset": false
+  },
+  "endpoint_decisions": [
+    {
+      "vertex": 991,
+      "previous_role": "原空间窗口的最低顶点，后续报告称邻域下巴候选，但从未授予解剖认证或替换许可。",
+      "current_role": "窗口敏感性样点",
+      "anatomical_substitution_allowed": false,
+      "reason": "Y边界改变后最低顶点随之改变；其直接邻接顶点783已更低。没有独立证据可把该样点升级为下巴端点。"
+    },
+    {
+      "vertex": 5209,
+      "previous_role": "MakeHuman rigify chin绑定头的基网格5225映射点。",
+      "current_role": "来源明确的绑定代理点",
+      "anatomical_substitution_allowed": false,
+      "reason": "名称与侧面位置提供可追踪代理，不能单独认证端点；窗口Y<−0.12也选中它，不形成独立证明。"
+    }
+  ],
+  "interpretation": "八个窗口在同一候选上得到约8.301至9.465的数值，只证明选区敏感性；不是人体比例置信区间。原9和约8.819算术保留，不从中挑一个令目标通过的点。",
+  "workflow_change": "后续技术对照可继续明确使用绑定代理5209，但必须保留代理身份；不因991更低而重解身体比例。若要授予解剖比例通过，先取得独立端点及头位依据。",
+  "new_mesh_candidates": 0,
+  "new_image_model_outputs": 0,
+  "historical_files_overwritten": false,
+  "accepted_character_assets": 0,
+  "user_accepted": false,
+  "artifacts": [
+    {
+      "path": "dist/technical-studies/anny-20261006/audit-chin-window.py",
+      "sha256": "f2241b1aff7ae5434f373499b646077431dcfde4be7d068fb7509eff4935c5f0"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/record-chin-audit.mjs",
+      "sha256": "ef63be06785b2fedc43d711b0c38cdee205df7b145cd777b0fce93e6b3aa8eee"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/chin-window-audit-01/plan.json",
+      "sha256": "1342a9f656e7aa4b8c613071d4d8eb069865737dcc8d32cc709c5085f2070e01"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/chin-window-audit-01/report.json",
+      "sha256": "257382ab79ff22da4eed17d13822efa906a4100e2f41221c37cacc2909b224f2"
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-07",
+  "purpose": "实际修正上一轮发现的保护集越界，保留头部指定集合的均匀变换，并检验头颈过渡的取舍。",
+  "status": "指定保护集已修正；过渡形态、解剖端点与绑定仍未验收。",
+  "prior_evidence": "docs/character-rig-pose-evidence.json",
+  "prior_evidence_sha256": "67a0fd44e810a24b948513d977d1a9998278e046759599a43f92b1faa4eb992d",
+  "method": {
+    "source": "既有原生中性网格；未修改任何旧候选。",
+    "region": "按原生最大蒙皮权重归属分为头眼、颈部和保护集，不能称为已认证解剖分区。",
+    "transition": "对颈部顶点在原三角网格唯一无向边图上求组合拉普拉斯调和权重；头眼边界为1、保护集为0，再用3t²−2t³映射。",
+    "geometry": "头眼集合沿用同一均匀缩放和平移，保护集逐点恢复原坐标，只有颈部集合参与过渡。",
+    "solver": "使用本地SciPy 1.16.0的spsolve求解线性系统；未安装新依赖。",
+    "source_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.spsolve.html",
+    "boundary": "稀疏求解残差只验证方程，不认证解剖、美术效果、连续空间无折叠或自交。"
+  },
+  "geometry": {
+    "plan_sha256": "243ebb2fac7c522275a3b5fe1e2b394cacb9d4b80889945ab2cda147560742db",
+    "script_sha256": "0bce6558c7c2ca7967b78bb7c4642fac7d9a33c879d7bef188c41f1be1b094ff",
+    "candidate_sha256": "81054b4d90a86dbb8f2d7c3d39cbded697937c762a41ef5c897492395dc68463",
+    "region_data_sha256": "be80da90255ab5e228b01dc057fa35a128307a0b074419f3dd3f3a7d856c3f46",
+    "versions": {
+      "anny": "0.6.1",
+      "scipy": "1.16.0",
+      "numpy": "2.2.5",
+      "torch": "2.13.0+cpu"
+    },
+    "regions": {
+      "uniform_head_eye_vertices": 4498,
+      "transition_neck_vertices": 184,
+      "fixed_vertices": 9036
+    },
+    "protection": {
+      "fixed_coordinates_exactly_preserved": true,
+      "old_candidate_changed_in_fixed_set": 60,
+      "new_candidate_changed_in_fixed_set": 0
+    },
+    "head": {
+      "uniform_scale": 0.8129360544753672,
+      "max_uniform_error": 0,
+      "candidate_ratio": 9,
+      "crown_chin_sole_candidates": [
+        881,
+        5209,
+        6148
+      ],
+      "anatomical_endpoints_approved": false
+    },
+    "transition": {
+      "harmonic_residual_max": 1.7763568394002505e-15,
+      "raw_weight_range": [
+        0.027718427121248935,
+        0.9084935846374129
+      ],
+      "head_to_fixed_direct_edges": 0,
+      "neck_incident_faces": 470,
+      "neck_face_area_ratio_range": [
+        0.5447328778680551,
+        1.0719219652213823
+      ],
+      "neck_face_min_normal_cosine": 0.8452454690585623
+    },
+    "surface": {
+      "finite": true,
+      "zero_area_faces": 0,
+      "normal_cosine_nonpositive_faces": 0,
+      "min_normal_cosine": 0.8452454690585623,
+      "edge_length_ratio_range": [
+        0.658352349472503,
+        1.0941658348357561
+      ],
+      "self_intersections_checked": false,
+      "watertightness_certified": false
+    },
+    "bone_labels": [
+      "root",
+      "pelvis.L",
+      "upperleg01.L",
+      "upperleg02.L",
+      "lowerleg01.L",
+      "lowerleg02.L",
+      "foot.L",
+      "toe1-1.L",
+      "toe1-2.L",
+      "toe2-1.L",
+      "toe2-2.L",
+      "toe2-3.L",
+      "toe3-1.L",
+      "toe3-2.L",
+      "toe3-3.L",
+      "toe4-1.L",
+      "toe4-2.L",
+      "toe4-3.L",
+      "toe5-1.L",
+      "toe5-2.L",
+      "toe5-3.L",
+      "pelvis.R",
+      "upperleg01.R",
+      "upperleg02.R",
+      "lowerleg01.R",
+      "lowerleg02.R",
+      "foot.R",
+      "toe1-1.R",
+      "toe1-2.R",
+      "toe2-1.R",
+      "toe2-2.R",
+      "toe2-3.R",
+      "toe3-1.R",
+      "toe3-2.R",
+      "toe3-3.R",
+      "toe4-1.R",
+      "toe4-2.R",
+      "toe4-3.R",
+      "toe5-1.R",
+      "toe5-2.R",
+      "toe5-3.R",
+      "spine05",
+      "spine04",
+      "spine03",
+      "spine02",
+      "spine01",
+      "clavicle.L",
+      "shoulder01.L",
+      "upperarm01.L",
+      "upperarm02.L",
+      "lowerarm01.L",
+      "lowerarm02.L",
+      "wrist.L",
+      "finger1-1.L",
+      "finger1-2.L",
+      "finger1-3.L",
+      "metacarpal1.L",
+      "finger2-1.L",
+      "finger2-2.L",
+      "finger2-3.L",
+      "metacarpal2.L",
+      "finger3-1.L",
+      "finger3-2.L",
+      "finger3-3.L",
+      "metacarpal3.L",
+      "finger4-1.L",
+      "finger4-2.L",
+      "finger4-3.L",
+      "metacarpal4.L",
+      "finger5-1.L",
+      "finger5-2.L",
+      "finger5-3.L",
+      "clavicle.R",
+      "shoulder01.R",
+      "upperarm01.R",
+      "upperarm02.R",
+      "lowerarm01.R",
+      "lowerarm02.R",
+      "wrist.R",
+      "finger1-1.R",
+      "finger1-2.R",
+      "finger1-3.R",
+      "metacarpal1.R",
+      "finger2-1.R",
+      "finger2-2.R",
+      "finger2-3.R",
+      "metacarpal2.R",
+      "finger3-1.R",
+      "finger3-2.R",
+      "finger3-3.R",
+      "metacarpal3.R",
+      "finger4-1.R",
+      "finger4-2.R",
+      "finger4-3.R",
+      "metacarpal4.R",
+      "finger5-1.R",
+      "finger5-2.R",
+      "finger5-3.R",
+      "neck01",
+      "neck02",
+      "neck03",
+      "head",
+      "eye.L",
+      "eye.R"
+    ],
+    "rig_repaired": false,
+    "skin_weights_repaired": false,
+    "clothing_fitted": false,
+    "new_image_model_outputs": 0,
+    "accepted_character_asset": false
+  },
+  "verification": {
+    "protected_vertices_exact": 9036,
+    "originally_changed_protected_vertices_restored": 60,
+    "same_face_comparison": [
+      {
+        "candidate": "old",
+        "same_neck_incident_faces": 470,
+        "area_ratio_range": [
+          0.6138688187136564,
+          1.195424408702598
+        ],
+        "largest_normal_angle_degrees": 19.778618062108215,
+        "smallest_area_face_id": 14457
+      },
+      {
+        "candidate": "new",
+        "same_neck_incident_faces": 470,
+        "area_ratio_range": [
+          0.5447328778680551,
+          1.0719219652213823
+        ],
+        "largest_normal_angle_degrees": 32.301754600282706,
+        "smallest_area_face_id": 14383
+      }
+    ],
+    "candidate_chin_ratios": {
+      "991": 8.818990398280514,
+      "5209": 9
+    },
+    "interpretation": "保护集修正成立；相同颈部邻接面片的压缩与法向偏转增加，尚不能判过渡形态优于旧方案。不同下巴候选仍导致不同头身比。",
+    "self_intersections_checked": false,
+    "rig_verified": false,
+    "accepted_character_asset": false,
+    "script_sha256": "3021cd73a8ca6768a9ed30f4e3a071a6db591a97154e1894dcbd0741626b0b20"
+  },
+  "visual_review": {
+    "inspected": true,
+    "views": [
+      "正交正面头颈肩",
+      "正交侧面头颈肩"
+    ],
+    "observation": "实际比较原生、旧候选与新候选。新候选的橙色保护点恢复到原生位置；脸部指定区域继续缩小。颈部轮廓连续可读，但下颌下方与颈后形态有更明显收紧，不能据未见明显开缝就称过渡更自然。",
+    "limitations": "技术图使用三角面着色与含遮挡点的诊断叠加；没有真实皮肤、头发或衣装，未作全身自交和动画验收。"
+  },
+  "decisions": [
+    "保留新候选作为指定保护集修复的证据，不替换既有人物参考或向生图模型派发。",
+    "同一470个颈部邻接面片的比较显示局部压缩和法向偏转增加；不以保护集通过抵消过渡待审。",
+    "下巴候选5209得到9，991得到约8.819；未改变解剖端点未确认的结论，不扩大比例容差。",
+    "后续须处理端点依据、过渡形态和绑定；当前不能作为已核验的九头身动作资产。"
+  ],
+  "new_image_model_outputs": 0,
+  "accepted_character_assets": 0,
+  "user_accepted": false,
+  "artifacts": [
+    {
+      "path": "dist/technical-studies/anny-20261006/protect-shoulder-head.py",
+      "sha256": "0bce6558c7c2ca7967b78bb7c4642fac7d9a33c879d7bef188c41f1be1b094ff"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/plot-protected-head.py",
+      "sha256": "0d289e81145c40b889b2eda9ba5f843d48432e53ac10af94f430d070fcc8bece"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/verify-protected-head.py",
+      "sha256": "3021cd73a8ca6768a9ed30f4e3a071a6db591a97154e1894dcbd0741626b0b20"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/record-protected-head.mjs",
+      "sha256": "52d5f602b167f167ce6c587a0cb59aaafdb794bd1fae91559fceef531b1be37c"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/protected-head-01/plan.json",
+      "sha256": "243ebb2fac7c522275a3b5fe1e2b394cacb9d4b80889945ab2cda147560742db"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/protected-head-01/report.json",
+      "sha256": "900fb21743dc02b6447d06c2c2b2398ff5032d306909fc6e8753017c79fea926"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/protected-head-01/candidate-mesh.npz",
+      "sha256": "81054b4d90a86dbb8f2d7c3d39cbded697937c762a41ef5c897492395dc68463"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/protected-head-01/region-data.npz",
+      "sha256": "be80da90255ab5e228b01dc057fa35a128307a0b074419f3dd3f3a7d856c3f46"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/protected-head-01/neck-shoulder-comparison.png",
+      "sha256": "e791b1a136d2c7e757d61d8d329de9e0c7bf1a292a8945ac12fbe5ae26e63fd9"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/protected-head-01/plot-receipt.json",
+      "sha256": "4b5778fa9e4218d57dac7c755d92d289e6a35325bed6e2c06daee823f0344bc8"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/protected-head-01/verification.json",
+      "sha256": "c615cdb5b61a617a94683b69fe1962dc4d86096b8da0ff5c1f9c6aac295290d9"
+    }
+  ]
+}

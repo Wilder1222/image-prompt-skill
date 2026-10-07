@@ -89,7 +89,7 @@ test('local edits retain the hard proportion target and cannot downgrade it thro
 });
 
 test('new edits bind a real baseline and visible scope without rewriting the goal',t=>{
- const {input}=setup(t),parent=freeze(input),scope={baseline_reference_id:'R1',changes:['头部尺寸和必要连接'],preserve:['肩部以下与原标尺']};
+ const {input}=setup(t),parent=freeze(input),scope={baseline_reference_id:'R1',changes:['头部尺寸和必要连接。'],preserve:['肩部以下与原标尺','衣服上的文字“完成。”与数字“1.5”']};
  assert.throws(()=>freeze(input,{kind:'edit',parent}),/require edit_scope/);
  const brief={...input,edit_scope:scope};
  assert.throws(()=>freeze(brief),/needs an edit or revision/);
@@ -101,7 +101,8 @@ test('new edits bind a real baseline and visible scope without rewriting the goa
   assert.throws(()=>freeze({...input,edit_scope:{...scope,changes:[text]}},{kind:'edit',parent}),/internal|unfinished|mode/);
  const s=freeze(brief,{run_id:'edit',kind:'edit',parent});
  assert.equal(s.target_sha256,parent.target_sha256);assert.equal(s.goal_changed,false);
- assert.match(verifyFrozenRun(s).prompt,/【本次编辑范围】\n允许修改：头部尺寸和必要连接。\n必须保持：肩部以下与原标尺。/);
+ assert.match(verifyFrozenRun(s).prompt,/【本次编辑范围】\n允许修改：\n- 头部尺寸和必要连接。\n\n必须保持：\n- 肩部以下与原标尺\n- 衣服上的文字“完成。”与数字“1.5”/);
+ assert.deepEqual(s.edit_scope,scope);
  scope.preserve[0]='changed after freezing';assert.equal(s.edit_scope.preserve[0],'肩部以下与原标尺');
  const tampered=structuredClone(s);tampered.edit_scope.preserve=[];assert.throws(()=>verifyFrozenRun(tampered),/snapshot changed/);
 });
@@ -179,7 +180,7 @@ test('scoped prompt revisions must refresh the operation boundary',t=>{
  const change={request:'再修衣料。',channels:['costume'],sections:[{label:'衣服',items:[{text:'保持蓝衣，仅理顺主褶。',basis:['U2'],intent:'constraint'}]}]};
  assert.throws(()=>reviseProductionInput(input,change),/refresh edit_scope/);
  change.edit_scope={baseline_reference_id:'R1',changes:['衣料主褶'],preserve:['衣片边界、身份与比例']};
- const revised=reviseProductionInput(input,change);assert.match(revised.compiled.prompt,/允许修改：衣料主褶/);assert.equal(revised.target_changed,false);
+ const revised=reviseProductionInput(input,change);assert.match(revised.compiled.prompt,/允许修改：\n- 衣料主褶/);assert.equal(revised.target_changed,false);
 });
 
 test('legacy frozen targets remain inspectable without acquiring new nine-head approval',t=>{

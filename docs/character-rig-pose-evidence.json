@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-07",
+  "purpose": "在把旧三维比例候选用于动作前，检查原生姿态空间与绑定改动范围。",
+  "status": "可检查原生关节与脚部坐标；旧候选尚不能作为已核验的九头身动作母体。",
+  "source": {
+    "official": "https://github.com/naver/anny",
+    "installed_version": "0.6.1",
+    "rig": "anny",
+    "topology": "anny",
+    "pose_parameterization": "local-ref",
+    "installed_rig_source_sha256": "43d3bd619abe07be50fb9971319eb3b78f1b4e5165848c3e385004dea9f2bf01"
+  },
+  "execution": {
+    "device": "cpu",
+    "new_dependencies_installed": false,
+    "new_image_model_calls": 0,
+    "new_image_model_outputs": 0,
+    "existing_images_edited": false
+  },
+  "baseline": {
+    "exact_native_mesh_match": true,
+    "native_mesh_sha256": "b512d4ebd956e7566a942dcd3d32ec1764829e26420e7f911164bc3246d5f4f4",
+    "candidate_mesh_sha256": "0089c693347809567d023174fa2a817a5b7a9a156d697e09097b5729c3ce01e7",
+    "native_is_nine_head": false,
+    "candidate_anatomical_endpoints_approved": false
+  },
+  "coordinates": {
+    "up": "positive Z",
+    "front": "negative Y",
+    "body_left": "positive X",
+    "body_right": "negative X",
+    "ground_z": -0.8659995198249817,
+    "ground_rule": "中性网格最低Z固定为地面；姿态变化后不重新落地。",
+    "units": "沿用原生网格坐标单位；未由此认证真实人物绝对身高。",
+    "foot_region": "中性网格中按对应foot骨骼头高度以下与该侧X半空间取固定顶点集，非认证解剖足底。",
+    "foot_region_vertex_counts": {
+      "L": 1099,
+      "R": 1099
+    }
+  },
+  "pose_probes": [
+    {
+      "case": "neutral",
+      "angles_degrees": {},
+      "right_ankle_z": -0.7957884669303894,
+      "foot_region_min_clearance": {
+        "L": 0,
+        "R": 0
+      },
+      "left_foot_max_displacement": 0,
+      "all_vertices_finite": true
+    },
+    {
+      "case": "hip_positive",
+      "angles_degrees": {
+        "upperleg01.R": 20
+      },
+      "right_ankle_z": -0.7493970394134521,
+      "foot_region_min_clearance": {
+        "L": 0,
+        "R": -0.008750498294830322
+      },
+      "left_foot_max_displacement": 0,
+      "all_vertices_finite": true
+    },
+    {
+      "case": "hip_negative",
+      "angles_degrees": {
+        "upperleg01.R": -20
+      },
+      "right_ankle_z": -0.7470897436141968,
+      "foot_region_min_clearance": {
+        "L": 0,
+        "R": 0.04252046346664429
+      },
+      "left_foot_max_displacement": 0,
+      "all_vertices_finite": true
+    },
+    {
+      "case": "knee_positive",
+      "angles_degrees": {
+        "lowerleg01.R": 40
+      },
+      "right_ankle_z": -0.6842935085296631,
+      "foot_region_min_clearance": {
+        "L": 0,
+        "R": 0.012820303440093994
+      },
+      "left_foot_max_displacement": 0,
+      "all_vertices_finite": true
+    },
+    {
+      "case": "knee_negative",
+      "angles_degrees": {
+        "lowerleg01.R": -40
+      },
+      "right_ankle_z": -0.7202966213226318,
+      "foot_region_min_clearance": {
+        "L": 0,
+        "R": 0.06742739677429199
+      },
+      "left_foot_max_displacement": 0,
+      "all_vertices_finite": true
+    }
+  ],
+  "geometry_scope_review": {
+    "method": "按原生稀疏蒙皮权重最大项划分顶点，仅表示绑定影响归属，不认证解剖区域；与旧候选坐标逐点比较。",
+    "changed_vertices": 4742,
+    "low_region_exactly_preserved": true,
+    "non_head_neck_eye_dominant_changed_vertices": 60,
+    "affected_non_head_neck_eye_groups": [
+      {
+        "dominant_bone": "spine01",
+        "region_vertices": 318,
+        "changed_vertices": 50,
+        "max_displacement": 0.012398014953025087,
+        "z_range_before": [
+          0.49061620235443115,
+          0.5258934497833252
+        ]
+      },
+      {
+        "dominant_bone": "clavicle.L",
+        "region_vertices": 9,
+        "changed_vertices": 1,
+        "max_displacement": 0.0009941394483306974,
+        "z_range_before": [
+          0.49577799439430237,
+          0.49577799439430237
+        ]
+      },
+      {
+        "dominant_bone": "upperarm01.L",
+        "region_vertices": 105,
+        "changed_vertices": 4,
+        "max_displacement": 0.0016528158206720396,
+        "z_range_before": [
+          0.4906022548675537,
+          0.4965732991695404
+        ]
+      },
+      {
+        "dominant_bone": "clavicle.R",
+        "region_vertices": 9,
+        "changed_vertices": 1,
+        "max_displacement": 0.0010136299244520373,
+        "z_range_before": [
+          0.49583718180656433,
+          0.49583718180656433
+        ]
+      },
+      {
+        "dominant_bone": "upperarm01.R",
+        "region_vertices": 105,
+        "changed_vertices": 4,
+        "max_displacement": 0.0016761371643900832,
+        "z_range_before": [
+          0.49063193798065186,
+          0.49662232398986816
+        ]
+      }
+    ],
+    "clarification": "原报告的固定身体区严格指Z≤0.49。按高度称为颈部过渡区，不能推出其全部顶点均属解剖颈部或整个胸肩未变。旧算术结果保留，扩大到整个人体的保形主张不成立。",
+    "original_files_overwritten": false
+  },
+  "bind_review": {
+    "mapped_head_differences": [
+      {
+        "bone": "clavicle.L",
+        "old_head": [
+          0.021996665745973587,
+          -0.025558341294527054,
+          0.4929620623588562
+        ],
+        "mapped_head_diagnostic_only": [
+          0.021932315653413952,
+          -0.025571335134235137,
+          0.49301190595228506
+        ],
+        "displacement": 0.00008242668311107744
+      },
+      {
+        "bone": "shoulder01.L",
+        "old_head": [
+          0.10148447751998901,
+          -0.02741166576743126,
+          0.5106346011161804
+        ],
+        "mapped_head_diagnostic_only": [
+          0.09154081114818514,
+          -0.02766527629680816,
+          0.5105724215402229
+        ],
+        "displacement": 0.0099470943251796
+      },
+      {
+        "bone": "clavicle.R",
+        "old_head": [
+          -0.021996665745973587,
+          -0.025558341294527054,
+          0.4929620623588562
+        ],
+        "mapped_head_diagnostic_only": [
+          -0.021932315653413952,
+          -0.025571335134235137,
+          0.49301190595228506
+        ],
+        "displacement": 0.00008242668311107744
+      },
+      {
+        "bone": "shoulder01.R",
+        "old_head": [
+          -0.10148447751998901,
+          -0.02741166576743126,
+          0.5106346011161804
+        ],
+        "mapped_head_diagnostic_only": [
+          -0.09154081114818514,
+          -0.02766527629680816,
+          0.5105724215402229
+        ],
+        "displacement": 0.0099470943251796
+      },
+      {
+        "bone": "neck01",
+        "old_head": [
+          4.799853637038891e-21,
+          -0.007515416480600834,
+          0.5596874952316284
+        ],
+        "mapped_head_diagnostic_only": [
+          3.9019740777536374e-21,
+          -0.011721471387217776,
+          0.5503927563303637
+        ],
+        "displacement": 0.010202111012930646
+      },
+      {
+        "bone": "neck02",
+        "old_head": [
+          0.0001566666760481894,
+          -0.016376664862036705,
+          0.5888883471488953
+        ],
+        "mapped_head_diagnostic_only": [
+          0.0001273599894943856,
+          -0.01892509968414849,
+          0.574131181675306
+        ],
+        "displacement": 0.01497562391819869
+      },
+      {
+        "bone": "neck03",
+        "old_head": [
+          0.0003049999359063804,
+          -0.028209581971168518,
+          0.627845823764801
+        ],
+        "mapped_head_diagnostic_only": [
+          0.0002479454445109728,
+          -0.02854450463178017,
+          0.6058011190077568
+        ],
+        "displacement": 0.022047322654436482
+      },
+      {
+        "bone": "head",
+        "old_head": [
+          -5.646885978448016e-22,
+          -0.041881248354911804,
+          0.6567366719245911
+        ],
+        "mapped_head_diagnostic_only": [
+          -4.590557207391804e-22,
+          -0.03965869515988395,
+          0.6292875311212235
+        ],
+        "displacement": 0.027538973719945112
+      },
+      {
+        "bone": "eye.L",
+        "old_head": [
+          0.029493749141693115,
+          -0.11922458559274673,
+          0.6967816352844238
+        ],
+        "mapped_head_diagnostic_only": [
+          0.023976532058934248,
+          -0.10253388257396723,
+          0.6618415256365765
+        ],
+        "displacement": 0.039113047871560405
+      },
+      {
+        "bone": "eye.R",
+        "old_head": [
+          -0.029493749141693115,
+          -0.11922458559274673,
+          0.6967816352844238
+        ],
+        "mapped_head_diagnostic_only": [
+          -0.023976532058934248,
+          -0.10253388257396723,
+          0.6618415256365765
+        ],
+        "displacement": 0.039113047871560405
+      }
+    ],
+    "method": "将旧表面使用的几何映射应用于原骨骼头位置作差异诊断；没有生成或安装新绑定。",
+    "rig_repaired": false,
+    "skin_weights_repaired": false,
+    "clothing_fitted": false
+  },
+  "visual_review": {
+    "inspected": true,
+    "plot": "dist/technical-studies/anny-20261006/pose-bind-01/pose-ground-inspection.png",
+    "observation": "实际查看正交侧投影：右髋正向探针足尖越过固定地面；右膝正向探针右脚出现间隙，左脚位置保持。骨架线与表面可对应。",
+    "limitation": "只有三个侧面诊断图；没有对头颈、全身自交或所有探针姿态完成美术验收。"
+  },
+  "decisions": [
+    "脚部是否离地必须检查表面相对地面，不以踝点高度代替；鞋履加上后需改查实际鞋底。",
+    "原生膝关节正向探针可用于下一步坐标研究，不作为完整单支撑步态：骨盆、另一腿和摆臂尚未按目标调整。",
+    "在旧缩头候选上继续摆姿前，先复核几何区域与绑定；不能直接把原生探针的空间结果转授给候选。",
+    "下轮若改候选，显式保护胸肩顶点并检查头颈过渡；新绑定还需转头与抬臂等姿态检查，不能只看中性零姿态。"
+  ],
+  "limitations": [
+    "角度为轴向探针，不是生理步态解；负向膝弯仅用于识别方向。",
+    "未进行动力学、足底压力、蒙皮自交、衣装或动画连续性验收。",
+    "原生体型不是九头身；缩头候选未更新骨架、蒙皮或衣装。",
+    "骨骼头随几何映射的位置仅作差异诊断，不代表正确关节中心。"
+  ],
+  "accepted_character_assets": 0,
+  "artifacts": [
+    {
+      "path": "dist/technical-studies/anny-20261006/inspect-pose-bind.py",
+      "sha256": "6fae7b8e17c2c2c8843e25f1fb9937291afa8606d8493135237b885dd4bcbab6"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/inspect-region-overlap.py",
+      "sha256": "b86ebd724361f060f80977251755927d95da9e8af16947e46086fec55171611b"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/plot-pose-bind.py",
+      "sha256": "d41d83e6864a42f65d7798d282a0e609627cabc810e16fab182df8fe73f271c4"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/record-pose-bind.mjs",
+      "sha256": "2a02799d23e577a37ac68ed2c24984b27b4898038f3b4b279ca3a5362f118e14"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/pose-bind-01/plan.json",
+      "sha256": "1ecf8a3c4aa93d95d0cb755a0607593ed9693d3d40ea0332be139ecd6e38edca"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/pose-bind-01/report.json",
+      "sha256": "17dd079a3a2164d435f9526563b65e7bd97609bc65c38fa8adc5032cb630e284"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/pose-bind-01/pose-data.npz",
+      "sha256": "503c059639413d0c7c62a37e662376fcfc084f85712cd90d8f06365009d8a5ea"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/pose-bind-01/region-overlap.json",
+      "sha256": "12a315d595027bc9ad28d480bf3870711f2df885be3a2e8035390342ef7b05bf"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/pose-bind-01/pose-ground-inspection.png",
+      "sha256": "c51e841e3e218ff67c6d25d41a628e731fbbad2b554c0fcb0c677b7a8370e0b3"
+    },
+    {
+      "path": "dist/technical-studies/anny-20261006/pose-bind-01/plot-receipt.json",
+      "sha256": "2b0bbae858d94296cae6f230ab586e45f90bd2ac9ea4aef9e21ebedf29b92b92"
+    }
+  ]
+}
