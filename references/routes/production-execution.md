@@ -19,6 +19,8 @@ node scripts/production-run.mjs inspect --snapshot run-01.snapshot.json
 
 `inspect` 重新核对参考内容，并返回可传入宿主图像工具的实际参数。逐字发送返回的 prompt 与输入路径。文件路径相对 brief 所在目录解析；内部记录可以含本机路径，公开报告不携带私人附件路径或图片。
 
+编译结果的 `audit.reference_usage` 用于冻结前核对图序和条款来源，详见 [生产流程](prompt-production.md#5-生产记录与来源检查)。它是编译审查信息，不新增图像工具参数，也不回填旧快照；冻结后的实际输入仍以 `actual_inputs` 和 `inspect` 返回为准。原正文与输入不变时，新增审查清单不改变提示词摘要；如果改变某张图是否实际输入，即使正文摘要相同，也必须重新冻结输入，不能沿用旧快照执行。
+
 指定 `target` 时按 [文生图模型指南](../providers/text-to-image-models.md) 冻结模型与设置，`inspect` 改为返回 `transport`、`model`、`request`、`runtime` 和 `execution_sha256`。按对应入口解释请求，不能把所有模型都发送给宿主图像工具。生成完成回执还须带同一 `execution_sha256`；正文相同但模型、设置、负面或原生后缀不同，属于不同执行计划。未指定 `target` 的旧记录保持兼容。
 
 新快照把 `subject_kind` 连同要求和验收写入目标摘要。旧冻结快照仍可查看并按旧标准评审，不回填新字段、不自动升级为九头身通过。旧 brief 再次编译或准备新生成前必须明确范围，人物 brief 补齐上述要求；以旧快照为父记录时，新范围或要求会令 `goal_changed` 为真，不能冒充原目标未变。历史正文与哈希保持原样。

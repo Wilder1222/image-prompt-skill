@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-07",
+  "purpose": "将已有正背面观察转为多参考合并时的部件取舍；不重评旧冻结结果。",
+  "review_method": "代理实际查看两张完整原图并阅读原背面冻结正文；非盲复看，不是独立评审或新生成。",
+  "source_report": "docs/character-asset-evidence.json",
+  "source_report_sha256": "73302c62cec3f7487b96a0b35145d3f840d181f5823fbaf704498e6b51d0b1c9",
+  "sources": [
+    {
+      "run_id": "traveler-front-01",
+      "path": "dist/visual-tests/character-assets-20261006/front.png",
+      "sha256": "a9bf5a917642002a036c723c6b32902d8244514ee2e9633cf5b4e1d0f7df5ff2",
+      "snapshot_path": "dist/visual-tests/character-assets-20261006/front.snapshot.json",
+      "snapshot_sha256": "9a10cdb409a10783ab7a5ce286d95ff4756e93b4ca30815d6922136cd069b131",
+      "snapshot_file_sha256": "0d75e3a6cda4df0633e86f0e532f69f76ca83ea8569fdbf6aca486a44dd0f73c",
+      "original_status": "needs_review"
+    },
+    {
+      "run_id": "traveler-back-01",
+      "path": "dist/visual-tests/character-assets-20261006/back.png",
+      "sha256": "7539e1c00f8f36d32b5efccaf6a86a43ddb1f7bea0fd9c524bf0f990771bec17",
+      "snapshot_path": "dist/visual-tests/character-assets-20261006/back.snapshot.json",
+      "snapshot_sha256": "2365bfeb21fd798157ed0470de397b227b9179ca14fb4ca32c8ad68bacecef35",
+      "snapshot_file_sha256": "cb3c7fe1a8b454ad1b09db783843956a48b73755747d43d3b14629c3fc50f34a",
+      "original_status": "needs_review"
+    }
+  ],
+  "observations": [
+    {
+      "part": "灰蓝外套中央背缝",
+      "front": "正面无法看见背片中央。",
+      "back": "背片中央可见纵向接缝，上端部分受辫子遮挡。",
+      "prior_basis": "原背面冻结正文明确设计为灰蓝素面背片、一条中央纵向接缝；原 completion-check 为 pass。",
+      "decision": "可在沿用该背面设计版本时作为已声明延展的局部依据；不回填为正面已观察，也不表示背面整图或人物已验收。"
+    },
+    {
+      "part": "深灰裤后贴袋",
+      "front": "正面未显示裤后面，不能证明原设计有无后袋。",
+      "back": "臀部两侧出现贴袋轮廓，人物右侧的部分受皮袋遮挡。",
+      "prior_basis": "原冻结正文没有具体规定裤后袋；原 outfit-check 已记录背裤出现贴袋，结论 uncertain。",
+      "decision": "保留为未决定的候选细节，不称原图固有，也不因未写就判禁止。后续需要该处时，按获准设计范围明确采纳或移除；当前不将其加入无条件继承清单。"
+    },
+    {
+      "part": "腰带下方灰蓝衣片",
+      "front": "人物左髋、画面右侧可见向下延伸的灰蓝衣片，腰带附近的连接受覆盖。",
+      "back": "可见外套横向下缘及裤腰，前侧延长片如何绕至侧背仍不能由这对图片确认。",
+      "prior_basis": "原 outfit-check 为 uncertain；本轮没有查看或替换后续设计版本。",
+      "decision": "不能同时要求完整照搬两图所有衣片连接；若下一任务依赖此结构，须先选定明确设计版本或补足依据，再冻结任务。未决期间不宣称现有图已证明同衣装的完整连接。"
+    },
+    {
+      "part": "左锁骨前侧铜圆扣",
+      "front": "人物左锁骨、画面右侧可见一枚铜圆扣与赭红披片。",
+      "back": "赭红披片仍在人物左侧，后肩没有另出现该铜扣。",
+      "prior_basis": "原冻结正文要求前侧铜扣在背面不可见时保持遮挡，不搬到后肩。",
+      "decision": "沿用前侧挂点与新视角遮挡；背面不可见不推断铜扣被删，也不为了每张都可见而在背面复制。"
+    },
+    {
+      "part": "面部身份与九头身",
+      "front": "面部可见，可用于观察该候选的脸部；发量、鞋履和未知相机限制严格身体端点判断。",
+      "back": "没有可评面容；与正面相近的服装配色不提供独立面部身份证据。",
+      "prior_basis": "该组为旧目标实验，原背面身份项 not_assessable；本次不补写新比例检查到旧快照。",
+      "decision": "不以背面补图数量提升身份或比例结论。未来人物任务继续执行九头身关键目标，旧图仅按实际可用通道引用。"
+    }
+  ],
+  "next_use": "不能把背图整张升级为无条件衣装母图；仅在相应设计版本中借用明确声明且可见的局部依据。影响下一任务的裤后袋选择与腰下连接先处理，正文与事实选择不能等同于工具已执行局部图像隔离。",
+  "evidence_boundaries": {
+    "new_model_calls": 0,
+    "new_generated_outputs": 0,
+    "new_image_edits": 0,
+    "original_receipts_changed": false,
+    "new_scores": false,
+    "user_accepted": false,
+    "whole_asset_qualified": false
+  },
+  "limitations": [
+    "只复看这一组的正面与背面，未重新验收侧面、后续右侧连接版本或其他人物。",
+    "取舍规则未经新的生成对照验证；没有使用MV-Adapter、蒙版、相机条件或自动身份检测。",
+    "文件与快照摘要用于来源绑定，不认证视觉观察或空间几何。"
+  ]
+}

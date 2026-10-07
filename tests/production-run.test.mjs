@@ -200,8 +200,14 @@ test('legacy frozen targets remain inspectable without acquiring new nine-head a
 });
 
 test('frozen tool arguments preserve exact text and actual input order, without evaluation references',t=>{
- const {input}=setup(t);input.references.push({...structuredClone(input.references[0]),id:'judge',generation_input:false,authority:['style'],facts:[{id:'F2',channel:'style',visibility:'visible',text:'评价标杆。'}]});
- const s=freeze(input),args=verifyFrozenRun(s);assert.equal(args.prompt,compileProductionPrompt(input).prompt);assert.deepEqual(args.referenced_image_paths,[input.references[0].source]);
+ const {input}=setup(t),primary=input.references[0];
+ input.references.unshift({...structuredClone(primary),id:'judge',generation_input:false,authority:['costume'],facts:[{id:'F2',channel:'costume',visibility:'visible',text:'合成服装观察。'}]});
+ input.sections[1].items.push({text:'衣料低光泽。',basis:['F2'],intent:'retain'});
+ const compiled=compileProductionPrompt(input),s=freeze(input),args=verifyFrozenRun(s);
+ assert.equal(args.prompt,compiled.prompt);assert.deepEqual(args.referenced_image_paths,[primary.source]);
+ assert.deepEqual(compiled.audit.reference_usage.map(r=>[r.id,r.input_position]),[['judge',null],['R1',1]]);
+ assert.deepEqual(s.actual_inputs.map(r=>r.id),['R1']);
+ assert.deepEqual(Object.keys(args).sort(),['prompt','referenced_image_paths']);
  assert.equal(s.references.length,2);assert.equal(s.tool_parameters.seed,null);
 });
 test('freezing blocks silent snapshot edits, reference replacement and output substitution',t=>{

@@ -26,6 +26,27 @@ test('P9 preserves torso and balances thigh and calf',()=>{const r=run(['proport
 
 test('P9 garment assist strengthens verticality instead of redesigning costume',()=>{const r=run(['proportion-profile','--level','P9']);assert.equal(r.json.garment_vertical_bias,'strong');assert.equal(r.json.garment_proportion_assist.sleeve_mass_control,'medium');assert.match(r.json.garment_proportion_assist.rules.join(' '),/不自动重设计服装/);});
 
+test('proportion entry points preserve garment waist design instead of silently raising it',()=>{
+ for(const command of ['proportion-profile','proportion-plan','fashion-human-plan','fashion-human-v3-plan','fashion-human-v31-plan']){
+  const result=run([command]);assert.equal(result.status,0,result.stderr);
+  const plan=result.json.stage_1??result.json,profile=plan.proportion??plan;
+  assert.deepEqual(profile.visual_head_count_range,[9,9]);
+  assert.equal(profile.waistline_visual_raise,'none');
+  const assist=profile.garment_proportion_assist;
+  assert.equal(assist.waist_sash_position,'preserve_confirmed_design');
+  assert.equal(assist.skirt_start_bias,'preserve_confirmed_design');
+  assert.doesNotMatch(JSON.stringify(profile),/slightly_higher_visual|high_waist_visual/);
+  const prose=(plan.prompt_skeleton??assist.rules).join(' ');
+  assert.match(prose,/高腰、自然腰或低腰时分别保留/);
+  assert.match(prose,/没有衣带或裙片的造型不新增/);
+  if(plan.round_plan){
+   assert.ok(plan.round_plan.locked.includes('garment_structure'));
+   assert.ok(plan.round_plan.locked.includes('garment_silhouette'));
+   assert.ok(plan.round_plan.forbidden.includes('costume_redesign'));
+  }
+ }
+});
+
 test('non-nine-head legacy levels are rejected by production plans',()=>{for(const level of ['P7','P8','P9.5']){const r=run(['proportion-plan','--level',level]);assert.equal(r.status,1);assert.match(r.stderr,/黄金九头身/);}});
 
 test('natural adult profile cannot bypass mandatory nine-head asset policy',()=>{const r=run(['fashion-asset-v082','--profile','NATURAL_ADULT']);assert.equal(r.status,1);assert.match(r.stderr,/黄金九头身/);});

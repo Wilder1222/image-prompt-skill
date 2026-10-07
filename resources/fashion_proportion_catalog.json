@@ -112,13 +112,15 @@
     ]
   },
   "garment_proportion_assist": {
-    "waist_sash_position": "slightly_higher_visual",
-    "skirt_start_bias": "high_waist_visual",
+    "waist_sash_position": "preserve_confirmed_design",
+    "skirt_start_bias": "preserve_confirmed_design",
     "centerline_strength": "medium_strong",
     "sleeve_mass_control": "medium",
     "hem_width_control": "medium",
     "footwear_visibility": "pose_and_drape_dependent",
     "rules": [
+      "衣带与裙片起点沿用已确认设计中的穿着关系，不默认上移或下移；原设计为高腰、自然腰或低腰时分别保留，不把服装腰线改成统一高腰，也不将高腰服装强改为人体自然腰位。没有衣带或裙片的造型不新增这些部件。",
+      "获准修正身体比例后，服装按原设计的穿着、连接与受力关系贴合身体；保持设计不等于冻结原图像素坐标，不能借重新贴合改造衣片结构。",
       "在不改变已确认服装设计的前提下，衣带、裙片起点和纵向衣片支持整体修长轮廓；自然腰位与完整躯干优先。",
       "只处理确实妨碍展示的多余横向堆叠，不自动重设计服装或删去标志性层次。",
       "鞋脚可被衣摆自然遮挡；只有明确要求展示鞋履时才设为必须可见，不为露鞋缩短长裙。"

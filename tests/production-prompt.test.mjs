@@ -69,6 +69,50 @@ test('supported identity roles preserve input order without inventing execution 
   }
 });
 
+test('reference usage distinguishes observed prose from filtered image positions and preserves the prompt',()=>{
+  const input=fixture();
+  const observer={id:'back-note',source:'unsubmitted-back.png',inspected:true,generation_input:false,authority:['costume'],
+    facts:[{id:'back-seam',channel:'costume',visibility:'visible',text:'合成观察：背片中央纵缝。'}]};
+  input.references.unshift(observer);
+  input.references.push({id:'fabric',source:'fabric.png',inspected:true,generation_input:true,authority:['costume'],
+    facts:[{id:'weave',channel:'material',visibility:'visible',text:'合成观察：低光泽织物。'}]});
+  input.sections[1].items.push({intent:'retain',basis:['back-seam','weave','back-seam'],text:'背片采用中央纵缝和低光泽织物。'});
+  const before=structuredClone(input),result=compileProductionPrompt(input);
+  assert.deepEqual(input,before);
+  assert.deepEqual(result.reference_inputs.map(r=>r.id),['R1','fabric']);
+  const usage=result.audit.reference_usage;
+  assert.deepEqual(usage.map(r=>[r.id,r.delivery,r.input_position]),[
+    ['back-note','observation_only',null],['R1','image_input',1],['fabric','image_input',2]
+  ]);
+  assert.deepEqual(usage[0].used_facts,['back-seam']);
+  assert.deepEqual(usage[0].clause_uses,[{section:'服装',channel:'costume',item_index:2,facts:['back-seam']}]);
+  assert.deepEqual(usage[2].clause_uses,[{section:'服装',channel:'costume',item_index:2,facts:['weave']}]);
+  assert.deepEqual(usage[1].authority,['identity','costume']);
+  const prompt=input.sections.map(s=>`【${s.label}】\n${s.items.map(i=>i.text).join('\n')}`).join('\n\n');
+  assert.equal(result.prompt,prompt);assert.equal(result.prompt_sha256,promptHash(prompt));
+  assert.equal(result.evidence.semantic_quality_verified,false);
+  // Changing transport intent changes the audit, not authored prose or hash.
+  observer.generation_input=true;
+  const sent=compileProductionPrompt(input);
+  assert.deepEqual(sent.audit.reference_usage.map(r=>r.input_position),[1,2,3]);
+  assert.equal(sent.prompt,result.prompt);assert.equal(sent.prompt_sha256,result.prompt_sha256);
+});
+
+test('reference usage keeps unused observations distinct from actual image inputs and text-only tasks',()=>{
+  const input=fixture();
+  input.references.push({id:'judge',source:'judge.png',inspected:true,generation_input:false,authority:['style'],
+    facts:[{id:'judge-fact',channel:'style',visibility:'visible',text:'合成评价资料，未被正文引用。'}]});
+  input.sections[0].items=[{intent:'constraint',basis:['U1'],text:'保持本轮人物身份。'}];
+  const result=compileProductionPrompt(input),[primary,judge]=result.audit.reference_usage;
+  assert.equal(primary.delivery,'image_input');assert.equal(primary.input_position,1);
+  assert.ok(!primary.used_facts.includes('face'));assert.ok(result.audit.unused_observations.includes('face'));
+  assert.deepEqual(judge.used_facts,[]);assert.deepEqual(judge.clause_uses,[]);assert.equal(judge.input_position,null);
+  assert.ok(result.audit.unused_observations.includes('judge-fact'));
+  const text=fixture();text.references=[];
+  text.sections=text.requirements.map(r=>({label:r.id,channel:r.channel,items:[{intent:'constraint',basis:[r.id],text:r.text}]}));
+  assert.deepEqual(compileProductionPrompt(text).audit.reference_usage,[]);
+});
+
 test('expression-only source supplies motion without acquiring identity or body authority',()=>{
   const brief=JSON.parse(fs.readFileSync(new URL('../examples/character-expression-brief.json',import.meta.url),'utf8'));
   brief.references.push({id:'motion',source:'synthetic-expression-fixture.png',inspected:true,generation_input:true,
@@ -306,6 +350,8 @@ test('production CLI emits the exact checked text and rejects unknown options',t
   const cli=fileURLToPath(new URL('../scripts/iteration-director.mjs',import.meta.url));
   const run=args=>spawnSync(process.execPath,[cli,...args],{encoding:'utf8'});
   const r=run(['prompt-build','--input',input,'--format','text']);assert.equal(r.status,0,r.stderr);assert.equal(r.stdout.trim(),compileProductionPrompt(fixture()).prompt);
+  const jsonResult=run(['prompt-build','--input',input]);assert.equal(jsonResult.status,0,jsonResult.stderr);
+  assert.deepEqual(JSON.parse(jsonResult.stdout).audit.reference_usage,compileProductionPrompt(fixture()).audit.reference_usage);
   for(const args of [['--input'],['--input',input,'--unknown','x'],['--input',input,'--format','xml']]){const bad=run(['prompt-build',...args]);assert.equal(bad.status,1);assert.equal(bad.stdout,'');}
   const output=path.join(dir,'output.png');
   fs.writeFileSync(output,Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64'));

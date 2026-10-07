@@ -142,12 +142,26 @@ export function compileProductionPrompt(input) {
   }
   if (errors.length) throw new Error(errors.join('\n'));
   const prompt = paragraphs.join('\n\n');
+  const referenceInputs=input.references.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source}));
+  const inputPositions=new Map(referenceInputs.map((r,index)=>[r.id,index+1]));
+  // Trace authored clauses back to observations without interpreting the prose.
+  // Positions follow filtered tool inputs, not the full observation list.
+  const referenceUsage=input.references.map(ref=>{
+    const factIds=new Set(ref.facts.map(f=>f.id));
+    const clauseUses=input.sections.flatMap(section=>section.items.flatMap((item,index)=>{
+      const facts=[...new Set(item.basis.filter(id=>factIds.has(id)))];
+      return facts.length?[{section:section.label,channel:section.channel,item_index:index,facts}]:[];
+    }));
+    return {id:ref.id,delivery:ref.generation_input?'image_input':'observation_only',
+      input_position:inputPositions.get(ref.id)??null,authority:[...ref.authority],
+      used_facts:ref.facts.filter(f=>used.has(f.id)).map(f=>f.id),clause_uses:clauseUses};
+  });
   const compiled = {
     status: 'prompt_ready', subject_kind: input.subject_kind, prompt, prompt_sha256: promptHash(prompt),
     ...(editScope?{edit_scope:editScope}:{}),
-    reference_inputs: input.references.filter(r => r.generation_input).map(r => ({id:r.id, source:r.source})),
+    reference_inputs: referenceInputs,
     acceptance: input.acceptance,
-    audit: { coverage: input.requirements.map(r => ({id:r.id, covered:used.has(r.id)})), unused_observations:[...basis.values()].filter(r => r.type==='observation'&&!used.has(r.id)).map(r=>r.id) },
+    audit: { coverage: input.requirements.map(r => ({id:r.id, covered:used.has(r.id)})), unused_observations:[...basis.values()].filter(r => r.type==='observation'&&!used.has(r.id)).map(r=>r.id), reference_usage:referenceUsage },
     evidence: { provenance_checked:true, semantic_quality_verified:false, image_generated:false, visual_quality_verified:false, user_accepted:false },
     note: 'The agent must review meaning against the actual images and request. Declared provenance and complete coverage do not prove good visual results.',
   };
