@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "purpose": "将九条人物风格路线与指定实图报告显式绑定，审计编译支持和视觉证据覆盖，不自动判定图像质量。",
+  "routes": [
+    {
+      "style_id": "photographic_character",
+      "evidence": [
+        { "report": "docs/character-style-evidence.json", "case_id": "traveler-photo" }
+      ]
+    },
+    {
+      "style_id": "cinematic_cg_character",
+      "evidence": [
+        { "report": "docs/character-cinematic-cg-evidence.json" },
+        { "report": "docs/character-cg-direct-evidence.json" },
+        { "report": "docs/character-cg-fusion-evidence.json" }
+      ]
+    },
+    {
+      "style_id": "realistic_3d_character",
+      "evidence": [
+        { "report": "docs/character-proportion-control-evidence.json" },
+        { "report": "docs/character-volume-reference-evidence.json" }
+      ]
+    },
+    {
+      "style_id": "stylized_3d_character",
+      "evidence": [
+        { "report": "docs/character-style-evidence.json", "case_id": "traveler-stylized" }
+      ]
+    },
+    {
+      "style_id": "anime_3d_character",
+      "evidence": [
+        { "report": "docs/character-anime3d-evidence.json" }
+      ]
+    },
+    {
+      "style_id": "anime_2d_character",
+      "evidence": [
+        { "report": "docs/character-anime-evidence.json" }
+      ]
+    },
+    {
+      "style_id": "painterly_character",
+      "evidence": [
+        { "report": "docs/character-painterly-evidence.json" }
+      ]
+    },
+    {
+      "style_id": "watercolor_character",
+      "evidence": [
+        { "report": "docs/character-wash-evidence.json", "style": "watercolor_character" }
+      ]
+    },
+    {
+      "style_id": "ink_wash_character",
+      "evidence": [
+        { "report": "docs/character-wash-evidence.json", "style": "ink_wash_character" },
+        { "report": "docs/character-ink-refine-evidence.json" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-07T09:09:14.778Z",
+  "purpose": "审计九条人物风格的编译支持与实图证据覆盖；不进行图像评分，不把媒介检查通过升级为九头身或资产合格。",
+  "hard_rule": "所有人物路线仍以颅顶至下巴头长定义的黄金九头身为硬性目标；本审计不替代逐图测量。",
+  "compiled_routes": 9,
+  "visual_routes_with_outputs": 9,
+  "actual_outputs": 19,
+  "reviewer_qualified_outputs": 0,
+  "evidence_reports": [
+    "docs/character-anime-evidence.json",
+    "docs/character-anime3d-evidence.json",
+    "docs/character-cg-direct-evidence.json",
+    "docs/character-cg-fusion-evidence.json",
+    "docs/character-cinematic-cg-evidence.json",
+    "docs/character-ink-refine-evidence.json",
+    "docs/character-painterly-evidence.json",
+    "docs/character-proportion-control-evidence.json",
+    "docs/character-style-evidence.json",
+    "docs/character-volume-reference-evidence.json",
+    "docs/character-wash-evidence.json"
+  ],
+  "routes": [
+    {
+      "style_id": "photographic_character",
+      "label": "真人摄影",
+      "compiled": true,
+      "evidence_reports": [
+        "docs/character-style-evidence.json"
+      ],
+      "completed_runs": 2,
+      "actual_outputs": 2,
+      "reviewer_qualified_runs": 0,
+      "medium_pass_runs": 2,
+      "body_pass_runs": 0,
+      "duplicate_outputs": 0,
+      "visual_status": "unresolved"
+    },
+    {
+      "style_id": "cinematic_cg_character",
+      "label": "电影级CG",
+      "compiled": true,
+      "evidence_reports": [
+        "docs/character-cinematic-cg-evidence.json",
+        "docs/character-cg-direct-evidence.json",
+        "docs/character-cg-fusion-evidence.json"
+      ],
+      "completed_runs": 4,
+      "actual_outputs": 4,
+      "reviewer_qualified_runs": 0,
+      "medium_pass_runs": 1,
+      "body_pass_runs": 0,
+      "duplicate_outputs": 0,
+      "visual_status": "unresolved"
+    },
+    {
+      "style_id": "realistic_3d_character",
+      "label": "写实三维",
+      "compiled": true,
+      "evidence_reports": [
+        "docs/character-proportion-control-evidence.json",
+        "docs/character-volume-reference-evidence.json"
+      ],
+      "completed_runs": 2,
+      "actual_outputs": 2,
+      "reviewer_qualified_runs": 0,
+      "medium_pass_runs": 1,
+      "body_pass_runs": 0,
+      "duplicate_outputs": 0,
+      "visual_status": "unresolved"
+    },
+    {
+      "style_id": "stylized_3d_character",
+      "label": "风格化三维",
+      "compiled": true,
+      "evidence_reports": [
+        "docs/character-style-evidence.json"
+      ],
+      "completed_runs": 2,
+      "actual_outputs": 2,
+      "reviewer_qualified_runs": 0,
+      "medium_pass_runs": 0,
+      "body_pass_runs": 0,
+      "duplicate_outputs": 0,
+      "visual_status": "unresolved"
+    },
+    {
+      "style_id": "anime_3d_character",
+      "label": "三维动画与卡通渲染",
+      "compiled": true,
+      "evidence_reports": [
+        "docs/character-anime3d-evidence.json"
+      ],
+      "completed_runs": 2,
+      "actual_outputs": 2,
+      "reviewer_qualified_runs": 0,
+      "medium_pass_runs": 1,
+      "body_pass_runs": 0,
+      "duplicate_outputs": 0,
+      "visual_status": "unresolved"
+    },
+    {
+      "style_id": "anime_2d_character",
+      "label": "二维动漫",
+      "compiled": true,
+      "evidence_reports": [
+        "docs/character-anime-evidence.json"
+      ],
+      "completed_runs": 2,
+      "actual_outputs": 2,
+      "reviewer_qualified_runs": 0,
+      "medium_pass_runs": 1,
+      "body_pass_runs": 0,
+      "duplicate_outputs": 0,
+      "visual_status": "unresolved"
+    },
+    {
+      "style_id": "painterly_character",
+      "label": "厚涂绘画",
+      "compiled": true,
+      "evidence_reports": [
+        "docs/character-painterly-evidence.json"
+      ],
+      "completed_runs": 2,
+      "actual_outputs": 2,
+      "reviewer_qualified_runs": 0,
+      "medium_pass_runs": 1,
+      "body_pass_runs": 0,
+      "duplicate_outputs": 0,
+      "visual_status": "unresolved"
+    },
+    {
+      "style_id": "watercolor_character",
+      "label": "水彩插画",
+      "compiled": true,
+      "evidence_reports": [
+        "docs/character-wash-evidence.json"
+      ],
+      "completed_runs": 1,
+      "actual_outputs": 1,
+      "reviewer_qualified_runs": 0,
+      "medium_pass_runs": 1,
+      "body_pass_runs": 0,
+      "duplicate_outputs": 0,
+      "visual_status": "unresolved"
+    },
+    {
+      "style_id": "ink_wash_character",
+      "label": "水墨设色",
+      "compiled": true,
+      "evidence_reports": [
+        "docs/character-wash-evidence.json",
+        "docs/character-ink-refine-evidence.json"
+      ],
+      "completed_runs": 2,
+      "actual_outputs": 2,
+      "reviewer_qualified_runs": 0,
+      "medium_pass_runs": 0,
+      "body_pass_runs": 0,
+      "duplicate_outputs": 0,
+      "visual_status": "unresolved"
+    }
+  ],
+  "errors": [],
+  "boundaries": [
+    "脚本只读取报告中的结构化字段和人工复核结论，不读取像素，也不自动测量头身比。",
+    "medium_pass_runs 只表示对应媒介检查通过；visual_status 只有每个实际输出均为 reviewer_qualified 才能为 qualified。",
+    "报告缺失、调用数漂移、风格映射漂移或重复输出会进入 errors。"
+  ]
+}

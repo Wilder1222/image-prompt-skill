@@ -81,6 +81,8 @@ node scripts/iteration-director.mjs asset-prompt --style-workflow anime_2d_chara
 
 九类路线的证据分开查看。下表列代表性实测及其原冻结媒介项，不把局部通过称为整张通过，也不把后一次自动视为最佳母图。
 
+为防止路线文档与实图记录漂移，`resources/character_style_evidence_catalog.json` 固定每条路线使用的报告和筛选条件，`node scripts/character-style-evidence-audit.mjs` 生成 [结构化覆盖审计](../../docs/character-style-evidence-audit.json)。审计只汇总真实输出数量、媒介检查、九头身检查和人工整体结论；没有逐图 `reviewer_qualified` 时，路线保持未解决，不会因媒介项通过而升级。
+
 | 路线 | 媒介项证据 | 尚未完成 |
 | --- | --- | --- |
 | 真人摄影 | [两次](../../docs/character-style-evidence.json)均通过媒介项 | 首次比例失败，第二次比例待审 |

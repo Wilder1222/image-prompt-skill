@@ -10,7 +10,8 @@
     "plugin:sync": "node scripts/plugin-support.mjs sync",
     "plugin:build": "node scripts/build-plugin.mjs",
     "plugin:check": "node scripts/plugin-support.mjs check",
-    "examples:build": "node scripts/build-examples.mjs"
+    "examples:build": "node scripts/build-examples.mjs",
+    "character:evidence-audit": "node scripts/character-style-evidence-audit.mjs"
   },
   "engines": {
     "node": ">=22"
