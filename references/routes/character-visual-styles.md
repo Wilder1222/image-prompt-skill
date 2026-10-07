@@ -73,6 +73,8 @@ node scripts/iteration-director.mjs asset-prompt --style-workflow anime_2d_chara
 
 ## 验收边界
 
+摄影转三维等跨媒介任务按 [人物候选的保留与变化对照](character-candidate-comparison.md) 分开观察：哪些差异是获准的表现变化，哪些关系必须保持，哪些仍看不清。相似度更高可能只是旧媒介保留更多；风格更明显也可能伴随身份退步，二者均不能单独代表合格。
+
 生成前记录媒介目标，生成后检查脸、发、衣料、光影和边缘是否统一，再验身份、年龄、九头身及衣装结构。风格准确不能抵消身份或比例失败。三维检查空间厚度与连接；二维和绘画检查线条色面与关键结构，不以缺少毛孔否决二维图。
 
 编译与回归测试只证明路线、分类输出、冲突拦截和局部编辑边界，不能证明模型出图稳定。2026-10-06 已实测真人摄影和风格化三维各两次，见 [四次实图证据](../../docs/character-style-evidence.json)。首次风格化图仍保留较多照片纹理；第二次提前具体转换并同步改写材质，发束和衣料概括改善，但身份与九头身仍待审，四张均未整体通过。这是单角色、多个提示词变量共同改变的诊断，不能证明仅靠顺序调整就稳定有效。
@@ -81,14 +83,16 @@ node scripts/iteration-director.mjs asset-prompt --style-workflow anime_2d_chara
 
 九类路线的证据分开查看。下表列代表性实测及其原冻结媒介项，不把局部通过称为整张通过，也不把后一次自动视为最佳母图。
 
-为防止路线文档与实图记录漂移，`resources/character_style_evidence_catalog.json` 固定每条路线使用的报告和筛选条件，`node scripts/character-style-evidence-audit.mjs` 生成 [结构化覆盖审计](../../docs/character-style-evidence-audit.json)。审计只汇总真实输出数量、媒介检查、九头身检查和人工整体结论；没有逐图 `reviewer_qualified` 时，路线保持未解决，不会因媒介项通过而升级。
+`resources/character_style_evidence_catalog.json` 指定每条路线使用的报告和筛选条件，`npm run character:evidence-audit` 生成 [结构化覆盖审计](../../docs/character-style-evidence-audit.json)。第二版的 `configured_routes` 仅表示风格配置存在，`recorded_outputs` 表示报告中有效登记的输出；不代替编译执行或原始回执认证。合格声明必须与九头身、关键检查及已记录编辑范围自洽，媒介项通过不能升级为整体合格。跨报告重复输出只计一次，空筛选、重复路线及缺失报告均报错。
+
+需要本地核验时运行 `node scripts/character-style-evidence-audit.mjs dist/visual-tests/style-audit-output-verification.json --verify-files`。它按各报告的 `evidence_directory` 定位输出并比对 SHA-256；缺失或变更报错。默认报告的 `file_verified_outputs=null` 表示未执行此检查，不是文件核验失败或零张通过。哈希核验不检查像素内容、不测量头身比，也不证明实际生成过程或批量稳定性。旧版 `compiled_routes`、`actual_outputs` 和路线 `qualified` 字段已移除，避免扩大元数据审计所能证明的范围。
 
 | 路线 | 媒介项证据 | 尚未完成 |
 | --- | --- | --- |
 | 真人摄影 | [两次](../../docs/character-style-evidence.json)均通过媒介项 | 首次比例失败，第二次比例待审 |
 | 电影CG | [原绘画转换两次](../../docs/character-cinematic-cg-evidence.json)及[双参考一次](../../docs/character-cg-fusion-evidence.json)均失败；[独立新人物一次](../../docs/character-cg-direct-evidence.json)通过媒介项 | 新人物不替代旧人物转换；比例均待审 |
 | 写实三维 | [独立短发男性](../../docs/character-proportion-control-evidence.json)通过媒介项 | 九头身失败，后续参考输入也未解决 |
-| 风格化三维 | [首次失败、第二次待审](../../docs/character-style-evidence.json) | 身份与九头身待审 |
+| 风格化三维 | [转换首次失败、第二次待审](../../docs/character-style-evidence.json)；[年长男性文生图](../../docs/character-senior-evidence.json)年龄可读但媒介失败 | 转换身份与比例待审；新人物毛发、肤质和比例失败，不能互相替代 |
 | 三维动画／三渲二 | [首次失败、修订后通过媒介项](../../docs/character-anime3d-evidence.json) | 九头身失败，脚部朝向待审 |
 | 二维动漫 | [首次失败、修订后通过媒介项](../../docs/character-anime-evidence.json) | 九头身失败 |
 | 厚涂 | [首次失败、修订后通过媒介项](../../docs/character-painterly-evidence.json) | 九头身及严格足部朝向待审 |

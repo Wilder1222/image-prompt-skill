@@ -26,7 +26,8 @@
     {
       "style_id": "stylized_3d_character",
       "evidence": [
-        { "report": "docs/character-style-evidence.json", "case_id": "traveler-stylized" }
+        { "report": "docs/character-style-evidence.json", "case_id": "traveler-stylized" },
+        { "report": "docs/character-senior-evidence.json" }
       ]
     },
     {

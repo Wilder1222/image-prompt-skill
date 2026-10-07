@@ -1,12 +1,13 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-10-07T09:09:14.778Z",
-  "purpose": "审计九条人物风格的编译支持与实图证据覆盖；不进行图像评分，不把媒介检查通过升级为九头身或资产合格。",
+  "schema_version": 2,
+  "purpose": "核对风格配置、登记输出和人工结论的一致性；不执行提示词编译或视觉评分。",
   "hard_rule": "所有人物路线仍以颅顶至下巴头长定义的黄金九头身为硬性目标；本审计不替代逐图测量。",
-  "compiled_routes": 9,
-  "visual_routes_with_outputs": 9,
-  "actual_outputs": 19,
-  "reviewer_qualified_outputs": 0,
+  "verification_mode": "report_metadata_only",
+  "configured_routes": 9,
+  "routes_with_recorded_outputs": 9,
+  "recorded_outputs": 20,
+  "file_verified_outputs": null,
+  "consistent_qualified_reports": 0,
   "evidence_reports": [
     "docs/character-anime-evidence.json",
     "docs/character-anime3d-evidence.json",
@@ -16,6 +17,7 @@
     "docs/character-ink-refine-evidence.json",
     "docs/character-painterly-evidence.json",
     "docs/character-proportion-control-evidence.json",
+    "docs/character-senior-evidence.json",
     "docs/character-style-evidence.json",
     "docs/character-volume-reference-evidence.json",
     "docs/character-wash-evidence.json"
@@ -24,147 +26,158 @@
     {
       "style_id": "photographic_character",
       "label": "真人摄影",
-      "compiled": true,
+      "profile_configured": true,
       "evidence_reports": [
         "docs/character-style-evidence.json"
       ],
       "completed_runs": 2,
-      "actual_outputs": 2,
-      "reviewer_qualified_runs": 0,
+      "recorded_outputs": 2,
+      "file_verified_outputs": null,
+      "consistent_qualified_reports": 0,
       "medium_pass_runs": 2,
       "body_pass_runs": 0,
       "duplicate_outputs": 0,
-      "visual_status": "unresolved"
+      "evidence_status": "unresolved"
     },
     {
       "style_id": "cinematic_cg_character",
       "label": "电影级CG",
-      "compiled": true,
+      "profile_configured": true,
       "evidence_reports": [
         "docs/character-cinematic-cg-evidence.json",
         "docs/character-cg-direct-evidence.json",
         "docs/character-cg-fusion-evidence.json"
       ],
       "completed_runs": 4,
-      "actual_outputs": 4,
-      "reviewer_qualified_runs": 0,
+      "recorded_outputs": 4,
+      "file_verified_outputs": null,
+      "consistent_qualified_reports": 0,
       "medium_pass_runs": 1,
       "body_pass_runs": 0,
       "duplicate_outputs": 0,
-      "visual_status": "unresolved"
+      "evidence_status": "unresolved"
     },
     {
       "style_id": "realistic_3d_character",
       "label": "写实三维",
-      "compiled": true,
+      "profile_configured": true,
       "evidence_reports": [
         "docs/character-proportion-control-evidence.json",
         "docs/character-volume-reference-evidence.json"
       ],
       "completed_runs": 2,
-      "actual_outputs": 2,
-      "reviewer_qualified_runs": 0,
+      "recorded_outputs": 2,
+      "file_verified_outputs": null,
+      "consistent_qualified_reports": 0,
       "medium_pass_runs": 1,
       "body_pass_runs": 0,
       "duplicate_outputs": 0,
-      "visual_status": "unresolved"
+      "evidence_status": "unresolved"
     },
     {
       "style_id": "stylized_3d_character",
       "label": "风格化三维",
-      "compiled": true,
+      "profile_configured": true,
       "evidence_reports": [
-        "docs/character-style-evidence.json"
+        "docs/character-style-evidence.json",
+        "docs/character-senior-evidence.json"
       ],
-      "completed_runs": 2,
-      "actual_outputs": 2,
-      "reviewer_qualified_runs": 0,
+      "completed_runs": 3,
+      "recorded_outputs": 3,
+      "file_verified_outputs": null,
+      "consistent_qualified_reports": 0,
       "medium_pass_runs": 0,
       "body_pass_runs": 0,
       "duplicate_outputs": 0,
-      "visual_status": "unresolved"
+      "evidence_status": "unresolved"
     },
     {
       "style_id": "anime_3d_character",
       "label": "三维动画与卡通渲染",
-      "compiled": true,
+      "profile_configured": true,
       "evidence_reports": [
         "docs/character-anime3d-evidence.json"
       ],
       "completed_runs": 2,
-      "actual_outputs": 2,
-      "reviewer_qualified_runs": 0,
+      "recorded_outputs": 2,
+      "file_verified_outputs": null,
+      "consistent_qualified_reports": 0,
       "medium_pass_runs": 1,
       "body_pass_runs": 0,
       "duplicate_outputs": 0,
-      "visual_status": "unresolved"
+      "evidence_status": "unresolved"
     },
     {
       "style_id": "anime_2d_character",
       "label": "二维动漫",
-      "compiled": true,
+      "profile_configured": true,
       "evidence_reports": [
         "docs/character-anime-evidence.json"
       ],
       "completed_runs": 2,
-      "actual_outputs": 2,
-      "reviewer_qualified_runs": 0,
+      "recorded_outputs": 2,
+      "file_verified_outputs": null,
+      "consistent_qualified_reports": 0,
       "medium_pass_runs": 1,
       "body_pass_runs": 0,
       "duplicate_outputs": 0,
-      "visual_status": "unresolved"
+      "evidence_status": "unresolved"
     },
     {
       "style_id": "painterly_character",
       "label": "厚涂绘画",
-      "compiled": true,
+      "profile_configured": true,
       "evidence_reports": [
         "docs/character-painterly-evidence.json"
       ],
       "completed_runs": 2,
-      "actual_outputs": 2,
-      "reviewer_qualified_runs": 0,
+      "recorded_outputs": 2,
+      "file_verified_outputs": null,
+      "consistent_qualified_reports": 0,
       "medium_pass_runs": 1,
       "body_pass_runs": 0,
       "duplicate_outputs": 0,
-      "visual_status": "unresolved"
+      "evidence_status": "unresolved"
     },
     {
       "style_id": "watercolor_character",
       "label": "水彩插画",
-      "compiled": true,
+      "profile_configured": true,
       "evidence_reports": [
         "docs/character-wash-evidence.json"
       ],
       "completed_runs": 1,
-      "actual_outputs": 1,
-      "reviewer_qualified_runs": 0,
+      "recorded_outputs": 1,
+      "file_verified_outputs": null,
+      "consistent_qualified_reports": 0,
       "medium_pass_runs": 1,
       "body_pass_runs": 0,
       "duplicate_outputs": 0,
-      "visual_status": "unresolved"
+      "evidence_status": "unresolved"
     },
     {
       "style_id": "ink_wash_character",
       "label": "水墨设色",
-      "compiled": true,
+      "profile_configured": true,
       "evidence_reports": [
         "docs/character-wash-evidence.json",
         "docs/character-ink-refine-evidence.json"
       ],
       "completed_runs": 2,
-      "actual_outputs": 2,
-      "reviewer_qualified_runs": 0,
+      "recorded_outputs": 2,
+      "file_verified_outputs": null,
+      "consistent_qualified_reports": 0,
       "medium_pass_runs": 0,
       "body_pass_runs": 0,
       "duplicate_outputs": 0,
-      "visual_status": "unresolved"
+      "evidence_status": "unresolved"
     }
   ],
   "errors": [],
   "boundaries": [
-    "脚本只读取报告中的结构化字段和人工复核结论，不读取像素，也不自动测量头身比。",
-    "medium_pass_runs 只表示对应媒介检查通过；visual_status 只有每个实际输出均为 reviewer_qualified 才能为 qualified。",
-    "报告缺失、调用数漂移、风格映射漂移或重复输出会进入 errors。"
+    "登记输出来自报告中的非空路径和 SHA-256；仅 local_output_sha256 模式读取本地文件并核对摘要。",
+    "合格声明只检查报告自洽性，不认证原始回执、像素内容、人工观察、用户验收或批量稳定性。",
+    "媒介项通过不能抵消九头身或其他关键项失败；风格配置存在不能替代编译检查。",
+    "只汇总显式目录指定的实验，不是人物专项全部输出总数。"
   ]
 }

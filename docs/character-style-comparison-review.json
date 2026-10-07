@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-07",
+  "purpose": "复看现有摄影来源与风格化三维候选，分开记录人物保留、获准媒介变化与仍不可确认的部分。",
+  "review_method": "代理实际查看两张完整原图；非盲评，未运行自动身份识别、独立评审器或候选交换顺序实验。",
+  "source_report": "docs/character-style-evidence.json",
+  "source": {
+    "role": "实际身份、发型和衣装输入；不是本轮三维目标的竞争候选",
+    "path": "dist/visual-tests/character-style-20261006/photo-02.png",
+    "sha256": "317c4a9b9e713fe9e1758e881414bdaf6f0a308f632ddde0a2e59cbee556d92d",
+    "width": 1024,
+    "height": 1536
+  },
+  "candidate": {
+    "run_id": "traveler-stylized-nine-02",
+    "path": "dist/visual-tests/character-style-20261006/stylized-02.png",
+    "sha256": "ada9bfb6a289b8ebfad5f5cad29e00a1767a2210be104d7ebe6e1168a4cba097",
+    "snapshot_sha256": "c8b4348c7856771bf4b3e9a7c4bce861d00500d48d1efc57096f25770e9a6ef8",
+    "target_sha256": "f4956f2fe358b8d3ebe2b4459c6872496faa9939ec3aec81bc97ece65c5a1795",
+    "width": 1024,
+    "height": 1536,
+    "existing_status": "needs_review"
+  },
+  "observations": [
+    {
+      "topic": "身份与表面分别观察",
+      "visible_evidence": "两图均为正面闭嘴成人女性。候选仍有侧分、长椭圆脸及相近眉鼻唇布局，但眼睑与眼部反光更鲜明，嘴唇轮廓与光泽更整齐、脸颊明暗更平滑。发夹和衣装相同不补足脸部身份依据。",
+      "interpretation": "这些差异包含获准的表面转换，当前查看不足以将其全部解释为身份保持或确定换脸。",
+      "retained_verdict": "uncertain"
+    },
+    {
+      "topic": "目标媒介的可见变化",
+      "visible_evidence": "候选头发组织为较宽的连续发束，外套表面较平整，胸袖部分褶皱更概括；皮肤和靴面高光更平滑。相较来源，细碎摄影纹理减少。",
+      "interpretation": "支持局部概括变化，不能仅因远离摄影来源就算变差，也不能由这些部位直接断言整幅风格化三维已经成立。",
+      "retained_verdict": "uncertain"
+    },
+    {
+      "topic": "衣装可见设计",
+      "visible_evidence": "灰蓝立领外套、象牙内衫、人物左肩赭红披片与圆铜扣、右髋皮袋、深灰裤和棕靴的主要位置与层次延续；线缝和褶皱的微小形态有所重绘。",
+      "interpretation": "主要设计保持与纹理逐像素保持不是同一声明；只支持当前正面可见部分，不确认背面或隐藏连接。",
+      "retained_verdict": "pass"
+    },
+    {
+      "topic": "九头身独立要求",
+      "visible_evidence": "短发与发量遮住真实颅顶，鞋内人体足底不可见；完整轮廓入画，但头部和身体的可见尺度不能直接证明严格九头身。",
+      "interpretation": "本次不补造端点、不重算精确比例，不因风格或衣装改善升级比例结论。",
+      "retained_verdict": "uncertain"
+    }
+  ],
+  "decision": "保留候选用于发束和衣料概括的诊断；原摄影图继续作为该次实际身份来源。候选不升级为已确认身份母图，不重复仅强化风格词的同类全身转换。",
+  "next_experiment_condition": "需提出与已有两次失败不同且可执行的新控制依据，并冻结身份可观察性、获准媒介变化与九头身验收；仅缩短或重排同义风格词不足以启动同类重试。",
+  "new_generation_calls": 0,
+  "new_accepted_assets": 0,
+  "historical_verdicts_changed": false,
+  "existing_images_modified": false,
+  "measurement": "只读核对两张PNG尺寸和SHA-256；没有程序裁切、放大或重绘。"
+}
