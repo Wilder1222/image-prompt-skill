@@ -8,17 +8,27 @@ function run(a){const r=spawnSync(process.execPath,[tool,...a],{cwd:root,encodin
 
 test('v0.7.5 catalogs validate',()=>{const r=run(['validate']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.status,'pass');assert.equal(r.json.fashion_proportion_levels,4);assert.equal(r.json.human_presence_v21_levels,4);assert.ok(r.json.rounds>=15);});
 
-test('P9 is the fashion default and excludes head ornaments from head unit',()=>{const r=run(['proportion-profile','--level','P9']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.label,'fashion');assert.deepEqual(r.json.visual_head_count_range,[8.7,9]);assert.equal(r.json.head_to_body_guard.include_hair_ornaments_in_ratio,false);});
+test('P9 is the fashion default and excludes head ornaments from head unit',()=>{const r=run(['proportion-profile','--level','P9']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.label,'fashion');assert.deepEqual(r.json.visual_head_count_range,[9,9]);assert.equal(r.json.head_to_body_guard.include_hair_ornaments_in_ratio,false);});
 
 test('P9 locks face identity while changing visual head share',()=>{const r=run(['proportion-plan','--level','P9']);assert.equal(r.status,0,r.stderr);assert.ok(r.json.round_plan.locked.includes('face_identity_geometry'));assert.ok(r.json.round_plan.editable.includes('head_visual_scale'));assert.ok(r.json.round_plan.forbidden.includes('face_reshape'));assert.ok(r.json.prompt_skeleton.some(x=>/面宽|脸型/.test(x)));});
+
+test('P9 source and plan agree on exact target and conditional scale correction',()=>{
+ const r=run(['proportion-plan','--level','P9']);assert.equal(r.status,0,r.stderr);
+ assert.deepEqual(r.json.proportion.visual_head_count_range,[9,9]);
+ assert.equal(r.json.proportion.neck_extension,'none');
+ assert.equal(r.json.proportion.waistline_visual_raise,'none');
+ const prose=r.json.prompt_skeleton.join(' ');
+ assert.match(prose,/黄金九头身是硬性目标/);assert.doesNotMatch(prose,/约九头身|保持面宽、/);
+ assert.match(prose,/五官间距比例/);assert.match(r.json.proportion.head_to_body_guard.guard_semantics,/局部修肤质、手部或衣料仍保持头身尺度/);
+});
 
 test('P9 preserves torso and balances thigh and calf',()=>{const r=run(['proportion-profile','--level','P9']);assert.equal(r.json.torso_preservation,'strong');assert.equal(r.json.leg_extension,'balanced_moderate');assert.match(r.json.leg_segmentation_guard.rules.join(' '),/不只拉长大腿或小腿中的一段/);});
 
 test('P9 garment assist strengthens verticality instead of redesigning costume',()=>{const r=run(['proportion-profile','--level','P9']);assert.equal(r.json.garment_vertical_bias,'strong');assert.equal(r.json.garment_proportion_assist.sleeve_mass_control,'medium');assert.match(r.json.garment_proportion_assist.rules.join(' '),/不自动重设计服装/);});
 
-test('P9.5 is more stylized than P9',()=>{const a=run(['proportion-profile','--level','P9']);const b=run(['proportion-profile','--level','P9.5']);assert.ok(b.json.visual_head_count_range[1]>a.json.visual_head_count_range[1]);assert.equal(b.json.label,'stylized_fashion');});
+test('non-nine-head legacy levels are rejected by production plans',()=>{for(const level of ['P7','P8','P9.5']){const r=run(['proportion-plan','--level',level]);assert.equal(r.status,1);assert.match(r.stderr,/黄金九头身/);}});
 
-test('portrait task should not default to P9 semantics in catalog profile command',()=>{const r=run(['proportion-profile','--level','P7']);assert.equal(r.json.label,'natural');assert.deepEqual(r.json.visual_head_count_range,[7.2,7.8]);});
+test('natural adult profile cannot bypass mandatory nine-head asset policy',()=>{const r=run(['fashion-asset-v082','--profile','NATURAL_ADULT']);assert.equal(r.status,1);assert.match(r.stderr,/黄金九头身/);});
 
 test('human presence v2.1 H2 prioritizes soft structure eye hair and lens realism',()=>{const r=run(['human-presence-v21','--level','H2']);assert.equal(r.status,0,r.stderr);assert.ok(r.json.soft_structure_fidelity>=0.7);assert.ok(r.json.eye_anatomy_realism>=0.7);assert.ok(r.json.hair_irregularity>=0.6);assert.ok(r.json.lens_response_realism>=0.7);assert.equal(r.json.age_shift,'none');});
 

@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "cohort": "character-expression-20261006",
+  "purpose": "同一人物与表情拼板的新换装目标，检查衣装结构、授权遮挡及受保护面部。",
+  "tool": "built-in image_gen",
+  "model": null,
+  "seed": null,
+  "evidence_directory": "dist/visual-tests/character-wardrobe-20261006",
+  "known_completed_calls": 1,
+  "approved_outputs": 0,
+  "user_accepted": false,
+  "group_verdict": "needs_revision",
+  "counting": "一次新模型调用、一张换装拼板；不按三处人物计数，也不把旧表情目标视为被修复。",
+  "runs": [
+    {
+      "run_id": "expression-wardrobe-01",
+      "case_id": "expression-sheet",
+      "snapshot_file": "wardrobe-01.snapshot.json",
+      "snapshot_sha256": "4325b775b6e95f1c9954f4ce705b810d14416f60aa0eb72569d3fec77b90facb",
+      "target_sha256": "b1ff381aae79a43d580487e73ff5947fd37c869c698099998f633c591effc5ea",
+      "prompt_sha256": "4ceea8fa7c9f967d2438cef50439eae4cdc88a3accb0544a8bfc39e92f881b0c",
+      "parent": {
+        "run_id": "expression-sheet-01",
+        "snapshot_sha256": "9410eb2f4cc177c499cd4ca55524ca71358edfe4c9228aecfe4ea4d5c796362d"
+      },
+      "goal_changed": true,
+      "target": {
+        "subject_kind": "character",
+        "requirements": [
+          {
+            "id": "identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "同一位约40岁成年男性，宽额头、略方的下颌、深棕眼、直鼻梁、较薄上唇和略饱满下唇；黑色短发带少量灰发，无胡须，保持表观年龄和面部设计。"
+          },
+          {
+            "id": "body",
+            "channel": "proportion",
+            "priority": "must",
+            "target_head_count": 9,
+            "text": "中性全身人体直立高度为九个中性闭合下颌时颅顶至下巴的头长，不计发量和鞋履；躯干、骨盆及四肢协调。表情变化不重设身体头长基准。"
+          },
+          {
+            "id": "expression",
+            "channel": "expression",
+            "priority": "must",
+            "text": "全身和上方头肩为放松中性、嘴唇自然闭合；下方头肩嘴唇自然分开、下颌适度下移，眉眼保持放松，不用惊恐瞪眼、抬眉或仰头替代张嘴动作。口唇与口腔连接自然。"
+          },
+          {
+            "id": "outfit",
+            "channel": "costume",
+            "priority": "must",
+            "text": "三处均穿同一墨绿色无纹样长袖夹克，前中拉链敞开露出米白圆领内搭；自然落肩、袖口到腕部，衣摆止于髋部。配深灰直筒长裤，裤脚止于脚踝上方，保留赤脚。允许新衣服遮住原裸露前臂与小腿，不能缩改身体来迁就衣服；发型不变，无新增配饰。"
+          },
+          {
+            "id": "view",
+            "channel": "composition",
+            "priority": "must",
+            "text": "三处均为正面，头颈与身体不偏转；全身自然站直、双臂放松离身、双脚稳定平放，两张头肩图保留完整头顶至肩部。"
+          },
+          {
+            "id": "layout",
+            "channel": "layout",
+            "priority": "must",
+            "text": "左侧一张完整全身，右侧上下两张头肩图，上中性、下张嘴。右侧两图展示倍率相同，以头顶和双眼位置对齐，不强迫张嘴后的下巴与中性图重合。全身与头像不要求相同展示倍率，无文字或额外格。"
+          },
+          {
+            "id": "style",
+            "channel": "style",
+            "priority": "must",
+            "text": "三处统一写实三维人物质感，皮肤有柔和体积，头发、布料和皮肤的表面表现明确，不出现照片与卡通混杂或蜡皮。"
+          },
+          {
+            "id": "light",
+            "channel": "lighting",
+            "priority": "must",
+            "text": "三处使用一致的柔和正面偏上布光和中性颜色，保留脸部体积；不靠改变光线制造表情差异。"
+          },
+          {
+            "id": "background",
+            "channel": "background",
+            "priority": "must",
+            "text": "不透明浅灰纯色背景，人物之间清楚分隔，无场景道具与透明背景。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "identity-check",
+            "basis": "identity",
+            "critical": true,
+            "question": "全身与两张头肩的可见稳定面部设计和年龄是否一致，已区分自然表情运动与换脸？"
+          },
+          {
+            "id": "body-check",
+            "basis": "body",
+            "critical": true,
+            "question": "中性全身是否满足排除发量的九头身且各肢段协调？表情局部通过不能替代这一证据；端点不清时保留未决。"
+          },
+          {
+            "id": "expression-check",
+            "basis": "expression",
+            "critical": true,
+            "question": "中性与自然张嘴是否分别到位，眉眼仍放松、口唇口腔连接自然，没有用仰头或瞪眼替代动作？"
+          },
+          {
+            "id": "outfit-check",
+            "basis": "outfit",
+            "critical": true,
+            "question": "三处墨绿长袖夹克与米白内搭是否同套，开襟、领袖和衣片连接自然；全身是否配深灰直筒长裤及赤脚，发型保持，无旧短袖短裤残留或新增饰品？"
+          },
+          {
+            "id": "view-check",
+            "basis": "view",
+            "critical": true,
+            "question": "是否共同正面，完整全身和完整头肩分别可读，没有偏头、仰头或身体转面？"
+          },
+          {
+            "id": "layout-check",
+            "basis": "layout",
+            "critical": true,
+            "question": "是否左全身、右上中性头肩、右下张嘴头肩，两张头肩倍率和对齐基准一致且无多余内容？"
+          },
+          {
+            "id": "style-check",
+            "basis": "style",
+            "critical": true,
+            "question": "三处是否保持统一写实三维人物质感，皮肤、发与布料表现协调？"
+          },
+          {
+            "id": "light-check",
+            "basis": "light",
+            "critical": true,
+            "question": "各处是否保持同一柔和照明与中性颜色，表情差异没有被光线改变混淆？"
+          },
+          {
+            "id": "background-check",
+            "basis": "background",
+            "critical": true,
+            "question": "背景是否为实际不透明浅灰色，无道具或透明空白？"
+          }
+        ]
+      },
+      "prompt": "【人物身份与面容】\n保持参考三处同一中年男性的稳定面部设计：宽额头、眉眼关系、直鼻梁、薄上唇和略方下颌，以及表观年龄和无胡须状态。各处原有中性或张嘴表情保持，不因换装换脸或美化重塑五官。\n\n【身材比例】\n人体统一采用黄金九头身：中性全身从颅顶至人体足底的直立高度，等于九个中性、下颌放松闭合时颅顶至下巴的头长，不计发量和鞋履。胸腰、骨盆、上下臂及上下腿协调，肌肉软组织自然。张嘴造成下颌移动时，保留同一身体设计，不用变化后的下巴位置重新拉伸躯干或四肢。\n九头身为最终身体验收目标，原候选尚未确认。本次仅换衣，不移动或缩放头颈、躯干和四肢来修比例；比例未决继续保留，衣服变长不等于身体比例达标。\n\n【表情与眼神】\n原左侧全身和右上头像继续放松中性、嘴唇闭合；右下继续原本自然张嘴、下颌下移且眉眼放松的表情。保持视线和头部朝向，不追加微笑或惊恐，不改变口腔与唇部动作。\n\n【服装与发型】\n三处均穿同一墨绿色无纹样长袖夹克，前中拉链敞开露出米白圆领内搭；自然落肩、袖口到腕部，衣摆止于髋部。配深灰直筒长裤，裤脚止于脚踝上方，保留赤脚。允许新衣服遮住原裸露前臂与小腿，不能缩改身体来迁就衣服；发型不变，无新增配饰。\n\n【视角与姿态】\n各处均正面朝镜头，头颈不偏转。左侧完整展示自然直立全身，双臂放松微离躯干、双脚稳定平放；右侧两图均从完整头顶展示到肩部，头角与视线一致。\n\n【对照版式】\n左侧安排一张完整全身，右侧上下安排两张头肩对照，上中性、下自然张嘴。两张头肩图展示倍率相同，以头顶和双眼位置对齐，不用下巴对齐抵消下颌运动；全身与头像不要求相同展示倍率。各部分留出清楚间隔，不增加文字、色板或额外格。\n\n【三维表现】\n统一写实三维人物表现，脸部和四肢有连续柔和体积，皮肤、短发与布料具有清楚的表面区别；不混入卡通大眼、平涂线稿或蜡状皮肤。\n\n【照明】\n使用一致的柔和正面偏上布光，面部清楚、体积自然、颜色中性；两张头肩对照的光向与明暗保持相同，不以换灯光替代表情变化。\n\n【背景】\n不透明浅灰纯色背景，空白与人物边缘清楚，无场景道具，不输出透明抠图。\n\n【本次编辑范围】\n允许修改：三处衣装替换为同一墨绿长袖夹克和米白内搭，左侧短裤替换为深灰直筒长裤；允许新袖管、裤管自然遮住原裸露前臂和小腿，并产生衣服自身的边缘、褶皱与接触阴影。\n必须保持：三处人物的脸、年龄、短发与原本中性或张嘴表情；人体头颈、躯干和四肢的位置与尺度，姿态及赤脚的位置；不被新衣自然遮挡的手、脚、头颈等可见部位；不扩大露肤；原三格版式、各格取景与展示倍率、浅灰背景、现有柔光和写实体积表现。",
+      "references": [
+        {
+          "id": "candidate",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-expression-20261006\\expression-01.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "identity",
+            "hair",
+            "expression",
+            "composition",
+            "layout",
+            "style",
+            "lighting",
+            "background",
+            "proportion"
+          ],
+          "facts": [
+            {
+              "id": "face-seen",
+              "channel": "identity",
+              "visibility": "visible",
+              "text": "三处为可辨认的同一中年男性，宽额头、略方下颌、直鼻梁、较薄上唇，深棕眼，无胡须。"
+            },
+            {
+              "id": "hair-seen",
+              "channel": "hair",
+              "visibility": "visible",
+              "text": "黑色短发夹少量灰发，分缝与外轮廓相近。"
+            },
+            {
+              "id": "expression-seen",
+              "channel": "expression",
+              "visibility": "visible",
+              "text": "全身和右上中性闭嘴，右下自然张嘴、眉眼较放松。"
+            },
+            {
+              "id": "body-unresolved",
+              "channel": "proportion",
+              "visibility": "partial",
+              "text": "原全身比例未通过确认，颅顶受发量遮挡且裸足带透视，不将该身体标为九头身已达标。"
+            }
+          ],
+          "content_sha256": "5f86f5cfbb2cf2c265ddb37311e3d7a68f7249773fea7a9f35022ce7622dd093"
+        }
+      ],
+      "edit_scope": {
+        "baseline_reference_id": "candidate",
+        "changes": [
+          "三处衣装替换为同一墨绿长袖夹克和米白内搭，左侧短裤替换为深灰直筒长裤",
+          "允许新袖管、裤管自然遮住原裸露前臂和小腿，并产生衣服自身的边缘、褶皱与接触阴影"
+        ],
+        "preserve": [
+          "三处人物的脸、年龄、短发与原本中性或张嘴表情",
+          "人体头颈、躯干和四肢的位置与尺度，姿态及赤脚的位置",
+          "不被新衣自然遮挡的手、脚、头颈等可见部位；不扩大露肤",
+          "原三格版式、各格取景与展示倍率、浅灰背景、现有柔光和写实体积表现"
+        ]
+      },
+      "scope_review": {
+        "verdict": "fail",
+        "change_evidence": "指定夹克、内搭与长裤已替换，三处衣装一致，新增袖管裤管的遮挡和衣服自身褶皱均在允许范围。",
+        "preservation_evidence": "人物五官关系、发型、表情与位置基本保持，但右侧两张头像的脸部皮肤出现更明显的细碎线状纹理，脸颊、鼻侧和下巴表面较原图重绘；这是新衣覆盖之外的受保护面部变化。没有据此宣称换了身份，也不把衣服成功替换当作范围通过。"
+      },
+      "output_file": "wardrobe-01.png",
+      "output_sha256": "5320b1231bf78a4e6629ca2339871f0a0b19b83bf7ecc61f7f9dfd9b5657b050",
+      "status": "needs_revision",
+      "checks": [
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "全身与两张头肩的可见稳定面部设计和年龄是否一致，已区分自然表情运动与换脸？",
+          "verdict": "pass",
+          "evidence": "与原表情拼板比较，三处中年男性的额头、眉眼间距、直鼻梁、唇部设计和略方下颌保持，短发与表观年龄未明显变化。稳定身份可辨认，但头像面部表面纹理有所重绘，另在编辑范围项记录，不能用身份设计通过掩盖越界。"
+        },
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "中性全身是否满足排除发量的九头身且各肢段协调？表情局部通过不能替代这一证据；端点不清时保留未决。",
+          "verdict": "uncertain",
+          "evidence": "本轮服装变长，没有可见证据确认原本未决的九头身；头顶仍被短发遮挡，新增裤管又遮住腿部，不能根据裤长判断身体变成九头身。头、手、足位置与整体站姿视觉基本保持，不把保持旧体型算为比例达标。"
+        },
+        {
+          "id": "expression-check",
+          "basis": "expression",
+          "critical": true,
+          "question": "中性与自然张嘴是否分别到位，眉眼仍放松、口唇口腔连接自然，没有用仰头或瞪眼替代动作？",
+          "verdict": "pass",
+          "evidence": "原全身和右上中性闭嘴、右下自然张嘴仍保持；下颌与唇部关系可辨认，未改成微笑、惊恐或仰头。张嘴并未因换装被重新解释。"
+        },
+        {
+          "id": "outfit-check",
+          "basis": "outfit",
+          "critical": true,
+          "question": "三处墨绿长袖夹克与米白内搭是否同套，开襟、领袖和衣片连接自然；全身是否配深灰直筒长裤及赤脚，发型保持，无旧短袖短裤残留或新增饰品？",
+          "verdict": "pass",
+          "evidence": "三处均出现墨绿长袖夹克、敞开的前中拉链与米白圆领内搭，领肩连接、袖口和髋部衣摆自然。全身为深灰直筒长裤，裤脚止于脚踝上方，赤脚保留；旧短袖短裤未残留，无新配饰。前臂和小腿被新衣遮住属于冻结允许范围。"
+        },
+        {
+          "id": "view-check",
+          "basis": "view",
+          "critical": true,
+          "question": "是否共同正面，完整全身和完整头肩分别可读，没有偏头、仰头或身体转面？",
+          "verdict": "pass",
+          "evidence": "三处正面和各自全身、头肩景别保持，手脚位置及自然站立未明显改变；衣袖覆盖前臂未使手部消失，裸足仍稳定落地。"
+        },
+        {
+          "id": "layout-check",
+          "basis": "layout",
+          "critical": true,
+          "question": "是否左全身、右上中性头肩、右下张嘴头肩，两张头肩倍率和对齐基准一致且无多余内容？",
+          "verdict": "pass",
+          "evidence": "左全身、右上中性、右下张嘴的格局与展示倍率视觉保持，未新增人物、文字或额外格。未进行像素级全图位置校准。"
+        },
+        {
+          "id": "style-check",
+          "basis": "style",
+          "critical": true,
+          "question": "三处是否保持统一写实三维人物质感，皮肤、发与布料表现协调？",
+          "verdict": "pass",
+          "evidence": "新衣的厚度、褶皱和低光泽与皮肤、头发保持统一写实体积，未改成动漫或绘画。符合可见写实三维质感目标，不能证明底层三维模型或实际渲染管线。"
+        },
+        {
+          "id": "light-check",
+          "basis": "light",
+          "critical": true,
+          "question": "各处是否保持同一柔和照明与中性颜色，表情差异没有被光线改变混淆？",
+          "verdict": "pass",
+          "evidence": "主要受光方向与浅灰环境视觉基本保持，夹克与内搭产生新的局部衣物阴影；未见显著全局换灯。面部纹理变化不因此获得授权，另在范围项失败。"
+        },
+        {
+          "id": "background-check",
+          "basis": "background",
+          "critical": true,
+          "question": "背景是否为实际不透明浅灰色，无道具或透明空白？",
+          "verdict": "pass",
+          "evidence": "浅灰背景和无道具空白保持，实际PNG为RGB三通道无透明层，不依赖查看器衬底。"
+        }
+      ],
+      "critical_failures": [
+        "__edit_scope__"
+      ],
+      "unresolved": [
+        "body-check"
+      ]
+    }
+  ],
+  "parent_evidence": "character-expression-evidence.json",
+  "observation": "新衣装和原表情基本成立，受保护面部皮肤重绘导致范围失败；九头身仍待审。",
+  "next_action": "保留原表情图作为面部依据，新图只作为换装方案候选；没有新的局部保护方法前不重复仅追加其余不变。",
+  "boundaries": [
+    "只有一张普通图片参考和文字衣装方案，没有专用试穿模型、显式蒙版或服装照片复刻证据",
+    "新衣遮住皮肤与面部越界重绘分别判断；未依据衣服外轮廓推断骨骼比例",
+    "新衣目标不改变历史失败、容差或审美评分"
+  ],
+  "file_observation": "image-file-observation.json"
+}

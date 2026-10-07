@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "cohort": "character-cinematic-cg-20261006",
+  "purpose": "保持旧人物及CG目标，检验普通双参考中身份与表面质感分工。",
+  "tool": "built-in image_gen",
+  "model": null,
+  "seed": null,
+  "evidence_directory": "dist/visual-tests/character-cg-fusion-20261006",
+  "known_completed_calls": 1,
+  "approved_outputs": 0,
+  "user_accepted": false,
+  "group_verdict": "needs_revision",
+  "runs": [
+    {
+      "run_id": "cinematic-cg-fusion-01",
+      "case_id": "cinematic-cg-female",
+      "snapshot_file": "fusion-01.snapshot.json",
+      "snapshot_sha256": "741fdd56ecfc51d79476c67b590679a7eae3487bc5d451255321b410ba7433ed",
+      "target_sha256": "833a30139d7fa2539faee178aebe1d67f5fa7a463d7a6a87b88be1fb4dcc3158",
+      "prompt_sha256": "300d686194986c3251d4bb0cb7eed562a9f322d0f617bdce1e98617da027dea0",
+      "parent": {
+        "run_id": "cinematic-cg-nine-01",
+        "snapshot_sha256": "ccdea904183af6dc73ccb6e5d8dc36d05db2198f6d1fc7ce734988fd270d22fc"
+      },
+      "goal_changed": false,
+      "target": {
+        "subject_kind": "character",
+        "requirements": [
+          {
+            "id": "body",
+            "channel": "proportion",
+            "priority": "must",
+            "target_head_count": 9,
+            "text": "黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。"
+          },
+          {
+            "id": "costume",
+            "channel": "costume",
+            "priority": "must",
+            "text": "不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。"
+          },
+          {
+            "id": "identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "保留参考同一约三十岁成年女性的椭圆脸、自然眉眼、鼻唇与下颌关系、暖棕肤色和表情，不把绘画转换成另一张标准数字人脸。"
+          },
+          {
+            "id": "frame",
+            "channel": "composition",
+            "priority": "must",
+            "text": "单人正面完整全身、平视弱透视，头颈胸廓骨盆朝前，双臂稍离身下垂，双腿自然伸直，双足稳定平放；浅暖灰无缝背景，无文字网格、标尺或拼板。"
+          },
+          {
+            "id": "medium",
+            "channel": "style",
+            "priority": "must",
+            "text": "完成从厚涂到精细电影CG图像的转换：脸、头发、衣料、手足和背景均为连续立体曲面及受光，不残留方块笔触、画布纹理、二维轮廓线或低模棱面。仅验可见数字角色质感，不推断渲染器或底层资产。"
+          },
+          {
+            "id": "skin",
+            "channel": "makeup",
+            "priority": "must",
+            "text": "面部、颈部及手足肤色与受光连贯，眼睑鼻唇和脸颊转折柔软；额鼻有克制高光，面颊更柔和，眼球湿润反光清楚但不发光。皮肤不呈均匀蜡亮、塑料反射或过度模糊；全身景别不强制可数毛孔。"
+          },
+          {
+            "id": "hair",
+            "channel": "hair",
+            "priority": "must",
+            "text": "保留深棕侧分露耳短发设计，用有体积的成组细发、自然发根与少量边缘散发表现，不保留宽油画笔触，不改成长发或光滑整块头盔。"
+          },
+          {
+            "id": "fabric",
+            "channel": "material",
+            "priority": "must",
+            "text": "石青上衣和褐短裤仍是低光泽不透明织物，衣片厚度、领袖裤腰连接和主要重力褶皱清楚，反射比皮肤柔钝；没有涂漆塑料表面或无依据新增皮革金属。"
+          },
+          {
+            "id": "light",
+            "channel": "lighting",
+            "priority": "must",
+            "text": "左前上方大面积柔主光、右前方较弱补光及克制后侧轮廓分离；面部明暗有体积且两眼可读，背景浅暖灰，双足接触阴影与光向一致，无强辉光、浓雾、过曝白边或大片死黑。"
+          },
+          {
+            "id": "limbs",
+            "channel": "hands_feet",
+            "priority": "must",
+            "text": "肩肘腕、手指和膝踝足连续自然，双足稳定承重，无融合或多余肢体；保留可见体块，不把人物重建成硬质人偶。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "body-check",
+            "basis": "body",
+            "critical": true,
+            "question": "黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。"
+          },
+          {
+            "id": "costume-check",
+            "basis": "costume",
+            "critical": true,
+            "question": "不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。"
+          },
+          {
+            "id": "identity-check",
+            "basis": "identity",
+            "critical": true,
+            "question": "保留参考同一约三十岁成年女性的椭圆脸、自然眉眼、鼻唇与下颌关系、暖棕肤色和表情，不把绘画转换成另一张标准数字人脸。"
+          },
+          {
+            "id": "frame-check",
+            "basis": "frame",
+            "critical": true,
+            "question": "单人正面完整全身、平视弱透视，头颈胸廓骨盆朝前，双臂稍离身下垂，双腿自然伸直，双足稳定平放；浅暖灰无缝背景，无文字网格、标尺或拼板。"
+          },
+          {
+            "id": "medium-check",
+            "basis": "medium",
+            "critical": true,
+            "question": "完成从厚涂到精细电影CG图像的转换：脸、头发、衣料、手足和背景均为连续立体曲面及受光，不残留方块笔触、画布纹理、二维轮廓线或低模棱面。仅验可见数字角色质感，不推断渲染器或底层资产。"
+          },
+          {
+            "id": "skin-check",
+            "basis": "skin",
+            "critical": true,
+            "question": "面部、颈部及手足肤色与受光连贯，眼睑鼻唇和脸颊转折柔软；额鼻有克制高光，面颊更柔和，眼球湿润反光清楚但不发光。皮肤不呈均匀蜡亮、塑料反射或过度模糊；全身景别不强制可数毛孔。"
+          },
+          {
+            "id": "hair-check",
+            "basis": "hair",
+            "critical": true,
+            "question": "保留深棕侧分露耳短发设计，用有体积的成组细发、自然发根与少量边缘散发表现，不保留宽油画笔触，不改成长发或光滑整块头盔。"
+          },
+          {
+            "id": "fabric-check",
+            "basis": "fabric",
+            "critical": true,
+            "question": "石青上衣和褐短裤仍是低光泽不透明织物，衣片厚度、领袖裤腰连接和主要重力褶皱清楚，反射比皮肤柔钝；没有涂漆塑料表面或无依据新增皮革金属。"
+          },
+          {
+            "id": "light-check",
+            "basis": "light",
+            "critical": true,
+            "question": "左前上方大面积柔主光、右前方较弱补光及克制后侧轮廓分离；面部明暗有体积且两眼可读，背景浅暖灰，双足接触阴影与光向一致，无强辉光、浓雾、过曝白边或大片死黑。"
+          },
+          {
+            "id": "limbs-check",
+            "basis": "limbs",
+            "critical": true,
+            "question": "肩肘腕、手指和膝踝足连续自然，双足稳定承重，无融合或多余肢体；保留可见体块，不把人物重建成硬质人偶。"
+          }
+        ]
+      },
+      "prompt": "【电影数字人物表现】\n完成从厚涂到精细电影CG图像的转换：脸、头发、衣料、手足和背景均为连续立体曲面及受光，不残留方块笔触、画布纹理、二维轮廓线或低模棱面。仅验可见数字角色质感，不推断渲染器或底层资产。 将原画的色块边界重新解释为连续曲面，移除全身和背景的笔触。 参考图按输入顺序分工：第一张厚涂图是需要转换的角色，第二张仅是CG表面质感示例。以第二张的连续受光和材料表现重建第一张角色；第二张的脸、发型、身体比例、衣服版型和构图都不迁移。\n\n【人物身份与面容】\n保留参考同一约三十岁成年女性的椭圆脸、自然眉眼、鼻唇与下颌关系、暖棕肤色和表情，不把绘画转换成另一张标准数字人脸。 保留眼距、鼻口位置与嘴角形状，五官内部关系不变。 身份唯一来自第一张厚涂图，保留其较直的眉形、鼻梁、鼻口关系、闭口唇线及下颌外形，不能混合第二张的五官。\n\n【妆容与肌肤】\n面部、颈部及手足肤色与受光连贯，眼睑鼻唇和脸颊转折柔软；额鼻有克制高光，面颊更柔和，眼球湿润反光清楚但不发光。皮肤不呈均匀蜡亮、塑料反射或过度模糊；全身景别不强制可数毛孔。 面部妆容细腻自然，皮肤软组织有柔和明暗和少量色泽变化，只有光位合理的薄处轻微透暖，不添加全脸红光或可见自发光。 采用参考二的皮肤表面受光方式，保持参考一的脸型五官和肤色设计；不借用参考二的眼鼻唇形。\n\n【发型与毛发】\n保留深棕侧分露耳短发设计，用有体积的成组细发、自然发根与少量边缘散发表现，不保留宽油画笔触，不改成长发或光滑整块头盔。\n\n【服装设计】\n不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。 保留原主要衣片、接缝位置和色彩，衣服仍自然合身。\n\n【衣料与连接】\n石青上衣和褐短裤仍是低光泽不透明织物，衣片厚度、领袖裤腰连接和主要重力褶皱清楚，反射比皮肤柔钝；没有涂漆塑料表面或无依据新增皮革金属。 只借鉴参考二织物的表面反射和厚度表现，原衣片、接缝位置、色彩与合体程度取自参考一。\n\n【主辅光与背景】\n左前上方大面积柔主光、右前方较弱补光及克制后侧轮廓分离；面部明暗有体积且两眼可读，背景浅暖灰，双足接触阴影与光向一致，无强辉光、浓雾、过曝白边或大片死黑。 参考二仅帮助表达柔和主辅光及克制的后侧分离，最终光向仍按上述文字目标执行。\n\n【身材比例】\n黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。 原参考的身体比例尚未验收，不能当作合格九头身锁定。头、颈、完整胸腰、骨盆、上下臂与上下腿分别协调，禁止单段拉伸。\n\n【构图与站姿】\n单人正面完整全身、平视弱透视，头颈胸廓骨盆朝前，双臂稍离身下垂，双腿自然伸直，双足稳定平放；浅暖灰无缝背景，无文字网格、标尺或拼板。 保留自然站立方向和垂臂，四周适量留白，头顶和足部完整可见。\n\n【手脚结构】\n肩肘腕、手指和膝踝足连续自然，双足稳定承重，无融合或多余肢体；保留可见体块，不把人物重建成硬质人偶。",
+      "references": [
+        {
+          "id": "painted-character",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-painterly-20261006\\painterly-02.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "identity",
+            "hair",
+            "costume",
+            "composition"
+          ],
+          "facts": [
+            {
+              "id": "face-seen",
+              "channel": "identity",
+              "visibility": "visible",
+              "text": "成年女性椭圆脸、自然直眉、深棕眼、平直鼻梁、自然唇形与成年下颌，暖棕肤色，深棕短发露耳，平静前视。"
+            },
+            {
+              "id": "hair-seen",
+              "channel": "hair",
+              "visibility": "visible",
+              "text": "深棕贴头露耳短发，偏侧分，前额少量斜向发束，原图为绘画色块。"
+            },
+            {
+              "id": "costume-seen",
+              "channel": "costume",
+              "visibility": "visible",
+              "text": "石青短袖圆领上衣、深褐膝上短裤，赤脚，无配饰，主要领袖腰头接缝可读。"
+            },
+            {
+              "id": "pose-seen",
+              "channel": "composition",
+              "visibility": "visible",
+              "text": "单人正面完整全身，双臂微离身下垂、腿伸直，双足微外转，暖灰背景。比例未通过，不提供已验证九头身体型。"
+            }
+          ],
+          "content_sha256": "f86885a17b288afddbfd05e15cfb144bb353025ee4c45ebb9e79ac46db68c7f9"
+        },
+        {
+          "id": "cg-surface-guide",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-cg-direct-20261006\\direct-01.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "style",
+            "makeup",
+            "material",
+            "lighting"
+          ],
+          "facts": [
+            {
+              "id": "cg-medium-seen",
+              "channel": "style",
+              "visibility": "visible",
+              "text": "参考二呈连续写实曲面，脸颈、前臂小腿及踝部没有明显方块笔触，背景平滑。仅提供表现方式，不提供人物设计或比例。"
+            },
+            {
+              "id": "cg-skin-seen",
+              "channel": "makeup",
+              "visibility": "visible",
+              "text": "参考二皮肤过渡柔和，额鼻高光集中、面颊较柔钝，肤色有细微变化，没有均匀塑料亮面。"
+            },
+            {
+              "id": "cg-fabric-seen",
+              "channel": "material",
+              "visibility": "visible",
+              "text": "参考二衣料呈低光泽织物，领袖和裤脚厚度清楚，主要衣褶连续，布面高光比皮肤柔和。"
+            },
+            {
+              "id": "cg-light-seen",
+              "channel": "lighting",
+              "visibility": "visible",
+              "text": "参考二面部柔和主辅光、发缘与肩颈克制分离，浅暖灰背景和足部接触阴影清楚。"
+            }
+          ],
+          "content_sha256": "c11eef9cff7ef9b6fabc2459748bd4acfee75026ac9d4600f85dace1d07edf73"
+        }
+      ],
+      "output_file": "fusion-01.png",
+      "output_sha256": "95aa9d45c32917d43f01af66e39d60fcb13c04ffce46668955a319430f2a2238",
+      "status": "needs_revision",
+      "checks": [
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。",
+          "verdict": "uncertain",
+          "evidence": "全身直立、头足完整，但颅顶被有厚度的头发遮挡，正面裸足带纵深，不能可靠确定解剖颅顶及承重足底；未确认严格九头身。没有用发顶代替颅顶或从自然匀称推导比例通过。"
+        },
+        {
+          "id": "costume-check",
+          "basis": "costume",
+          "critical": true,
+          "question": "不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。",
+          "verdict": "pass",
+          "evidence": "石青合体圆领短袖与深褐膝上直筒短裤、赤脚成立。原领袖外形、裤脚长度和主要接缝关系延续，未新增首饰护具或长披挂；遮挡腰头仍不被虚构为可见。"
+        },
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "保留参考同一约三十岁成年女性的椭圆脸、自然眉眼、鼻唇与下颌关系、暖棕肤色和表情，不把绘画转换成另一张标准数字人脸。",
+          "verdict": "pass",
+          "evidence": "与第一张厚涂图对照，较直眉形、眼距、鼻梁鼻口关系、闭口唇线和成年下颌外形均延续，暖棕肤色与平静表情保持；未明显采用第二张更柔和的鼻唇和较长发型。仅判断本张可见身份特征保持，不证明生物识别一致性或后续跨视角稳定。"
+        },
+        {
+          "id": "frame-check",
+          "basis": "frame",
+          "critical": true,
+          "question": "单人正面完整全身、平视弱透视，头颈胸廓骨盆朝前，双臂稍离身下垂，双腿自然伸直，双足稳定平放；浅暖灰无缝背景，无文字网格、标尺或拼板。",
+          "verdict": "pass",
+          "evidence": "单人平视弱透视正面全身，双臂离身下垂、双腿伸直，头胸骨盆基本朝前，头发和裸足完整；浅暖灰无缝背景，无字网格标尺或拼板。"
+        },
+        {
+          "id": "medium-check",
+          "basis": "medium",
+          "critical": true,
+          "question": "完成从厚涂到精细电影CG图像的转换：脸、头发、衣料、手足和背景均为连续立体曲面及受光，不残留方块笔触、画布纹理、二维轮廓线或低模棱面。仅验可见数字角色质感，不推断渲染器或底层资产。",
+          "verdict": "fail",
+          "evidence": "背景和衣料转为连续写实表面，脸颈及四肢大部分硬块减弱；画面左侧踝前仍有明显折面状深浅楔形，右踝及部分前臂也留有条块式转折，与原画局部边界相近。冻结目标要求全身连续受光且不残留方块笔触或低模棱面，本图未全部满足。不能由此断定底层生成机制。"
+        },
+        {
+          "id": "skin-check",
+          "basis": "skin",
+          "critical": true,
+          "question": "面部、颈部及手足肤色与受光连贯，眼睑鼻唇和脸颊转折柔软；额鼻有克制高光，面颊更柔和，眼球湿润反光清楚但不发光。皮肤不呈均匀蜡亮、塑料反射或过度模糊；全身景别不强制可数毛孔。",
+          "verdict": "fail",
+          "evidence": "面部眼睑鼻唇转折柔和、额鼻高光克制，脸颈与四肢肤色基本连贯，但踝部和部分腕前臂仍有过硬的平面过渡，未满足本轮全身皮肤连续柔和的要求。没有把背景和脸部改善替代手足皮肤验收。"
+        },
+        {
+          "id": "hair-check",
+          "basis": "hair",
+          "critical": true,
+          "question": "保留深棕侧分露耳短发设计，用有体积的成组细发、自然发根与少量边缘散发表现，不保留宽油画笔触，不改成长发或光滑整块头盔。",
+          "verdict": "pass",
+          "evidence": "深棕侧分露耳短发轮廓来自第一张，发根、成组细发与少量散发可读，未借用第二张较长侧垂发型，也没有宽油画笔触或光滑头盔。"
+        },
+        {
+          "id": "fabric-check",
+          "basis": "fabric",
+          "critical": true,
+          "question": "石青上衣和褐短裤仍是低光泽不透明织物，衣片厚度、领袖裤腰连接和主要重力褶皱清楚，反射比皮肤柔钝；没有涂漆塑料表面或无依据新增皮革金属。",
+          "verdict": "pass",
+          "evidence": "上衣和短裤低光泽不透明，细织物起伏、领袖裤脚厚度及主要重力褶皱可见，反射比皮肤柔钝，没有皮革金属或涂漆塑料面。"
+        },
+        {
+          "id": "light-check",
+          "basis": "light",
+          "critical": true,
+          "question": "左前上方大面积柔主光、右前方较弱补光及克制后侧轮廓分离；面部明暗有体积且两眼可读，背景浅暖灰，双足接触阴影与光向一致，无强辉光、浓雾、过曝白边或大片死黑。",
+          "verdict": "uncertain",
+          "evidence": "柔主光、较弱暗侧补光、浅暖灰背景和落地阴影成立，两眼可读，无辉光浓雾或大片死黑；后侧轮廓分离是否独立成立不够明确，不能由浅背景对比直接认定第三路光通过。"
+        },
+        {
+          "id": "limbs-check",
+          "basis": "limbs",
+          "critical": true,
+          "question": "肩肘腕、手指和膝踝足连续自然，双足稳定承重，无融合或多余肢体；保留可见体块，不把人物重建成硬质人偶。",
+          "verdict": "pass",
+          "evidence": "可见肩肘腕、手指与膝踝足结构连续，未见融合或额外肢体，双足有落地承重关系。表面楔形残留已在媒介与肤质项判失败，此项通过不抵消它们，也不确认隐藏足跟解剖端点。"
+        }
+      ]
+    }
+  ],
+  "comparison": {
+    "parent_report": "docs/character-cinematic-cg-evidence.json",
+    "surface_guide_report": "docs/character-cg-direct-evidence.json",
+    "unchanged_target": true,
+    "actual_inputs": 2,
+    "causal_claim": false
+  },
+  "observation": "可见身份、发型和衣装基本延续，背景与衣料媒介改善，踝腕仍有硬色块残留；媒介与肤质失败，比例和后侧分离光未决，整张需修订。",
+  "next_action": "停止重复此双参考组合；保留同目标父任务及所有失败，不以衣料和身份局部通过宣称整体成功。",
+  "boundaries": [
+    "参考权限是文字约束，不是当前接口的独立适配器权重或逐通道控制",
+    "新增参考与提示词同时变化，种子和底层模型未知，不推导单因素效果或稳定成功率",
+    "生成整张同目标修订，没有局部像素保留承诺；未改变原十项验收",
+    "不参加历史34张审美评分；人物专项累计30次模型输出，完整人物或整组通过仍为0"
+  ],
+  "file_observation": "image-file-observation.json"
+}

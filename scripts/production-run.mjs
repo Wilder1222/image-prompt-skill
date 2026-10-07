@@ -12,6 +12,7 @@ export function canonical(value) {
 export const objectHash = value => promptHash(JSON.stringify(canonical(value)));
 const fileHash = file => promptHash(fs.readFileSync(file));
 const read = file => JSON.parse(fs.readFileSync(file,'utf8'));
+const preservationContract = 'preservation_items_v1';
 export function writeNew(file,value) { fs.mkdirSync(path.dirname(path.resolve(file)),{recursive:true}); fs.writeFileSync(file,JSON.stringify(value,null,2)+'\n',{flag:'wx'}); }
 
 export function freezeProductionRun(input, options={}) {
@@ -21,8 +22,10 @@ export function freezeProductionRun(input, options={}) {
   if(!['initial','revision','edit'].includes(kind))throw new Error('invalid run kind');
   if(kind!=='initial'&&!options.parent)throw new Error('a revision needs its frozen parent');
   if(kind==='initial'&&options.parent)throw new Error('initial run cannot have a parent');
+  if(kind==='edit'&&!compiled.edit_scope)throw new Error('new edit runs require edit_scope in the brief');
+  if(kind==='initial'&&compiled.edit_scope)throw new Error('edit_scope needs an edit or revision with a parent');
   if(options.parent)verifyFrozenRun(options.parent,{verifyFiles:false});
-  const target={requirements:input.requirements,acceptance:compiled.acceptance};
+  const target={subject_kind:input.subject_kind,requirements:input.requirements,acceptance:compiled.acceptance};
   const targetHash=objectHash(target);
   const refs=input.references.map(r=>({...r,source:path.resolve(options.base_dir??process.cwd(),r.source),content_sha256:fileHash(path.resolve(options.base_dir??process.cwd(),r.source))}));
   if(compiled.model_execution)compiled.model_execution=adaptModelPrompt({...compiled,reference_inputs:refs.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source}))},input.target);
@@ -31,6 +34,7 @@ export function freezeProductionRun(input, options={}) {
     created_at:new Date().toISOString(),tool:compiled.model_execution?.transport??'built-in image_gen',
     tool_parameters:compiled.model_execution?{model:compiled.model_execution.model,...compiled.model_execution.settings}:{model:null,seed:null},
     ...(compiled.model_execution?{model_execution:compiled.model_execution}:{}),
+    ...(compiled.edit_scope?{edit_scope:compiled.edit_scope,scope_review_contract:preservationContract}:{}),
     parent:options.parent?{run_id:options.parent.run_id,snapshot_sha256:options.parent.snapshot_sha256}:null,
     goal_changed:options.parent?options.parent.target_sha256!==targetHash:false,
     request:input.request,target,target_sha256:targetHash,references:refs,
@@ -43,6 +47,9 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true}={}) {
   if(snapshot?.schema_version!==1)throw new Error('unsupported run snapshot');
   const {snapshot_sha256,...body}=snapshot;
   if(objectHash(body)!==snapshot_sha256)throw new Error('frozen snapshot changed');
+  if(Object.hasOwn(snapshot,'scope_review_contract') &&
+      (snapshot.scope_review_contract!==preservationContract || !snapshot.edit_scope))
+    throw new Error('unsupported scope review contract');
   if(promptHash(snapshot.prompt)!==snapshot.prompt_sha256||objectHash(snapshot.target)!==snapshot.target_sha256)throw new Error('frozen prompt or target changed');
   const inputs=snapshot.references.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source,content_sha256:r.content_sha256}));
   if(objectHash(inputs)!==objectHash(snapshot.actual_inputs))throw new Error('actual input order or roles changed');
@@ -74,7 +81,34 @@ export function finishProductionRun(snapshot, receipt, baseDir=process.cwd()) {
   if(fileHash(output)!==receipt.output_sha256)throw new Error('output content changed');
   if(receipt.target_sha256!==snapshot.target_sha256)throw new Error('review target changed');
   const verdict=reviewProductionResult({prompt_sha256:snapshot.prompt_sha256,acceptance:snapshot.target.acceptance},receipt);
+  let scopeReview;
+  if(snapshot.edit_scope){
+    const scope=receipt.scope_review;
+    if(!scope || !['pass','fail','uncertain','not_assessable'].includes(scope.verdict) ||
+       typeof scope.change_evidence!=='string'||!scope.change_evidence.trim() ||
+       typeof scope.preservation_evidence!=='string'||!scope.preservation_evidence.trim())
+      throw new Error('scoped edit needs scope_review with change_evidence and preservation_evidence');
+    scopeReview={verdict:scope.verdict,change_evidence:scope.change_evidence,preservation_evidence:scope.preservation_evidence};
+    if(snapshot.scope_review_contract===preservationContract){
+      const protectedItems=snapshot.edit_scope.preserve,checks=scope.preservation_checks;
+      const rank={pass:0,uncertain:1,not_assessable:1,fail:2};
+      if(!Array.isArray(checks) || checks.length!==protectedItems.length ||
+          checks.some(c=>!c || !Number.isSafeInteger(c.index) || c.index<0 || c.index>=protectedItems.length ||
+            !Object.hasOwn(rank,c.verdict) || typeof c.evidence!=='string' || !c.evidence.trim()) ||
+          new Set(checks.map(c=>c.index)).size!==protectedItems.length)
+        throw new Error('preservation_checks must cover every frozen protected item exactly once with its index, verdict and evidence');
+      scopeReview.declared_verdict=scope.verdict;
+      scopeReview.preservation_checks=[...checks].sort((a,b)=>a.index-b.index).map(c=>({
+        index:c.index,requirement:protectedItems[c.index],verdict:c.verdict,evidence:c.evidence
+      }));
+      for(const check of checks)if(rank[check.verdict]>rank[scopeReview.verdict])scopeReview.verdict=check.verdict;
+    }else if(scope.preservation_checks!==undefined)throw new Error('per-item scope review contract was not frozen for this historical run');
+    if(scopeReview.verdict==='fail')verdict.critical_failures.push('__edit_scope__');
+    if(['uncertain','not_assessable'].includes(scopeReview.verdict))verdict.unresolved.push('__edit_scope__');
+    verdict.status=verdict.critical_failures.length?'needs_revision':verdict.unresolved.length?'needs_review':'reviewer_qualified';
+  }else if(receipt.scope_review!==undefined)throw new Error('scope_review cannot claim an unfrozen edit scope');
   return {...verdict,run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,target_sha256:snapshot.target_sha256,
+    ...(scopeReview?{edit_scope:structuredClone(snapshot.edit_scope),scope_review:scopeReview}:{}),
     output_image:output,output_sha256:receipt.output_sha256,execution_status:'completed',inspected:true,reviewer:receipt.reviewer,recorded_at:new Date().toISOString()};
 }
 

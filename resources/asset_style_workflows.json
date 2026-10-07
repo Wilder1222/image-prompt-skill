@@ -12,6 +12,268 @@
       "highlight_hierarchy": "focal_brightness",
       "edge_control": "painterly_selective",
       "zh": "保留参考的东方幻想厚涂原画审美、冷艳克制的美感、柔和笔触与局部柔和辉光，转化为稳定清晰的白底角色资产。不要变成普通真人商业硬照，不用纪实毛孔、疲态或锐利摄影轮廓取代原画面容。服装、护甲和冠饰是否存在及其配色，以实际参考和本轮设计为准，不自动套用另一角色的黑白金红衣装。"
+    },
+    "photographic_character": {
+      "label": "真人摄影",
+      "family": "photographic",
+      "default_face_profile": "humanized_real_full",
+      "allowed_face_profiles": [
+        "humanized_real_full"
+      ],
+      "detail_budget": "photographic_detail",
+      "highlight_hierarchy": "medium_aware",
+      "edge_control": "soft_realistic",
+      "allowed_detail_budgets": [
+        "photographic_detail"
+      ],
+      "allowed_edge_controls": [
+        "soft_realistic"
+      ],
+      "allowed_highlight_hierarchies": [
+        "medium_aware"
+      ],
+      "zh": "真实人物摄影质感：真实软组织、克制肤质与光学成像共同成立，精致妆容、服装结构与人物辨识度保持，不以粗糙皮肤证明真人感。",
+      "appearance": {
+        "face": "保持参考脸型与五官辨识点，眼睑厚度、眼球湿润反射、鼻唇与面颊软组织连续，呈现真实人物的体积。",
+        "makeup": "先完成贴肤精致妆容，再按景别呈现细微肤色和反射变化；近景可见克制纹理，全身小脸不强显毛孔，不磨成蜡皮。",
+        "hair": "发型、发色和饰物来自参考；主发束与少量清楚发丝结合，反光沿毛发生长方向，不把全头画成同样粗亮的线。",
+        "material": "服装按实际材质表现织纹、厚度、重力褶皱与接缝，金属局部反光、皮革细腻反射、薄纱透叠分别成立，不添加原设计没有的材料。",
+        "lighting": "白底资产采用真实摄影棚柔光与中性白平衡，阴影与人物受光一致，保留面部体积、浅衣边缘和轻微接触阴影。",
+        "finish": "完整人物像真实拍摄的精致定妆照，皮肤、头发、衣料与光线处于同一摄影媒介，不混入卡通描线或雕塑表面。"
+      }
+    },
+    "cinematic_cg_character": {
+      "label": "电影级CG",
+      "family": "cinematic_cg",
+      "default_face_profile": "humanized_real_light",
+      "allowed_face_profiles": [
+        "humanized_real_light"
+      ],
+      "detail_budget": "cg_detail",
+      "highlight_hierarchy": "medium_aware",
+      "edge_control": "volume_edges",
+      "allowed_detail_budgets": [
+        "cg_detail"
+      ],
+      "allowed_edge_controls": [
+        "volume_edges"
+      ],
+      "allowed_highlight_hierarchies": [
+        "medium_aware"
+      ],
+      "zh": "电影级数字角色质感：可信皮肤散射、毛发层次、服装表面与电影灯光统一，保留精细数字制作感，避免游戏低模或塑料人偶外观。",
+      "appearance": {
+        "face": "保持角色脸型与五官关系，以连续精细曲面表现眼睑、鼻翼、唇和颊部，眼球湿润反光与角膜体积可信，不重造另一张标准脸。",
+        "face_conversion": "经授权将绘画参考转换为电影CG时，绘画笔触与色块边界不作为骨骼棱面保留，面容辨识关系保留而曲面按新媒介重建。",
+        "makeup": "妆面精致，皮肤具有克制的次表面透光与分区粗糙度；耳缘和鼻翼在合适光位略透暖，不将整张脸照成蜡像。",
+        "hair": "主发束由有体积的细发组成，轮廓只留少量散发，发根与头皮衔接自然，发饰固定清楚。",
+        "material": "衣料、金属与皮革具有不同粗糙度和高光宽度，织物保持厚度与微小表面起伏；褶皱、扣件及接缝有可信体积，不做全身统一镜面。",
+        "lighting": "在白底资产布光下保留电影级主辅光与柔和轮廓分离，体积光影连续、面部清楚，高光不过曝，不用浓雾和强辉光吞掉设计。",
+        "finish": "角色整体呈精细电影数字制作的统一质感，面部、毛发、服装与接触阴影协调，不宣称交付了三维模型或动画绑定。"
+      }
+    },
+    "realistic_3d_character": {
+      "label": "写实三维",
+      "family": "realistic_3d",
+      "default_face_profile": "humanized_real_light",
+      "allowed_face_profiles": [
+        "humanized_real_light"
+      ],
+      "detail_budget": "cg_detail",
+      "highlight_hierarchy": "medium_aware",
+      "edge_control": "volume_edges",
+      "allowed_detail_budgets": [
+        "cg_detail"
+      ],
+      "allowed_edge_controls": [
+        "volume_edges"
+      ],
+      "allowed_highlight_hierarchies": [
+        "medium_aware"
+      ],
+      "zh": "写实三维角色资产渲染：解剖体积清晰，曲面连续，材质粗糙度、反射与透光有依据，干净展示模型般的空间结构。",
+      "appearance": {
+        "face": "以精细三维雕刻般的连续曲面表现原人物脸型，眼眶、眼睑、鼻唇和下颌体积连贯，保留辨识点而不浮雕化五官。",
+        "makeup": "皮肤颜色、粗糙度与轻度次表面透光协调，妆面服从面部结构，少量细节随景别控制，避免全身塑料反光。",
+        "hair": "发束具有清楚体积和层次，发根、发际线与发梢衔接，保留角色原发型与发饰，避免板片穿插或悬浮。",
+        "material": "同套服装呈清楚的衣片厚度、接缝、扣件连接与重力褶皱；布、金属、皮革分别有适当反射，禁止只换颜色却共享塑料表面。",
+        "lighting": "白底棚光干净均匀，柔和主光揭示曲面，接触遮蔽适量，明暗不过分戏剧化，不以景深模糊掩盖结构。",
+        "finish": "交付可清楚审阅空间结构的写实三维渲染图，前后衣片与附件连接可信；图像不等于可编辑模型、网格或贴图文件。"
+      }
+    },
+    "stylized_3d_character": {
+      "label": "风格化三维",
+      "family": "stylized_3d",
+      "default_face_profile": "stylized_beauty",
+      "allowed_face_profiles": [
+        "stylized_beauty"
+      ],
+      "detail_budget": "sculpted_detail",
+      "highlight_hierarchy": "medium_aware",
+      "edge_control": "volume_edges",
+      "allowed_detail_budgets": [
+        "sculpted_detail"
+      ],
+      "allowed_edge_controls": [
+        "volume_edges"
+      ],
+      "allowed_highlight_hierarchies": [
+        "medium_aware"
+      ],
+      "zh": "风格化三维角色：以简洁而有体积的大形、柔和曲面和受控色块表达角色，材质有区分而不追求逐个毛孔；身体仍严格九头身。",
+      "appearance": {
+        "face": "将原人物五官概括为清楚的立体面部形，保留眼距、鼻口与下颌辨识关系；不因风格化自动放大眼睛或改成幼态头脸。",
+        "makeup": "以平滑但有柔软体积的皮肤与精致色块妆面表现面部，反射柔和，避免真人毛孔、脏噪点或统一硬塑料高光。",
+        "hair": "头发用有起伏的雕塑式发束组织，少量沟槽交代方向，发梢收束清楚；不把发束画成杂乱密集细丝。",
+        "material": "衣片保留厚度、层叠和连接，以少量大褶与受控高光区分软布、皮革和金属；简化微纹理，不简化掉核心服装结构。",
+        "lighting": "柔和三维棚光呈现清楚明暗面和轻微接触阴影，浅色背景与角色分离，高光圆润克制，避免过重环境遮蔽。",
+        "finish": "呈现成熟、精致的风格化三维人物，九头身体型、原人物辨识度与衣装结构保持，不自动变成大头短身玩偶。"
+      }
+    },
+    "anime_3d_character": {
+      "label": "三维动画与卡通渲染",
+      "family": "anime_3d",
+      "default_face_profile": "stylized_beauty",
+      "allowed_face_profiles": [
+        "stylized_beauty"
+      ],
+      "detail_budget": "cel_detail",
+      "highlight_hierarchy": "medium_aware",
+      "edge_control": "cel_edges",
+      "allowed_detail_budgets": [
+        "cel_detail"
+      ],
+      "allowed_edge_controls": [
+        "cel_edges"
+      ],
+      "allowed_highlight_hierarchies": [
+        "medium_aware"
+      ],
+      "zh": "三维动画角色与卡通渲染质感：立体模型形体配合分层明暗、受控轮廓线和清楚色块，空间体积与动画美术统一。",
+      "appearance": {
+        "face": "面部保持可读三维转折与原五官关系，以简洁眼睑、鼻面和唇形表达角色，不自动放大眼睛或改变年龄。",
+        "makeup": "妆容使用干净色块和少量柔和过渡，皮肤以动画式平整颜色与分层阴影表现，不叠真人毛孔或油亮照片皮。",
+        "hair": "按原发长组织有三维厚度的发体，长发可用大束与概括高光交代弯曲，极短发则保留贴头薄发体和少量分组亮暗，不强加长束或刘海；轮廓和已有发饰连接清楚，不逐根堆积细丝。",
+        "material": "衣服保留立体剪裁与层次，通过分层明暗、少量高光形状和褶皱轮廓区分布料、皮革与金属，不用写实噪点贴满表面。",
+        "lighting": "白底资产灯光保持单一清楚受光方向，亮面、阴影面和接触影按目标分档，阴影边界沿脸颌与衣褶形体转折；轮廓线辅助遮挡和厚度，不以大面积柔渐变或一圈等粗黑线替代卡通渲染，人物体积仍可读。",
+        "finish": "整体为三维动画角色渲染，轮廓线、明暗色块和立体厚度协调；黄金九头身保持，不自动使用幼态比例。"
+      }
+    },
+    "anime_2d_character": {
+      "label": "二维动漫",
+      "family": "anime_2d",
+      "default_face_profile": "stylized_beauty",
+      "allowed_face_profiles": [
+        "stylized_beauty"
+      ],
+      "detail_budget": "cel_detail",
+      "highlight_hierarchy": "medium_aware",
+      "edge_control": "cel_edges",
+      "allowed_detail_budgets": [
+        "cel_detail"
+      ],
+      "allowed_edge_controls": [
+        "cel_edges"
+      ],
+      "allowed_highlight_hierarchies": [
+        "medium_aware"
+      ],
+      "zh": "二维动漫人物设定：清楚的线稿、平涂主色与赛璐璐分层阴影，面部、头发、衣料和背景统一为二维绘制。",
+      "appearance": {
+        "face": "用精练线条与色面表达原人物眼形、鼻口位置和脸廓，保持角色辨识度及表观年龄，不把所有脸改成同一模板。",
+        "makeup": "妆容以眉眼线条、唇色和克制腮红色块表达，皮肤平涂并用少量阴影层区分面部转折，不画真人毛孔或立体塑料皮。",
+        "hair": "用清楚发束轮廓、分组线条和少量高光色块表现头发，保持原发际线、分缝与发饰；极短发可概括为贴合头骨的主色块与少量边缘短线，不继承照片式细丝和头皮颗粒。",
+        "material": "衣片、领袖、腰带与扣件用线条和色块准确区分，褶皱沿受力方向概括；金属用少量锐利亮形、布料用安静阴影。平涂目标下用干净主色面概括材质微纹，保留指定纹样、标记和结构缝线，不继承照片颗粒或密集微织纹。",
+        "lighting": "明暗来自一致的绘制光向，阴影边界清楚且层数克制，白底与人物线稿分离，仅用简洁接触影交代站立。",
+        "finish": "交付统一的二维动漫人物图，线条、平涂和阴影共同成立，仍为黄金九头身，不附加照片皮肤、渲染毛发或油画笔触。"
+      }
+    },
+    "painterly_character": {
+      "label": "厚涂绘画",
+      "family": "painterly",
+      "default_face_profile": "stylized_beauty",
+      "allowed_face_profiles": [
+        "stylized_beauty"
+      ],
+      "detail_budget": "painted_detail",
+      "highlight_hierarchy": "medium_aware",
+      "edge_control": "illustration_edges",
+      "allowed_detail_budgets": [
+        "painted_detail"
+      ],
+      "allowed_edge_controls": [
+        "illustration_edges"
+      ],
+      "allowed_highlight_hierarchies": [
+        "medium_aware"
+      ],
+      "zh": "厚涂绘画人物：以笔触、色面与选择性边缘塑造体积，脸部和关键衣装清楚，保留绘画媒介而非照片锐化。",
+      "appearance": {
+        "face": "用连贯明暗色面塑造原人物面容，眼鼻唇和脸颌辨识关系保留；脸颊、额头与鼻侧用随体积转折的冷暖笔触衔接，焦点五官以少量细笔收束，次要转折柔和，避免把所有中间调磨成照片渐变。",
+        "makeup": "妆容融入绘画色层，以柔和冷暖与笔触表达肤色，面部美感和活力优先，不叠纪实毛孔或均匀磨皮光。",
+        "hair": "头发先组织大体积，再以少量笔触提示发束方向，发饰核心清楚，次要发梢可选择性概括。",
+        "material": "通过笔触密度、明暗边界与高光形状区分布料、皮革和金属，衣片层次、接缝与承重褶皱仍清楚，不靠全身细纹堆出高级感。",
+        "lighting": "白底资产仍以绘画明暗统一光向，脸部与主衣片有体积，暗部通透，局部边缘虚实相间而不模糊关键轮廓。",
+        "finish": "脸、发、衣料与肢体统一为塑造体积的厚涂色层和笔触，背景按本轮目标处理；不能只给写实图覆盖画布纹理。主体可读、材料可辨，九头身体型成立，不自动套黑金幻想配色或原案例衣装。"
+      }
+    },
+    "watercolor_character": {
+      "label": "水彩插画",
+      "family": "watercolor",
+      "default_face_profile": "stylized_beauty",
+      "allowed_face_profiles": [
+        "stylized_beauty"
+      ],
+      "detail_budget": "watercolor_detail",
+      "highlight_hierarchy": "medium_aware",
+      "edge_control": "watercolor_edges",
+      "allowed_detail_budgets": [
+        "watercolor_detail"
+      ],
+      "allowed_edge_controls": [
+        "watercolor_edges"
+      ],
+      "allowed_highlight_hierarchies": [
+        "medium_aware"
+      ],
+      "zh": "水彩人物插画：透明色层、纸面留白与局部湿边相结合，面部和服装关键结构明确，轻盈而不涣散。",
+      "appearance": {
+        "face": "以轻薄色层和少量清楚线条保留面部辨识点，鼻口与眼形位置准确，水彩晕染不吞掉五官。",
+        "makeup": "肤色与妆容以透明叠色、纸面透亮和少量干笔细节表现，避免照片毛孔、厚重油彩堆积或玻璃般皮肤反光。",
+        "hair": "主发束以连贯色块和少量干笔组织，边缘局部自然晕开，发际线与标志性发饰保持清楚。",
+        "material": "衣片边界与褶皱用透明色层和干湿变化区分，已有金属仅留少量纸白亮点，布料以轻薄水彩色层表达明暗而不出现照片织纹；色层透明不改变衣物本身按设计要求的不透明或透光属性。",
+        "lighting": "以纸白、淡色洗染和局部深色接触影表达统一光向，白底清透，关键轮廓不被大片水渍吞没。",
+        "finish": "成图保持透明水彩与纸面质感，人物九头身和服装结构可读，不混入三维塑料高光或摄影毛孔。"
+      }
+    },
+    "ink_wash_character": {
+      "label": "水墨设色",
+      "family": "ink_wash",
+      "default_face_profile": "stylized_beauty",
+      "allowed_face_profiles": [
+        "stylized_beauty"
+      ],
+      "detail_budget": "ink_detail",
+      "highlight_hierarchy": "medium_aware",
+      "edge_control": "ink_edges",
+      "allowed_detail_budgets": [
+        "ink_detail"
+      ],
+      "allowed_edge_controls": [
+        "ink_edges"
+      ],
+      "allowed_highlight_hierarchies": [
+        "medium_aware"
+      ],
+      "zh": "水墨设色人物：勾线、浓淡墨层、干湿笔触与克制设色统一，人物辨识点与衣装结构保持，不把关键身体部位化为空白。",
+      "appearance": {
+        "face": "以精练勾线和薄墨保持眉眼、鼻口与脸颌关系，留白参与面部明暗，但不省掉眼鼻唇的关键辨识点。",
+        "makeup": "以薄层设色表达肤色与妆容，墨色和暖冷色层克制叠合，保留纸面呼吸感，不使用照片毛孔或蜡像高光。",
+        "hair": "头发以浓淡墨块、顺势线条和少量飞白交代发束，原发型和发饰的位置清楚，不将发丝变成均匀亮线。",
+        "material": "衣片轮廓、层叠和受力褶皱由勾线与墨色浓淡表现，材料通过线条疏密和局部设色区分，不追加写实表面贴图。",
+        "lighting": "明暗由墨色浓淡与留白统一组织，浅底上保持人物完整轮廓和必要接地提示，不借大片墨雾隐藏手脚。",
+        "finish": "人物整体由勾线、浓淡墨层与克制设色组织，纸纹不能代替笔墨表现；九头身、面容辨识和衣装连接仍成立，不强制古装或历史身份，也不为强调水墨自动改成纯黑白。"
+      }
     }
   },
   "detail_budgets": {
@@ -20,11 +282,35 @@
     },
     "concept_art_priority": {
       "zh": "最高细节集中在面部、已有冠饰核心、领胸结构与腰部主饰；主裙、主袖和主要发束保持中等细节，发梢、披帛末端与次要裙边选择性概括。不得为了填满空白增加纹样、武器或饰物。"
+    },
+    "photographic_detail": {
+      "zh": "细节集中于可见面容、服装接缝与材料差异，肤质和织纹尺度服从景别，不全身等量锐化。"
+    },
+    "cg_detail": {
+      "zh": "优先面部体积、主发束、衣片厚度与附件连接；微表面细节只服务材料差异，避免全身同密度噪点。"
+    },
+    "sculpted_detail": {
+      "zh": "优先清楚的大形、面部表情和衣片层叠，少量细节强化关键结构，其余曲面简洁。"
+    },
+    "cel_detail": {
+      "zh": "细节由轮廓线、衣片边界、有限阴影层和少量高光形状承担，不以照片纹理增加密度。"
+    },
+    "painted_detail": {
+      "zh": "面部与关键服装结构最清楚，次要衣摆和发梢以笔触概括；留出安静色面。"
+    },
+    "watercolor_detail": {
+      "zh": "精细处集中于面部和衣装连接，大片衣料保留透明洗染与纸面，不让水渍代替结构。"
+    },
+    "ink_detail": {
+      "zh": "通过线条疏密、墨色层次与少量设色分配重点，面部和服装连接不被留白省略。"
     }
   },
   "highlight_hierarchies": {
     "focal_brightness": {
       "zh": "以脸部及邻近头饰、上身为视觉亮度焦点，腰饰和少量衣褶反光次之，裙边与披帛高光更稀疏。不让每条金边同样发亮，不让纯白背景导致肤色和浅衣过曝。"
+    },
+    "medium_aware": {
+      "zh": "视觉重点放在面部与上身；高光、亮色块或纸白按所选媒介表达，次要衣摆与附件不过亮，不新增发光装饰。"
     }
   },
   "edge_controls": {
@@ -33,6 +319,21 @@
     },
     "painterly_selective": {
       "zh": "眼睛、冠饰核心和关键金属结构边缘清楚；发梢、披帛、纱层及次要裙边保留柔和笔触与选择性虚实。保持外形完整可辨，不能用雾、强逆光或模糊遮掉手脚与鞋履。"
+    },
+    "volume_edges": {
+      "zh": "以体积、遮挡和材质变化分离轮廓，关键连接清楚、次要曲面柔和，不用统一锐化或黑描边替代三维结构。"
+    },
+    "cel_edges": {
+      "zh": "轮廓线粗细受控，五官与衣片连接线清楚，阴影色块边界干净，避免全图柔焦和照片式随机细边。"
+    },
+    "illustration_edges": {
+      "zh": "焦点边缘清楚，次要边缘随笔触选择性融合，完整轮廓与肢体连接仍可读。"
+    },
+    "watercolor_edges": {
+      "zh": "关键五官与衣片连接保留干边，次要边缘可湿润晕开，纸白和淡色相接仍有可读轮廓。"
+    },
+    "ink_edges": {
+      "zh": "以勾线、飞白和墨层交接控制边缘，关键结构明确，允许次要墨色自然渗化。"
     }
   }
 }

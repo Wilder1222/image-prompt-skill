@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "cohort": "character-expression-20261006",
+  "purpose": "原创同人表情对照，独立检查身份、自然张嘴、观察条件与九头身设计。",
+  "tool": "built-in image_gen",
+  "model": null,
+  "seed": null,
+  "evidence_directory": "dist/visual-tests/character-expression-20261006",
+  "known_completed_calls": 1,
+  "approved_outputs": 0,
+  "user_accepted": false,
+  "group_verdict": "needs_review",
+  "counting": "一次模型调用、一张拼板，含一处全身与两处头肩；不是三次调用或三个合格资产。",
+  "runs": [
+    {
+      "run_id": "expression-sheet-01",
+      "case_id": "expression-sheet",
+      "snapshot_file": "expression-01.snapshot.json",
+      "snapshot_sha256": "9410eb2f4cc177c499cd4ca55524ca71358edfe4c9228aecfe4ea4d5c796362d",
+      "target_sha256": "f0a7b6c01a3da6b67af44aca14fe20a3d1a892bde5f985a840c63c7304828781",
+      "prompt_sha256": "8eb9e873167f03cdd423c5472d72569753ea15b2bdd7fcf1a7c9d2040eda4229",
+      "target": {
+        "subject_kind": "character",
+        "requirements": [
+          {
+            "id": "identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "同一位约40岁成年男性，宽额头、略方的下颌、深棕眼、直鼻梁、较薄上唇和略饱满下唇；黑色短发带少量灰发，无胡须，保持表观年龄和面部设计。"
+          },
+          {
+            "id": "body",
+            "channel": "proportion",
+            "priority": "must",
+            "target_head_count": 9,
+            "text": "中性全身人体直立高度为九个中性闭合下颌时颅顶至下巴的头长，不计发量和鞋履；躯干、骨盆及四肢协调。表情变化不重设身体头长基准。"
+          },
+          {
+            "id": "expression",
+            "channel": "expression",
+            "priority": "must",
+            "text": "全身和上方头肩为放松中性、嘴唇自然闭合；下方头肩嘴唇自然分开、下颌适度下移，眉眼保持放松，不用惊恐瞪眼、抬眉或仰头替代张嘴动作。口唇与口腔连接自然。"
+          },
+          {
+            "id": "outfit",
+            "channel": "costume",
+            "priority": "must",
+            "text": "同一件不透明石蓝圆领短袖、深灰及膝短裤，赤脚；发型与衣装不因表情变化而更换，没有额外饰品。"
+          },
+          {
+            "id": "view",
+            "channel": "composition",
+            "priority": "must",
+            "text": "三处均为正面，头颈与身体不偏转；全身自然站直、双臂放松离身、双脚稳定平放，两张头肩图保留完整头顶至肩部。"
+          },
+          {
+            "id": "layout",
+            "channel": "layout",
+            "priority": "must",
+            "text": "左侧一张完整全身，右侧上下两张头肩图，上中性、下张嘴。右侧两图展示倍率相同，以头顶和双眼位置对齐，不强迫张嘴后的下巴与中性图重合。全身与头像不要求相同展示倍率，无文字或额外格。"
+          },
+          {
+            "id": "style",
+            "channel": "style",
+            "priority": "must",
+            "text": "三处统一写实三维人物质感，皮肤有柔和体积，头发、布料和皮肤的表面表现明确，不出现照片与卡通混杂或蜡皮。"
+          },
+          {
+            "id": "light",
+            "channel": "lighting",
+            "priority": "must",
+            "text": "三处使用一致的柔和正面偏上布光和中性颜色，保留脸部体积；不靠改变光线制造表情差异。"
+          },
+          {
+            "id": "background",
+            "channel": "background",
+            "priority": "must",
+            "text": "不透明浅灰纯色背景，人物之间清楚分隔，无场景道具与透明背景。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "identity-check",
+            "basis": "identity",
+            "critical": true,
+            "question": "全身与两张头肩的可见稳定面部设计和年龄是否一致，已区分自然表情运动与换脸？"
+          },
+          {
+            "id": "body-check",
+            "basis": "body",
+            "critical": true,
+            "question": "中性全身是否满足排除发量的九头身且各肢段协调？表情局部通过不能替代这一证据；端点不清时保留未决。"
+          },
+          {
+            "id": "expression-check",
+            "basis": "expression",
+            "critical": true,
+            "question": "中性与自然张嘴是否分别到位，眉眼仍放松、口唇口腔连接自然，没有用仰头或瞪眼替代动作？"
+          },
+          {
+            "id": "outfit-check",
+            "basis": "outfit",
+            "critical": true,
+            "question": "同一短发与石蓝短袖、深灰短裤和赤脚设计是否保持，未因表情换装或增饰？"
+          },
+          {
+            "id": "view-check",
+            "basis": "view",
+            "critical": true,
+            "question": "是否共同正面，完整全身和完整头肩分别可读，没有偏头、仰头或身体转面？"
+          },
+          {
+            "id": "layout-check",
+            "basis": "layout",
+            "critical": true,
+            "question": "是否左全身、右上中性头肩、右下张嘴头肩，两张头肩倍率和对齐基准一致且无多余内容？"
+          },
+          {
+            "id": "style-check",
+            "basis": "style",
+            "critical": true,
+            "question": "三处是否保持统一写实三维人物质感，皮肤、发与布料表现协调？"
+          },
+          {
+            "id": "light-check",
+            "basis": "light",
+            "critical": true,
+            "question": "各处是否保持同一柔和照明与中性颜色，表情差异没有被光线改变混淆？"
+          },
+          {
+            "id": "background-check",
+            "basis": "background",
+            "critical": true,
+            "question": "背景是否为实际不透明浅灰色，无道具或透明空白？"
+          }
+        ]
+      },
+      "prompt": "【人物身份与面容】\n各处描绘同一位约40岁成年男性：宽额头、略方的下颌、深棕眼、直鼻梁、较薄上唇与略饱满下唇，黑色短发中夹少量灰发，无胡须。保持相同颅形、鼻部设计、唇部特征与表观年龄，面部允许目标表情所需的自然运动。\n\n【身材比例】\n人体统一采用黄金九头身：中性全身从颅顶至人体足底的直立高度，等于九个中性、下颌放松闭合时颅顶至下巴的头长，不计发量和鞋履。胸腰、骨盆、上下臂及上下腿协调，肌肉软组织自然。张嘴造成下颌移动时，保留同一身体设计，不用变化后的下巴位置重新拉伸躯干或四肢。\n\n【表情与眼神】\n左侧全身和右上头肩为放松中性，嘴唇自然闭合。右下头肩仅让嘴唇自然分开、下颌适度下移，口唇与口腔连接自然；眉眼保持放松，视线朝镜头，不追加惊恐瞪眼、抬眉或仰头。不要求张嘴后的下巴、唇角与中性图逐像素重合。新露出的口腔按同一人物自然设计，不冒称复刻不可见牙齿。\n\n【服装与发型】\n同一件不透明石蓝圆领短袖与深灰及膝短裤，赤脚，无额外饰品；各处短发、领口与肩部衣装相同，不因表情变化而换造型。\n\n【视角与姿态】\n各处均正面朝镜头，头颈不偏转。左侧完整展示自然直立全身，双臂放松微离躯干、双脚稳定平放；右侧两图均从完整头顶展示到肩部，头角与视线一致。\n\n【对照版式】\n左侧安排一张完整全身，右侧上下安排两张头肩对照，上中性、下自然张嘴。两张头肩图展示倍率相同，以头顶和双眼位置对齐，不用下巴对齐抵消下颌运动；全身与头像不要求相同展示倍率。各部分留出清楚间隔，不增加文字、色板或额外格。\n\n【三维表现】\n统一写实三维人物表现，脸部和四肢有连续柔和体积，皮肤、短发与布料具有清楚的表面区别；不混入卡通大眼、平涂线稿或蜡状皮肤。\n\n【照明】\n使用一致的柔和正面偏上布光，面部清楚、体积自然、颜色中性；两张头肩对照的光向与明暗保持相同，不以换灯光替代表情变化。\n\n【背景】\n不透明浅灰纯色背景，空白与人物边缘清楚，无场景道具，不输出透明抠图。",
+      "references": [],
+      "output_file": "expression-01.png",
+      "output_sha256": "5f86f5cfbb2cf2c265ddb37311e3d7a68f7249773fea7a9f35022ce7622dd093",
+      "status": "needs_review",
+      "checks": [
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "全身与两张头肩的可见稳定面部设计和年龄是否一致，已区分自然表情运动与换脸？",
+          "verdict": "pass",
+          "evidence": "三处均可见相近宽额头、眉眼间距、直鼻梁、薄上唇和略方的下颌；短发夹灰、无胡须及中年外观保持。张嘴图下颌与唇部发生自然运动，未据此判成另一个人。这里只评审这张新设计拼板内可见一致性，不证明与外部真人相同或跨图稳定。"
+        },
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "中性全身是否满足排除发量的九头身且各肢段协调？表情局部通过不能替代这一证据；端点不清时保留未决。",
+          "verdict": "uncertain",
+          "evidence": "中性全身完整，肩臂、躯干与四肢有自然体积；但颅顶由短发遮挡，裸足带前伸透视，未可靠确定中性颅顶与人体承重足底端点，不能确认严格九头身。头像展示倍率不同，不把头像头长直接代入全身；张嘴头像的下巴移动也不用于重算全身体型。自然匀称和完整入画不能替代九头身证据。"
+        },
+        {
+          "id": "expression-check",
+          "basis": "expression",
+          "critical": true,
+          "question": "中性与自然张嘴是否分别到位，眉眼仍放松、口唇口腔连接自然，没有用仰头或瞪眼替代动作？",
+          "verdict": "pass",
+          "evidence": "全身和右上头肩嘴唇闭合、神态放松；右下嘴唇分开、口腔可见，下颌下移，眉眼仍较放松，没有明显瞪眼或仰头。唇缘、下巴和少量可见牙齿连接自然，无明显粘连；不推断不可见牙齿颗数，也不将新设计口腔称为原参考复刻。"
+        },
+        {
+          "id": "outfit-check",
+          "basis": "outfit",
+          "critical": true,
+          "question": "同一短发与石蓝短袖、深灰短裤和赤脚设计是否保持，未因表情换装或增饰？",
+          "verdict": "pass",
+          "evidence": "三处短发、石蓝圆领短袖与领肩结构一致，左侧配深灰及膝短裤和赤脚；未增饰、换装或因张嘴改变发型。不同景别的织物细节清晰度不同，不宣称逐像素一致。"
+        },
+        {
+          "id": "view-check",
+          "basis": "view",
+          "critical": true,
+          "question": "是否共同正面，完整全身和完整头肩分别可读，没有偏头、仰头或身体转面？",
+          "verdict": "pass",
+          "evidence": "三处头部正面，左侧身体正面直立，双臂自然放松离身、双脚稳定落地，头至脚完整。右侧完整头部和肩部衣装可读，张嘴未用明显偏头或仰头代替。足背存在透视，在比例项保留未决。"
+        },
+        {
+          "id": "layout-check",
+          "basis": "layout",
+          "critical": true,
+          "question": "是否左全身、右上中性头肩、右下张嘴头肩，两张头肩倍率和对齐基准一致且无多余内容？",
+          "verdict": "pass",
+          "evidence": "左侧单个全身，右侧上中性、下张嘴，两张头肩的展示倍率及眼部、头顶在各自格内的位置视觉接近，人物间分隔清楚。未增加文字、色板或额外格；这是可见版式判断，不是精确坐标校准。"
+        },
+        {
+          "id": "style-check",
+          "basis": "style",
+          "critical": true,
+          "question": "三处是否保持统一写实三维人物质感，皮肤、发与布料表现协调？",
+          "verdict": "pass",
+          "evidence": "各处面部和肢体保持连续写实体积，皮肤、细短发与低光泽布料有可见区别，未见卡通大眼、平涂线稿或明显蜡皮混入。满足本轮可见写实三维质感目标；与摄影外观存在重叠，仅凭图片不能确认三维网格、实际渲染器或可编辑模型。"
+        },
+        {
+          "id": "light-check",
+          "basis": "light",
+          "critical": true,
+          "question": "各处是否保持同一柔和照明与中性颜色，表情差异没有被光线改变混淆？",
+          "verdict": "pass",
+          "evidence": "各处均为柔和正面偏上受光，脸部体积清楚、颜色中性；两张头肩未靠显著换光制造表情差异。只能判断可见光影相近，不恢复真实灯位或能量参数。"
+        },
+        {
+          "id": "background-check",
+          "basis": "background",
+          "critical": true,
+          "question": "背景是否为实际不透明浅灰色，无道具或透明空白？",
+          "verdict": "pass",
+          "evidence": "背景视觉为浅灰纯色体系，空白无道具且三处可分辨，柔光下有轻微明暗渐变；原始PNG为RGB三通道、无alpha，实际背景不依赖查看器衬底。原目标未要求每个背景像素同值，不追加该数值门槛。"
+        }
+      ]
+    }
+  ],
+  "observation": "身份、目标表情、版式及可见媒介成立；全身头身比例无法可靠确认，整张保留待审。",
+  "next_action": "保留为表情动作与身份观察样本，先补足完整中性身体比例证据，不据此批量派生，也不重复微调表情制造整体成功。",
+  "boundaries": [
+    "单个新人物、单张拼板，无跨图身份或动画连续性证据",
+    "比例目标和历史容差未更改；没有给26次人物专项或历史34张评分重新打分",
+    "图像可见写实三维质感与摄影可能重叠，不证明存在三维模型"
+  ],
+  "file_observation": "image-file-observation.json"
+}

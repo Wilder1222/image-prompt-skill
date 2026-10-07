@@ -14,7 +14,7 @@ test('mode selections survive as visible prose without a settings block in eithe
     assert.doesNotMatch(r.prompt,settings);
     assert.doesNotMatch(r.prompt,/\b(?:P9[ _]+Fashion|beauty_first|style_asset|material_priority|concept_art_priority|focal_brightness|soft_realistic|painterly_selective)\b/);
     if(language==='zh-CN'){
-      assert.match(r.prompt,/约九头身/);
+      assert.match(r.prompt,/必须采用黄金九头身/);
       assert.match(r.prompt,/视觉亮度焦点/);
       assert.match(r.prompt,styleWorkflow==='dark_fantasy_asset'?/柔和笔触与选择性虚实/:/轮廓服从柔和棚光和真实材质/);
     }
@@ -37,16 +37,15 @@ test('CLI and library deliver the same ten categorized Chinese sections by defau
   assert.equal(run(['--language','fr']).status, 1);
 });
 
-test('project P9 and explicit natural proportions remain independent of presentation', () => {
+test('mandatory nine-head proportions cannot be replaced by natural proportions in either presentation', () => {
   for (const presentation of ['neutral_asset', 'costume_showcase']) {
     assert.equal(createAssetPlan({ presentation }).configuration.proportion_profile, 'P9_FASHION_ASSET');
     const fashion = compileAssetPrompt({ presentation }).prompt;
-    assert.match(fashion, /约九头身/);
+    assert.match(fashion, /必须采用黄金九头身/);
     assert.match(fashion, /不要极端缩头、纸片腰/);
     assert.doesNotMatch(fashion, /七至七点五/);
-    const natural = compileAssetPrompt({ presentation, proportionProfile: 'NATURAL_ADULT' }).prompt;
-    assert.match(natural, /七至七点五/);
-    assert.doesNotMatch(natural, /P9 Fashion|约九头身/);
+    assert.throws(() => compileAssetPrompt({ presentation, proportionProfile: 'NATURAL_ADULT' }), /黄金九头身/);
+    assert.equal(createAssetPlan({ presentation }).stage_2.fashion_asset.visual_head_count_target, '9.0');
   }
   assert.equal(run(['--proportion-profile','typo']).status, 1);
 });
@@ -88,13 +87,13 @@ test('detail and edge adjustments compile visible changes while unrelated catego
 test('anchors and focused repairs preserve accepted scope in both languages and workflows', () => {
   for (const language of ['zh-CN','en']) {
     const anchor = compileAssetPrompt({ referenceMode: 'full_body_anchor', language });
-    assert.equal(anchor.configuration.proportion_profile, 'preserve_reference');
+    assert.equal(anchor.configuration.proportion_profile, 'P9_FASHION_ASSET');
     assert.doesNotMatch(anchor.prompt, /P9 Fashion|七至七点五/);
   }
   assert.throws(() => compileAssetPrompt({ referenceMode:'full_body_anchor', proportionProfile:'NATURAL_ADULT' }), /conflicting/);
   for (const styleWorkflow of ['material_realistic_asset', 'dark_fantasy_asset']) {
     const hand = compileAssetPrompt({ stage:'structure', focus:'hands', passed:['fashion_asset_proportion'], styleWorkflow });
-    assert.match(hand.prompt, /仅修手部/); assert.doesNotMatch(hand.prompt, /约九头身|七至七点五/);
+    assert.match(hand.prompt, /仅修手部/); assert.doesNotMatch(hand.prompt, /黄金九头身|七至七点五/);
     assert.throws(() => compileAssetPrompt({ stage:'structure', focus:'proportion', passed:['fashion_asset_proportion'], styleWorkflow }), /reopen passed/);
     const mat = compileAssetPrompt({ stage:'material-light', focus:'materials', styleWorkflow });
     assert.match(mat.prompt, /灯位、背景和地面阴影保持/); assert.doesNotMatch(mat.prompt, /大面积柔和主光/);

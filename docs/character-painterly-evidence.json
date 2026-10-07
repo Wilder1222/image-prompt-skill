@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "cohort": "character-painterly-20261006",
+  "purpose": "新女性角色以原创九头身轮廓为唯一初始参考，测试厚涂表现；首次媒介失败后以人物候选重新绘制媒介，同一目标保持。",
+  "tool": "built-in image_gen",
+  "model": null,
+  "seed": null,
+  "evidence_directory": "dist/visual-tests/character-painterly-20261006",
+  "known_completed_calls": 2,
+  "approved_outputs": 0,
+  "user_accepted": false,
+  "group_verdict": "needs_review",
+  "guide": {
+    "source": "dist/visual-tests/character-proportion-guide-20261006/nine-head-guide.png",
+    "geometry": {
+      "width": 600,
+      "height": 1200,
+      "crown_y": 60,
+      "chin_y": 180,
+      "sole_y": 1140,
+      "head_height": 120,
+      "body_height": 1080,
+      "head_count": 9,
+      "source": "original vector construction",
+      "purpose": "比例与姿态示意；灰色无脸模型不提供身份、皮肤、衣装或媒介，不是已验收人体资产。",
+      "limitations": "各段曲线为示意，不是解剖模型；几何九头身只成立于输入示意，不证明生图结果。",
+      "svg_sha256": "aee1446f72bd55e2db61c203c4a1a7474678a6c29cdea33669d781f948d387de",
+      "png_sha256": "14c465724515f20e009fe7b0d0e19763dad418e4009efff6cb2d3d9eb96fe23c"
+    },
+    "first_submitted_in_this_cohort": true,
+    "used_in_run": "painterly-nine-01",
+    "not_controlnet": true,
+    "not_generated_asset": true,
+    "anatomy_approved": false
+  },
+  "runs": [
+    {
+      "run_id": "painterly-nine-01",
+      "case_id": "painterly-original",
+      "cohort": "character-painterly-20261006",
+      "snapshot_file": "painterly-01.snapshot.json",
+      "snapshot_sha256": "dea04f8e470f804714499cfd9cfabe519e2393410899a41aa3d0b672887786fc",
+      "target_sha256": "552ceab9d8062f08c8e1f158736a4cd29d1e15143fa5bb5caf7c787ac705bf15",
+      "prompt_sha256": "0a53be68db63ab90d3f9af36e671ad07428b0b23a03d26bd3c8f506b64e3b991",
+      "target": {
+        "subject_kind": "character",
+        "requirements": [
+          {
+            "id": "body",
+            "channel": "proportion",
+            "priority": "must",
+            "target_head_count": 9,
+            "text": "黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。"
+          },
+          {
+            "id": "identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "新设计约三十岁成年女性，暖棕肤色、椭圆脸、自然直眉、深棕眼、鼻梁平直、唇形清楚、成年下颌，平静前视；贴头深棕短发露出耳朵，无高耸发量和头饰。"
+          },
+          {
+            "id": "costume",
+            "channel": "costume",
+            "priority": "must",
+            "text": "不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。"
+          },
+          {
+            "id": "frame",
+            "channel": "composition",
+            "priority": "must",
+            "text": "单人单张正面完整全身，平视弱透视；头颈胸廓骨盆正对前方，双臂稍离身下垂，双腿自然伸直，双脚向前平放地面；浅暖灰背景，头顶、下巴、膝踝足部可读，无标尺横线、文字、网格和分格。"
+          },
+          {
+            "id": "medium",
+            "channel": "style",
+            "priority": "must",
+            "text": "统一数字厚涂人物：用可见但克制的色层和笔触塑造面容、头发、衣料、手足及接地影；五官焦点清楚，次要边缘有虚实，明暗连贯、光向统一；不是摄影贴图、三维塑料渲染或整身平涂赛璐璐。"
+          },
+          {
+            "id": "limbs",
+            "channel": "hands_feet",
+            "priority": "must",
+            "text": "肩肘腕、手掌手指、膝踝足部自然连接，手指自然微屈，双足稳定承重；不复制示意图的手套形、细杆腿或僵硬躯干，关节位置与体块协调，无多余肢体。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "body-check",
+            "basis": "body",
+            "critical": true,
+            "question": "黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。"
+          },
+          {
+            "id": "identity-check",
+            "basis": "identity",
+            "critical": true,
+            "question": "新设计约三十岁成年女性，暖棕肤色、椭圆脸、自然直眉、深棕眼、鼻梁平直、唇形清楚、成年下颌，平静前视；贴头深棕短发露出耳朵，无高耸发量和头饰。"
+          },
+          {
+            "id": "costume-check",
+            "basis": "costume",
+            "critical": true,
+            "question": "不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。"
+          },
+          {
+            "id": "frame-check",
+            "basis": "frame",
+            "critical": true,
+            "question": "单人单张正面完整全身，平视弱透视；头颈胸廓骨盆正对前方，双臂稍离身下垂，双腿自然伸直，双脚向前平放地面；浅暖灰背景，头顶、下巴、膝踝足部可读，无标尺横线、文字、网格和分格。"
+          },
+          {
+            "id": "medium-check",
+            "basis": "medium",
+            "critical": true,
+            "question": "统一数字厚涂人物：用可见但克制的色层和笔触塑造面容、头发、衣料、手足及接地影；五官焦点清楚，次要边缘有虚实，明暗连贯、光向统一；不是摄影贴图、三维塑料渲染或整身平涂赛璐璐。"
+          },
+          {
+            "id": "limbs-check",
+            "basis": "limbs",
+            "critical": true,
+            "question": "肩肘腕、手掌手指、膝踝足部自然连接，手指自然微屈，双足稳定承重；不复制示意图的手套形、细杆腿或僵硬躯干，关节位置与体块协调，无多余肢体。"
+          }
+        ]
+      },
+      "prompt": "【厚涂表现】\n统一数字厚涂人物：用可见但克制的色层和笔触塑造面容、头发、衣料、手足及接地影；五官焦点清楚，次要边缘有虚实，明暗连贯、光向统一；不是摄影贴图、三维塑料渲染或整身平涂赛璐璐。 脸部以暖冷色面衔接，眼睑鼻唇用少量明确笔触收束；短发组织大体积和发束方向，衣料用明暗边界、主要褶皱与少量笔触区分，避免密集照片微纹。左上方柔光统一全身，暗部通透，脸和主要衣片轮廓清楚。\n\n【身材比例】\n参考图只提供头与全身的相对尺寸和正面站姿。头顶至下巴是一个头长，头顶至人体足底是九个头长，保持这一关系设计完整女性身体。黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。 示意图的粗略曲线不是人体解剖，重新建立自然的肩胸腰胯体积与关节；不能照抄手套状手掌和过细腿。\n\n【人物身份与面容】\n新设计约三十岁成年女性，暖棕肤色、椭圆脸、自然直眉、深棕眼、鼻梁平直、唇形清楚、成年下颌，平静前视；贴头深棕短发露出耳朵，无高耸发量和头饰。 面部内部关系自然，眼睛不过度放大，短发露出额头边界和下颌；示意图无脸，不提供人物身份。\n\n【服装设计】\n不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。 衣服顺身体自然合身，不用宽袍或拖尾遮住膝踝，不新增纹样或配饰。\n\n【构图与姿态】\n单人单张正面完整全身，平视弱透视；头颈胸廓骨盆正对前方，双臂稍离身下垂，双腿自然伸直，双脚向前平放地面；浅暖灰背景，头顶、下巴、膝踝足部可读，无标尺横线、文字、网格和分格。 参考图的灰色模型、辅助横线和外框全部不进入完成画；周边适量留白，双足与地面轻柔接触影清楚。\n\n【手部与脚部】\n肩肘腕、手掌手指、膝踝足部自然连接，手指自然微屈，双足稳定承重；不复制示意图的手套形、细杆腿或僵硬躯干，关节位置与体块协调，无多余肢体。 脚尖向前的透视不计入人体高度，比例以实际足底承重平面为端点。",
+      "references": [
+        {
+          "id": "guide",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-proportion-guide-20261006\\nine-head-guide.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "proportion",
+            "composition"
+          ],
+          "facts": [
+            {
+              "id": "guide-ratio",
+              "channel": "proportion",
+              "visibility": "visible",
+              "text": "原创600×1200技术示意：头顶y60、下巴y180、足底y1140，几何身高1080为头长120的九倍。轮廓曲线粗略，不是已验收解剖模型，不提供身体粗细、脸、服装或风格。"
+            },
+            {
+              "id": "guide-pose",
+              "channel": "composition",
+              "visibility": "visible",
+              "text": "正面完整直立，双臂垂下稍离身，双腿微分，头颈竖直。灰色填色、蓝灰横线和界线是辅助示意。"
+            }
+          ],
+          "content_sha256": "14c465724515f20e009fe7b0d0e19763dad418e4009efff6cb2d3d9eb96fe23c"
+        }
+      ],
+      "output_file": "painterly-01.png",
+      "output_sha256": "5b957b1f5c2f666d9ddf19e967af1b4e35331a1d32841939ea38a257cc275693",
+      "status": "needs_revision",
+      "checks": [
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。",
+          "verdict": "uncertain",
+          "evidence": "图中头身关系没有明确呈现九头身；头发遮住实际颅顶，足部有前伸透视，不能把发顶和脚尖直接当作人体端点。未获得足够可靠的颅顶、下巴与承重足底位置来证明严格九头身，不因输入技术示意为九就判输出通过。"
+        },
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "新设计约三十岁成年女性，暖棕肤色、椭圆脸、自然直眉、深棕眼、鼻梁平直、唇形清楚、成年下颌，平静前视；贴头深棕短发露出耳朵，无高耸发量和头饰。",
+          "verdict": "pass",
+          "evidence": "为新的成年女性，暖棕肤色、椭圆脸、深棕眼、平直鼻梁和自然唇形清楚，贴头深棕短发露耳，平静前视。没有既有身份照片，此项仅核对文字造型，不声明跨图身份一致。"
+        },
+        {
+          "id": "costume-check",
+          "basis": "costume",
+          "critical": true,
+          "question": "不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。",
+          "verdict": "pass",
+          "evidence": "石青色短袖圆领上衣、深褐膝上短裤、赤脚与无配饰成立，衣片结构、接缝与主要褶皱清楚。"
+        },
+        {
+          "id": "frame-check",
+          "basis": "frame",
+          "critical": true,
+          "question": "单人单张正面完整全身，平视弱透视；头颈胸廓骨盆正对前方，双臂稍离身下垂，双腿自然伸直，双脚向前平放地面；浅暖灰背景，头顶、下巴、膝踝足部可读，无标尺横线、文字、网格和分格。",
+          "verdict": "uncertain",
+          "evidence": "单人正面完整全身、暖灰背景和垂臂成立，没有辅助线或无脸模型残留；足尖仍略外转，严格双脚向前未确认。"
+        },
+        {
+          "id": "medium-check",
+          "basis": "medium",
+          "critical": true,
+          "question": "统一数字厚涂人物：用可见但克制的色层和笔触塑造面容、头发、衣料、手足及接地影；五官焦点清楚，次要边缘有虚实，明暗连贯、光向统一；不是摄影贴图、三维塑料渲染或整身平涂赛璐璐。",
+          "verdict": "fail",
+          "evidence": "面部、头发和衣料主要为平滑写实体积与细纹，整体接近写实渲染或精修照片。未看到目标要求的明确厚涂色层、笔触组织及边缘取舍，不能仅凭细腻明暗判厚涂通过。"
+        },
+        {
+          "id": "limbs-check",
+          "basis": "limbs",
+          "critical": true,
+          "question": "肩肘腕、手掌手指、膝踝足部自然连接，手指自然微屈，双足稳定承重；不复制示意图的手套形、细杆腿或僵硬躯干，关节位置与体块协调，无多余肢体。",
+          "verdict": "pass",
+          "evidence": "肩肘腕、可见手指及膝踝足连接基本自然，有接地影；未照抄示意图手套与细杆腿，未见多余肢体。不推断遮挡指节。"
+        }
+      ],
+      "parent": null,
+      "goal_changed": false
+    },
+    {
+      "run_id": "painterly-nine-02",
+      "case_id": "painterly-original",
+      "cohort": "character-painterly-20261006",
+      "snapshot_file": "painterly-02.snapshot.json",
+      "snapshot_sha256": "3a8fb93856d417478724ab1b0d1d9f5c4da6a8267fa803aa3ec44e9d8f540fae",
+      "target_sha256": "552ceab9d8062f08c8e1f158736a4cd29d1e15143fa5bb5caf7c787ac705bf15",
+      "prompt_sha256": "4a535fc4d855fd6d6b95bd46c5bfeb9e0910c56ccee84f70ba9da915c4bbc3df",
+      "target": {
+        "subject_kind": "character",
+        "requirements": [
+          {
+            "id": "body",
+            "channel": "proportion",
+            "priority": "must",
+            "target_head_count": 9,
+            "text": "黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。"
+          },
+          {
+            "id": "identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "新设计约三十岁成年女性，暖棕肤色、椭圆脸、自然直眉、深棕眼、鼻梁平直、唇形清楚、成年下颌，平静前视；贴头深棕短发露出耳朵，无高耸发量和头饰。"
+          },
+          {
+            "id": "costume",
+            "channel": "costume",
+            "priority": "must",
+            "text": "不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。"
+          },
+          {
+            "id": "frame",
+            "channel": "composition",
+            "priority": "must",
+            "text": "单人单张正面完整全身，平视弱透视；头颈胸廓骨盆正对前方，双臂稍离身下垂，双腿自然伸直，双脚向前平放地面；浅暖灰背景，头顶、下巴、膝踝足部可读，无标尺横线、文字、网格和分格。"
+          },
+          {
+            "id": "medium",
+            "channel": "style",
+            "priority": "must",
+            "text": "统一数字厚涂人物：用可见但克制的色层和笔触塑造面容、头发、衣料、手足及接地影；五官焦点清楚，次要边缘有虚实，明暗连贯、光向统一；不是摄影贴图、三维塑料渲染或整身平涂赛璐璐。"
+          },
+          {
+            "id": "limbs",
+            "channel": "hands_feet",
+            "priority": "must",
+            "text": "肩肘腕、手掌手指、膝踝足部自然连接，手指自然微屈，双足稳定承重；不复制示意图的手套形、细杆腿或僵硬躯干，关节位置与体块协调，无多余肢体。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "body-check",
+            "basis": "body",
+            "critical": true,
+            "question": "黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。"
+          },
+          {
+            "id": "identity-check",
+            "basis": "identity",
+            "critical": true,
+            "question": "新设计约三十岁成年女性，暖棕肤色、椭圆脸、自然直眉、深棕眼、鼻梁平直、唇形清楚、成年下颌，平静前视；贴头深棕短发露出耳朵，无高耸发量和头饰。"
+          },
+          {
+            "id": "costume-check",
+            "basis": "costume",
+            "critical": true,
+            "question": "不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。"
+          },
+          {
+            "id": "frame-check",
+            "basis": "frame",
+            "critical": true,
+            "question": "单人单张正面完整全身，平视弱透视；头颈胸廓骨盆正对前方，双臂稍离身下垂，双腿自然伸直，双脚向前平放地面；浅暖灰背景，头顶、下巴、膝踝足部可读，无标尺横线、文字、网格和分格。"
+          },
+          {
+            "id": "medium-check",
+            "basis": "medium",
+            "critical": true,
+            "question": "统一数字厚涂人物：用可见但克制的色层和笔触塑造面容、头发、衣料、手足及接地影；五官焦点清楚，次要边缘有虚实，明暗连贯、光向统一；不是摄影贴图、三维塑料渲染或整身平涂赛璐璐。"
+          },
+          {
+            "id": "limbs-check",
+            "basis": "limbs",
+            "critical": true,
+            "question": "肩肘腕、手掌手指、膝踝足部自然连接，手指自然微屈，双足稳定承重；不复制示意图的手套形、细杆腿或僵硬躯干，关节位置与体块协调，无多余肢体。"
+          }
+        ]
+      },
+      "prompt": "【厚涂重新绘制】\n将参考形象重新绘制为可明确辨认的数字厚涂人物。脸颊、额头、鼻侧和下颌用有方向的宽短笔触与冷暖色块衔接，保留眼鼻唇精确位置，但中间调不要磨成照片渐变。头发用深浅三至四组大笔触塑造发束，去掉逐根细丝；上衣、短裤和四肢用有边缘的宽色面表达起伏，褶皱只保留主要受力转折，不保留照片织纹和皮肤颗粒。焦点五官少量小笔触收束，肩侧、衣摆与小腿次要轮廓以断续笔触和背景交融，仍能读出完整人体。背景与接地影也用大块松动笔触统一画成。保留原左上柔光方向和颜色分区，让每个部位都出现真实组织体积的绘画笔触，而不是给写实照片覆盖一层画布纹理。\n\n【人物身份保持】\n保持参考同一成年女性的脸型、五官间距、暖棕肤色、表观年龄、短发形状与平静表情，用厚涂色面重新表达，不换脸、不放大眼睛。\n\n【服装设计保持】\n保留石青短袖圆领上衣、深褐膝上短裤与赤脚，保留衣片和接缝位置、主褶与颜色，不添加配饰；仅改变其绘画表现。\n\n【构图保持】\n保持单人正面完整全身、现有姿态、大小与浅暖灰背景；不裁剪、不添加文字网格。身体轮廓仍清楚，背景改用绘画笔触。\n\n【比例范围】\n黄金九头身目标持续有效，人体直立高度须为九个颅顶至下巴头长，不计发量和前伸脚尖；原比例尚未通过。本次只重新绘制媒介，不拉伸头颈或单段四肢，不把媒介改变作为比例合格依据。\n\n【肢体结构保持】\n保持肩肘腕、手指、膝踝足的可见位置与自然连接，不增减肢体；用连贯色面与少量准确笔触表达关节，不能把手脚糊成色团。",
+      "references": [
+        {
+          "id": "candidate",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-painterly-20261006\\painterly-01.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "identity",
+            "hair",
+            "costume",
+            "composition",
+            "style"
+          ],
+          "facts": [
+            {
+              "id": "candidate-face",
+              "channel": "identity",
+              "visibility": "visible",
+              "text": "成年女性椭圆脸、自然眉眼鼻唇、暖棕肤色、深棕露耳短发，平静前视。"
+            },
+            {
+              "id": "candidate-clothes",
+              "channel": "costume",
+              "visibility": "visible",
+              "text": "石青短袖圆领上衣、深褐膝上短裤，赤脚。"
+            },
+            {
+              "id": "candidate-frame",
+              "channel": "composition",
+              "visibility": "visible",
+              "text": "暖灰背景、单人正面完整全身、双臂下垂，双足微外转。"
+            },
+            {
+              "id": "candidate-medium",
+              "channel": "style",
+              "visibility": "visible",
+              "text": "平滑写实体积与细纹，未见明确厚涂笔触；比例未通过，不提供合格九头身。"
+            }
+          ],
+          "content_sha256": "5b957b1f5c2f666d9ddf19e967af1b4e35331a1d32841939ea38a257cc275693"
+        }
+      ],
+      "output_file": "painterly-02.png",
+      "output_sha256": "f86885a17b288afddbfd05e15cfb144bb353025ee4c45ebb9e79ac46db68c7f9",
+      "status": "needs_review",
+      "checks": [
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "黄金九头身，直立人体高度严格为九个颅顶至下巴头长，排除头发厚度；肩颈胸腰、骨盆和上下肢协调，不能拉长颈部、压短躯干或单独拉伸某段腿。",
+          "verdict": "uncertain",
+          "evidence": "头、躯干与腿的相对尺寸基本保持，未见九头身问题得到独立解决。实际颅顶仍被短发遮挡，前伸脚尖不能计人体身高，没有足够可靠的解剖端点来证明严格九头身；保留待审，不因媒介通过放行。"
+        },
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "新设计约三十岁成年女性，暖棕肤色、椭圆脸、自然直眉、深棕眼、鼻梁平直、唇形清楚、成年下颌，平静前视；贴头深棕短发露出耳朵，无高耸发量和头饰。",
+          "verdict": "pass",
+          "evidence": "与首次候选比较，椭圆脸、眉眼鼻唇位置、成年下颌、暖棕肤色和露耳短发基本保持，绘画概括未明显换脸或降低成年感。此为该对图像的观察，不声明多视角身份稳定。"
+        },
+        {
+          "id": "costume-check",
+          "basis": "costume",
+          "critical": true,
+          "question": "不透明石青色合体短袖圆领上衣，深褐色直筒短裤至膝上，保留领袖裤腰结构与承重衣褶；赤脚，无首饰、护具、鞋袜或长披挂。",
+          "verdict": "pass",
+          "evidence": "石青短袖上衣、深褐膝上短裤、赤脚及主要版型保持，缝线和主褶仍可读；表面变为笔触，没有新增配饰或更换款式。"
+        },
+        {
+          "id": "frame-check",
+          "basis": "frame",
+          "critical": true,
+          "question": "单人单张正面完整全身，平视弱透视；头颈胸廓骨盆正对前方，双臂稍离身下垂，双腿自然伸直，双脚向前平放地面；浅暖灰背景，头顶、下巴、膝踝足部可读，无标尺横线、文字、网格和分格。",
+          "verdict": "uncertain",
+          "evidence": "正面完整全身、人物大小、垂臂和暖灰背景基本保持，没有文字网格；双脚仍稍外转，严格向前尚未确认。"
+        },
+        {
+          "id": "medium-check",
+          "basis": "medium",
+          "critical": true,
+          "question": "统一数字厚涂人物：用可见但克制的色层和笔触塑造面容、头发、衣料、手足及接地影；五官焦点清楚，次要边缘有虚实，明暗连贯、光向统一；不是摄影贴图、三维塑料渲染或整身平涂赛璐璐。",
+          "verdict": "pass",
+          "evidence": "脸颊额头鼻侧与颈部出现明确冷暖色块，头发为成组笔触，衣服和四肢用宽笔触随体积转折，背景及接地影也以绘画笔触统一。五官焦点比衣料与背景更细，整体可辨厚涂；不是仅覆盖画布纹理。符合本轮媒介要求，不代表所有厚涂子风格或批量稳定。"
+        },
+        {
+          "id": "limbs-check",
+          "basis": "limbs",
+          "critical": true,
+          "question": "肩肘腕、手掌手指、膝踝足部自然连接，手指自然微屈，双足稳定承重；不复制示意图的手套形、细杆腿或僵硬躯干，关节位置与体块协调，无多余肢体。",
+          "verdict": "pass",
+          "evidence": "可见肩肘腕、手指及膝踝足仍连贯，未见明显增减肢体，脚趾和接地关系可读；笔触概括未将手足涂成无结构色团，不推断被遮挡部分。"
+        }
+      ],
+      "parent": {
+        "run_id": "painterly-nine-01",
+        "snapshot_sha256": "dea04f8e470f804714499cfd9cfabe519e2393410899a41aa3d0b672887786fc"
+      },
+      "goal_changed": false
+    }
+  ],
+  "findings": [
+    "首次虽然没有身份照片输入，仍偏平滑写实渲染，厚涂媒介未通过；不能把此前照片参考作为风格漂移的唯一解释。",
+    "同目标修订将可见笔触分配到脸、发、衣料、肢体与背景，第二次媒介项通过，身份与衣装基本保持。",
+    "九头身与严格朝前的双脚仍待审，两次均未整体通过。轮廓示意的几何正确不能证明输出比例正确。",
+    "此为新人物和新媒介，多变量同时改变、种子未知，不证明哪一个提示词片段单独有效；不作为旧男性或旅人修复成功。"
+  ],
+  "history_boundary": "保留两次原图、目标、提示词与回执；旧报告中的轮廓原型未提交指旧实验，在本组首次使用。技术示意不计模型输出，本组不并入历史34张评分。"
+}

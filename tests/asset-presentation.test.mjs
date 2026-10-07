@@ -14,7 +14,7 @@ test('showcase selection changes presentation, not face or material treatment', 
   assert.equal(a.configuration.presentation_profile, 'neutral_asset');
   const result = compileAssetPrompt({ presentation: 'costume_showcase' });
   assert.match(result.prompt, /A-line hem/);
-  assert.match(result.prompt, /approximately nine-head/);
+  assert.match(result.prompt, /Mandatory nine-head/);
   assert.doesNotMatch(result.prompt, /hem controlled rather than excessively spread/);
 });
 
@@ -37,7 +37,7 @@ test('showcase does not leak ornament or layer additions into a local repair', (
 test('full-body anchor bypasses generation defaults and does not claim approval', () => {
   const result = compileAssetPrompt({ referenceMode: 'full_body_anchor' });
   assert.equal(result.configuration.hand_mode, 'preserve_reference');
-  assert.equal(result.configuration.proportion_profile, 'preserve_reference');
+  assert.equal(result.configuration.proportion_profile, 'P9_FASHION_ASSET');
   assert.match(result.prompt, /Preserve its facial identity/);
   assert.doesNotMatch(result.prompt, /Place the right hand|Extend unseen|18.22|large soft key/);
   assert.deepEqual(result.evidence, { image_generated: false, visual_quality_verified: false });

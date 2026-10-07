@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "cohort": "character-proportion-guide-20261006",
+  "purpose": "测量明确的原创九头身骨架图作为普通参考；身份和衣装仍取原男性图。此轮诊断普通双参考的比例引导，不是专用结构控制。",
+  "tool": "built-in image_gen",
+  "model": null,
+  "seed": null,
+  "evidence_directory": "dist/visual-tests/character-proportion-guide-20261006",
+  "known_completed_calls": 1,
+  "approved_outputs": 0,
+  "group_verdict": "needs_revision",
+  "user_accepted": false,
+  "guide": {
+    "file": "nine-head-pose-guide.png",
+    "geometry": {
+      "width": 600,
+      "height": 1200,
+      "crown_y": 60,
+      "chin_y": 180,
+      "sole_y": 1140,
+      "head_height": 120,
+      "body_height": 1080,
+      "head_count": 9,
+      "source": "original vector construction",
+      "purpose": "九头身的头部椭圆与骨架示意；无脸、无衣装，不提供肢体粗细、身份或媒介。",
+      "limitations": "手绘二维示意，不是 OpenPose 数据或 ControlNet 输入格式；九头身只在此输入几何中成立，关节点不能代替输出图验收。",
+      "svg_sha256": "0e46924686427eee225befe2a91ca822a986a766aeaae59908c40ead1e6ec7ba",
+      "png_sha256": "01de4cc056e35672e7e503604996a45786ee4120707210361b2ff81190266877"
+    },
+    "inspected": true,
+    "authority": [
+      "proportion",
+      "composition"
+    ],
+    "identity_authority": false,
+    "used_as": "ordinary reference image",
+    "not_controlnet": true,
+    "not_generated_asset": true
+  },
+  "unused_local_prototype": "nine-head-guide.png 仅为未提交的轮廓原型，未计算为图像模型输出或通过样本。",
+  "runs": [
+    {
+      "run_id": "male-nine-guide-01",
+      "case_id": "male-nine-guide",
+      "snapshot_file": "guide-01.snapshot.json",
+      "snapshot_sha256": "8f36ee85b1f54c2aaa9811ba1b84b65612379fb7da34de2e8fafe9e6e8723502",
+      "target_sha256": "4a679db24369cfd1c5dbe3c72dda2b9ccaf4d677e88fd733b7f450071e2f7039",
+      "prompt_sha256": "ee92143ecd054eed0298f95d27e333c24a9fe3febf85a4a843e1043c3faab963",
+      "target": {
+        "subject_kind": "character",
+        "requirements": [
+          {
+            "id": "body",
+            "channel": "proportion",
+            "priority": "must",
+            "target_head_count": 9,
+            "text": "黄金九头身，直立人体高度为九个颅顶至下巴头长，排除短发厚度；头颈胸廓骨盆和上下肢共同协调，不能靠长颈、短躯干或单段拉腿凑比例。"
+          },
+          {
+            "id": "identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "保留图一同一成年男性的中棕肤色、长方脸、直眉深棕眼、宽直鼻梁、清楚唇形和宽下颌辨识关系；表观年龄约35岁、无胡须、极短贴头发型不变，平静前视。"
+          },
+          {
+            "id": "costume",
+            "channel": "costume",
+            "priority": "must",
+            "text": "浅灰合体长袖圆领运动上衣，深海军蓝合体运动短裤至膝上，布料不透明且不勒紧；不添加配饰、护具、披风、鞋袜。"
+          },
+          {
+            "id": "frame",
+            "channel": "composition",
+            "priority": "must",
+            "text": "单人单张正面完整全身；头颈、胸廓和骨盆正面，不歪头不挺腰；平视弱透视。双腿自然伸直、双脚朝前且脚底平放地面，双臂自然垂下稍离身；颅顶、下巴、膝踝和足部可读，浅暖灰棚底，无文字标尺网格拼板。 图二骨架、灰色无脸头形与辅助线不得进入最终画面。"
+          },
+          {
+            "id": "medium",
+            "channel": "style",
+            "priority": "must",
+            "text": "精细写实三维角色资产图，面部眼睑鼻唇和身体曲面连贯，皮肤色泽与柔和透光协调，短发有厚度，布料接缝厚度和主要褶皱清楚；中性柔和棚光，皮肤与布料反射有区分，拒绝塑料全身同亮、低模棱面或二维线稿。"
+          },
+          {
+            "id": "limbs",
+            "channel": "hands_feet",
+            "priority": "must",
+            "text": "手腕手指与膝踝足结构自然连接，手指自然微屈，足部承重可信，不增减可见肢体、不将脚尖当作足底身高端点。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "body-check",
+            "basis": "body",
+            "critical": true,
+            "question": "黄金九头身，直立人体高度为九个颅顶至下巴头长，排除短发厚度；头颈胸廓骨盆和上下肢共同协调，不能靠长颈、短躯干或单段拉腿凑比例。"
+          },
+          {
+            "id": "identity-check",
+            "basis": "identity",
+            "critical": true,
+            "question": "保留图一同一成年男性的中棕肤色、长方脸、直眉深棕眼、宽直鼻梁、清楚唇形和宽下颌辨识关系；表观年龄约35岁、无胡须、极短贴头发型不变，平静前视。"
+          },
+          {
+            "id": "costume-check",
+            "basis": "costume",
+            "critical": true,
+            "question": "浅灰合体长袖圆领运动上衣，深海军蓝合体运动短裤至膝上，布料不透明且不勒紧；不添加配饰、护具、披风、鞋袜。"
+          },
+          {
+            "id": "frame-check",
+            "basis": "frame",
+            "critical": true,
+            "question": "单人单张正面完整全身；头颈、胸廓和骨盆正面，不歪头不挺腰；平视弱透视。双腿自然伸直、双脚朝前且脚底平放地面，双臂自然垂下稍离身；颅顶、下巴、膝踝和足部可读，浅暖灰棚底，无文字标尺网格拼板。 图二骨架、灰色无脸头形与辅助线不得进入最终画面。"
+          },
+          {
+            "id": "medium-check",
+            "basis": "medium",
+            "critical": true,
+            "question": "精细写实三维角色资产图，面部眼睑鼻唇和身体曲面连贯，皮肤色泽与柔和透光协调，短发有厚度，布料接缝厚度和主要褶皱清楚；中性柔和棚光，皮肤与布料反射有区分，拒绝塑料全身同亮、低模棱面或二维线稿。"
+          },
+          {
+            "id": "limbs-check",
+            "basis": "limbs",
+            "critical": true,
+            "question": "手腕手指与膝踝足结构自然连接，手指自然微屈，足部承重可信，不增减可见肢体、不将脚尖当作足底身高端点。"
+          }
+        ]
+      },
+      "prompt": "【身材比例】\n图二是比例与正面站姿示意：椭圆头的颅顶到下巴为一个头长，颅顶至足底为九个头长。用这个头身关系重建图一人物的完整身体，图一旧身体比例不锁定；人物直立高度严格等于九个颅顶至下巴头长。保持自然肩宽、完整胸廓与腰腹、适度运动肌肉，协调肩颈、骨盆、上臂前臂及大腿小腿。图二细线只指示位置和比例，不是细杆肢体；不要复制骨架线宽、无脸头形、蓝灰颜色或辅助横线。最终人物必须有完整自然体积，不能靠拉长颈部、压短躯干或只拉小腿凑比例。\n\n【人物身份与面容】\n图一是唯一人物身份来源。保留图一同一成年男性的中棕肤色、长方脸、宽而平的下颌、直眉、深棕眼、宽直鼻梁与唇形，年龄与极短贴头深棕发不变，无胡须，嘴唇自然闭合，平静专注前视。只调整头在整个身体中的占比，不挤压头部、不改五官内部关系。图二没有脸，不提供身份。\n\n【服装设计】\n保留图一浅灰合体长袖圆领运动上衣和深海军蓝膝上运动短裤，领袖包边、腰头与衣片连接自然，布料不透明且不勒紧。衣服按调整后的身体自然合身，不改变款式和颜色；继续赤脚，不添加鞋袜、首饰、护具或披风。\n\n【构图与姿态】\n单人单张正面完整全身，头颈胸廓骨盆都正对前方，不歪头、不挺腰。双腿自然伸直而不僵硬锁膝，双脚朝前、稍分开、脚底平放地面；双臂自然垂下并稍离身。平视弱透视，无广角拉伸，颅顶至足底完整入画，人物居中、四周适量留白，浅暖灰无缝棚背景。头顶、下巴、膝、踝和脚部轮廓清楚。画面无文字、标尺、网格和拼板。 图二只帮助对齐正面站姿，最终图没有骨架、辅助线、数字和分格。\n\n【三维材质与灯光】\n精细写实三维角色资产渲染，眼睑、鼻唇、下颌与四肢的连续曲面清楚，皮肤有自然色泽、克制粗糙度与柔和透光，短发贴合颅顶。浅灰上衣与海军蓝短裤有衣片厚度、连接和少量主要褶皱，低光泽织物与皮肤反射不同。中性柔和棚光均匀照亮面部和身体，明暗揭示体积，接触阴影轻而明确。避免塑料全身同亮、低模棱面或二维线稿，不靠景深模糊隐藏结构。\n\n【手部与脚部】\n肩肘腕、手掌与自然微屈的手指连接清楚，膝踝足尺度协调，两脚稳定承重；可见结构完整，不额外增加手指或脚趾。身体高度以足底承重平面为端点，前伸的脚尖不用于增加身高。",
+      "references": [
+        {
+          "id": "character",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-proportion-control-20261006\\control-01.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "identity",
+            "hair",
+            "costume"
+          ],
+          "facts": [
+            {
+              "id": "face-seen",
+              "channel": "identity",
+              "visibility": "visible",
+              "text": "中棕肤色成年男性，长方脸、直眉、深棕眼、宽直鼻梁，嘴唇自然闭合，下颌较宽，极短深棕发，无明显胡须。"
+            },
+            {
+              "id": "clothes-seen",
+              "channel": "costume",
+              "visibility": "visible",
+              "text": "浅灰圆领长袖上衣、深蓝膝上运动短裤，赤脚，没有头饰首饰和护具。"
+            }
+          ],
+          "content_sha256": "02aee2d184c32dbac0d29b81b5aa4f1c361d0895c30398ea1cb6976e1aca8027"
+        },
+        {
+          "id": "proportion-guide",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-proportion-guide-20261006\\nine-head-pose-guide.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "proportion",
+            "composition"
+          ],
+          "facts": [
+            {
+              "id": "guide-ratio",
+              "channel": "proportion",
+              "visibility": "visible",
+              "text": "原创二维示意，头椭圆顶部至底部为120单位，顶部至足底为1080单位，九头身；无脸、无衣装，不提供体块粗细。"
+            },
+            {
+              "id": "guide-pose",
+              "channel": "composition",
+              "visibility": "visible",
+              "text": "骨架正面直立，双臂向下稍离身，双腿自然分开，头颈竖直；蓝灰骨架与辅助横线不属于输出设计。"
+            }
+          ],
+          "content_sha256": "01de4cc056e35672e7e503604996a45786ee4120707210361b2ff81190266877"
+        }
+      ],
+      "output_file": "guide-01.png",
+      "output_sha256": "b2c961d7363df54c901f1843e0218c74e9ab31ab67eba48772770634c66cd05e",
+      "status": "needs_revision",
+      "checks": [
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "黄金九头身，直立人体高度为九个颅顶至下巴头长，排除短发厚度；头颈胸廓骨盆和上下肢共同协调，不能靠长颈、短躯干或单段拉腿凑比例。",
+          "verdict": "fail",
+          "evidence": "输出仍接近图一的头身关系，未见九头身比例可靠转移。1024×1536图人工保守观察：颅顶约y25–45，下巴约y210–230；即把前伸脚趾也计入到y1450作为身高过宽上界，头身比上界(1450-45)/(210-45)约8.52，仍不足九。此界只排除目标，不作精确解剖测量；输入示意的九头身不能替代输出判断。"
+        },
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "保留图一同一成年男性的中棕肤色、长方脸、直眉深棕眼、宽直鼻梁、清楚唇形和宽下颌辨识关系；表观年龄约35岁、无胡须、极短贴头发型不变，平静前视。",
+          "verdict": "pass",
+          "evidence": "与图一相比，长方脸、眉眼鼻唇关系、宽下颌、中棕肤色、极短发和成年外观基本保持，可辨为同一角色。没有继承图二无脸椭圆。此单张观察不证明批量身份稳定。"
+        },
+        {
+          "id": "costume-check",
+          "basis": "costume",
+          "critical": true,
+          "question": "浅灰合体长袖圆领运动上衣，深海军蓝合体运动短裤至膝上，布料不透明且不勒紧；不添加配饰、护具、披风、鞋袜。",
+          "verdict": "pass",
+          "evidence": "浅灰长袖圆领上衣、深蓝膝上短裤和赤脚保留；主要版型、衣片连接和颜色未明显改变，无新配饰。"
+        },
+        {
+          "id": "frame-check",
+          "basis": "frame",
+          "critical": true,
+          "question": "单人单张正面完整全身；头颈、胸廓和骨盆正面，不歪头不挺腰；平视弱透视。双腿自然伸直、双脚朝前且脚底平放地面，双臂自然垂下稍离身；颅顶、下巴、膝踝和足部可读，浅暖灰棚底，无文字标尺网格拼板。 图二骨架、灰色无脸头形与辅助线不得进入最终画面。",
+          "verdict": "uncertain",
+          "evidence": "正面单人完整全身、双臂下垂稍离身、暖灰棚底保持，无图二骨架辅助线或分格。双足仍略外转，严格朝前未确认，保留原目标。"
+        },
+        {
+          "id": "medium-check",
+          "basis": "medium",
+          "critical": true,
+          "question": "精细写实三维角色资产图，面部眼睑鼻唇和身体曲面连贯，皮肤色泽与柔和透光协调，短发有厚度，布料接缝厚度和主要褶皱清楚；中性柔和棚光，皮肤与布料反射有区分，拒绝塑料全身同亮、低模棱面或二维线稿。",
+          "verdict": "pass",
+          "evidence": "脸和肢体曲面连续，布料厚度、衣褶与反射可辨，皮肤与衣料没有变成统一灰色平涂；保持原写实三维图像方向，不证明存在底层网格。"
+        },
+        {
+          "id": "limbs-check",
+          "basis": "limbs",
+          "critical": true,
+          "question": "手腕手指与膝踝足结构自然连接，手指自然微屈，足部承重可信，不增减可见肢体、不将脚尖当作足底身高端点。",
+          "verdict": "pass",
+          "evidence": "手腕手指、膝踝与足部连接基本自然，没有多余肢体；弯曲手指的隐藏关节仍不可精确判断，双足有接地关系。"
+        }
+      ],
+      "parent": null,
+      "goal_changed": false
+    }
+  ],
+  "finding": "人物身份与衣装保留，未复制辅助图线条；九头身关系没有可靠转移，输出仍需修订。普通图像参考不能在本次结果中充当几何约束保证。",
+  "history_boundary": "独立新目标与实验组，不把上一轮无参考生成人物当成同目标基线，不并入历史34张评分；未控制种子，不能概括普通比例参考永远无效。",
+  "next": "不重复相同双全身参考方案。后续可单独检验身份参考携带的全身体型是否压过比例示意；改变参考裁切或重新生成身份图须记录身份误差与新输入，不能静默换图。"
+}

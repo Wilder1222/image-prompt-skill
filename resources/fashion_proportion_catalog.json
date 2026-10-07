@@ -43,20 +43,20 @@
     "P9": {
       "label": "fashion",
       "visual_head_count_range": [
-        8.7,
-        9.0
+        9,
+        9
       ],
-      "head_visual_scale": "slightly_reduced",
-      "neck_extension": "mild",
+      "head_visual_scale": "as_needed_for_nine_head_balance",
+      "neck_extension": "none",
       "shoulder_opening": "mild",
       "torso_preservation": "strong",
-      "waistline_visual_raise": "mild",
+      "waistline_visual_raise": "none",
       "leg_extension": "balanced_moderate",
       "garment_vertical_bias": "strong",
       "garment_width_control": "medium",
       "prompt_translation": [
-        "在可信的成年人体结构上呈现约九头身的时装观感，修长而匀称，不采用漫画式拉伸。",
-        "头与肩宽、颈部和完整身体相称；保持面宽、脸型与人物辨识点，不靠极端缩头制造比例。",
+        "黄金九头身是硬性目标，人体直立高度等于九个中性状态颅顶至下巴的头高；发量、头饰、鞋跟与拖尾不计入，头肩、躯干与四肢须共同协调。",
+        "头与肩宽、颈部和完整身体相称；保持面宽相对头高的关系、五官间距比例、脸型与人物辨识点。获准修正身体比例时，可协调调整完整头部与身体的尺度关系，不单独压窄脸部或缩放某个五官，不靠极端缩头制造比例。",
         "胸廓、腰腹和骨盆完整连续，不压短躯干来制造长腿。",
         "腰部自然收束，臀部有匀称的肌肉与软组织体积，肩腰臀曲线连续；不把腰收成纸片或夸大臀部。腰臀围比不以正面轮廓宽度替代，衣装遮挡处不虚构测量。",
         "上下臂、上下腿长短与粗细协调，保留自然膝位、骨盆宽度、踝部尺度和脚部比例；肩臂与腿部有适度匀称肌肉及软组织体积，随动作收缩或放松。",
@@ -89,6 +89,7 @@
     "allow_face_identity_change": false,
     "allow_face_width_reduction": false,
     "allow_eye_nose_lip_rescaling": false,
+    "guard_semantics": "面宽与五官缩放禁令针对改变脸型或独立改变五官比例，不把完整头部协调等比调整误判为换脸；只有本轮比例任务获准时才调整，局部修肤质、手部或衣料仍保持头身尺度。",
     "control_mode": "visual_scale_relationship_only",
     "rules": [
       "头长按颅顶至下巴计算，发髻、冠饰和簪饰不计入。",
@@ -125,8 +126,8 @@
   },
   "task_defaults": {
     "character_asset_full_body": "P9",
-    "portrait": "P7",
-    "three_quarter": "P8",
-    "long_shot": "P8"
+    "portrait": "P9",
+    "three_quarter": "P9",
+    "long_shot": "P9"
   }
 }

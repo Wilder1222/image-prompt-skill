@@ -8,10 +8,12 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const manifestName = 'RELEASE-MANIFEST.json';
 const ignored = new Set(['.git', '.codex', 'node_modules', 'dist', 'coverage', '.DS_Store', 'Thumbs.db', '__pycache__', '.env']);
 const ignoredPatterns = ['.env.* (except .env.example)', '*.log', '*.py[cod]'];
+const localOutputRoots = new Set(['output']);
 
 export function releaseFiles(base) {
   function walk(dir) {
     return fs.readdirSync(path.join(base, dir), { withFileTypes: true }).flatMap(entry => {
+      if (!dir && localOutputRoots.has(entry.name)) return [];
       if (ignored.has(entry.name) || (entry.name.startsWith('.env.') && entry.name !== '.env.example') || entry.name.endsWith('.log') || /\.py[cod]$/.test(entry.name)) return [];
       const relative = dir ? `${dir}/${entry.name}` : entry.name;
       if (entry.isSymbolicLink()) throw new Error(`release cannot include symlink: ${relative}`);
@@ -26,7 +28,7 @@ function snapshot(base) {
   const pkg = JSON.parse(fs.readFileSync(path.join(base, 'package.json'), 'utf8'));
   const files = releaseFiles(base);
   return { name: 'image-prompt-skill', version: pkg.version, manifest_schema: 2,
-    excludes: [manifestName, ...ignored, ...ignoredPatterns].sort(), file_count: files.length, files,
+    excludes: [manifestName, ...ignored, ...ignoredPatterns, ...[...localOutputRoots].map(name => `/${name}/`)].sort(), file_count: files.length, files,
     sha256: Object.fromEntries(files.map(file => [file,
       crypto.createHash('sha256').update(fs.readFileSync(path.join(base, file))).digest('hex')])) };
 }
@@ -37,7 +39,7 @@ export function validateProject(base, { manifest = true } = {}) {
   const json = name => JSON.parse(fs.readFileSync(path.join(base, name), 'utf8'));
   for (const file of ['SKILL.md', 'package.json', 'agents/openai.yaml', 'scripts/iteration-director.mjs',
     'scripts/model-adapter.mjs', 'resources/image_model_catalog.json', 'references/providers/text-to-image-models.md', 'examples/text-to-image-brief.json',
-    'scripts/asset-master.mjs', 'scripts/asset-catalog-en.mjs', 'scripts/production-prompt.mjs', 'scripts/production-run.mjs', 'references/core/standing-pose-direction.md', 'references/core/visual-acceptance.md', 'references/routes/prompt-production.md', 'references/routes/asset-master-workflow.md',
+    'scripts/asset-master.mjs', 'scripts/character-style-render.mjs', 'scripts/asset-catalog-en.mjs', 'scripts/production-prompt.mjs', 'scripts/production-run.mjs', 'references/core/standing-pose-direction.md', 'references/core/visual-acceptance.md', 'references/routes/prompt-production.md', 'references/routes/asset-master-workflow.md',
     'resources/asset_presentation_v084_catalog.json', 'references/routes/benchmark-costume-refinement.md',
     '.codex-plugin/plugin.json', 'skills/image-prompt-skill/SKILL.md', 'scripts/plugin-support.mjs']) {
     if (!files.includes(file)) errors.push(`missing required file: ${file}`);
@@ -98,6 +100,18 @@ export function validateProject(base, { manifest = true } = {}) {
     for (const [name, workflow] of Object.entries(workflows.profiles)) {
       for (const [field, table] of [['detail_budget','detail_budgets'], ['highlight_hierarchy','highlight_hierarchies'], ['edge_control','edge_controls']]) {
         if (!Object.hasOwn(workflows[table], workflow[field])) errors.push(`${name}: unknown ${field}`);
+      }
+      if (workflow.appearance) {
+        const appearanceFields = ['face','makeup','hair','material','lighting','finish'];
+        if (Object.hasOwn(workflow.appearance, 'face_conversion')) appearanceFields.push('face_conversion');
+        for (const field of appearanceFields) {
+          if (typeof workflow.appearance[field] !== 'string' || !workflow.appearance[field].trim()) errors.push(`${name}: missing appearance ${field}`);
+          if (!englishEntries.some(row => row.resource === 'asset_style_workflows.json' && row.path === `$.profiles.${name}.appearance.${field}`)) errors.push(`${name}: missing bound appearance translation ${field}`);
+        }
+        if (!faceCatalog.profiles[workflow.default_face_profile] || !workflow.allowed_face_profiles?.includes(workflow.default_face_profile) || workflow.allowed_face_profiles.some(id => !faceCatalog.profiles[id])) errors.push(`${name}: invalid compatible face profiles`);
+        for (const [field, allowed, table] of [['detail_budget','allowed_detail_budgets','detail_budgets'],['edge_control','allowed_edge_controls','edge_controls'],['highlight_hierarchy','allowed_highlight_hierarchies','highlight_hierarchies']]) {
+          if (!Array.isArray(workflow[allowed]) || !workflow[allowed].includes(workflow[field]) || workflow[allowed].some(id => !workflows[table][id])) errors.push(`${name}: invalid compatible ${field}`);
+        }
       }
     }
     for (const table of ['profiles','detail_budgets','highlight_hierarchies','edge_controls']) {

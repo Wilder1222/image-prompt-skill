@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderTaggedChinese } from './asset-prompt-zh.mjs';
 import { translateCatalogToEnglish, workflowEnglish } from './asset-catalog-en.mjs';
+import { applyCharacterAppearance } from './character-style-render.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = name => JSON.parse(fs.readFileSync(path.join(root, 'resources', name), 'utf8'));
@@ -21,6 +22,21 @@ const workflows = read('asset_style_workflows.json');
 function lookup(table, id, label) {
   if (typeof id !== 'string' || !Object.hasOwn(table, id)) throw new Error(`unknown ${label}: ${id}`);
   return table[id];
+}
+
+export function resolvePassedLocks(requested = []) {
+  if (!Array.isArray(requested) || requested.some(x => typeof x !== 'string')) throw new Error('passed must be an array of dimension or round names');
+  const known = new Set(Object.entries(rounds.rounds).flatMap(([id, r]) => [id, ...r.editable, ...r.locked]));
+  for (const id of requested) if (!known.has(id)) throw new Error(`unknown passed dimension: ${id}`);
+  const resolved = new Set(requested);
+  // Accepting a round protects its editable dimensions; its inherited locks are
+  // not new evidence that those other dimensions have independently passed.
+  for (const id of requested) for (const dimension of rounds.rounds[id]?.editable ?? []) resolved.add(dimension);
+  // These names refer to the same body-proportion scope in the older planner,
+  // face repair locks and current asset stages. Do not infer aliases by spelling.
+  const body = ['body_proportion', 'fashion_proportion', 'fashion_asset_proportion'];
+  if (body.some(id => resolved.has(id))) for (const id of body) resolved.add(id);
+  return [...resolved];
 }
 
 const scopes = {
@@ -55,15 +71,27 @@ export function createAssetPlan(options = {}) {
   configuration.face_profile = options.faceProfile ?? configuration.face_profile;
   configuration.hand_mode = options.handMode ?? configuration.hand_mode;
   configuration.proportion_profile = options.proportionProfile ?? configuration.proportion_profile;
+  if (configuration.proportion_profile !== 'P9_FASHION_ASSET') throw new Error('人物资产必须采用黄金九头身比例：P9_FASHION_ASSET；不支持自然七头身或其他比例替代');
   // Face realism never implicitly changes the age target, including during A/B tests.
   configuration.maturity_guard = options.maturityGuard ?? configuration.maturity_guard;
   configuration.presentation_profile = options.presentation ?? presentations.default;
   configuration.design_freedom = options.designFreedom ?? 'reference_preserve';
   configuration.style_workflow = options.styleWorkflow ?? workflows.default;
   const workflow = lookup(workflows.profiles, configuration.style_workflow, 'style workflow');
+  const appearance = workflow.appearance;
+  if (appearance) {
+    configuration.face_profile = options.faceProfile ?? workflow.default_face_profile;
+    configuration.maturity_guard = options.maturityGuard ?? 'none';
+    if (!workflow.allowed_face_profiles.includes(configuration.face_profile)) throw new Error('face profile conflicts with selected character medium; use its compatible face profile or author an explicit hybrid brief');
+  }
   configuration.detail_budget = options.detailBudget ?? workflow.detail_budget;
   configuration.highlight_hierarchy = options.highlightHierarchy ?? workflow.highlight_hierarchy;
   configuration.edge_control = options.edgeControl ?? workflow.edge_control;
+  if (appearance) {
+    for (const [field, allowed] of [['detail_budget','allowed_detail_budgets'], ['edge_control','allowed_edge_controls'], ['highlight_hierarchy','allowed_highlight_hierarchies']]) {
+      if (!workflow[allowed].includes(configuration[field])) throw new Error(`${field} conflicts with selected character medium; author an explicit hybrid brief instead of mixing incompatible presets`);
+    }
+  }
   const styleRendering = {
     workflow,
     detail: lookup(workflows.detail_budgets, configuration.detail_budget, 'detail budget'),
@@ -78,25 +106,25 @@ export function createAssetPlan(options = {}) {
   const face = lookup(faces.profiles, configuration.face_profile, 'face profile');
   configuration.legacy_face_mode = face.base_mode;
   const guard = lookup(guards.profiles, configuration.maturity_guard, 'maturity guard');
+  if (appearance) styleRendering.age_guard = guard;
   const hand = lookup(hands.modes, configuration.hand_mode, 'hand mode');
   let fashion = lookup(proportions.profiles, configuration.proportion_profile, 'proportion profile');
   if (presentation.proportion_prompt_translation) {
     fashion = { ...fashion, prompt_translation: [...fashion.prompt_translation, ...presentation.proportion_prompt_translation] };
   }
-  const material = lookup(materials.profiles, configuration.material_profile, 'material profile');
+  let material = lookup(materials.profiles, configuration.material_profile, 'material profile');
+  if (appearance) material = {...material, prompt_translation:[appearance.material], generation_prompt_translation:[appearance.material]};
   let asset = lookup(assets.profiles, configuration.asset_profile, 'asset profile');
   if (presentation.asset_prompt_translation) {
     asset = { aspect_ratio: '3:4', background: 'clean_white_seamless', requirements: ['complete_silhouette', 'readable_shoe_contact', 'reference_derived_hem'], prompt_translation: presentation.asset_prompt_translation };
     configuration.asset_profile = `presentation:${configuration.presentation_profile}`;
   }
-  const light = lookup(lights.profiles, configuration.lighting_profile, 'lighting profile');
-  const passed = options.passed ?? [];
-  if (!Array.isArray(passed) || passed.some(x => typeof x !== 'string')) throw new Error('passed must be an array of dimension or round names');
-  const known = new Set(Object.entries(rounds.rounds).flatMap(([id, r]) => [id, ...r.editable, ...r.locked]));
-  for (const id of passed) if (!known.has(id)) throw new Error(`unknown passed dimension: ${id}`);
+  let light = lookup(lights.profiles, configuration.lighting_profile, 'lighting profile');
+  if (appearance) light = {...light, prompt_translation:[appearance.lighting]};
+  const passed = resolvePassedLocks(options.passed);
 
   function stage(name, prompts, data, requires = []) {
-    const scope = scopes[name];
+    const scope = appearance && name === 'face' ? {...scopes[name], change:'仅修订当前媒介下的面部表现与妆面，不更换人物身份、年龄或整体风格。'} : scopes[name];
     const round = rounds.rounds[scope.round];
     const conflicts = passed.filter(id => round.editable.includes(id) || id === scope.round);
     return {
@@ -116,7 +144,7 @@ export function createAssetPlan(options = {}) {
       ],
     };
   }
-  const stage1 = stage('face', [...face.prompt_translation, ...guard.prompt_translation], {
+  const stage1 = stage('face', [...(appearance ? [appearance.face, appearance.makeup] : face.prompt_translation), ...guard.prompt_translation], {
     face_profile: { profile: configuration.face_profile, ...face,
       // Catalog ages are historical defaults; the selected guard is the effective target.
       age_range: guard.enabled ? `${guard.age_floor}_${guard.age_ceiling}` : 'preserve_reference',
@@ -132,11 +160,11 @@ export function createAssetPlan(options = {}) {
     studio_lighting: { profile: configuration.lighting_profile, ...light },
   }, ['asset_master_face_refine', 'asset_master_structure_refine']);
   return {
-    preset, configuration, style_rendering: styleRendering, status: 'planned', priority: presets.priority,
+    preset, configuration, style_rendering: styleRendering, status: 'planned', priority: presets.priority, accepted_locks: passed,
     presentation: { profile: configuration.presentation_profile, ...presentation },
     design_freedom: { mode: configuration.design_freedom, ...designFreedom },
     stage_1: stage1, stage_2: stage2, stage_3: stage3,
-    order: [scopes.face.round, scopes.structure.round, scopes['material-light'].round, configuration.style_workflow === 'dark_fantasy_asset' ? 'final_style_review' : 'final_photographic_polish', 'upscale'],
+    order: [scopes.face.round, scopes.structure.round, scopes['material-light'].round, configuration.style_workflow === 'dark_fantasy_asset' || (appearance && workflow.family !== 'photographic') ? 'final_style_review' : 'final_photographic_polish', 'upscale'],
     rule: '只处理未通过的阶段，查看实际输出后再推进；计划不代表图像通过。非面部修订保留已认可的面部表现。',
   };
 }
@@ -149,12 +177,16 @@ const englishStudioLighting = [
 function renderEnglishCompatibility(prompt) {
   const localized = lights.profiles.studio_soft_separation.prompt_translation.reduce((text, source, i) => text.replaceAll(source, englishStudioLighting[i]), prompt);
   const scopesRendered = Object.values(scopes).reduce((text, scope) => text.replaceAll(scope.preserve,scope.enPreserve).replaceAll(scope.change,scope.enChange), localized).replaceAll('编辑提供的当前资产图，将其作为唯一直接编辑对象。','Edit the supplied current asset image. Use it as the only direct edit target.');
-  return translateCatalogToEnglish(scopesRendered).replaceAll('P9 fashion-asset proportion', 'tall, balanced fashion proportion with an approximately nine-head visual read');
+  return translateCatalogToEnglish(scopesRendered).replaceAll('仅修订当前媒介下的面部表现与妆面，不更换人物身份、年龄或整体风格。', 'Refine the face and makeup within the current medium without changing identity, age or overall style.').replaceAll('P9 fashion-asset proportion', 'mandatory balanced nine-head body proportions');
 }
 
 export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'zh-CN', ...options } = {}) {
   if (!['en', 'zh-CN'].includes(language)) throw new Error('language must be zh-CN or en');
-  const finish = result => { if (language === 'en') result = {...result, prompt:renderEnglishCompatibility(result.prompt)}; return ({ ...result, status:'scaffold_only', requires_reference_analysis:true, prompt_language: language, prompt: language === 'zh-CN' ? renderTaggedChinese(result) : (result.prompt.startsWith('【') ? result.prompt : result.prompt.split('\n\n').map((text, i) => `【${i ? 'Preservation and edit scope' : 'Task and reference'}】\n${text}`).join('\n\n')) }); };
+  const finish = result => {
+    if (language === 'en') result = {...result, prompt:renderEnglishCompatibility(result.prompt)};
+    const prompt = language === 'zh-CN' ? renderTaggedChinese(result) : (result.prompt.startsWith('【') ? result.prompt : result.prompt.split('\n\n').map((text, i) => `【${i ? 'Preservation and edit scope' : 'Task and reference'}】\n${text}`).join('\n\n'));
+    return {...result, status:'scaffold_only', requires_reference_analysis:true, prompt_language:language, prompt:applyCharacterAppearance(prompt, result, language)};
+  };
   const reference = lookup(presentations.reference_modes, referenceMode, 'reference mode');
   if (referenceMode === 'full_body_anchor') {
     if (stage !== 'generate' || focus || options.passed?.length) throw new Error('full_body_anchor is a preservation generation mode; for a local repair use the edit stage with the current image as its target');
@@ -165,7 +197,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
     return finish({
       status: 'prompt_ready', stage, focus: null, reference_mode: referenceMode,
       configuration: { face_profile: 'preserve_reference', maturity_guard: 'none', hand_mode: 'preserve_reference',
-        proportion_profile: 'preserve_reference', presentation_profile: 'preserve_reference',
+        proportion_profile: 'P9_FASHION_ASSET', presentation_profile: 'preserve_reference',
         material_profile: 'preserve_reference', lighting_profile: 'preserve_reference' },
       round_plan: null, prompt: reference.prompt_translation.join('\n\n'),
       evidence: { image_generated: false, visual_quality_verified: false },
@@ -214,7 +246,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
     if (selectedFocus && selectedFocus.stage !== stage) throw new Error(`focus ${focus} requires stage ${selectedFocus.stage}`);
     const original = rounds.rounds[selected.round_plan.round];
     const editable = selectedFocus?.dimensions ?? original.editable;
-    const conflicts = (options.passed ?? []).filter(id => editable.includes(id) || id === selected.round_plan.round);
+    const conflicts = plan.accepted_locks.filter(id => editable.includes(id) || id === selected.round_plan.round);
     if (conflicts.length) throw new Error(`edit would reopen passed dimensions: ${conflicts.join(', ')}; choose a narrower focus or explicitly remove the conflicting lock`);
     roundPlan = { ...selected.round_plan, editable, prompt_strategy: selectedFocus?.preserve ?? selected.round_plan.prompt_strategy,
       locked: [...new Set([...selected.round_plan.locked, ...original.editable.filter(id => !editable.includes(id))])] };
@@ -226,7 +258,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
     if (plan.configuration.style_workflow === 'dark_fantasy_asset') lines.push('Preserve the existing painted concept-art medium and selective brushwork; this local repair must not convert the asset into a photograph.');
   }
   // Keep the user-requested mode header, and translate catalog shorthand in visual clauses.
-  lines = lines.map(line => line.replaceAll('P9 fashion-asset proportion', 'tall, balanced fashion proportion with an approximately nine-head visual read'));
+  lines = lines.map(line => line.replaceAll('P9 fashion-asset proportion', 'mandatory balanced nine-head body proportions'));
   return finish({ status: 'prompt_ready', stage, focus: focus ?? null, reference_mode: referenceMode, configuration: plan.configuration, style_rendering: plan.style_rendering,
     round_plan: roundPlan, prompt: [...new Set(lines)].join('\n\n'),
     evidence: { image_generated: false, visual_quality_verified: false } });

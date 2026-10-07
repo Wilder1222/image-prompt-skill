@@ -345,8 +345,8 @@ export const catalogEnglish = [
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.principle",
-    "zh": "本项目古风资产预设采用用户选择的协调 P9 时装比例；自然成年比例是可明确选择的其他方案，不是强制纠正方向。完整全身母图保留自身比例。头饰和拖尾不计人体高度。",
-    "en": "This project's ancient character asset preset uses the user-selected balanced P9 Fashion direction. Natural adult proportion remains an explicit alternative, not a forced correction of P9. Full-body anchors preserve their own proportions. Hair ornaments and trailing cloth do not count as anatomical height."
+    "zh": "本项目全部人物资产必须采用黄金九头身，人体直立高度为九个头长；完整全身母图不豁免。头饰、鞋跟和拖尾不计入；其他旧比例仅保留历史兼容数据，不用于当前生产。",
+    "en": "All character assets must use mandatory nine-head proportions, including full-body anchors. Standing anatomical height equals nine crown-to-chin head lengths, excluding ornaments, heels and trains. Other profiles are historical data, not production options."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
@@ -369,14 +369,14 @@ export const catalogEnglish = [
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.P9_FASHION_ASSET.prompt_translation[0]",
-    "zh": "层叠长袍下仍保持清楚的 P9 时装比例：整体修长协调，肩颈舒展、自然腰位明确、轮廓完整；鞋脚是否可见由姿态与衣裙决定。不极端缩头、拉长脖子或上提人体骨盆。",
-    "en": "Maintain coordinated, approximately nine-head fashion proportions even under layered long robes: a coherent tall fashion silhouette, relaxed shoulders and neck, a clear natural waist and complete silhouette. Foot visibility depends on pose and clothing. Do not shrink the head extremely, stretch the neck or shift the anatomical pelvis upward."
+    "zh": "人物必须采用黄金九头身：人体直立高度等于九个颅顶至下巴的头长，不计发髻、头饰、鞋跟与拖尾。头肩、躯干与四肢协调，肩颈舒展、自然腰位明确；鞋脚可随衣裙自然遮挡。不极端缩头、拉长脖子或上提人体骨盆。",
+    "en": "Mandatory nine-head body proportion: standing anatomical height equals nine crown-to-chin head lengths, excluding hair ornaments, heels and trains. Coordinate head, shoulders, torso and limbs without extreme head reduction, neck stretching or lifting the pelvis. Natural garment occlusion is allowed."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.P9_FASHION_ASSET.prompt_translation[1]",
-    "zh": "躯干解剖关系完整，通过协调的髋膝踝关系表现修长，不生硬拉伸腿部。",
-    "en": "Keep the torso anatomically complete and lengthen the lower-body impression through balanced hip-knee-ankle relationships rather than artificial leg stretching."
+    "zh": "躯干解剖关系完整，通过协调的髋膝踝关系表现修长，不生硬拉伸腿部。比例修正保持面宽相对头高、五官间距比例和脸型；必要时协调调整完整头部与身体的尺度，不单独压窄脸部或缩放某个五官，也不无条件冻结未达标的原头身关系。",
+    "en": "Keep the torso anatomically complete with balanced hip-knee-ankle relationships rather than artificial leg stretching. During proportion correction, preserve face width relative to head height, facial-feature spacing ratios and face shape. Where needed, coordinate the scale of the complete head with the body; do not narrow only the face, independently resize a facial feature, or unconditionally freeze a noncompliant head-to-body ratio."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
@@ -573,8 +573,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_presentation_v084_catalog.json",
     "path": "$.reference_modes.full_body_anchor.meaning",
-    "zh": "已有全身设计作为完整造型依据，预设不能重新摆布它。",
-    "en": "Use an existing full-body design as the complete visual authority. Profile defaults must not restage it."
+    "zh": "已有全身设计作为身份与衣装依据，身体统一符合黄金九头身；已达标部分保持。",
+    "en": "Use the full-body reference for identity and costume while enforcing mandatory nine-head body proportions. Preserve already compliant parts."
   },
   {
     "resource": "asset_presentation_v084_catalog.json",
@@ -585,8 +585,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_presentation_v084_catalog.json",
     "path": "$.reference_modes.full_body_anchor.prompt_translation[1]",
-    "zh": "保留人物身份、表观年龄、面部表现、头部尺度、身体比例、发型饰物、服装构造配色、纹样位置、腰位、袖量、拖尾、手势及可见鞋履。",
-    "en": "Preserve its facial identity, apparent age, facial rendering, head scale, body proportions, hairstyle, ornaments, garment construction, colors, pattern placement, waist position, sleeve volume, train, hand gesture and visible footwear."
+    "zh": "保留人物身份、表观年龄、面部表现、发型饰物、服装构造配色、纹样位置、袖量、拖尾、手势及可见鞋履。身体必须符合黄金九头身：直立人体高度等于九个颅顶至下巴的头长，不计头饰、鞋跟与拖尾；已达标比例保持，未达标时协调调整头肩、躯干与四肢及衣料贴合，保留脸部身份几何。",
+    "en": "Preserve its facial identity, apparent age, facial rendering, hair, ornaments, costume construction, palette, patterns, sleeve volume, train, gesture and visible footwear. Mandatory nine-head proportions: anatomical standing height equals nine crown-to-chin head lengths, excluding ornaments, heels and trains. Keep compliant proportions; otherwise coordinate head, shoulders, torso, limbs and garment fit without reshaping the face."
   },
   {
     "resource": "asset_presentation_v084_catalog.json",
@@ -597,8 +597,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_presentation_v084_catalog.json",
     "path": "$.reference_modes.full_body_anchor.prompt_translation[3]",
-    "zh": "下半身已经提供，不重新补造；不增加衣层、首饰、透纱或更换面孔，也不强加通用九头身或中性站姿。",
-    "en": "Do not reconstruct an unseen lower body: it is already supplied. Do not add garment layers, jewelry, new translucency or a different face, and do not apply a generic nine-head proportion or neutral standing pose."
+    "zh": "不增加衣层、首饰、透纱或更换面孔，不套默认站姿；原图比例不足不能用保留母图豁免九头身要求。",
+    "en": "Do not add garment layers, jewelry or transparency, replace the face or impose a default stance. Reference preservation does not exempt an incorrect body ratio from the mandatory nine-head target."
   },
   {
     "resource": "asset_presentation_v084_catalog.json",
@@ -641,6 +641,336 @@ export const catalogEnglish = [
     "path": "$.profiles.young_adult_20_26.prompt_translation[1]",
     "zh": "成熟感可由视线与呈现方式克制表达，不靠疲态或面颊凹陷制造。",
     "en": "Allow restrained maturity through gaze and presentation, not through fatigue or facial hollowing."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.photographic_character.appearance.face",
+    "zh": "保持参考脸型与五官辨识点，眼睑厚度、眼球湿润反射、鼻唇与面颊软组织连续，呈现真实人物的体积。",
+    "en": "Retain the reference facial identity with coherent eyelid thickness, moist eye reflections, nasal and lip volume and soft cheek tissue."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.photographic_character.appearance.makeup",
+    "zh": "先完成贴肤精致妆容，再按景别呈现细微肤色和反射变化；近景可见克制纹理，全身小脸不强显毛孔，不磨成蜡皮。",
+    "en": "Establish refined skin-fitting makeup first; scale subtle color and reflectance variation to framing. Restrained texture can appear in close-ups, without forcing pores onto a small full-body face or smoothing it into wax."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.photographic_character.appearance.hair",
+    "zh": "发型、发色和饰物来自参考；主发束与少量清楚发丝结合，反光沿毛发生长方向，不把全头画成同样粗亮的线。",
+    "en": "Derive hair and accessories from the reference. Combine primary locks with selective fine strands and directional sheen, without uniformly thick bright lines."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.photographic_character.appearance.material",
+    "zh": "服装按实际材质表现织纹、厚度、重力褶皱与接缝，金属局部反光、皮革细腻反射、薄纱透叠分别成立，不添加原设计没有的材料。",
+    "en": "Render the actual fabrics through weave, thickness, gravity folds and seams; distinguish metal glints, leather reflectance and gauze transmission without introducing absent materials."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.photographic_character.appearance.lighting",
+    "zh": "白底资产采用真实摄影棚柔光与中性白平衡，阴影与人物受光一致，保留面部体积、浅衣边缘和轻微接触阴影。",
+    "en": "For a white-background asset use soft photographic studio light and neutral white balance, coherent shadows, facial volume, pale-garment separation and gentle contact shadows."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.photographic_character.appearance.finish",
+    "zh": "完整人物像真实拍摄的精致定妆照，皮肤、头发、衣料与光线处于同一摄影媒介，不混入卡通描线或雕塑表面。",
+    "en": "The complete figure reads as a refined photographed character portrait, with coherent skin, hair, fabric and light rather than cartoon outlines or sculptural surfaces."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.cinematic_cg_character.appearance.face",
+    "zh": "保持角色脸型与五官关系，以连续精细曲面表现眼睑、鼻翼、唇和颊部，眼球湿润反光与角膜体积可信，不重造另一张标准脸。",
+    "en": "Preserve identity through continuous refined facial surfaces, credible eyelids, nostrils, lips and cheeks, with moist eyes and corneal volume rather than a standardized replacement face."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.cinematic_cg_character.appearance.face_conversion",
+    "zh": "经授权将绘画参考转换为电影CG时，绘画笔触与色块边界不作为骨骼棱面保留，面容辨识关系保留而曲面按新媒介重建。",
+    "en": "When conversion from a painted reference to cinematic CG is authorized, do not retain painted strokes or color-block boundaries as bony facets; preserve recognizable facial relationships while rebuilding surfaces for the new medium."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.cinematic_cg_character.appearance.makeup",
+    "zh": "妆面精致，皮肤具有克制的次表面透光与分区粗糙度；耳缘和鼻翼在合适光位略透暖，不将整张脸照成蜡像。",
+    "en": "Use refined makeup, restrained subsurface skin transmission and regionally varied roughness; subtle warmth at thin edges under suitable light must not turn the face into wax."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.cinematic_cg_character.appearance.hair",
+    "zh": "主发束由有体积的细发组成，轮廓只留少量散发，发根与头皮衔接自然，发饰固定清楚。",
+    "en": "Build primary hair locks from volumetric fine strands, with sparse silhouette flyaways, credible roots and clearly attached accessories."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.cinematic_cg_character.appearance.material",
+    "zh": "衣料、金属与皮革具有不同粗糙度和高光宽度，织物保持厚度与微小表面起伏；褶皱、扣件及接缝有可信体积，不做全身统一镜面。",
+    "en": "Differentiate cloth, metal and leather by roughness and highlight width; preserve cloth thickness, subtle surface relief, folds, fasteners and seams without uniform mirror gloss."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.cinematic_cg_character.appearance.lighting",
+    "zh": "在白底资产布光下保留电影级主辅光与柔和轮廓分离，体积光影连续、面部清楚，高光不过曝，不用浓雾和强辉光吞掉设计。",
+    "en": "Use cinematic key and fill with gentle rim separation for the white-background asset, readable facial volume and controlled highlights without fog or bloom obscuring the design."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.cinematic_cg_character.appearance.finish",
+    "zh": "角色整体呈精细电影数字制作的统一质感，面部、毛发、服装与接触阴影协调，不宣称交付了三维模型或动画绑定。",
+    "en": "Deliver a coherent cinematic digital-character image, with coordinated face, hair, clothing and contact shadows; this is not a 3D model or rig."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.realistic_3d_character.appearance.face",
+    "zh": "以精细三维雕刻般的连续曲面表现原人物脸型，眼眶、眼睑、鼻唇和下颌体积连贯，保留辨识点而不浮雕化五官。",
+    "en": "Represent the same face with refined continuous sculpted surfaces and coherent eye sockets, eyelids, nose, lips and jaw, retaining identity without embossed facial features."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.realistic_3d_character.appearance.makeup",
+    "zh": "皮肤颜色、粗糙度与轻度次表面透光协调，妆面服从面部结构，少量细节随景别控制，避免全身塑料反光。",
+    "en": "Coordinate skin color, roughness and mild subsurface transmission; fit makeup to facial structure and scale fine detail to framing without all-over plastic gloss."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.realistic_3d_character.appearance.hair",
+    "zh": "发束具有清楚体积和层次，发根、发际线与发梢衔接，保留角色原发型与发饰，避免板片穿插或悬浮。",
+    "en": "Give hair locks coherent volume, roots, hairline and tips, preserving the hairstyle and accessories without intersecting sheets or floating pieces."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.realistic_3d_character.appearance.material",
+    "zh": "同套服装呈清楚的衣片厚度、接缝、扣件连接与重力褶皱；布、金属、皮革分别有适当反射，禁止只换颜色却共享塑料表面。",
+    "en": "Show cloth thickness, seams, fastener attachments and gravity folds; separate fabric, metal and leather by appropriate reflectance rather than recoloring a shared plastic surface."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.realistic_3d_character.appearance.lighting",
+    "zh": "白底棚光干净均匀，柔和主光揭示曲面，接触遮蔽适量，明暗不过分戏剧化，不以景深模糊掩盖结构。",
+    "en": "Use clean white-studio lighting with soft surface-revealing light and restrained contact occlusion, avoiding excessive drama or depth blur that conceals construction."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.realistic_3d_character.appearance.finish",
+    "zh": "交付可清楚审阅空间结构的写实三维渲染图，前后衣片与附件连接可信；图像不等于可编辑模型、网格或贴图文件。",
+    "en": "Deliver a realistic 3D-rendered image with inspectable spatial construction and credible garment and accessory connections, not an editable mesh or texture package."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.stylized_3d_character.appearance.face",
+    "zh": "将原人物五官概括为清楚的立体面部形，保留眼距、鼻口与下颌辨识关系；不因风格化自动放大眼睛或改成幼态头脸。",
+    "en": "Simplify facial forms into readable volumes while preserving eye spacing, nose, mouth and jaw identity; stylization must not automatically enlarge the eyes or infantilize the face."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.stylized_3d_character.appearance.makeup",
+    "zh": "以平滑但有柔软体积的皮肤与精致色块妆面表现面部，反射柔和，避免真人毛孔、脏噪点或统一硬塑料高光。",
+    "en": "Use smooth skin with soft volume and refined makeup color shapes, gentle reflectance and no photographic pores, dirty noise or uniform hard-plastic highlights."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.stylized_3d_character.appearance.hair",
+    "zh": "头发用有起伏的雕塑式发束组织，少量沟槽交代方向，发梢收束清楚；不把发束画成杂乱密集细丝。",
+    "en": "Organize hair into undulating sculptural locks with sparse directional grooves and clear tips rather than dense noisy strands."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.stylized_3d_character.appearance.material",
+    "zh": "衣片保留厚度、层叠和连接，以少量大褶与受控高光区分软布、皮革和金属；简化微纹理，不简化掉核心服装结构。",
+    "en": "Keep garment thickness, layering and attachments; distinguish cloth, leather and metal through selected broad folds and controlled highlights, simplifying microtexture but not essential construction."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.stylized_3d_character.appearance.lighting",
+    "zh": "柔和三维棚光呈现清楚明暗面和轻微接触阴影，浅色背景与角色分离，高光圆润克制，避免过重环境遮蔽。",
+    "en": "Use soft 3D studio lighting with readable planes, gentle contact shadows and restrained rounded highlights, keeping the figure separate from the pale background without heavy ambient occlusion."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.stylized_3d_character.appearance.finish",
+    "zh": "呈现成熟、精致的风格化三维人物，九头身体型、原人物辨识度与衣装结构保持，不自动变成大头短身玩偶。",
+    "en": "Present a refined mature stylized 3D character with nine-head proportions, identity and costume construction intact, without turning it into a large-headed short-bodied toy."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_3d_character.appearance.face",
+    "zh": "面部保持可读三维转折与原五官关系，以简洁眼睑、鼻面和唇形表达角色，不自动放大眼睛或改变年龄。",
+    "en": "Keep readable 3D facial turning planes and original feature relationships with simplified eyelids, nose planes and lips, without automatic eye enlargement or age changes."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_3d_character.appearance.makeup",
+    "zh": "妆容使用干净色块和少量柔和过渡，皮肤以动画式平整颜色与分层阴影表现，不叠真人毛孔或油亮照片皮。",
+    "en": "Use clean makeup color shapes and selective soft transitions, animation-style flat skin colors and layered shadows without photographic pores or oily photographic skin."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_3d_character.appearance.hair",
+    "zh": "按原发长组织有三维厚度的发体，长发可用大束与概括高光交代弯曲，极短发则保留贴头薄发体和少量分组亮暗，不强加长束或刘海；轮廓和已有发饰连接清楚，不逐根堆积细丝。",
+    "en": "Build hair volume for the original length: long hair may use broad locks and shaped highlights, while very short hair keeps a thin scalp-following mass with selected light-dark groups rather than added locks or bangs. Keep silhouettes and existing accessory connections clear without dense individual strands."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_3d_character.appearance.material",
+    "zh": "衣服保留立体剪裁与层次，通过分层明暗、少量高光形状和褶皱轮廓区分布料、皮革与金属，不用写实噪点贴满表面。",
+    "en": "Retain volumetric garment construction and layers; distinguish materials through stepped shadows, selected highlight shapes and fold silhouettes without photoreal surface noise."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_3d_character.appearance.lighting",
+    "zh": "白底资产灯光保持单一清楚受光方向，亮面、阴影面和接触影按目标分档，阴影边界沿脸颌与衣褶形体转折；轮廓线辅助遮挡和厚度，不以大面积柔渐变或一圈等粗黑线替代卡通渲染，人物体积仍可读。",
+    "en": "For the white-background asset use one coherent lighting direction, grouping light, shadow and contact shapes into the target bands around facial and garment forms. Let contours support occlusion and thickness rather than replacing cel shading with broad soft gradients or a uniform black border; keep volume readable."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_3d_character.appearance.finish",
+    "zh": "整体为三维动画角色渲染，轮廓线、明暗色块和立体厚度协调；黄金九头身保持，不自动使用幼态比例。",
+    "en": "The figure reads as a 3D animated render with coordinated outlines, shadow shapes and volumetric thickness, retaining mandatory nine-head rather than childish proportions."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_2d_character.appearance.face",
+    "zh": "用精练线条与色面表达原人物眼形、鼻口位置和脸廓，保持角色辨识度及表观年龄，不把所有脸改成同一模板。",
+    "en": "Express the original eye shape, nose and mouth placement and face contour through economical lines and color planes, retaining identity and apparent age."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_2d_character.appearance.makeup",
+    "zh": "妆容以眉眼线条、唇色和克制腮红色块表达，皮肤平涂并用少量阴影层区分面部转折，不画真人毛孔或立体塑料皮。",
+    "en": "Describe makeup with brow and eye lines, lip color and restrained blush shapes; use flat skin colors and a few facial shadow layers, without photographic pores or plastic 3D skin."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_2d_character.appearance.hair",
+    "zh": "用清楚发束轮廓、分组线条和少量高光色块表现头发，保持原发际线、分缝与发饰；极短发可概括为贴合头骨的主色块与少量边缘短线，不继承照片式细丝和头皮颗粒。",
+    "en": "Use clear lock silhouettes, grouped lines and selected highlight shapes while preserving the hairline, parting and accessories. Very short hair can use a main color shape following the skull and a few edge strokes instead of photographic strands or scalp grain."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_2d_character.appearance.material",
+    "zh": "衣片、领袖、腰带与扣件用线条和色块准确区分，褶皱沿受力方向概括；金属用少量锐利亮形、布料用安静阴影。平涂目标下用干净主色面概括材质微纹，保留指定纹样、标记和结构缝线，不继承照片颗粒或密集微织纹。",
+    "en": "Separate garment panels, collars, sleeves, belts and fasteners with lines and color shapes. Simplify folds along force directions, with sharp highlights for metal and quiet shadows for fabric. For flat-color rendering, summarize material microtexture into clean local-color shapes while retaining specified patterns, markings and structural seams; do not carry over photographic grain or dense weave detail."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_2d_character.appearance.lighting",
+    "zh": "明暗来自一致的绘制光向，阴影边界清楚且层数克制，白底与人物线稿分离，仅用简洁接触影交代站立。",
+    "en": "Use a consistent drawn lighting direction with clear restrained shadow layers, separate linework from the white background and show grounding with a simple contact shadow."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.anime_2d_character.appearance.finish",
+    "zh": "交付统一的二维动漫人物图，线条、平涂和阴影共同成立，仍为黄金九头身，不附加照片皮肤、渲染毛发或油画笔触。",
+    "en": "Deliver a coherent 2D anime character with linework, flat colors and cel shadows, mandatory nine-head proportions and no photographic skin, rendered hair or oil-paint brushwork."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.painterly_character.appearance.face",
+    "zh": "用连贯明暗色面塑造原人物面容，眼鼻唇和脸颌辨识关系保留；脸颊、额头与鼻侧用随体积转折的冷暖笔触衔接，焦点五官以少量细笔收束，次要转折柔和，避免把所有中间调磨成照片渐变。",
+    "en": "Build the original face from coherent light and color planes, preserving recognizable features and jaw relationships. Connect the cheeks, forehead and nose with warm-cool strokes following their volume; refine focal features with selected small strokes and soften secondary transitions without smoothing every midtone into photographic gradients."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.painterly_character.appearance.makeup",
+    "zh": "妆容融入绘画色层，以柔和冷暖与笔触表达肤色，面部美感和活力优先，不叠纪实毛孔或均匀磨皮光。",
+    "en": "Integrate makeup into painted color layers, using warm-cool shifts and brushwork for lively attractive skin rather than documentary pores or uniform smoothing."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.painterly_character.appearance.hair",
+    "zh": "头发先组织大体积，再以少量笔触提示发束方向，发饰核心清楚，次要发梢可选择性概括。",
+    "en": "Establish hair masses first, then suggest lock direction with selected strokes; keep key accessories clear and simplify secondary tips selectively."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.painterly_character.appearance.material",
+    "zh": "通过笔触密度、明暗边界与高光形状区分布料、皮革和金属，衣片层次、接缝与承重褶皱仍清楚，不靠全身细纹堆出高级感。",
+    "en": "Differentiate cloth, leather and metal through stroke density, value boundaries and highlight shapes while preserving layers, seams and load-bearing folds without all-over microdetail."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.painterly_character.appearance.lighting",
+    "zh": "白底资产仍以绘画明暗统一光向，脸部与主衣片有体积，暗部通透，局部边缘虚实相间而不模糊关键轮廓。",
+    "en": "Use coherent painted lighting on the white-background asset, with facial and garment volume, luminous darks and selective edges that retain key silhouettes."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.painterly_character.appearance.finish",
+    "zh": "脸、发、衣料与肢体统一为塑造体积的厚涂色层和笔触，背景按本轮目标处理；不能只给写实图覆盖画布纹理。主体可读、材料可辨，九头身体型成立，不自动套黑金幻想配色或原案例衣装。",
+    "en": "Unify face, hair, clothing and limbs with painted layers and strokes that build volume, handling the background according to the current target rather than merely overlaying canvas texture on a realistic image. Keep a readable nine-head figure and distinct materials without automatically borrowing a dark-fantasy palette or example costume."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.watercolor_character.appearance.face",
+    "zh": "以轻薄色层和少量清楚线条保留面部辨识点，鼻口与眼形位置准确，水彩晕染不吞掉五官。",
+    "en": "Retain facial identity with thin washes and selected clear lines, keeping eyes, nose and mouth readable rather than swallowed by pigment bleeding."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.watercolor_character.appearance.makeup",
+    "zh": "肤色与妆容以透明叠色、纸面透亮和少量干笔细节表现，避免照片毛孔、厚重油彩堆积或玻璃般皮肤反光。",
+    "en": "Express skin and makeup through transparent layered color, luminous paper and sparse dry-brush detail, without photographic pores, thick impasto or glassy skin highlights."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.watercolor_character.appearance.hair",
+    "zh": "主发束以连贯色块和少量干笔组织，边缘局部自然晕开，发际线与标志性发饰保持清楚。",
+    "en": "Organize hair masses with connected washes and sparse dry-brush strokes, allowing selective soft edges while keeping the hairline and signature accessories clear."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.watercolor_character.appearance.material",
+    "zh": "衣片边界与褶皱用透明色层和干湿变化区分，已有金属仅留少量纸白亮点，布料以轻薄水彩色层表达明暗而不出现照片织纹；色层透明不改变衣物本身按设计要求的不透明或透光属性。",
+    "en": "Distinguish garment edges and folds with transparent layers and wet-dry variation, reserving paper-white glints for existing metal. Describe cloth values with light watercolor layers rather than photographic texture; transparent pigment does not change the garment's designed opacity or translucency."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.watercolor_character.appearance.lighting",
+    "zh": "以纸白、淡色洗染和局部深色接触影表达统一光向，白底清透，关键轮廓不被大片水渍吞没。",
+    "en": "Express coherent light with paper reserves, pale washes and selected dark contact accents; keep the white background clear and key silhouettes readable through the washes."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.watercolor_character.appearance.finish",
+    "zh": "成图保持透明水彩与纸面质感，人物九头身和服装结构可读，不混入三维塑料高光或摄影毛孔。",
+    "en": "Keep transparent watercolor and paper texture throughout the readable nine-head character and costume, without 3D plastic highlights or photographic pores."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.ink_wash_character.appearance.face",
+    "zh": "以精练勾线和薄墨保持眉眼、鼻口与脸颌关系，留白参与面部明暗，但不省掉眼鼻唇的关键辨识点。",
+    "en": "Preserve facial relationships with economical contours and thin ink, using paper reserves in the lighting without omitting identifying features."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.ink_wash_character.appearance.makeup",
+    "zh": "以薄层设色表达肤色与妆容，墨色和暖冷色层克制叠合，保留纸面呼吸感，不使用照片毛孔或蜡像高光。",
+    "en": "Express skin and makeup with thin restrained color over ink, preserving the paper surface without photographic pores or waxy highlights."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.ink_wash_character.appearance.hair",
+    "zh": "头发以浓淡墨块、顺势线条和少量飞白交代发束，原发型和发饰的位置清楚，不将发丝变成均匀亮线。",
+    "en": "Describe hair with varied ink masses, directional strokes and sparse dry-brush breaks, retaining the hairstyle and accessory positions without uniform bright strands."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.ink_wash_character.appearance.material",
+    "zh": "衣片轮廓、层叠和受力褶皱由勾线与墨色浓淡表现，材料通过线条疏密和局部设色区分，不追加写实表面贴图。",
+    "en": "Describe garment contours, layers and load-bearing folds with outlines and ink values, separating materials through stroke density and selected color rather than realistic texture maps."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.ink_wash_character.appearance.lighting",
+    "zh": "明暗由墨色浓淡与留白统一组织，浅底上保持人物完整轮廓和必要接地提示，不借大片墨雾隐藏手脚。",
+    "en": "Organize light with ink values and paper reserves, maintaining the full silhouette and grounding cues on the pale background without concealing hands or feet in ink mist."
+  },
+  {
+    "resource": "asset_style_workflows.json",
+    "path": "$.profiles.ink_wash_character.appearance.finish",
+    "zh": "人物整体由勾线、浓淡墨层与克制设色组织，纸纹不能代替笔墨表现；九头身、面容辨识和衣装连接仍成立，不强制古装或历史身份，也不为强调水墨自动改成纯黑白。",
+    "en": "Organize the figure through expressive lines, graded ink layers and restrained color rather than substituting paper texture for brushwork. Preserve nine-head proportions, recognizable features and garment connections without imposing historical clothing or identity or automatically converting the design to monochrome."
   }
 ];
 
@@ -651,17 +981,39 @@ export function translateCatalogToEnglish(text) {
 export const workflowEnglish = {
   "profiles": {
     "material_realistic_asset": "Combine a beautiful costume portrait with a white-background character asset. Prioritize facial beauty with mild natural skin texture and makeup, and physically convincing garment materials; avoid coarse documentary skin or uniform plastic highlights.",
-    "dark_fantasy_asset": "Preserve the reference's Eastern dark-fantasy painted concept-art aesthetic, restrained beauty, soft brushwork and restrained local glow in a stable white-background asset. Do not convert it to an ordinary commercial photograph or replace the painted face with documentary pores, fatigue or uniformly sharp photographic edges. Costume, armor, crown and palette come from the actual reference and brief, not a universal black-white-gold-red outfit."
+    "dark_fantasy_asset": "Preserve the reference's Eastern dark-fantasy painted concept-art aesthetic, restrained beauty, soft brushwork and restrained local glow in a stable white-background asset. Do not convert it to an ordinary commercial photograph or replace the painted face with documentary pores, fatigue or uniformly sharp photographic edges. Costume, armor, crown and palette come from the actual reference and brief, not a universal black-white-gold-red outfit.",
+    "photographic_character": "Photographic human appearance with coherent soft tissue, restrained skin texture and optical imaging. Preserve refined makeup, costume construction and identity rather than using coarse skin as proof of realism.",
+    "cinematic_cg_character": "Cinematic digital character rendering with coherent skin scattering, groomed hair, garment surfaces and film lighting, without low-poly game artifacts or plastic-doll surfaces.",
+    "realistic_3d_character": "Realistic 3D character-asset rendering with clear anatomical volume, continuous surfaces and coherent roughness, reflection and transmission, emphasizing readable spatial construction.",
+    "stylized_3d_character": "Stylized 3D character with simplified volumetric forms, soft surfaces and controlled color blocks, distinct materials without pore-by-pore realism, and mandatory nine-head proportions.",
+    "anime_3d_character": "3D animated character with cel rendering: volumetric forms, layered light and shadow, controlled contours and clear color shapes in a coherent animated treatment.",
+    "anime_2d_character": "2D anime character design with clean linework, flat local colors and layered cel shadows, consistently drawn across face, hair, clothing and background.",
+    "painterly_character": "Painterly character built with brushwork, color planes and selective edges, with a readable face and key costume construction rather than photographic sharpening.",
+    "watercolor_character": "Watercolor character illustration combining transparent washes, paper reserves and selective wet edges, with clear facial and costume structure rather than washed-out forms.",
+    "ink_wash_character": "Ink-and-color character with coherent contours, graded ink washes, wet-dry strokes and restrained color, preserving identity and costume without erasing essential body parts into blank paper."
   },
   "detail_budgets": {
     "material_priority": "Spend detail on the thickness, transmission and reflectance of silk, brocade, gauze, embroidery and metal. Keep construction, seams and load-bearing folds readable; retain quiet plain areas instead of covering every surface in ornament.",
-    "concept_art_priority": "Concentrate the highest detail on the face, existing crown core, neckline/chest construction and waist ornament. Resolve primary skirt, sleeves and hair masses at medium detail; selectively simplify hair tips, ribbon ends and secondary hems. Do not add motifs, weapons or ornaments merely to fill space."
+    "concept_art_priority": "Concentrate the highest detail on the face, existing crown core, neckline/chest construction and waist ornament. Resolve primary skirt, sleeves and hair masses at medium detail; selectively simplify hair tips, ribbon ends and secondary hems. Do not add motifs, weapons or ornaments merely to fill space.",
+    "photographic_detail": "Concentrate detail on the readable face, seams and material differences, scaling skin and textile detail to framing without uniformly sharpening the body.",
+    "cg_detail": "Prioritize facial volume, primary hair locks, cloth thickness and accessory attachments; use microsurface detail only to differentiate materials.",
+    "sculpted_detail": "Prioritize clear primary shapes, facial expression and garment layers, using sparse detail to reinforce key structures.",
+    "cel_detail": "Carry detail through contours, garment boundaries, limited shadow layers and selected highlights rather than photographic texture.",
+    "painted_detail": "Resolve the face and key costume structures most clearly; simplify secondary hems and hair tips with brushwork and quiet color planes.",
+    "watercolor_detail": "Reserve precision for the face and costume connections; keep transparent washes and paper in broad cloth areas without replacing structure with stains.",
+    "ink_detail": "Distribute emphasis through line density, ink values and selected color, keeping facial features and costume connections readable."
   },
   "highlight_hierarchies": {
-    "focal_brightness": "Concentrate subject highlights around the face, adjacent existing head ornaments and upper torso; subordinate waist and selected fabric highlights, with sparse peripheral glints. Do not make every gold edge equally luminous or clip skin and pale fabric against the white background."
+    "focal_brightness": "Concentrate subject highlights around the face, adjacent existing head ornaments and upper torso; subordinate waist and selected fabric highlights, with sparse peripheral glints. Do not make every gold edge equally luminous or clip skin and pale fabric against the white background.",
+    "medium_aware": "Focus visual emphasis on the face and upper body, expressing highlights, bright shapes or paper reserves according to the medium without overbright hems or invented luminous accessories."
   },
   "edge_controls": {
     "soft_realistic": "Let edges follow soft studio light and physical materials: keep eyelids, seams and necessary construction clear, soften fine hair and thin gauze naturally, and separate pale garments from white without black outlines or uniformly sharpened contours.",
-    "painterly_selective": "Keep eyes, existing crown core and key metal construction crisp; retain soft brushwork and selectively softened edges in hair tips, ribbons, gauze and secondary hems. Preserve the complete readable silhouette; do not obscure hands or shoes with mist, backlight or blur."
+    "painterly_selective": "Keep eyes, existing crown core and key metal construction crisp; retain soft brushwork and selectively softened edges in hair tips, ribbons, gauze and secondary hems. Preserve the complete readable silhouette; do not obscure hands or shoes with mist, backlight or blur.",
+    "volume_edges": "Separate contours through volume, occlusion and material changes, with clear key attachments and softer secondary surfaces rather than uniform sharpening or black outlines.",
+    "cel_edges": "Control outline weight, keep feature and garment-connection lines clear, and use clean shadow boundaries rather than global soft focus or photographic edge noise.",
+    "illustration_edges": "Keep focal edges clear while selectively blending secondary edges with brushwork, retaining readable silhouette and limb connections.",
+    "watercolor_edges": "Use dry edges for key features and costume connections with selective wet edges elsewhere, keeping pale forms readable against paper reserves.",
+    "ink_edges": "Control edges through contours, dry-brush breaks and wash boundaries, keeping key structure clear while allowing secondary ink diffusion."
   }
 };

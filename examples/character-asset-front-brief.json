@@ -1,0 +1,163 @@
+{
+  "subject_kind": "character",
+  "request": "项目自建人物资产测试：原创成年女性旅行者的正面全身基准，供后续同衣装转面检查，不代表用户最终定妆。 当前版本增加用户确认的黄金九头身硬性目标；历史执行使用旧快照，不能以该新版代替。",
+  "references": [],
+  "unresolved": [],
+  "requirements": [
+    {
+      "id": "identity",
+      "channel": "identity",
+      "priority": "must",
+      "text": "原创约30岁东亚女性，长椭圆脸，平直眉、杏仁形深棕眼，鼻梁顺直，唇峰清楚，下颌柔和而下巴不过尖。"
+    },
+    {
+      "id": "hair",
+      "channel": "hair",
+      "priority": "must",
+      "text": "黑色头发，侧分，后脑低位单辫，面部清楚，人物自身左侧太阳穴一枚窄银夹。"
+    },
+    {
+      "id": "costume",
+      "channel": "costume",
+      "priority": "must",
+      "text": "灰蓝立领长袖短外套、象牙内衫、深灰直筒长裤和棕色踝靴；人物自身左肩短赭红披片，以一枚铜色圆扣固定在左锁骨外侧，披片只到左肘，不覆盖右肩；褐色腰带与人物自身右髋矩形皮袋，无其他包。"
+    },
+    {
+      "id": "frame",
+      "channel": "composition",
+      "priority": "must",
+      "text": "单人正面全身，头与躯干都朝向镜头，平视弱透视，双臂自然垂下稍离身，头顶到靴底完整，浅灰棚背景。"
+    },
+    {
+      "id": "render",
+      "channel": "style",
+      "priority": "must",
+      "text": "精致写实人物设定，柔和中性棚光，轻薄自然妆容，布料低光泽、铜扣局部亮、皮袋细腻哑光；无文字、分格、水印。"
+    },
+    {
+      "id": "anatomy",
+      "channel": "proportion",
+      "priority": "must",
+      "target_head_count": 9,
+      "text": "黄金九头身为硬性目标，人体直立高度等于九个颅顶至下巴的头长，不计头饰、鞋跟和拖尾；头肩、躯干、上下臂和上下腿协调，有适度肌肉体积，可见手部结构与双脚承重自然。"
+    }
+  ],
+  "sections": [
+    {
+      "label": "任务与构图",
+      "channel": "composition",
+      "items": [
+        {
+          "intent": "constraint",
+          "basis": [
+            "frame"
+          ],
+          "text": "生成原创女性旅行者的单张正面全身人物资产基准。一个人，头和躯干都正对镜头，平视、弱透视，双臂自然垂下并稍离身体，让腰带与两侧衣片可读。头顶至靴底完整入画，浅灰摄影棚背景，四周适量空隙。"
+        }
+      ]
+    },
+    {
+      "label": "人物身份与面容",
+      "channel": "identity",
+      "items": [
+        {
+          "intent": "constraint",
+          "basis": [
+            "identity"
+          ],
+          "text": "约三十岁的东亚女性，长椭圆脸，平直眉，杏仁形深棕眼，顺直鼻梁，清楚唇峰，柔和下颌与不过尖的下巴。平静专注，嘴唇自然闭合，面容精致而有成年人辨识度。"
+        }
+      ]
+    },
+    {
+      "label": "发型与头饰",
+      "channel": "hair",
+      "items": [
+        {
+          "intent": "constraint",
+          "basis": [
+            "hair"
+          ],
+          "text": "黑色侧分头发，在后脑低位束为一条辫子；面部无遮挡，人物自身左侧太阳穴固定一枚窄银夹，正面看它位于画面右侧。"
+        }
+      ]
+    },
+    {
+      "label": "服装设计",
+      "channel": "costume",
+      "items": [
+        {
+          "intent": "constraint",
+          "basis": [
+            "costume"
+          ],
+          "text": "灰蓝色立领长袖短外套，内穿象牙色内衫，下着深灰直筒长裤和棕色踝靴。赭红色短披片仅覆盖人物自身左肩与左上臂，长度到左肘，以一枚铜色圆扣固定在左锁骨外侧，右肩保持灰蓝外套。褐色腰带上仅在人物自身右髋挂一个矩形皮袋，袋口朝上，袋盖清楚。正面看，赭红披片和铜扣在画面右侧，皮袋在画面左侧。"
+        }
+      ]
+    },
+    {
+      "label": "妆容材质与灯光",
+      "channel": "style",
+      "items": [
+        {
+          "intent": "constraint",
+          "basis": [
+            "render"
+          ],
+          "text": "精致写实人物设定，轻薄贴肤妆容，自然眼睑和唇部体积，克制肌肤纹理。柔和中性棚光，面部均匀受光并保留体积；外套与披片为低光泽织物，褶皱随重力下垂，铜扣有局部金属反光，皮袋呈细腻哑光皮革。画面没有文字、水印或分格。"
+        }
+      ]
+    },
+    {
+      "label": "身材与肢体",
+      "channel": "proportion",
+      "items": [
+        {
+          "intent": "constraint",
+          "basis": [
+            "anatomy"
+          ],
+          "text": "人物必须采用黄金九头身，人体直立高度等于九个颅顶至下巴的头长，不计头饰、鞋跟和拖尾。头肩、躯干、上下臂与上下腿协调，肌肉适度自然；不极端缩头、压短躯干或单段拉长腿部，可见手指结构连贯，双脚自然承重。"
+        }
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "identity-check",
+      "basis": "identity",
+      "critical": true,
+      "question": "面容可读，是否符合所设计的成年脸部关系？"
+    },
+    {
+      "id": "hair-check",
+      "basis": "hair",
+      "critical": true,
+      "question": "黑发侧分、面部清楚且银夹在人物自身左侧？后脑低辫遮挡时不假称已验证。"
+    },
+    {
+      "id": "costume-check",
+      "basis": "costume",
+      "critical": true,
+      "question": "衣装、左肩赭红披片与铜扣、右髋单皮袋的位置和数量是否成立？"
+    },
+    {
+      "id": "frame-check",
+      "basis": "frame",
+      "critical": true,
+      "question": "头与躯干均正面，单人全身完整且有浅灰棚背景？"
+    },
+    {
+      "id": "render-check",
+      "basis": "render",
+      "critical": true,
+      "question": "写实精致妆容、中性柔光、织物金属皮革有区分，且无文字分格？"
+    },
+    {
+      "id": "anatomy-check",
+      "basis": "anatomy",
+      "critical": true,
+      "question": "排除头饰、鞋跟与拖尾后是否满足九头身，且头肩躯干四肢协调、可见手部和脚部承重自然？证据不足不得判通过。"
+    }
+  ]
+}

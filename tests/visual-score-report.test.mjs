@@ -32,7 +32,7 @@ test('noncritical corrections stay visible without withdrawing a qualified resul
 test('directory report applies saved audit notes while preserving the original receipt and mean',t=>{
  const parent=path.resolve(os.tmpdir()),dir=fs.mkdtempSync(path.join(parent,'score-audit-'));
  t.after(()=>{if(path.dirname(path.resolve(dir))!==parent)throw new Error('unsafe cleanup');fs.rmSync(dir,{recursive:true,force:true});});
- const input={request:'生成蓝色衣服测试。',references:[],requirements:[{id:'U1',channel:'costume',text:'蓝衣。',priority:'must'}],unresolved:[],sections:[{label:'服装',channel:'costume',items:[{text:'蓝色上衣。',basis:['U1'],intent:'constraint'}]}],acceptance:[{id:'cloth',basis:'U1',question:'蓝衣是否成立？',critical:true}]};
+ const input={subject_kind:'product',request:'生成蓝色衣服测试。',references:[],requirements:[{id:'U1',channel:'costume',text:'蓝衣。',priority:'must'}],unresolved:[],sections:[{label:'服装',channel:'costume',items:[{text:'蓝色上衣。',basis:['U1'],intent:'constraint'}]}],acceptance:[{id:'cloth',basis:'U1',question:'蓝衣是否成立？',critical:true}]};
  const snapshot=freezeProductionRun(input,{run_id:'a',case_id:'案例甲',cohort:'synthetic'});
  const output=path.join(dir,'fixture.png');fs.writeFileSync(output,Buffer.from('synthetic-byte-binding-fixture'));
  const hash=promptHash(fs.readFileSync(output)),receipt={status:'completed',snapshot_sha256:snapshot.snapshot_sha256,target_sha256:snapshot.target_sha256,prompt_sha256:snapshot.prompt_sha256,output_image:output,output_sha256:hash,inspected:true,reviewer:'synthetic fixture',checks:[{id:'cloth',verdict:'pass',evidence:'合成通过证据'}]};

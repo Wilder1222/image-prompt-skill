@@ -1,0 +1,331 @@
+{
+  "date": "2026-10-06",
+  "study_kind": "原生参数化人体网格可观察性",
+  "status": "直接变换已满足指定头部保形与身体固定，候选比值为9；端点和生产可用性仍未确认",
+  "local_directory": "dist/technical-studies/anny-20261006",
+  "environment": "独立虚拟环境，复用系统已有依赖；未更改系统包",
+  "package": {
+    "name": "anny",
+    "version": "0.6.1",
+    "wheel_sha256": "9dbd3d6c2e5dae20a4f5e0b80e104f50fd13d2e15e42c90fc288e00d86e60e09"
+  },
+  "configuration": {
+    "rig": "anny",
+    "topology": "anny",
+    "local_changes": "default",
+    "facial_actions": "none",
+    "device": "cpu",
+    "all_phenotype_parameters": 0.5
+  },
+  "mesh": {
+    "file": "neutral-native-mesh.npz",
+    "sha256": "b512d4ebd956e7566a942dcd3d32ec1764829e26420e7f911164bc3246d5f4f4",
+    "vertices": 13718,
+    "triangles": 27420,
+    "vertical_extent": 1.625199794769287,
+    "candidate_head_vertical_extent": 0.21575886011123657,
+    "candidate_ratio": 7.532482299597799,
+    "candidate_ratio_is_anatomical_measurement": false
+  },
+  "landmarks": {
+    "source": "anny/data/mpfb2/rigs/rigify/rig.human.json",
+    "source_sha256": "6c3e61576d299d4acfbe45789d69738608ae0559d382f4a0e9e598a82379be7f",
+    "chin_base_vertex": 5225,
+    "chin_native_vertex": 5209,
+    "highest_native_vertex": 881,
+    "lowest_native_vertex": 6148,
+    "review": "正侧坐标投影中，最高点位于头顶轮廓，下巴候选位于下颌前下缘，最低点位于前足下缘。线框重叠不能证明候选点就是全部解剖端点；足跟与前掌的承重关系仍须核对。"
+  },
+  "diagnostic_plot": {
+    "file": "landmark-diagnostic.png",
+    "sha256": "707b50b46ab9a06d52d4f44ce94787bbc5ed6ab253659e6dfd2c08bf6ca5ac6a",
+    "method": "从原创参数化网格坐标绘制正交线框投影，不读取或编辑任何生成图片",
+    "purpose": "技术端点观察，不是成品人物或生图输出"
+  },
+  "retained_failure": "首次请求 return_bone_ends=True，被原生 procrustes 绑定拒绝；保留错误与原脚本，仅移除该可选输出后成功。",
+  "artifacts": [
+    "install-report.json",
+    "probe-initial.py",
+    "probe-initial-error.json",
+    "probe.py",
+    "probe-result.json",
+    "inspect-landmarks.py",
+    "landmark-candidates.json",
+    "plot-landmarks.py",
+    "plot-report.json",
+    "sweep-controls.py",
+    "control-sweep-01/report.json",
+    "solve-candidate-ratio.py",
+    "candidate-solve-01/plan.json",
+    "candidate-solve-01/report.json",
+    "plot-control-comparison.py",
+    "candidate-solve-01/plot-report.json",
+    "preserve-head-geometry.py",
+    "head-similarity-01/plan.json",
+    "head-similarity-01/report.json",
+    "plot-similarity-inspection.py",
+    "head-similarity-01/inspection-report.json",
+    "inspect-sagittal-section.py",
+    "sagittal-landmarks-01/sections.npz",
+    "sagittal-landmarks-01/section-report.json",
+    "sagittal-landmarks-01/section-inspection.png"
+  ],
+  "sources": [
+    "https://github.com/naver/anny",
+    "https://arxiv.org/abs/2511.03589",
+    "https://static.makehumancommunity.org/makehuman/docs/modeling_the_body.html",
+    "https://pypi.org/pypi/anny/0.6.1/json"
+  ],
+  "license_scope": "作者仓库列出代码 Apache-2.0、MakeHuman 衍生 MPFB2 资产 CC0；本研究只用原生网格与绑定，不下载或使用可选 SMPL/SMPLX 资产。第三方包保留在本地研究环境，不随技能发布。",
+  "new_image_model_outputs": 0,
+  "accepted_character_assets": 0,
+  "production_dependency_added": false,
+  "historical_results_changed": false,
+  "next_step": "保留保形网格与首次普通参考转移失败。端点语义仍需核对；后续图像实验须有新的控制假设，不重复同类缩头措辞。",
+  "control_study": {
+    "date": "2026-10-06",
+    "scope": "单一基准人体，9组参数响应和一次有界候选比值求解；不推导其他人体的控制范围。",
+    "sweep_file": "control-sweep-01/report.json",
+    "sweep_sha256": "bcba629381bc5a092e80ade85d76f432994518a707ecb832f6c5e34510936984",
+    "sample_count": 9,
+    "baseline_reproduced_exactly": true,
+    "sweep_results": [
+      {
+        "id": "baseline",
+        "candidate_ratio": 7.532482299597799,
+        "head_region_extent_ratios_xyz": [
+          1,
+          1,
+          1
+        ],
+        "body_region_max_displacement": 0
+      },
+      {
+        "id": "proportions-0",
+        "candidate_ratio": 7.562016811272785,
+        "head_region_extent_ratios_xyz": [
+          1,
+          1.0000004768371582,
+          1
+        ],
+        "body_region_max_displacement": 0.023103011772036552
+      },
+      {
+        "id": "proportions-1",
+        "candidate_ratio": 7.505102167668462,
+        "head_region_extent_ratios_xyz": [
+          1,
+          0.9999998807907104,
+          1.000000238418579
+        ],
+        "body_region_max_displacement": 0.02298416756093502
+      },
+      {
+        "id": "head-three-axes--1.0",
+        "candidate_ratio": 9.380845168295936,
+        "head_region_extent_ratios_xyz": [
+          0.8017800450325012,
+          0.9380002021789551,
+          0.8627936840057373
+        ],
+        "body_region_max_displacement": 0.00015398366667795926
+      },
+      {
+        "id": "head-three-axes--0.5",
+        "candidate_ratio": 8.347428701654863,
+        "head_region_extent_ratios_xyz": [
+          0.9008899927139282,
+          0.9690663814544678,
+          0.9268043637275696
+        ],
+        "body_region_max_displacement": 0.00007712488149991259
+      },
+      {
+        "id": "head-three-axes-0.5",
+        "candidate_ratio": 6.880733563010664,
+        "head_region_extent_ratios_xyz": [
+          1.0991100072860718,
+          1.0486875772476196,
+          1.101523995399475
+        ],
+        "body_region_max_displacement": 0.0000750534309190698
+      },
+      {
+        "id": "head-three-axes-1.0",
+        "candidate_ratio": 6.3515883527306745,
+        "head_region_extent_ratios_xyz": [
+          1.198219895362854,
+          1.0974345207214355,
+          1.2028982639312744
+        ],
+        "body_region_max_displacement": 0.00015025786706246436
+      },
+      {
+        "id": "head-vertical--1.0",
+        "candidate_ratio": 9.424787922499105,
+        "head_region_extent_ratios_xyz": [
+          1,
+          1.0114036798477173,
+          0.8503684997558594
+        ],
+        "body_region_max_displacement": 0.00014556034875568002
+      },
+      {
+        "id": "head-vertical-1.0",
+        "candidate_ratio": 6.320265080539514,
+        "head_region_extent_ratios_xyz": [
+          1,
+          0.9861185550689697,
+          1.2074860334396362
+        ],
+        "body_region_max_displacement": 0.00014644855400547385
+      }
+    ],
+    "solver_file": "candidate-solve-01/report.json",
+    "solver_sha256": "8288e883054410d8ebb9da16f8a84fa13c74ac154f908c124aefa6cf1de105f9",
+    "solver_iterations": 18,
+    "selected_coefficient": -0.8301258087158203,
+    "candidate_ratio": 8.999999046325684,
+    "numerical_residual": -9.5367431640625e-7,
+    "numerical_stop_is_user_acceptance_tolerance": false,
+    "candidate_mesh_sha256": "7227cb2370c52029e79242d4a9965cde4d741fd93daed397f2129afece3eee86",
+    "head_region_extent_ratios_xyz": [
+      0.8354525566101074,
+      0.9485752582550049,
+      0.8845576643943787
+    ],
+    "head_similarity_fit": {
+      "vertex_count": 4477,
+      "uniform_scale": 0.8721942428220516,
+      "rmse_in_mesh_units": 0.0032730223112836204,
+      "max_error_in_mesh_units": 0.009984140413283528,
+      "rmse_over_baseline_candidate_head_height": 0.01516981647750726
+    },
+    "body_region_max_displacement": 0.0001277160190511495,
+    "body_region_changed_vertex_count_at_1e_6": 4721,
+    "body_region_vertex_count": 8622,
+    "comparison_plot": {
+      "file": "candidate-solve-01/control-comparison.png",
+      "sha256": "091f0356a87295e3afc3fb5a09ae49d8123ea831a0244f8b2c7dc862f703f02c",
+      "method": "原始网格坐标投影，不读取或修改生图图片"
+    },
+    "visual_observation": "正面头部变窄，侧面高度与纵深变化不一致；颈部过渡亦变化。完整身体叠线基本重合，但不能据显示分辨率否认数值记录中的微小位移。",
+    "conclusion": "相等形态系数不产生严格等比缩放。候选数值收敛不证明解剖端点正确、头部几何保形或身体保护范围成立。",
+    "sources": [
+      "https://github.com/naver/anny"
+    ],
+    "accepted_character_assets": 0,
+    "new_image_model_outputs": 0
+  },
+  "similarity_study": {
+    "date": "2026-10-06",
+    "method": "直接几何保形变换，头部均匀缩放，颈部平滑过渡，指定身体坐标保持；不是Anny形态滑杆。",
+    "directory": "head-similarity-01",
+    "report_sha256": "b9b1e0b24a1f8a434d5de6d9966d7852d3b8ad329def98f8a5cefdc7608f85f4",
+    "plan_sha256": "7fbe583f53fedac10b0412b6837f9530746a57d29b037523bf47c0a97a1fdc20",
+    "candidate_mesh_sha256": "0089c693347809567d023174fa2a817a5b7a9a156d697e09097b5729c3ce01e7",
+    "uniform_head_scale": 0.8129360544753672,
+    "candidate_ratio": 9,
+    "fixed_vertices": 8976,
+    "head_vertices": 4564,
+    "transition_vertices": 178,
+    "fixed_region_coordinates_exactly_preserved": true,
+    "head_uniform_transform_max_error": 0,
+    "head_extent_ratios_xyz": [
+      0.8129360544753672,
+      0.8129360544753673,
+      0.8129360544753671
+    ],
+    "minimum_transition_z_derivative": 0.7741938428417048,
+    "minimum_transition_jacobian_lower_bound": 0.5116376361426063,
+    "new_zero_area_triangles": 0,
+    "minimum_triangle_normal_cosine": 0.9405861847005961,
+    "triangle_area_ratio_range": [
+      0.6138688187136564,
+      1.2249071974867676
+    ],
+    "inspection": {
+      "plot_sha256": "6827c0e8ac44d9cad53dcc90592406756ac4653a3b0ee4dad389ec103a7e7ecb",
+      "candidate_mesh_sha256": "0089c693347809567d023174fa2a817a5b7a9a156d697e09097b5729c3ce01e7",
+      "chin_spatial_window": "基准网格abs(X)<0.02、Y<-0.09、0.52<Z<0.59，只用于检查候选附近，非解剖分割器",
+      "chin_window_lowest_vertex": 991,
+      "chin_window_lowest_xyz": [
+        0.00015743912081234157,
+        -0.09433707594871521,
+        0.5390129685401917
+      ],
+      "declared_chin_vertex": 5209,
+      "forefoot_candidate_vertex": 12729,
+      "rearfoot_candidate_vertex": 13025,
+      "forefoot_to_rearfoot_minimum_z_difference": 0.00008410215377807617,
+      "foot_note": "前后候选来自同一侧足部纵深区段的最低顶点，不能以区段名称自动认定解剖承重点；没有修改原足部。",
+      "image_model_outputs_added": 0,
+      "existing_images_edited": false
+    },
+    "landmark_sensitivity": {
+      "alternative_spatial_window_vertex": 991,
+      "alternative_candidate_ratio": 8.818990398280514,
+      "meaning": "同一网格仅替换下巴候选点，结果即变化。该邻域最低点不是新批准的解剖下巴；保留原目标与原结果，不选择有利端点。"
+    },
+    "visual_review": "技术表面投影可见头颈连续，未见明显折叠；头顶、原下巴候选与足部尺线关系清楚。前后足候选高度非常接近但并非完全相同。平滑外观不证明绑定有效或颈部解剖合理。",
+    "limits": [
+      "头长端点与中性头部方向尚未完整确认",
+      "区域阈值只适用本次基准网格",
+      "未核对片面三角网格自交",
+      "未更新骨骼、蒙皮权重、衣装或动画",
+      "未传入生图工具，不能证明参考比例转移"
+    ],
+    "source_method_note": "NIST托管的历史测量程序区分头高与头部前后长度，并固定头部方向及闭合下颌；只借鉴定义区分，不采用其儿童统计数据、年龄参数或数值范围。",
+    "source_url": "https://math.nist.gov/~SRessler/anthrokids/data1977/descrip.htm",
+    "accepted_character_assets": 0,
+    "new_image_model_outputs": 0,
+    "existing_images_edited": false
+  },
+  "image_transfer_followup": {
+    "report": "docs/character-volume-reference-evidence.json",
+    "reference_report": "dist/technical-studies/anny-20261006/volume-reference-01/reference-report.json",
+    "run_id": "volume-reference-01",
+    "reference_sha256": "3a7a95591518fb26bca4ea49f153d74bbe8ca30e40598335d2598ea2e62463f3",
+    "output_sha256": "6ba16fe607fa3a20b1f31cf2c6cbcc0a800a47c703c6e23b4a82e7a27e55dba9",
+    "status": "needs_revision",
+    "observation": "一次普通体积参考生图未保持目标端点；图像调用仅在独立实图报告计一次，不重复计入网格研究。",
+    "historical_geometry_results_changed": false
+  },
+  "sagittal_section_study": {
+    "source_mesh_sha256": "b512d4ebd956e7566a942dcd3d32ec1764829e26420e7f911164bc3246d5f4f4",
+    "section_file_sha256": "27a5ff56afef96de54e603f7c91fc204d457fc5bd7afefa77942613a2491e5a8",
+    "plot_sha256": "01410a8a5491e28555abd6dd5318fbc5f15f158db64050364b4111470912c749",
+    "planes_x": [
+      0,
+      0.002
+    ],
+    "segment_counts": [
+      403,
+      434
+    ],
+    "candidates": {
+      "991": [
+        0.00015743912081234157,
+        -0.09433707594871521,
+        0.5390129685401917
+      ],
+      "5209": [
+        0.00014431013551075011,
+        -0.1223614364862442,
+        0.5434414148330688
+      ]
+    },
+    "method": "逐三角形与两平面求交；绘图只读取网格坐标，内外轮廓都保留，不自动认定下巴。",
+    "mesh_changed": false,
+    "image_model_outputs_added": 0,
+    "anatomical_landmarks_approved": false,
+    "directory": "sagittal-landmarks-01",
+    "visual_observation": "正中与偏侧剖面都显示原绑定候选位于下巴前下缘，邻域较低点沿颌下向颈部后移；轮廓继续下降，没有仅凭窗口最低点就能确认的解剖界限。口腔内部交线另行可见，不与外轮廓混用。",
+    "decision": "不将较低邻域点自动替代原端点，不按此图批准九头身或追加相同体积参考生成。",
+    "limits": [
+      "平面交线是已给网格的精确几何，不是人体解剖标注",
+      "未确认头部标准方向与承重足底",
+      "未修改网格、绑定或旧图像，没有新增模型调用"
+    ]
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "study_kind": "固定候选几何的相机投影对照",
+  "evidence_directory": "dist/technical-studies/anny-20261006/camera-projection-01",
+  "source_mesh_sha256": "0089c693347809567d023174fa2a817a5b7a9a156d697e09097b5729c3ce01e7",
+  "source_geometry_report": "docs/character-parametric-mesh-evidence.json",
+  "report_file": "report.json",
+  "report_sha256": "7886e01e2f70c0ad1a4b1180a3a96279fc90ebb72843beab3d2bdccb557dac79",
+  "plan_sha256": "bb14da28b072781be76911e5384bb8d3ec7e3ddb77c181a381a035db1ffcd6bf",
+  "plot_file": "camera-sensitivity.png",
+  "plot_sha256": "0ce2a07ff184ae6b1469e4d96afb0e35048b94d3547f4de7aeddd973dc67bf9f",
+  "candidate_ratio_in_world_coordinates": 9,
+  "landmark_indices": {
+    "crown_candidate": 881,
+    "chin_candidate": 5209,
+    "sole_candidate": 6148
+  },
+  "camera_target_xyz": [
+    0,
+    0,
+    -0.07670781576879065
+  ],
+  "angle_degrees": [
+    -10,
+    -5,
+    0,
+    5,
+    10
+  ],
+  "distance_over_candidate_height": [
+    2,
+    4,
+    8
+  ],
+  "projected_ratio_range": [
+    8.553609933352659,
+    11.499747435521225
+  ],
+  "level_camera_rows": [
+    {
+      "projection": "orthographic",
+      "pitch_degrees": 0,
+      "distance_over_height": 2,
+      "camera_xyz": [
+        0,
+        -3.1571668162247644,
+        -0.07670781576879065
+      ],
+      "projected_landmark_vertical": [
+        0.7892917040561911,
+        0.6138935475992597,
+        -0.7892917040561911
+      ],
+      "landmark_depth": [
+        3.1184294884166417,
+        3.0520828744619597,
+        2.994965083827685
+      ],
+      "minimum_mesh_depth": 2.833486445178698,
+      "projected_ratio": 9,
+      "ratio_for_focal_scales": [
+        9,
+        9,
+        9
+      ]
+    },
+    {
+      "projection": "orthographic",
+      "pitch_degrees": 0,
+      "distance_over_height": 4,
+      "camera_xyz": [
+        0,
+        -6.314333632449529,
+        -0.07670781576879065
+      ],
+      "projected_landmark_vertical": [
+        0.7892917040561911,
+        0.6138935475992597,
+        -0.7892917040561911
+      ],
+      "landmark_depth": [
+        6.2755963046414065,
+        6.2092496906867245,
+        6.152131900052449
+      ],
+      "minimum_mesh_depth": 5.990653261403462,
+      "projected_ratio": 9,
+      "ratio_for_focal_scales": [
+        9,
+        9,
+        9
+      ]
+    },
+    {
+      "projection": "orthographic",
+      "pitch_degrees": 0,
+      "distance_over_height": 8,
+      "camera_xyz": [
+        0,
+        -12.628667264899057,
+        -0.07670781576879065
+      ],
+      "projected_landmark_vertical": [
+        0.7892917040561911,
+        0.6138935475992597,
+        -0.7892917040561911
+      ],
+      "landmark_depth": [
+        12.589929937090934,
+        12.523583323136252,
+        12.466465532501978
+      ],
+      "minimum_mesh_depth": 12.304986893852991,
+      "projected_ratio": 9,
+      "ratio_for_focal_scales": [
+        9,
+        9,
+        9
+      ]
+    },
+    {
+      "projection": "pinhole",
+      "pitch_degrees": 0,
+      "distance_over_height": 2,
+      "camera_xyz": [
+        0,
+        -3.1571668162247644,
+        -0.07670781576879065
+      ],
+      "projected_landmark_vertical": [
+        12.655275788469853,
+        10.056960653591045,
+        -13.176976725342065
+      ],
+      "landmark_depth": [
+        3.1184294884166417,
+        3.0520828744619597,
+        2.994965083827685
+      ],
+      "minimum_mesh_depth": 2.833486445178698,
+      "projected_ratio": 9.941924352073174,
+      "ratio_for_focal_scales": [
+        9.941924352073174,
+        9.941924352073174,
+        9.941924352073174
+      ]
+    },
+    {
+      "projection": "pinhole",
+      "pitch_degrees": 0,
+      "distance_over_height": 4,
+      "camera_xyz": [
+        0,
+        -6.314333632449529,
+        -0.07670781576879065
+      ],
+      "projected_landmark_vertical": [
+        6.288579329684049,
+        4.943379459518602,
+        -6.414782037178544
+      ],
+      "landmark_depth": [
+        6.2755963046414065,
+        6.2092496906867245,
+        6.152131900052449
+      ],
+      "minimum_mesh_depth": 5.990653261403462,
+      "projected_ratio": 9.443475017062108,
+      "ratio_for_focal_scales": [
+        9.443475017062108,
+        9.443475017062108,
+        9.443475017062108
+      ]
+    },
+    {
+      "projection": "pinhole",
+      "pitch_degrees": 0,
+      "distance_over_height": 8,
+      "camera_xyz": [
+        0,
+        -12.628667264899057,
+        -0.07670781576879065
+      ],
+      "projected_landmark_vertical": [
+        3.1346151567169365,
+        2.4509500666041153,
+        -3.165659512707861
+      ],
+      "landmark_depth": [
+        12.589929937090934,
+        12.523583323136252,
+        12.466465532501978
+      ],
+      "minimum_mesh_depth": 12.304986893852991,
+      "projected_ratio": 9.21544007517643,
+      "ratio_for_focal_scales": [
+        9.21544007517643,
+        9.21544007517643,
+        9.21544007517643
+      ]
+    }
+  ],
+  "formula": "相机前向向量 f=(0,cos角,-sin角)，上向量 u=(0,sin角,cos角)，相机 C=目标点-Df；正交纵坐标为(P-C)·u，针孔纵坐标为焦距倍数乘(P-C)·u除以(P-C)·f。对固定三点计算投影体高与投影头高之比。",
+  "analytic_checks": {
+    "equal_depth_level_pinhole_preserves_ratio": true,
+    "level_orthographic_preserves_ratio": true,
+    "fixed_camera_focal_scale_invariance": true,
+    "far_distance_convergence": [
+      {
+        "pitch_degrees": -10,
+        "errors": [
+          0.034045918244824946,
+          0.003395470568635872,
+          0.0003394560945455538
+        ]
+      },
+      {
+        "pitch_degrees": -5,
+        "errors": [
+          0.025117988292732818,
+          0.002506010856084373,
+          0.00025054334464336137
+        ]
+      },
+      {
+        "pitch_degrees": 0,
+        "errors": [
+          0.016795910776382428,
+          0.001676245705082735,
+          0.00016759118872045065
+        ]
+      },
+      {
+        "pitch_degrees": 5,
+        "errors": [
+          0.009030151356409277,
+          0.0009013121690806258,
+          0.00009011423174598576
+        ]
+      },
+      {
+        "pitch_degrees": 10,
+        "errors": [
+          0.001799099444504293,
+          0.00017912904954719977,
+          0.000017905100859749723
+        ]
+      }
+    ]
+  },
+  "anatomical_landmarks_approved": false,
+  "new_image_model_outputs": 0,
+  "accepted_character_assets": 0,
+  "existing_images_edited": false,
+  "source_mesh_changed": false,
+  "source_reference": "https://docs.blender.org/manual/en/4.4/render/cameras.html",
+  "interpretation": "正交消除距离缩放，但俯仰仍改变纵向投影；针孔模型中同一几何随相机位置和方向产生不同图像比值。固定相机位置改变焦距只统一缩放，不改变本模型比值。",
+  "limitations": [
+    "固定跟踪候选点，不重新取投影包围框极值",
+    "不模拟镜头畸变、遮挡、衣物或光照",
+    "不能用此曲线反推未知相机图像的人体比例",
+    "未确认端点解剖含义和标准头部方向",
+    "没有新增图像模型输出或修改已有图片",
+    "视线指向候选体高的中点，数值仅适用于此网格与相机配置，不是通用误差范围",
+    "未模拟视场裁切或解析任何旧生图的相机",
+    "原带尺研究的端点对齐要求及失败保持，不能事后用相机不明改判通过"
+  ]
+}

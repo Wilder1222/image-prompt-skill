@@ -1,0 +1,39 @@
+{
+  "subject_kind": "character",
+  "request": "原创文字编译示例：制作同一成年男性的中性全身及中性、自然张嘴头肩对照，统一写实三维人物质感与黄金九头身设计。没有已观察人物参考；本例已独立实测一次，表情与同屏可见身份通过，九头身仍待审，不能声称整个人物已验证。冻结正文与逐项证据另存，当前说明不改变历史目标。",
+  "references": [],
+  "unresolved": [],
+  "requirements": [
+    {"id":"identity","channel":"identity","priority":"must","text":"同一位约40岁成年男性，宽额头、略方的下颌、深棕眼、直鼻梁、较薄上唇和略饱满下唇；黑色短发带少量灰发，无胡须，保持表观年龄和面部设计。"},
+    {"id":"body","channel":"proportion","priority":"must","target_head_count":9,"text":"中性全身人体直立高度为九个中性闭合下颌时颅顶至下巴的头长，不计发量和鞋履；躯干、骨盆及四肢协调。表情变化不重设身体头长基准。"},
+    {"id":"expression","channel":"expression","priority":"must","text":"全身和上方头肩为放松中性、嘴唇自然闭合；下方头肩嘴唇自然分开、下颌适度下移，眉眼保持放松，不用惊恐瞪眼、抬眉或仰头替代张嘴动作。口唇与口腔连接自然。"},
+    {"id":"outfit","channel":"costume","priority":"must","text":"同一件不透明石蓝圆领短袖、深灰及膝短裤，赤脚；发型与衣装不因表情变化而更换，没有额外饰品。"},
+    {"id":"view","channel":"composition","priority":"must","text":"三处均为正面，头颈与身体不偏转；全身自然站直、双臂放松离身、双脚稳定平放，两张头肩图保留完整头顶至肩部。"},
+    {"id":"layout","channel":"layout","priority":"must","text":"左侧一张完整全身，右侧上下两张头肩图，上中性、下张嘴。右侧两图展示倍率相同，以头顶和双眼位置对齐，不强迫张嘴后的下巴与中性图重合。全身与头像不要求相同展示倍率，无文字或额外格。"},
+    {"id":"style","channel":"style","priority":"must","text":"三处统一写实三维人物质感，皮肤有柔和体积，头发、布料和皮肤的表面表现明确，不出现照片与卡通混杂或蜡皮。"},
+    {"id":"light","channel":"lighting","priority":"must","text":"三处使用一致的柔和正面偏上布光和中性颜色，保留脸部体积；不靠改变光线制造表情差异。"},
+    {"id":"background","channel":"background","priority":"must","text":"不透明浅灰纯色背景，人物之间清楚分隔，无场景道具与透明背景。"}
+  ],
+  "sections": [
+    {"label":"人物身份与面容","channel":"identity","items":[{"intent":"design","basis":["identity"],"reason":"本轮原创人物设计，没有参考图身份可供复刻。","text":"各处描绘同一位约40岁成年男性：宽额头、略方的下颌、深棕眼、直鼻梁、较薄上唇与略饱满下唇，黑色短发中夹少量灰发，无胡须。保持相同颅形、鼻部设计、唇部特征与表观年龄，面部允许目标表情所需的自然运动。"}]},
+    {"label":"身材比例","channel":"proportion","items":[{"intent":"constraint","basis":["body"],"text":"人体统一采用黄金九头身：中性全身从颅顶至人体足底的直立高度，等于九个中性、下颌放松闭合时颅顶至下巴的头长，不计发量和鞋履。胸腰、骨盆、上下臂及上下腿协调，肌肉软组织自然。张嘴造成下颌移动时，保留同一身体设计，不用变化后的下巴位置重新拉伸躯干或四肢。"}]},
+    {"label":"表情与眼神","channel":"expression","items":[{"intent":"constraint","basis":["expression"],"text":"左侧全身和右上头肩为放松中性，嘴唇自然闭合。右下头肩仅让嘴唇自然分开、下颌适度下移，口唇与口腔连接自然；眉眼保持放松，视线朝镜头，不追加惊恐瞪眼、抬眉或仰头。不要求张嘴后的下巴、唇角与中性图逐像素重合。新露出的口腔按同一人物自然设计，不冒称复刻不可见牙齿。"}]},
+    {"label":"服装与发型","channel":"costume","items":[{"intent":"design","basis":["outfit"],"reason":"原创简洁衣装，便于观察身体与表情；不迁移历史角色造型。","text":"同一件不透明石蓝圆领短袖与深灰及膝短裤，赤脚，无额外饰品；各处短发、领口与肩部衣装相同，不因表情变化而换造型。"}]},
+    {"label":"视角与姿态","channel":"composition","items":[{"intent":"constraint","basis":["view"],"text":"各处均正面朝镜头，头颈不偏转。左侧完整展示自然直立全身，双臂放松微离躯干、双脚稳定平放；右侧两图均从完整头顶展示到肩部，头角与视线一致。"}]},
+    {"label":"对照版式","channel":"layout","items":[{"intent":"constraint","basis":["layout"],"text":"左侧安排一张完整全身，右侧上下安排两张头肩对照，上中性、下自然张嘴。两张头肩图展示倍率相同，以头顶和双眼位置对齐，不用下巴对齐抵消下颌运动；全身与头像不要求相同展示倍率。各部分留出清楚间隔，不增加文字、色板或额外格。"}]},
+    {"label":"三维表现","channel":"style","items":[{"intent":"constraint","basis":["style"],"text":"统一写实三维人物表现，脸部和四肢有连续柔和体积，皮肤、短发与布料具有清楚的表面区别；不混入卡通大眼、平涂线稿或蜡状皮肤。"}]},
+    {"label":"照明","channel":"lighting","items":[{"intent":"constraint","basis":["light"],"text":"使用一致的柔和正面偏上布光，面部清楚、体积自然、颜色中性；两张头肩对照的光向与明暗保持相同，不以换灯光替代表情变化。"}]},
+    {"label":"背景","channel":"background","items":[{"intent":"constraint","basis":["background"],"text":"不透明浅灰纯色背景，空白与人物边缘清楚，无场景道具，不输出透明抠图。"}]}
+  ],
+  "acceptance": [
+    {"id":"identity-check","basis":"identity","critical":true,"question":"全身与两张头肩的可见稳定面部设计和年龄是否一致，已区分自然表情运动与换脸？"},
+    {"id":"body-check","basis":"body","critical":true,"question":"中性全身是否满足排除发量的九头身且各肢段协调？表情局部通过不能替代这一证据；端点不清时保留未决。"},
+    {"id":"expression-check","basis":"expression","critical":true,"question":"中性与自然张嘴是否分别到位，眉眼仍放松、口唇口腔连接自然，没有用仰头或瞪眼替代动作？"},
+    {"id":"outfit-check","basis":"outfit","critical":true,"question":"同一短发与石蓝短袖、深灰短裤和赤脚设计是否保持，未因表情换装或增饰？"},
+    {"id":"view-check","basis":"view","critical":true,"question":"是否共同正面，完整全身和完整头肩分别可读，没有偏头、仰头或身体转面？"},
+    {"id":"layout-check","basis":"layout","critical":true,"question":"是否左全身、右上中性头肩、右下张嘴头肩，两张头肩倍率和对齐基准一致且无多余内容？"},
+    {"id":"style-check","basis":"style","critical":true,"question":"三处是否保持统一写实三维人物质感，皮肤、发与布料表现协调？"},
+    {"id":"light-check","basis":"light","critical":true,"question":"各处是否保持同一柔和照明与中性颜色，表情差异没有被光线改变混淆？"},
+    {"id":"background-check","basis":"background","critical":true,"question":"背景是否为实际不透明浅灰色，无道具或透明空白？"}
+  ]
+}

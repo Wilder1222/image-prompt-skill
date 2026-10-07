@@ -4,17 +4,190 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {compileProductionPrompt,reviseProductionInput,promptHash} from '../scripts/production-prompt.mjs';
-import {freezeProductionRun,verifyFrozenRun,finishProductionRun,summarizeProductionRuns,writeNew} from '../scripts/production-run.mjs';
+import {freezeProductionRun,verifyFrozenRun,finishProductionRun,summarizeProductionRuns,writeNew,objectHash} from '../scripts/production-run.mjs';
 
 function setup(t){
  const parent=path.resolve(os.tmpdir()),dir=fs.mkdtempSync(path.join(parent,'image-prompt-run-'));
  t.after(()=>{if(path.dirname(path.resolve(dir))!==parent)throw new Error('unsafe cleanup');fs.rmSync(dir,{recursive:true,force:true});});
  const ref=path.join(dir,'ref.png');fs.writeFileSync(ref,Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64'));
  const input={request:'保持参考人物，白底，蓝色衣服。',references:[{id:'R1',source:ref,inspected:true,generation_input:true,authority:['identity','costume'],facts:[{id:'F1',channel:'identity',visibility:'visible',text:'柔和下颌。'}]}],requirements:[{id:'U1',channel:'identity',priority:'must',text:'原人物。'},{id:'U2',channel:'costume',priority:'must',text:'蓝衣。'}],unresolved:[],sections:[{label:'人物',channel:'identity',items:[{text:'保留参考人物的柔和下颌。',basis:['F1','U1'],intent:'retain'}]},{label:'衣服',channel:'costume',items:[{text:'穿蓝色衣服。',basis:['U2'],intent:'constraint'}]}],acceptance:[{id:'face',basis:'U1',critical:true,question:'原人物？'},{id:'cloth',basis:'U2',critical:true,question:'蓝衣？'}]};
+ input.subject_kind='character';
+ input.requirements.push({id:'P9',channel:'proportion',priority:'must',target_head_count:9,text:'黄金九头身，排除发量与鞋跟。'});
+ input.sections.push({label:'比例',channel:'proportion',items:[{text:'黄金九头身，人体直立高度为九个颅顶至下巴头长，排除发量与鞋跟，各段协调。',basis:['P9'],intent:'constraint'}]});
+ input.acceptance.push({id:'proportion',basis:'P9',critical:true,question:'九头身与各段协调是否成立？'});
  return {dir,ref,input};
 }
 const freeze=(input,extra={})=>freezeProductionRun(input,{run_id:'a',case_id:'case',cohort:'test',...extra});
-function outcome(s,ref,verdict='pass'){return finishProductionRun(s,{status:'completed',snapshot_sha256:s.snapshot_sha256,target_sha256:s.target_sha256,prompt_sha256:s.prompt_sha256,output_image:ref,output_sha256:promptHash(fs.readFileSync(ref)),inspected:true,reviewer:'synthetic test',checks:s.target.acceptance.map(c=>({id:c.id,verdict,evidence:'Synthetic fixture; not visual approval.'}))});}
+function withLayout(t){
+ const context=setup(t),{input,ref}=context;
+ input.references.push({id:'SHEET',source:ref,inspected:true,generation_input:true,authority:['layout'],facts:[{id:'grid',channel:'layout',visibility:'visible',text:'Synthetic panel layout only, not a character reference.'}]});
+ input.requirements.push({id:'sheet',channel:'layout',priority:'must',text:'横向三格，共同尺度。'});
+ input.sections.push({label:'版式',channel:'layout',items:[{text:'横向三格，共同尺度。',intent:'retain',basis:['grid','sheet']}]});
+ input.acceptance.push({id:'sheet-check',basis:'sheet',critical:true,question:'三格版式是否成立？'});
+ return context;
+}
+
+test('layout references preserve input order without acquiring character or camera authority',t=>{
+ const {input}=withLayout(t),s=freeze(input);
+ assert.deepEqual(s.actual_inputs.map(r=>r.id),['R1','SHEET']);
+ assert.equal(verifyFrozenRun(s).referenced_image_paths.length,2);
+ for(const channel of ['identity','costume','composition','proportion','style']){
+  const bad=structuredClone(input);
+  bad.sections.push({label:'越权用途',channel,items:[{text:'错误借用版式图控制其他属性。',intent:'retain',basis:['grid']}]});
+  assert.throws(()=>compileProductionPrompt(bad),new RegExp('SHEET cannot control '+channel));
+ }
+});
+
+test('layout-only revision cannot change view or nine-head requirements',t=>{
+ const {input}=withLayout(t);
+ input.requirements.push({id:'view',channel:'composition',priority:'must',text:'人物正面站立。'});
+ input.sections.push({label:'视角',channel:'composition',items:[{text:'人物正面站立。',basis:['view'],intent:'constraint'}]});
+ input.acceptance.push({id:'view-check',basis:'view',critical:true,question:'人物是否正面站立？'});
+ const parent=freeze(input);
+ const change={request:'只调整三格的间隔。',channels:['layout'],sections:[{label:'版式',items:[{text:'保留横向三格和共同尺度，将格间距加宽。',intent:'retain',basis:['grid','sheet']}]}]};
+ const revised=reviseProductionInput(input,change);
+ assert.deepEqual(revised.input.sections.filter(s=>s.channel!=='layout'),input.sections.filter(s=>s.channel!=='layout'));
+ assert.deepEqual(revised.input.requirements,input.requirements);
+ const next=freeze(revised.input,{run_id:'layout-revision',kind:'revision',parent});
+ assert.equal(next.target_sha256,parent.target_sha256);assert.equal(next.goal_changed,false);
+ assert.notEqual(next.prompt_sha256,parent.prompt_sha256);
+ assert.throws(()=>reviseProductionInput(input,{...change,sections:[...change.sections,{label:'视角',items:[{text:'转为侧面。',basis:['view'],intent:'constraint'}]}]}),/escaped allowed scope/);
+ assert.throws(()=>reviseProductionInput(input,{...change,requirements:[{...input.requirements.find(r=>r.id==='P9'),target_head_count:8}]}),/escaped allowed scope/);
+});
+
+test('sheet layout success cannot override failed character proportion',t=>{
+ const {input,ref}=withLayout(t),s=freeze(input);
+ const r={status:'completed',snapshot_sha256:s.snapshot_sha256,target_sha256:s.target_sha256,prompt_sha256:s.prompt_sha256,output_image:ref,output_sha256:promptHash(fs.readFileSync(ref)),inspected:true,reviewer:'synthetic fixture',checks:s.target.acceptance.map(c=>({id:c.id,verdict:c.id==='proportion'?'fail':'pass',evidence:'Synthetic decision test; not visual evidence.'}))};
+ const result=finishProductionRun(s,r);
+ assert.equal(result.status,'needs_revision');assert.deepEqual(result.critical_failures,['proportion']);
+});
+const preservationChecks=s=>s.edit_scope.preserve.map((_,index)=>({index,verdict:'pass',evidence:'Synthetic preserved item; not visual evidence.'}));
+function outcome(s,ref,verdict='pass'){return finishProductionRun(s,{status:'completed',snapshot_sha256:s.snapshot_sha256,target_sha256:s.target_sha256,prompt_sha256:s.prompt_sha256,output_image:ref,output_sha256:promptHash(fs.readFileSync(ref)),inspected:true,reviewer:'synthetic test',checks:s.target.acceptance.map(c=>({id:c.id,verdict,evidence:'Synthetic fixture; not visual approval.'})),...(s.edit_scope?{scope_review:{verdict:'pass',change_evidence:'Synthetic changed area.',preservation_evidence:'Synthetic unchanged area.',...(s.scope_review_contract?{preservation_checks:preservationChecks(s)}:{})}}:{})});}
+
+test('local edits retain the hard proportion target and cannot downgrade it through revision',t=>{
+ const {input,ref}=setup(t),parent=freeze(input);
+ const result=reviseProductionInput(input,{request:'只改变衣服颜色。',channels:['costume'],sections:[{label:'衣服',items:[{text:'蓝色布料略偏深，其他部分保持。',basis:['U2'],intent:'constraint'}]}]});
+ assert.deepEqual(result.input.requirements.find(r=>r.id==='P9'),input.requirements.find(r=>r.id==='P9'));
+ assert.deepEqual(result.input.sections.find(s=>s.channel==='proportion'),input.sections.find(s=>s.channel==='proportion'));
+ result.input.edit_scope={baseline_reference_id:'R1',changes:['仅衣服颜色'],preserve:['身份、比例与构图']};
+ const s=freeze(result.input,{run_id:'b',parent,kind:'edit'});
+ assert.equal(s.goal_changed,false);assert.equal(s.target.subject_kind,'character');
+ const reviewed=outcome(s,ref,'not_assessable');assert.equal(reviewed.status,'needs_review');
+ for(const update of [{...input.requirements.at(-1),target_head_count:8},{...input.requirements.at(-1),priority:'prefer'}]){
+  assert.throws(()=>reviseProductionInput(input,{request:'比例修改。',channels:['proportion'],sections:[{label:'比例',items:input.sections.at(-1).items}],requirements:[update]}),/target_head_count|must proportion/);
+ }
+});
+
+test('new edits bind a real baseline and visible scope without rewriting the goal',t=>{
+ const {input}=setup(t),parent=freeze(input),scope={baseline_reference_id:'R1',changes:['头部尺寸和必要连接'],preserve:['肩部以下与原标尺']};
+ assert.throws(()=>freeze(input,{kind:'edit',parent}),/require edit_scope/);
+ const brief={...input,edit_scope:scope};
+ assert.throws(()=>freeze(brief),/needs an edit or revision/);
+ for(const bad of [{...scope,baseline_reference_id:'missing'},{...scope,changes:[]},{...scope,preserve:['']},{...scope,unexpected:true}])
+  assert.throws(()=>freeze({...input,edit_scope:bad},{kind:'edit',parent}),/edit_scope requires/);
+ const reviewOnly=structuredClone(brief);reviewOnly.references.push({...reviewOnly.references[0],id:'judge',authority:['composition'],generation_input:false,facts:[{id:'judge-fact',channel:'composition',visibility:'visible',text:'仅评价参考。'}]});reviewOnly.edit_scope.baseline_reference_id='judge';
+ assert.throws(()=>freeze(reviewOnly,{kind:'edit',parent}),/actual input/);
+ for(const text of ['style_workflow = anime_3d_character','【另一段】','P9_FASHION_ASSET'])
+  assert.throws(()=>freeze({...input,edit_scope:{...scope,changes:[text]}},{kind:'edit',parent}),/internal|unfinished|mode/);
+ const s=freeze(brief,{run_id:'edit',kind:'edit',parent});
+ assert.equal(s.target_sha256,parent.target_sha256);assert.equal(s.goal_changed,false);
+ assert.match(verifyFrozenRun(s).prompt,/【本次编辑范围】\n允许修改：头部尺寸和必要连接。\n必须保持：肩部以下与原标尺。/);
+ scope.preserve[0]='changed after freezing';assert.equal(s.edit_scope.preserve[0],'肩部以下与原标尺');
+ const tampered=structuredClone(s);tampered.edit_scope.preserve=[];assert.throws(()=>verifyFrozenRun(tampered),/snapshot changed/);
+});
+
+test('out-of-scope changes prevent qualification even when target criteria pass',t=>{
+ const {input,ref}=setup(t),parent=freeze(input),s=freeze({...input,edit_scope:{baseline_reference_id:'R1',changes:['只修头部'],preserve:['衣服领口和肩部']}},{run_id:'edit',kind:'edit',parent});
+ const receipt={status:'completed',snapshot_sha256:s.snapshot_sha256,target_sha256:s.target_sha256,prompt_sha256:s.prompt_sha256,output_image:ref,output_sha256:promptHash(fs.readFileSync(ref)),inspected:true,reviewer:'synthetic test',checks:s.target.acceptance.map(c=>({id:c.id,verdict:'pass',evidence:'Synthetic target check.'}))};
+ assert.throws(()=>finishProductionRun(s,receipt),/needs scope_review/);
+ assert.throws(()=>finishProductionRun(s,{...receipt,scope_review:{verdict:'pass',change_evidence:'head changed',preservation_evidence:''}}),/preservation_evidence/);
+ const scope={change_evidence:'Synthetic head correction.',preservation_evidence:'Synthetic collar moved outside allowed area.',preservation_checks:preservationChecks(s)};
+ const failed=finishProductionRun(s,{...receipt,scope_review:{...scope,verdict:'fail'}});
+ assert.equal(failed.status,'needs_revision');assert.deepEqual(failed.critical_failures,['__edit_scope__']);assert.equal(failed.user_accepted,false);
+ for(const verdict of ['uncertain','not_assessable']){
+  const pending=finishProductionRun(s,{...receipt,scope_review:{...scope,verdict}});
+  assert.equal(pending.status,'needs_review');assert.ok(pending.unresolved.includes('__edit_scope__'));
+ }
+ const scopePass={verdict:'pass',change_evidence:'Synthetic changed region.',preservation_evidence:'Synthetic preserved region.',preservation_checks:preservationChecks(s)};
+ assert.equal(finishProductionRun(s,{...receipt,scope_review:scopePass}).status,'reviewer_qualified');
+ receipt.checks.find(c=>c.id==='proportion').verdict='fail';
+ assert.equal(finishProductionRun(s,{...receipt,scope_review:scopePass}).status,'needs_revision');
+ assert.equal(finishProductionRun(s,{status:'tool_error',snapshot_sha256:s.snapshot_sha256,error:'synthetic failure'}).status,'tool_error');
+});
+
+test('new scoped edits require complete indexed observations for every protected item',t=>{
+ const {input,ref}=setup(t),parent=freeze(input);
+ const s=freeze({...input,edit_scope:{baseline_reference_id:'R1',changes:['衣服表面笔触'],preserve:['人物身份和身体轮廓','暖白纸面及其细纹','服装结构与接缝']}},{run_id:'item-edit',kind:'edit',parent});
+ const receipt={status:'completed',snapshot_sha256:s.snapshot_sha256,target_sha256:s.target_sha256,prompt_sha256:s.prompt_sha256,output_image:ref,output_sha256:promptHash(fs.readFileSync(ref)),inspected:true,reviewer:'synthetic fixture',checks:s.target.acceptance.map(c=>({id:c.id,verdict:'pass',evidence:'Synthetic target check.'})),scope_review:{verdict:'pass',change_evidence:'Synthetic brushwork change.',preservation_evidence:'Synthetic summary does not replace individual checks.'}};
+ assert.throws(()=>finishProductionRun(s,receipt),/preservation_checks/);
+ assert.equal(s.scope_review_contract,'preservation_items_v1');
+ const checks=preservationChecks(s);
+ for(const invalid of [[],checks.slice(1),[checks[0],checks[0],checks[2]],checks.map((c,i)=>i===1?{...c,index:3}:c),checks.map((c,i)=>i===1?{...c,index:1.5}:c),checks.map((c,i)=>i===1?{...c,evidence:' '}:c),checks.map((c,i)=>i===1?{...c,verdict:'approved'}:c)]){
+  assert.throws(()=>finishProductionRun(s,{...receipt,scope_review:{...receipt.scope_review,preservation_checks:invalid}}),/preservation_checks/);
+ }
+ for(const verdict of ['pass','fail','uncertain','not_assessable']){
+  const items=checks.map((c,i)=>i===1?{...c,verdict,evidence:'Synthetic paper texture comparison.'}:c).reverse();
+  const result=finishProductionRun(s,{...receipt,scope_review:{...receipt.scope_review,preservation_checks:items}});
+  assert.equal(result.status,verdict==='pass'?'reviewer_qualified':verdict==='fail'?'needs_revision':'needs_review');
+  assert.equal(result.scope_review.declared_verdict,'pass');
+  assert.equal(result.scope_review.verdict,verdict);
+  assert.deepEqual(result.scope_review.preservation_checks.map(c=>c.requirement),s.edit_scope.preserve);
+  assert.equal(result.scope_review.preservation_checks[1].evidence,'Synthetic paper texture comparison.');
+ }
+ const fullPass=finishProductionRun(s,{...receipt,scope_review:{...receipt.scope_review,verdict:'fail',preservation_checks:checks}});
+ assert.equal(fullPass.status,'needs_revision','item checks must not erase another observed scope violation');
+ const corrupted=structuredClone(s);corrupted.scope_review_contract='future_unknown';
+ const {snapshot_sha256,...body}=corrupted;corrupted.snapshot_sha256=objectHash(body);
+ assert.throws(()=>verifyFrozenRun(corrupted),/scope review contract/);
+});
+
+test('historical aggregate scope reviews stay readable without fabricated per-item approval',t=>{
+ const {input,ref}=setup(t),parent=freeze(input);
+ const legacy=freeze({...input,edit_scope:{baseline_reference_id:'R1',changes:['表面'],preserve:['人物','背景']}},{run_id:'old-scope',kind:'edit',parent});
+ delete legacy.scope_review_contract;
+ const {snapshot_sha256,...body}=legacy;legacy.snapshot_sha256=objectHash(body);
+ const before=structuredClone(legacy),review=outcome(legacy,ref);
+ assert.equal(review.status,'reviewer_qualified');
+ assert.equal(review.scope_review.preservation_checks,undefined);
+ assert.deepEqual(legacy,before);
+ const receipt={status:'completed',snapshot_sha256:legacy.snapshot_sha256,target_sha256:legacy.target_sha256,prompt_sha256:legacy.prompt_sha256,output_image:ref,output_sha256:promptHash(fs.readFileSync(ref)),inspected:true,reviewer:'synthetic fixture',checks:legacy.target.acceptance.map(c=>({id:c.id,verdict:'pass',evidence:'Synthetic.'})),scope_review:{verdict:'pass',change_evidence:'Synthetic.',preservation_evidence:'Synthetic.',preservation_checks:preservationChecks(legacy)}};
+ assert.throws(()=>finishProductionRun(legacy,receipt),/contract was not frozen/);
+});
+
+test('legacy edit snapshots do not gain a retrospective scope approval',t=>{
+ const {input,ref}=setup(t),parent=freeze(input);
+ const legacy={...parent,run_id:'legacy-edit',kind:'edit',parent:{run_id:parent.run_id,snapshot_sha256:parent.snapshot_sha256}};
+ const {snapshot_sha256,...body}=legacy;legacy.snapshot_sha256=objectHash(body);
+ assert.equal(verifyFrozenRun(legacy).prompt,parent.prompt);
+ const review=outcome(legacy,ref);assert.equal(review.scope_review,undefined);assert.equal(legacy.edit_scope,undefined);
+ const receipt={status:'completed',snapshot_sha256:legacy.snapshot_sha256,target_sha256:legacy.target_sha256,prompt_sha256:legacy.prompt_sha256,output_image:ref,output_sha256:promptHash(fs.readFileSync(ref)),inspected:true,reviewer:'synthetic test',checks:legacy.target.acceptance.map(c=>({id:c.id,verdict:'pass',evidence:'Synthetic.'})),scope_review:{verdict:'pass',change_evidence:'x',preservation_evidence:'y'}};
+ assert.throws(()=>finishProductionRun(legacy,receipt),/unfrozen edit scope/);
+});
+
+test('scoped prompt revisions must refresh the operation boundary',t=>{
+ const {input}=setup(t);input.edit_scope={baseline_reference_id:'R1',changes:['衣服色泽'],preserve:['身份与比例']};
+ const change={request:'再修衣料。',channels:['costume'],sections:[{label:'衣服',items:[{text:'保持蓝衣，仅理顺主褶。',basis:['U2'],intent:'constraint'}]}]};
+ assert.throws(()=>reviseProductionInput(input,change),/refresh edit_scope/);
+ change.edit_scope={baseline_reference_id:'R1',changes:['衣料主褶'],preserve:['衣片边界、身份与比例']};
+ const revised=reviseProductionInput(input,change);assert.match(revised.compiled.prompt,/允许修改：衣料主褶/);assert.equal(revised.target_changed,false);
+});
+
+test('legacy frozen targets remain inspectable without acquiring new nine-head approval',t=>{
+ const {input,ref}=setup(t),current=freeze(input);
+ // Construct the historical schema shape; this is synthetic compatibility evidence.
+ const old=structuredClone(current);delete old.target.subject_kind;
+ old.target.requirements=old.target.requirements.filter(r=>r.id!=='P9');
+ old.target.acceptance=old.target.acceptance.filter(r=>r.basis!=='P9');
+ old.prompt=input.sections.filter(s=>s.channel!=='proportion').map(s=>`【${s.label}】\n${s.items.map(i=>i.text).join('\n')}`).join('\n\n');
+ old.prompt_sha256=promptHash(old.prompt);old.target_sha256=objectHash(old.target);
+ const {snapshot_sha256,...body}=old;old.snapshot_sha256=objectHash(body);
+ assert.equal(verifyFrozenRun(old).prompt,old.prompt);
+ assert.equal(outcome(old,ref).checks.some(c=>c.basis==='P9'),false);
+ const bytes=JSON.stringify(old);
+ const successor=freeze(input,{run_id:'new-target',parent:old,kind:'revision'});
+ assert.equal(successor.goal_changed,true);assert.equal(JSON.stringify(old),bytes);
+ assert.equal(successor.target.subject_kind,'character');
+});
 
 test('frozen tool arguments preserve exact text and actual input order, without evaluation references',t=>{
  const {input}=setup(t);input.references.push({...structuredClone(input.references[0]),id:'judge',generation_input:false,authority:['style'],facts:[{id:'F2',channel:'style',visibility:'visible',text:'评价标杆。'}]});
@@ -72,7 +245,7 @@ test('pose and shoe-visibility changes update linked targets without changing id
  input.requirements.push({id:'pose',channel:'composition',priority:'must',text:'正面并立。'},{id:'feet',channel:'hands_feet',priority:'must',text:'展示双鞋。'});
  input.sections.push({label:'姿态',channel:'composition',items:[{text:'正面并立。',basis:['pose'],intent:'constraint'}]},{label:'脚部',channel:'hands_feet',items:[{text:'展示双鞋。',basis:['feet'],intent:'constraint'}]});
  input.acceptance.push({id:'pose',basis:'pose',question:'正面并立？',critical:true},{id:'feet',basis:'feet',question:'展示双鞋？',critical:true});
- const changed=reviseProductionInput(input,{request:'正面轻错步；鞋按裙摆自然遮挡，无需双脚露出。',channels:['composition','hands_feet'],sections:[{label:'姿态',items:[{text:'身体正面，一腿承重、另一脚略前，站姿稳定。',basis:['pose'],intent:'constraint'}]},{label:'脚部',items:[{text:'允许裙摆自然遮住双脚，检查可见部分与接地关系。',basis:['feet'],intent:'constraint'}]}],requirements:[{...input.requirements[2],text:'正面轻错步。'},{...input.requirements[3],text:'自然遮挡，可见结构与接地合理。'}],acceptance:[{...input.acceptance[2],question:'正面错步且平衡可信？'},{...input.acceptance[3],question:'可见结构与接地合理，未强行露鞋？'}]});
+ const changed=reviseProductionInput(input,{request:'正面轻错步；鞋按裙摆自然遮挡，无需双脚露出。',channels:['composition','hands_feet'],sections:[{label:'姿态',items:[{text:'身体正面，一腿承重、另一脚略前，站姿稳定。',basis:['pose'],intent:'constraint'}]},{label:'脚部',items:[{text:'允许裙摆自然遮住双脚，检查可见部分与接地关系。',basis:['feet'],intent:'constraint'}]}],requirements:[{...input.requirements.find(r=>r.id==='pose'),text:'正面轻错步。'},{...input.requirements.find(r=>r.id==='feet'),text:'自然遮挡，可见结构与接地合理。'}],acceptance:[{...input.acceptance.find(r=>r.id==='pose'),question:'正面错步且平衡可信？'},{...input.acceptance.find(r=>r.id==='feet'),question:'可见结构与接地合理，未强行露鞋？'}]});
  assert.deepEqual(changed.input.references,input.references);assert.deepEqual(changed.input.sections.slice(0,2),input.sections.slice(0,2));assert.equal(changed.target_changed,true);assert.doesNotMatch(changed.compiled.prompt,/展示双鞋|正面并立/);
 });
 test('same-target repair counts once per initial task and snapshots cannot be overwritten',t=>{
@@ -101,7 +274,7 @@ test('background-only revisions preserve lighting and identity, and reject unapp
  input.requirements.push({id:'BG',channel:'background',priority:'must',text:'保留庭院。'},{id:'LIGHT',channel:'lighting',priority:'must',text:'保留原场景柔光。'});
  input.sections.push({label:'背景',channel:'background',items:[{text:'保留庭院。',basis:['BG'],intent:'constraint'}]},{label:'光线',channel:'lighting',items:[{text:'保留原场景柔光。',basis:['LIGHT'],intent:'constraint'}]});
  input.acceptance.push({id:'bg',basis:'BG',question:'庭院保持？',critical:true},{id:'light',basis:'LIGHT',question:'柔光保持？',critical:true});
- const change={request:'只减少庭院杂物，其他不变。',channels:['background'],sections:[{label:'背景',items:[{text:'保留庭院，清理杂物。',basis:['BG'],intent:'constraint'}]}],requirements:[{...input.requirements[2],text:'保留庭院，清理杂物。'}],acceptance:[{...input.acceptance[2],question:'是否只清理庭院杂物？'}]};
+ const change={request:'只减少庭院杂物，其他不变。',channels:['background'],sections:[{label:'背景',items:[{text:'保留庭院，清理杂物。',basis:['BG'],intent:'constraint'}]}],requirements:[{...input.requirements.find(r=>r.id==='BG'),text:'保留庭院，清理杂物。'}],acceptance:[{...input.acceptance.find(r=>r.id==='bg'),question:'是否只清理庭院杂物？'}]};
  const result=reviseProductionInput(input,change);assert.deepEqual(result.input.sections.filter(s=>s.channel!=='background'),input.sections.filter(s=>s.channel!=='background'));assert.equal(result.target_changed,true);
  change.sections.push({label:'光线',items:[{text:'改成棚拍光。',basis:['LIGHT'],intent:'constraint'}]});assert.throws(()=>reviseProductionInput(input,change),/escaped allowed scope/);
 });
@@ -143,6 +316,22 @@ test('action reference can direct movement without supplying the actor identity 
  assert.equal(compileProductionPrompt(input).status,'prompt_ready');
  const face=structuredClone(input);face.sections[0].items[0].basis.push('jump');assert.throws(()=>compileProductionPrompt(face),/MOVE cannot control identity/);
  input.sections[1].items[0].basis.push('jump');assert.throws(()=>compileProductionPrompt(input),/MOVE cannot control costume/);
+});
+
+test('a proportion guide is bound as an input without gaining identity or clothing authority or output approval',t=>{
+ const {input,dir,ref}=setup(t),guide=path.join(dir,'guide.png');fs.writeFileSync(guide,fs.readFileSync(ref));
+ input.references.push({id:'GUIDE',source:guide,inspected:true,generation_input:true,authority:['proportion','composition'],facts:[{id:'guide-ratio',channel:'proportion',visibility:'visible',text:'Synthetic diagram: 120-unit head and 1080-unit figure; no real image approval.'}]});
+ input.sections.find(s=>s.channel==='proportion').items[0].basis.push('guide-ratio');
+ const s=freeze(input);
+ assert.deepEqual(s.actual_inputs.map(r=>r.id),['R1','GUIDE']);
+ assert.deepEqual(verifyFrozenRun(s).referenced_image_paths,[ref,guide]);
+ for(const channel of ['identity','costume','hair','style']){
+  const wrong=structuredClone(input);
+  wrong.sections.push({label:`guide-${channel}`,channel,items:[{text:'错误地继承示意外观。',basis:['guide-ratio'],intent:'retain'}]});
+  assert.throws(()=>compileProductionPrompt(wrong),new RegExp(`GUIDE cannot control ${channel}`));
+ }
+ const r={status:'completed',snapshot_sha256:s.snapshot_sha256,target_sha256:s.target_sha256,prompt_sha256:s.prompt_sha256,output_image:ref,output_sha256:promptHash(fs.readFileSync(ref)),inspected:true,reviewer:'synthetic test',checks:s.target.acceptance.map(c=>({id:c.id,verdict:c.id==='proportion'?'fail':'pass',evidence:'Synthetic result: valid guide did not establish output proportion.'}))};
+ assert.equal(finishProductionRun(s,r).status,'needs_revision');
 });
 
 test('coordinated dynamic adaptation changes linked targets without reopening identity or wardrobe',t=>{

@@ -72,6 +72,8 @@ test('Midjourney renders a complete native command separately and blocks paramet
 
 test('unsupported fields, malformed settings, retired models and unknown versions fail without fallback',()=>{
   for(const target of [null,[],{profile:'FLUX'},{profile:'constructor'},{profile:'host',model:'fake'},{profile:'host',settings:[]},{profile:'host',settings:null},
+    {profile:'host',settings:{control_image:'pose.png'}},{profile:'host',settings:{mask_image:'mask.png'}},
+    {profile:'sdxl-1.0',settings:{controlnet_conditioning_scale:1}},{profile:'qwen-image',control_image:'pose.png'},
     {profile:'gpt-image-1.5',settings:{seed:1}},{profile:'gemini-3.1-flash-image',settings:{imageConfig:{}}},
     {profile:'qwen-image',settings:{guidance_scale:4}},{profile:'sd-3.5-large',settings:{sampler:'Euler'}},
     {profile:'midjourney-8.2',settings:{oref:'other.png'}},{profile:'seedream-4.5',settings:{size:'1K'}},

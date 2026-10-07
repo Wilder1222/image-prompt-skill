@@ -1,0 +1,422 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "cohort": "character-anime-20261006",
+  "purpose": "同一成年男性的二维动漫赛璐璐转换及一次局部媒介修订；九头身与身份要求保持，不把二维目标当作写实三维目标的修复成功。",
+  "tool": "built-in image_gen",
+  "model": null,
+  "seed": null,
+  "evidence_directory": "dist/visual-tests/character-anime-20261006",
+  "known_completed_calls": 2,
+  "approved_outputs": 0,
+  "user_accepted": false,
+  "group_verdict": "needs_revision",
+  "runs": [
+    {
+      "run_id": "male-anime-nine-01",
+      "case_id": "male-anime",
+      "cohort": "character-anime-20261006",
+      "snapshot_file": "anime-01.snapshot.json",
+      "snapshot_sha256": "141a0d2bb21a46021bd38fbf572960ce86aaf1d1858dea9223adbd8d1488d617",
+      "target_sha256": "5f2e04f040e30bad1592529540b125721ca59d608120de19f882343a6d1a0ef5",
+      "prompt_sha256": "b1a1f58825b80f07554507cb7f33996010ff366f5e0c1e8059858f26e1dfe7ad",
+      "target": {
+        "subject_kind": "character",
+        "requirements": [
+          {
+            "id": "body",
+            "channel": "proportion",
+            "priority": "must",
+            "target_head_count": 9,
+            "text": "黄金九头身，直立人体高度为九个颅顶至下巴头长，排除短发厚度；头颈胸廓骨盆和上下肢共同协调，不能靠长颈、短躯干或单段拉腿凑比例。"
+          },
+          {
+            "id": "identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "保留图一同一成年男性的中棕肤色、长方脸、直眉深棕眼、宽直鼻梁、清楚唇形和宽下颌辨识关系；表观年龄约35岁、无胡须、极短贴头发型不变，平静前视。"
+          },
+          {
+            "id": "costume",
+            "channel": "costume",
+            "priority": "must",
+            "text": "浅灰合体长袖圆领运动上衣，深海军蓝合体运动短裤至膝上，布料不透明且不勒紧；不添加配饰、护具、披风、鞋袜。"
+          },
+          {
+            "id": "frame",
+            "channel": "composition",
+            "priority": "must",
+            "text": "单人单张正面完整全身；头颈、胸廓和骨盆正面，不歪头不挺腰；平视弱透视。双腿自然伸直、双脚朝前且脚底平放地面，双臂自然垂下稍离身；颅顶、下巴、膝踝和足部可读，浅暖灰棚底，无文字标尺网格拼板。 图二骨架、灰色无脸头形与辅助线不得进入最终画面。"
+          },
+          {
+            "id": "medium",
+            "channel": "style",
+            "priority": "must",
+            "text": "统一二维动漫人物设定：清楚精练的线稿、平涂主色、两至三层赛璐璐阴影；脸、极短发、衣料、手足与背景都按绘制媒介表达。不保留照片毛孔、逐根写实毛发、三维塑料反射或照片织纹；不因动漫而放大眼睛、缩小下颌或降低成年感。"
+          },
+          {
+            "id": "limbs",
+            "channel": "hands_feet",
+            "priority": "must",
+            "text": "手腕手指与膝踝足结构自然连接，手指自然微屈，足部承重可信，不增减可见肢体、不将脚尖当作足底身高端点。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "body-check",
+            "basis": "body",
+            "critical": true,
+            "question": "黄金九头身，直立人体高度为九个颅顶至下巴头长，排除短发厚度；头颈胸廓骨盆和上下肢共同协调，不能靠长颈、短躯干或单段拉腿凑比例。"
+          },
+          {
+            "id": "identity-check",
+            "basis": "identity",
+            "critical": true,
+            "question": "保留图一同一成年男性的中棕肤色、长方脸、直眉深棕眼、宽直鼻梁、清楚唇形和宽下颌辨识关系；表观年龄约35岁、无胡须、极短贴头发型不变，平静前视。"
+          },
+          {
+            "id": "costume-check",
+            "basis": "costume",
+            "critical": true,
+            "question": "浅灰合体长袖圆领运动上衣，深海军蓝合体运动短裤至膝上，布料不透明且不勒紧；不添加配饰、护具、披风、鞋袜。"
+          },
+          {
+            "id": "frame-check",
+            "basis": "frame",
+            "critical": true,
+            "question": "单人单张正面完整全身；头颈、胸廓和骨盆正面，不歪头不挺腰；平视弱透视。双腿自然伸直、双脚朝前且脚底平放地面，双臂自然垂下稍离身；颅顶、下巴、膝踝和足部可读，浅暖灰棚底，无文字标尺网格拼板。 图二骨架、灰色无脸头形与辅助线不得进入最终画面。"
+          },
+          {
+            "id": "medium-check",
+            "basis": "medium",
+            "critical": true,
+            "question": "统一二维动漫人物设定：清楚精练的线稿、平涂主色、两至三层赛璐璐阴影；脸、极短发、衣料、手足与背景都按绘制媒介表达。不保留照片毛孔、逐根写实毛发、三维塑料反射或照片织纹；不因动漫而放大眼睛、缩小下颌或降低成年感。"
+          },
+          {
+            "id": "limbs-check",
+            "basis": "limbs",
+            "critical": true,
+            "question": "手腕手指与膝踝足结构自然连接，手指自然微屈，足部承重可信，不增减可见肢体、不将脚尖当作足底身高端点。"
+          }
+        ]
+      },
+      "prompt": "【二维动漫表现】\n把图一人物表现为成熟的二维动漫角色设定。整个人物用清楚、精练的深色线稿、平涂主色和两至三层赛璐璐阴影绘制，脸、头发、衣料、手脚和背景属于同一种绘画语言。用精练线条与色面表达原人物眼形、鼻口位置和脸廓，保持角色辨识度及表观年龄，不把所有脸改成同一模板。 妆容以眉眼线条、唇色和克制腮红色块表达，皮肤平涂并用少量阴影层区分面部转折，不画真人毛孔或立体塑料皮。 极短发用贴合头骨的深棕大色块、少量边缘短线和一组克制亮形表示；不继承照片的逐根发丝。衣片、领袖、腰带与扣件用线条和色块准确区分，褶皱沿受力方向概括；金属用少量锐利亮形、布料用安静阴影，不混入三维写实纹理。 保持浅暖灰绘制背景和单一光向下的简洁接地影。保留三十五岁左右的成年脸部结构，不把眼睛画大、不缩小宽下颌、不画成少年脸。\n\n【身材比例】\n图二是比例与正面站姿示意：椭圆头的颅顶到下巴为一个头长，颅顶至足底为九个头长。用这个头身关系为图一头肩人物建立完整身体，不从肖像取景反推身高；人物直立高度严格等于九个颅顶至下巴头长。保持自然肩宽、完整胸廓与腰腹、适度运动肌肉，协调肩颈、骨盆、上臂前臂及大腿小腿。图二细线只指示位置和比例，不是细杆肢体；不要复制骨架线宽、无脸头形、蓝灰颜色或辅助横线。最终人物必须有完整自然体积，不能靠拉长颈部、压短躯干或只拉小腿凑比例。\n\n【人物身份与面容】\n图一头肩肖像是唯一人物身份来源。保留同一成年男性的中棕肤色、长方脸、宽而平的下颌、直眉、深棕眼、宽直鼻梁与唇形，年龄与极短贴头深棕发不变，无胡须，嘴唇自然闭合，平静专注前视。依据图二的头身关系建立完整身体，五官内部比例与辨识关系不变。图二没有脸，不提供身份。 用原眉形与眼距、宽直鼻梁、口鼻位置和宽下颌关系维持辨识度，再概括为二维线条与阴影色块；不要套通用动漫脸。\n\n【服装设计】\n衣装保持为浅灰色合体长袖圆领运动上衣和深海军蓝膝上运动短裤，领袖包边、腰头与衣片连接自然，布料不透明且不勒紧。按完整身体自然合身，不更改款式和颜色；赤脚，不添加鞋袜、首饰、护具或披风。图一只显示头肩，短裤与足部按本段文字构建。 领口、袖口和裤腰用线条与色面交代厚度，少量主要衣褶沿受力方向描绘，去掉摄影织纹。\n\n【构图与姿态】\n单人单张正面完整全身，头颈胸廓骨盆都正对前方，不歪头、不挺腰。双腿自然伸直而不僵硬锁膝，双脚朝前、稍分开、脚底平放地面；双臂自然垂下并稍离身。平视弱透视，无广角拉伸，颅顶至足底完整入画，人物居中、四周适量留白，浅暖灰无缝棚背景。头顶、下巴、膝、踝和脚部轮廓清楚。画面无文字、标尺、网格和拼板。 图二只帮助对齐正面站姿，最终图没有骨架、辅助线、数字和分格。\n\n【手部与脚部】\n肩肘腕、手掌与自然微屈的手指连接清楚，膝踝足尺度协调，两脚稳定承重；可见结构完整，不额外增加手指或脚趾。身体高度以足底承重平面为端点，前伸的脚尖不用于增加身高。",
+      "references": [
+        {
+          "id": "portrait",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-identity-crop-20261006\\portrait-01.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "identity",
+            "hair"
+          ],
+          "facts": [
+            {
+              "id": "face-seen",
+              "channel": "identity",
+              "visibility": "visible",
+              "text": "核对原图后可辨为同一成年男性：中棕肤色、长方脸、直眉深棕眼、宽直鼻梁、闭合嘴唇和宽下颌，极短深棕发。头肩图由模型重绘，只能证明可见身份关系基本保持。"
+            }
+          ],
+          "content_sha256": "e166a7374e7ca77da3e2b1d1bd85f31df7f1939332eb778d5d5e53c9737cddd9"
+        },
+        {
+          "id": "proportion-guide",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-proportion-guide-20261006\\nine-head-pose-guide.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "proportion",
+            "composition"
+          ],
+          "facts": [
+            {
+              "id": "guide-ratio",
+              "channel": "proportion",
+              "visibility": "visible",
+              "text": "原创二维示意，头椭圆顶部至底部为120单位，顶部至足底为1080单位，九头身；无脸、无衣装，不提供体块粗细。"
+            },
+            {
+              "id": "guide-pose",
+              "channel": "composition",
+              "visibility": "visible",
+              "text": "骨架正面直立，双臂向下稍离身，双腿自然分开，头颈竖直；蓝灰骨架与辅助横线不属于输出设计。"
+            }
+          ],
+          "content_sha256": "01de4cc056e35672e7e503604996a45786ee4120707210361b2ff81190266877"
+        },
+        {
+          "id": "wardrobe-observation",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-proportion-control-20261006\\control-01.png",
+          "inspected": true,
+          "generation_input": false,
+          "authority": [
+            "costume"
+          ],
+          "facts": [
+            {
+              "id": "clothes-seen",
+              "channel": "costume",
+              "visibility": "visible",
+              "text": "浅灰圆领长袖上衣、深蓝膝上运动短裤，赤脚，没有头饰首饰和护具。"
+            }
+          ],
+          "content_sha256": "02aee2d184c32dbac0d29b81b5aa4f1c361d0895c30398ea1cb6976e1aca8027"
+        }
+      ],
+      "output_file": "anime-01.png",
+      "output_sha256": "4c0dd058db65ccb1dfca43112b34e8cbd32054816bcf9fc5f6f82def971b29cf",
+      "status": "needs_revision",
+      "checks": [
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "黄金九头身，直立人体高度为九个颅顶至下巴头长，排除短发厚度；头颈胸廓骨盆和上下肢共同协调，不能靠长颈、短躯干或单段拉腿凑比例。",
+          "verdict": "fail",
+          "evidence": "头身仍明显不足九，二维转换没有解决比例。1024×1536图目视颅顶约y35–55、下巴约y225–245；即用前伸脚趾y1470作为过宽身高上界，最大比值(1470-55)/(225-55)约8.33，仍低于九。此为人工保守排除界，不是自动解剖测量。"
+        },
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "保留图一同一成年男性的中棕肤色、长方脸、直眉深棕眼、宽直鼻梁、清楚唇形和宽下颌辨识关系；表观年龄约35岁、无胡须、极短贴头发型不变，平静前视。",
+          "verdict": "pass",
+          "evidence": "与身份头肩参考比较，直眉、眼形鼻口关系、宽下颌、中棕肤色和成年外观基本保持；没有明显大眼或少年化，转换成线条色块仍可辨为同一人。"
+        },
+        {
+          "id": "costume-check",
+          "basis": "costume",
+          "critical": true,
+          "question": "浅灰合体长袖圆领运动上衣，深海军蓝合体运动短裤至膝上，布料不透明且不勒紧；不添加配饰、护具、披风、鞋袜。",
+          "verdict": "pass",
+          "evidence": "浅灰长袖圆领上衣、深蓝膝上短裤、赤脚和无配饰保持，主要领袖及衣片边界清楚。"
+        },
+        {
+          "id": "frame-check",
+          "basis": "frame",
+          "critical": true,
+          "question": "单人单张正面完整全身；头颈、胸廓和骨盆正面，不歪头不挺腰；平视弱透视。双腿自然伸直、双脚朝前且脚底平放地面，双臂自然垂下稍离身；颅顶、下巴、膝踝和足部可读，浅暖灰棚底，无文字标尺网格拼板。 图二骨架、灰色无脸头形与辅助线不得进入最终画面。",
+          "verdict": "uncertain",
+          "evidence": "正面完整全身与垂臂、暖灰背景、无图二线条成立，双足仍轻微外转，严格朝前未确认。"
+        },
+        {
+          "id": "medium-check",
+          "basis": "medium",
+          "critical": true,
+          "question": "统一二维动漫人物设定：清楚精练的线稿、平涂主色、两至三层赛璐璐阴影；脸、极短发、衣料、手足与背景都按绘制媒介表达。不保留照片毛孔、逐根写实毛发、三维塑料反射或照片织纹；不因动漫而放大眼睛、缩小下颌或降低成年感。",
+          "verdict": "fail",
+          "evidence": "皮肤、裤子和衣褶已有明显轮廓线及分层硬边阴影；但极短发仍保留密集写实细丝，上衣大面积灰色细碎纹理仍近照片质感，没有完成本次冻结目标要求的统一平涂。该判断针对本次赛璐璐子风格，不否定带纹理的二维作品。"
+        },
+        {
+          "id": "limbs-check",
+          "basis": "limbs",
+          "critical": true,
+          "question": "手腕手指与膝踝足结构自然连接，手指自然微屈，足部承重可信，不增减可见肢体、不将脚尖当作足底身高端点。",
+          "verdict": "pass",
+          "evidence": "手腕和弯曲手指、膝踝足连接基本连贯，双足接地，未见额外肢体；不推断遮挡指节。"
+        }
+      ],
+      "parent": null,
+      "goal_changed": false
+    },
+    {
+      "run_id": "male-anime-nine-02",
+      "case_id": "male-anime",
+      "cohort": "character-anime-20261006",
+      "snapshot_file": "anime-02.snapshot.json",
+      "snapshot_sha256": "0a8cd6f7314ca3831603ec40ad573f6a83ac2d49f7696536e7127664f3a9ca20",
+      "target_sha256": "5f2e04f040e30bad1592529540b125721ca59d608120de19f882343a6d1a0ef5",
+      "prompt_sha256": "835937d9575f159d14ab99a0fcb26bcdd81cd17da2ede45679af7e64b74bf557",
+      "target": {
+        "subject_kind": "character",
+        "requirements": [
+          {
+            "id": "body",
+            "channel": "proportion",
+            "priority": "must",
+            "target_head_count": 9,
+            "text": "黄金九头身，直立人体高度为九个颅顶至下巴头长，排除短发厚度；头颈胸廓骨盆和上下肢共同协调，不能靠长颈、短躯干或单段拉腿凑比例。"
+          },
+          {
+            "id": "identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "保留图一同一成年男性的中棕肤色、长方脸、直眉深棕眼、宽直鼻梁、清楚唇形和宽下颌辨识关系；表观年龄约35岁、无胡须、极短贴头发型不变，平静前视。"
+          },
+          {
+            "id": "costume",
+            "channel": "costume",
+            "priority": "must",
+            "text": "浅灰合体长袖圆领运动上衣，深海军蓝合体运动短裤至膝上，布料不透明且不勒紧；不添加配饰、护具、披风、鞋袜。"
+          },
+          {
+            "id": "frame",
+            "channel": "composition",
+            "priority": "must",
+            "text": "单人单张正面完整全身；头颈、胸廓和骨盆正面，不歪头不挺腰；平视弱透视。双腿自然伸直、双脚朝前且脚底平放地面，双臂自然垂下稍离身；颅顶、下巴、膝踝和足部可读，浅暖灰棚底，无文字标尺网格拼板。 图二骨架、灰色无脸头形与辅助线不得进入最终画面。"
+          },
+          {
+            "id": "medium",
+            "channel": "style",
+            "priority": "must",
+            "text": "统一二维动漫人物设定：清楚精练的线稿、平涂主色、两至三层赛璐璐阴影；脸、极短发、衣料、手足与背景都按绘制媒介表达。不保留照片毛孔、逐根写实毛发、三维塑料反射或照片织纹；不因动漫而放大眼睛、缩小下颌或降低成年感。"
+          },
+          {
+            "id": "limbs",
+            "channel": "hands_feet",
+            "priority": "must",
+            "text": "手腕手指与膝踝足结构自然连接，手指自然微屈，足部承重可信，不增减可见肢体、不将脚尖当作足底身高端点。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "body-check",
+            "basis": "body",
+            "critical": true,
+            "question": "黄金九头身，直立人体高度为九个颅顶至下巴头长，排除短发厚度；头颈胸廓骨盆和上下肢共同协调，不能靠长颈、短躯干或单段拉腿凑比例。"
+          },
+          {
+            "id": "identity-check",
+            "basis": "identity",
+            "critical": true,
+            "question": "保留图一同一成年男性的中棕肤色、长方脸、直眉深棕眼、宽直鼻梁、清楚唇形和宽下颌辨识关系；表观年龄约35岁、无胡须、极短贴头发型不变，平静前视。"
+          },
+          {
+            "id": "costume-check",
+            "basis": "costume",
+            "critical": true,
+            "question": "浅灰合体长袖圆领运动上衣，深海军蓝合体运动短裤至膝上，布料不透明且不勒紧；不添加配饰、护具、披风、鞋袜。"
+          },
+          {
+            "id": "frame-check",
+            "basis": "frame",
+            "critical": true,
+            "question": "单人单张正面完整全身；头颈、胸廓和骨盆正面，不歪头不挺腰；平视弱透视。双腿自然伸直、双脚朝前且脚底平放地面，双臂自然垂下稍离身；颅顶、下巴、膝踝和足部可读，浅暖灰棚底，无文字标尺网格拼板。 图二骨架、灰色无脸头形与辅助线不得进入最终画面。"
+          },
+          {
+            "id": "medium-check",
+            "basis": "medium",
+            "critical": true,
+            "question": "统一二维动漫人物设定：清楚精练的线稿、平涂主色、两至三层赛璐璐阴影；脸、极短发、衣料、手足与背景都按绘制媒介表达。不保留照片毛孔、逐根写实毛发、三维塑料反射或照片织纹；不因动漫而放大眼睛、缩小下颌或降低成年感。"
+          },
+          {
+            "id": "limbs-check",
+            "basis": "limbs",
+            "critical": true,
+            "question": "手腕手指与膝踝足结构自然连接，手指自然微屈，足部承重可信，不增减可见肢体、不将脚尖当作足底身高端点。"
+          }
+        ]
+      },
+      "prompt": "【局部媒介整理】\n只整理图一头发和浅灰上衣的表面画法。头发内部改为一整块干净深棕主色和一组简洁阴影面，发际线及极短发外轮廓保持，仅外边缘允许少量短笔触；不要密集写实发丝和头皮颗粒。上衣改为均匀浅灰纯色色块，按现有主要衣褶保留两至三档硬边阴影，去掉麻灰噪点、照片织纹和密集细碎亮暗。保留原黑色轮廓线、领口袖口接缝位置、衣片厚度与主褶结构。脸、裤子和手足保持当前绘制，不重新上色或换光线。整张仍为精练线稿、平涂主色与赛璐璐阴影。\n\n【人物与衣装保持】\n保持图一同一成年男性的脸型、五官关系、肤色、年龄、表情和发型外轮廓，不放大眼睛、不变少年脸、不改头部大小。\n\n【服装保持】\n保留浅灰圆领长袖运动上衣、深蓝膝上短裤和赤脚，衣片轮廓、款式与颜色不变，不新增配饰。\n\n【构图保持】\n保持图一单人正面完整全身取景、双臂下垂和暖灰背景，不重排或裁剪人物；不增加文字、标尺、骨架或分格。\n\n【比例范围】\n人物整体九头身目标仍有效：人体直立高度为九个颅顶至下巴头长，不计发量和鞋跟；本次只整理媒介表面，不拉伸头颈躯干或四肢，原比例问题留作独立修订。\n\n【可见肢体保持】\n保持现有手腕、手指、膝踝和足部连接，不重画肢体或增减手指脚趾。",
+      "references": [
+        {
+          "id": "anime-candidate",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-anime-20261006\\anime-01.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "identity",
+            "hair",
+            "costume",
+            "style",
+            "composition"
+          ],
+          "facts": [
+            {
+              "id": "face",
+              "channel": "identity",
+              "visibility": "visible",
+              "text": "成年男性直眉、较宽鼻梁和下颌，平静前视，中棕色肤色；身份与头肩原参考已比较基本保持，头身未通过。"
+            },
+            {
+              "id": "surface",
+              "channel": "style",
+              "visibility": "visible",
+              "text": "皮肤裤子与衣褶为硬边色面，头发与灰上衣仍有密集写实细纹；原图有黑色轮廓线、暖灰背景。"
+            },
+            {
+              "id": "clothes",
+              "channel": "costume",
+              "visibility": "visible",
+              "text": "浅灰圆领长袖、深蓝膝上短裤、赤脚，无其他附件。"
+            },
+            {
+              "id": "frame-seen",
+              "channel": "composition",
+              "visibility": "visible",
+              "text": "正面单人完整全身，双臂下垂稍离身，双足略外转；无尺线或分格。"
+            }
+          ],
+          "content_sha256": "4c0dd058db65ccb1dfca43112b34e8cbd32054816bcf9fc5f6f82def971b29cf"
+        }
+      ],
+      "output_file": "anime-02.png",
+      "output_sha256": "47d1936ab7ba92abd8f1c6c5266b6bf88e019176eb7709516b7b47ea3da7d003",
+      "status": "needs_revision",
+      "checks": [
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "黄金九头身，直立人体高度为九个颅顶至下巴头长，排除短发厚度；头颈胸廓骨盆和上下肢共同协调，不能靠长颈、短躯干或单段拉腿凑比例。",
+          "verdict": "fail",
+          "evidence": "本次只清理表面，头身关系基本保持，九头身未得到修复。颅顶约y35–55、下巴约y225–245，取前伸脚趾y1470为过宽人体高度上界时仍最多约8.33头；保留原失败，不因媒介通过改变整体结论。"
+        },
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "保留图一同一成年男性的中棕肤色、长方脸、直眉深棕眼、宽直鼻梁、清楚唇形和宽下颌辨识关系；表观年龄约35岁、无胡须、极短贴头发型不变，平静前视。",
+          "verdict": "pass",
+          "evidence": "与首次二维候选及原头肩图比较，眉眼鼻口、宽下颌、成年感和肤色基本保持，未出现明显大眼或幼态化；短发内部画法改变而外轮廓基本保留。"
+        },
+        {
+          "id": "costume-check",
+          "basis": "costume",
+          "critical": true,
+          "question": "浅灰合体长袖圆领运动上衣，深海军蓝合体运动短裤至膝上，布料不透明且不勒紧；不添加配饰、护具、披风、鞋袜。",
+          "verdict": "pass",
+          "evidence": "浅灰长袖圆领、深蓝膝上短裤和赤脚保留；衣片、领袖和主要衣褶未因去纹理而消失，款式与颜色保持。"
+        },
+        {
+          "id": "frame-check",
+          "basis": "frame",
+          "critical": true,
+          "question": "单人单张正面完整全身；头颈、胸廓和骨盆正面，不歪头不挺腰；平视弱透视。双腿自然伸直、双脚朝前且脚底平放地面，双臂自然垂下稍离身；颅顶、下巴、膝踝和足部可读，浅暖灰棚底，无文字标尺网格拼板。 图二骨架、灰色无脸头形与辅助线不得进入最终画面。",
+          "verdict": "uncertain",
+          "evidence": "正面完整全身与垂臂、暖灰背景、无图二线条成立，双足仍轻微外转，严格朝前未确认。"
+        },
+        {
+          "id": "medium-check",
+          "basis": "medium",
+          "critical": true,
+          "question": "统一二维动漫人物设定：清楚精练的线稿、平涂主色、两至三层赛璐璐阴影；脸、极短发、衣料、手足与背景都按绘制媒介表达。不保留照片毛孔、逐根写实毛发、三维塑料反射或照片织纹；不因动漫而放大眼睛、缩小下颌或降低成年感。",
+          "verdict": "pass",
+          "evidence": "上衣的密集麻灰照片式纹理已明显去除，主色面干净，原领袖接缝和主要硬边衣褶保留；短发以深棕色面和少量边缘笔触概括，与脸、裤子、手足的线条及分层阴影统一。没有将整张重新照片化，符合本次冻结的赛璐璐子风格要求；不将这一单例推广为所有二维路线稳定。"
+        },
+        {
+          "id": "limbs-check",
+          "basis": "limbs",
+          "critical": true,
+          "question": "手腕手指与膝踝足结构自然连接，手指自然微屈，足部承重可信，不增减可见肢体、不将脚尖当作足底身高端点。",
+          "verdict": "pass",
+          "evidence": "手腕和弯曲手指、膝踝足连接基本连贯，双足接地，未见额外肢体；不推断遮挡指节。"
+        }
+      ],
+      "parent": {
+        "run_id": "male-anime-nine-01",
+        "snapshot_sha256": "141a0d2bb21a46021bd38fbf572960ce86aaf1d1858dea9223adbd8d1488d617"
+      },
+      "goal_changed": false
+    }
+  ],
+  "findings": [
+    "首次输出脸、裤子和衣褶已二维化，但短发与上衣仍有较密照片式细纹，未完成指定平涂目标。",
+    "第二次只概括短发和衣料微纹，保留衣片与主褶，媒介项通过；身份、衣装、构图基本保持。",
+    "九头身仍失败，双脚严格朝前仍待审；两次都没有整体通过。",
+    "只能支持该案例的局部媒介修订有效，不证明批量稳定或所有二维艺术都必须无纹理。"
+  ],
+  "history_boundary": "两次输出与同目标摘要全部保留，不计入历史34张评分，不给旧三维目标补记通过。"
+}

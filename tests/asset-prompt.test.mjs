@@ -43,7 +43,7 @@ test('hand override changes structure only', () => {
 test('generation describes proportion in prose without mode settings or edit-only locks', () => {
   const result = compileAssetPrompt();
   assert.doesNotMatch(result.prompt, /only direct edit target|Change only|youthful_18_22/);
-  assert.match(result.prompt, /approximately nine-head fashion proportions/);
+  assert.match(result.prompt, /Mandatory nine-head body proportion/);
   assert.equal(result.status, 'scaffold_only');
   assert.equal(result.requires_reference_analysis, true);
   assert.deepEqual(result.evidence, { image_generated: false, visual_quality_verified: false });
@@ -116,6 +116,34 @@ test('passed edit dimensions cannot silently be reopened', () => {
   const plan = createAssetPlan({ passed: ['fashion_asset_proportion'] });
   assert.equal(plan.stage_2.status, 'blocked_by_locks');
   assert.deepEqual(plan.stage_2.prompt_skeleton, []);
+});
+
+test('body proportion locks survive older planner names across planning, edits and CLI',()=>{
+  for(const id of ['body_proportion','fashion_proportion','fashion_asset_proportion']){
+    const options={passed:[id]},before=structuredClone(options),plan=createAssetPlan(options);
+    assert.equal(plan.stage_2.status,'blocked_by_locks');
+    assert.ok(plan.accepted_locks.includes('fashion_asset_proportion'));
+    for(const language of ['zh-CN','en']){
+      assert.throws(()=>compileAssetPrompt({...options,stage:'structure',focus:'proportion',language}),/reopen passed/);
+      const hands=compileAssetPrompt({...options,stage:'structure',focus:'hands',language});
+      assert.deepEqual(hands.round_plan.editable,['hand_pose_integrity']);
+      assert.ok(hands.round_plan.locked.includes('fashion_asset_proportion'));
+      assert.equal(hands.round_plan.editable.some(x=>hands.round_plan.locked.includes(x)),false);
+    }
+    assert.deepEqual(options,before);
+    const cli=run(['asset-prompt','--stage','structure','--focus','proportion','--passed',id]);
+    assert.equal(cli.status,1);assert.match(cli.stderr,/reopen passed/);assert.equal(cli.stdout.trim(),'');
+  }
+});
+
+test('accepted rounds protect their own edits without approving inherited locks',()=>{
+  for(const focus of ['hands','proportion','framing'])assert.throws(()=>compileAssetPrompt({stage:'structure',focus,passed:['asset_master_structure_refine']}),/reopen passed/);
+  const face=createAssetPlan({passed:['asset_master_face_refine']});
+  assert.ok(face.accepted_locks.includes('asset_face_profile'));
+  assert.ok(!face.accepted_locks.includes('body_proportion'));
+  assert.equal(face.stage_2.status,'planned');
+  assert.doesNotThrow(()=>compileAssetPrompt({stage:'structure',focus:'proportion',passed:['asset_master_face_refine']}));
+  assert.doesNotThrow(()=>compileAssetPrompt({stage:'material-light',focus:'materials',passed:['asset_master_structure_refine']}));
 });
 
 test('invalid focus and configuration fail without prompt output', () => {

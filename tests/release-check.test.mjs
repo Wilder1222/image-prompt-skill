@@ -8,6 +8,17 @@ import { releaseFiles, validateProject } from '../scripts/release-check.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 
+test('local character deliveries stay out of release inventory without excluding nested source assets', t => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'image-prompt-output-test-'));
+  t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(dir, 'output', 'characters'), {recursive:true});
+  fs.writeFileSync(path.join(dir, 'output', 'characters', 'private.png'), 'local delivery');
+  fs.mkdirSync(path.join(dir, 'assets', 'output'), {recursive:true});
+  fs.writeFileSync(path.join(dir, 'assets', 'output', 'example.txt'), 'source asset');
+  assert.deepEqual(releaseFiles(dir), ['assets/output/example.txt']);
+  assert.equal(fs.readFileSync(path.join(dir, 'output', 'characters', 'private.png'), 'utf8'), 'local delivery');
+});
+
 function fixture(t) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'image-prompt-test-'));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));

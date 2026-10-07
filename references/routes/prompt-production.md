@@ -8,7 +8,7 @@
 
 识别新图、扩全身、改造、风格转换或局部修复。用一两句话在内部确定成功结果：哪一个人物、怎样的形象、什么用途、什么风格、哪些变化必须出现。保留用户的明确要求，不反向用当前默认值覆盖用户。
 
-将要求分为必须满足与偏好。身份、指定服装、指定背景/画幅/朝向、禁改项通常是必须项；未明确指定的袖量、细节密度、光泽等可用专业判断决定。不要把自己的具体补全方案提升为不可协商的用户要求。跨轮保留已确认的意图，本项目已选择 P9 时，不因一张比例失败改成七头身。
+将要求分为必须满足与偏好。身份、指定服装、指定背景/画幅/朝向、禁改项通常是必须项；未明确指定的袖量、细节密度、光泽等可用专业判断决定。不要把自己的具体补全方案提升为不可协商的用户要求。跨轮保留已确认的意图，本项目人物统一以黄金九头身为硬性规则，生成前写入 proportion 通道的 must 要求和对应 critical 验收；人体直立高度等于九个颅顶至下巴的头长，头饰、鞋跟和拖尾不计入。比例失败不能改成七头身、八头身或仅“高挑”来放宽目标。完整母图不豁免；局部修复不越界改全身，但比例未通过时不能宣称整体资产合格。
 
 描述已经完整时先去冲突，不再堆词。描述很短时补充有用的构图、结构、材料和动作，不增加无关人物、配件、叙事或配色。需要一次假设就能推进的选择可直接决定并记录；多个身份来源互相矛盾时必须先厘清。
 
@@ -29,6 +29,8 @@
 选择影响这次成败的证据即可。重复背景叙述与无关花枝不进入白底资产正文。
 
 ## 3. 做可执行的设计决定
+
+涉及人物媒介选择或风格转换时，读取 [人物风格选择与适配](character-visual-styles.md)。分别决定面容、妆肤、头发、衣料、明暗和边缘的表现，清理旧媒介冲突；下文真人肤质建议仅作用于真人及写实方向，绘画与动画按各自媒介表达精致妆面、生命感与材质区分。九头身硬规则不随媒介改变。
 
 对每个关键部分决定：继承、改变、移除或补全，并有用户要求/观察事实/合理设计的依据。
 
@@ -83,7 +85,7 @@
 
 `acceptance` 应检查输出图可判断的目标。“中文标签是否完整”“是否尚未生图”等是文字交付或执行状态，单独留在文本审查记录，不能混入图像成功率。将仅提示词任务升级为生图测试前，先重新核对验收目标并冻结新的记录；不要生成后删除不适用的关键项来制造通过。精确脚位若被长裙遮住，保留不可判断，而整体平衡与衣摆可分别评审。
 
-通道为 identity、expression、action、makeup、hair、costume、material、composition、proportion、hands_feet、background、lighting、style、task、output。身体动作用 action，表情用 expression，背景用 background；旧记录在 composition 中描述动作、identity 中描述表情、lighting/composition 中描述背景仍兼容。动作与构图、神态和材料需联动时按本轮意图一起修改，不机械锁死。可见性为 visible、partial、unknown、not_visible。事实可跨类别提供依据，但参考必须具有控制目标类别的权限。部分可见的事实只描述可见部分。
+通道为 identity、expression、action、makeup、hair、costume、material、composition、layout、proportion、hands_feet、background、lighting、style、task、output。身体动作用 action，表情用 expression，背景用 background，设定表分格与间隔用 layout；旧记录在 composition 中描述动作、identity 中描述表情、lighting/composition 中描述背景仍兼容。动作与构图、神态和材料需联动时按本轮意图一起修改，不机械锁死。可见性为 visible、partial、unknown、not_visible。事实可跨类别提供依据，但参考必须具有控制目标类别的权限。部分可见的事实只描述可见部分。
 
 ```bash
 node scripts/iteration-director.mjs prompt-build --input path/to/agent-authored-brief.json --format text

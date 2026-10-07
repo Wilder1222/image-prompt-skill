@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "cohort": "character-connections-20261006",
+  "purpose": "将候选服装中未确认的腰下衣片连接与右髋袋挂法明确为新设计，选择可观察的右侧视角检验。",
+  "design_version": "连接方案一，代理研究设计，非用户定稿",
+  "tool": "built-in image_gen",
+  "model": null,
+  "seed": null,
+  "evidence_directory": "dist/visual-tests/character-connections-20261006",
+  "known_completed_calls": 1,
+  "approved_outputs": 0,
+  "user_accepted": false,
+  "group_verdict": "needs_review",
+  "source_observation": {
+    "source_report": "docs/character-asset-evidence.json",
+    "inspected_views": [
+      "front.png",
+      "left.png",
+      "back.png"
+    ],
+    "actual_inputs": [
+      {
+        "id": "front",
+        "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-assets-20261006\\front.png",
+        "content_sha256": "a9bf5a917642002a036c723c6b32902d8244514ee2e9633cf5b4e1d0f7df5ff2"
+      },
+      {
+        "id": "back",
+        "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-assets-20261006\\back.png",
+        "content_sha256": "7539e1c00f8f36d32b5efccaf6a86a43ddb1f7bea0fd9c524bf0f990771bec17"
+      }
+    ],
+    "review_only": "left.png；只供观察并转写可见衣片，未作为图像送入生成",
+    "known": "左肩披片、右髋单袋、灰蓝外套与腰下片，以及后背短衣摆可读。",
+    "unknown": "护片和上衣的连接带、皮袋挂环结构及跨视图朝向未被旧图可靠证明。",
+    "new_design": "左右髋侧片各通过同色内侧窄布带接外套，皮腰带压在外面；护片后缘止于侧缝。右髋袋以两条短皮环挂腰带，宽面朝身体右侧外方。"
+  },
+  "runs": [
+    {
+      "run_id": "traveler-connections-right-01",
+      "case_id": "traveler-connections",
+      "snapshot_file": "right-01.snapshot.json",
+      "snapshot_sha256": "4dd2d4a4ef7e7e82a13e2f6c0d84a15dc203b6bfc3f632012e4da9e22197b136",
+      "target_sha256": "9e28cafad9105e371d9a7e8838e8cac435b2171780e356a70edb57c1c4ed0df3",
+      "prompt_sha256": "8ff9809594bf20c772335ac3cf408c3aade51157349ad76973a6cf4939e15dca",
+      "target": {
+        "subject_kind": "character",
+        "requirements": [
+          {
+            "id": "identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "保持正面候选同一成年东亚女性的眉眼、顺直鼻梁、唇峰与柔和下颌，平静闭嘴；右侧面可见结构不与来源冲突，不换人。"
+          },
+          {
+            "id": "body",
+            "channel": "proportion",
+            "priority": "must",
+            "target_head_count": 9,
+            "text": "人体直立高度为九个颅顶至下巴的头长，排除发量、靴底鞋跟；头肩、胸腰臀、上下臂和上下腿共同协调，肌肉与软组织自然，不靠长颈或孤立拉伸某段实现。原参考未验证此比例，不能冻结原参考头身比。"
+          },
+          {
+            "id": "view",
+            "channel": "composition",
+            "priority": "must",
+            "text": "人物自身右侧的单张严格侧面全身，鼻尖朝画面右，右肩右髋靠近镜头；头、胸廓与骨盆同向，无回头或扭腰。平视弱透视，顶至靴底完整。右臂略向后并离身，右手避开腰带与皮袋，让挂点可观察；不是建模正交测量图。"
+          },
+          {
+            "id": "outfit",
+            "channel": "costume",
+            "priority": "must",
+            "text": "保留灰蓝立领短外套、象牙内衫、深灰直筒裤、棕踝靴、深棕皮护腕与褐色腰带。赭红披片和铜圆扣只在人物左肩前侧，位于本视角远侧，允许自然遮挡；近侧右肩不添加披片或铜扣。"
+          },
+          {
+            "id": "panels",
+            "channel": "costume",
+            "priority": "must",
+            "text": "本轮明确腰下灰蓝衣片的设计：左右各一片独立髋侧护片，上缘通过同色窄布连接带接在外套内侧腰部，连接带从皮腰带内侧经过，皮带压在外面。护片覆盖前侧髋至身体侧缝，后缘到侧缝即止，末端约在上大腿；后腰中央没有长后摆。不把护片改为裤子口袋或悬空布片。右片的边缘与腰带下方起点可读，袋后遮挡部分不强行透视。"
+          },
+          {
+            "id": "pouch",
+            "channel": "costume",
+            "priority": "must",
+            "text": "仅一只原褐色矩形翻盖皮袋，固定人物右髋。此轮将未知挂法设计为两条短皮环穿过腰带并连到袋身上缘，挂点仍在右髋而非后腰；袋背贴近右髋护片，宽面及翻盖朝身体右侧外方、开口朝上。两挂环与腰带交接可见，袋子不悬浮，不移到腹部正中，不长出肩带。"
+          },
+          {
+            "id": "hair",
+            "channel": "hair",
+            "priority": "must",
+            "text": "黑发侧分，后脑一条低位辫子垂至上背；银夹固定人物左太阳穴，右侧视图允许被头部遮住，不复制到右太阳穴或后脑。"
+          },
+          {
+            "id": "style",
+            "channel": "style",
+            "priority": "must",
+            "text": "保持精致写实人物质感、自然贴肤妆面、中性柔和棚光和浅灰背景；灰蓝织物与赭红布料低光泽，皮革哑光，金属局部反光，材质厚薄与衣片重叠一致。"
+          },
+          {
+            "id": "limbs",
+            "channel": "hands_feet",
+            "priority": "must",
+            "text": "肩肘腕、可见手指、膝踝与靴部连接自然；右臂避让是自然小幅姿态变化，手不穿腰带，双脚稳定承重，无多余或融合肢体。"
+          },
+          {
+            "id": "output",
+            "channel": "output",
+            "priority": "must",
+            "text": "单人全身结构诊断图，无文字、箭头、透明透视、局部放大插图或拼板。此为设计连接验证，不能仅靠局部成立就宣称九头身或整组资产合格。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "identity-check",
+            "basis": "identity",
+            "critical": true,
+            "question": "保持正面候选同一成年东亚女性的眉眼、顺直鼻梁、唇峰与柔和下颌，平静闭嘴；右侧面可见结构不与来源冲突，不换人。"
+          },
+          {
+            "id": "body-check",
+            "basis": "body",
+            "critical": true,
+            "question": "人体直立高度为九个颅顶至下巴的头长，排除发量、靴底鞋跟；头肩、胸腰臀、上下臂和上下腿共同协调，肌肉与软组织自然，不靠长颈或孤立拉伸某段实现。原参考未验证此比例，不能冻结原参考头身比。"
+          },
+          {
+            "id": "view-check",
+            "basis": "view",
+            "critical": true,
+            "question": "人物自身右侧的单张严格侧面全身，鼻尖朝画面右，右肩右髋靠近镜头；头、胸廓与骨盆同向，无回头或扭腰。平视弱透视，顶至靴底完整。右臂略向后并离身，右手避开腰带与皮袋，让挂点可观察；不是建模正交测量图。"
+          },
+          {
+            "id": "outfit-check",
+            "basis": "outfit",
+            "critical": true,
+            "question": "保留灰蓝立领短外套、象牙内衫、深灰直筒裤、棕踝靴、深棕皮护腕与褐色腰带。赭红披片和铜圆扣只在人物左肩前侧，位于本视角远侧，允许自然遮挡；近侧右肩不添加披片或铜扣。"
+          },
+          {
+            "id": "panels-check",
+            "basis": "panels",
+            "critical": true,
+            "question": "本轮明确腰下灰蓝衣片的设计：左右各一片独立髋侧护片，上缘通过同色窄布连接带接在外套内侧腰部，连接带从皮腰带内侧经过，皮带压在外面。护片覆盖前侧髋至身体侧缝，后缘到侧缝即止，末端约在上大腿；后腰中央没有长后摆。不把护片改为裤子口袋或悬空布片。右片的边缘与腰带下方起点可读，袋后遮挡部分不强行透视。"
+          },
+          {
+            "id": "pouch-check",
+            "basis": "pouch",
+            "critical": true,
+            "question": "仅一只原褐色矩形翻盖皮袋，固定人物右髋。此轮将未知挂法设计为两条短皮环穿过腰带并连到袋身上缘，挂点仍在右髋而非后腰；袋背贴近右髋护片，宽面及翻盖朝身体右侧外方、开口朝上。两挂环与腰带交接可见，袋子不悬浮，不移到腹部正中，不长出肩带。"
+          },
+          {
+            "id": "hair-check",
+            "basis": "hair",
+            "critical": true,
+            "question": "黑发侧分，后脑一条低位辫子垂至上背；银夹固定人物左太阳穴，右侧视图允许被头部遮住，不复制到右太阳穴或后脑。"
+          },
+          {
+            "id": "style-check",
+            "basis": "style",
+            "critical": true,
+            "question": "保持精致写实人物质感、自然贴肤妆面、中性柔和棚光和浅灰背景；灰蓝织物与赭红布料低光泽，皮革哑光，金属局部反光，材质厚薄与衣片重叠一致。"
+          },
+          {
+            "id": "limbs-check",
+            "basis": "limbs",
+            "critical": true,
+            "question": "肩肘腕、可见手指、膝踝与靴部连接自然；右臂避让是自然小幅姿态变化，手不穿腰带，双脚稳定承重，无多余或融合肢体。"
+          },
+          {
+            "id": "output-check",
+            "basis": "output",
+            "critical": true,
+            "question": "单人全身结构诊断图，无文字、箭头、透明透视、局部放大插图或拼板。此为设计连接验证，不能仅靠局部成立就宣称九头身或整组资产合格。"
+          }
+        ]
+      },
+      "prompt": "【任务与视角】\n人物自身右侧的单张严格侧面全身，鼻尖朝画面右，右肩右髋靠近镜头；头、胸廓与骨盆同向，无回头或扭腰。平视弱透视，顶至靴底完整。右臂略向后并离身，右手避开腰带与皮袋，让挂点可观察；不是建模正交测量图。 实际输入图一为正面身份与造型候选，图二仅补充背部短外套终点及单辫，不复制图二未确认的皮袋朝向。\n\n【人物身份与面容】\n保持正面候选同一成年东亚女性的眉眼、顺直鼻梁、唇峰与柔和下颌，平静闭嘴；右侧面可见结构不与来源冲突，不换人。\n\n【九头身与形体】\n人体直立高度为九个颅顶至下巴的头长，排除发量、靴底鞋跟；头肩、胸腰臀、上下臂和上下腿共同协调，肌肉与软组织自然，不靠长颈或孤立拉伸某段实现。原参考未验证此比例，不能冻结原参考头身比。\n\n【衣装与人物左右】\n保留灰蓝立领短外套、象牙内衫、深灰直筒裤、棕踝靴、深棕皮护腕与褐色腰带。赭红披片和铜圆扣只在人物左肩前侧，位于本视角远侧，允许自然遮挡；近侧右肩不添加披片或铜扣。\n\n【腰下衣片连接设计】\n本轮明确腰下灰蓝衣片的设计：左右各一片独立髋侧护片，上缘通过同色窄布连接带接在外套内侧腰部，连接带从皮腰带内侧经过，皮带压在外面。护片覆盖前侧髋至身体侧缝，后缘到侧缝即止，末端约在上大腿；后腰中央没有长后摆。不把护片改为裤子口袋或悬空布片。右片的边缘与腰带下方起点可读，袋后遮挡部分不强行透视。\n\n【皮袋挂点与朝向设计】\n仅一只原褐色矩形翻盖皮袋，固定人物右髋。此轮将未知挂法设计为两条短皮环穿过腰带并连到袋身上缘，挂点仍在右髋而非后腰；袋背贴近右髋护片，宽面及翻盖朝身体右侧外方、开口朝上。两挂环与腰带交接可见，袋子不悬浮，不移到腹部正中，不长出肩带。\n\n【头发与遮挡】\n黑发侧分，后脑一条低位辫子垂至上背；银夹固定人物左太阳穴，右侧视图允许被头部遮住，不复制到右太阳穴或后脑。\n\n【材质与灯光】\n保持精致写实人物质感、自然贴肤妆面、中性柔和棚光和浅灰背景；灰蓝织物与赭红布料低光泽，皮革哑光，金属局部反光，材质厚薄与衣片重叠一致。\n\n【手脚与支撑】\n肩肘腕、可见手指、膝踝与靴部连接自然；右臂避让是自然小幅姿态变化，手不穿腰带，双脚稳定承重，无多余或融合肢体。\n\n【交付范围】\n单人全身结构诊断图，无文字、箭头、透明透视、局部放大插图或拼板。此为设计连接验证，不能仅靠局部成立就宣称九头身或整组资产合格。",
+      "references": [
+        {
+          "id": "front",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-assets-20261006\\front.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "identity",
+            "hair",
+            "costume",
+            "style"
+          ],
+          "facts": [
+            {
+              "id": "front-face",
+              "channel": "identity",
+              "visibility": "visible",
+              "text": "成年东亚女性长椭圆脸、平眉、杏仁眼、顺直鼻梁、清楚唇峰和柔和下颌；没有右侧轮廓实拍依据。"
+            },
+            {
+              "id": "front-outfit",
+              "channel": "costume",
+              "visibility": "partial",
+              "text": "灰蓝短外套与左肩赭红披片、右髋单皮袋、皮腰带、护腕、深灰长裤、棕靴；腰下人物左髋灰蓝片清楚，右片被皮袋遮挡，连接带未知。"
+            },
+            {
+              "id": "front-hair",
+              "channel": "hair",
+              "visibility": "partial",
+              "text": "黑发侧分、人物左太阳穴银夹；颈后露出辫子，完整后脑不可见。"
+            },
+            {
+              "id": "front-medium",
+              "channel": "style",
+              "visibility": "visible",
+              "text": "精致写实皮肤、织物和皮革表面，中性柔光浅灰背景。"
+            }
+          ],
+          "content_sha256": "a9bf5a917642002a036c723c6b32902d8244514ee2e9633cf5b4e1d0f7df5ff2"
+        },
+        {
+          "id": "back",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-assets-20261006\\back.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "hair",
+            "costume"
+          ],
+          "facts": [
+            {
+              "id": "back-hair",
+              "channel": "hair",
+              "visibility": "visible",
+              "text": "黑色单辫垂至上背，后脑无银夹；这是先前生成的候选设计，非用户定稿。"
+            },
+            {
+              "id": "back-coat",
+              "channel": "costume",
+              "visibility": "partial",
+              "text": "外套背片到腰部、单条中央纵缝；腰下没有灰蓝长后摆，裤子有贴袋。皮袋在右侧，但翻盖朝向与正面关系未确认，不继承该朝向为已验证结构。"
+            }
+          ],
+          "content_sha256": "7539e1c00f8f36d32b5efccaf6a86a43ddb1f7bea0fd9c524bf0f990771bec17"
+        },
+        {
+          "id": "left-review",
+          "source": "D:\\study\\projects\\image-prompt-skill\\dist\\visual-tests\\character-assets-20261006\\left.png",
+          "inspected": true,
+          "generation_input": false,
+          "authority": [
+            "costume"
+          ],
+          "facts": [
+            {
+              "id": "left-panel",
+              "channel": "costume",
+              "visibility": "partial",
+              "text": "仅供代理观察：左髋灰蓝衣片在腰带下方延伸到上大腿，近侧衣片可读，右袋挂点被遮挡；这张图不实际送入本次模型。"
+            }
+          ],
+          "content_sha256": "476f379522033dbff2bb05120cd05eae1050cc46bb03bfe92556c84293aac000"
+        }
+      ],
+      "output_file": "right-01.png",
+      "output_sha256": "37d53237fe29445e39f839ee1e67400314ca54ecfe45eadd81e3ec0391ecde4a",
+      "status": "needs_review",
+      "checks": [
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "保持正面候选同一成年东亚女性的眉眼、顺直鼻梁、唇峰与柔和下颌，平静闭嘴；右侧面可见结构不与来源冲突，不换人。",
+          "verdict": "uncertain",
+          "evidence": "成年女性、发色、鼻梁唇部及下颌整体无明显冲突；但正面源图不能完整限定右侧额鼻唇颏深度，当前侧轮廓仍是派生候选，不凭造型相同认定身份完全通过。"
+        },
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "人体直立高度为九个颅顶至下巴的头长，排除发量、靴底鞋跟；头肩、胸腰臀、上下臂和上下腿共同协调，肌肉与软组织自然，不靠长颈或孤立拉伸某段实现。原参考未验证此比例，不能冻结原参考头身比。",
+          "verdict": "uncertain",
+          "evidence": "头身：头顶发量与鞋底鞋跟均存在，未可靠定位颅顶和人体足底，不能以图像高度或靴底确认九头身。肩颈：颈部与肩部连接自然；胸腰臀：侧面躯干起伏连贯，衣下骨盆准确位置不可见；上下臂与上下腿：未见明显单段拉伸或失衡；肌肉软组织适度，长衣裤遮挡部位不精确测量。局部协调不能抵消头身未决。"
+        },
+        {
+          "id": "view-check",
+          "basis": "view",
+          "critical": true,
+          "question": "人物自身右侧的单张严格侧面全身，鼻尖朝画面右，右肩右髋靠近镜头；头、胸廓与骨盆同向，无回头或扭腰。平视弱透视，顶至靴底完整。右臂略向后并离身，右手避开腰带与皮袋，让挂点可观察；不是建模正交测量图。",
+          "verdict": "pass",
+          "evidence": "鼻尖朝画面右，单侧面容轮廓、近侧右肩与右髋、胸腰朝向一致；头没有单独回看。全身完整，右臂向后离开皮袋，挂点区没有被手遮挡。符合本轮服装侧视诊断，不宣称精确正交测量。"
+        },
+        {
+          "id": "outfit-check",
+          "basis": "outfit",
+          "critical": true,
+          "question": "保留灰蓝立领短外套、象牙内衫、深灰直筒裤、棕踝靴、深棕皮护腕与褐色腰带。赭红披片和铜圆扣只在人物左肩前侧，位于本视角远侧，允许自然遮挡；近侧右肩不添加披片或铜扣。",
+          "verdict": "pass",
+          "evidence": "灰蓝立领外套、象牙内衫边缘、深灰直筒裤、棕靴、右袖皮护腕和褐腰带保持。近侧右肩无赭红披片或铜扣，远侧仅有少量赭红边缘，未把左侧饰物搬到近侧；被遮挡远侧细节不另外宣称看清。"
+        },
+        {
+          "id": "panels-check",
+          "basis": "panels",
+          "critical": true,
+          "question": "本轮明确腰下灰蓝衣片的设计：左右各一片独立髋侧护片，上缘通过同色窄布连接带接在外套内侧腰部，连接带从皮腰带内侧经过，皮带压在外面。护片覆盖前侧髋至身体侧缝，后缘到侧缝即止，末端约在上大腿；后腰中央没有长后摆。不把护片改为裤子口袋或悬空布片。右片的边缘与腰带下方起点可读，袋后遮挡部分不强行透视。",
+          "verdict": "uncertain",
+          "evidence": "右髋前侧可见独立灰蓝片与明确下缘，未把整片改为裤贴袋，后腰没有延长灰蓝长摆；但将护片上缘连到外套内侧的窄布带仍被腰带和上衣下摆遮挡，袋后边界也不可见。画面不能确认完整连接方案及后缘恰止于侧缝，不能把下缘可见当成连接通过。"
+        },
+        {
+          "id": "pouch-check",
+          "basis": "pouch",
+          "critical": true,
+          "question": "仅一只原褐色矩形翻盖皮袋，固定人物右髋。此轮将未知挂法设计为两条短皮环穿过腰带并连到袋身上缘，挂点仍在右髋而非后腰；袋背贴近右髋护片，宽面及翻盖朝身体右侧外方、开口朝上。两挂环与腰带交接可见，袋子不悬浮，不移到腹部正中，不长出肩带。",
+          "verdict": "pass",
+          "evidence": "单个矩形翻盖皮袋在近侧右髋，宽面和翻盖向右侧外方，袋口朝上；两条短皮环在袋顶上方连到皮腰带处，可见交接与承挂关系。手臂已避开，无肩带或第二只皮袋，没有漂浮。袋背接触处部分遮挡，不声称看见隐藏缝线。"
+        },
+        {
+          "id": "hair-check",
+          "basis": "hair",
+          "critical": true,
+          "question": "黑发侧分，后脑一条低位辫子垂至上背；银夹固定人物左太阳穴，右侧视图允许被头部遮住，不复制到右太阳穴或后脑。",
+          "verdict": "pass",
+          "evidence": "黑发、侧分和一条后脑辫子保持，辫子垂至上背；近侧右太阳穴与后脑没有新增银夹。原左侧银夹此角度不可见，符合自然遮挡要求。"
+        },
+        {
+          "id": "style-check",
+          "basis": "style",
+          "critical": true,
+          "question": "保持精致写实人物质感、自然贴肤妆面、中性柔和棚光和浅灰背景；灰蓝织物与赭红布料低光泽，皮革哑光，金属局部反光，材质厚薄与衣片重叠一致。",
+          "verdict": "pass",
+          "evidence": "面部皮肤、发丝、织物微纹、哑光皮革及局部金属反射形成一致写实表现，中性柔光和浅灰背景保持；衣片边缘与皮袋厚度可读，没有混入明显绘画或卡通面。"
+        },
+        {
+          "id": "limbs-check",
+          "basis": "limbs",
+          "critical": true,
+          "question": "肩肘腕、可见手指、膝踝与靴部连接自然；右臂避让是自然小幅姿态变化，手不穿腰带，双脚稳定承重，无多余或融合肢体。",
+          "verdict": "pass",
+          "evidence": "右肩肘腕与自然微屈的手指连续，右臂后移幅度自然；双腿至靴部连续且有稳定支撑，没有穿透腰带或明显融合、额外肢体。不评价遮挡手指的精确数量。"
+        },
+        {
+          "id": "output-check",
+          "basis": "output",
+          "critical": true,
+          "question": "单人全身结构诊断图，无文字、箭头、透明透视、局部放大插图或拼板。此为设计连接验证，不能仅靠局部成立就宣称九头身或整组资产合格。",
+          "verdict": "pass",
+          "evidence": "单人全身图，无文字、箭头、透明剖视、插图或拼板；记录用途仍为结构诊断，未作为合格母图交付。"
+        }
+      ],
+      "parent": null,
+      "goal_changed": false
+    }
+  ],
+  "findings": [
+    "新的右侧图中挂环、腰带交接与翻盖朝向可读；近侧右肩未误复制左肩披片。",
+    "护片的下缘可读，但内侧布带仍遮挡，完整连接未确认；知道设计方案不等于已观察到内部结构。",
+    "严格身体侧向与小幅手臂避让可以同时成立；本例只支持局部观察结果，不证明该提示词普遍有效。",
+    "身份侧轮廓与九头身待审，整体needs_review；该图不能给旧三视图回填通过，也不能充当已验收九头身母图。"
+  ],
+  "history_boundary": "新的视角、姿态、服装连接设计与九头身目标；原三视图未变，不计旧图同目标修复，不重打历史34张分数。",
+  "next_action": "把外观连续性、可见挂点和隐藏内部连接分开记录；若下游确需内部连接证明，应另设结构详图或源模型验证，不能靠同一穿着侧图反复要求看穿遮挡。"
+}

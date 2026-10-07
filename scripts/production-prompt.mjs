@@ -1,21 +1,30 @@
 import crypto from 'node:crypto';
 import {adaptModelPrompt} from './model-adapter.mjs';
+import {characterStyleIds} from './character-style-render.mjs';
 
 // The host agent performs visual observation and design reasoning. This compiler only
 // checks declared provenance, coverage and delivery integrity; it does not see images.
-const channels = new Set(['identity','expression','action','makeup','hair','costume','material','composition','proportion','hands_feet','background','lighting','style','task','output']);
+const channels = new Set(['identity','expression','action','makeup','hair','costume','material','composition','layout','proportion','hands_feet','background','lighting','style','task','output']);
 const nonempty = x => typeof x === 'string' && x.trim().length > 0;
+const internalStyle = new RegExp(`\\b(?:${characterStyleIds.join('|')})\\b`);
 export const promptHash = text => crypto.createHash('sha256').update(text).digest('hex');
 
 export function compileProductionPrompt(input) {
   const errors = [], basis = new Map(), references = new Map(), used = new Set();
   if (!input || typeof input !== 'object') throw new Error('production input must be an object');
+  if (!['character','scene','product','other'].includes(input.subject_kind)) errors.push('declare subject_kind: character, scene, product or other; legacy briefs need explicit scope before new production');
   if (!nonempty(input.request)) errors.push('missing original user request');
   if (!Array.isArray(input.references)) errors.push('references must be an array; use [] for text-only requests');
   if (!Array.isArray(input.requirements) || !input.requirements.length) errors.push('missing request requirements');
   if (!Array.isArray(input.sections) || !input.sections.length) errors.push('missing reference-specific sections');
   if (!Array.isArray(input.unresolved) || input.unresolved.length) errors.push('resolve critical ambiguities and conflicts before delivery');
   if (errors.length) throw new Error(errors.join('\n'));
+  function checkProse(text,label) {
+    if (!nonempty(text) || /【|】|\bTODO\b|待填写|逐项填写|填写本套/.test(text)) errors.push(`unfinished clause in ${label}`);
+    if (internalStyle.test(text ?? '')) errors.push(`replace internal style identifiers with concrete visual prose in ${label}`);
+    if (/\b(?:render[ _-]+mode|style[ _-]+workflow|face[ _-]+mode|proportion[ _-]+mode|detail[ _-]+budget|highlight[ _-]+hierarchy|edge[ _-]+control)\s*[=:：＝]/i.test(text ?? '')) errors.push(`replace mode settings with concrete visual prose in ${label}`);
+    if (/\b(?:style_asset|material_realistic_asset|dark_fantasy_asset|beauty_first|humanized_real|stylized_beauty|P9[ _]+Fashion|P9_FASHION_ASSET|NATURAL_ADULT|material_priority|concept_art_priority|focal_brightness|soft_realistic|painterly_selective)\b/i.test(text ?? '')) errors.push(`replace internal mode identifiers with concrete visual prose in ${label}`);
+  }
   function add(row, type) {
     if (!nonempty(row?.id) || basis.has(row.id)) errors.push(`missing or duplicate basis id: ${row?.id}`);
     if (!nonempty(row?.text) || !channels.has(row?.channel)) errors.push(`invalid ${type}: ${row?.id}`);
@@ -34,6 +43,11 @@ export function compileProductionPrompt(input) {
     }
   }
   const identitySources = [...references.values()].filter(r => r.authority?.includes('identity'));
+  // Declared identity authority requires an actual input even when the authored
+  // identity clause cites only a requirement rather than a particular fact.
+  for (const ref of identitySources) {
+    if (ref.generation_input !== true) errors.push(`identity reference ${ref.id} must be included in generation inputs`);
+  }
   if (identitySources.length > 1) {
     const group=identitySources[0].identity_group;
     if(!nonempty(group)||identitySources.some(r=>r.identity_group!==group)||
@@ -42,6 +56,8 @@ export function compileProductionPrompt(input) {
       errors.push('conflicting identity authorities; assign one primary identity reference and same-identity supporting views');
   }
   for(const ref of input.references){
+    if(ref.identity_role!==undefined&&!['primary','support'].includes(ref.identity_role))
+      errors.push(`invalid identity_role for ${ref.id}; use primary or support`);
     if(ref.identity_role==='support'&&!identitySources.some(r=>r.identity_role==='primary'&&nonempty(r.identity_group)&&r.identity_group===ref.identity_group))
       errors.push(`identity support needs its primary: ${ref.id}`);
     if(ref.identity_role&&!ref.authority?.includes('identity'))errors.push(`identity role requires identity authority: ${ref.id}`);
@@ -49,6 +65,14 @@ export function compileProductionPrompt(input) {
   for (const req of input.requirements ?? []) {
     add(req, 'requirement');
     if (!['must','prefer'].includes(req.priority)) errors.push(`invalid requirement priority: ${req.id}`);
+  }
+  // This is an authored scope declaration, not automatic subject recognition.
+  // Keep numeric design intent out of the image approval decision itself.
+  const proportions = input.requirements.filter(r => r.channel === 'proportion');
+  const characterProportions = proportions.filter(r => r.priority === 'must' && r.target_head_count === 9);
+  if (input.subject_kind === 'character') {
+    if (!characterProportions.length) errors.push('character production requires a must proportion requirement with target_head_count: 9');
+    if (proportions.some(r => r.target_head_count !== undefined && r.target_head_count !== 9)) errors.push('character target_head_count must be 9');
   }
   const labels = new Set(), paragraphs = [];
   for (const section of input.sections ?? []) {
@@ -59,9 +83,7 @@ export function compileProductionPrompt(input) {
     if (!Array.isArray(section?.items) || !section.items.length) errors.push(`empty section: ${section?.label}`);
     const texts = [];
     for (const item of section?.items ?? []) {
-      if (!nonempty(item?.text) || /【|】|\bTODO\b|待填写|逐项填写|填写本套/.test(item.text)) errors.push(`unfinished clause in ${section.label}`);
-      if (/\b(?:render[ _-]+mode|style[ _-]+workflow|face[ _-]+mode|proportion[ _-]+mode|detail[ _-]+budget|highlight[ _-]+hierarchy|edge[ _-]+control)\s*[=:：＝]/i.test(item?.text ?? '')) errors.push(`replace mode settings with concrete visual prose in ${section.label}`);
-      if (/\b(?:style_asset|material_realistic_asset|dark_fantasy_asset|beauty_first|humanized_real|stylized_beauty|P9[ _]+Fashion|P9_FASHION_ASSET|NATURAL_ADULT|material_priority|concept_art_priority|focal_brightness|soft_realistic|painterly_selective)\b/i.test(item?.text ?? '')) errors.push(`replace internal mode identifiers with concrete visual prose in ${section.label}`);
+      checkProse(item?.text,section.label);
       if (!['retain','design','remove','constraint'].includes(item?.intent)) errors.push(`invalid clause intent in ${section.label}`);
       if (item?.intent === 'design' && !nonempty(item.reason)) errors.push(`design extension needs a reason in ${section.label}`);
       if (!Array.isArray(item?.basis) || !item.basis.length) errors.push(`untraceable clause in ${section.label}`);
@@ -74,7 +96,6 @@ export function compileProductionPrompt(input) {
         const ref = references.get(row.reference);
         if (!ref?.authority?.includes(section.channel)) errors.push(`reference ${ref?.id} cannot control ${section.channel}`);
         if (item.intent === 'retain' && !['visible','partial'].includes(row.visibility)) errors.push(`cannot retain unseen fact as observed: ${id}`);
-        if (section.channel === 'identity' && ref?.generation_input !== true) errors.push(`identity reference ${ref?.id} must be included in generation inputs`);
       }
       if (item?.intent === 'retain' && !sourceRows.some(r => r.type === 'observation')) errors.push(`retain needs an observed source in ${section.label}`);
       if (item?.intent === 'constraint' && !sourceRows.some(r => r.type === 'requirement')) errors.push(`constraint needs a user requirement in ${section.label}`);
@@ -83,6 +104,9 @@ export function compileProductionPrompt(input) {
     paragraphs.push(`【${section?.label}】\n${texts.join('\n')}`);
   }
   for (const req of input.requirements ?? []) if (req.priority === 'must' && !used.has(req.id)) errors.push(`uncovered required instruction: ${req.id}`);
+  for (const req of input.subject_kind === 'character' ? characterProportions : []) {
+    if (!input.sections.some(s => s.channel === 'proportion' && s.items?.some(i => i.basis?.includes(req.id)))) errors.push(`character proportion needs its own authored proportion clause: ${req.id}`);
+  }
   if (!Array.isArray(input.acceptance) || !input.acceptance.length) errors.push('missing image acceptance criteria');
   const criterionIds = new Set();
   for (const criterion of input.acceptance ?? []) {
@@ -93,10 +117,27 @@ export function compileProductionPrompt(input) {
   for (const req of input.requirements) {
     if (req.priority === 'must' && !input.acceptance?.some(c => c.basis === req.id && c.critical === true)) errors.push(`missing critical image criterion for required instruction: ${req.id}`);
   }
+  let editScope;
+  if (input.edit_scope !== undefined) {
+    const scope=input.edit_scope, baseline=references.get(scope?.baseline_reference_id);
+    if (!scope || typeof scope !== 'object' || Array.isArray(scope) ||
+        Object.keys(scope).some(k=>!['baseline_reference_id','changes','preserve'].includes(k)) ||
+        !nonempty(scope.baseline_reference_id) || !baseline || baseline.generation_input!==true ||
+        !Array.isArray(scope.changes) || !scope.changes.length || scope.changes.some(x=>!nonempty(x)) ||
+        !Array.isArray(scope.preserve) || !scope.preserve.length || scope.preserve.some(x=>!nonempty(x))) {
+      errors.push('edit_scope requires an actual input baseline_reference_id, nonempty changes and preserve lists');
+    } else {
+      if (labels.has('本次编辑范围') || criterionIds.has('__edit_scope__')) errors.push('reserved edit scope label or criterion');
+      for(const text of [...scope.changes,...scope.preserve])checkProse(text,'本次编辑范围');
+      editScope=structuredClone(scope);
+      paragraphs.push(`【本次编辑范围】\n允许修改：${scope.changes.join('；')}。\n必须保持：${scope.preserve.join('；')}。`);
+    }
+  }
   if (errors.length) throw new Error(errors.join('\n'));
   const prompt = paragraphs.join('\n\n');
   const compiled = {
-    status: 'prompt_ready', prompt, prompt_sha256: promptHash(prompt),
+    status: 'prompt_ready', subject_kind: input.subject_kind, prompt, prompt_sha256: promptHash(prompt),
+    ...(editScope?{edit_scope:editScope}:{}),
     reference_inputs: input.references.filter(r => r.generation_input).map(r => ({id:r.id, source:r.source})),
     acceptance: input.acceptance,
     audit: { coverage: input.requirements.map(r => ({id:r.id, covered:used.has(r.id)})), unused_observations:[...basis.values()].filter(r => r.type==='observation'&&!used.has(r.id)).map(r=>r.id) },
@@ -111,8 +152,12 @@ export function compileProductionPrompt(input) {
 export function reviseProductionInput(input, change) {
   compileProductionPrompt(input);
   if(!nonempty(change?.request)||!Array.isArray(change?.channels)||!change.channels.length||change.channels.some(c=>!channels.has(c)))throw new Error('revision needs a request and allowed channels');
+  const unknownKeys=Object.keys(change).filter(k=>!['request','channels','sections','requirements','acceptance','edit_scope'].includes(k));
+  if(unknownKeys.length)throw new Error(`unsupported revision fields: ${unknownKeys.join(', ')}; reference or model changes need a newly reviewed complete brief`);
   if(!Array.isArray(change.sections)||!change.sections.length)throw new Error('revision needs section changes');
   const next=structuredClone(input), changedLabels=new Set();
+  if(input.edit_scope!==undefined&&change.edit_scope===undefined)throw new Error('refresh edit_scope for each scoped revision');
+  if(change.edit_scope!==undefined)next.edit_scope=structuredClone(change.edit_scope);
   for(const update of change.sections){
     const section=next.sections.find(s=>s.label===update.label);
     if(!section||!change.channels.includes(section.channel)||changedLabels.has(update.label))throw new Error('section revision escaped allowed scope');

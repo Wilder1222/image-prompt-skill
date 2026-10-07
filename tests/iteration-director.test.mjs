@@ -10,6 +10,21 @@ test('material round locks face and maturity',()=>{const r=run(['round','--name'
 test('studio polish locks semantic design',()=>{const r=run(['round','--name','studio_polish']);assert.ok(r.json.editable.includes('key_fill_ratio'));assert.ok(r.json.locked.includes('garment_silhouette'));});
 test('identity drift routes before maturity issue',()=>{const r=run(['next','--failures','maturity_undershoot,identity_drift','--passed','composition,garment_structure']);assert.equal(r.json.first_focus,'identity_drift');assert.equal(r.json.recommended_round,'identity_skin');});
 test('maturity undershoot routes to trait calibration',()=>{const r=run(['next','--failures','maturity_undershoot','--passed','face_identity_geometry']);assert.equal(r.json.recommended_round,'trait_calibration');assert.ok(r.json.round_plan.locked.includes('face_identity_geometry'));});
+
+test('legacy round and diagnostic entry points cannot discard accepted dimensions',()=>{
+  for(const args of [
+    ['round','--name','fashion_proportion','--passed','body_proportion'],
+    ['proportion-plan','--level','P9','--passed','fashion_asset_proportion'],
+    ['next','--failures','head_visual_too_large','--passed','fashion_asset_proportion'],
+    ['round','--name','asset_master_structure_refine','--passed','asset_master_structure_refine']
+  ]){
+    const r=run(args);assert.equal(r.status,1,JSON.stringify(args));assert.match(r.stderr,/reopen passed/);assert.equal(r.stdout.trim(),'');
+  }
+  const allowed=run(['round','--name','extremity_integrity','--passed','body_proportion']);
+  assert.equal(allowed.status,0,allowed.stderr);assert.ok(allowed.json.locked.includes('fashion_asset_proportion'));
+  const invalid=run(['round','--name','extremity_integrity','--passed','body_proportoin']);
+  assert.equal(invalid.status,1);assert.match(invalid.stderr,/unknown passed dimension/);
+});
 test('4k misuse goes to upscale not generation',()=>{const r=run(['next','--failures','resolution_semantic_misuse']);assert.equal(r.json.recommended_round,'upscale');});
 test('M2.5 profile is young and refined without aging cues',()=>{const r=run(['maturity','--level','M2.5']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.identity_geometry_policy,'locked');assert.equal(r.json.aging_cues,'none');assert.match(r.json.label,/light_mature/);});
 test('trait plan explicitly blocks reference geometry borrowing',()=>{const r=run(['trait-plan','--level','M2.5']);assert.equal(r.status,0,r.stderr);assert.ok(r.json.round_plan.locked.includes('face_identity_geometry'));assert.ok(r.json.prompt_skeleton.some(x=>/Do not copy B/.test(x)));});
