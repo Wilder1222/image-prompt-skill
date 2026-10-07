@@ -7,7 +7,7 @@ import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {listModelProfiles,adaptModelPrompt,verifyModelPlan} from '../scripts/model-adapter.mjs';
 import {compileProductionPrompt,reviewProductionResult,promptHash} from '../scripts/production-prompt.mjs';
-import {freezeProductionRun,verifyFrozenRun,finishProductionRun} from '../scripts/production-run.mjs';
+import {freezeProductionRun,verifyFrozenRun,finishProductionRun,summarizeProductionRuns} from '../scripts/production-run.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const fixture=()=>JSON.parse(fs.readFileSync(new URL('../examples/text-to-image-brief.json',import.meta.url),'utf8'));
@@ -135,7 +135,12 @@ test('freeze, inspect and receipt preserve an external target without pretending
   const receipt={...missing,execution_sha256:dispatch.execution_sha256,target_sha256:snapshot.target_sha256,prompt_sha256:snapshot.prompt_sha256,
     output_image:file,output_sha256:promptHash(fs.readFileSync(file)),inspected:true,reviewer:'synthetic unit fixture',
     checks:snapshot.target.acceptance.map(c=>({id:c.id,verdict:'uncertain',evidence:'Synthetic fixture; no actual model image was generated.'}))};
-  assert.equal(finishProductionRun(snapshot,receipt).status,'needs_review');
+  const result=finishProductionRun(snapshot,receipt);
+  assert.equal(result.status,'needs_review');
+  assert.equal(result.execution_sha256,dispatch.execution_sha256);
+  assert.doesNotThrow(()=>summarizeProductionRuns([{snapshot,outcome:result}]));
+  for(const execution_sha256 of [undefined,'a'.repeat(64)])
+    assert.throws(()=>summarizeProductionRuns([{snapshot,outcome:{...result,execution_sha256}}]),/execution_sha256/);
 });
 
 test('public CLI lists profiles, compiles full requests and returns clean copyable text',()=>{

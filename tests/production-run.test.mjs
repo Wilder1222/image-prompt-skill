@@ -18,6 +18,16 @@ function setup(t){
  return {dir,ref,input};
 }
 const freeze=(input,extra={})=>freezeProductionRun(input,{run_id:'a',case_id:'case',cohort:'test',...extra});
+
+test('freezing refuses unsupported reference controls before declaring a dispatchable run',t=>{
+ const {input}=setup(t);
+ input.references[0].subject_scale=0.9;
+ assert.throws(()=>freeze(input),/unsupported reference field subject_scale/);
+ delete input.references[0].subject_scale;
+ const snapshot=freeze(input),args=verifyFrozenRun(snapshot);
+ assert.deepEqual(Object.keys(args).sort(),['prompt','referenced_image_paths']);
+ assert.deepEqual(args.referenced_image_paths,[input.references[0].source]);
+});
 function withLayout(t){
  const context=setup(t),{input,ref}=context;
  input.references.push({id:'SHEET',source:ref,inspected:true,generation_input:true,authority:['layout'],facts:[{id:'grid',channel:'layout',visibility:'visible',text:'Synthetic panel layout only, not a character reference.'}]});
@@ -349,4 +359,75 @@ test('coordinated dynamic adaptation changes linked targets without reopening id
  const r=reviseProductionInput(input,change),child=freeze(r.input,{run_id:'dynamic',kind:'revision',parent});
  assert.deepEqual(r.input.sections.slice(0,2),input.sections.slice(0,2));assert.deepEqual(r.input.references,input.references);assert.equal(child.goal_changed,true);assert.doesNotMatch(r.compiled.prompt,/静止站立|双脚着地|衣摆静止垂落/);
  change.sections.push({label:'衣服',items:[{text:'换成新的衣服。',basis:['U2'],intent:'constraint'}]});assert.throws(()=>reviseProductionInput(input,change),/escaped allowed scope/);
+});
+
+test('summaries reject status-only promotion and downgraded frozen critical checks',t=>{
+ const {input,ref}=setup(t),snapshot=freeze(input);
+ for(const verdict of ['fail','uncertain','not_assessable']){
+  const original=outcome(snapshot,ref,verdict),before=structuredClone(original);
+  const summary=summarizeProductionRuns([{snapshot,outcome:original}]).cohorts.test;
+  assert.equal(summary.initial_passed,0);assert.equal(summary.resolved_without_goal_change,0);
+  const forged={...structuredClone(original),status:'reviewer_qualified',critical_failures:[],unresolved:[]};
+  forged.checks.forEach(c=>{c.critical=false;});
+  assert.throws(()=>summarizeProductionRuns([{snapshot,outcome:{...original,status:'reviewer_qualified'}}]),/conflicts with frozen review/);
+  assert.throws(()=>summarizeProductionRuns([{snapshot,outcome:forged}]),/conflicts with frozen review/);
+  assert.deepEqual(original,before);
+ }
+});
+
+test('summaries require complete bound observations and matching derived failure lists',t=>{
+ const {input,ref}=setup(t),snapshot=freeze(input),original=outcome(snapshot,ref);
+ const changes=[
+  o=>{o.target_sha256='a'.repeat(64);},o=>{o.prompt_sha256='b'.repeat(64);},
+  o=>{o.checks.pop();},o=>{o.checks.push(o.checks[0]);},o=>{o.checks[0].evidence=' ';},
+  o=>{o.checks[0].critical=false;},o=>{o.checks[0].question='different target';},
+  o=>{o.critical_failures=['proportion'];},o=>{o.unresolved=['proportion'];},
+  o=>{delete o.execution_status;},o=>{o.inspected=false;},o=>{o.reviewer='';},
+  o=>{o.output_sha256='';},o=>{o.status='unknown';}
+ ];
+ for(const change of changes){
+  const corrupted=structuredClone(original);change(corrupted);
+  assert.throws(()=>summarizeProductionRuns([{snapshot,outcome:corrupted}]));
+ }
+});
+
+test('scope failures cannot be promoted through overall or effective scope status',t=>{
+ const {input,ref}=setup(t),parent=freeze(input);
+ const snapshot=freeze({...input,edit_scope:{baseline_reference_id:'R1',changes:['衣服表面'],preserve:['人物','背景']}},{run_id:'scope-child',kind:'edit',parent});
+ const passed=outcome(snapshot,ref);
+ for(const verdict of ['fail','uncertain','not_assessable']){
+  const receipt={...passed,status:'completed',scope_review:{...passed.scope_review,preservation_checks:passed.scope_review.preservation_checks.map((c,i)=>({...c,verdict:i===1?verdict:'pass'}))}};
+  const result=finishProductionRun(snapshot,receipt);
+  const summarize=o=>summarizeProductionRuns([{snapshot:parent},{snapshot,outcome:o}]);
+  assert.doesNotThrow(()=>summarize(result));
+  assert.equal(result.scope_review.declared_verdict,'pass');
+  assert.throws(()=>summarize({...result,status:'reviewer_qualified',critical_failures:[],unresolved:[]}),/conflicts with frozen review/);
+  assert.throws(()=>summarize({...result,scope_review:{...result.scope_review,verdict:'pass'}}),/edit scope conflicts/);
+  assert.throws(()=>summarize({...result,scope_review:{...result.scope_review,preservation_checks:[]}}),/preservation_checks/);
+ }
+});
+
+test('portable summaries do not read output or reference files and retain legacy scope rules',t=>{
+ const {input,ref}=setup(t),parent=freeze(input);
+ const legacy=freeze({...input,edit_scope:{baseline_reference_id:'R1',changes:['表面'],preserve:['背景']}},{run_id:'legacy',kind:'edit',parent});
+ delete legacy.scope_review_contract;
+ const {snapshot_sha256,...body}=legacy;legacy.snapshot_sha256=objectHash(body);
+ const result=outcome(legacy,ref);
+ // The synthetic file is deliberately changed after review; summary checks declarations only.
+ fs.appendFileSync(ref,'changed after recorded review');
+ const report=summarizeProductionRuns([{snapshot:parent},{snapshot:legacy,outcome:result}]);
+ assert.equal(report.user_acceptance,'not_inferred');
+ assert.match(report.note,/no image files/);
+ assert.throws(()=>finishProductionRun(legacy,{...result,status:'completed'}),/reference content changed/);
+});
+
+test('noncompleted outcomes cannot claim completion and unknown dispatch remains unknown',t=>{
+ const {input}=setup(t),snapshot=freeze(input);
+ const interrupted=finishProductionRun(snapshot,{snapshot_sha256:snapshot.snapshot_sha256,status:'interrupted',reason:'Synthetic stop.',dispatch_state:'unknown'});
+ const error=finishProductionRun(snapshot,{snapshot_sha256:snapshot.snapshot_sha256,status:'tool_error',error:'Synthetic error.'});
+ for(const original of [interrupted,error]){
+  for(const patch of [{execution_status:'completed'},{output_sha256:'a'.repeat(64)},{checks:[]},{status:'reviewer_qualified'}])
+   assert.throws(()=>summarizeProductionRuns([{snapshot,outcome:{...original,...patch}}]));
+ }
+ assert.throws(()=>summarizeProductionRuns([{snapshot,outcome:{...interrupted,dispatch_state:'guessed'}}]),/noncompleted/);
 });

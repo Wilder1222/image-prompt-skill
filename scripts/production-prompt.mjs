@@ -6,6 +6,7 @@ import {characterStyleIds} from './character-style-render.mjs';
 // checks declared provenance, coverage and delivery integrity; it does not see images.
 const channels = new Set(['identity','expression','action','makeup','hair','costume','material','composition','layout','proportion','hands_feet','background','lighting','style','task','output']);
 const nonempty = x => typeof x === 'string' && x.trim().length > 0;
+const referenceFields = new Set(['id','source','inspected','generation_input','authority','facts','identity_group','identity_role']);
 const internalStyle = new RegExp(`\\b(?:${characterStyleIds.join('|')})\\b`);
 export const promptHash = text => crypto.createHash('sha256').update(text).digest('hex');
 
@@ -31,6 +32,12 @@ export function compileProductionPrompt(input) {
     if (row?.id) basis.set(row.id, {...row, type});
   }
   for (const ref of input.references ?? []) {
+    if (!ref || typeof ref !== 'object' || Array.isArray(ref)) {
+      errors.push('reference must be an object');
+      continue;
+    }
+    for (const key of Object.keys(ref)) if (!referenceFields.has(key))
+      errors.push(`unsupported reference field ${key}: ${ref.id ?? '(missing id)'}; reference roles do not enable weights, adapters or other execution controls`);
     if (!nonempty(ref?.id) || references.has(ref.id)) errors.push(`missing or duplicate reference: ${ref?.id}`);
     if (!nonempty(ref?.source) || ref?.inspected !== true) errors.push(`reference must actually be inspected: ${ref?.id}`);
     if (typeof ref?.generation_input !== 'boolean') errors.push(`declare generation_input: ${ref?.id}`);
@@ -55,7 +62,7 @@ export function compileProductionPrompt(input) {
       identitySources.some(r=>!['primary','support'].includes(r.identity_role)||r.generation_input!==true))
       errors.push('conflicting identity authorities; assign one primary identity reference and same-identity supporting views');
   }
-  for(const ref of input.references){
+  for(const ref of references.values()){
     if(ref.identity_role!==undefined&&!['primary','support'].includes(ref.identity_role))
       errors.push(`invalid identity_role for ${ref.id}; use primary or support`);
     if(ref.identity_role==='support'&&!identitySources.some(r=>r.identity_role==='primary'&&nonempty(r.identity_group)&&r.identity_group===ref.identity_group))

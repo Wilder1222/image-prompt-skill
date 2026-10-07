@@ -44,6 +44,31 @@ function receipt(compiled, verdict='pass') {
   return {prompt_sha256:compiled.prompt_sha256,output_image:'actual-output.png',output_sha256:'a'.repeat(64),inspected:true,reviewer:'test reviewer',checks:compiled.acceptance.map(c=>({id:c.id,verdict,evidence:'Synthetic test evidence; no real image approval.'}))};
 }
 
+test('reference declarations reject unsupported controls instead of silently dropping them',()=>{
+  for(const [key,value] of Object.entries({weight:0.9,subject_scale:0.9,adapter:'InstantCharacter',mask:'region.png',crop:{x:10,y:10},guidance:2,identity_weight:0.8,metadata:{subject_scale:0.9},generation_inputs:true})){
+    const input=fixture();input.references[0][key]=value;
+    const before=structuredClone(input);
+    assert.throws(()=>compileProductionPrompt(input),new RegExp(`unsupported reference field ${key}`));
+    assert.deepEqual(input,before);
+  }
+  const observer=fixture();
+  observer.references.push({id:'judge',source:'judge.png',inspected:true,generation_input:false,authority:['style'],facts:[{id:'style-note',channel:'style',visibility:'visible',text:'Synthetic observation only.'}],weight:0});
+  assert.throws(()=>compileProductionPrompt(observer),/unsupported reference field weight/);
+});
+
+test('supported identity roles preserve input order without inventing execution weights',()=>{
+  const input=fixture();
+  Object.assign(input.references[0],{identity_group:'same-person',identity_role:'primary'});
+  input.references.push({id:'side',source:'side.png',inspected:true,generation_input:true,identity_group:'same-person',identity_role:'support',authority:['identity'],facts:[{id:'side-face',channel:'identity',visibility:'partial',text:'Synthetic supporting view.'}]});
+  const compiled=compileProductionPrompt(input);
+  assert.deepEqual(compiled.reference_inputs,[{id:'R1',source:'test-reference.jpg'},{id:'side',source:'side.png'}]);
+  assert.equal(compiled.evidence.image_generated,false);
+  for(const value of [null,[],42]){
+    const broken=fixture();broken.references.push(value);
+    assert.throws(()=>compileProductionPrompt(broken),/reference must be an object/);
+  }
+});
+
 test('expression-only source supplies motion without acquiring identity or body authority',()=>{
   const brief=JSON.parse(fs.readFileSync(new URL('../examples/character-expression-brief.json',import.meta.url),'utf8'));
   brief.references.push({id:'motion',source:'synthetic-expression-fixture.png',inspected:true,generation_input:true,

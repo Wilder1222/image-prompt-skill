@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-07",
+  "purpose": "区分图像中的可见表面问题与未被证实的生成或渲染原因。",
+  "source_report": "docs/character-cg-fusion-evidence.json",
+  "run_id": "cinematic-cg-fusion-01",
+  "image": "dist/visual-tests/character-cg-fusion-20261006/fusion-01.png",
+  "output_sha256": "95aa9d45c32917d43f01af66e39d60fcb13c04ffce46668955a319430f2a2238",
+  "width": 1024,
+  "height": 1536,
+  "review_method": "代理重新查看完整原图；只读核对PNG尺寸与摘要，没有程序裁切、缩放或重绘。",
+  "observations": [
+    {
+      "region": "画面左侧踝前与足背连接处",
+      "visible": "可见斜向深浅楔形与较硬的明暗接界；外轮廓同时仍可辨。",
+      "supported_conclusion": "保留原媒介和肤质失败：未达到冻结条款要求的柔和连续转折。",
+      "not_established": "无法由单幅图判定存在低模网格、法线贴图错误或实际置换，也未确定唯一形成原因。"
+    },
+    {
+      "region": "上衣、短裤与裸露手臂",
+      "visible": "衣片有主褶和细碎织物表现，皮肤呈不同的明暗过渡；不能以衣料成立代替踝部验收。",
+      "supported_conclusion": "反射、微纹、主要形体需要分别观察；全幅增加锐度或纹理没有针对该踝部问题的依据。",
+      "not_established": "没有同形体、同相机和同灯光的受控渲染对照，不反算各材料粗糙度，也不量化单项因果。"
+    }
+  ],
+  "decision": "旧失败不改判；停止中的双参考去硬边组合继续停止。后续修订须明确可见目标及允许改变的表面或形状，不能假设接口具备法线、网格或严格像素保护能力。",
+  "new_generation_calls": 0,
+  "original_records_modified": false,
+  "existing_images_modified": false,
+  "new_accepted_assets": 0
+}

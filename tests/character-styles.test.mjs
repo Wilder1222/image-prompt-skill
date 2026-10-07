@@ -46,6 +46,42 @@ test('all media compile in both languages for generation and every scoped edit w
   }
 });
 
+test('structured style plans do not carry obsolete age, costume layers or photographic lamp metadata',()=>{
+  const legacyBefore=createAssetPlan();
+  for(const [styleWorkflow,profile] of profiles){
+    const plan=createAssetPlan({styleWorkflow});
+    const face=plan.stage_1.face_profile,material=plan.stage_3.material_separation,light=plan.stage_3.studio_lighting;
+    assert.equal(face.source_workflow,styleWorkflow);
+    assert.equal(face.age_range,'preserve_reference');
+    assert.equal(face.maturity_guard,'none');
+    assert.doesNotMatch(JSON.stringify(face),/年轻柔和软组织|成熟疲态|18_24|20_24|22_28|克制的摄影表现/);
+    assert.deepEqual(face.prompt_translation,[profile.appearance.face,profile.appearance.makeup]);
+    assert.doesNotMatch(JSON.stringify(material),/silk_brocade|silk_gauze|gold_thread_embroidery|ancient_asset_material_split/);
+    assert.doesNotMatch(JSON.stringify(light),/softbox|gold_thread|white_gauze|studio_soft_separation/);
+    for(const effective of [material,light])assert.equal(effective.source_workflow,styleWorkflow);
+    assert.equal(plan.configuration.material_profile,material.profile);
+    assert.equal(plan.configuration.lighting_profile,light.profile);
+    assert.equal(plan.stage_2.fashion_asset.visual_head_count_target,'9.0');
+    const young=createAssetPlan({styleWorkflow,maturityGuard:'youthful_18_22'});
+    assert.equal(young.stage_1.face_profile.age_range,'18_22');
+    assert.match(young.stage_1.prompt_skeleton.join('\n'),/18–22/);
+  }
+  // Switching styles must not mutate the compatible historical route.
+  assert.deepEqual(createAssetPlan(),legacyBefore);
+  assert.ok(legacyBefore.stage_3.material_separation.layers.primary_fabric);
+  assert.match(legacyBefore.stage_3.studio_lighting.key,/softbox/);
+});
+
+test('public structured plan CLI uses the chosen medium throughout its effective stages',()=>{
+  const r=spawnSync(process.execPath,['scripts/iteration-director.mjs','asset-master-plan-v082','--style-workflow','watercolor_character'],{encoding:'utf8'});
+  assert.equal(r.status,0,r.stderr);
+  const p=JSON.parse(r.stdout);
+  assert.equal(p.stage_3.studio_lighting.source_workflow,'watercolor_character');
+  assert.match(p.stage_3.studio_lighting.prompt_translation.join(' '),/纸白/);
+  assert.doesNotMatch(JSON.stringify(p.stage_3),/softbox|silk_brocade|gold_thread/);
+  assert.doesNotMatch(p.stage_1.face_profile.prompt_translation.join(' '),/真人纹理压力|柔亮高光/);
+});
+
 test('2D medium replaces photographic skin hair material and edge requirements instead of appending a label',()=>{
   const r=compileAssetPrompt({styleWorkflow:'anime_2d_character'});
   const parts=sections(r.prompt);

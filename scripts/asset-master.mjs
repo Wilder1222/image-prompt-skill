@@ -112,15 +112,21 @@ export function createAssetPlan(options = {}) {
   if (presentation.proportion_prompt_translation) {
     fashion = { ...fashion, prompt_translation: [...fashion.prompt_translation, ...presentation.proportion_prompt_translation] };
   }
-  let material = lookup(materials.profiles, configuration.material_profile, 'material profile');
-  if (appearance) material = {...material, prompt_translation:[appearance.material], generation_prompt_translation:[appearance.material]};
+  // Character media own these effective plans. Legacy layers and lamp settings
+  // must not survive merely because their rendered prose was replaced.
+  const material = appearance
+    ? {source_workflow:configuration.style_workflow, prompt_translation:[appearance.material], generation_prompt_translation:[appearance.material]}
+    : lookup(materials.profiles, configuration.material_profile, 'material profile');
+  if (appearance) configuration.material_profile = `style:${configuration.style_workflow}`;
   let asset = lookup(assets.profiles, configuration.asset_profile, 'asset profile');
   if (presentation.asset_prompt_translation) {
     asset = { aspect_ratio: '3:4', background: 'clean_white_seamless', requirements: ['complete_silhouette', 'readable_shoe_contact', 'reference_derived_hem'], prompt_translation: presentation.asset_prompt_translation };
     configuration.asset_profile = `presentation:${configuration.presentation_profile}`;
   }
-  let light = lookup(lights.profiles, configuration.lighting_profile, 'lighting profile');
-  if (appearance) light = {...light, prompt_translation:[appearance.lighting]};
+  const light = appearance
+    ? {source_workflow:configuration.style_workflow, prompt_translation:[appearance.lighting]}
+    : lookup(lights.profiles, configuration.lighting_profile, 'lighting profile');
+  if (appearance) configuration.lighting_profile = `style:${configuration.style_workflow}`;
   const passed = resolvePassedLocks(options.passed);
 
   function stage(name, prompts, data, requires = []) {
@@ -145,7 +151,8 @@ export function createAssetPlan(options = {}) {
     };
   }
   const stage1 = stage('face', [...(appearance ? [appearance.face, appearance.makeup] : face.prompt_translation), ...guard.prompt_translation], {
-    face_profile: { profile: configuration.face_profile, ...face,
+    face_profile: { profile: configuration.face_profile,
+      ...(appearance ? {source_workflow:configuration.style_workflow, prompt_translation:[appearance.face,appearance.makeup]} : face),
       // Catalog ages are historical defaults; the selected guard is the effective target.
       age_range: guard.enabled ? `${guard.age_floor}_${guard.age_ceiling}` : 'preserve_reference',
       maturity_guard: configuration.maturity_guard },

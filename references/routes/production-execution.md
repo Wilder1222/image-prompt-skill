@@ -53,6 +53,8 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 
 身份图可以声明 `identity_group` 和 `identity_role: primary|support`。单张图也检查角色值，未指定时省略该字段，不使用空值或其他名称。多个身份视角必须同组、恰好一个主参考、均实际送入生成；衣装或评价参考不因此取得身份权限。是否同一人物仍由观察与用户说明决定。
 
+新 brief 的每个参考对象只接受 `id`、`source`、`inspected`、`generation_input`、`authority`、`facts`、`identity_group`、`identity_role`。未实现的参考强度、适配器、遮罩、裁切或其他字段明确报错，不再静默丢弃后返回可生成状态；只用于观察的参考也执行同一检查。分工说明用已支持的观察、要求与正文表达，实际执行设置只能放在已实现的模型适配入口。主参考不等于数值权重，且结构化字段检查不能识别自然语言中所有虚假的能力声明。此规则检查新编译与新冻结，不改写历史快照。
+
 `reviseProductionInput` 只接受 `request`、`channels`、`sections`、`requirements`、`acceptance` 和 `edit_scope`。传入 `references`、`target` 或拼错的字段会明确报错，不静默忽略。需要按已授权任务更换参考或模型时，重新审阅完整 brief，并通过 `prepare` 冻结新输入及适当父任务；不能在仅改某个标签的请求中顺带换身份来源或执行模型。此校验适用于新的编译与修订，不重写旧快照。
 
 编辑或重生成使用 `prepare --kind edit|revision --parent previous.snapshot.json`，保持 case 与 cohort。快照会比较目标摘要，改变要求或验收标准时自动标记 goal_changed。不能把新目标的成功算作原目标修复成功。每轮同时重查已通过项，最多两轮无改善即停止该修订路线。
@@ -99,6 +101,10 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 
 统计输入是 snapshot/outcome 文件路径列表，`report --input entries.json` 输出每组的初始完成数、首次通过数、同目标修订后完成数、工具错误、未评审、待审、重复图和目标变化。路径相对执行目录。参考样本是已知回归图还是未参与调参的图，另在实验说明中写清。
 
-保留全部尝试，不删除失败后只展示胜出图。统计脚本验证引用关系与声明状态；报告前仍要核对 outcome 的真实文件、检查证据及调用记录，不能把任意手写结果当成自动视觉判断。
+保留全部尝试，不删除失败后只展示胜出图。统计脚本验证引用关系，并使用冻结验收项重算每份已完成 outcome 的状态、关键失败和未决清单；检查文本、关键性与编辑保护项也必须匹配原合同。仅把九头身失败的状态改成 `reviewer_qualified`，或删去检查、降级关键项、用保护汇总通过覆盖逐项失败，都会报错，不能进入首次通过或同目标修复成功统计。工具错误和中断不能混入已完成输出字段。
+
+汇总只核对已有声明，不读取图片文件、不重看像素、不认证观察者或实际调用。内容自洽的伪造观察仍不在脚本识别能力内；报告前仍要核对 outcome 的真实文件、检查证据及调用记录。它不会改写历史回执，也不会自动补齐缺失证据。
+
+带模型执行计划的新 outcome 保留 `execution_sha256`，汇总时与冻结计划匹配。旧版本若省略该字段，汇总会拒绝；必须找到原始回执及对应文件，重新验证并另存新 outcome，不能从当前配置猜测请求摘要或覆盖历史文件。未使用模型执行计划的内置工具记录不强制增加此字段。
 
 量化图像测试采用 `scripts/visual-score-report.mjs` 汇总时，还会读取运行目录的 `review-notes.json`，处理绑定原图与冻结检查的撤回通过注记，格式和边界见 [评分标准](../core/图像评分标准.md)。原始执行统计保留历史回执结论；有复核时不能单独用它证明当前视觉合格，应同时报告生效复核。两种视角的差异需要说明，不覆盖原文件制造一致。

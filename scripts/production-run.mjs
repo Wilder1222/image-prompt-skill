@@ -64,21 +64,9 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true}={}) {
   return {prompt:snapshot.prompt,...(inputs.length?{referenced_image_paths:inputs.map(r=>r.source)}:{})};
 }
 
-export function finishProductionRun(snapshot, receipt, baseDir=process.cwd()) {
-  verifyFrozenRun(snapshot);
-  if(receipt.snapshot_sha256!==snapshot.snapshot_sha256)throw new Error('receipt must bind the frozen run');
-  if(receipt.status==='tool_error'){
-    if(typeof receipt.error!=='string'||!receipt.error.trim()||receipt.output_image)throw new Error('tool error needs a reason and no output');
-    return {run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,status:'tool_error',error:receipt.error,recorded_at:new Date().toISOString()};
-  }
-  if(receipt.status==='interrupted'){
-    if(typeof receipt.reason!=='string'||!receipt.reason.trim()||receipt.output_image||!['not_started','started','unknown'].includes(receipt.dispatch_state))throw new Error('interruption needs a reason, dispatch state and no claimed output');
-    return {run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,status:'interrupted',reason:receipt.reason,dispatch_state:receipt.dispatch_state,recorded_at:new Date().toISOString()};
-  }
-  if(receipt.status!=='completed')throw new Error('receipt status must be completed, tool_error or interrupted');
+// Recompute review meaning from the frozen contract without accessing image files.
+function evaluateCompletedReview(snapshot, receipt) {
   if(snapshot.model_execution && receipt.execution_sha256!==snapshot.model_execution.execution_sha256)throw new Error('回执必须绑定实际模型、参数与完整请求的 execution_sha256');
-  const output=path.resolve(baseDir,receipt.output_image??'');
-  if(fileHash(output)!==receipt.output_sha256)throw new Error('output content changed');
   if(receipt.target_sha256!==snapshot.target_sha256)throw new Error('review target changed');
   const verdict=reviewProductionResult({prompt_sha256:snapshot.prompt_sha256,acceptance:snapshot.target.acceptance},receipt);
   let scopeReview;
@@ -107,9 +95,50 @@ export function finishProductionRun(snapshot, receipt, baseDir=process.cwd()) {
     if(['uncertain','not_assessable'].includes(scopeReview.verdict))verdict.unresolved.push('__edit_scope__');
     verdict.status=verdict.critical_failures.length?'needs_revision':verdict.unresolved.length?'needs_review':'reviewer_qualified';
   }else if(receipt.scope_review!==undefined)throw new Error('scope_review cannot claim an unfrozen edit scope');
+  return {verdict,scopeReview};
+}
+
+export function finishProductionRun(snapshot, receipt, baseDir=process.cwd()) {
+  verifyFrozenRun(snapshot);
+  if(receipt.snapshot_sha256!==snapshot.snapshot_sha256)throw new Error('receipt must bind the frozen run');
+  if(receipt.status==='tool_error'){
+    if(typeof receipt.error!=='string'||!receipt.error.trim()||receipt.output_image)throw new Error('tool error needs a reason and no output');
+    return {run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,status:'tool_error',error:receipt.error,recorded_at:new Date().toISOString()};
+  }
+  if(receipt.status==='interrupted'){
+    if(typeof receipt.reason!=='string'||!receipt.reason.trim()||receipt.output_image||!['not_started','started','unknown'].includes(receipt.dispatch_state))throw new Error('interruption needs a reason, dispatch state and no claimed output');
+    return {run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,status:'interrupted',reason:receipt.reason,dispatch_state:receipt.dispatch_state,recorded_at:new Date().toISOString()};
+  }
+  if(receipt.status!=='completed')throw new Error('receipt status must be completed, tool_error or interrupted');
+  const {verdict,scopeReview}=evaluateCompletedReview(snapshot,receipt);
+  const output=path.resolve(baseDir,receipt.output_image??'');
+  if(fileHash(output)!==receipt.output_sha256)throw new Error('output content changed');
   return {...verdict,run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,target_sha256:snapshot.target_sha256,
     ...(scopeReview?{edit_scope:structuredClone(snapshot.edit_scope),scope_review:scopeReview}:{}),
+    ...(snapshot.model_execution?{execution_sha256:receipt.execution_sha256}:{}),
     output_image:output,output_sha256:receipt.output_sha256,execution_status:'completed',inspected:true,reviewer:receipt.reviewer,recorded_at:new Date().toISOString()};
+}
+
+function verifyOutcomeReview(snapshot, outcome) {
+  if(['tool_error','interrupted'].includes(outcome.status)) {
+    const reason=outcome.status==='tool_error'?outcome.error:outcome.reason;
+    if(typeof reason!=='string'||!reason.trim()||outcome.output_image||outcome.output_sha256||
+        outcome.execution_status!==undefined||outcome.checks!==undefined||
+        (outcome.status==='interrupted'&&!['not_started','started','unknown'].includes(outcome.dispatch_state)))
+      throw new Error('noncompleted outcome needs a reason and cannot claim output or completed review');
+    return;
+  }
+  if(outcome.execution_status!=='completed')throw new Error('reviewed outcome must have completed execution');
+  const receipt={...outcome};
+  // Restore the original aggregate observation, then combine it with protected items.
+  if(snapshot.scope_review_contract===preservationContract && outcome.scope_review)
+    receipt.scope_review={...outcome.scope_review,verdict:outcome.scope_review.declared_verdict};
+  const {verdict,scopeReview}=evaluateCompletedReview(snapshot,receipt);
+  for(const key of ['status','checks','critical_failures','unresolved'])
+    if(objectHash(outcome[key]??null)!==objectHash(verdict[key]))throw new Error(`outcome ${key} conflicts with frozen review`);
+  if(objectHash(outcome.edit_scope??null)!==objectHash(snapshot.edit_scope??null)||
+      objectHash(outcome.scope_review??null)!==objectHash(scopeReview??null))
+    throw new Error('outcome edit scope conflicts with frozen review');
 }
 
 export function summarizeProductionRuns(entries) {
@@ -118,6 +147,7 @@ export function summarizeProductionRuns(entries) {
     verifyFrozenRun(s,{verifyFiles:false});
     if(byId.has(s.run_id))throw new Error('duplicate run id');
     if(o&&(o.run_id!==s.run_id||o.snapshot_sha256!==s.snapshot_sha256))throw new Error('outcome belongs to another snapshot');
+    if(o)verifyOutcomeReview(s,o);
     byId.set(s.run_id,{snapshot:s,outcome:o});
     if(o?.output_sha256){if(outputs.has(o.output_sha256))reused.add(s.run_id);outputs.add(o.output_sha256);}
   }
@@ -147,7 +177,7 @@ export function summarizeProductionRuns(entries) {
       interrupted:rows.filter(e=>e.outcome?.status==='interrupted').length,dispatch_unknown:rows.filter(e=>e.outcome?.status==='interrupted'&&e.outcome.dispatch_state==='unknown').length,
       reused_outputs:rows.filter(e=>reused.has(e.snapshot.run_id)).length,goal_changes:rows.filter(e=>e.snapshot.goal_changed).length};
   }
-  return {cohorts,user_acceptance:'not_inferred',note:'Counts are observer results for this sample; reused outputs and changed targets do not create initial successes.'};
+  return {cohorts,user_acceptance:'not_inferred',note:'Counts recheck declared reviews against frozen criteria; no image files, dispatch logs or visual evidence are re-inspected. Reused outputs and changed targets do not create initial successes.'};
 }
 
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
