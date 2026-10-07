@@ -11,7 +11,12 @@
       "gaze_stability": "open_youthful",
       "jaw_definition": "very_soft",
       "makeup_contrast": "fresh_high",
-      "aging_cues": "none"
+      "aging_cues": "none",
+      "prompt_translation": [
+        "气质明亮活泼：眉眼舒展、视线有好奇与回应，眼睑自然打开，不放大眼球或改眼形。",
+        "面颊随表情显得柔和，嘴角自然放松；不削瘦脸颊，不把清新表现改成低垂眼睑或冷峻神态。",
+        "已有妆面可按角色整理为清透鲜明的表现，无彩妆设定则保留；不因这档气质改变原人物年龄。"
+      ]
     },
     "M1": {
       "label": "youthful_fresh",
@@ -21,7 +26,12 @@
       "gaze_stability": "soft",
       "jaw_definition": "soft",
       "makeup_contrast": "fresh",
-      "aging_cues": "none"
+      "aging_cues": "none",
+      "prompt_translation": [
+        "气质清新温和：视线柔和专注，眉眼自然放松、眼睑舒展，唇部张力轻松。",
+        "保留面颊的自然饱满与下颌辨识，不以削瘦、拉长脸或减少原有年龄特征制造清新。",
+        "已有妆面保持干净、轻透，色彩服从原角色；不强加浓妆或统一甜笑。"
+      ]
     },
     "M2": {
       "label": "young_adult_refined",
@@ -31,7 +41,12 @@
       "gaze_stability": "calm",
       "jaw_definition": "clear_soft",
       "makeup_contrast": "moderate_refined",
-      "aging_cues": "none"
+      "aging_cues": "none",
+      "prompt_translation": [
+        "气质自然沉稳：眼神平静有焦点，眉眼与嘴角松紧适度，眼睑保持自然开合。",
+        "面颊与颌缘保持原软组织体积，减少夸张表演感而不改变脸型、鼻唇或表观年龄。",
+        "已有妆面对比适中、边缘整洁，保持本角色妆容设计和当前媒介，不强加摄影皮肤。"
+      ]
     },
     "M2.5": {
       "label": "light_mature_high_end_young_adult",
@@ -42,7 +57,12 @@
       "jaw_definition": "clear_not_sharp",
       "makeup_contrast": "restrained_editorial",
       "expression": "calm_refined_not_cold",
-      "aging_cues": "none"
+      "aging_cues": "none",
+      "prompt_translation": [
+        "气质从容精致：眼神稳定，眉眼与嘴角张力克制而自然，不表现成冷漠或怒视。",
+        "仅在原表情过度瞪眼时适度放松眼睑，面颊保持柔和体积，不凹陷削瘦、不拉长鼻颌。",
+        "已有妆面可减少过强腮红或高光，保持细腻协调；不增加皱纹，也不抹掉原有年龄特征。"
+      ]
     },
     "M3": {
       "label": "cool_mature",
@@ -52,7 +72,12 @@
       "gaze_stability": "cool_composed",
       "jaw_definition": "defined",
       "makeup_contrast": "controlled_low_medium",
-      "aging_cues": "none_unless_requested"
+      "aging_cues": "none_unless_requested",
+      "prompt_translation": [
+        "气质冷静疏离：目光沉着，眉眼和唇角动作幅度较小，仍保持自然眼睑与口唇连接。",
+        "颌缘与面颊辨识保持清楚，不靠凹颊、尖下巴或改鼻形制造成熟，也不自动添加悲苦与疲态。",
+        "已有妆面对比收敛、光泽克制，颜色与媒介沿用角色设计；不因冷静目标换成另一年龄。"
+      ]
     },
     "M4": {
       "label": "strong_authoritative_mature",
@@ -62,7 +87,12 @@
       "gaze_stability": "authoritative",
       "jaw_definition": "strong_clear",
       "makeup_contrast": "controlled",
-      "aging_cues": "none_by_default"
+      "aging_cues": "none_by_default",
+      "prompt_translation": [
+        "气质坚定有主见：注视明确，眉眼张力稳定，唇部与嘴角有自然控制，不用瞪眼或咬牙替代。",
+        "保持原下颌、面颊和鼻唇结构，以表情与视线传达威严，不加宽下颌、不削薄脸颊。",
+        "已有妆面轮廓整洁、对比受控，保留原年龄及媒介；威严不自动变成衰老、愤怒或男性化改脸。"
+      ]
     }
   },
   "preferred_signals": [
@@ -83,5 +113,7 @@
     "sagging",
     "pigmentation_aging"
   ],
-  "default_scope": "M2.5 仅为明确要求减少幼态、保持年轻的旧气质校准案例默认，不覆盖当前身份、表情或年龄要求。"
+  "default_scope": "M2.5 仅为明确要求减少幼态、保持年轻的旧气质校准案例默认，不覆盖当前身份、表情或年龄要求。",
+  "interpretation": "级别与英文特征值是兼容设计摘要，不是年龄档位或必须改变的几何量。高低眼睑、面颊柔和度和颌缘清晰度只描述本轮获准的表现方向；保留原人物软组织与表观年龄。aging_cues 表示不自动新增衰老处理，不授权删除既有皱褶、灰发或年龄特征。",
+  "preservation_prompt": "保留当前人物的稳定脸型、眼距与眼形核心、鼻唇辨识、面颊和下颌结构，以及表观年龄、当前媒介、发型、衣装、身体、姿态、取景、背景与布光。仅允许本轮目标所需的眼睑、面颊、嘴角和唇部自然运动，不逐像素冻结表情位置，也不借表情重塑五官。九头身仍为整个人物资产硬性目标；本轮气质局部调整保持身体，原比例未通过时继续单列未决。"
 }

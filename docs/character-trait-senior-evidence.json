@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-07",
+  "cohort": "character-senior-20261007",
+  "purpose": "明亮温和气质的年长人物局部诊断；新目标保留基准当前摄影式表现与毛发，明确区别于原风格化三维目标。",
+  "tool": "built-in image_gen",
+  "model": null,
+  "seed": null,
+  "evidence_directory": "dist/visual-tests/character-trait-senior-20261007",
+  "known_completed_calls": 1,
+  "approved_outputs": 0,
+  "user_accepted": false,
+  "group_verdict": "needs_revision",
+  "source_report": "docs/character-senior-evidence.json",
+  "runs": [
+    {
+      "run_id": "senior-trait-bright-01",
+      "case_id": "senior-stylized",
+      "subject_kind": "character",
+      "snapshot_file": "snapshot.json",
+      "snapshot_sha256": "2635b68d0f01b88158f3e1d31a6021007181a23294bb16271cc594d5b7d1c943",
+      "target_sha256": "4e1dd605dfee0f04332511b09e0d596eed896983141e68cffbd1df2f68880383",
+      "prompt_sha256": "e62dc2edc6c82ac9bd904d279bd141b1dfb165510897a7bd9011047a6bce481a",
+      "target": {
+        "subject_kind": "character",
+        "requirements": [
+          {
+            "id": "task",
+            "channel": "task",
+            "priority": "must",
+            "text": "编辑唯一输入图中的年长男性全身图，只把平静神态调整为明亮、温和、有回应的神态。保持同一人物、原取景和现有摄影式表现；这是面部气质局部编辑，不换风格、不换装、不修身体。输出仍为一张完整全身图，不增加头像特写、拼板、文字或道具。"
+          },
+          {
+            "id": "identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "保留原人物的长方脸、宽额头、眼距、鼻梁鼻翼、薄唇和较宽下颌辨识关系。头部大小与朝向保持，眼神仍看镜头；允许目标表情所需的眼睑、面颊、嘴角自然运动，不通过扩大眼球、抬高鼻梁、削尖下巴或收窄脸来改变气质。"
+          },
+          {
+            "id": "age",
+            "channel": "makeup",
+            "priority": "must",
+            "text": "保持原年长男性的表观年龄、暖棕肤色、额头眼角鼻唇及颈部年龄结构。眼睑仍有原有的年长软组织特征，不能磨平褶皱或绷紧皮肤变成年轻人。面部保持自然无明显彩妆，不增加眼影、腮红、口红或整体磨皮；表情牵动的自然细褶可以随动作变化。"
+          },
+          {
+            "id": "expression",
+            "channel": "expression",
+            "priority": "must",
+            "text": "让目光显得明亮、有温和回应，眉眼放松舒展，双眼自然看向镜头，保留原眼形和眼球大小，不瞪眼、不高抬眉。嘴唇自然闭合，嘴角轻轻向上，面颊随轻微笑意自然提起；形成可辨认的柔和闭口微笑，不露齿、不张嘴、不变成夸张大笑或冷峻神态。"
+          },
+          {
+            "id": "appearance",
+            "channel": "costume",
+            "priority": "must",
+            "text": "原图秃顶、银灰侧后短发、短髭与当前下颌胡茬保持；石青圆领短袖、深褐膝上短裤与赤脚保持，领袖裤脚、衣褶和颜色不变，不增加任何配饰。"
+          },
+          {
+            "id": "body",
+            "channel": "proportion",
+            "priority": "must",
+            "target_head_count": 9,
+            "text": "黄金九头身继续作为完整人物资产的硬性目标：中性直立人体高度应等于九个颅顶至下巴的头长，发量不计入。原图头身尚未达标，本次只改气质，不调整头部尺寸、脖子、肩胸腰臀、四肢或足底位置；原比例问题继续单列，不能把微笑完成当成九头身通过，也不按嘴角或面颊运动重新缩放身体。"
+          },
+          {
+            "id": "composition",
+            "channel": "composition",
+            "priority": "must",
+            "text": "保持原正面站姿、头颈朝向、双臂下垂、手指与双足位置，完整头顶至足底入画。原相机、图中人物尺度、画幅、留白、浅暖灰背景、柔和棚光方向和接触阴影保持；不靠更换角度或照明制造神态变化。"
+          },
+          {
+            "id": "style",
+            "channel": "style",
+            "priority": "must",
+            "text": "保持原图摄影式皮肤、银灰短发与衣料表现，不进行三维风格化、绘画转换或卡通化。仅面部目标动作发生变化，其余可见表面不顺带锐化、磨皮或增加细纹。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "task-check",
+            "basis": "task",
+            "critical": true,
+            "question": "是否为原人物的一张完整全身局部气质编辑，没有新增拼板、特写或道具？"
+          },
+          {
+            "id": "identity-check",
+            "basis": "identity",
+            "critical": true,
+            "question": "原脸型、鼻唇和眼距等稳定辨识关系是否保持，已区分自然微笑运动，没有重塑五官或改头角？"
+          },
+          {
+            "id": "age-check",
+            "basis": "age",
+            "critical": true,
+            "question": "年长观感与原有软组织特征是否保留，没有年轻化、磨平年龄结构或新增彩妆？"
+          },
+          {
+            "id": "expression-check",
+            "basis": "expression",
+            "critical": true,
+            "question": "是否出现比原图可辨认的明亮温和、自然闭口微笑，眉眼与面颊嘴角协调，没有瞪眼、露齿、张嘴或夸张大笑？"
+          },
+          {
+            "id": "appearance-check",
+            "basis": "appearance",
+            "critical": true,
+            "question": "现有发型与面部毛发、衣装、颜色及无饰品设计是否保持？"
+          },
+          {
+            "id": "body-check",
+            "basis": "body",
+            "critical": true,
+            "question": "完整人物是否已达到排除发量的黄金九头身？本轮只改气质不修身体，原失败不能因局部完成被升级通过。"
+          },
+          {
+            "id": "composition-check",
+            "basis": "composition",
+            "critical": true,
+            "question": "原全身姿态、手脚位置、头角、人物尺度、取景背景及布光是否保持？"
+          },
+          {
+            "id": "style-check",
+            "basis": "style",
+            "critical": true,
+            "question": "是否保留原摄影式表现，未随表情发生换媒介、整体磨皮、锐化或无关表面细纹变化？"
+          }
+        ]
+      },
+      "prompt": "【编辑对象】\n编辑唯一输入图中的年长男性全身图，只把平静神态调整为明亮、温和、有回应的神态。保持同一人物、原取景和现有摄影式表现；这是面部气质局部编辑，不换风格、不换装、不修身体。输出仍为一张完整全身图，不增加头像特写、拼板、文字或道具。\n\n【人物身份】\n保留原人物的长方脸、宽额头、眼距、鼻梁鼻翼、薄唇和较宽下颌辨识关系。头部大小与朝向保持，眼神仍看镜头；允许目标表情所需的眼睑、面颊、嘴角自然运动，不通过扩大眼球、抬高鼻梁、削尖下巴或收窄脸来改变气质。\n\n【年龄与肌肤】\n保持原年长男性的表观年龄、暖棕肤色、额头眼角鼻唇及颈部年龄结构。眼睑仍有原有的年长软组织特征，不能磨平褶皱或绷紧皮肤变成年轻人。面部保持自然无明显彩妆，不增加眼影、腮红、口红或整体磨皮；表情牵动的自然细褶可以随动作变化。\n\n【表情与眼神】\n让目光显得明亮、有温和回应，眉眼放松舒展，双眼自然看向镜头，保留原眼形和眼球大小，不瞪眼、不高抬眉。嘴唇自然闭合，嘴角轻轻向上，面颊随轻微笑意自然提起；形成可辨认的柔和闭口微笑，不露齿、不张嘴、不变成夸张大笑或冷峻神态。\n\n【发型与衣装】\n原图秃顶、银灰侧后短发、短髭与当前下颌胡茬保持；石青圆领短袖、深褐膝上短裤与赤脚保持，领袖裤脚、衣褶和颜色不变，不增加任何配饰。\n\n【身体比例与编辑边界】\n黄金九头身继续作为完整人物资产的硬性目标：中性直立人体高度应等于九个颅顶至下巴的头长，发量不计入。原图头身尚未达标，本次只改气质，不调整头部尺寸、脖子、肩胸腰臀、四肢或足底位置；原比例问题继续单列，不能把微笑完成当成九头身通过，也不按嘴角或面颊运动重新缩放身体。\n\n【姿态与画面保持】\n保持原正面站姿、头颈朝向、双臂下垂、手指与双足位置，完整头顶至足底入画。原相机、图中人物尺度、画幅、留白、浅暖灰背景、柔和棚光方向和接触阴影保持；不靠更换角度或照明制造神态变化。\n\n【表现方式】\n保持原图摄影式皮肤、银灰短发与衣料表现，不进行三维风格化、绘画转换或卡通化。仅面部目标动作发生变化，其余可见表面不顺带锐化、磨皮或增加细纹。\n\n【本次编辑范围】\n允许修改：面部眼睑、眉眼松紧、轻微嘴角上扬与随之自然提起的面颊，形成明亮温和闭口微笑；相关表情细褶可自然响应。\n必须保持：原人物稳定脸型、眼距、鼻唇下颌辨识与年长观感；头部尺寸和朝向保持；秃顶、银灰侧后短发、短髭与原下颌胡茬；衣装设计、衣褶配色、肩胸腰臀、四肢与手脚位置；不修原有身体比例；原相机、人物尺度、画幅留白、浅暖灰背景、灯光与接触阴影；原摄影式皮肤和布料表现，无新增彩妆或与表情无关的磨皮、锐化和细纹。",
+      "references": [
+        {
+          "id": "BASE",
+          "source": "dist/visual-tests/character-senior-20261007/senior-01.png",
+          "inspected": true,
+          "generation_input": true,
+          "authority": [
+            "identity",
+            "makeup",
+            "hair",
+            "costume",
+            "composition",
+            "style",
+            "background",
+            "lighting"
+          ],
+          "facts": [
+            {
+              "id": "seen-identity",
+              "channel": "identity",
+              "visibility": "visible",
+              "text": "正面年长男性，宽额头、长方脸、宽直鼻梁、薄唇和较宽下颌，当前闭口平静。"
+            },
+            {
+              "id": "seen-age",
+              "channel": "makeup",
+              "visibility": "visible",
+              "text": "暖棕皮肤，额纹、眼周松弛、鼻唇和颈部褶皱可见；无明显彩妆。"
+            },
+            {
+              "id": "seen-outfit",
+              "channel": "costume",
+              "visibility": "visible",
+              "text": "石青圆领短袖、深褐膝上短裤、赤脚，无饰品。"
+            },
+            {
+              "id": "seen-style",
+              "channel": "style",
+              "visibility": "visible",
+              "text": "现图呈摄影式皮肤、细发、布面微纹和柔和棚光；本轮保留这一实际表现。"
+            }
+          ],
+          "content_sha256": "905ef90460006ddfe461e9db9e242f26b2d940786b00d8e417d7d60c89812f74"
+        }
+      ],
+      "output_file": "trait-01.png",
+      "output_sha256": "193b64f061fe62a688c146cc3733d4b87b5b4d6e7548b9f8f030490647bd2a57",
+      "image_metadata": {
+        "width": 1024,
+        "height": 1536,
+        "bit_depth": 8,
+        "color_type": 2
+      },
+      "status": "needs_revision",
+      "checks": [
+        {
+          "id": "task-check",
+          "basis": "task",
+          "critical": true,
+          "question": "是否为原人物的一张完整全身局部气质编辑，没有新增拼板、特写或道具？",
+          "verdict": "pass",
+          "evidence": "一张原人物正面完整全身图，主要变化为闭口微笑，无新增拼板、特写、文字或道具；衣褶等附带重绘单列在衣装、表面与保护范围项，任务形式成立不代表编辑整体合格。"
+        },
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "原脸型、鼻唇和眼距等稳定辨识关系是否保持，已区分自然微笑运动，没有重塑五官或改头角？",
+          "verdict": "pass",
+          "evidence": "原宽额、长方脸轮廓、眼距、鼻梁鼻翼和较宽下颌可辨，秃顶与两侧耳廓、鼻口关系仍对应；嘴角上扬与面颊提起符合微笑，未见把人物改成年轻模板或另一脸型。头角基本保持，此结论限于当前全身图可见尺度，不是身份识别器认证。"
+        },
+        {
+          "id": "age-check",
+          "basis": "age",
+          "critical": true,
+          "question": "年长观感与原有软组织特征是否保留，没有年轻化、磨平年龄结构或新增彩妆？",
+          "verdict": "pass",
+          "evidence": "额纹、眼角与下眼睑年龄结构、鼻唇和颈部软组织仍可见，秃顶灰白毛发与暖棕皮肤维持年长观感；没有新增明显眼影、口红或腮红，也没有整体年轻化。皮肤部分表现变化另按保护范围检查，不用年龄保持覆盖它。"
+        },
+        {
+          "id": "expression-check",
+          "basis": "expression",
+          "critical": true,
+          "question": "是否出现比原图可辨认的明亮温和、自然闭口微笑，眉眼与面颊嘴角协调，没有瞪眼、露齿、张嘴或夸张大笑？",
+          "verdict": "pass",
+          "evidence": "与平静基准相比，双侧嘴角轻抬、面颊微提、眉眼更有回应，形成可辨认的柔和微笑；嘴唇闭合，无露齿、张嘴、瞪眼或夸张抬眉。双眼看镜头，眼口动作协调。"
+        },
+        {
+          "id": "appearance-check",
+          "basis": "appearance",
+          "critical": true,
+          "question": "现有发型与面部毛发、衣装、颜色及无饰品设计是否保持？",
+          "verdict": "fail",
+          "evidence": "秃顶、银灰侧发、短髭和下颌胡茬、蓝色短袖与褐色短裤、赤脚及无饰品设计保持；但冻结要求同时保护衣褶。上衣胸腹部原斜向细褶被重新分布，下腹近衣摆的横向起伏与明暗改变，衣装颜色和款式相同不能覆盖此项失败。"
+        },
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "完整人物是否已达到排除发量的黄金九头身？本轮只改气质不修身体，原失败不能因局部完成被升级通过。",
+          "verdict": "fail",
+          "evidence": "人体仍大致保留原头肩、胸腰、骨盆、上下臂和上下腿关系，手足尺度基本协调；没有达到九头身，且本轮未授权比例修复。按当前图单独声明的保守投影区间，上界为8.4412，低于九；这只是端点算术辅助，不认证三维测量。短裤覆盖的骨盆内部关系不作精确推断。"
+        },
+        {
+          "id": "composition-check",
+          "basis": "composition",
+          "critical": true,
+          "question": "原全身姿态、手脚位置、头角、人物尺度、取景背景及布光是否保持？",
+          "verdict": "pass",
+          "evidence": "正面站姿、头颈方向、双臂下垂、手指和双足位置、人物整体尺度及上下留白基本保持；浅暖灰背景、主光方向和接地阴影相近。未靠转头、换镜头或重置环境制造微笑；这是全图视觉对照，不声称像素完全一致。"
+        },
+        {
+          "id": "style-check",
+          "basis": "style",
+          "critical": true,
+          "question": "是否保留原摄影式表现，未随表情发生换媒介、整体磨皮、锐化或无关表面细纹变化？",
+          "verdict": "fail",
+          "evidence": "整体仍为摄影式表现，没有换成绘画、动画或三维概括；但本条还要求非表情区域的表面保持。上衣细纹与褶皱明暗被重绘，颈部部分明暗和细褶分布也变化，不能把仍属摄影表现当成所有表面都已保留。"
+        }
+      ],
+      "edit_scope": {
+        "baseline_reference_id": "BASE",
+        "changes": [
+          "面部眼睑、眉眼松紧、轻微嘴角上扬与随之自然提起的面颊，形成明亮温和闭口微笑；相关表情细褶可自然响应"
+        ],
+        "preserve": [
+          "原人物稳定脸型、眼距、鼻唇下颌辨识与年长观感；头部尺寸和朝向保持",
+          "秃顶、银灰侧后短发、短髭与原下颌胡茬",
+          "衣装设计、衣褶配色、肩胸腰臀、四肢与手脚位置；不修原有身体比例",
+          "原相机、人物尺度、画幅留白、浅暖灰背景、灯光与接触阴影",
+          "原摄影式皮肤和布料表现，无新增彩妆或与表情无关的磨皮、锐化和细纹"
+        ]
+      },
+      "scope_review_contract": "preservation_items_v1",
+      "scope_review": {
+        "verdict": "fail",
+        "change_evidence": "完成柔和闭口微笑，面颊和眼周有对应自然运动，年长观感基本保留。",
+        "preservation_evidence": "脸型年龄与整体姿态构图基本保持，但上衣胸腹褶皱、细纹及部分颈部表面出现与表情任务无关的重绘。",
+        "declared_verdict": "fail",
+        "preservation_checks": [
+          {
+            "index": 0,
+            "requirement": "原人物稳定脸型、眼距、鼻唇下颌辨识与年长观感；头部尺寸和朝向保持",
+            "verdict": "pass",
+            "evidence": "稳定脸型、眼距、鼻唇下颌与年长观感对应原图，头部大小和朝向未见明显偏移；表情动作不作为身份漂移。"
+          },
+          {
+            "index": 1,
+            "requirement": "秃顶、银灰侧后短发、短髭与原下颌胡茬",
+            "verdict": "pass",
+            "evidence": "秃顶、银灰侧后短发、短髭及原下颌胡茬设计保持，没有删胡须或换发型。"
+          },
+          {
+            "index": 2,
+            "requirement": "衣装设计、衣褶配色、肩胸腰臀、四肢与手脚位置；不修原有身体比例",
+            "verdict": "fail",
+            "evidence": "衣装款式与配色、身体四肢和手足位置基本保持；但胸腹部斜向褶皱和近下摆起伏重绘，违反本轮衣褶保护，不能因款式相同而通过。"
+          },
+          {
+            "index": 3,
+            "requirement": "原相机、人物尺度、画幅留白、浅暖灰背景、灯光与接触阴影",
+            "verdict": "pass",
+            "evidence": "原画幅、人物尺度和留白、浅暖灰背景与主要灯光接触影相近，没有明显换机位或整体改光。"
+          },
+          {
+            "index": 4,
+            "requirement": "原摄影式皮肤和布料表现，无新增彩妆或与表情无关的磨皮、锐化和细纹",
+            "verdict": "fail",
+            "evidence": "摄影媒介和无彩妆状态保持，但衣料微纹、褶皱受光以及部分颈部纹理被重新表现，未满足只改面部表情、其余表面保持的边界。"
+          }
+        ]
+      },
+      "parent": {
+        "run_id": "senior-stylized-01",
+        "snapshot_sha256": "a9924c39b12cc7247e5d642f30b438b9ebfdeb43437171d41d0120ee9e338434"
+      },
+      "goal_changed": true
+    }
+  ],
+  "proportion_observation": {
+    "image": "trait-01.png",
+    "image_sha256": "193b64f061fe62a688c146cc3733d4b87b5b4d6e7548b9f8f030490647bd2a57",
+    "image_height": 1536,
+    "crown_y": [
+      5,
+      25
+    ],
+    "chin_y": [
+      195,
+      230
+    ],
+    "sole_y": [
+      null,
+      1460
+    ],
+    "landmark_note": "代理查看原始全图后为当前输出声明宽松区间：秃顶颅顶在上缘附近，下巴下缘约在两百像素高度附近；短髭和胡茬不增加解剖头长。足底保留未知下界，仅用低于可见足趾及接地处的保守上界。没有自动识别端点或改写旧图观察。",
+    "projection_note": "正面近中性直立，身体与原图相近；此投影界仅辅助明显不足九头身的人工判断，不是精确三维比例或验收容差。面颊和嘴角运动不重设身体设计。"
+  },
+  "proportion_diagnostic": {
+    "ratio_upper": 8.441176470588236,
+    "target_relation": "excluded_by_declared_bounds",
+    "anatomical_measurement_verified": false,
+    "acceptance_granted": false
+  },
+  "findings": [
+    "本张闭口微笑可见，身份和年长观感基本保持；不把明亮神态等同于年轻化。",
+    "衣褶与表面仍发生范围外重绘；局部表情改善不等于编辑保护项通过。",
+    "九头身失败保留，没有因局部任务转换目标而升级旧身体；目标变化明确，不计旧三维风格的修复成功。"
+  ],
+  "stopping_decision": "按单次计划停止；保留原图和新图，不追加其余不变等强化措辞重试。",
+  "evidence_boundaries": {
+    "character_outputs_added": 1,
+    "character_outputs_total": 34,
+    "full_body_unruled_total": 23,
+    "noncharacter_sample_outputs_separate": 1,
+    "character_qualified_total": 0,
+    "no_programmatic_image_edits": true,
+    "source_and_old_receipts_unchanged": true,
+    "selected_style_audit_outputs_unchanged": 20,
+    "all_six_temperaments_verified": false,
+    "prompt_change_causal_effect_established": false
+  },
+  "review_notes": [
+    {
+      "运行": "senior-trait-bright-01",
+      "检查": "task-check",
+      "快照摘要": "2635b68d0f01b88158f3e1d31a6021007181a23294bb16271cc594d5b7d1c943",
+      "输出摘要": "193b64f061fe62a688c146cc3733d4b87b5b4d6e7548b9f8f030490647bd2a57",
+      "原结论": "pass",
+      "复核结论": "fail",
+      "理由": "原任务条款同时规定仅调整神态。初次观察只按完整全身、无拼板和道具通过任务形式，却已在其他项记录胸腹衣褶等范围外重绘；复合任务条款不能拆掉局部边界后通过。撤回本项，不改写原回执或冻结标准，整体仍为需修订。",
+      "复核者": "代理提交前逐条复核问题、证据和结论",
+      "关键项": true
+    }
+  ],
+  "review_note_boundary": "runs.checks 保留原回执；review_notes 撤回 task-check 通过。原始快照、回执、评分和调用数未改变，整体需修订结论不变。"
+}

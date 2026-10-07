@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
+import { applyReviewNotes } from './visual-score-report.mjs';
 
 const readJson = (root, relativePath) => {
   const absolutePath = path.resolve(root, relativePath);
@@ -20,6 +21,37 @@ const verdict = (run, checkId) => Array.isArray(run.checks) ? run.checks.find(ch
 const nonempty = value => typeof value === 'string' && value.trim().length > 0;
 const completed = run => ['needs_review', 'needs_revision', 'reviewer_qualified'].includes(run.status);
 const isActualOutput = run => completed(run) && nonempty(run.output_file) && typeof run.output_sha256 === 'string' && /^[a-f0-9]{64}$/i.test(run.output_sha256);
+
+// Public reports retain original reviews; bound notes can withdraw, never promote.
+function reviewedChecks(report) {
+  if (report.review_notes === undefined) return new Map();
+  if (!Array.isArray(report.review_notes)) throw new Error('复核注记必须是数组');
+  if (!report.review_notes.length) return new Map();
+  const byId = new Map(report.runs.map(run => [run.run_id, run]));
+  if (byId.size !== report.runs.length) throw new Error('复核注记的运行标识重复');
+  for (const note of report.review_notes) {
+    const run = note && byId.get(note.运行);
+    if (!run || !isActualOutput(run) || !/^[a-f0-9]{64}$/.test(run.snapshot_sha256 ?? '') ||
+        !Array.isArray(run.target?.acceptance) || !Array.isArray(run.checks))
+      throw new Error('复核注记需要已完成输出、原快照摘要及冻结验收');
+  }
+  // Only binding fields are adapted; no aesthetic score is manufactured.
+  const rows = report.runs.map(run => ({
+    snapshot: {snapshot_sha256:run.snapshot_sha256, target:run.target},
+    receipt: {checks:run.checks},
+    score: {运行:run.run_id, 输出摘要:run.output_sha256},
+    qualified: false
+  }));
+  return new Map(applyReviewNotes(rows, report.review_notes).map(row => {
+    const run = byId.get(row.score.运行);
+    const notes = row.reviewNotes;
+    const checks = Array.isArray(run.checks) ? run.checks.map(check => {
+      const note = notes.find(item => item.检查 === check?.id);
+      return note ? {...check, verdict:note.复核结论} : check;
+    }) : run.checks;
+    return [run.run_id, {checks, notes}];
+  }));
+}
 
 // Check declared review consistency only; this does not certify image quality.
 function qualificationConsistent(run) {
@@ -59,7 +91,7 @@ export function auditCharacterStyleEvidence({ root = process.cwd(), catalogPath 
     const profile = workflows.profiles?.[route.style_id];
     if (!profileIds.includes(route.style_id)) {
       errors.push(`证据目录引用了未知风格: ${route.style_id}`);
-      return { style_id: route.style_id, label: null, profile_configured: false, evidence_reports: [], recorded_outputs: 0, file_verified_outputs: verifyFiles ? 0 : null, completed_runs: 0, consistent_qualified_reports: 0, medium_pass_runs: 0, body_pass_runs: 0, evidence_status: 'invalid' };
+      return { style_id: route.style_id, label: null, profile_configured: false, evidence_reports: [], recorded_outputs: 0, file_verified_outputs: verifyFiles ? 0 : null, completed_runs: 0, original_consistent_qualified_reports: 0, consistent_qualified_reports: 0, applied_review_notes: 0, original_medium_pass_runs: 0, medium_pass_runs: 0, original_body_pass_runs: 0, body_pass_runs: 0, evidence_status: 'invalid' };
     }
     const runs = [];
     const reportNames = [];
@@ -82,6 +114,9 @@ export function auditCharacterStyleEvidence({ root = process.cwd(), catalogPath 
         continue;
       }
       const allRuns = report.runs;
+      let reviews = new Map(), reviewsValid = true;
+      try { reviews = reviewedChecks(report); }
+      catch (error) { errors.push(`${selector.report}: 复核注记无效 (${error.message})`); reviewsValid = false; }
       const completedCount = allRuns.filter(completed).length;
       if (!Number.isSafeInteger(report.known_completed_calls) || report.known_completed_calls !== completedCount) {
         errors.push(`${selector.report} 的 known_completed_calls 与已完成记录数 ${completedCount} 不一致`);
@@ -113,7 +148,8 @@ export function auditCharacterStyleEvidence({ root = process.cwd(), catalogPath 
           continue;
         }
         seenOutputs.add(digest);
-        runs.push(run);
+        const reviewed = reviews.get(run.run_id);
+        runs.push({...run, _effective_checks:reviewsValid ? reviewed?.checks ?? run.checks : [], _review_notes:reviewed?.notes ?? [], _reviews_valid:reviewsValid});
         if (run.status === 'reviewer_qualified' && !qualificationConsistent(run)) errors.push(`${run.run_id}: 合格声明与九头身、关键检查或编辑范围记录矛盾`);
         if (verifyFiles) {
           try {
@@ -126,8 +162,11 @@ export function auditCharacterStyleEvidence({ root = process.cwd(), catalogPath 
       }
     }
     const actualOutputs = runs.length;
-    const qualified = runs.filter(run => run.status === 'reviewer_qualified' && qualificationConsistent(run) &&
-      (!verifyFiles || verifiedOutputs.has(run.output_sha256.toLowerCase()))).length;
+    const originallyQualified = run => run.status === 'reviewer_qualified' && qualificationConsistent(run) &&
+      (!verifyFiles || verifiedOutputs.has(run.output_sha256.toLowerCase()));
+    const originalQualified = runs.filter(originallyQualified).length;
+    const qualified = runs.filter(run => originallyQualified(run) && run._reviews_valid &&
+      qualificationConsistent({...run, checks:run._effective_checks})).length;
     if (actualOutputs === 0) errors.push(`${route.style_id} 没有有效登记输出`);
     return {
       style_id: route.style_id,
@@ -137,9 +176,13 @@ export function auditCharacterStyleEvidence({ root = process.cwd(), catalogPath 
       completed_runs: completedRuns,
       recorded_outputs: actualOutputs,
       file_verified_outputs: verifyFiles ? runs.filter(run => verifiedOutputs.has(run.output_sha256.toLowerCase())).length : null,
+      original_consistent_qualified_reports: originalQualified,
       consistent_qualified_reports: qualified,
-      medium_pass_runs: runs.filter((run) => verdict(run, 'medium-check') === 'pass').length,
-      body_pass_runs: runs.filter((run) => verdict(run, 'body-check') === 'pass').length,
+      applied_review_notes: runs.reduce((sum,run) => sum + run._review_notes.length,0),
+      original_medium_pass_runs: runs.filter(run => verdict(run,'medium-check') === 'pass').length,
+      medium_pass_runs: runs.filter(run => verdict({checks:run._effective_checks},'medium-check') === 'pass').length,
+      original_body_pass_runs: runs.filter(run => verdict(run,'body-check') === 'pass').length,
+      body_pass_runs: runs.filter(run => verdict({checks:run._effective_checks},'body-check') === 'pass').length,
       duplicate_outputs: duplicateOutputs,
       evidence_status: errors.length > errorStart ? 'invalid' : qualified > 0 ? 'has_consistent_qualified_reports' : 'unresolved'
     };
@@ -149,7 +192,7 @@ export function auditCharacterStyleEvidence({ root = process.cwd(), catalogPath 
   const total = routes.reduce((sum, route) => sum + route.recorded_outputs, 0);
   const qualified = routes.reduce((sum, route) => sum + route.consistent_qualified_reports, 0);
   return {
-    schema_version: 2,
+    schema_version: 3,
     purpose: '核对风格配置、登记输出和人工结论的一致性；不执行提示词编译或视觉评分。',
     hard_rule: '所有人物路线仍以颅顶至下巴头长定义的黄金九头身为硬性目标；本审计不替代逐图测量。',
     verification_mode: verifyFiles ? 'local_output_sha256' : 'report_metadata_only',
@@ -157,13 +200,17 @@ export function auditCharacterStyleEvidence({ root = process.cwd(), catalogPath 
     routes_with_recorded_outputs: routes.filter(route => route.recorded_outputs > 0).length,
     recorded_outputs: total,
     file_verified_outputs: verifyFiles ? verifiedOutputs.size : null,
+    original_consistent_qualified_reports: routes.reduce((sum,route) => sum + route.original_consistent_qualified_reports,0),
     consistent_qualified_reports: qualified,
+    applied_review_notes: routes.reduce((sum,route) => sum + route.applied_review_notes,0),
     evidence_reports: [...seenReports].sort(),
     routes,
     errors,
     boundaries: [
       '登记输出来自报告中的非空路径和 SHA-256；仅 local_output_sha256 模式读取本地文件并核对摘要。',
       '合格声明只检查报告自洽性，不认证原始回执、像素内容、人工观察、用户验收或批量稳定性。',
+      'original_* 保留原报告计数；其余通过计数应用报告内绑定的 review_notes。注记只允许撤回，不能新增输出、改写旧回执或提升通过。无效注记令相应报告的生效通过计数归零并报错。',
+      '仅处理显式报告中携带的复核注记，不自动扫描本地历史目录；报告维护者仍须带入全部适用复核。',
       '媒介项通过不能抵消九头身或其他关键项失败；风格配置存在不能替代编译检查。',
       '只汇总显式目录指定的实验，不是人物专项全部输出总数。'
     ]

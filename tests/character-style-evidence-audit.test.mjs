@@ -146,3 +146,54 @@ test('报告缺失和未知风格保留结构化错误与有效数值汇总', t 
   assert.equal(result.recorded_outputs,0);
   assert.ok(result.errors.some(error=>error.includes('未知风格')));
 });
+
+function reviewNote(f, check='body-check', verdict='fail') {
+  f.run.snapshot_sha256='a'.repeat(64);
+  return {运行:f.run.run_id,检查:check,快照摘要:f.run.snapshot_sha256,输出摘要:f.run.output_sha256,原结论:'pass',复核结论:verdict,理由:'合成测试：撤回原观察，不声称实际看图。',复核者:'合成测试观察者'};
+}
+
+test('撤回比例或媒介通过后保留原记录并降低生效计数', t => {
+  const f=fixture(t);
+  for(const check of ['body-check','medium-check'])for(const verdict of ['fail','uncertain']){
+    f.report.review_notes=[reviewNote(f,check,verdict)];
+    const before=structuredClone(f.report),r=f.audit({verifyFiles:true}),route=r.routes[0];
+    assert.deepEqual(r.errors,[]);
+    assert.equal(r.recorded_outputs,1);assert.equal(r.file_verified_outputs,1);
+    assert.equal(r.original_consistent_qualified_reports,1);assert.equal(r.consistent_qualified_reports,0);
+    assert.equal(r.applied_review_notes,1);assert.equal(route.applied_review_notes,1);
+    assert.equal(route.original_body_pass_runs,1);assert.equal(route.original_medium_pass_runs,1);
+    assert.equal(route.body_pass_runs,check==='body-check'?0:1);
+    assert.equal(route.medium_pass_runs,check==='medium-check'?0:1);
+    assert.equal(route.evidence_status,'unresolved');assert.deepEqual(f.report,before);
+  }
+});
+
+test('复核注记绑定错误不能静默丢弃后继续计通过', t => {
+  const f=fixture(t),base=reviewNote(f);
+  for(const patch of [{运行:'missing'},{检查:'unknown'},{快照摘要:'b'.repeat(64)},{输出摘要:'c'.repeat(64)},{原结论:'fail'},{复核结论:'pass'},{理由:''},{复核者:''}]){
+    f.report.review_notes=[{...base,...patch}];
+    const r=f.audit();
+    assert.ok(r.errors.some(e=>e.includes('复核注记')));
+    assert.equal(r.consistent_qualified_reports,0);assert.equal(r.routes[0].body_pass_runs,0);
+    assert.equal(r.routes[0].evidence_status,'invalid');assert.equal(r.recorded_outputs,1);
+  }
+  for(const notes of [null,{},[base,base]]){f.report.review_notes=notes;assert.ok(f.audit().errors.some(e=>e.includes('复核注记')));}
+  f.report.review_notes=[base];delete f.run.snapshot_sha256;
+  assert.ok(f.audit().errors.some(e=>e.includes('复核注记')));
+});
+
+test('非关键复核保留合格，筛选不把另一运行的撤回转嫁到当前运行', t => {
+  const f=fixture(t);
+  f.run.checks.push({id:'optional',critical:false,verdict:'pass',evidence:'合成可选观察'});
+  f.run.target.acceptance.push({id:'optional',critical:false});
+  f.report.review_notes=[reviewNote(f,'optional')];
+  assert.equal(f.audit().consistent_qualified_reports,1);
+  f.run.case_id='first';
+  const other={...structuredClone(f.run),run_id:'two',case_id:'second',output_file:'two.png',output_sha256:'b'.repeat(64)};
+  f.report.runs.push(other);f.report.known_completed_calls=2;
+  f.report.review_notes=[{...reviewNote(f),运行:'two',输出摘要:other.output_sha256}];
+  f.catalog.routes[0].evidence[0].case_id='first';
+  const r=f.audit();assert.deepEqual(r.errors,[]);assert.equal(r.consistent_qualified_reports,1);
+  assert.equal(r.applied_review_notes,0);assert.equal(r.routes[0].body_pass_runs,1);
+  assert.equal(r.recorded_outputs,1);
+});

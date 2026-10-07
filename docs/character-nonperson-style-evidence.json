@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-07",
+  "cohort": "character-nonperson-style-20261007",
+  "purpose": "非人物风格样板作为角色转换参考的前置验收；本轮止于样板，不宣称完成人物风格转换实验。",
+  "tool": "built-in image_gen",
+  "model": null,
+  "seed": null,
+  "evidence_directory": "dist/visual-tests/character-nonperson-style-20261007",
+  "known_completed_calls": 1,
+  "noncharacter_outputs": 1,
+  "character_outputs": 0,
+  "approved_outputs": 0,
+  "user_accepted": false,
+  "group_verdict": "needs_revision",
+  "runs": [
+    {
+      "run_id": "nonperson-style-sample-01",
+      "case_id": "nonperson-style-sample",
+      "subject_kind": "other",
+      "snapshot_file": "sample.snapshot.json",
+      "snapshot_sha256": "23fda8c5a0318c8d1b82fc4968e503b6fcc126879c560bf6e0a07c785e32b1d2",
+      "target_sha256": "7ed5db641d8ef9f23edf6ac20d4b7955606715638ffc09acdca3a5f29d3be230",
+      "prompt_sha256": "a56b1d17e8e1c1c1776aa890b8545d323b1c800aa9c97c3d40e2f55263a37e29",
+      "target": {
+        "subject_kind": "other",
+        "requirements": [
+          {
+            "id": "task",
+            "channel": "task",
+            "priority": "must",
+            "text": "生成一张风格化三维静物形面样板，用于比较表面概括方式。方形画面，浅暖灰无缝背景，三个静物并列但有自然前后层次，每个完整入画。无人物、脸、人体部件、文字、标尺、边框或拼板。"
+          },
+          {
+            "id": "forms",
+            "channel": "material",
+            "priority": "must",
+            "text": "左侧为暖灰米色的不规则圆卵形雕塑，表面有几处宽缓凹面与清楚但柔和的面转折；中间为深棕色的三片弯曲锥形束状雕塑，大片连续曲面、少量宽槽、末端收束；右侧为石青色布片覆盖一个低矮圆角台体，布片边缘有厚度，只保留三至四条宽主褶和干净平整色面。三者都有重量与厚度，接地清楚。"
+          },
+          {
+            "id": "medium",
+            "channel": "style",
+            "priority": "must",
+            "text": "三件静物统一为动画电影式风格化三维渲染，形体像经过人工概括的数字雕塑。大片平整色面与柔软体积过渡，微表面安静，反射宽柔且克制，不呈高光塑料。柔和侧上方棚光清楚交代主形、凹面、厚度及接触影。"
+          },
+          {
+            "id": "exclusions",
+            "channel": "output",
+            "priority": "must",
+            "text": "只表现静物，不出现皮肤、脸、头发、手脚或人偶。圆卵形不长五官；棕色锥束不长出头部；蓝布不变成衣服。不画照片毛孔、密集细丝、微织纹、噪点、笔触或卡通黑描边。"
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "task-check",
+            "basis": "task",
+            "critical": true,
+            "question": "生成一张风格化三维静物形面样板，用于比较表面概括方式。方形画面，浅暖灰无缝背景，三个静物并列但有自然前后层次，每个完整入画。无人物、脸、人体部件、文字、标尺、边框或拼板。"
+          },
+          {
+            "id": "forms-check",
+            "basis": "forms",
+            "critical": true,
+            "question": "左侧为暖灰米色的不规则圆卵形雕塑，表面有几处宽缓凹面与清楚但柔和的面转折；中间为深棕色的三片弯曲锥形束状雕塑，大片连续曲面、少量宽槽、末端收束；右侧为石青色布片覆盖一个低矮圆角台体，布片边缘有厚度，只保留三至四条宽主褶和干净平整色面。三者都有重量与厚度，接地清楚。"
+          },
+          {
+            "id": "medium-check",
+            "basis": "medium",
+            "critical": true,
+            "question": "三件静物统一为动画电影式风格化三维渲染，形体像经过人工概括的数字雕塑。大片平整色面与柔软体积过渡，微表面安静，反射宽柔且克制，不呈高光塑料。柔和侧上方棚光清楚交代主形、凹面、厚度及接触影。"
+          },
+          {
+            "id": "exclusions-check",
+            "basis": "exclusions",
+            "critical": true,
+            "question": "只表现静物，不出现皮肤、脸、头发、手脚或人偶。圆卵形不长五官；棕色锥束不长出头部；蓝布不变成衣服。不画照片毛孔、密集细丝、微织纹、噪点、笔触或卡通黑描边。"
+          }
+        ]
+      },
+      "prompt": "【任务与画面】\n生成一张风格化三维静物形面样板，用于比较表面概括方式。方形画面，浅暖灰无缝背景，三个静物并列但有自然前后层次，每个完整入画。无人物、脸、人体部件、文字、标尺、边框或拼板。\n\n【静物形状】\n左侧为暖灰米色的不规则圆卵形雕塑，表面有几处宽缓凹面与清楚但柔和的面转折；中间为深棕色的三片弯曲锥形束状雕塑，大片连续曲面、少量宽槽、末端收束；右侧为石青色布片覆盖一个低矮圆角台体，布片边缘有厚度，只保留三至四条宽主褶和干净平整色面。三者都有重量与厚度，接地清楚。\n\n【三维形面与受光】\n三件静物统一为动画电影式风格化三维渲染，形体像经过人工概括的数字雕塑。大片平整色面与柔软体积过渡，微表面安静，反射宽柔且克制，不呈高光塑料。柔和侧上方棚光清楚交代主形、凹面、厚度及接触影。\n\n【细节范围】\n只表现静物，不出现皮肤、脸、头发、手脚或人偶。圆卵形不长五官；棕色锥束不长出头部；蓝布不变成衣服。不画照片毛孔、密集细丝、微织纹、噪点、笔触或卡通黑描边。",
+      "references": [],
+      "output_file": "sample.png",
+      "output_sha256": "9f2298bda220a89497d718fa05175d765d7b5509f6b3cb6be2bd64c94a05fb27",
+      "image_metadata": {
+        "width": 1254,
+        "height": 1254,
+        "bit_depth": 8,
+        "color_type": 2
+      },
+      "status": "needs_revision",
+      "checks": [
+        {
+          "id": "task-check",
+          "basis": "task",
+          "critical": true,
+          "question": "生成一张风格化三维静物形面样板，用于比较表面概括方式。方形画面，浅暖灰无缝背景，三个静物并列但有自然前后层次，每个完整入画。无人物、脸、人体部件、文字、标尺、边框或拼板。",
+          "verdict": "fail",
+          "evidence": "方形画面、浅暖灰背景和三件完整静物成立，无人物或文字；但本条同时要求风格化三维样板，当前细碎表面与写实静物观感未满足预定概括程度，不能因构图和排除人物成立而整条通过。"
+        },
+        {
+          "id": "forms-check",
+          "basis": "forms",
+          "critical": true,
+          "question": "左侧为暖灰米色的不规则圆卵形雕塑，表面有几处宽缓凹面与清楚但柔和的面转折；中间为深棕色的三片弯曲锥形束状雕塑，大片连续曲面、少量宽槽、末端收束；右侧为石青色布片覆盖一个低矮圆角台体，布片边缘有厚度，只保留三至四条宽主褶和干净平整色面。三者都有重量与厚度，接地清楚。",
+          "verdict": "fail",
+          "evidence": "左侧米色卵形有宽凹面，右侧蓝布覆盖低矮台体、有厚边与主褶，接地可见；中间三束为扭转后斜切截断的宽圆端，没有要求的锥形末端收束。三种表面均见细碎颗粒或纤维，蓝布不符合干净平整色面。"
+        },
+        {
+          "id": "medium-check",
+          "basis": "medium",
+          "critical": true,
+          "question": "三件静物统一为动画电影式风格化三维渲染，形体像经过人工概括的数字雕塑。大片平整色面与柔软体积过渡，微表面安静，反射宽柔且克制，不呈高光塑料。柔和侧上方棚光清楚交代主形、凹面、厚度及接触影。",
+          "verdict": "fail",
+          "evidence": "大形、柔和受光、体积与接触影可读，也没有塑料式强高光；但卵形呈石质颗粒、棕色束体带细碎纹理、蓝布带细密纤维，整体更接近写实静物渲染，未形成要求的安静微表面和统一动画式概括。只判断图像观感，不据此认定实际渲染器或三维模型。"
+        },
+        {
+          "id": "exclusions-check",
+          "basis": "exclusions",
+          "critical": true,
+          "question": "只表现静物，不出现皮肤、脸、头发、手脚或人偶。圆卵形不长五官；棕色锥束不长出头部；蓝布不变成衣服。不画照片毛孔、密集细丝、微织纹、噪点、笔触或卡通黑描边。",
+          "verdict": "fail",
+          "evidence": "没有脸、人体部件、人偶、头发或衣服，未出现笔触和黑描边；然而蓝布与其他表面仍有密集微纹理，与本条明确排除微织纹、噪点式细碎表现不符。无人条件成立不能覆盖其他排除项失败。"
+        }
+      ],
+      "parent": null,
+      "goal_changed": false
+    }
+  ],
+  "decision": {
+    "decision": "stop_before_character",
+    "reason": "样板形面和微表面未达到预定风格，执行预先约定的参考验收关口。",
+    "sample_generated": true,
+    "character_dispatch_state": "not_started",
+    "character_snapshot_created": false,
+    "known_completed_calls": 1,
+    "character_outputs": 0,
+    "remaining_call_budget_used": false,
+    "transfer_hypothesis_tested": false,
+    "original_records_modified": false
+  },
+  "findings": [
+    "无人且无身份设计污染不等于目标风格适合；本张参考在进入人物生成之前即被拒绝。",
+    "几何体积和柔光成立，不能覆盖明确要求的表面概括失败。",
+    "未进行第二阶段，无法判断合格的非人物样板能否改善角色风格或减少内容混入，也没有本轮身份或九头身观察。"
+  ],
+  "evidence_boundaries": {
+    "generation_calls": 1,
+    "programmatic_image_edits": 0,
+    "workspace_copy_identical": true,
+    "counts_as_character_style_coverage": false,
+    "character_asset_total_unchanged": 33,
+    "character_qualified_total_unchanged": 0,
+    "historical_aesthetic_cohort_unchanged": true
+  },
+  "sources": [
+    {
+      "title": "InstantStyle 项目方法说明",
+      "url": "https://instantstyle.github.io/",
+      "use": "研究风格与内容分离的专用机制；不是本次内置工具已执行的控制。"
+    },
+    {
+      "title": "InstantStyle 官方实现",
+      "url": "https://github.com/instantX-research/InstantStyle/blob/main/README.md",
+      "use": "确认特征注入依赖专用管线；本轮没有安装或执行。"
+    }
+  ]
+}
