@@ -1,6 +1,6 @@
 {
   "name": "image-prompt-skill",
-  "version": "0.15.0",
+  "version": "0.16.3",
   "description": "将文字和可选参考图转成中文提示词，适配指定文生图模型，检查约束并根据实图修订。",
   "author": {
     "name": "wangwei97"

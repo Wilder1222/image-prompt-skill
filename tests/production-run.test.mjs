@@ -19,6 +19,76 @@ function setup(t){
 }
 const freeze=(input,extra={})=>freezeProductionRun(input,{run_id:'a',case_id:'case',cohort:'test',...extra});
 
+test('identity source changes create a new goal while explicit stable identity survives a new baseline',t=>{
+ const {input,ref,dir}=setup(t);
+ Object.assign(input.references[0],{identity_group:'person-a',identity_role:'primary'});
+ const parent=freeze(input),changed=structuredClone(input);
+ changed.references[0].identity_group='person-b';
+ const child=freeze(changed,{run_id:'b',kind:'revision',parent});
+ assert.equal(child.goal_changed,true);assert.notEqual(child.target_sha256,parent.target_sha256);
+ const out=path.join(dir,'new-output.png');fs.copyFileSync(ref,out);fs.appendFileSync(out,'distinct synthetic test output');
+ const report=summarizeProductionRuns([{snapshot:parent,outcome:outcome(parent,ref,'fail')},{snapshot:child,outcome:outcome(child,out)}]).cohorts.test;
+ assert.equal(report.resolved_without_goal_change,0);
+ input.references[0].identity_target_id='person-a-v1';
+ const stable=freeze(input,{run_id:'stable'}),next=structuredClone(input);
+ next.references[0].source=out;next.edit_scope={baseline_reference_id:'R1',changes:['合成的衣料局部修订'],preserve:['合成的身份保持']};
+ const edit=freeze(next,{run_id:'new-baseline',kind:'edit',parent:stable});
+ assert.equal(edit.goal_changed,false);assert.deepEqual(edit.target.identity_targets,stable.target.identity_targets);
+ assert.notEqual(edit.target.identity_targets[0].origin,stable.target.identity_targets[0].origin);
+ next.references[0].identity_target_id='person-b-v1';
+ assert.equal(freeze(next,{run_id:'changed-identity',kind:'edit',parent:stable}).goal_changed,true);
+ const observed=structuredClone(input);observed.references.push({id:'judge',source:out,inspected:true,generation_input:false,authority:['style'],facts:[{id:'style-observation',channel:'style',visibility:'visible',text:'合成的评价观察。'}]});
+ assert.equal(freeze(observed,{run_id:'observer',kind:'revision',parent:stable}).goal_changed,false);
+});
+
+test('duplicate-output statistics are invariant to input order and conflicting checks never create a pass',t=>{
+ const {input,ref}=setup(t),a=freeze(input),b=freeze(input,{run_id:'b'});
+ const rows=[{snapshot:a,outcome:outcome(a,ref,'fail')},{snapshot:b,outcome:outcome(b,ref)}];
+ const forward=summarizeProductionRuns(rows),reverse=summarizeProductionRuns([...rows].reverse());
+ assert.deepEqual(forward,reverse);assert.equal(forward.cohorts.test.initial_completed,1);
+ assert.equal(forward.cohorts.test.initial_passed,0);assert.equal(forward.cohorts.test.resolved_without_goal_change,0);
+ assert.equal(forward.cohorts.test.review_conflicts,1);assert.equal(forward.cohorts.test.reused_outputs,1);
+ const consistent=rows.map(e=>({snapshot:e.snapshot,outcome:outcome(e.snapshot,ref)}));
+ assert.deepEqual(summarizeProductionRuns(consistent),summarizeProductionRuns([...consistent].reverse()));
+ assert.equal(summarizeProductionRuns(consistent).cohorts.test.initial_passed,1);
+});
+
+test('explicit user rejection withdraws a pass without rewriting the frozen review or inventing a score',t=>{
+ const {input,ref}=setup(t),snapshot=freeze(input),review=outcome(snapshot,ref),rows=[{snapshot,outcome:review}],before=structuredClone(rows);
+ const note={run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,output_sha256:review.output_sha256,verdict:'rejected',message:'太假了',score:0,source:'direct_user_message'};
+ const result=summarizeProductionRuns(rows,{userFeedback:[note]});
+ assert.equal(result.cohorts.test.original_initial_passed,1);assert.equal(result.cohorts.test.initial_passed,0);
+ assert.equal(result.cohorts.test.resolved_without_goal_change,0);assert.equal(result.cohorts.test.user_rejected,1);
+ assert.equal(result.user_feedback[0].score,0);assert.equal(result.user_acceptance,'not_inferred');assert.deepEqual(rows,before);
+ const unscored={...note};delete unscored.score;
+ assert.equal(summarizeProductionRuns(rows,{userFeedback:[unscored]}).user_feedback[0].score,undefined);
+});
+
+test('user feedback rejects wrong image bindings, duplicates and manufactured ratings',t=>{
+ const {input,ref}=setup(t),snapshot=freeze(input),review=outcome(snapshot,ref),rows=[{snapshot,outcome:review}];
+ const note={run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,output_sha256:review.output_sha256,verdict:'rejected',message:'人物也不行',source:'direct_user_message'};
+ for(const change of [{output_sha256:'0'.repeat(64)},{snapshot_sha256:'0'.repeat(64)},{run_id:'missing'},{message:''},{score:null},{score:'0'},{score:-1},{verdict:'accepted'},{source:'agent_inference'}]){
+  assert.throws(()=>summarizeProductionRuns(rows,{userFeedback:[{...note,...change}]}),/user rejection/);
+ }
+ assert.throws(()=>summarizeProductionRuns(rows,{userFeedback:[note,note]}),/user rejection/);
+});
+
+test('legacy snapshots retain their old target hash and new identity contracts migrate explicitly',t=>{
+ const {input}=setup(t),legacy=freeze(input);
+ delete legacy.target_contract;delete legacy.target.identity_targets;
+ legacy.target_sha256=objectHash(legacy.target);
+ const {snapshot_sha256,...body}=legacy;legacy.snapshot_sha256=objectHash(body);
+ const saved=structuredClone(legacy);verifyFrozenRun(legacy);
+ const child=freeze(input,{run_id:'migration',kind:'revision',parent:legacy});
+ assert.equal(child.goal_changed,true);assert.deepEqual(legacy,saved);
+});
+
+test('frozen identity and requirement records are detached from mutable authored input',t=>{
+ const {input}=setup(t),snapshot=freeze(input),saved=structuredClone(snapshot);
+ input.requirements[0].text='changed after freezing';input.references[0].facts[0].text='changed observation';
+ assert.deepEqual(snapshot,saved);verifyFrozenRun(snapshot);
+});
+
 test('freezing refuses unsupported reference controls before declaring a dispatchable run',t=>{
  const {input}=setup(t);
  input.references[0].subject_scale=0.9;

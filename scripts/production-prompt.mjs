@@ -6,7 +6,8 @@ import {characterStyleIds} from './character-style-render.mjs';
 // checks declared provenance, coverage and delivery integrity; it does not see images.
 const channels = new Set(['identity','expression','action','makeup','hair','costume','material','composition','layout','proportion','hands_feet','background','lighting','style','task','output']);
 const nonempty = x => typeof x === 'string' && x.trim().length > 0;
-const referenceFields = new Set(['id','source','inspected','generation_input','authority','facts','identity_group','identity_role']);
+const referenceFields = new Set(['id','source','inspected','generation_input','authority','facts','identity_group','identity_role','identity_target_id']);
+const inputFields = new Set(['subject_kind','request','references','requirements','unresolved','sections','acceptance','target','edit_scope','metadata']);
 const internalStyle = new RegExp(`\\b(?:${characterStyleIds.join('|')})\\b`);
 export const promptHash = text => crypto.createHash('sha256').update(text).digest('hex');
 
@@ -20,7 +21,9 @@ export const objectHash = value => promptHash(JSON.stringify(canonical(value)));
 
 export function compileProductionPrompt(input) {
   const errors = [], basis = new Map(), references = new Map(), used = new Set();
-  if (!input || typeof input !== 'object') throw new Error('production input must be an object');
+  if (!input || typeof input !== 'object' || Array.isArray(input)) throw new Error('production input must be an object');
+  for (const key of Object.keys(input)) if (!inputFields.has(key)) errors.push(`unsupported production field ${key}; execution settings belong in target, notes belong in metadata`);
+  if (input.metadata !== undefined && (!input.metadata || typeof input.metadata !== 'object' || Array.isArray(input.metadata))) errors.push('metadata must be an object and cannot configure execution');
   if (!['character','scene','product','other'].includes(input.subject_kind)) errors.push('declare subject_kind: character, scene, product or other; legacy briefs need explicit scope before new production');
   if (!nonempty(input.request)) errors.push('missing original user request');
   if (!Array.isArray(input.references)) errors.push('references must be an array; use [] for text-only requests');
@@ -68,7 +71,7 @@ export function compileProductionPrompt(input) {
     if(!nonempty(group)||identitySources.some(r=>r.identity_group!==group)||
       identitySources.filter(r=>r.identity_role==='primary').length!==1||
       identitySources.some(r=>!['primary','support'].includes(r.identity_role)||r.generation_input!==true))
-      errors.push('conflicting identity authorities; assign one primary identity reference and same-identity supporting views');
+      errors.push('conflicting identity authorities; current production supports one identity only: assign one primary identity reference and same-identity supporting views; separate people cannot be fused into one identity group');
   }
   for(const ref of references.values()){
     if(ref.identity_role!==undefined&&!['primary','support'].includes(ref.identity_role))
@@ -76,7 +79,10 @@ export function compileProductionPrompt(input) {
     if(ref.identity_role==='support'&&!identitySources.some(r=>r.identity_role==='primary'&&nonempty(r.identity_group)&&r.identity_group===ref.identity_group))
       errors.push(`identity support needs its primary: ${ref.id}`);
     if(ref.identity_role&&!ref.authority?.includes('identity'))errors.push(`identity role requires identity authority: ${ref.id}`);
+    if(ref.identity_target_id!==undefined && (!nonempty(ref.identity_target_id)||!ref.authority?.includes('identity'))) errors.push(`identity_target_id requires a nonempty stable identity target and identity authority: ${ref.id}`);
   }
+  if(new Set(identitySources.map(r=>r.identity_target_id).filter(x=>x!==undefined)).size>1) errors.push('conflicting identity_target_id declarations for the same person');
+  if(identitySources.some(r=>r.identity_target_id!==undefined) && !(identitySources.find(r=>r.identity_role==='primary')??identitySources[0])?.identity_target_id) errors.push('declare identity_target_id on the primary identity reference');
   for (const req of input.requirements ?? []) {
     add(req, 'requirement');
     if (!['must','prefer'].includes(req.priority)) errors.push(`invalid requirement priority: ${req.id}`);

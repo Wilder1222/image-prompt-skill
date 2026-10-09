@@ -1,54 +1,47 @@
-# Codex 插件
+# Codex 插件构建与更新
 
-本仓库同时是可加载的插件根目录：`.codex-plugin/plugin.json` 声明 `./skills/`，`skills/image-prompt-skill/SKILL.md` 加载插件内的根 `SKILL.md`。脚本、参考、模板均位于同一插件根目录，安装后不读取开发机仓库路径。
+本仓库是插件根目录，`.codex-plugin/plugin.json` 声明 `./skills/`，技能入口读取包内根 `SKILL.md`。脚本、规则与编译器自包含；安装后的任务读取实际缓存副本，不能将源码更新当成安装完成。
 
 ## 构建
 
-```bash
+```powershell
+npm run examples:build
 npm run release:build
 npm run validate
 npm run plugin:build
 ```
 
-输出 `dist/codex-plugin/image-prompt-skill/`。构建前要求源文件清单和摘要有效，构建后再次验证完整目录。它会拒绝覆盖含未知文件或人工改动的旧构建目录。不要在构建目录内保存原始素材或工作成果。
+构建输出为 `dist/codex-plugin/image-prompt-skill/`。构建器检查源清单、文件摘要与包内链接，拒绝覆盖含未知文件或人工改动的旧构建目录。原始图片和本地成果不放入构建目录。
 
-插件清单、技能入口和提示词编译器都在 Git 中；克隆仓库后即可使用这些入口。构建目录和生成图片不加入 Git。
+## 已注册个人插件的更新
 
-## 首次个人安装（Windows / PowerShell）
+先运行 `codex plugin list --marketplace personal --json`，找到本插件的实际 `source.path`；不要凭示例路径覆盖其他目录。确认原目录属于本插件，备份全部原内容，再用完整新构建替换该源目录。递归移动或清理之前分别核对来源、目标和备份目录的绝对路径，拒绝符号链接与范围外路径。
 
-下面使用本机 Codex 自带的 `plugin-creator` 脚本注册默认个人 marketplace，不创建团队市场。需要 Python 3 与该技能。若配置了自定义 Codex 数据目录，将 `$creator` 改为实际技能目录。
-
-```powershell
-$creator = Join-Path $env:USERPROFILE '.codex/skills/.system/plugin-creator'
-python "$creator/scripts/create_basic_plugin.py" image-prompt-skill --with-skills --with-marketplace
-# 只有上一条命令成功后才继续。
-$personalPlugin = Join-Path $env:USERPROFILE 'plugins/image-prompt-skill'
-Get-ChildItem -Force 'dist/codex-plugin/image-prompt-skill' | Copy-Item -Destination $personalPlugin -Recurse -Force
-python "$creator/scripts/validate_plugin.py" $personalPlugin
-$marketplace = python "$creator/scripts/read_marketplace_name.py"
-codex plugin add "image-prompt-skill@$marketplace"
-```
-
-若已存在同名个人插件，不重新运行首次 scaffold，也不覆盖其他插件的配置。默认个人 marketplace 为 `~/.agents/plugins/marketplace.json`，由 Codex 隐式发现，无需 `marketplace add`。
-
-安装后新建一个 Codex 任务，让应用加载插件技能。可在插件详情中使用默认提示词，或在任务中输入 `$image-prompt-skill`。
-
-## 更新已有个人插件
-
-先重新构建，将经过验证的新构建内容更新到已注册的个人插件目录。然后使用官方 helper 刷新本地版本后缀：
+每次更新使用新功能版本或新的兼容缓存后缀。辅助 `plugin-creator` 脚本在部分安装中不存在，不把它作为必需依赖。已有插件可以在已核对的源目录中更新兼容清单版本，并重新生成发布摘要：
 
 ```powershell
-$creator = Join-Path $env:USERPROFILE '.codex/skills/.system/plugin-creator'
-$personalPlugin = Join-Path $env:USERPROFILE 'plugins/image-prompt-skill'
-$marketplace = python "$creator/scripts/read_marketplace_name.py"
-python "$creator/scripts/update_plugin_cachebuster.py" $personalPlugin
-npm --prefix $personalPlugin run release:build
-python "$creator/scripts/validate_plugin.py" $personalPlugin
-codex plugin add "image-prompt-skill@$marketplace"
+# taskPluginSource 必须来自上一步已核对的 source.path。
+$taskPluginSource = Join-Path $env:USERPROFILE 'plugins/image-prompt-skill'
+$taskManifestPath = Join-Path $taskPluginSource '.codex-plugin/plugin.json'
+$taskManifest = Get-Content -LiteralPath $taskManifestPath -Raw | ConvertFrom-Json
+$taskPackage = Get-Content -LiteralPath (Join-Path $taskPluginSource 'package.json') -Raw | ConvertFrom-Json
+if ($taskManifest.name -ne 'image-prompt-skill') { throw 'Unexpected plugin source' }
+$taskManifest.version = $taskPackage.version + '+codex.' + [DateTime]::UtcNow.ToString('yyyyMMddHHmmssffff')
+[IO.File]::WriteAllText($taskManifestPath, ($taskManifest | ConvertTo-Json -Depth 20) + "`n", [Text.UTF8Encoding]::new($false))
+npm --prefix $taskPluginSource run release:build
+# 只有发布校验成功后才继续安装。
+codex plugin add image-prompt-skill@personal --json
+codex plugin list --marketplace personal --json
 ```
 
-`plugin:sync` 会保留与包版本匹配的 `+codex.<token>` 后缀，实际功能版本由 `package.json` 管理。刷新后重建摘要，避免已安装目录的版本变动导致清单过期。再开一个新任务使用更新。
+`plugin:sync` 保留与功能版本匹配的 `+codex.<token>` 后缀。按安装返回的 `installedPath` 核验实际文件，而非自行假定缓存位置；在仓库外调用缓存内编译器，检查默认比例、错误字段拒绝及当前入口内容。源码、安装源和缓存三处的规则与脚本摘要应一致，兼容版本后缀及由其生成的清单允许不同。
+
+## 首次注册与加载
+
+已有同名个人插件不重复 scaffold。首次注册按 [官方插件打包与市场说明](https://developers.openai.com/plugins/build/plugins) 配置个人或项目 marketplace，并使用实际安装入口。可用辅助技能时按其当次文档处理，不复制失效脚本路径。
+
+安装结果证明缓存已更新，不证明已打开的聊天重新加载了技能。后续新任务读取新插件；需要核验加载时查看该任务实际技能路径。更新不自动重启应用或新建用户聊天。
 
 ## 验证边界
 
-`npm run plugin:check` 检查清单与入口同步；Codex 的 `validate_plugin.py` 校验插件 schema；`codex plugin add` 验证真实安装。最终仍需在新任务中加载技能。插件没有额外 MCP 服务、登录凭证或外部生成器；实际出图工具由宿主提供。
+包构建与安装核验不能证明生成效果。插件没有额外供应商服务、密钥或后台生成器，实际出图依赖宿主提供的工具。现行生产契约、局部保护、运行时长度校验与实图失败继续按各自证据记录。

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-09",
+  "feedback": [
+    {
+      "run_id": "poster-01",
+      "snapshot_sha256": "9afc4a215fbd58336eace7a6c61ef321fc026186fca70ebd9b32476790ca1be8",
+      "output_sha256": "e64643f45bca4dd1764620fade28591da56df3be3fc00627bd5868c7e017e80a",
+      "verdict": "rejected",
+      "source": "direct_user_message",
+      "message": "雨巷书店 0分，太假了",
+      "score": 0
+    },
+    {
+      "run_id": "character-01",
+      "snapshot_sha256": "416ab803ad135be57c415ebbd96bf3831138a002f562d6df97619fda344c88b7",
+      "output_sha256": "acf13c529c8e51033ac4054968670de18d1a79adf13d261bb76aea57a8e3c561",
+      "verdict": "rejected",
+      "source": "direct_user_message",
+      "message": "人物也不行"
+    }
+  ],
+  "summary": {
+    "cohorts": {
+      "production-pilot-20261009": {
+        "runs_planned": 4,
+        "known_tool_calls": 4,
+        "initial_planned": 3,
+        "initial_completed": 3,
+        "initial_passed": 1,
+        "resolved_without_goal_change": 1,
+        "unresolved_reviews": 0,
+        "failures": 1,
+        "tool_errors": 0,
+        "pending": 0,
+        "interrupted": 0,
+        "dispatch_unknown": 0,
+        "reused_outputs": 0,
+        "review_conflicts": 0,
+        "original_initial_passed": 2,
+        "original_resolved_without_goal_change": 2,
+        "user_rejected": 2,
+        "goal_changes": 1
+      }
+    },
+    "user_acceptance": "not_inferred",
+    "user_feedback": [
+      {
+        "run_id": "poster-01",
+        "snapshot_sha256": "9afc4a215fbd58336eace7a6c61ef321fc026186fca70ebd9b32476790ca1be8",
+        "output_sha256": "e64643f45bca4dd1764620fade28591da56df3be3fc00627bd5868c7e017e80a",
+        "verdict": "rejected",
+        "source": "direct_user_message",
+        "message": "雨巷书店 0分，太假了",
+        "score": 0
+      },
+      {
+        "run_id": "character-01",
+        "snapshot_sha256": "416ab803ad135be57c415ebbd96bf3831138a002f562d6df97619fda344c88b7",
+        "output_sha256": "acf13c529c8e51033ac4054968670de18d1a79adf13d261bb76aea57a8e3c561",
+        "verdict": "rejected",
+        "source": "direct_user_message",
+        "message": "人物也不行"
+      }
+    ],
+    "deduplication_order": "snapshot_created_at_then_run_id_not_verified_dispatch_order",
+    "note": "Counts recheck declared reviews against frozen criteria; no image files, dispatch logs or visual evidence are re-inspected. Reused outputs, conflicting reviews, explicit user rejections and changed targets do not create successes. Feedback preserves original reviews and does not imply user approval or authenticate its source."
+  },
+  "original_records_preserved": true,
+  "new_output_count": 0,
+  "notes": [
+    "书店用户明确给0分；人物仅明确拒绝，没有数值评分。",
+    "原快照、图片、回执、条款观察和原统计保留；本文件撤回生效资格。",
+    "其他两张产品图未获用户意见，不推断为用户接受。",
+    "原验收缺少整体设计、可信度与审美关键项；不回填旧合同来掩盖缺口。"
+  ]
+}

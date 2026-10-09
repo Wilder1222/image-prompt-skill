@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-10-09",
+  "note": "不同目标与实验组分别登记；子集不重复相加，元数据登记不代替看图和文件核验。历史结果不回填为新规则通过。",
+  "groups": [
+    {
+      "id": "historical-scoring",
+      "label": "历史34图评分集",
+      "reported_outputs": 34,
+      "sources": [
+        "docs/current-visual-evaluation.json"
+      ],
+      "boundary": "独立评分口径，原分数与全部失败保留。"
+    },
+    {
+      "id": "character-research",
+      "label": "历史人物专项",
+      "reported_outputs": 44,
+      "reported_complete_passes": 0,
+      "sources": [
+        "docs/current-status.md",
+        "docs/user-aesthetic-background-evidence.json"
+      ],
+      "boundary": "包含单视角、带标尺、拼板与辅助近景；旧九头身目标不按新定性规则重判。"
+    },
+    {
+      "id": "user-aesthetic",
+      "label": "用户审美方向",
+      "reported_outputs": 8,
+      "subset_of": "character-research",
+      "sources": [
+        "docs/user-aesthetic-background-evidence.json"
+      ],
+      "boundary": "人物专项子集，不与44次再次相加。"
+    },
+    {
+      "id": "style-audit",
+      "label": "九路线风格审计",
+      "reported_outputs": 20,
+      "subset_of": "character-research",
+      "sources": [
+        "docs/character-style-evidence-audit.json",
+        "resources/character_style_evidence_catalog.json"
+      ],
+      "boundary": "目录筛选的20次输出，不是人物专项全集；保存报告原本仅核元数据。"
+    },
+    {
+      "id": "legacy-sheets",
+      "label": "此前三视图",
+      "reported_outputs": 3,
+      "sources": [
+        "docs/character-asset-evidence.json"
+      ],
+      "boundary": "先于人物专项的独立目标，不计入44次。"
+    },
+    {
+      "id": "nonperson-study",
+      "label": "非人物风格样板",
+      "reported_outputs": 1,
+      "sources": [
+        "docs/character-nonperson-style-evidence.json"
+      ],
+      "boundary": "静物样板，不能计作人物输出或身份保持成功。"
+    },
+    {
+      "id": "production-pilot-20261009",
+      "label": "0.16.0独立生产试产",
+      "reported_outputs": 4,
+      "sources": [
+        "docs/production-pilot-20261009.json",
+        "docs/production-pilot-user-feedback-20261009.json"
+      ],
+      "boundary": "三次首轮与一次产品编辑单列；不改变历史34图、44次或原九头身验收。",
+      "user_rejected_outputs": 2,
+      "user_accepted_outputs": 0
+    }
+  ]
+}

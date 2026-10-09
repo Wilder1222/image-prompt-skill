@@ -14,7 +14,8 @@ test('showcase selection changes presentation, not face or material treatment', 
   assert.equal(a.configuration.presentation_profile, 'neutral_asset');
   const result = compileAssetPrompt({ presentation: 'costume_showcase' });
   assert.match(result.prompt, /A-line hem/);
-  assert.match(result.prompt, /balanced, elegant, elongated body proportions/);
+  assert.match(result.prompt, /proportions for the current character/);
+  assert.deepEqual(b.stage_2.fashion_asset.controls, a.stage_2.fashion_asset.controls);
   assert.doesNotMatch(result.prompt, /hem controlled rather than excessively spread/);
 });
 

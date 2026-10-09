@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import {adaptModelPrompt,verifyModelPlan} from './model-adapter.mjs';
+import {adaptModelPrompt,verifyModelPlan,verifyRuntimeValidation} from './model-adapter.mjs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {compileProductionPrompt, reviewProductionResult, promptHash, objectHash} from './production-prompt.mjs';
@@ -7,7 +7,22 @@ export {canonical,objectHash} from './production-prompt.mjs';
 const fileHash = file => promptHash(fs.readFileSync(file));
 const read = file => JSON.parse(fs.readFileSync(file,'utf8'));
 const preservationContract = 'preservation_items_v1';
+const targetContract = 'identity_sources_v1';
 export function writeNew(file,value) { fs.mkdirSync(path.dirname(path.resolve(file)),{recursive:true}); fs.writeFileSync(file,JSON.stringify(value,null,2)+'\n',{flag:'wx'}); }
+
+function identityTargets(refs, parent) {
+  const identities=refs.filter(r=>r.authority.includes('identity'));
+  if(!identities.length)return [];
+  const primary=identities.find(r=>r.identity_role==='primary')??identities[0];
+  const group=primary.identity_group??null, id=primary.identity_target_id??null;
+  // A stable, explicitly declared identity target survives a new view or edit baseline.
+  // Without that declaration, a different primary source creates a new goal.
+  const prior=id&&parent?.target_contract===targetContract
+    ? parent.target.identity_targets.find(t=>t.identity_target_id===id&&t.identity_group===group) : null;
+  return [{identity_group:group,identity_target_id:id,origin:prior?.origin??{
+    reference_id:primary.id,content_sha256:primary.content_sha256
+  }}];
+}
 
 export function freezeProductionRun(input, options={}) {
   const compiled=compileProductionPrompt(input);
@@ -19,12 +34,13 @@ export function freezeProductionRun(input, options={}) {
   if(kind==='edit'&&!compiled.edit_scope)throw new Error('new edit runs require edit_scope in the brief');
   if(kind==='initial'&&compiled.edit_scope)throw new Error('edit_scope needs an edit or revision with a parent');
   if(options.parent)verifyFrozenRun(options.parent,{verifyFiles:false});
-  const target={subject_kind:input.subject_kind,requirements:input.requirements,acceptance:compiled.acceptance};
-  const targetHash=objectHash(target);
   const refs=input.references.map(r=>({...r,source:path.resolve(options.base_dir??process.cwd(),r.source),content_sha256:fileHash(path.resolve(options.base_dir??process.cwd(),r.source))}));
+  const target={subject_kind:input.subject_kind,requirements:input.requirements,acceptance:compiled.acceptance,
+    identity_targets:identityTargets(refs,options.parent)};
+  const targetHash=objectHash(target);
   if(compiled.model_execution)compiled.model_execution=adaptModelPrompt({...compiled,reference_inputs:refs.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source}))},input.target);
   if(options.parent&&(options.parent.case_id!==options.case_id||options.parent.cohort!==options.cohort))throw new Error('revision case and cohort must match parent');
-  const record={schema_version:1,run_id:options.run_id,case_id:options.case_id,cohort:options.cohort,kind,
+  const record={schema_version:1,target_contract:targetContract,run_id:options.run_id,case_id:options.case_id,cohort:options.cohort,kind,
     created_at:new Date().toISOString(),tool:compiled.model_execution?.transport??'built-in image_gen',
     tool_parameters:compiled.model_execution?{model:compiled.model_execution.model,...compiled.model_execution.settings}:{model:null,seed:null},
     ...(compiled.model_execution?{model_execution:compiled.model_execution}:{}),
@@ -34,16 +50,18 @@ export function freezeProductionRun(input, options={}) {
     request:input.request,target,target_sha256:targetHash,references:refs,
     prompt:compiled.prompt,prompt_sha256:compiled.prompt_sha256,
     actual_inputs:refs.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source,content_sha256:r.content_sha256}))};
-  return {...record,snapshot_sha256:objectHash(record)};
+  const frozenRecord=structuredClone(record);
+  return {...frozenRecord,snapshot_sha256:objectHash(frozenRecord)};
 }
 
-export function verifyFrozenRun(snapshot,{verifyFiles=true}={}) {
+export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}) {
   if(snapshot?.schema_version!==1)throw new Error('unsupported run snapshot');
   const {snapshot_sha256,...body}=snapshot;
   if(objectHash(body)!==snapshot_sha256)throw new Error('frozen snapshot changed');
   if(Object.hasOwn(snapshot,'scope_review_contract') &&
       (snapshot.scope_review_contract!==preservationContract || !snapshot.edit_scope))
     throw new Error('unsupported scope review contract');
+  if(Object.hasOwn(snapshot,'target_contract') && (snapshot.target_contract!==targetContract || !Array.isArray(snapshot.target?.identity_targets))) throw new Error('unsupported identity target contract');
   if(promptHash(snapshot.prompt)!==snapshot.prompt_sha256||objectHash(snapshot.target)!==snapshot.target_sha256)throw new Error('frozen prompt or target changed');
   const inputs=snapshot.references.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source,content_sha256:r.content_sha256}));
   if(objectHash(inputs)!==objectHash(snapshot.actual_inputs))throw new Error('actual input order or roles changed');
@@ -51,8 +69,11 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true}={}) {
   if(snapshot.model_execution){
     verifyModelPlan(snapshot.model_execution);
     if(snapshot.model_execution.prompt_sha256!==snapshot.prompt_sha256)throw new Error('模型执行计划与正文不一致');
+    const required=snapshot.model_execution.runtime_validation_required;
+    if(runtimeValidation!==undefined)verifyRuntimeValidation(snapshot.model_execution,runtimeValidation);
     return {transport:snapshot.model_execution.transport,model:snapshot.model_execution.model,
       request:snapshot.model_execution.request,runtime:snapshot.model_execution.runtime,
+      ...(required?{dispatch_ready:runtimeValidation!==undefined,runtime_validation_required:required}:{}),
       execution_sha256:snapshot.model_execution.execution_sha256};
   }
   return {prompt:snapshot.prompt,...(inputs.length?{referenced_image_paths:inputs.map(r=>r.source)}:{})};
@@ -61,6 +82,7 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true}={}) {
 // Recompute review meaning from the frozen contract without accessing image files.
 function evaluateCompletedReview(snapshot, receipt) {
   if(snapshot.model_execution && receipt.execution_sha256!==snapshot.model_execution.execution_sha256)throw new Error('回执必须绑定实际模型、参数与完整请求的 execution_sha256');
+  if(snapshot.model_execution?.runtime_validation_required)verifyRuntimeValidation(snapshot.model_execution,receipt.runtime_validation);
   if(receipt.target_sha256!==snapshot.target_sha256)throw new Error('review target changed');
   const verdict=reviewProductionResult({prompt_sha256:snapshot.prompt_sha256,acceptance:snapshot.target.acceptance},receipt);
   let scopeReview;
@@ -110,6 +132,7 @@ export function finishProductionRun(snapshot, receipt, baseDir=process.cwd()) {
   return {...verdict,run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,target_sha256:snapshot.target_sha256,
     ...(scopeReview?{edit_scope:structuredClone(snapshot.edit_scope),scope_review:scopeReview}:{}),
     ...(snapshot.model_execution?{execution_sha256:receipt.execution_sha256}:{}),
+    ...(snapshot.model_execution?.runtime_validation_required?{runtime_validation:structuredClone(receipt.runtime_validation)}:{}),
     output_image:output,output_sha256:receipt.output_sha256,execution_status:'completed',inspected:true,reviewer:receipt.reviewer,recorded_at:new Date().toISOString()};
 }
 
@@ -135,15 +158,35 @@ function verifyOutcomeReview(snapshot, outcome) {
     throw new Error('outcome edit scope conflicts with frozen review');
 }
 
-export function summarizeProductionRuns(entries) {
-  const byId=new Map(), outputs=new Set(), reused=new Set();
+export function summarizeProductionRuns(entries,{userFeedback=[]}={}) {
+  const byId=new Map(), outputs=new Map(), reused=new Set(), conflicts=new Set();
   for(const {snapshot:s,outcome:o}of entries){
     verifyFrozenRun(s,{verifyFiles:false});
     if(byId.has(s.run_id))throw new Error('duplicate run id');
     if(o&&(o.run_id!==s.run_id||o.snapshot_sha256!==s.snapshot_sha256))throw new Error('outcome belongs to another snapshot');
     if(o)verifyOutcomeReview(s,o);
     byId.set(s.run_id,{snapshot:s,outcome:o});
-    if(o?.output_sha256){if(outputs.has(o.output_sha256))reused.add(s.run_id);outputs.add(o.output_sha256);}
+    if(o?.output_sha256){const group=outputs.get(o.output_sha256)??[];group.push({snapshot:s,outcome:o});outputs.set(o.output_sha256,group);}
+  }
+  if(!Array.isArray(userFeedback))throw new Error('user feedback must be an array');
+  const userRejected=new Set();
+  for(const note of userFeedback){
+    const row=byId.get(note?.run_id);
+    if(!note||typeof note!=='object'||Array.isArray(note)||Object.keys(note).some(k=>!['run_id','snapshot_sha256','output_sha256','verdict','message','score','source'].includes(k))||
+        !row?.outcome?.output_sha256||note.snapshot_sha256!==row.snapshot.snapshot_sha256||note.output_sha256!==row.outcome.output_sha256||
+        note.verdict!=='rejected'||note.source!=='direct_user_message'||typeof note.message!=='string'||!note.message.trim()||
+        (note.score!==undefined&&(!Number.isFinite(note.score)||note.score<0))||userRejected.has(note.run_id))throw new Error('user rejection must uniquely bind the original run, snapshot and output with a direct message');
+    userRejected.add(note.run_id);
+  }
+  for(const group of outputs.values()){
+    // Freeze time and run id provide a stable fallback when dispatch order is unknown.
+    group.sort((a,b)=>(a.snapshot.created_at??'').localeCompare(b.snapshot.created_at??'')||a.snapshot.run_id.localeCompare(b.snapshot.run_id));
+    for(const entry of group.slice(1))reused.add(entry.snapshot.run_id);
+    for(const target of new Set(group.map(e=>e.snapshot.target_sha256))){
+      const reviews=group.filter(e=>e.snapshot.target_sha256===target);
+      const decisions=new Set(reviews.map(e=>objectHash(e.outcome.checks.map(c=>({id:c.id,verdict:c.verdict})).sort((a,b)=>a.id.localeCompare(b.id)))));
+      if(decisions.size>1)for(const e of reviews)conflicts.add(e.snapshot.run_id);
+    }
   }
   for(const {snapshot:s}of entries)if(s.parent){
     const p=byId.get(s.parent.run_id)?.snapshot;
@@ -161,7 +204,8 @@ export function summarizeProductionRuns(entries) {
       while(changed){changed=false;for(const {snapshot:s}of rows)if(s.parent&&found.has(s.parent.run_id)&&!s.goal_changed&&!found.has(s.run_id)){found.add(s.run_id);changed=true;}}
       return rows.filter(e=>found.has(e.snapshot.run_id)&&!reused.has(e.snapshot.run_id));
     };
-    const passes=e=>e.outcome?.status==='reviewer_qualified';
+    const originalPasses=e=>e.outcome?.status==='reviewer_qualified'&&!conflicts.has(e.snapshot.run_id);
+    const passes=e=>originalPasses(e)&&!userRejected.has(e.snapshot.run_id);
     cohorts[cohort]={runs_planned:rows.length,known_tool_calls:rows.filter(e=>e.outcome?.execution_status==='completed'||e.outcome?.status==='tool_error'||e.outcome?.dispatch_state==='started').length,initial_planned:initial.length,initial_completed:completed.length,
       initial_passed:completed.filter(passes).length,
       resolved_without_goal_change:completed.filter(e=>descendants(e.snapshot).some(passes)).length,
@@ -169,9 +213,14 @@ export function summarizeProductionRuns(entries) {
       failures:rows.filter(e=>e.outcome?.status==='needs_revision').length,
       tool_errors:rows.filter(e=>e.outcome?.status==='tool_error').length,pending:rows.filter(e=>!e.outcome).length,
       interrupted:rows.filter(e=>e.outcome?.status==='interrupted').length,dispatch_unknown:rows.filter(e=>e.outcome?.status==='interrupted'&&e.outcome.dispatch_state==='unknown').length,
-      reused_outputs:rows.filter(e=>reused.has(e.snapshot.run_id)).length,goal_changes:rows.filter(e=>e.snapshot.goal_changed).length};
+      reused_outputs:rows.filter(e=>reused.has(e.snapshot.run_id)).length,
+      review_conflicts:new Set(rows.filter(e=>conflicts.has(e.snapshot.run_id)).map(e=>`${e.outcome.output_sha256}:${e.snapshot.target_sha256}`)).size,
+      ...(userFeedback.length?{original_initial_passed:completed.filter(originalPasses).length,
+        original_resolved_without_goal_change:completed.filter(e=>descendants(e.snapshot).some(originalPasses)).length,
+        user_rejected:rows.filter(e=>userRejected.has(e.snapshot.run_id)).length}:{}),
+      goal_changes:rows.filter(e=>e.snapshot.goal_changed).length};
   }
-  return {cohorts,user_acceptance:'not_inferred',note:'Counts recheck declared reviews against frozen criteria; no image files, dispatch logs or visual evidence are re-inspected. Reused outputs and changed targets do not create initial successes.'};
+  return {cohorts,user_acceptance:'not_inferred',...(userFeedback.length?{user_feedback:structuredClone(userFeedback)}:{}),deduplication_order:'snapshot_created_at_then_run_id_not_verified_dispatch_order',note:'Counts recheck declared reviews against frozen criteria; no image files, dispatch logs or visual evidence are re-inspected. Reused outputs, conflicting reviews, explicit user rejections and changed targets do not create successes. Feedback preserves original reviews and does not imply user approval or authenticate its source.'};
 }
 
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
@@ -180,9 +229,9 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
     for(let i=0;i<args.length;i+=2){if(!args[i]?.startsWith('--')||!args[i+1]||args[i+1].startsWith('--'))throw new Error('options require values');opts[args[i].slice(2)]=args[i+1];}
     let result;
     if(command==='prepare')result=freezeProductionRun(read(opts.input),{run_id:opts.id,case_id:opts.case,cohort:opts.cohort,kind:opts.kind,parent:opts.parent?read(opts.parent):null,base_dir:path.dirname(path.resolve(opts.input))});
-    else if(command==='inspect')result=verifyFrozenRun(read(opts.snapshot));
+    else if(command==='inspect')result=verifyFrozenRun(read(opts.snapshot),{runtimeValidation:opts['runtime-check']?read(opts['runtime-check']):undefined});
     else if(command==='review')result=finishProductionRun(read(opts.snapshot),read(opts.receipt),path.dirname(path.resolve(opts.receipt)));
-    else if(command==='report')result=summarizeProductionRuns(read(opts.input).map(e=>({snapshot:read(e.snapshot),outcome:e.outcome?read(e.outcome):null})));
+    else if(command==='report')result=summarizeProductionRuns(read(opts.input).map(e=>({snapshot:read(e.snapshot),outcome:e.outcome?read(e.outcome):null})),{userFeedback:opts['user-feedback']?read(opts['user-feedback']):[]});
     else throw new Error('commands: prepare --input brief.json --id ID --case CASE --cohort GROUP --out snapshot.json | inspect --snapshot snapshot.json | review --snapshot snapshot.json --receipt receipt.json --out outcome.json | report --input entries.json');
     if(opts.out)writeNew(opts.out,result);console.log(JSON.stringify(result,null,2));
   }catch(error){console.error(JSON.stringify({status:'fail',error:error.message}));process.exitCode=1;}

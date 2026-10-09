@@ -10,7 +10,7 @@ export function currentExamples() {
     ['B：轻度真人感；其余条件与 A 相同', { faceProfile: 'humanized_real_light' }],
     ['服装定妆展示：有层次的长袍与袖摆', { presentation: 'costume_showcase', maturityGuard: 'none' }],
     ['适度优化服装与造型：保留人物辨识度，按方案再设计', { presentation: 'costume_showcase', maturityGuard: 'none', designFreedom: 'moderate' }],
-    ['已有全身参考：保留身份与造型，保留协调修长比例', { referenceMode: 'full_body_anchor' }],
+    ['已有全身参考：保留身份、造型与已认可体型比例', { referenceMode: 'full_body_anchor' }],
     ['只修手部，锁定已通过的比例与构图', { stage: 'structure', focus: 'hands', passed: ['fashion_asset_proportion', 'asset_framing'] }],
     ['只修材质，保持脸、姿态与灯光', { stage: 'material-light', focus: 'materials' }],
     ['只修灯光与白纱边缘分离', { stage: 'material-light', focus: 'lighting' }],
@@ -23,7 +23,7 @@ export function currentExamples() {
 
 export function currentCharacterStyleExamples() {
   const workflows=JSON.parse(fs.readFileSync(new URL('../resources/asset_style_workflows.json',import.meta.url),'utf8'));
-  return '# 当前人物风格编译示例\n\n由 `npm run examples:build` 从风格目录生成。以下为兼容编译素材，不是已观察具体人物后完成的生产提示词，也没有对应的逐风格实图验收。实际人物、衣装、动作和背景按当前任务编写；所有风格以协调、修长好看的比例为目标，按构图保留适当留白。\n\n'
+  return '# 当前人物风格编译示例\n\n由 `npm run examples:build` 从风格目录生成。以下为兼容编译素材，不是已观察具体人物后完成的生产提示词，也没有对应的逐风格实图验收。实际人物、衣装、动作和背景按当前任务编写；主工作流按角色、媒介、衣装和动作自动设计适合的体型比例，已认可体型继续保留，不统一修长；按构图保留适当留白。\n\n'
     + Object.entries(workflows.profiles).filter(([,p])=>p.appearance).map(([styleWorkflow,p])=>`## ${p.label}\n\n\`\`\`text\n${compileAssetPrompt({styleWorkflow}).prompt}\n\`\`\`\n`).join('\n');
 }
 

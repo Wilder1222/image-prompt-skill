@@ -22,7 +22,7 @@ node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anch
 
 支持选项：`--preset`、`--face-profile`、`--hand-mode`、`--maturity-guard`、`--presentation`、`--proportion-profile`、`--design-freedom`、`--style-workflow`、`--detail-budget`、`--highlight-hierarchy`、`--edge-control`、`--reference-mode`、`--stage`、`--focus`、`--passed`、`--format`、`--language`。参数缺值、拼写错误、未知模式会失败，不会悄悄退回默认。风格及细节选项见 [两条风格路线](tagged-prompt-workflows.md)。
 
-人物默认采用 `BALANCED_ELEGANT`，目标为协调、修长好看，不预设数值头身。明确数字请求可选相应兼容预设。比例与衣片展示、画面占比分别处理，`costume_showcase` 不覆盖比例；头肩、胸廓骨盆、上下肢与手脚相称。
+兼容默认采用 `BALANCED_ELEGANT`，表示随角色与造型适配的协调比例，不预设数值头身或统一长腿细腰。代理按 [比例自动选择](../core/fashion-proportion-system.md) 完成具体设计，兼容编译素材不代替观察与选择。明确数字请求可选相应兼容预设。比例与衣片展示、画面占比分别处理，`costume_showcase` 不覆盖比例；头肩、胸廓骨盆、上下肢与手脚相称。
 
 `--design-freedom reference_preserve` 是未授权改造型时的默认；用户明确允许服装、造型优化或希望再设计时，用 `--design-freedom moderate`。后者保留人物辨识度与表观年龄，释放可见服装构造与造型的硬锁：先写一套连贯方案，再调整衣片、领袖、腰部、饰物、材料和配色比例；不要在负向提示中把这些设计变化逐一禁止。表情可按当前任务独立适配，不因保持身份而锁定原神态。方案可从优秀效果图提取，但不能把标杆人物的脸也迁移过来。现代装和铠甲按实际角色路线写文本，不强套古风长袍预设。此选项只用于新候选生成，不能混入 `full_body_anchor` 或局部编辑阶段。
 

@@ -1,0 +1,194 @@
+{
+  "subject_kind": "character",
+  "request": "设计一位成年矮壮女重甲卫士，精细电影CG全身像，迈步举盾，气质沉稳，身材自动选择最适合的比例。",
+  "references": [],
+  "requirements": [
+    {
+      "id": "identity",
+      "channel": "identity",
+      "priority": "must",
+      "text": "单名成年女性重甲卫士，稳重神态，精致而有自然体积的面容。"
+    },
+    {
+      "id": "body",
+      "channel": "proportion",
+      "priority": "must",
+      "text": "矮壮、厚实、有支撑力量的协调体型，不变为小头长腿或纸片细腰，不指定头身数。"
+    },
+    {
+      "id": "armor",
+      "channel": "costume",
+      "priority": "must",
+      "text": "深灰铁甲、少量黄铜护边，胸肩护甲、护臂、腰带、护腿与靴子连接完整，单面圆盾。"
+    },
+    {
+      "id": "action",
+      "channel": "action",
+      "priority": "must",
+      "text": "迈步举盾：一腿在前承重，后脚脚尖推地，左臂将盾举在胸前，负荷与平衡可信。"
+    },
+    {
+      "id": "style",
+      "channel": "style",
+      "priority": "must",
+      "text": "统一的精细电影CG，面容、皮肤、头发、金属、布料和光照有连贯体积。"
+    },
+    {
+      "id": "frame",
+      "channel": "composition",
+      "priority": "must",
+      "text": "竖版完整全身，头顶、脚下和盾外沿均有留白，动作与关键衣装清楚可读。"
+    },
+    {
+      "id": "design-quality",
+      "channel": "style",
+      "priority": "must",
+      "text": "人物设计、神态、妆肤和重甲整体协调有完成度，技术细节不替代整体美感。"
+    }
+  ],
+  "unresolved": [],
+  "sections": [
+    {
+      "label": "人物与神态",
+      "channel": "identity",
+      "items": [
+        {
+          "text": "一位成年女重甲卫士，面容精致、面颊与下颌有自然体积，眉眼沉稳，目光朝前，嘴唇自然闭合；黑色头发束在脑后，额头、眼睛与鼻口清楚可见。",
+          "basis": [
+            "identity"
+          ],
+          "intent": "design",
+          "reason": "原创角色，依据稳重守卫功能设计，不使用统一少女脸或粗糙皮肤。"
+        }
+      ]
+    },
+    {
+      "label": "身材比例",
+      "channel": "proportion",
+      "items": [
+        {
+          "text": "采用紧凑的矮壮力量体型：头部与宽实肩带相称，颈部结实而不压缩，胸廓、腰腹和骨盆完整厚实，腰部适度收束；上臂前臂及手掌尺度匹配，臀腿保留支撑体积，大腿、小腿与膝踝连续协调。肌肉与软组织随承重改变，不极端缩头、拉腿或将腰收成纸片，不穿透铠甲描画肌肉。",
+          "basis": [
+            "body"
+          ],
+          "intent": "design",
+          "reason": "矮壮、重甲和举盾负荷共同支持紧凑的力量型设计，不采用成人时装比例。"
+        }
+      ]
+    },
+    {
+      "label": "铠甲与盾",
+      "channel": "costume",
+      "items": [
+        {
+          "text": "深灰铁甲胸板与分层肩甲，少量克制黄铜护边；深色厚布内层连接护臂，腰带固定短分片甲裙，护腿与厚底靴结构连贯。左手持一面有厚度和中央盾脊的圆盾，没有额外兵器或背后第二面盾。",
+          "basis": [
+            "armor"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "动作与受力",
+      "channel": "action",
+      "items": [
+        {
+          "text": "自然迈步举盾的一瞬：前腿屈膝承重、脚掌踏实，后腿伸展、后脚脚尖推地，身体重心落在前脚支撑附近。左臂将圆盾举在胸前略向外，盾的重量由肩、肘和腕共同支撑；右臂在身体侧面略向后平衡，不穿过盾面。",
+          "basis": [
+            "action"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "媒介与材料",
+      "channel": "style",
+      "items": [
+        {
+          "text": "精细电影CG角色渲染，皮肤与发束有连续柔和体积，铠甲有实际厚度、接缝和受控金属反射，布料有承重褶皱。面容与衣装属于同一种精细三维表现，不变成真人照片、平涂卡通或粗糙低模。",
+          "basis": [
+            "style"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "构图与光线",
+      "channel": "composition",
+      "items": [
+        {
+          "text": "竖版完整全身，略偏正面的三分之四视角，浅灰无缝背景与地面，大面积柔光与充分正面补光。头顶、靴底和盾最外缘保留舒展空间，面容、甲片连接及迈步轮廓可读；地面接触影柔和，画面没有文字。",
+          "basis": [
+            "frame"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "人物设计完成度",
+      "channel": "style",
+      "items": [
+        {
+          "text": "脸部与角色神态是视觉重点，五官和妆面有完整层次，肩胸腰甲片的厚度与关节活动相容。姿态表现有目的的行进与防护，整体轮廓有清楚主次；不以锈痕、毛孔和铆钉数量替代人物设计。",
+          "basis": [
+            "design-quality"
+          ],
+          "intent": "design",
+          "reason": "本例只检验力量型身体与功能造型；整体人物质量仍需要单独评审，主审美方向另按用户标杆测试。"
+        }
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "identity-check",
+      "basis": "identity",
+      "critical": true,
+      "question": "是否为单名成年女性卫士，神态沉稳、面容精致且有自然体积？"
+    },
+    {
+      "id": "body-check",
+      "basis": "body",
+      "critical": true,
+      "question": "是否保持矮壮支撑体型，头肩、胸腰臀、上下臂和上下腿协调，无缩头拉腿或纸片腰？"
+    },
+    {
+      "id": "armor-check",
+      "basis": "armor",
+      "critical": true,
+      "question": "深灰铁甲与少量黄铜护边、内层、护腿靴和一面圆盾是否结构连贯？"
+    },
+    {
+      "id": "action-check",
+      "basis": "action",
+      "critical": true,
+      "question": "前腿承重、后脚推地、左臂举盾和身体平衡是否在同一阶段可信？"
+    },
+    {
+      "id": "style-check",
+      "basis": "style",
+      "critical": true,
+      "question": "面容、发、金属与布料是否统一为精细电影CG，有连续体积与材料区分？"
+    },
+    {
+      "id": "frame-check",
+      "basis": "frame",
+      "critical": true,
+      "question": "是否完整全身且头顶、脚下、盾外沿留白，动作与衣装可读？"
+    },
+    {
+      "id": "design-quality-check",
+      "basis": "design-quality",
+      "critical": true,
+      "question": "人物面容神态、妆肤、轮廓、动作与甲胄设计是否整体协调、有清楚主次与完成度，而非仅材料细节多？"
+    }
+  ],
+  "metadata": {
+    "purpose": "通用力量体型技术诊断，不代表用户十二张人物标杆的审美通过。",
+    "user_feedback": "此试产人物已被用户明确否定；下一次主审美测试按已确认标杆另建任务。"
+  }
+}

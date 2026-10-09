@@ -44,6 +44,25 @@ function receipt(compiled, verdict='pass') {
   return {prompt_sha256:compiled.prompt_sha256,output_image:'actual-output.png',output_sha256:'a'.repeat(64),inspected:true,reviewer:'test reviewer',checks:compiled.acceptance.map(c=>({id:c.id,verdict,evidence:'Synthetic test evidence; no real image approval.'}))};
 }
 
+test('production top-level fields reject misspelled model and unsupported edit controls',()=>{
+  for(const [key,value] of Object.entries({taret:{profile:'midjourney-7'},settings:{seed:42},mask_image:'mask.png',generation_inputs:true})){
+    const input=fixture();input[key]=value;
+    assert.throws(()=>compileProductionPrompt(input),new RegExp(`unsupported production field ${key}`));
+  }
+  const input=fixture(),prompt=compileProductionPrompt(input).prompt;
+  input.metadata={note:'合成的内部追踪说明，不参与请求设置。'};
+  assert.equal(compileProductionPrompt(input).prompt,prompt);
+  input.metadata=[];assert.throws(()=>compileProductionPrompt(input),/metadata must be an object/);
+});
+
+test('different people are explicitly outside the current single-identity production route',()=>{
+  const input=fixture();Object.assign(input.references[0],{identity_group:'person-a',identity_role:'primary'});
+  input.references.push({...input.references[0],id:'B',identity_group:'person-b',facts:[{id:'face-b',channel:'identity',visibility:'visible',text:'合成的第二人物身份。'}]});
+  assert.throws(()=>compileProductionPrompt(input),/current production supports one identity only/);
+  const invalid=fixture();invalid.references[0].identity_target_id='';
+  assert.throws(()=>compileProductionPrompt(invalid),/identity_target_id/);
+});
+
 test('reference declarations reject unsupported controls instead of silently dropping them',()=>{
   for(const [key,value] of Object.entries({weight:0.9,subject_scale:0.9,adapter:'InstantCharacter',mask:'region.png',crop:{x:10,y:10},guidance:2,identity_weight:0.8,metadata:{subject_scale:0.9},generation_inputs:true})){
     const input=fixture();input.references[0][key]=value;

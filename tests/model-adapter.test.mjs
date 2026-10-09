@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {listModelProfiles,adaptModelPrompt,verifyModelPlan} from '../scripts/model-adapter.mjs';
+import {listModelProfiles,adaptModelPrompt,verifyModelPlan,verifyRuntimeValidation} from '../scripts/model-adapter.mjs';
 import {compileProductionPrompt,reviewProductionResult,promptHash} from '../scripts/production-prompt.mjs';
 import {freezeProductionRun,verifyFrozenRun,finishProductionRun,summarizeProductionRuns} from '../scripts/production-run.mjs';
 
@@ -16,6 +16,24 @@ const build=(profile,settings={},negative)=>{
   return compileProductionPrompt(input);
 };
 const freeze=input=>freezeProductionRun(input,{run_id:'model-test',case_id:'bookshop',cohort:'unit-fixtures'});
+
+test('Diffusers requires real tokenizer coverage before dispatch or a completed outcome',()=>{
+ const input=fixture();input.target={profile:'sdxl-1.0'};
+ const snapshot=freeze(input),plan=snapshot.model_execution;
+ assert.equal(verifyFrozenRun(snapshot).dispatch_ready,false);
+ const check={execution_sha256:plan.execution_sha256,checks:plan.runtime_validation_required.tokenizers.map(tokenizer=>({field:'prompt',tokenizer,tokens:50,limit:77,truncated:false}))};
+ assert.equal(verifyFrozenRun(snapshot,{runtimeValidation:check}).dispatch_ready,true);
+ assert.throws(()=>verifyRuntimeValidation(plan,{...check,checks:check.checks.slice(1)}),/全部实际 tokenizer/);
+ for(const change of [{tokens:78},{truncated:true},{tokens:'50'},{limit:0}]){
+  const bad=structuredClone(check);Object.assign(bad.checks[0],change);
+  assert.throws(()=>verifyRuntimeValidation(plan,bad),/不能派发/);
+ }
+ assert.throws(()=>verifyRuntimeValidation(plan,{...check,execution_sha256:'a'.repeat(64)}),/execution_sha256/);
+ const receipt={status:'completed',snapshot_sha256:snapshot.snapshot_sha256,execution_sha256:plan.execution_sha256};
+ assert.throws(()=>finishProductionRun(snapshot,receipt),/tokenizer/);
+ const qwen=build('qwen-image',{true_cfg_scale:4},' ').model_execution;
+ assert.deepEqual(qwen.runtime_validation_required.fields,['prompt','negative_prompt']);
+});
 
 test('every active profile compiles text-only without altering Chinese text or claiming images',()=>{
   const plain=fixture();delete plain.target;const original=compileProductionPrompt(plain);

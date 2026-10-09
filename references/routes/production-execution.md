@@ -4,9 +4,15 @@
 
 ## 生成前固定目标
 
+brief 顶层仅接受 `subject_kind`、`request`、`references`、`requirements`、`unresolved`、`sections`、`acceptance`、可选 `target`、`edit_scope` 和对象型 `metadata`。未知或拼错字段明确报错，不静默丢弃模型选择或编辑控制；`metadata` 只作内部说明，不进入正文和执行设置。
+
+新快照使用 `target_contract: identity_sources_v1`，目标摘要同时绑定主身份来源。没有稳定身份声明时，主参考文件、身份组或主引用改变会产生新目标；评价图变化不影响身份目标。需换同人物视角或编辑基准时，主身份参考声明稳定的 `identity_target_id`，保持同一身份组，并由代理核对同人依据；新快照沿用父任务的原始身份来源。换人使用新目标标识或身份组，不能以通用“保持原人物”要求掩盖换人。该字段是声明，不是识图认证。
+
+旧快照没有新合同则按原哈希验证，不补字段。以旧快照建立新任务时显式迁移并记录目标变化，不把迁移成功计为旧目标修复。
+
 新生产 brief 必须由代理声明 `subject_kind: character|scene|product|other`。人物生成、换风格、多视角和人物局部编辑使用 `character`；产品自身、无人场景等按实际范围选择。混合画面中包含本轮需设计或验收的人物，也使用 `character`。这是代理依据任务作出的范围声明，脚本不会识图或从关键词自动猜测，不能为绕过检查错填成其他类型。
 
-人物 brief 至少包含一条 `channel: proportion`、`priority: must` 的要求，在 proportion 正文中引用，并关联 `critical: true` 的验收项。默认写协调、修长好看的可见关系，不填 `target_head_count`；只有明确数字请求才填有限正数，并同步正文和验收口径。字段不自动插入提示词，不证明图像达标。构图通道同时写景别、人物占比与留白并关联关键验收，见 [人物入景示例](../../examples/character-garden-brief.json) 与 [占比规则](../core/character-framing.md)。旧九头身示例属于冻结历史目标。
+人物 brief 至少包含一条 `channel: proportion`、`priority: must` 的要求，在 proportion 正文中引用，并关联 `critical: true` 的验收项。默认要求适合角色、协调好看，由代理按 [比例自动选择](../core/fashion-proportion-system.md) 设计具体身体关系，用 `intent: design` 和 `reason` 记录选择依据；不填 `target_head_count`，不要求用户选择预设。只有明确数字请求才填有限正数，并同步正文和验收口径。字段不自动插入提示词，不证明图像达标。构图通道同时写景别、人物占比与留白并关联关键验收，见 [人物入景示例](../../examples/character-garden-brief.json) 与 [占比规则](../core/character-framing.md)。旧九头身示例属于冻结历史目标，目标改变另建版本，不修改原验收。
 
 局部编辑保留本轮比例目标与取景边界，不自动扩大到全身修复。近景只验收可见关系，完整母图证据另行核对。明确要求但无法判断的项如实记录 uncertain 或 not_assessable；场景、产品不插入人体比例。用户明确改变比例目标时生成新的修订记录，不改旧快照或原评审。
 
@@ -19,7 +25,7 @@ node scripts/production-run.mjs inspect --snapshot run-01.snapshot.json
 
 `inspect` 重新核对参考内容，并返回可传入宿主图像工具的实际参数。逐字发送返回的 prompt 与输入路径。文件路径相对 brief 所在目录解析；内部记录可以含本机路径，公开报告不携带私人附件路径或图片。
 
-编译结果的 `audit.reference_usage` 用于冻结前核对图序和条款来源，详见 [生产流程](prompt-production.md#5-生产记录与来源检查)。它是编译审查信息，不新增图像工具参数，也不回填旧快照；冻结后的实际输入仍以 `actual_inputs` 和 `inspect` 返回为准。原正文与输入不变时，新增审查清单不改变提示词摘要；如果改变某张图是否实际输入，即使正文摘要相同，也必须重新冻结输入，不能沿用旧快照执行。
+编译结果的 `audit.reference_usage` 用于冻结前核对图序和条款来源，详见 [生产流程](prompt-production.md#固定记录与派发)。它是编译审查信息，不新增图像工具参数，也不回填旧快照；冻结后的实际输入仍以 `actual_inputs` 和 `inspect` 返回为准。原正文与输入不变时，新增审查清单不改变提示词摘要；如果改变某张图是否实际输入，即使正文摘要相同，也必须重新冻结输入，不能沿用旧快照执行。
 
 指定 `target` 时按 [文生图模型指南](../providers/text-to-image-models.md) 冻结模型与设置，`inspect` 改为返回 `transport`、`model`、`request`、`runtime` 和 `execution_sha256`。按对应入口解释请求，不能把所有模型都发送给宿主图像工具。生成完成回执还须带同一 `execution_sha256`；正文相同但模型、设置、负面或原生后缀不同，属于不同执行计划。未指定 `target` 的旧记录保持兼容。
 
@@ -57,7 +63,7 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 
 身份图可以声明 `identity_group` 和 `identity_role: primary|support`。单张图也检查角色值，未指定时省略该字段，不使用空值或其他名称。多个身份视角必须同组、恰好一个主参考、均实际送入生成；衣装或评价参考不因此取得身份权限。是否同一人物仍由观察与用户说明决定。
 
-新 brief 的每个参考对象只接受 `id`、`source`、`inspected`、`generation_input`、`authority`、`facts`、`identity_group`、`identity_role`。未实现的参考强度、适配器、遮罩、裁切或其他字段明确报错，不再静默丢弃后返回可生成状态；只用于观察的参考也执行同一检查。分工说明用已支持的观察、要求与正文表达，实际执行设置只能放在已实现的模型适配入口。主参考不等于数值权重，且结构化字段检查不能识别自然语言中所有虚假的能力声明。此规则检查新编译与新冻结，不改写历史快照。
+新 brief 的每个参考对象只接受 `id`、`source`、`inspected`、`generation_input`、`authority`、`facts`、`identity_group`、`identity_role`、`identity_target_id`。未实现的参考强度、适配器、遮罩、裁切或其他字段明确报错，不再静默丢弃后返回可生成状态；只用于观察的参考也执行同一检查。分工说明用已支持的观察、要求与正文表达，实际执行设置只能放在已实现的模型适配入口。主参考不等于数值权重，且结构化字段检查不能识别自然语言中所有虚假的能力声明。此规则检查新编译与新冻结，不改写历史快照。
 
 `reviseProductionInput` 只接受 `request`、`channels`、`sections`、`requirements`、`acceptance` 和 `edit_scope`。传入 `references`、`target` 或拼错的字段会明确报错，不静默忽略。需要按已授权任务更换参考或模型时，重新审阅完整 brief，并通过 `prepare` 冻结新输入及适当父任务；不能在仅改某个标签的请求中顺带换身份来源或执行模型。此校验适用于新的编译与修订，不重写旧快照。
 
@@ -102,6 +108,10 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 新增编辑范围之后仍须通读完整正文，清理上一轮操作指令。例如本轮仅调整头部，旧段落却还要求全身重建，不能只追加一句“其余不变”就派发；保留最终九头身目标，删除不适用于本轮的操作措辞。若已经冻结但尚未派发，保留旧快照并记录 `interrupted`、`dispatch_state: not_started`，另冻清理后的版本；它不是一次模型调用。脚本检查范围字段并不等于已完成自然语言冲突审查。
 
 ## 比较与统计
+
+用户直接拒绝另存数组型 `user-feedback.json`：每条有 `run_id`、`snapshot_sha256`、`output_sha256`、`verdict: rejected`、`source: direct_user_message` 和原话 `message`，实际给分时才添加数字 `score`。`report --user-feedback user-feedback.json` 校验记录绑定，撤回拒绝图的生效通过，保留 `original_initial_passed` 等原统计和原回执。不存在的图、错误摘要、重复条目和猜测分数均拒绝。脚本不认证说话者，不把未拒绝的图自动算用户接受。
+
+重复输出按冻结时间及 run_id 的稳定顺序选定首次记录，输入清单排列不影响统计；这个顺序不是已验证的实际派发顺序。同图同冻结目标出现不同逐项结论时列入 `review_conflicts`，不计为通过或同目标修复成功，需人工处理冲突。原回执与声明状态不改写，不同目标的不同检查不直接认作冲突。
 
 对固定 prompt 重复出图，使用不同 run_id、同 case/cohort，kind 都为 initial，准确记录随机重复。修改提示词或规则后使用另一个 cohort，避免混算。新一轮独立编写提示词的测试也要独立 cohort，不声称它和固定文本重复出图是同一实验。
 

@@ -42,7 +42,8 @@ test('qualitative proportions are default and explicit presets remain selectable
     assert.equal(createAssetPlan({ presentation }).configuration.proportion_profile, 'BALANCED_ELEGANT');
     const fashion = compileAssetPrompt({ presentation }).prompt;
     assert.match(fashion, /比例协调、修长好看/);
-    assert.match(fashion, /不靠极端缩头、拉长脖子、纸片腰/);
+    assert.match(fashion, /不统一细腰长腿/);
+    assert.match(fashion, /不靠极端缩头或拉长脖子/);
     assert.doesNotMatch(fashion, /七至七点五/);
     assert.match(compileAssetPrompt({ presentation, proportionProfile: 'NATURAL_ADULT' }).prompt, /七至七点五/);
     assert.equal(createAssetPlan({ presentation }).stage_2.fashion_asset.visual_head_count_target, null);
@@ -89,6 +90,8 @@ test('anchors and focused repairs preserve accepted scope in both languages and 
     const anchor = compileAssetPrompt({ referenceMode: 'full_body_anchor', language });
     assert.equal(anchor.configuration.proportion_profile, 'BALANCED_ELEGANT');
     assert.doesNotMatch(anchor.prompt, /P9 Fashion|七至七点五/);
+    assert.match(anchor.prompt, language==='en' ? /accepted body type and proportions/ : /已认可的体型与比例/);
+    assert.doesNotMatch(anchor.prompt, /协调修长|柔和肌肉|harmonious.?elegant proportions|slender/i);
   }
   assert.throws(() => compileAssetPrompt({ referenceMode:'full_body_anchor', proportionProfile:'NATURAL_ADULT' }), /conflicting/);
   for (const styleWorkflow of ['material_realistic_asset', 'dark_fantasy_asset']) {

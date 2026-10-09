@@ -82,7 +82,31 @@ export function adaptModelPrompt(compiled, target) {
     settings:s,negative_prompt:negative ?? null,prompt_sha256:compiled.prompt_sha256,request,runtime,
     documentation_verified_on:catalog.verified_on,sources:profile.sources,notes:profile.notes,
     evidence:{api_called:false,image_generated:false,visual_quality_verified:false}};
+  if(profile.transport==='diffusers') plan.runtime_validation_required={
+    contract:'tokenizer_coverage_v1',fields:['prompt',...(negative!==undefined?['negative_prompt']:[])],
+    tokenizers:target.profile==='sdxl-1.0'?['tokenizer','tokenizer_2']:target.profile==='sd-3.5-large'?['tokenizer','tokenizer_2','tokenizer_3']:['tokenizer'],
+    note:'执行方用实际加载的 tokenizer 对完整正文及负面逐项检查；不以字符数估算，不静默截断。'
+  };
   return {...plan,execution_sha256:hash(plan)};
+}
+
+export function verifyRuntimeValidation(plan, validation) {
+  verifyModelPlan(plan);
+  const required=plan.runtime_validation_required;
+  if(!required){if(validation!==undefined)throw new Error('没有冻结运行时校验合同');return true;}
+  if(required.contract!=='tokenizer_coverage_v1' || !object(validation) ||
+      Object.keys(validation).some(k=>!['execution_sha256','checks'].includes(k)) ||
+      validation.execution_sha256!==plan.execution_sha256 || !Array.isArray(validation.checks)) throw new Error('执行前需要绑定 execution_sha256 的实际 tokenizer 覆盖检查');
+  const expected=required.fields.flatMap(field=>required.tokenizers.map(tokenizer=>`${field}:${tokenizer}`));
+  const seen=new Set();
+  for(const check of validation.checks){
+    const key=`${check?.field}:${check?.tokenizer}`;
+    if(!object(check) || Object.keys(check).some(k=>!['field','tokenizer','tokens','limit','truncated'].includes(k)) || !expected.includes(key) || seen.has(key) ||
+        !Number.isSafeInteger(check.tokens) || check.tokens<0 || !Number.isSafeInteger(check.limit) || check.limit<1 || check.tokens>check.limit || check.truncated!==false) throw new Error('tokenizer 检查缺失、超限、截断或字段错误；不能派发');
+    seen.add(key);
+  }
+  if(seen.size!==expected.length)throw new Error('必须核对全部实际 tokenizer 的正文与负面，不能省略编码器');
+  return true;
 }
 
 export function verifyModelPlan(plan) {

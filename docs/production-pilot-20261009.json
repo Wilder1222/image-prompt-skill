@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-09",
+  "cohort": "production-pilot-20261009",
+  "purpose": "0.16.0 生产修复后的独立代表性试产",
+  "tool": "built-in imagegen",
+  "model": null,
+  "seed": null,
+  "user_accepted": false,
+  "known_completed_calls": 4,
+  "initial_cases": 3,
+  "initial_qualified": 1,
+  "edit_completed": 1,
+  "edit_qualified": 1,
+  "character_qualified": 0,
+  "history_boundary": "独立于历史34图评分、人物专项44次、旧三视图及旧九头身目标；不改写旧评分和通过次数。",
+  "timing": {
+    "initial_calls_elapsed_seconds": null,
+    "product_edit_elapsed_seconds": 26.228,
+    "cost": null
+  },
+  "runs": [
+    {
+      "run_id": "character-01",
+      "kind": "initial",
+      "goal_changed": false,
+      "snapshot": "dist/production-pilot-20261009/character-01.snapshot.json",
+      "receipt": "dist/production-pilot-20261009/character-01.receipt.json",
+      "outcome": "dist/production-pilot-20261009/character-01.outcome.json",
+      "output": "dist/production-pilot-20261009/character-01.png",
+      "output_sha256": "acf13c529c8e51033ac4054968670de18d1a79adf13d261bb76aea57a8e3c561",
+      "status": "needs_revision",
+      "checks": [
+        {
+          "id": "identity-check",
+          "basis": "identity",
+          "critical": true,
+          "question": "是否为单名成年女性卫士，神态沉稳、面容精致且有自然体积？",
+          "verdict": "pass",
+          "evidence": "成年女性面容与沉稳神态清楚，面部有连续体积。"
+        },
+        {
+          "id": "body-check",
+          "basis": "body",
+          "critical": true,
+          "question": "是否保持矮壮支撑体型，头肩、胸腰臀、上下臂和上下腿协调，无缩头拉腿或纸片腰？",
+          "verdict": "uncertain",
+          "evidence": "厚重肩胸与臀腿轮廓成立；甲片宽度不等于人体宽度，腿段仍偏修长，矮壮目标不足以确认。"
+        },
+        {
+          "id": "armor-check",
+          "basis": "armor",
+          "critical": true,
+          "question": "深灰铁甲与少量黄铜护边、内层、护腿靴和一面圆盾是否结构连贯？",
+          "verdict": "pass",
+          "evidence": "深灰铁甲、少量黄铜护边、布内层、护腿靴与单面盾连接可读。"
+        },
+        {
+          "id": "action-check",
+          "basis": "action",
+          "critical": true,
+          "question": "前腿承重、后脚推地、左臂举盾和身体平衡是否在同一阶段可信？",
+          "verdict": "uncertain",
+          "evidence": "前脚承重与左侧举盾轮廓成立，但后脚脚尖推地阶段及后盾握持连接未能充分看清。"
+        },
+        {
+          "id": "style-check",
+          "basis": "style",
+          "critical": true,
+          "question": "面容、发、金属与布料是否统一为精细电影CG，有连续体积与材料区分？",
+          "verdict": "pass",
+          "evidence": "脸、发、金属和布料表现为连贯精细写实CG外观；不由此声称实际三维资产或渲染器已验证。"
+        },
+        {
+          "id": "frame-check",
+          "basis": "frame",
+          "critical": true,
+          "question": "是否完整全身且头顶、脚下、盾外沿留白，动作与衣装可读？",
+          "verdict": "fail",
+          "evidence": "全身和盾沿在图内，但发髻距上边缘很近，缺少冻结要求的舒展头顶留白。"
+        }
+      ],
+      "scope_review": null,
+      "original_status": "needs_revision",
+      "effective_status": "user_rejected",
+      "user_feedback": {
+        "run_id": "character-01",
+        "snapshot_sha256": "416ab803ad135be57c415ebbd96bf3831138a002f562d6df97619fda344c88b7",
+        "output_sha256": "acf13c529c8e51033ac4054968670de18d1a79adf13d261bb76aea57a8e3c561",
+        "verdict": "rejected",
+        "source": "direct_user_message",
+        "message": "人物也不行"
+      }
+    },
+    {
+      "run_id": "product-01",
+      "kind": "initial",
+      "goal_changed": false,
+      "snapshot": "dist/production-pilot-20261009/product-01.snapshot.json",
+      "receipt": "dist/production-pilot-20261009/product-01.receipt.json",
+      "outcome": "dist/production-pilot-20261009/product-01.outcome.json",
+      "output": "dist/production-pilot-20261009/product-01.png",
+      "output_sha256": "2277513aa79b99a79efd1dae2abec3c8560f4f9e4c4ec98cb4479320913ff4ad",
+      "status": "reviewer_qualified",
+      "checks": [
+        {
+          "id": "product-check",
+          "basis": "product",
+          "critical": true,
+          "question": "是否只有一只方形浅绿厚玻璃瓶和黑色圆盖，部件连接与体积可信？",
+          "verdict": "pass",
+          "evidence": "单只浅绿方形厚玻璃瓶与黑色圆柱盖清楚，瓶肩和瓶底有体积。"
+        },
+        {
+          "id": "label-check",
+          "basis": "label",
+          "critical": true,
+          "question": "瓶身标签是否完整准确写山岚两个汉字？",
+          "verdict": "pass",
+          "evidence": "白色瓶签完整准确写山岚两个汉字，字形可读。"
+        },
+        {
+          "id": "headline-check",
+          "basis": "headline",
+          "critical": true,
+          "question": "上方标题是否完整准确写雨后清香四个汉字？",
+          "verdict": "pass",
+          "evidence": "上方完整准确写雨后清香四字，层级清楚。"
+        },
+        {
+          "id": "light-check",
+          "basis": "light",
+          "critical": true,
+          "question": "是否为无斑驳日照的漫射柔光，玻璃、盖、标签与接触关系成立？",
+          "verdict": "pass",
+          "evidence": "反射宽而柔，纸签与瓶盖有材料差异，台面柔和接触影成立，没有斑驳日照。"
+        },
+        {
+          "id": "frame-check",
+          "basis": "frame",
+          "critical": true,
+          "question": "是否竖版单瓶完整展示、两处文字可读且没有人物或额外文字？",
+          "verdict": "pass",
+          "evidence": "竖版完整单瓶，标题与标签可读，没有人物或其他文字。"
+        }
+      ],
+      "scope_review": null
+    },
+    {
+      "run_id": "poster-01",
+      "kind": "initial",
+      "goal_changed": false,
+      "snapshot": "dist/production-pilot-20261009/poster-01.snapshot.json",
+      "receipt": "dist/production-pilot-20261009/poster-01.receipt.json",
+      "outcome": "dist/production-pilot-20261009/poster-01.outcome.json",
+      "output": "dist/production-pilot-20261009/poster-01.png",
+      "output_sha256": "e64643f45bca4dd1764620fade28591da56df3be3fc00627bd5868c7e017e80a",
+      "status": "reviewer_qualified",
+      "checks": [
+        {
+          "id": "scene-check",
+          "basis": "scene",
+          "critical": true,
+          "question": "是否呈现雨后傍晚书店、青绿色木门和暖黄色窗光？",
+          "verdict": "pass",
+          "evidence": "雨后湿石板、傍晚天空、青绿门与暖黄窗光共同成立。"
+        },
+        {
+          "id": "title-check",
+          "basis": "title",
+          "critical": true,
+          "question": "招牌是否完整准确显示雨巷书店四字？",
+          "verdict": "pass",
+          "evidence": "门楣招牌完整准确写雨巷书店四个汉字，横排可读。"
+        },
+        {
+          "id": "frame-check",
+          "basis": "frame",
+          "critical": true,
+          "question": "是否是没有人物的竖版插画海报？",
+          "verdict": "pass",
+          "evidence": "竖版水彩插画，店门是视觉中心，画面没有人物；其他小牌文字不属于冻结禁止内容。"
+        }
+      ],
+      "scope_review": null,
+      "original_status": "reviewer_qualified",
+      "effective_status": "user_rejected",
+      "user_feedback": {
+        "run_id": "poster-01",
+        "snapshot_sha256": "9afc4a215fbd58336eace7a6c61ef321fc026186fca70ebd9b32476790ca1be8",
+        "output_sha256": "e64643f45bca4dd1764620fade28591da56df3be3fc00627bd5868c7e017e80a",
+        "verdict": "rejected",
+        "source": "direct_user_message",
+        "message": "雨巷书店 0分，太假了",
+        "score": 0
+      }
+    },
+    {
+      "run_id": "product-02",
+      "kind": "edit",
+      "goal_changed": true,
+      "snapshot": "dist/production-pilot-20261009/product-02.snapshot.json",
+      "receipt": "dist/production-pilot-20261009/product-02.receipt.json",
+      "outcome": "dist/production-pilot-20261009/product-02.outcome.json",
+      "output": "dist/production-pilot-20261009/product-02.png",
+      "output_sha256": "4666057eaed4a7f7cbf41b968275d56a9d9187d5886426a25f361e4c923f1585",
+      "status": "reviewer_qualified",
+      "checks": [
+        {
+          "id": "product-check",
+          "basis": "product",
+          "critical": true,
+          "question": "是否只有一只方形浅绿厚玻璃瓶和黑色圆盖，部件连接与体积可信？",
+          "verdict": "pass",
+          "evidence": "单瓶和盖的形状、尺度与位置可辨保持。"
+        },
+        {
+          "id": "label-check",
+          "basis": "label",
+          "critical": true,
+          "question": "瓶身标签是否完整准确写山岚两个汉字？",
+          "verdict": "pass",
+          "evidence": "白签与山岚两字保持清楚。"
+        },
+        {
+          "id": "headline-check",
+          "basis": "headline",
+          "critical": true,
+          "question": "上方标题是否完整准确写雨后清香四个汉字？",
+          "verdict": "pass",
+          "evidence": "雨后清香四字内容、字形、位置和层级保持。"
+        },
+        {
+          "id": "light-check",
+          "basis": "light",
+          "critical": true,
+          "question": "是否为无斑驳日照的漫射柔光，玻璃、盖、标签与接触关系成立？",
+          "verdict": "pass",
+          "evidence": "浅绿玻璃和哑光黑盖的柔光层次、石台接触关系保持，没有斑驳日照。"
+        },
+        {
+          "id": "frame-check",
+          "basis": "frame",
+          "critical": true,
+          "question": "是否竖版单瓶完整展示、两处文字可读且没有人物或额外文字？",
+          "verdict": "pass",
+          "evidence": "单瓶完整及上方文字区保持，没有人物或额外文字。"
+        }
+      ],
+      "scope_review": {
+        "verdict": "pass",
+        "change_evidence": "瓶后背景从浅灰绿改为暖米色，未改变产品展示布局。",
+        "preservation_evidence": "逐项对照原图，产品与两处文字未见明显重设计，台面与柔光关系保持；此为视觉保持观察，非逐像素相等认证。",
+        "declared_verdict": "pass",
+        "preservation_checks": [
+          {
+            "index": 0,
+            "requirement": "保持瓶身、瓶肩、瓶底和黑色圆盖的形状、位置与尺度。",
+            "verdict": "pass",
+            "evidence": "瓶盖、瓶身边缘、瓶肩和厚底的形状及相对位置可辨保持。"
+          },
+          {
+            "index": 1,
+            "requirement": "保持浅绿透明玻璃、白色标签及山岚两个汉字。",
+            "verdict": "pass",
+            "evidence": "玻璃仍为浅绿透明，白色瓶签及山岚字形保持。"
+          },
+          {
+            "index": 2,
+            "requirement": "保持上方雨后清香四字的内容、字形、位置和层级。",
+            "verdict": "pass",
+            "evidence": "上方四字内容及横排大小关系保持。"
+          },
+          {
+            "index": 3,
+            "requirement": "保持完整取景、灰色石台、柔光与原接触关系。",
+            "verdict": "pass",
+            "evidence": "完整外轮廓、石台前沿与柔和接触影保持，没有额外裁切。"
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "cohorts": {
+      "production-pilot-20261009": {
+        "runs_planned": 4,
+        "known_tool_calls": 4,
+        "initial_planned": 3,
+        "initial_completed": 3,
+        "initial_passed": 1,
+        "resolved_without_goal_change": 1,
+        "unresolved_reviews": 0,
+        "failures": 1,
+        "tool_errors": 0,
+        "pending": 0,
+        "interrupted": 0,
+        "dispatch_unknown": 0,
+        "reused_outputs": 0,
+        "review_conflicts": 0,
+        "original_initial_passed": 2,
+        "original_resolved_without_goal_change": 2,
+        "user_rejected": 2,
+        "goal_changes": 1
+      }
+    },
+    "user_acceptance": "not_inferred",
+    "user_feedback": [
+      {
+        "run_id": "poster-01",
+        "snapshot_sha256": "9afc4a215fbd58336eace7a6c61ef321fc026186fca70ebd9b32476790ca1be8",
+        "output_sha256": "e64643f45bca4dd1764620fade28591da56df3be3fc00627bd5868c7e017e80a",
+        "verdict": "rejected",
+        "source": "direct_user_message",
+        "message": "雨巷书店 0分，太假了",
+        "score": 0
+      },
+      {
+        "run_id": "character-01",
+        "snapshot_sha256": "416ab803ad135be57c415ebbd96bf3831138a002f562d6df97619fda344c88b7",
+        "output_sha256": "acf13c529c8e51033ac4054968670de18d1a79adf13d261bb76aea57a8e3c561",
+        "verdict": "rejected",
+        "source": "direct_user_message",
+        "message": "人物也不行"
+      }
+    ],
+    "deduplication_order": "snapshot_created_at_then_run_id_not_verified_dispatch_order",
+    "note": "Counts recheck declared reviews against frozen criteria; no image files, dispatch logs or visual evidence are re-inspected. Reused outputs, conflicting reviews, explicit user rejections and changed targets do not create successes. Feedback preserves original reviews and does not imply user approval or authenticate its source."
+  },
+  "limitations": [
+    "非盲评、单次案例，没有用户验收或跨模型稳定性证明。",
+    "卫士留白失败，矮壮体型与后脚推地仍未充分确认；不继续无新控制的比例或动作措辞重试。",
+    "产品背景编辑保持仅按可见关系判断，未认证像素坐标完全不变。",
+    "模型、种子和实际费用未知，不虚构。",
+    "书店和人物已被用户明确拒绝；原首轮2/3观察者通过不足以证明生产质量。"
+  ],
+  "original_initial_qualified": 2,
+  "original_summary": {
+    "cohorts": {
+      "production-pilot-20261009": {
+        "runs_planned": 4,
+        "known_tool_calls": 4,
+        "initial_planned": 3,
+        "initial_completed": 3,
+        "initial_passed": 2,
+        "resolved_without_goal_change": 2,
+        "unresolved_reviews": 0,
+        "failures": 1,
+        "tool_errors": 0,
+        "pending": 0,
+        "interrupted": 0,
+        "dispatch_unknown": 0,
+        "reused_outputs": 0,
+        "review_conflicts": 0,
+        "goal_changes": 1
+      }
+    },
+    "user_acceptance": "not_inferred",
+    "deduplication_order": "snapshot_created_at_then_run_id_not_verified_dispatch_order",
+    "note": "Counts recheck declared reviews against frozen criteria; no image files, dispatch logs or visual evidence are re-inspected. Reused outputs, conflicting reviews and changed targets do not create successes. Input list order does not select a favorable review."
+  },
+  "user_feedback": [
+    {
+      "run_id": "poster-01",
+      "snapshot_sha256": "9afc4a215fbd58336eace7a6c61ef321fc026186fca70ebd9b32476790ca1be8",
+      "output_sha256": "e64643f45bca4dd1764620fade28591da56df3be3fc00627bd5868c7e017e80a",
+      "verdict": "rejected",
+      "source": "direct_user_message",
+      "message": "雨巷书店 0分，太假了",
+      "score": 0
+    },
+    {
+      "run_id": "character-01",
+      "snapshot_sha256": "416ab803ad135be57c415ebbd96bf3831138a002f562d6df97619fda344c88b7",
+      "output_sha256": "acf13c529c8e51033ac4054968670de18d1a79adf13d261bb76aea57a8e3c561",
+      "verdict": "rejected",
+      "source": "direct_user_message",
+      "message": "人物也不行"
+    }
+  ],
+  "user_rejected": 2,
+  "production_readiness": "not_established"
+}

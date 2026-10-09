@@ -39,6 +39,8 @@ Qwen 没有排除词但需要启用真实引导时，可显式使用 `negative_p
 
 ## 编译与执行记录
 
+Diffusers 新计划冻结 `runtime_validation_required`，逐个规定实际 tokenizer 对正文及负面的完整覆盖检查。`inspect` 在缺少记录时返回 `dispatch_ready: false`；执行方核对实际 tokenizer 后用 `inspect --runtime-check tokenizer-check.json` 验证。记录绑定 `execution_sha256`，每项含 `field`、`tokenizer`、`tokens`、`limit`、`truncated: false`；超限、截断、漏编码器或错误摘要均拒绝。完成回执同样携带 `runtime_validation`，没有有效检查不能计为已完成评审。脚本验证这些声明，不运行 tokenizer，也不以中文字数估算 token。旧执行计划没有合同则保持原样，不回填校验成功。
+
 代理可从 [完整文生图例子](../../examples/text-to-image-brief.json) 整理内部任务，不要求用户填写 JSON：
 
 ```bash

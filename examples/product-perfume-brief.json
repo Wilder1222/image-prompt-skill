@@ -1,0 +1,26 @@
+{
+  "subject_kind": "product",
+  "request": "原创香水产品广告：一只方形浅绿玻璃瓶，黑色圆盖，标签准确写山岚，海报标题雨后清香，阴天柔光，不要人物。",
+  "references": [],
+  "requirements": [
+    {"id":"product","channel":"identity","priority":"must","text":"单只方形浅绿玻璃香水瓶，黑色圆柱瓶盖，清楚的瓶肩与瓶底厚度。"},
+    {"id":"label","channel":"output","priority":"must","text":"瓶身白色标签准确写山岚两个汉字。"},
+    {"id":"headline","channel":"output","priority":"must","text":"画面上方标题准确写雨后清香四个汉字。"},
+    {"id":"light","channel":"lighting","priority":"must","text":"阴天漫射柔光，没有斑驳日照，玻璃、瓶盖和接触影有区别。"},
+    {"id":"frame","channel":"composition","priority":"must","text":"竖版广告，单瓶完整、标题和标签不被遮挡，没有人物和额外文字。"}
+  ],
+  "unresolved": [],
+  "sections": [
+    {"label":"产品与构造","channel":"identity","items":[{"text":"一只原创香水瓶，浅绿色透明厚玻璃方瓶，宽度与高度接近，平整瓶肩连接短瓶颈，上方为哑光黑色圆柱瓶盖；瓶底厚度清楚，内部少量浅色液体与玻璃分开可见。","basis":["product"],"intent":"design","reason":"本轮原创商品设计，先确定瓶形、连接和材料，没有参考外观锁定。"}]},
+    {"label":"标签与标题","channel":"output","items":[{"text":"瓶身正面中央的白色小标签仅写“山岚”两个汉字，黑色清楚字形。海报上方留白区横排“雨后清香”四个汉字，深灰色，标题大于标签；两处文字完整准确，没有英文、价格、小字或其他品牌文字。","basis":["label","headline"],"intent":"constraint"}]},
+    {"label":"构图与空间","channel":"composition","items":[{"text":"竖版产品摄影广告，单瓶置于浅灰石台中央下方，正面略有侧面厚度，瓶盖至瓶底完整可见。瓶后是安静的浅灰绿背景，上方约四分之一画面供标题；没有人物、花束、额外瓶子或遮挡标签的装饰。","basis":["frame"],"intent":"constraint"}]},
+    {"label":"材料与光线","channel":"lighting","items":[{"text":"阴天大面积漫射天光，玻璃边缘呈宽而柔的反射，瓶盖低光泽，白纸标签保持不透明且文字对比清楚，台面有轻微接触阴影。环境明亮柔和，没有直射太阳、叶影、强耀斑或将整瓶涂成塑料绿色的高光。","basis":["light"],"intent":"constraint"}]}
+  ],
+  "acceptance": [
+    {"id":"product-check","basis":"product","critical":true,"question":"是否只有一只方形浅绿厚玻璃瓶和黑色圆盖，部件连接与体积可信？"},
+    {"id":"label-check","basis":"label","critical":true,"question":"瓶身标签是否完整准确写山岚两个汉字？"},
+    {"id":"headline-check","basis":"headline","critical":true,"question":"上方标题是否完整准确写雨后清香四个汉字？"},
+    {"id":"light-check","basis":"light","critical":true,"question":"是否为无斑驳日照的漫射柔光，玻璃、盖、标签与接触关系成立？"},
+    {"id":"frame-check","basis":"frame","critical":true,"question":"是否竖版单瓶完整展示、两处文字可读且没有人物或额外文字？"}
+  ]
+}

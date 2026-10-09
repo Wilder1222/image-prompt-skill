@@ -43,7 +43,8 @@ test('hand override changes structure only', () => {
 test('generation describes proportion in prose without mode settings or edit-only locks', () => {
   const result = compileAssetPrompt();
   assert.doesNotMatch(result.prompt, /only direct edit target|Change only|youthful_18_22/);
-  assert.match(result.prompt, /balanced, elegant, elongated body proportions/);
+  assert.match(result.prompt, /proportions for the current character/);
+  assert.match(result.prompt, /without a universal narrow waist or long legs/);
   assert.equal(result.status, 'scaffold_only');
   assert.equal(result.requires_reference_analysis, true);
   assert.deepEqual(result.evidence, { image_generated: false, visual_quality_verified: false });

@@ -1,7 +1,7 @@
 {
   "version": "0.7.5",
   "default": "BALANCED_ELEGANT",
-  "note": "头身数仅用于本项目的视觉审美判断，不是厂商参数或人体测量结论。头长取颅顶至下巴，发髻、冠饰、簪饰和裙尾不计入。完整身体关系优先，不将黄金比例当作各部位统一公式。",
+  "note": "所有类型的人物身材均可适度完美化，朝舒展修长与整体比例协调优化，不仅限未指定体型的成年人物。年龄、体型、角色、媒介和动作决定美化程度，明确体型保留特点但仍优化肢段、曲线与体积；已认可母图和窄范围编辑保持原边界。不固定头身数，数值仅服务明确请求，不是厂商参数或人体测量结论；不以鞋跟、发量或拖尾代替人体比例。",
   "levels": {
     "P7": {
       "label": "natural",
@@ -86,17 +86,21 @@
     "BALANCED_ELEGANT": {
       "label": "balanced_elegant",
       "visual_head_count_range": null,
-      "head_visual_scale": "balanced",
+      "head_visual_scale": "selected_age_and_body_type_coherent",
       "neck_extension": "none",
-      "shoulder_opening": "mild",
+      "shoulder_opening": "selected_body_type_and_pose_coherent",
       "torso_preservation": "strong",
       "waistline_visual_raise": "none",
-      "leg_extension": "coordinated",
-      "garment_vertical_bias": "strong",
-      "garment_width_control": "medium",
+      "leg_extension": "selected_body_type_coherent_without_default_elongation",
+      "garment_vertical_bias": "garment_design_dependent",
+      "garment_width_control": "preserve_selected_silhouette",
       "prompt_translation": [
-        "人物身材比例协调、修长好看，头肩相称、肩颈舒展，胸廓、腰腹和骨盆完整，腰臀与上下肢的长度、粗细自然衔接；保留适度柔和肌肉与软组织体积，不靠极端缩头、拉长脖子、纸片腰或单独拉腿制造修长。"
-      ]
+        "所有类型的人物身材均可适度完美化，整体朝比例协调、修长好看、舒展匀称的方向设计。头脸与肩带相称、肩颈自然展开，完整躯干和四肢共同形成有吸引力的轮廓；根据年龄、体型、角色和媒介选择美化程度，力量、丰润、矮壮或Q版也适度优化肢段、曲线与体积，保留本身特点，不统一细腰长腿的极端模板，不靠极端缩头或拉长脖子制造美感。",
+        "肌肉与软组织体积符合人物年龄、体型和动作，按实际承重、收缩、拉伸与接触变化，不统一为柔和纤细或健美分块。厚衣下只依据轮廓、支撑与受力褶皱判断，不穿透不透明衣料描画肌肉。",
+        "在所选体型内优化头肩尺度、胸腰腹长度、骨盆支撑、上下臂与上下腿的长度和粗细，轮廓有连贯的收放变化，手掌、脚踝与足部尺度相称；腰部适度收束仍有厚度，肌肉与软组织体积随动作自然变化，不以一处长腿或细腰替代完整身材设计。"
+      ],
+      "aesthetic_direction": "idealized_harmony_for_selected_character",
+      "idealization_scope": "all_character_types_with_moderate_elongation"
     }
   },
   "head_to_body_guard": {
