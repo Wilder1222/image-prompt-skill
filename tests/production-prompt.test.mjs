@@ -169,13 +169,11 @@ test('authored sheet example keeps layout, view and proportion independently rev
  assert.throws(()=>compileProductionPrompt(bad),/own authored proportion clause/);
 });
 
-test('character briefs cannot omit, soften or detach the nine-head production contract',()=>{
+test('character briefs cannot omit, soften or detach the authored proportion contract',()=>{
   for(const mutate of [
     p=>{delete p.subject_kind;},
     p=>{p.subject_kind='guess';},
     p=>{p.requirements=p.requirements.filter(r=>r.id!=='P9');p.sections.pop();p.acceptance.pop();},
-    p=>{delete p.requirements.at(-1).target_head_count;},
-    p=>{p.requirements.at(-1).target_head_count=8;},
     p=>{p.requirements.at(-1).target_head_count='9';},
     p=>{p.requirements.at(-1).priority='prefer';},
     p=>{p.acceptance.at(-1).critical=false;},

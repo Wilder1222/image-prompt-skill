@@ -71,7 +71,6 @@ export function createAssetPlan(options = {}) {
   configuration.face_profile = options.faceProfile ?? configuration.face_profile;
   configuration.hand_mode = options.handMode ?? configuration.hand_mode;
   configuration.proportion_profile = options.proportionProfile ?? configuration.proportion_profile;
-  if (configuration.proportion_profile !== 'P9_FASHION_ASSET') throw new Error('人物资产必须采用黄金九头身比例：P9_FASHION_ASSET；不支持自然七头身或其他比例替代');
   // Face realism never implicitly changes the age target, including during A/B tests.
   configuration.maturity_guard = options.maturityGuard ?? configuration.maturity_guard;
   configuration.presentation_profile = options.presentation ?? presentations.default;
@@ -115,7 +114,7 @@ export function createAssetPlan(options = {}) {
   // Character media own these effective plans. Legacy layers and lamp settings
   // must not survive merely because their rendered prose was replaced.
   const material = appearance
-    ? {source_workflow:configuration.style_workflow, prompt_translation:[appearance.material], generation_prompt_translation:[appearance.material]}
+    ? {source_workflow:configuration.style_workflow, prompt_translation:[appearance.material,styleRendering.detail.zh], generation_prompt_translation:[appearance.material]}
     : lookup(materials.profiles, configuration.material_profile, 'material profile');
   if (appearance) configuration.material_profile = `style:${configuration.style_workflow}`;
   let asset = lookup(assets.profiles, configuration.asset_profile, 'asset profile');
@@ -124,7 +123,7 @@ export function createAssetPlan(options = {}) {
     configuration.asset_profile = `presentation:${configuration.presentation_profile}`;
   }
   const light = appearance
-    ? {source_workflow:configuration.style_workflow, prompt_translation:[appearance.lighting]}
+    ? {source_workflow:configuration.style_workflow, prompt_translation:[appearance.lighting,styleRendering.highlights.zh,styleRendering.edges.zh], generation_prompt_translation:[appearance.lighting]}
     : lookup(lights.profiles, configuration.lighting_profile, 'lighting profile');
   if (appearance) configuration.lighting_profile = `style:${configuration.style_workflow}`;
   const passed = resolvePassedLocks(options.passed);
@@ -182,7 +181,9 @@ const englishStudioLighting = [
   'Retain gentle facial volume under even lighting. Skin detail serves refined makeup and framing. Keep the white background from swallowing pale garment edges, shadows consistent with the pose, distinct fabric layers and restrained metal highlights. Preserve the requested photographic or painterly medium.'
 ];
 function renderEnglishCompatibility(prompt) {
-  const localized = lights.profiles.studio_soft_separation.prompt_translation.reduce((text, source, i) => text.replaceAll(source, englishStudioLighting[i]), prompt);
+  const styleLocalized = ['detail_budgets','highlight_hierarchies','edge_controls'].reduce((text, category) =>
+    Object.entries(workflowEnglish[category]).reduce((out, [id, english]) => out.replaceAll(workflows[category][id].zh, english), text), prompt);
+  const localized = lights.profiles.studio_soft_separation.prompt_translation.reduce((text, source, i) => text.replaceAll(source, englishStudioLighting[i]), styleLocalized);
   const scopesRendered = Object.values(scopes).reduce((text, scope) => text.replaceAll(scope.preserve,scope.enPreserve).replaceAll(scope.change,scope.enChange), localized).replaceAll('编辑提供的当前资产图，将其作为唯一直接编辑对象。','Edit the supplied current asset image. Use it as the only direct edit target.');
   return translateCatalogToEnglish(scopesRendered).replaceAll('仅修订当前媒介下的面部表现与妆面，不更换人物身份、年龄或整体风格。', 'Refine the face and makeup within the current medium without changing identity, age or overall style.').replaceAll('P9 fashion-asset proportion', 'mandatory balanced nine-head body proportions');
 }
@@ -204,7 +205,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
     return finish({
       status: 'prompt_ready', stage, focus: null, reference_mode: referenceMode,
       configuration: { face_profile: 'preserve_reference', maturity_guard: 'none', hand_mode: 'preserve_reference',
-        proportion_profile: 'P9_FASHION_ASSET', presentation_profile: 'preserve_reference',
+        proportion_profile: 'BALANCED_ELEGANT', presentation_profile: 'preserve_reference',
         material_profile: 'preserve_reference', lighting_profile: 'preserve_reference' },
       round_plan: null, prompt: reference.prompt_translation.join('\n\n'),
       evidence: { image_generated: false, visual_quality_verified: false },
@@ -244,7 +245,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
       section('Composition and pose', [...plan.stage_2.asset_master.prompt_translation, ...plan.stage_2.hand_pose.prompt_translation]),
       section('Body proportion', plan.stage_2.fashion_asset.prompt_translation),
       section('Hands and feet', ['Each hand anatomically has one thumb and four fingers; natural overlap is allowed. Keep visible joints coherent. The stance and garment gravity determine whether one, both or neither foot is visible. Keep the complete natural silhouette inside the frame and plausible ground contact; do not lift or shorten the hem to force visible shoe tips.']),
-      section('Background and light', [...plan.stage_3.studio_lighting.prompt_translation, workflowEnglish.highlight_hierarchies[c.highlight_hierarchy], workflowEnglish.edge_controls[c.edge_control], 'Remove scenic branches, bokeh, sunset atmosphere, foreground obstructions and battlefield effects. Keep only a white seamless background and a faint contact shadow.']),
+      section('Background and light', [...(plan.stage_3.studio_lighting.generation_prompt_translation ?? plan.stage_3.studio_lighting.prompt_translation), workflowEnglish.highlight_hierarchies[c.highlight_hierarchy], workflowEnglish.edge_controls[c.edge_control], 'Remove scenic branches, bokeh, sunset atmosphere, foreground obstructions and battlefield effects. Keep only a white seamless background and a faint contact shadow.']),
       section('Final goal and restrictions', [workflowEnglish.profiles[c.style_workflow], 'For this neutral front-facing inspection case, keep a complete centered figure, readable face, coherent proportions and distinct garment materials. Exaggerated or dynamic action is supported by the production workflow when selected for the task; do not apply this static case as a universal movement restriction. Express life through focused gaze, coherent facial and body intent, natural shoulder and hand tension, and believable cloth response.']),
     ];
   } else {

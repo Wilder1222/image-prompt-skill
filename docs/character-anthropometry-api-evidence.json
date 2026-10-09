@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-07",
+  "anny_version": "0.6.1",
+  "upstream": {
+    "commit": "d6fc027ced5c17b6b0775dee944096ade7a9ef80",
+    "url": "https://raw.githubusercontent.com/naver/anny/d6fc027ced5c17b6b0775dee944096ade7a9ef80/src/anny/anthropometry.py",
+    "sha256": "e529e0e9961444dd7b1a31569e3e70c0f2ded02b6a5423ef0641eb779456d3f3",
+    "installed_matches_after_newline_normalization": true
+  },
+  "source_sha256": {
+    ".venv\\Lib\\site-packages\\anny\\anthropometry.py": "63087284ed530e94ab95cb0bd659759fd695a747ad2237d3ff92f7b3693f86d4",
+    "neutral-native-mesh.npz": "b512d4ebd956e7566a942dcd3d32ec1764829e26420e7f911164bc3246d5f4f4",
+    "protected-head-01\\candidate-mesh.npz": "81054b4d90a86dbb8f2d7c3d39cbded697937c762a41ef5c897492395dc68463",
+    "landmark-candidates.json": "23d2c06aa5b2c6289b3f9313f4a4a094e98dc3b7db2df7ac6da86a555fb86a6b",
+    ".venv\\Lib\\site-packages\\anny\\data\\mpfb2\\rigs\\rigify\\rig.human.json": "6c3e61576d299d4acfbe45789d69738608ae0559d382f4a0e9e598a82379be7f"
+  },
+  "methods": [
+    "__init__",
+    "height",
+    "waist_circumference",
+    "volume",
+    "mass",
+    "bmi",
+    "__call__"
+  ],
+  "returned_measures": [
+    "height",
+    "waist_circumference",
+    "volume",
+    "mass",
+    "bmi"
+  ],
+  "height_implementation": "静止网格所有顶点的Z最大值减最小值；不识别颅顶、下巴或承重足底，也不自动检查姿态。",
+  "bound_chin": {
+    "base_index": 5225,
+    "native_index": 5209,
+    "source": "rigify chin骨骼head的VERTEX定位声明；不是Anthropometry类提供的测量点。"
+  },
+  "cases": [
+    {
+      "case": "neutral",
+      "height_api": 1.625199794769287,
+      "independent_z_extent": 1.625199794769287,
+      "maximum_vertex": 881,
+      "minimum_vertex": 6148,
+      "bound_chin_proxy": 5209,
+      "diagnostic_vertical_ratio": 7.532482299597799,
+      "ratio_note": "该比值由审计脚本另算，测量API没有返回；端点仍为历史代理，旋转例又违反竖直静止坐标约定。"
+    },
+    {
+      "case": "existing_protected_candidate",
+      "height_api": 1.5785834081123822,
+      "independent_z_extent": 1.5785834081123822,
+      "maximum_vertex": 881,
+      "minimum_vertex": 6148,
+      "bound_chin_proxy": 5209,
+      "diagnostic_vertical_ratio": 9,
+      "ratio_note": "该比值由审计脚本另算，测量API没有返回；端点仍为历史代理，旋转例又违反竖直静止坐标约定。"
+    },
+    {
+      "case": "rigid_rotation_30",
+      "height_api": 1.4959851345109159,
+      "independent_z_extent": 1.4959851345109159,
+      "maximum_vertex": 5352,
+      "minimum_vertex": 6145,
+      "bound_chin_proxy": 5209,
+      "diagnostic_vertical_ratio": 6.025290449771148,
+      "ratio_note": "该比值由审计脚本另算，测量API没有返回；端点仍为历史代理，旋转例又违反竖直静止坐标约定。"
+    }
+  ],
+  "rigid_rotation_max_edge_length_error": 1.0581813203458523e-16,
+  "historical_files_unchanged": true,
+  "conclusion": "已核对的类未提供头高或头身比。可复用其静止身高算术，但不能用该API或绑定点命名补齐九头身验收证据。",
+  "limits": [
+    "检索结论限于该固定源码及本地0.6.1的测量类，未宣称所有人体测量工具均无对应端点。",
+    "没有新选点、修改旧候选、重绑骨骼、检测解剖标志或认证承重。",
+    "整体旋转只在内存中作误用对照，未保存为新模型或新人物候选。"
+  ],
+  "new_image_outputs": 0,
+  "accepted_character_asset": false
+}

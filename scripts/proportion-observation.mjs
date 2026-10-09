@@ -20,13 +20,13 @@ export function proportionBounds(input) {
   if(c[1]>=j[0] || j[1]>=(s[0]??s[1])) throw new Error('endpoint bounds must remain ordered crown < chin < sole');
   const lower=s[0]===null?null:(s[0]-c[0])/(j[1]-c[0]);
   const upper=(s[1]-c[1])/(j[0]-c[1]);
-  return {schema_version:1,status:'diagnostic_only',target_head_count:9,
+  return {schema_version:1,status:'diagnostic_only',target_head_count:9,ratio_space:'image_projection',
     ratio_lower:lower,ratio_upper:upper,
     target_relation:upper<9||(lower!==null&&lower>9)?'excluded_by_declared_bounds':'not_excluded_by_declared_bounds',
-    anatomical_measurement_verified:false,image_height_verified:false,acceptance_granted:false,
+    anatomical_target_relation:'not_established',anatomical_measurement_verified:false,image_height_verified:false,acceptance_granted:false,
     observations:{image_height:input.image_height,crown_y:c,chin_y:j,sole_y:s,landmark_note:input.landmark_note,projection_note:input.projection_note},
     formulas:{lower:s[0]===null?null:'(sole_min - crown_min) / (chin_max - crown_min)',upper:'(sole_max - crown_max) / (chin_min - crown_max)'},
-    note:'仅核算所声明端点的投影比例界；端点语义、姿态、透视和各肢段协调仍需人工核对。区间包含九或数值恰为九均不授予通过，未设置验收容差。'};
+    note:'仅核算所声明端点的图像投影比例界，target_relation 也只描述该投影区间与九的关系。没有独立投影依据时，投影区间排除九不等于人体比例排除九；区间包含九或数值恰为九同样不授予通过。端点语义、姿态、透视和各肢段协调仍需人工核对，未设置验收容差。'};
 }
 
 export function auditProportionObservation(input,baseDir=process.cwd()) {

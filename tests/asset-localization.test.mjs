@@ -35,7 +35,7 @@ test('all character styles preserve facial ratios without freezing a noncomplian
     const en=compileAssetPrompt({styleWorkflow,language:'en'}).prompt;
     assert.match(zh,/面宽相对头高/);assert.match(zh,/不单独压窄脸/);
     assert.match(en,/face width relative to head height/);
-    assert.match(en,/without extreme head reduction/);
+    assert.match(en,/without extreme head shrinking/);
     assert.doesNotMatch(en,/without shrinking the head/);
     assert.match(en,/noncompliant head-to-body ratio/);
   }

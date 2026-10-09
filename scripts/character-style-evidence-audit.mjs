@@ -194,7 +194,7 @@ export function auditCharacterStyleEvidence({ root = process.cwd(), catalogPath 
   return {
     schema_version: 3,
     purpose: '核对风格配置、登记输出和人工结论的一致性；不执行提示词编译或视觉评分。',
-    hard_rule: '所有人物路线仍以颅顶至下巴头长定义的黄金九头身为硬性目标；本审计不替代逐图测量。',
+    hard_rule: '历史样本按各自冻结的目标审计，其中九头身要求不追溯删除；当前默认比例为协调、修长好看，本审计不自动重判旧图。',
     verification_mode: verifyFiles ? 'local_output_sha256' : 'report_metadata_only',
     configured_routes: profileIds.length,
     routes_with_recorded_outputs: routes.filter(route => route.recorded_outputs > 0).length,

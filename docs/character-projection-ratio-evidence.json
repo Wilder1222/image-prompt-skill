@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-07",
+  "purpose": "固定声明为九头长的三个共线技术点，只改变针孔相机，检查图像纵向比值能否独立排除三维目标。",
+  "source": {
+    "url": "https://docs.opencv.org/4.13.0/d9/d0c/group__calib3d.html",
+    "used": "针孔相机的世界到相机变换，以及图像坐标按相机深度相除的公式。",
+    "application": "下面的三点、相机和数值对照为本项目自行构造，不是来源文档对人体头身比的实测结论。"
+  },
+  "experiment": {
+    "world_points": {
+      "crown": [
+        0,
+        1.8,
+        0
+      ],
+      "chin": [
+        0,
+        1.6,
+        0
+      ],
+      "sole": [
+        0,
+        0,
+        0
+      ]
+    },
+    "world_units": "任意一致长度单位，例中按米解释。",
+    "world_ratio": 9.000000000000002,
+    "assumptions": [
+      "无镜头畸变，三点共线且世界纵坐标已知，身体与头部基准不变。",
+      "相机位于世界Z负侧，朝向同一竖线的指定高度；主点纵坐标为1000。",
+      "技术点不是人体网格或解剖标注，不对任何实际人物图拟合相机。"
+    ],
+    "rows": [
+      {
+        "camera": {
+          "id": "level",
+          "height": 0.9,
+          "aim_height": 0.9,
+          "distance": 3,
+          "focal_pixels": 1800
+        },
+        "pitch_degrees": 0,
+        "points": {
+          "crown": {
+            "depth": 3,
+            "y_down": 460
+          },
+          "chin": {
+            "depth": 3,
+            "y_down": 580
+          },
+          "sole": {
+            "depth": 3,
+            "y_down": 1540
+          }
+        },
+        "world_ratio": 9.000000000000002,
+        "projected_ratio": 9,
+        "analytic_ratio": 9.000000000000002,
+        "ratio_space": "image_projection",
+        "projected_target_relation": "not_excluded_by_declared_bounds",
+        "anatomical_target_relation": "not_established"
+      },
+      {
+        "camera": {
+          "id": "downward",
+          "height": 1.3,
+          "aim_height": 0.9,
+          "distance": 3,
+          "focal_pixels": 1800
+        },
+        "pitch_degrees": -7.594643368591445,
+        "points": {
+          "crown": {
+            "depth": 2.907601842002395,
+            "y_down": 447.72727272727275
+          },
+          "chin": {
+            "depth": 2.9340345860205987,
+            "y_down": 574.3243243243244
+          },
+          "sole": {
+            "depth": 3.1454965381662277,
+            "y_down": 1510.5042016806722
+          }
+        },
+        "world_ratio": 9.000000000000002,
+        "projected_ratio": 8.394957983193274,
+        "analytic_ratio": 8.39495798319328,
+        "ratio_space": "image_projection",
+        "projected_target_relation": "excluded_by_declared_bounds",
+        "anatomical_target_relation": "not_established"
+      },
+      {
+        "camera": {
+          "id": "upward",
+          "height": 0.5,
+          "aim_height": 0.9,
+          "distance": 3,
+          "focal_pixels": 1800
+        },
+        "pitch_degrees": 7.594643368591445,
+        "points": {
+          "crown": {
+            "depth": 3.1454965381662277,
+            "y_down": 489.49579831932783
+          },
+          "chin": {
+            "depth": 3.119063794148024,
+            "y_down": 599.5762711864406
+          },
+          "sole": {
+            "depth": 2.907601842002395,
+            "y_down": 1552.2727272727273
+          }
+        },
+        "world_ratio": 9.000000000000002,
+        "projected_ratio": 9.654545454545467,
+        "analytic_ratio": 9.654545454545458,
+        "ratio_space": "image_projection",
+        "projected_target_relation": "excluded_by_declared_bounds",
+        "anatomical_target_relation": "not_established"
+      },
+      {
+        "camera": {
+          "id": "downward_farther",
+          "height": 1.3,
+          "aim_height": 0.9,
+          "distance": 6,
+          "focal_pixels": 1800
+        },
+        "pitch_degrees": -3.8140748342903548,
+        "points": {
+          "crown": {
+            "depth": 5.953451441877767,
+            "y_down": 728.4916201117319
+          },
+          "chin": {
+            "depth": 5.966755243982521,
+            "y_down": 789.2976588628762
+          },
+          "sole": {
+            "depth": 6.07318566082056,
+            "y_down": 1266.1555312157723
+          }
+        },
+        "world_ratio": 9.000000000000002,
+        "projected_ratio": 8.842278203723998,
+        "analytic_ratio": 8.842278203723989,
+        "ratio_space": "image_projection",
+        "projected_target_relation": "excluded_by_declared_bounds",
+        "anatomical_target_relation": "not_established"
+      },
+      {
+        "camera": {
+          "id": "downward_other_focal",
+          "height": 1.3,
+          "aim_height": 0.9,
+          "distance": 3,
+          "focal_pixels": 1500
+        },
+        "pitch_degrees": -7.594643368591445,
+        "points": {
+          "crown": {
+            "depth": 2.907601842002395,
+            "y_down": 539.7727272727273
+          },
+          "chin": {
+            "depth": 2.9340345860205987,
+            "y_down": 645.2702702702702
+          },
+          "sole": {
+            "depth": 3.1454965381662277,
+            "y_down": 1425.4201680672268
+          }
+        },
+        "world_ratio": 9.000000000000002,
+        "projected_ratio": 8.39495798319328,
+        "analytic_ratio": 8.39495798319328,
+        "ratio_space": "image_projection",
+        "projected_target_relation": "excluded_by_declared_bounds",
+        "anatomical_target_relation": "not_established"
+      }
+    ]
+  },
+  "formula": "对本实验同一世界竖线上的三个点，无畸变针孔投影中：图像纵向比值 = 世界高度比值 × 下巴点相机深度 / 足端点相机深度。相机深度是变换后的 Zc，不是任意世界坐标或未知人物照片的可见距离。",
+  "checks": {
+    "analytic_and_direct_projection_agree": true,
+    "focal_change_at_same_pose_preserves_ratio": true,
+    "old_arithmetic_fields_unchanged": true,
+    "synthetic_cases": 5,
+    "historical_observations": 7
+  },
+  "historical_observations": [
+    {
+      "path": "dist/technical-studies/proportion-bounds-20261006/short-hair-male-nine-01.observation.json",
+      "sha256": "6816d4b6f771def07e7668027c61aa56cbd792a58fec772158a98d61092723c5",
+      "image_sha256": "02aee2d184c32dbac0d29b81b5aa4f1c361d0895c30398ea1cb6976e1aca8027",
+      "projection_note": "历史记录的图像空间保守排除计算；近似正面图且裸足带纵深，投影和解剖端点不由本脚本验证。",
+      "ratio_lower": null,
+      "ratio_upper": 8.484848484848484,
+      "target_relation": "excluded_by_declared_bounds",
+      "ratio_space": "image_projection",
+      "anatomical_target_relation": "not_established",
+      "original_unchanged": true
+    },
+    {
+      "path": "dist/technical-studies/proportion-bounds-20261006/male-nine-headref-02.observation.json",
+      "sha256": "527ef09578b15842c05a1d1c70d68010de3b33f3334accb32074295a911913f1",
+      "image_sha256": "097675b5895910dc9c6b46e78069f7d9e700b153982e45958c2e55f649f943f0",
+      "projection_note": "历史记录的图像空间保守排除计算；近似正面图且裸足带纵深，投影和解剖端点不由本脚本验证。",
+      "ratio_lower": null,
+      "ratio_upper": 8.235294117647058,
+      "target_relation": "excluded_by_declared_bounds",
+      "ratio_space": "image_projection",
+      "anatomical_target_relation": "not_established",
+      "original_unchanged": true
+    },
+    {
+      "path": "dist/technical-studies/proportion-bounds-20261006/male-nine-guide-01.observation.json",
+      "sha256": "d43d2e6d561d1042d2804a762afee2a52ff481174f16784dc430f383c1bc7a5d",
+      "image_sha256": "b2c961d7363df54c901f1843e0218c74e9ab31ab67eba48772770634c66cd05e",
+      "projection_note": "历史记录的图像空间保守排除计算；近似正面图且裸足带纵深，投影和解剖端点不由本脚本验证。",
+      "ratio_lower": null,
+      "ratio_upper": 8.515151515151516,
+      "target_relation": "excluded_by_declared_bounds",
+      "ratio_space": "image_projection",
+      "anatomical_target_relation": "not_established",
+      "original_unchanged": true
+    },
+    {
+      "path": "dist/technical-studies/proportion-bounds-20261006/male-anime-nine-01.observation.json",
+      "sha256": "0e6dd38cbfb20220a5e614e266f3df32a017f0c22e77b1710267d97adbaa1bbd",
+      "image_sha256": "4c0dd058db65ccb1dfca43112b34e8cbd32054816bcf9fc5f6f82def971b29cf",
+      "projection_note": "历史记录的图像空间保守排除计算；近似正面图且裸足带纵深，投影和解剖端点不由本脚本验证。",
+      "ratio_lower": null,
+      "ratio_upper": 8.323529411764707,
+      "target_relation": "excluded_by_declared_bounds",
+      "ratio_space": "image_projection",
+      "anatomical_target_relation": "not_established",
+      "original_unchanged": true
+    },
+    {
+      "path": "dist/technical-studies/proportion-bounds-20261006/male-anime-nine-02.observation.json",
+      "sha256": "6e18102599509d24321b481dc309a281b46c2c9189c955bfd2bfd64cc6c445ed",
+      "image_sha256": "47d1936ab7ba92abd8f1c6c5266b6bf88e019176eb7709516b7b47ea3da7d003",
+      "projection_note": "历史记录的图像空间保守排除计算；近似正面图且裸足带纵深，投影和解剖端点不由本脚本验证。",
+      "ratio_lower": null,
+      "ratio_upper": 8.323529411764707,
+      "target_relation": "excluded_by_declared_bounds",
+      "ratio_space": "image_projection",
+      "anatomical_target_relation": "not_established",
+      "original_unchanged": true
+    },
+    {
+      "path": "dist/visual-tests/character-senior-20261007/proportion-observation.json",
+      "sha256": "b603d89078b27795a458bcaf704da110c329a56082a5cb8820f81a5f766f8e79",
+      "image_sha256": "905ef90460006ddfe461e9db9e242f26b2d940786b00d8e417d7d60c89812f74",
+      "projection_note": "正面站立但相机参数未知，脚掌前伸有透视。此为可见比例失败的辅助投影排除界，不是精确三维人体测量，也不用于补偿相机误差。",
+      "ratio_lower": null,
+      "ratio_upper": 8.441176470588236,
+      "target_relation": "excluded_by_declared_bounds",
+      "ratio_space": "image_projection",
+      "anatomical_target_relation": "not_established",
+      "original_unchanged": true
+    },
+    {
+      "path": "dist/visual-tests/character-trait-senior-20261007/proportion-observation.json",
+      "sha256": "2634a998af08fa529916d3208dfee2895d6aa039dc877fbe0b730b49b219386a",
+      "image_sha256": "193b64f061fe62a688c146cc3733d4b87b5b4d6e7548b9f8f030490647bd2a57",
+      "projection_note": "正面近中性直立，身体与原图相近；此投影界仅辅助明显不足九头身的人工判断，不是精确三维比例或验收容差。面颊和嘴角运动不重设身体设计。",
+      "ratio_lower": null,
+      "ratio_upper": 8.441176470588236,
+      "target_relation": "excluded_by_declared_bounds",
+      "ratio_space": "image_projection",
+      "anatomical_target_relation": "not_established",
+      "original_unchanged": true
+    }
+  ],
+  "finding": "按九头长构造的固定三点在约7.595度俯视时，投影比值约8.395；在同幅俯仰相机反向时约9.655。端点投影区间不包含九，仍不足以独立排除三维比例为九。",
+  "interpretation": "历史观察的数值与图片摘要均保持，七份记录的投影说明没有提供已标定相机或同深度认证。其区间属于图像空间证据，不能单独承担人体几何排除结论；原人工外观判断不在本次重新审图范围内。",
+  "workflow_change": "新工具输出显式区分图像投影与尚未建立的人体目标关系。看到小于九的像素比值时，先核对端点、姿态与投影依据，再决定是否修正身体；未知相机不通过猜参数自动补偿。独立可见的畸形、冻结线位偏离和保护失败继续按原要求检查。",
+  "limits": [
+    "三点模型只用于数学反例，不是人体、骨架、完整衣装或合格角色。",
+    "没有反算任何旧图的真实相机，也没有证明旧图本来满足九头身。",
+    "不新增图像验收容差，不把约八点四改成九，不撤改旧冻结要求、回执或评分。",
+    "相机水平且三个点具有相同深度时本实验比值保持，但不能由图片看起来正面就确认这些条件。",
+    "提示词中的正交或镜头焦段不等于模型输出拥有可验证相机参数。"
+  ],
+  "local_artifacts": [
+    {
+      "path": "dist/technical-studies/projection-ratio-20261007/probe.mjs",
+      "sha256": "2625156d69077a8ffb651a6df33b2110b3bc3c708f8a8f74f2fd5c15f5057358"
+    },
+    {
+      "path": "dist/technical-studies/projection-ratio-20261007/plan.json",
+      "sha256": "52ecb925923dae87cee4cafc5512e0be70c1010b5b65f2da8ae33655e2682d41"
+    },
+    {
+      "path": "dist/technical-studies/projection-ratio-20261007/baseline.json",
+      "sha256": "053c1e1f2ead4cc7bd0c59898477630f521203ccedf300e7b6600da9d2bc564e"
+    },
+    {
+      "path": "dist/technical-studies/projection-ratio-20261007/verify-and-record.mjs",
+      "sha256": "7233edb09c826d54d17d0376739986261b1c7a27a4fde85c9570500af0bbfdca"
+    },
+    {
+      "path": "dist/technical-studies/projection-ratio-20261007/verification.json",
+      "sha256": "916970ff15ffd3b41347576b3cd50fe6c4da2107511f3ae262b42d57979d71eb"
+    }
+  ],
+  "new_image_model_outputs": 0,
+  "accepted_character_assets": 0,
+  "existing_images_modified": false,
+  "original_observations_modified": false,
+  "user_accepted": false
+}

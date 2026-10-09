@@ -14,7 +14,7 @@ test('mode selections survive as visible prose without a settings block in eithe
     assert.doesNotMatch(r.prompt,settings);
     assert.doesNotMatch(r.prompt,/\b(?:P9[ _]+Fashion|beauty_first|style_asset|material_priority|concept_art_priority|focal_brightness|soft_realistic|painterly_selective)\b/);
     if(language==='zh-CN'){
-      assert.match(r.prompt,/必须采用黄金九头身/);
+      assert.match(r.prompt,/比例协调、修长好看/);
       assert.match(r.prompt,/视觉亮度焦点/);
       assert.match(r.prompt,styleWorkflow==='dark_fantasy_asset'?/柔和笔触与选择性虚实/:/轮廓服从柔和棚光和真实材质/);
     }
@@ -37,15 +37,15 @@ test('CLI and library deliver the same ten categorized Chinese sections by defau
   assert.equal(run(['--language','fr']).status, 1);
 });
 
-test('mandatory nine-head proportions cannot be replaced by natural proportions in either presentation', () => {
+test('qualitative proportions are default and explicit presets remain selectable', () => {
   for (const presentation of ['neutral_asset', 'costume_showcase']) {
-    assert.equal(createAssetPlan({ presentation }).configuration.proportion_profile, 'P9_FASHION_ASSET');
+    assert.equal(createAssetPlan({ presentation }).configuration.proportion_profile, 'BALANCED_ELEGANT');
     const fashion = compileAssetPrompt({ presentation }).prompt;
-    assert.match(fashion, /必须采用黄金九头身/);
-    assert.match(fashion, /不要极端缩头、纸片腰/);
+    assert.match(fashion, /比例协调、修长好看/);
+    assert.match(fashion, /不靠极端缩头、拉长脖子、纸片腰/);
     assert.doesNotMatch(fashion, /七至七点五/);
-    assert.throws(() => compileAssetPrompt({ presentation, proportionProfile: 'NATURAL_ADULT' }), /黄金九头身/);
-    assert.equal(createAssetPlan({ presentation }).stage_2.fashion_asset.visual_head_count_target, '9.0');
+    assert.match(compileAssetPrompt({ presentation, proportionProfile: 'NATURAL_ADULT' }).prompt, /七至七点五/);
+    assert.equal(createAssetPlan({ presentation }).stage_2.fashion_asset.visual_head_count_target, null);
   }
   assert.equal(run(['--proportion-profile','typo']).status, 1);
 });
@@ -87,7 +87,7 @@ test('detail and edge adjustments compile visible changes while unrelated catego
 test('anchors and focused repairs preserve accepted scope in both languages and workflows', () => {
   for (const language of ['zh-CN','en']) {
     const anchor = compileAssetPrompt({ referenceMode: 'full_body_anchor', language });
-    assert.equal(anchor.configuration.proportion_profile, 'P9_FASHION_ASSET');
+    assert.equal(anchor.configuration.proportion_profile, 'BALANCED_ELEGANT');
     assert.doesNotMatch(anchor.prompt, /P9 Fashion|七至七点五/);
   }
   assert.throws(() => compileAssetPrompt({ referenceMode:'full_body_anchor', proportionProfile:'NATURAL_ADULT' }), /conflicting/);

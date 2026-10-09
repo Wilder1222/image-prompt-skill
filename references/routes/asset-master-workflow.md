@@ -22,13 +22,13 @@ node scripts/iteration-director.mjs asset-prompt --reference-mode full_body_anch
 
 支持选项：`--preset`、`--face-profile`、`--hand-mode`、`--maturity-guard`、`--presentation`、`--proportion-profile`、`--design-freedom`、`--style-workflow`、`--detail-budget`、`--highlight-hierarchy`、`--edge-control`、`--reference-mode`、`--stage`、`--focus`、`--passed`、`--format`、`--language`。参数缺值、拼写错误、未知模式会失败，不会悄悄退回默认。风格及细节选项见 [两条风格路线](tagged-prompt-workflows.md)。
 
-本项目人物统一执行黄金九头身硬性规则，唯一生产比例为 `P9_FASHION_ASSET`。不能极端缩头、拉长颈部或推高骨盆；其他比例选项会报错，不静默替换。比例与衣片展示独立，`costume_showcase` 不覆盖比例；完整全身母图同样执行九头身。先验收头颈肩、完整胸廓与骨盆、上下腿和手脚尺度，裙摆拖尾不计入站立身高。数字是设计方向，不是测量或模型遵守的保证。
+人物默认采用 `BALANCED_ELEGANT`，目标为协调、修长好看，不预设数值头身。明确数字请求可选相应兼容预设。比例与衣片展示、画面占比分别处理，`costume_showcase` 不覆盖比例；头肩、胸廓骨盆、上下肢与手脚相称。
 
 `--design-freedom reference_preserve` 是未授权改造型时的默认；用户明确允许服装、造型优化或希望再设计时，用 `--design-freedom moderate`。后者保留人物辨识度与表观年龄，释放可见服装构造与造型的硬锁：先写一套连贯方案，再调整衣片、领袖、腰部、饰物、材料和配色比例；不要在负向提示中把这些设计变化逐一禁止。表情可按当前任务独立适配，不因保持身份而锁定原神态。方案可从优秀效果图提取，但不能把标杆人物的脸也迁移过来。现代装和铠甲按实际角色路线写文本，不强套古风长袍预设。此选项只用于新候选生成，不能混入 `full_body_anchor` 或局部编辑阶段。
 
 `--presentation neutral_asset` 兼容原有预设；`costume_showcase` 适用于需要长袍层次与袖摆的服装定妆展示，允许原设计的宽裙、短拖尾与自然遮鞋，修长感通过颈肩腰和长衣片组织。它不改变脸、年龄、材质与用户显式选择的手势。需要填写本套衣服的具体构造，不能直接把通用提示词当作完整设计。
 
-`--reference-mode portrait_expand` 为默认扩身路线；`full_body_anchor` 保留已给全身造型的脸、渲染、手势、材料和光线，比例以黄金九头身为硬约束：已达标则保持，未达标则协调调整身体与服装贴合，不编造新衣层。后者只用于保留式生成，拒绝相冲突的预设覆盖或编辑锁；局部修复直接选 编辑阶段与焦点。遇到用户提供更好的旧图时读取 [标杆对照](benchmark-costume-refinement.md)。
+`--reference-mode portrait_expand` 为默认扩身路线；`full_body_anchor` 保留已给全身造型的脸、渲染、手势、材料、光线和已认可的协调比例，不擅自缩头拉腿。后者只用于保留式生成，拒绝冲突覆盖；局部修复选编辑阶段与焦点。全身取景参照 [人物占比与留白](../core/character-framing.md)，只通过构图调整画面占比，不重新设计身体或衣装。
 
 面容配置有 `beauty_first_clean`、`beauty_first_character`、`humanized_real_light`、`humanized_real_full`、`stylized_beauty`。切换只改变面部渲染，不顺带改变年龄目标、手势或服装。年龄独立选择 `youthful_18_22`、`young_adult_20_26` 或 `none`；后者保留参考年龄，不能据此推断人物年龄。默认成年青年预设与参考年龄不符时，选择 `none` 并在最终文本明确用户的年龄要求。
 

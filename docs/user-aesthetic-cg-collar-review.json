@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-07",
+  "purpose": "区分新增颈饰、原交领的可见结构与尚未选择的款式偏好，避免没有明确缺陷就再次生成。",
+  "source_report": "docs/user-aesthetic-cg-evidence.json",
+  "run_id": "lotus-cg-01",
+  "snapshot_sha256": "614a1e1bb05ee5c73c6369482a29961d9e2b2615f669eb4164b27684ef0804bf",
+  "target_sha256": "d91a49c3b9f660dc8ab4f2277d76623821242f0866cb6c98fee37d2d3b5b91d7",
+  "prompt_sha256": "8c1a83f7ecd5bbbba767a3ce958c5e54be2219c586d586eab40cebb34e86e57f",
+  "input": {
+    "id": "lotus-cg-benchmark",
+    "filename": "白蓝金饰莲花仙姬.png",
+    "sha256": "0b4e564861dd010f0998eba848ab3371e12a6a7a2cca9cb0a54cf9524e8644b5"
+  },
+  "output": {
+    "relative_path": "dist/visual-tests/user-aesthetic-cg-20261007/lotus-cg-01.png",
+    "sha256": "1157a2ca02fc592157cd0dbd0d47531c95df2eea635647d6c20cd77b8a888b10",
+    "width": 1086,
+    "height": 1448,
+    "copy_matches_tool_original": true,
+    "pixels_modified": false
+  },
+  "original_records": [
+    {
+      "path": "dist/visual-tests/user-aesthetic-cg-20261007/brief.json",
+      "sha256": "8f1ffb40f0bbac64c8f887a5ccf7a34696b4d326aad584b891dbb97b77920596"
+    },
+    {
+      "path": "dist/visual-tests/user-aesthetic-cg-20261007/snapshot.json",
+      "sha256": "48f7bc369517b1080d34d1f11f293c295f972e7a5717d6440000843eb4fe4449"
+    },
+    {
+      "path": "dist/visual-tests/user-aesthetic-cg-20261007/request.json",
+      "sha256": "76496e2df103fd551fbada4ca1ee48b3a14cde397c80f4f7ef097fdf257b1b4b"
+    },
+    {
+      "path": "dist/visual-tests/user-aesthetic-cg-20261007/prompt.txt",
+      "sha256": "7b1936174425fa4009d4cecf5862ec5e13af4db1fa9fc4ec269e24be393dae1c"
+    },
+    {
+      "path": "dist/visual-tests/user-aesthetic-cg-20261007/receipt.json",
+      "sha256": "a4c0b5ea76350cc179ac87d9b2938511157da6ea9c97f5dd024f477f2253c917"
+    },
+    {
+      "path": "dist/visual-tests/user-aesthetic-cg-20261007/outcome.json",
+      "sha256": "e5907a1c99c89d9a1402218adb6892ac1e7eac5d1ed9a5b10831eb013317a1d7"
+    },
+    {
+      "path": "docs/user-aesthetic-cg-evidence.json",
+      "sha256": "5e1c172835c35b3345fa46b92d377e2f818ab52db4622caf963f3571cdafc484"
+    }
+  ],
+  "original_requirement": {
+    "id": "costume",
+    "channel": "costume",
+    "priority": "must",
+    "text": "白、雾蓝与古金三色的莲花仙侠礼服：月白交领贴合上身，雾蓝滚边连接宽腰封，腰前古金莲花扣固定垂带；外层宽纱袖自肩垂落，细长蓝色袖带向两侧下方舒展。分片长裙前方自然开合，内层月白裙片与蓝色侧片错落垂落，一侧膝腿可见。肩部古金莲瓣饰片贴合肩线，前臂蓝色护腕有细金边；月白长靴带蓝色嵌片和古金莲瓣饰面，与腰扣呼应。细金莲花纹沿领、袖缘和裙缘分布，大幅布面保留清爽留白。"
+  },
+  "original_check": {
+    "id": "costume-check",
+    "basis": "costume",
+    "critical": true,
+    "question": "服装是否形成完整的白蓝金莲花设计，衣片、腰封、肩饰、护腕、垂带与靴相互呼应，没有被简化或堆成满身金纹？",
+    "verdict": "uncertain",
+    "evidence": "白蓝金配色、前身交叠衣片、宽腰封莲花扣、肩饰、护腕、分片裙与长靴形成完整造型，金纹集中于边缘和局部。模型另加了明显蓝金高领／颈饰、肩下珠链和多条流苏，改变领口及装饰重心；冻结方案没有明确决定这些新增结构。不能因更丰富就把完整服装一致性判为通过，也不将它们自动列为下一轮已确认设计。"
+  },
+  "review_method": "代理按原分辨率重新查看用户参考和完整输出，对照原冻结服装要求及检查问题；只读核对输入、输出、快照和回执摘要，没有裁切、缩放或重绘。",
+  "observations": [
+    {
+      "region": "颈部与上胸",
+      "source_visible": "参考的颈前与V形领口开放，白色衣片由蓝色滚边界定；没有输出中包围颈部的明显蓝金高颈饰。",
+      "output_visible": "输出增加围绕颈部的蓝金饰片，并延伸出斜向胸肩的装饰边；其下仍能辨认白色前身交叠衣片、V形蓝边及通向宽腰封的线条。",
+      "supported_conclusion": "颈前轮廓和层叠关系改变，但不能据此说指定交领已经消失或被整片高领替换。",
+      "limit": "单幅图不证明隐藏缝线、穿着结构或实际三维构造正确。"
+    },
+    {
+      "region": "肩饰、腰前与裙袖",
+      "source_visible": "参考已有莲瓣肩饰、宽腰封、垂带、宽纱袖和分片裙，金纹集中在局部及边缘。",
+      "output_visible": "新增珠链、流苏和腰前挂件，但莲瓣肩饰、莲花腰扣、蓝色护腕及长靴仍相互呼应；袖裙仍有较大浅色布面。",
+      "supported_conclusion": "可以记录饰件增多、装饰重心改变；原问题并未要求装饰数量完全复刻参考，不能仅凭数量增加判定堆满金纹。",
+      "limit": "未逐一认证全部悬垂饰物的内部固定点，也未确认用户更喜欢此版本。"
+    }
+  ],
+  "clarification": "原回执的交叠衣片可见观察仍成立。后续文档将问题概括为交领结构需确认，容易将新增颈饰误解成指定交领缺失；应收窄为颈部款式变化。冻结任务为借鉴审美的新人物设计，没有事前禁止所有新增饰件。本次未找到仅凭该颈饰就必须修图的依据。",
+  "design_decision": "保留该图作为候选，不自动删除颈饰或继续派发同义修订。若后续选择恢复开放领口，先把它明确写为新一版设计目标，保护已有面容、衣片与材料；这不是对旧图已确认结构错误的修复证明。",
+  "status_effect": "这是对旧观察表述的追加说明，不覆盖原始 uncertain 检查，不用于自动提升结论或增加通过计数。原 needs_review 保持；九头身尚未得到可靠确认，用户也未接受此候选。",
+  "new_generation_calls": 0,
+  "original_records_modified": false,
+  "existing_images_modified": false,
+  "new_accepted_assets": 0,
+  "user_accepted": false
+}

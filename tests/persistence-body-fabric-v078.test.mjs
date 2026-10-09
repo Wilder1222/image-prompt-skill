@@ -2,7 +2,7 @@ import{test}from'node:test';import assert from'node:assert/strict';import{spawnS
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),tool=path.join(root,'scripts/iteration-director.mjs');
 function run(a){const r=spawnSync(process.execPath,[tool,...a],{cwd:root,encoding:'utf8'});return{...r,json:r.stdout?JSON.parse(r.stdout):null};}
 
-test('v0.7.8 catalogs validate',()=>{const r=run(['validate']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.status,'pass');assert.equal(r.json.p9_persistence_profiles,3);assert.equal(r.json.body_presence_levels,3);assert.equal(r.json.photographic_fabric_profiles,1);assert.ok(r.json.rounds>=21);});
+test('v0.7.8 catalogs validate',()=>{const r=run(['validate']);assert.equal(r.status,0,r.stderr);assert.equal(r.json.status,'pass');assert.equal(r.json.p9_persistence_profiles,4);assert.equal(r.json.body_presence_levels,3);assert.equal(r.json.photographic_fabric_profiles,1);assert.ok(r.json.rounds>=21);});
 
 test('P9 persistence locks accepted fashion dimensions',()=>{const r=run(['p9-persistence','--profile','P9_locked']);assert.equal(r.json.source_level,'P9');for(const id of ['head_visual_scale','torso_length','waistline_visual','leg_read','garment_vertical_flow'])assert.ok(r.json.locks.includes(id),id);});
 
@@ -32,7 +32,7 @@ test('drape symmetry routes to fabric round',()=>{const r=run(['next','--failure
 
 test('final photographic polish cannot reopen semantics',()=>{const r=run(['final-photographic-polish-plan']);assert.ok(r.json.round_plan.locked.includes('all_semantic_design_dimensions'));assert.ok(r.json.round_plan.forbidden.includes('semantic_redesign'));assert.ok(r.json.round_plan.forbidden.includes('global_sharpening'));});
 
-test('fashion persistence pipeline orders body then fabric then final polish',()=>{const r=run(['fashion-persistence-pipeline']);assert.deepEqual(r.json.order.slice(0,3),['p9_persistence_body_presence','photographic_fabric_white_refine','final_photographic_polish']);assert.equal(r.json.stage_1.p9_persistence.profile,'P9_locked');assert.equal(r.json.stage_2.fabric_white.profile,'white_asset_photographic');});
+test('fashion persistence pipeline orders body then fabric then final polish',()=>{const r=run(['fashion-persistence-pipeline']);assert.deepEqual(r.json.order.slice(0,3),['p9_persistence_body_presence','photographic_fabric_white_refine','final_photographic_polish']);assert.equal(r.json.stage_1.p9_persistence.profile,'balanced_locked');assert.equal(r.json.stage_2.fabric_white.profile,'white_asset_photographic');});
 
 test('human face optical failure still outranks body presence cosmetic issue',()=>{const r=run(['next','--failures','sclera_too_clean,hand_too_plastic']);assert.equal(r.json.first_focus,'sclera_too_clean');assert.equal(r.json.recommended_round,'human_face_optical_refine');});
 

@@ -1,7 +1,7 @@
 {
   "version": "0.8.2",
-  "default": "P9_FASHION_ASSET",
-  "principle": "本项目全部人物资产必须采用黄金九头身，人体直立高度为九个头长；完整全身母图不豁免。头饰、鞋跟和拖尾不计入；其他旧比例仅保留历史兼容数据，不用于当前生产。",
+  "default": "BALANCED_ELEGANT",
+  "principle": "人物默认以比例协调、修长好看为目标，不预设固定头身数；具体数字仅在用户明确指定时使用，完整母图保留已认可的协调比例。",
   "profiles": {
     "NATURAL_ADULT": {
       "visual_head_count_target": "approximately_7_to_7.5_design_guide_not_measurement",
@@ -11,7 +11,7 @@
         "头部大小、颈部长度与胸廓骨盆关系自然，上下腿协调；不用缩头、抬高骨盆、加长颈部或拉长下身让衣服显高。",
         "服装覆盖身体，衣带不重新定义人体腰位，长裙拖尾不延长人物身高；肩肘腕和鞋的尺度相称，不声称隐藏关节可见。"
       ],
-      "production_allowed": false
+      "production_allowed": true
     },
     "P9_FASHION_ASSET": {
       "visual_head_count_target": "9.0",
@@ -43,7 +43,41 @@
         "肩、胸廓、腰和骨盆协调，腰部自然收束、臀部有体积；上臂、前臂、肘腕手与大腿、膝、小腿、脚踝在长度和粗细上相称。黄金比例是审美方向，不是通用数值公式，也不是透过衣服推断的人体测量。",
         "可见肩臂、腰腿有适度均匀肌肉体积和柔和线条，随动作收缩放松；保留自然软组织，不画细杆四肢、纸片腰、健美分块或穿透不透明衣料的肌肉。"
       ],
-      "mandatory": true
+      "mandatory": false,
+      "explicit_only": true
+    },
+    "BALANCED_ELEGANT": {
+      "visual_head_count_target": null,
+      "head_ornaments_excluded": true,
+      "controls": {
+        "head_visual_scale": "balanced_without_extreme_shrink_or_face_reshape",
+        "neck_shoulder": "relaxed_without_neck_stretch",
+        "torso_length": "fully_preserved",
+        "waistline": "clear_natural_anatomical_position",
+        "waist_hip_balance": "defined_waist_natural_pelvis_continuous_volume",
+        "upper_lower_arm": "coherent_lengths_elbow_wrist_hand_scale",
+        "muscle_definition": "moderate_even_soft_pose_responsive",
+        "pelvis_to_knee": "balanced_long",
+        "knee_to_ankle": "balanced_long",
+        "footwear_scale": "refined_natural",
+        "garment_verticality": "strong",
+        "robe_width": "controlled",
+        "foot_visibility": "pose_and_garment_dependent"
+      },
+      "robe_rules": [
+        "自然腰位和纵向主衣片支持长袍下的修长观感，鞋脚可由姿态和衣摆自然遮住。",
+        "避免无依据的过大袖量或裙幅压缩整体修长观感，但保留明确选择的服装轮廓。",
+        "不压短躯干、极端缩头或只拉长一段腿。"
+      ],
+      "prompt_translation": [
+        "人物身材比例协调、修长好看，头肩相称、肩颈舒展，胸廓、腰腹和骨盆完整，腰臀与上下肢的长度、粗细自然衔接；保留适度柔和肌肉与软组织体积，不靠极端缩头、拉长脖子、纸片腰或单独拉腿制造修长。",
+        "躯干解剖关系完整，通过协调的髋膝踝关系表现修长，不生硬拉伸腿部。比例修正保持面宽相对头高、五官间距比例和脸型；必要时协调调整完整头部与身体的尺度，不单独压窄脸部或缩放某个五官，也不无条件冻结未达标的原头身关系。",
+        "袖摆宽度与既定服装设计协调，衣服支持修长观感而非将人物压成窄长筒。",
+        "肩、胸廓、腰和骨盆协调，腰部自然收束、臀部有体积；上臂、前臂、肘腕手与大腿、膝、小腿、脚踝在长度和粗细上相称。黄金比例是审美方向，不是通用数值公式，也不是透过衣服推断的人体测量。",
+        "可见肩臂、腰腿有适度均匀肌肉体积和柔和线条，随动作收缩放松；保留自然软组织，不画细杆四肢、纸片腰、健美分块或穿透不透明衣料的肌肉。"
+      ],
+      "mandatory": false,
+      "explicit_only": false
     }
   }
 }

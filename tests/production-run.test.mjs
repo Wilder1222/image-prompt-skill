@@ -83,7 +83,7 @@ test('local edits retain the hard proportion target and cannot downgrade it thro
  const s=freeze(result.input,{run_id:'b',parent,kind:'edit'});
  assert.equal(s.goal_changed,false);assert.equal(s.target.subject_kind,'character');
  const reviewed=outcome(s,ref,'not_assessable');assert.equal(reviewed.status,'needs_review');
- for(const update of [{...input.requirements.at(-1),target_head_count:8},{...input.requirements.at(-1),priority:'prefer'}]){
+ for(const update of [{...input.requirements.at(-1),target_head_count:0},{...input.requirements.at(-1),priority:'prefer'}]){
   assert.throws(()=>reviseProductionInput(input,{request:'比例修改。',channels:['proportion'],sections:[{label:'比例',items:input.sections.at(-1).items}],requirements:[update]}),/target_head_count|must proportion/);
  }
 });
@@ -235,6 +235,26 @@ test('tag edits preserve other sections and disallow changing an unapproved cate
  const updated=reviseProductionInput(input,change);assert.deepEqual(updated.input.sections[0],input.sections[0]);assert.equal(input.sections[1].items[0].text,'穿蓝色衣服。');assert.equal(updated.target_changed,true);
  change.sections[0].label='人物';assert.throws(()=>reviseProductionInput(input,change),/escaped allowed scope/);
 });
+test('revision goal classification agrees with frozen targets when object fields are reordered',t=>{
+ const {input}=setup(t),before=structuredClone(input),parent=freeze(input);
+ const reorder=row=>Object.fromEntries(Object.entries(row).reverse());
+ const change={request:'整理衣装字段，目标保持。',channels:['costume'],sections:[{label:'衣服',items:input.sections.find(s=>s.label==='衣服').items}],
+  requirements:[reorder(input.requirements.find(r=>r.id==='U2'))],acceptance:[reorder(input.acceptance.find(c=>c.id==='cloth'))]};
+ const revised=reviseProductionInput(input,change);
+ const child=freeze(revised.input,{run_id:'reordered',kind:'revision',parent});
+ assert.equal(revised.target_changed,false);
+ assert.equal(child.goal_changed,revised.target_changed);
+ assert.equal(child.target_sha256,parent.target_sha256);
+ assert.equal(child.prompt_sha256,parent.prompt_sha256);
+ assert.deepEqual(input,before);
+ change.acceptance[0].question='衣服改为深蓝了吗？';
+ const changed=reviseProductionInput(input,change);
+ assert.equal(changed.target_changed,true);
+ assert.equal(freeze(changed.input,{run_id:'changed',kind:'revision',parent}).goal_changed,true);
+ // Object key order is incidental; ordered contract arrays remain significant.
+ assert.notEqual(objectHash(input.requirements),objectHash([...input.requirements].reverse()));
+});
+
 test('changed goals cannot be counted as successful repair of the original target',t=>{
  const {input,ref}=setup(t),a=freeze(input);const output2=path.join(path.dirname(ref),'new.png');fs.writeFileSync(output2,Buffer.concat([fs.readFileSync(ref),Buffer.from('distinct test bytes')]));
  const revised=structuredClone(input);revised.acceptance[0].question='a relaxed different target';const b=freeze(revised,{run_id:'b',kind:'revision',parent:a});assert.equal(b.goal_changed,true);

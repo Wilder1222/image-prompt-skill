@@ -2,14 +2,8 @@ import fs from 'node:fs';
 import {adaptModelPrompt,verifyModelPlan} from './model-adapter.mjs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {compileProductionPrompt, reviewProductionResult, promptHash} from './production-prompt.mjs';
-
-export function canonical(value) {
-  if (Array.isArray(value)) return value.map(canonical);
-  if (value && typeof value === 'object') return Object.fromEntries(Object.keys(value).sort().map(k => [k,canonical(value[k])]));
-  return value;
-}
-export const objectHash = value => promptHash(JSON.stringify(canonical(value)));
+import {compileProductionPrompt, reviewProductionResult, promptHash, objectHash} from './production-prompt.mjs';
+export {canonical,objectHash} from './production-prompt.mjs';
 const fileHash = file => promptHash(fs.readFileSync(file));
 const read = file => JSON.parse(fs.readFileSync(file,'utf8'));
 const preservationContract = 'preservation_items_v1';

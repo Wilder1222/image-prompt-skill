@@ -44,7 +44,7 @@ export function applyCharacterAppearance(prompt, result, language) {
   }).join('\n\n');
   // This does not authorize a style conversion or reopen already accepted anatomy.
   const lock = en
-    ? 'Retain the current image medium, identity, apparent age and accepted nine-head proportions. A local repair changes only the named area; choosing a style profile does not authorize restyling the whole image. Any unresolved proportion issue remains unresolved.'
-    : '保留当前图像媒介、人物身份、表观年龄与已通过的黄金九头身；局部修复只改变指定区域，选择风格不授权整图换风格。未解决的比例问题仍保留为待修项。';
+    ? 'Retain the current image medium, identity, apparent age and accepted harmonious proportions. A local repair changes only the named area; choosing a style profile does not authorize restyling the whole image. Any unresolved proportion issue remains unresolved.'
+    : '保留当前图像媒介、人物身份、表观年龄与已通过的协调修长比例；局部修复只改变指定区域，选择风格不授权整图换风格。未解决的比例问题仍保留为待修项。';
   return result.stage === 'generate' ? rendered : `${rendered}\n\n【${en ? 'Medium and scope' : '风格与范围'}】\n${lock}`;
 }

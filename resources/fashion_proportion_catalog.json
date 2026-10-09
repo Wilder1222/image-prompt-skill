@@ -1,6 +1,6 @@
 {
   "version": "0.7.5",
-  "default": "P9",
+  "default": "BALANCED_ELEGANT",
   "note": "头身数仅用于本项目的视觉审美判断，不是厂商参数或人体测量结论。头长取颅顶至下巴，发髻、冠饰、簪饰和裙尾不计入。完整身体关系优先，不将黄金比例当作各部位统一公式。",
   "levels": {
     "P7": {
@@ -24,7 +24,7 @@
     "P8": {
       "label": "elegant",
       "visual_head_count_range": [
-        8.0,
+        8,
         8.5
       ],
       "head_visual_scale": "slightly_reduced",
@@ -67,7 +67,7 @@
     "P9.5": {
       "label": "stylized_fashion",
       "visual_head_count_range": [
-        9.0,
+        9,
         9.5
       ],
       "head_visual_scale": "reduced",
@@ -81,6 +81,21 @@
       "prompt_translation": [
         "仅在明确选择时采用更风格化的时装比例，同时保持完整躯干、协调四肢和可信体积。",
         "不制造极细腰、狭窄骨盆、过大脚部或单独拉长大腿、小腿。"
+      ]
+    },
+    "BALANCED_ELEGANT": {
+      "label": "balanced_elegant",
+      "visual_head_count_range": null,
+      "head_visual_scale": "balanced",
+      "neck_extension": "none",
+      "shoulder_opening": "mild",
+      "torso_preservation": "strong",
+      "waistline_visual_raise": "none",
+      "leg_extension": "coordinated",
+      "garment_vertical_bias": "strong",
+      "garment_width_control": "medium",
+      "prompt_translation": [
+        "人物身材比例协调、修长好看，头肩相称、肩颈舒展，胸廓、腰腹和骨盆完整，腰臀与上下肢的长度、粗细自然衔接；保留适度柔和肌肉与软组织体积，不靠极端缩头、拉长脖子、纸片腰或单独拉腿制造修长。"
       ]
     }
   },
@@ -127,9 +142,9 @@
     ]
   },
   "task_defaults": {
-    "character_asset_full_body": "P9",
-    "portrait": "P9",
-    "three_quarter": "P9",
-    "long_shot": "P9"
+    "character_asset_full_body": "BALANCED_ELEGANT",
+    "portrait": "BALANCED_ELEGANT",
+    "three_quarter": "BALANCED_ELEGANT",
+    "long_shot": "BALANCED_ELEGANT"
   }
 }

@@ -37,8 +37,8 @@ test('trait plan follows each selected temperament instead of applying the same 
   const text=r.json.prompt_skeleton.join('\n'),patch=r.json.prompt_skeleton.find(x=>x.startsWith('【表情与妆容变化】'));
   assert.match(patch,signal);variants.push(patch);
   assert.doesNotMatch(text,/steadier gaze|cheek-softness reduction|less wide-eyed openness|\bM[0-4](?:\.5)?\b/);
-  assert.match(text,/表观年龄/);assert.match(text,/不逐像素冻结表情位置/);assert.match(text,/九头身/);
-  assert.match(text,/原比例未通过时继续单列未决/);
+  assert.match(text,/表观年龄/);assert.match(text,/不逐像素冻结表情位置/);assert.match(text,/协调身体比例/);
+  assert.match(text,/原目标中未解决的比例问题仍单列未决/);
   assert.ok(r.json.round_plan.locked.includes('body_proportion'));assert.ok(r.json.round_plan.locked.includes('age_identity'));
  }
  assert.equal(new Set(variants).size,6);

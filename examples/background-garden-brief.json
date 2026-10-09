@@ -1,0 +1,112 @@
+{
+  "subject_kind": "scene",
+  "request": "独立生成供后续人物入景使用的园林背景；该示例只验证生产编译，未单独执行生图。",
+  "references": [],
+  "unresolved": [],
+  "requirements": [
+    {
+      "id": "garden",
+      "channel": "background",
+      "priority": "must",
+      "text": "明亮阴天的江南园林空景，浅暖灰石板庭院、右侧深褐木柱灰瓦回廊、左侧浅色石栏与静水池、远处淡灰白园墙和浅绿枝叶；没有人物、文字或人像雕塑。"
+    },
+    {
+      "id": "space",
+      "channel": "composition",
+      "priority": "must",
+      "text": "竖幅平视，前中景留下可供全身人物及宽裙摆站立的平整石板区域，回廊和石板缝向后退远，头部预留区避免柱线和强亮点。占位区不绘制人形或标尺。"
+    },
+    {
+      "id": "light",
+      "channel": "lighting",
+      "priority": "must",
+      "text": "左前上方漫射天光、浅墙柔和反射，庭院与建筑阴影柔淡，没有斑驳硬叶影或镜面地面。"
+    },
+    {
+      "id": "style",
+      "channel": "style",
+      "priority": "must",
+      "text": "柔亮精细的写实园林，近处石板、木材和瓦有适度细节，后景轻柔退远但结构可读，灰白、淡绿与深褐相互衬托。"
+    }
+  ],
+  "sections": [
+    {
+      "label": "园林空景",
+      "channel": "background",
+      "items": [
+        {
+          "text": "明亮阴天的江南园林空景，浅暖灰石板庭院、右侧深褐木柱灰瓦回廊、左侧浅色石栏与静水池、远处淡灰白园墙和浅绿枝叶；没有人物、文字或人像雕塑。",
+          "basis": [
+            "garden"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "预留空间",
+      "channel": "composition",
+      "items": [
+        {
+          "text": "竖幅平视，前中景留下可供全身人物及宽裙摆站立的平整石板区域，回廊和石板缝向后退远，头部预留区避免柱线和强亮点。占位区不绘制人形或标尺。",
+          "basis": [
+            "space"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "环境光",
+      "channel": "lighting",
+      "items": [
+        {
+          "text": "左前上方漫射天光、浅墙柔和反射，庭院与建筑阴影柔淡，没有斑驳硬叶影或镜面地面。",
+          "basis": [
+            "light"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "整体媒介",
+      "channel": "style",
+      "items": [
+        {
+          "text": "柔亮精细的写实园林，近处石板、木材和瓦有适度细节，后景轻柔退远但结构可读，灰白、淡绿与深褐相互衬托。",
+          "basis": [
+            "style"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "garden-check",
+      "basis": "garden",
+      "critical": true,
+      "question": "是否呈现上述园林结构且没有人物？"
+    },
+    {
+      "id": "space-check",
+      "basis": "space",
+      "critical": true,
+      "question": "地面空间与退远关系是否可信，是否有清楚而非空白贴片式的预留区？"
+    },
+    {
+      "id": "light-check",
+      "basis": "light",
+      "critical": true,
+      "question": "光照是否连贯，石板保持干燥哑光？"
+    },
+    {
+      "id": "style-check",
+      "basis": "style",
+      "critical": true,
+      "question": "各景物媒介是否统一，后景是否保留结构，未用浓雾或过度虚化遮掩空间？"
+    }
+  ]
+}

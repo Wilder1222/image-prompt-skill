@@ -1,6 +1,6 @@
 {
   "version": "0.7.8",
-  "default": "P9_locked",
+  "default": "balanced_locked",
   "principle": "时装比例通过后，后续肤质与细节修订应保留已认可的整体比例；不得悄悄改回更矮的体型。仅修局部时沿用既有边界，用户明确的新动作或造型要求优先。",
   "profiles": {
     "P8_locked": {
@@ -41,6 +41,26 @@
       "guard_strength": "strong",
       "locks": [
         "all_approved_fashion_proportion_dimensions"
+      ]
+    },
+    "balanced_locked": {
+      "source_level": "BALANCED_ELEGANT",
+      "guard_strength": "strong",
+      "locks": [
+        "head_visual_scale",
+        "neck_extension",
+        "shoulder_opening",
+        "torso_length",
+        "waistline_visual",
+        "pelvis_knee_ankle_relationship",
+        "leg_read",
+        "footwear_scale",
+        "garment_vertical_flow",
+        "hem_width"
+      ],
+      "prompt_translation": [
+        "保留已认可的协调修长比例，局部肤质与细节修订不改变头肩、躯干、腰臀及四肢尺度；新的明确比例要求另行修订。",
+        "保留已确认的躯干长度、骨盆至膝踝关系和脚部尺度，衣片流动与当前姿态协调；隐藏结构不作虚构测量。"
       ]
     }
   },

@@ -345,8 +345,8 @@ export const catalogEnglish = [
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.principle",
-    "zh": "本项目全部人物资产必须采用黄金九头身，人体直立高度为九个头长；完整全身母图不豁免。头饰、鞋跟和拖尾不计入；其他旧比例仅保留历史兼容数据，不用于当前生产。",
-    "en": "All character assets must use mandatory nine-head proportions, including full-body anchors. Standing anatomical height equals nine crown-to-chin head lengths, excluding ornaments, heels and trains. Other profiles are historical data, not production options."
+    "zh": "人物默认以比例协调、修长好看为目标，不预设固定头身数；具体数字仅在用户明确指定时使用，完整母图保留已认可的协调比例。",
+    "en": "Default to harmonious, elegant body proportions without a fixed head count. Use numeric proportions only when explicitly requested, and preserve the accepted proportions of a full-body master."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
@@ -573,8 +573,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_presentation_v084_catalog.json",
     "path": "$.reference_modes.full_body_anchor.meaning",
-    "zh": "已有全身设计作为身份与衣装依据，身体统一符合黄金九头身；已达标部分保持。",
-    "en": "Use the full-body reference for identity and costume while enforcing mandatory nine-head body proportions. Preserve already compliant parts."
+    "zh": "已有全身设计作为身份与衣装依据，保留已认可的协调修长比例。",
+    "en": "Use the existing full-body design as identity and costume authority, preserving its accepted harmonious proportions."
   },
   {
     "resource": "asset_presentation_v084_catalog.json",
@@ -585,8 +585,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_presentation_v084_catalog.json",
     "path": "$.reference_modes.full_body_anchor.prompt_translation[1]",
-    "zh": "保留人物身份、表观年龄、面部表现、发型饰物、服装构造配色、纹样位置、袖量、拖尾、手势及可见鞋履。身体必须符合黄金九头身：直立人体高度等于九个颅顶至下巴的头长，不计头饰、鞋跟与拖尾；已达标比例保持，未达标时协调调整头肩、躯干与四肢及衣料贴合，保留脸部身份几何。",
-    "en": "Preserve its facial identity, apparent age, facial rendering, hair, ornaments, costume construction, palette, patterns, sleeve volume, train, gesture and visible footwear. Mandatory nine-head proportions: anatomical standing height equals nine crown-to-chin head lengths, excluding ornaments, heels and trains. Keep compliant proportions; otherwise coordinate head, shoulders, torso, limbs and garment fit without reshaping the face."
+    "zh": "保留人物身份、表观年龄、面部表现、发型饰物、服装构造配色、纹样位置、袖量、拖尾、手势及可见鞋履，保留已认可的协调修长比例，不擅自缩头拉腿。",
+    "en": "Preserve its facial identity, apparent age, expression, hair and ornaments, costume structure and colors, motif placement, sleeve volume, train, gesture and visible footwear. Preserve accepted harmonious proportions without shrinking the head or stretching the legs."
   },
   {
     "resource": "asset_presentation_v084_catalog.json",
@@ -597,8 +597,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_presentation_v084_catalog.json",
     "path": "$.reference_modes.full_body_anchor.prompt_translation[3]",
-    "zh": "不增加衣层、首饰、透纱或更换面孔，不套默认站姿；原图比例不足不能用保留母图豁免九头身要求。",
-    "en": "Do not add garment layers, jewelry or transparency, replace the face or impose a default stance. Reference preservation does not exempt an incorrect body ratio from the mandatory nine-head target."
+    "zh": "不增加衣层、首饰、透纱或更换面孔，不套默认站姿；身体比例修改须有明确的本轮目标。",
+    "en": "Do not add garment layers, jewelry or transparency, replace the face or impose a default pose. Body proportion changes require an explicit goal for this round."
   },
   {
     "resource": "asset_presentation_v084_catalog.json",
@@ -789,8 +789,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.stylized_3d_character.appearance.finish",
-    "zh": "呈现成熟、精致的风格化三维人物，九头身体型、原人物辨识度与衣装结构保持，不自动变成大头短身玩偶。",
-    "en": "Present a refined mature stylized 3D character with nine-head proportions, identity and costume construction intact, without turning it into a large-headed short-bodied toy."
+    "zh": "呈现成熟、精致的风格化三维人物，协调修长比例体型、原人物辨识度与衣装结构保持，不自动变成大头短身玩偶。",
+    "en": "Present a refined mature stylized 3D character with harmonious elegant proportions, identity and costume construction intact, without turning it into a large-headed short-bodied toy."
   },
   {
     "resource": "asset_style_workflows.json",
@@ -825,8 +825,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.anime_3d_character.appearance.finish",
-    "zh": "整体为三维动画角色渲染，轮廓线、明暗色块和立体厚度协调；黄金九头身保持，不自动使用幼态比例。",
-    "en": "The figure reads as a 3D animated render with coordinated outlines, shadow shapes and volumetric thickness, retaining mandatory nine-head rather than childish proportions."
+    "zh": "整体为三维动画角色渲染，轮廓线、明暗色块和立体厚度协调；协调修长比例保持，不自动使用幼态比例。",
+    "en": "The figure reads as a 3D animated render with coordinated outlines, shadow shapes and volumetric thickness, retaining mandatory harmonious elegant proportions rather than childish proportions."
   },
   {
     "resource": "asset_style_workflows.json",
@@ -861,8 +861,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.anime_2d_character.appearance.finish",
-    "zh": "交付统一的二维动漫人物图，线条、平涂和阴影共同成立，仍为黄金九头身，不附加照片皮肤、渲染毛发或油画笔触。",
-    "en": "Deliver a coherent 2D anime character with linework, flat colors and cel shadows, mandatory nine-head proportions and no photographic skin, rendered hair or oil-paint brushwork."
+    "zh": "交付统一的二维动漫人物图，线条、平涂和阴影共同成立，仍为协调修长比例，不附加照片皮肤、渲染毛发或油画笔触。",
+    "en": "Deliver a coherent 2D anime character with linework, flat colors and cel shadows, harmonious elegant proportions and no photographic skin, rendered hair or oil-paint brushwork."
   },
   {
     "resource": "asset_style_workflows.json",
@@ -897,8 +897,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.painterly_character.appearance.finish",
-    "zh": "脸、发、衣料与肢体统一为塑造体积的厚涂色层和笔触，背景按本轮目标处理；不能只给写实图覆盖画布纹理。主体可读、材料可辨，九头身体型成立，不自动套黑金幻想配色或原案例衣装。",
-    "en": "Unify face, hair, clothing and limbs with painted layers and strokes that build volume, handling the background according to the current target rather than merely overlaying canvas texture on a realistic image. Keep a readable nine-head figure and distinct materials without automatically borrowing a dark-fantasy palette or example costume."
+    "zh": "脸、发、衣料与肢体统一为塑造体积的厚涂色层和笔触，背景按本轮目标处理；不能只给写实图覆盖画布纹理。主体可读、材料可辨，协调修长比例体型成立，不自动套黑金幻想配色或原案例衣装。",
+    "en": "Unify face, hair, clothing and limbs with painted layers and strokes that build volume, handling the background according to the current target rather than merely overlaying canvas texture on a realistic image. Keep a readable harmonious elegant proportions figure and distinct materials without automatically borrowing a dark-fantasy palette or example costume."
   },
   {
     "resource": "asset_style_workflows.json",
@@ -933,8 +933,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.watercolor_character.appearance.finish",
-    "zh": "成图保持透明水彩与纸面质感，人物九头身和服装结构可读，不混入三维塑料高光或摄影毛孔。",
-    "en": "Keep transparent watercolor and paper texture throughout the readable nine-head character and costume, without 3D plastic highlights or photographic pores."
+    "zh": "成图保持透明水彩与纸面质感，人物协调修长比例和服装结构可读，不混入三维塑料高光或摄影毛孔。",
+    "en": "Keep transparent watercolor and paper texture throughout the readable harmonious elegant proportions character and costume, without 3D plastic highlights or photographic pores."
   },
   {
     "resource": "asset_style_workflows.json",
@@ -969,8 +969,26 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.ink_wash_character.appearance.finish",
-    "zh": "人物整体由勾线、浓淡墨层与克制设色组织，纸纹不能代替笔墨表现；九头身、面容辨识和衣装连接仍成立，不强制古装或历史身份，也不为强调水墨自动改成纯黑白。",
-    "en": "Organize the figure through expressive lines, graded ink layers and restrained color rather than substituting paper texture for brushwork. Preserve nine-head proportions, recognizable features and garment connections without imposing historical clothing or identity or automatically converting the design to monochrome."
+    "zh": "人物整体由勾线、浓淡墨层与克制设色组织，纸纹不能代替笔墨表现；协调修长比例、面容辨识和衣装连接仍成立，不强制古装或历史身份，也不为强调水墨自动改成纯黑白。",
+    "en": "Organize the figure through expressive lines, graded ink layers and restrained color rather than substituting paper texture for brushwork. Preserve harmonious elegant proportions, recognizable features and garment connections without imposing historical clothing or identity or automatically converting the design to monochrome."
+  },
+  {
+    "resource": "fashion_asset_v082_catalog.json",
+    "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[0]",
+    "zh": "人物身材比例协调、修长好看，头肩相称、肩颈舒展，胸廓、腰腹和骨盆完整，腰臀与上下肢的长度、粗细自然衔接；保留适度柔和肌肉与软组织体积，不靠极端缩头、拉长脖子、纸片腰或单独拉腿制造修长。",
+    "en": "Use balanced, elegant, elongated body proportions: a head scaled to the shoulders, relaxed neck and shoulders, a complete ribcage, waist and pelvis, and coherent limb lengths and volumes. Preserve soft muscle and tissue volume without extreme head shrinking, neck stretching, a paper-thin waist or isolated leg elongation."
+  },
+  {
+    "resource": "p9_persistence_guard_catalog.json",
+    "path": "$.profiles.balanced_locked.prompt_translation[0]",
+    "zh": "保留已认可的协调修长比例，局部肤质与细节修订不改变头肩、躯干、腰臀及四肢尺度；新的明确比例要求另行修订。",
+    "en": "Preserve the accepted harmonious, elegant proportions. Local skin and detail repairs must retain head, shoulder, torso, waist, hip and limb scales; revise proportion goals separately when explicitly requested."
+  },
+  {
+    "resource": "asset_master_v082_catalog.json",
+    "path": "$.profiles.master_sheet_single.prompt_translation[2]",
+    "zh": "本全身展示中，人物连同头饰、衣摆和鞋履的完整外轮廓约占画面高度八成至八成半，作为取景起点；头顶、脚下与左右最外侧衣饰均留出舒展空间，宽袖和拖尾以完整容纳为先。人物清楚可读，不贴边、不为了填满画幅拉伸身体；通过取景距离或扩展画布调整占比，用户指定构图优先。",
+    "en": "For this full-body showcase, begin with the complete silhouette, including ornaments, hem and footwear, at roughly 80 to 85 percent of frame height. Leave breathing room above, below and beside the widest garment edges; wide sleeves and trains take priority over the guide. Keep the figure readable and away from the edges, adjusting framing distance or canvas extent rather than stretching anatomy. Explicit composition requests take precedence."
   }
 ];
 
@@ -985,7 +1003,7 @@ export const workflowEnglish = {
     "photographic_character": "Photographic human appearance with coherent soft tissue, restrained skin texture and optical imaging. Preserve refined makeup, costume construction and identity rather than using coarse skin as proof of realism.",
     "cinematic_cg_character": "Cinematic digital character rendering with coherent skin scattering, groomed hair, garment surfaces and film lighting, without low-poly game artifacts or plastic-doll surfaces.",
     "realistic_3d_character": "Realistic 3D character-asset rendering with clear anatomical volume, continuous surfaces and coherent roughness, reflection and transmission, emphasizing readable spatial construction.",
-    "stylized_3d_character": "Stylized 3D character with simplified volumetric forms, soft surfaces and controlled color blocks, distinct materials without pore-by-pore realism, and mandatory nine-head proportions.",
+    "stylized_3d_character": "Stylized 3D character with simplified volumetric forms, soft surfaces and controlled color blocks, distinct materials without pore-by-pore realism, and harmonious elegant proportions.",
     "anime_3d_character": "3D animated character with cel rendering: volumetric forms, layered light and shadow, controlled contours and clear color shapes in a coherent animated treatment.",
     "anime_2d_character": "2D anime character design with clean linework, flat local colors and layered cel shadows, consistently drawn across face, hair, clothing and background.",
     "painterly_character": "Painterly character built with brushwork, color planes and selective edges, with a readable face and key costume construction rather than photographic sharpening.",

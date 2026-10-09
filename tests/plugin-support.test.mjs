@@ -68,6 +68,30 @@ test('built plugin runs independently of the original repository and rebuilds cl
   const run = spawnSync(process.execPath, [path.join(first.plugin_path, 'scripts/iteration-director.mjs'), 'asset-prompt', '--reference-mode', 'full_body_anchor'], { cwd: os.tmpdir(), encoding: 'utf8' });
   assert.equal(run.status, 0, run.stderr);
   assert.equal(JSON.parse(run.stdout).configuration.hand_mode, 'preserve_reference');
+  const cli = path.join(first.plugin_path, 'scripts/iteration-director.mjs');
+  const briefPath = path.join(first.plugin_path, 'examples/character-cg-text-brief.json');
+  const compile = input => spawnSync(process.execPath, [cli, 'prompt-build', '--input', input], { cwd: os.tmpdir(), encoding: 'utf8' });
+  // This historical example checks compiler portability, not the current aesthetic benchmark.
+  const compiled = compile(briefPath);
+  assert.equal(compiled.status, 0, compiled.stderr);
+  const result = JSON.parse(compiled.stdout);
+  assert.equal(result.status, 'prompt_ready');
+  assert.equal(result.subject_kind, 'character');
+  assert.deepEqual(result.reference_inputs, []);
+  assert.match(result.prompt, /【身材比例】/);
+  assert.match(result.prompt, /黄金九头身/);
+  assert.equal(result.evidence.image_generated, false);
+  assert.equal(result.evidence.visual_quality_verified, false);
+  assert.equal(result.evidence.user_accepted, false);
+  const invalid = JSON.parse(fs.readFileSync(briefPath, 'utf8'));
+  invalid.requirements.find(requirement => requirement.id === 'body').target_head_count = 0;
+  // Keep the invalid input outside the owned build so its rebuild check stays meaningful.
+  const invalidPath = path.join(dir, 'dist/invalid-character-brief.json');
+  fs.writeFileSync(invalidPath, JSON.stringify(invalid));
+  const rejected = compile(invalidPath);
+  assert.equal(rejected.status, 1);
+  assert.equal(rejected.stdout, '');
+  assert.match(JSON.parse(rejected.stderr).error, /target_head_count.*positive/);
   assert.deepEqual(buildPlugin(dir), first);
 });
 

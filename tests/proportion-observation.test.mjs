@@ -31,6 +31,21 @@ test('containing nine, exact nine and ratios above nine never grant approval',()
   assert.equal(r.anatomical_measurement_verified,false);assert.equal(r.acceptance_granted,false);
  }
 });
+test('perspective exclusion is explicitly limited to image space, not the world-space body',()=>{
+ // Fixed collinear world points: crown=1.8, chin=1.6, sole=0, hence nine heads.
+ // Pinhole camera at height 1.3 and distance 3, aimed at height 0.9.
+ // Rotation normalization cancels in Yc/Zc; focal length is 1800 pixels.
+ const project=y=>1000-1800*(3*(y-1.3)+1.2)/(9-0.4*(y-1.3));
+ const [c,j,s]=[1.8,1.6,0].map(project);
+ const r=proportionBounds({...sample(),image_height:2000,crown_y:[c,c],chin_y:[j,j],sole_y:[s,s]});
+ assert.ok(Math.abs(1.8/(1.8-1.6)-9)<1e-12);
+ assert.ok(Math.abs(r.ratio_upper-8.394957983193277)<1e-12);
+ assert.equal(r.target_relation,'excluded_by_declared_bounds');
+ assert.equal(r.ratio_space,'image_projection');
+ assert.equal(r.anatomical_target_relation,'not_established');
+ assert.equal(r.anatomical_measurement_verified,false);
+ assert.equal(r.acceptance_granted,false);
+});
 test('invalid or overlapping endpoint declarations cannot produce a ratio',()=>{
  for(const change of [{crown_y:[null,45]},{crown_y:[45,25]},{chin_y:[40,230]},{chin_y:[NaN,230]},{sole_y:[null,Infinity]},{sole_y:[200,1445]},{sole_y:[null,1600]},{projection_note:''},{image_height:1536.5}])assert.throws(()=>proportionBounds({...sample(),...change}));
 });

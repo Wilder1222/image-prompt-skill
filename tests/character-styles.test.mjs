@@ -5,6 +5,7 @@ import {spawnSync} from 'node:child_process';
 import {compileAssetPrompt, createAssetPlan} from '../scripts/asset-master.mjs';
 import {compileProductionPrompt} from '../scripts/production-prompt.mjs';
 import {inspectText} from '../scripts/audit-language.mjs';
+import {workflowEnglish} from '../scripts/asset-catalog-en.mjs';
 
 const catalog = JSON.parse(fs.readFileSync(new URL('../resources/asset_style_workflows.json', import.meta.url), 'utf8'));
 const profiles = Object.entries(catalog.profiles).filter(([, value]) => value.appearance);
@@ -17,8 +18,8 @@ test('all character media preserve identity scope and mandatory anatomy while ch
   const seen = Object.fromEntries(fields.map(f=>[f,new Set()]));
   for (const [styleWorkflow, profile] of profiles) {
     const plan=createAssetPlan({styleWorkflow});
-    assert.equal(plan.configuration.proportion_profile,'P9_FASHION_ASSET');
-    assert.equal(plan.stage_2.fashion_asset.visual_head_count_target,'9.0');
+    assert.equal(plan.configuration.proportion_profile,'BALANCED_ELEGANT');
+    assert.equal(plan.stage_2.fashion_asset.visual_head_count_target,null);
     assert.equal(plan.configuration.maturity_guard,'none');
     assert.deepEqual(inspectText('plan.json',JSON.stringify(plan)),[]);
     const result=compileAssetPrompt({styleWorkflow});
@@ -28,7 +29,7 @@ test('all character media preserve identity scope and mandatory anatomy while ch
     for (const field of fields) {assert.ok(parts[field],field);seen[field].add(parts[field]);}
     assert.doesNotMatch(result.prompt,/东方幻想概念原画审美|以本次参考图中的人物.*古风/);
     if (profile.family !== 'photographic') assert.ok(!plan.order.includes('final_photographic_polish'));
-    assert.throws(()=>compileAssetPrompt({styleWorkflow,proportionProfile:'NATURAL_ADULT'}),/黄金九头身/);
+    assert.match(compileAssetPrompt({styleWorkflow,proportionProfile:'NATURAL_ADULT'}).prompt,/七至七点五/);
   }
   for (const field of fields) assert.equal(seen[field].size,9,field);
 });
@@ -61,7 +62,7 @@ test('structured style plans do not carry obsolete age, costume layers or photog
     for(const effective of [material,light])assert.equal(effective.source_workflow,styleWorkflow);
     assert.equal(plan.configuration.material_profile,material.profile);
     assert.equal(plan.configuration.lighting_profile,light.profile);
-    assert.equal(plan.stage_2.fashion_asset.visual_head_count_target,'9.0');
+    assert.equal(plan.stage_2.fashion_asset.visual_head_count_target,null);
     const young=createAssetPlan({styleWorkflow,maturityGuard:'youthful_18_22'});
     assert.equal(young.stage_1.face_profile.age_range,'18_22');
     assert.match(young.stage_1.prompt_skeleton.join('\n'),/18–22/);
@@ -111,6 +112,35 @@ test('a focused material repair does not repeat whole-image skin or lighting con
     const hands=compileAssetPrompt({styleWorkflow,stage:'structure',focus:'hands'});
     assert.ok(!sections(hands.prompt)['身材比例']);
     assert.match(hands.prompt,/只修可见手指/);
+  }
+});
+
+test('material and lighting repairs retain medium detail rules in plans and both output languages',()=>{
+  for(const [styleWorkflow,profile] of profiles){
+    const plan=createAssetPlan({styleWorkflow});
+    const detail=plan.style_rendering.detail.zh;
+    const highlight=plan.style_rendering.highlights.zh;
+    const edge=plan.style_rendering.edges.zh;
+    assert.deepEqual(plan.stage_3.material_separation.prompt_translation,[profile.appearance.material,detail]);
+    assert.deepEqual(plan.stage_3.studio_lighting.prompt_translation,[profile.appearance.lighting,highlight,edge]);
+    const english=new Map([[detail,workflowEnglish.detail_budgets[plan.configuration.detail_budget]],
+      [highlight,workflowEnglish.highlight_hierarchies[plan.configuration.highlight_hierarchy]],
+      [edge,workflowEnglish.edge_controls[plan.configuration.edge_control]]]);
+    for(const language of ['zh-CN','en']){
+      const text=value=>language==='en'?english.get(value):value;
+      for(const focus of [undefined,'materials','lighting']){
+        const r=compileAssetPrompt({styleWorkflow,stage:'material-light',focus,language});
+        for(const [value,enabled] of [[detail,focus!=='lighting'],[highlight,focus!=='materials'],[edge,focus!=='materials']]){
+          assert.equal(r.prompt.includes(text(value)),enabled,`${styleWorkflow}/${language}/${focus}: ${value}`);
+        }
+        assert.equal(r.configuration.proportion_profile,'BALANCED_ELEGANT');
+        assert.match(r.prompt,language==='en'?/Any unresolved proportion issue remains unresolved/:/未解决的比例问题仍保留为待修项/);
+      }
+      for(const edit of [{stage:'face'},{stage:'structure',focus:'hands'}]){
+        const r=compileAssetPrompt({styleWorkflow,language,...edit});
+        for(const value of [detail,highlight,edge])assert.ok(!r.prompt.includes(text(value)));
+      }
+    }
   }
 });
 

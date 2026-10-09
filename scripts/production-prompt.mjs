@@ -10,6 +10,14 @@ const referenceFields = new Set(['id','source','inspected','generation_input','a
 const internalStyle = new RegExp(`\\b(?:${characterStyleIds.join('|')})\\b`);
 export const promptHash = text => crypto.createHash('sha256').update(text).digest('hex');
 
+// Shared by revision classification and frozen records. Preserve array order.
+export function canonical(value) {
+  if (Array.isArray(value)) return value.map(canonical);
+  if (value && typeof value === 'object') return Object.fromEntries(Object.keys(value).sort().map(k => [k,canonical(value[k])]));
+  return value;
+}
+export const objectHash = value => promptHash(JSON.stringify(canonical(value)));
+
 export function compileProductionPrompt(input) {
   const errors = [], basis = new Map(), references = new Map(), used = new Set();
   if (!input || typeof input !== 'object') throw new Error('production input must be an object');
@@ -24,7 +32,7 @@ export function compileProductionPrompt(input) {
     if (!nonempty(text) || /【|】|\bTODO\b|待填写|逐项填写|填写本套/.test(text)) errors.push(`unfinished clause in ${label}`);
     if (internalStyle.test(text ?? '')) errors.push(`replace internal style identifiers with concrete visual prose in ${label}`);
     if (/\b(?:render[ _-]+mode|style[ _-]+workflow|face[ _-]+mode|proportion[ _-]+mode|detail[ _-]+budget|highlight[ _-]+hierarchy|edge[ _-]+control)\s*[=:：＝]/i.test(text ?? '')) errors.push(`replace mode settings with concrete visual prose in ${label}`);
-    if (/\b(?:style_asset|material_realistic_asset|dark_fantasy_asset|beauty_first|humanized_real|stylized_beauty|P9[ _]+Fashion|P9_FASHION_ASSET|NATURAL_ADULT|material_priority|concept_art_priority|focal_brightness|soft_realistic|painterly_selective)\b/i.test(text ?? '')) errors.push(`replace internal mode identifiers with concrete visual prose in ${label}`);
+    if (/\b(?:style_asset|material_realistic_asset|dark_fantasy_asset|beauty_first|humanized_real|stylized_beauty|P9[ _]+Fashion|P9_FASHION_ASSET|BALANCED_ELEGANT|balanced_locked|NATURAL_ADULT|material_priority|concept_art_priority|focal_brightness|soft_realistic|painterly_selective)\b/i.test(text ?? '')) errors.push(`replace internal mode identifiers with concrete visual prose in ${label}`);
   }
   function add(row, type) {
     if (!nonempty(row?.id) || basis.has(row.id)) errors.push(`missing or duplicate basis id: ${row?.id}`);
@@ -76,10 +84,11 @@ export function compileProductionPrompt(input) {
   // This is an authored scope declaration, not automatic subject recognition.
   // Keep numeric design intent out of the image approval decision itself.
   const proportions = input.requirements.filter(r => r.channel === 'proportion');
-  const characterProportions = proportions.filter(r => r.priority === 'must' && r.target_head_count === 9);
+  const characterProportions = proportions.filter(r => r.priority === 'must');
   if (input.subject_kind === 'character') {
-    if (!characterProportions.length) errors.push('character production requires a must proportion requirement with target_head_count: 9');
-    if (proportions.some(r => r.target_head_count !== undefined && r.target_head_count !== 9)) errors.push('character target_head_count must be 9');
+    if (!characterProportions.length) errors.push('character production requires a must proportion requirement');
+    if (proportions.some(r => r.target_head_count !== undefined && (!Number.isFinite(r.target_head_count) || r.target_head_count <= 0))) errors.push('target_head_count must be a finite positive number when explicitly supplied');
+    if (new Set(proportions.map(r => r.target_head_count).filter(n => n !== undefined)).size > 1) errors.push('conflicting target_head_count requirements');
   }
   const labels = new Set(), paragraphs = [];
   for (const section of input.sections ?? []) {
@@ -200,7 +209,7 @@ export function reviseProductionInput(input, change) {
   next.request+='\n本轮用户修改：'+change.request;
   const compiled=compileProductionPrompt(next);
   return {input:next,compiled,changed_sections:[...changedLabels],
-    target_changed:JSON.stringify(input.requirements)!==JSON.stringify(next.requirements)||JSON.stringify(input.acceptance)!==JSON.stringify(next.acceptance)};
+    target_changed:objectHash({requirements:input.requirements,acceptance:input.acceptance})!==objectHash({requirements:next.requirements,acceptance:next.acceptance})};
 }
 
 export function reviewProductionResult(compiled, review) {
