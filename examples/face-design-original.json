@@ -1,0 +1,33 @@
+{
+  "id": "quiet-herbalist-v1",
+  "request": "设计一位26岁的东方女性药师，温柔但有自己的判断力；相貌自然舒展，避免所有人物共用同一张尖下巴大眼睛的脸。",
+  "mode": "new_design",
+  "subject": {
+    "description": "一位26岁的成年东方女性药师，呈现自然、有辨识度的面容",
+    "seed_scope": "young_adult_female_reference_group"
+  },
+  "preset": "FD07",
+  "traits": {
+    "eye_spacing": {
+      "value": "眼距适中，双眼与鼻根之间的距离自然协调",
+      "origin": "design",
+      "reason": "原分析没有给出眼距；为原创人物选择协调关系，不冒充参考实测。"
+    },
+    "brow": {
+      "value": "眉毛自然舒展，眉峰平缓，眉尾逐渐变细",
+      "origin": "design",
+      "reason": "配合温柔而有主见的角色，采用克制清楚的眉形。"
+    }
+  },
+  "expression": {
+    "gaze": "目光安静地看向镜头，眼睑自然放松，带清醒而温和的专注感",
+    "mouth_state": "双唇轻合，嘴角自然放松，没有刻意微笑"
+  },
+  "presentation": {
+    "makeup": "薄而均匀的自然底妆，眼周和唇部颜色克制，妆面不改变原定五官轮廓",
+    "skin_finish": "面颊柔和的软组织转折可见，额鼻高光克制，肤色与颈部连贯，保持26岁的表观年龄",
+    "lighting": "中性白平衡的大面积柔和正面主光，两眼清楚，保留鼻唇和面颊体积",
+    "hair": "深棕长发低束，额前少量弧形发束，露出眉眼与下颌外轮廓"
+  },
+  "anchors": ["face_shape", "eye_shape", "eye_tail", "nose_tip", "chin"]
+}

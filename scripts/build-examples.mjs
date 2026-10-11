@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { compileAssetPrompt, createAssetPlan } from './asset-master.mjs';
+import { applyFaceDesign, reviseFaceDesign } from './face-design.mjs';
+import { compileProductionPrompt } from './production-prompt.mjs';
 
 export function currentExamples() {
   const cases = [
@@ -27,10 +29,42 @@ export function currentCharacterStyleExamples() {
     + Object.entries(workflows.profiles).filter(([,p])=>p.appearance).map(([styleWorkflow,p])=>`## ${p.label}\n\n\`\`\`text\n${compileAssetPrompt({styleWorkflow}).prompt}\n\`\`\`\n`).join('\n');
 }
 
+export function currentFaceDesignExamples() {
+  const read = name => JSON.parse(fs.readFileSync(new URL(`../examples/${name}`, import.meta.url), 'utf8'));
+  const original = read('face-design-original.json');
+  const smile = reviseFaceDesign(original, read('face-design-expression-change.json'));
+  return '# 人物捏脸系统完整提示词示例\n\n'
+    + '由 `npm run examples:build` 从独立面容方案与肖像 brief 生成。两例共用同一套面容结构，只修改神态；它们是原创文字设计，尚未生成图像，不能据此判断身份保持或美感。\n\n'
+    + [['原创药师：安静专注', original], ['同一面容：轻轻微笑', smile]].map(([title, face]) => {
+      const brief = applyFaceDesign(read('face-design-portrait-base.json'), face);
+      const compiled = compileProductionPrompt(brief);
+      return `## ${title}\n\n\`\`\`text\n${compiled.prompt}\n\`\`\`\n`;
+    }).join('\n');
+}
+
+export function currentBlueBenchmarkDistinctFacesExamples() {
+  const read = name => JSON.parse(fs.readFileSync(new URL(`../examples/${name}`, import.meta.url), 'utf8'));
+  const set = read('blue-benchmark-distinct-faces-set.json');
+  const cases = set.cases.map(row => [row.label, read(row.file), read(set.portrait_base)]);
+  const original = read('face-design-original.json');
+  const revised = reviseFaceDesign(original, read(set.presentation_change));
+  cases.push(['既有药师：保留原来结构与年龄，仅提升妆肤和神态', revised, read('face-design-portrait-base.json')]);
+  return '# 共用审美完成度与不同面容的完整提示词\n\n'
+    + '由 `npm run examples:build` 从独立面容方案编译。蓝衣长发肖像是审美示例之一，迁移妆肤与神态的完成度；这些人物的脸型、骨相和眉眼鼻唇关系为原创设计，不复制示例的脸、蓝衣或长发。前三例共用妆肤、神态、发型、衣装和照明，结构区别须由各自面容承担。\n\n'
+    + '这是文字设计演练，没有新出图、逐人用户接受或跨模型证据；编译与冻结检查不证明图像中的美感、身份保持或人物区分。最后一例在既有药师面容上只修订妆肤和神态。\n\n'
+    + cases.map(([title, face, base]) => {
+      const brief = applyFaceDesign(base, face);
+      const compiled = compileProductionPrompt(brief);
+      return `## ${title}\n\n\`\`\`text\n${compiled.prompt}\n\`\`\`\n`;
+    }).join('\n');
+}
+
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
   fs.writeFileSync(path.join(root, 'examples/ancient-white-asset-current-prompts.md'), currentExamples());
   fs.writeFileSync(path.join(root, 'examples/character-style-current-prompts.md'), currentCharacterStyleExamples());
+  fs.writeFileSync(path.join(root, 'examples/face-design-current-prompts.md'), currentFaceDesignExamples());
+  fs.writeFileSync(path.join(root, 'examples/blue-benchmark-distinct-faces-current-prompts.md'), currentBlueBenchmarkDistinctFacesExamples());
   fs.writeFileSync(path.join(root, 'docs/current-asset-plan.json'), `${JSON.stringify(createAssetPlan({ presentation: 'costume_showcase', maturityGuard: 'none' }), null, 2)}\n`);
   console.log('Generated current prompts and plan; visual regression remains pending.');
 }

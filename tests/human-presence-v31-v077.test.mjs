@@ -16,6 +16,18 @@ test('soft tissue preserves youthful cheek and jaw transition',()=>{const r=run(
 
 test('makeup keeps skin response subtle beneath a refined finish',()=>{const r=run(['makeup-skin-v2']);assert.equal(r.json.controls.foundation_coverage,'light');assert.equal(r.json.controls.skin_visibility,'subtle_under_refined_makeup');assert.equal(r.json.controls.eyeliner_edge,'softened');});
 
+test('makeup policy survives standalone and face-plan CLI routes without making a benchmark an identity source',()=>{
+ const standalone=run(['makeup-skin-v2']),plan=run(['human-face-plan','--level','H2.7']);
+ assert.equal(standalone.status,0,standalone.stderr);assert.equal(plan.status,0,plan.stderr);
+ const makeup=standalone.json;
+ assert.equal(makeup.control_scope,'legacy_light_makeup_profile_not_universal_character_defaults');
+ assert.equal(makeup.selection_policy.benchmark_authority,'aesthetic_method_only_unless_identity_is_explicitly_authorized');
+ for(const field of ['own_identity_relationships','apparent_age','skin_tone_and_undertone'])assert.ok(makeup.selection_policy.preserve.includes(field));
+ assert.ok(makeup.selection_policy.choose_per_task.includes('makeup_presence_and_intensity'));
+ assert.deepEqual(plan.json.makeup_skin,makeup);
+ for(const line of makeup.prompt_translation)assert.ok(plan.json.prompt_skeleton.includes(line));
+});
+
 test('hair uses exactly three frequency layers and fine strands are not primary',()=>{const r=run(['hair-frequency-v2']);assert.equal(r.json.frequency_layers.length,3);assert.deepEqual(r.json.frequency_layers,['primary_hair_mass','secondary_bundles','fine_strands']);assert.equal(r.json.controls.fine_strand_density,'low');assert.ok(r.json.forbidden.includes('fine_strands_as_primary'));});
 
 test('asset-balanced focus prioritizes face over skirt and background',()=>{const r=run(['photographic-focus-v2','--profile','asset_balanced']);assert.ok(r.json.weights.face>r.json.weights.main_skirt);assert.ok(r.json.weights.main_skirt>r.json.weights.background);assert.ok(r.json.rules.includes('asset_mode_uses_moderate_depth_not_extreme_shallow_dof'));});

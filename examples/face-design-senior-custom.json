@@ -1,0 +1,18 @@
+{
+  "id": "senior-craftsman-v1",
+  "request": "原创一位64岁男性木匠的面容，方阔而亲切，保留年龄和角色特点，作为水彩插画人物。",
+  "mode": "new_design",
+  "subject": {"description": "一位64岁男性木匠，方阔而亲切的面容，以水彩插画表现", "seed_scope": "custom"},
+  "traits": {
+    "face_shape": {"value": "面部外轮廓方阔，额部与下颌宽度均衡", "origin": "design", "reason": "依角色选择稳重的方阔外轮廓。"},
+    "jaw": {"value": "下颌转折清楚但柔和，保留自然软组织覆盖", "origin": "design", "reason": "体现力量与年龄，不画成硬质雕塑。"},
+    "chin": {"value": "下巴宽而圆钝，长度与下半脸协调", "origin": "design", "reason": "配合方阔脸型，避免尖瘦下巴。"},
+    "eye_shape": {"value": "眼型横向舒展，眼角平缓，上眼睑自然覆盖", "origin": "design", "reason": "选择亲切平静的眼型，不套用年轻女性大眼。"},
+    "nose_tip": {"value": "鼻尖圆钝有体积，与鼻翼自然连接", "origin": "design", "reason": "构造有个人辨识度的鼻部。"},
+    "lip_balance": {"value": "上唇略薄，下唇保留适度体积，唇角柔和", "origin": "design", "reason": "用具体上下唇关系支持亲切面容。"},
+    "cheek_volume": {"value": "面颊体积自然，保留64岁人物的软组织起伏与年龄特征", "origin": "design", "reason": "保留年龄，而非统一年轻化或凹陷疲态。"}
+  },
+  "expression": {"gaze": "目光温和专注，像正在耐心倾听", "mouth_state": "双唇轻合，嘴角略有笑意"},
+  "presentation": {"skin_finish": "水彩以柔和色层表现肤色和适度年龄纹理，保留五官体积，不加入摄影毛孔", "hair": "短灰白发自然向后梳理，鬓角略松"},
+  "anchors": ["face_shape", "chin", "eye_shape", "nose_tip", "lip_balance"]
+}

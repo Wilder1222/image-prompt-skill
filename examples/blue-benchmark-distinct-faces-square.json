@@ -1,0 +1,35 @@
+{
+  "id": "square-luthier-v1",
+  "request": "原创一位34岁的成年女性制琴师，用方圆轮廓、自然宽下颌、内双细长眼和收敛鼻尖建立独立面容；与其他人物共用完成度规则，身份由骨相和五官关系形成。",
+  "mode": "new_design",
+  "subject": {"description": "一位34岁的成年女性制琴师，面容端整有力度，呈现清醒而安静的生命感", "seed_scope": "custom"},
+  "traits": {
+    "face_shape": {"value": "方圆脸，额部、颧部与下颌有接近的自然宽度，边角以柔和曲面连接。", "origin": "design", "reason": "原创选择方圆轮廓，不沿用窄椭圆面容。"},
+    "face_length": {"value": "面部长短均衡，中段与下段舒展。", "origin": "design", "reason": "与短圆及较长面容保持不同的长短关系。"},
+    "cheekbone": {"value": "颧骨外侧转折清楚，但不高突，正面有稳妥的横向宽度。", "origin": "design", "reason": "使端整骨相保持明确的结构。"},
+    "jaw": {"value": "下颌较宽，转折清楚而圆钝，正面两侧有可读的下颌角。", "origin": "design", "reason": "宽下颌是本人物稳定的身份特征。"},
+    "chin": {"value": "下巴为宽度适中的方圆形，底部较平缓。", "origin": "design", "reason": "方圆下巴与下颌连贯，不收尖以套用共同美人脸。"},
+    "eye_shape": {"value": "眼型细长，横向伸展，上缘弧度小而下缘平缓。", "origin": "design", "reason": "用横向眼形形成与圆杏眼不同的结构。"},
+    "eye_aperture": {"value": "中性状态下眼睛开合较小，上睑自然覆盖虹膜上缘。", "origin": "design", "reason": "保留小开合眼部的精致完成度。"},
+    "eye_tail": {"value": "眼尾轻微上扬，末端有清楚而柔和的方向。", "origin": "design", "reason": "与平直和略下行眼尾形成结构差异。"},
+    "eyelid": {"value": "内双，上睑褶皱较低，靠外侧逐渐可见。", "origin": "design", "reason": "眼睑结构属于本人物，不靠眼影制造新的眼窝。"},
+    "brow": {"value": "自然眉形较平直，眉毛有适度密度，眉尾完整而略向外延伸。", "origin": "design", "reason": "平直眉配合方圆骨相，维持个人辨识度。"},
+    "nose_bridge": {"value": "鼻梁自然挺直，高度适中，鼻根不深陷。", "origin": "design", "reason": "中等起伏鼻梁与另外两人的低起伏及曲线鼻梁区分。"},
+    "nose_tip": {"value": "鼻尖收敛而有肉感，轮廓紧凑，末端不锐尖。", "origin": "design", "reason": "收敛鼻尖是本人物独立鼻部锚点。"},
+    "nose_wing": {"value": "鼻翼较收敛，两侧鼻孔边缘仍自然可读。", "origin": "design", "reason": "鼻翼宽度顺应本人物的鼻部设计。"},
+    "lip_shape": {"value": "唇峰略低而平缓，上唇中央弧线连续，两侧唇线横向舒展。", "origin": "design", "reason": "唇线设计与圆润唇峰及长薄唇不同。"},
+    "lip_balance": {"value": "上下唇体积接近，均为适中的偏薄厚度。", "origin": "design", "reason": "采用均衡偏薄唇部，不自动增加唇体积。"},
+    "cheek_volume": {"value": "面颊软组织适度，颧下转折浅而可见，下颌角上方有自然柔软体积。", "origin": "design", "reason": "软组织支持方圆骨相，不磨去清楚下颌。"}
+  },
+  "expression": {
+    "gaze": "目光安静看向镜头，眼睑自然放松，瞳孔方向与双眼对焦一致，带有清醒而含蓄的回应。",
+    "mouth_state": "双唇轻合，唇角自然放松，面颊和眉间不刻意用力。"
+  },
+  "presentation": {
+    "makeup": "底妆薄而贴肤，眉毛根部到眉尾清楚连贯，睫毛根部自然分明，眼影柔和收在睑部，淡玫瑰腮红轻贴面颊，唇色柔润均匀且唇缘完整；妆容顺着各自眉眼鼻唇结构，不用外扩眼线、鼻影或唇线重画五官。",
+    "skin_finish": "肤色从额部、面颊到下颌与颈部连续，额心和鼻梁有小面积柔亮肤光，面颊宽缓受光，鼻翼与嘴角保持柔和阴影；皮肤细腻清洁，保留所属年龄的细微纹理与软组织起伏，肤光不铺满全脸，面颊体积不被磨平。",
+    "lighting": "中性白平衡的大面积柔光从镜头左前方照亮面部，正面柔和补光让双眼清楚，鼻唇阴影和颧颌转折仍可见，人物面部亮度高于背景。",
+    "hair": "深棕头发整齐低束，额前留少量细发，露出眉眼鼻口与两侧面颊和下颌。"
+  },
+  "anchors": ["face_shape", "jaw", "chin", "eye_shape", "eyelid", "nose_bridge", "nose_tip", "lip_balance", "cheek_volume"]
+}

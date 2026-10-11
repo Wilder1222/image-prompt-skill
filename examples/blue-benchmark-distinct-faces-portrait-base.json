@@ -1,0 +1,34 @@
+{
+  "subject_kind": "character",
+  "request": "为当前原创成年女性制作一张单人肩部以上定妆肖像，面容结构由她的独立方案注入，按本轮妆肤与神态目标完成。这是文字设计演练。",
+  "references": [],
+  "unresolved": [],
+  "requirements": [
+    {"id": "benchmark-frame", "channel": "composition", "priority": "must", "text": "单人肩部以上正面平视肖像，头顶与发型完整入画，双眼、鼻唇和下颌清楚可见，四周有适度留白。"},
+    {"id": "benchmark-proportion", "channel": "proportion", "priority": "must", "text": "仅检查可见头肩关系：人物自己的头部、颈部与肩部比例协调，肩颈舒展自然，颈部不拉长。"},
+    {"id": "benchmark-style", "channel": "style", "priority": "must", "text": "细腻美观的人物精修肖像，面容具有协调的完成度和可信体积，精修沿着人物原定骨相和软组织完成，保持成年年龄与独立眉眼鼻唇关系。"},
+    {"id": "benchmark-costume", "channel": "costume", "priority": "must", "text": "可见米白色亚麻交领衣的领口和肩部，织物低光泽，领缘厚度及搭接自然。"},
+    {"id": "benchmark-background", "channel": "background", "priority": "must", "text": "浅暖灰无缝背景，面部清楚，无文字、图表或其他人物。"}
+  ],
+  "sections": [
+    {"label": "构图与视点", "channel": "composition", "items": [{"text": "单人肩部以上正面平视肖像，头顶与发型完整入画，双眼、鼻唇和下颌清楚可见，四周有适度留白。", "basis": ["benchmark-frame"], "intent": "constraint"}]},
+    {"label": "可见头肩比例", "channel": "proportion", "items": [{"text": "仅检查可见头肩关系：人物自己的头部、颈部与肩部比例协调，肩颈舒展自然，颈部不拉长。", "basis": ["benchmark-proportion"], "intent": "constraint"}]},
+    {"label": "画面表现", "channel": "style", "items": [{"text": "细腻美观的人物精修肖像，面容具有协调的完成度和可信体积，精修沿着人物原定骨相和软组织完成，保持成年年龄与独立眉眼鼻唇关系。", "basis": ["benchmark-style"], "intent": "constraint"}]},
+    {"label": "可见衣装", "channel": "costume", "items": [{"text": "可见米白色亚麻交领衣的领口和肩部，织物低光泽，领缘厚度及搭接自然。", "basis": ["benchmark-costume"], "intent": "constraint"}]},
+    {"label": "背景", "channel": "background", "items": [{"text": "浅暖灰无缝背景，面部清楚，无文字、图表或其他人物。", "basis": ["benchmark-background"], "intent": "constraint"}]}
+  ],
+  "acceptance": [
+    {"id": "benchmark-frame-check", "basis": "benchmark-frame", "critical": true, "question": "是否单人肩部以上、正面平视、发型与面部完整且留白适当？"},
+    {"id": "benchmark-proportion-check", "basis": "benchmark-proportion", "critical": true, "question": "可见头颈肩是否保持各自比例并自然舒展？"},
+    {"id": "benchmark-style-check", "basis": "benchmark-style", "critical": true, "question": "面容是否细腻美观，同时保持本人物的成年年龄、骨相和软组织关系？"},
+    {"id": "benchmark-costume-check", "basis": "benchmark-costume", "critical": true, "question": "可见衣领与肩部是否为米白低光泽亚麻，厚度与搭接可信？"},
+    {"id": "benchmark-background-check", "basis": "benchmark-background", "critical": true, "question": "是否浅暖灰背景且无额外文字或人物？"}
+  ],
+  "metadata": {
+    "example_kind": "authored_text_design_exercise",
+    "new_images_generated": false,
+    "individual_user_acceptance": "not_established",
+    "visual_distinctness_verified": false,
+    "cross_model_evidence": "none"
+  }
+}

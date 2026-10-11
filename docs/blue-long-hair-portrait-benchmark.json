@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-11",
+  "scope": "人物面容、妆肤与神态规则的补充审美示例，保留每个人物独立辨识度",
+  "source_count": 2,
+  "generated_output_count": 0,
+  "source_images_bundled": false,
+  "historical_results": "本记录独立追加，不改十二图原索引、旧图、原评分或历史评审。",
+  "source_conversation": {
+    "title": "改写女性肖像提示词",
+    "url": "https://chatgpt.com/g/g-p-6aa92bfc14e081919bf3fa7d4cf59809-ren-xiang/c/6aaccf0d-d2b8-83ec-936f-88d356497a2f",
+    "inspection": "2026-10-11 经浏览器逐张查看用户提供的外部成图与最后一轮参考图；未取得本地图片原文件。"
+  },
+  "user_feedback": [
+    {
+      "quote": "我觉得这个生成的非常贴近我想要的效果，分析一下",
+      "scope": "初始满意表述；后续用户澄清了具体适用样本"
+    },
+    {
+      "quote": "短发皮衣不满足需要",
+      "scope": "灰色背景下的皮衣短发肖像，样本级拒绝；没有给分或说明具体拒绝原因"
+    },
+    {
+      "quote": "以蓝衣长发这张为审美示例之一，优化当前项目的人物面容、妆肤和神态规则，保留不同人物的辨识度，不要都生成同一张脸。",
+      "scope": "蓝衣长发肖像为接受的审美示例之一；迁移完成度，不复制所有人物身份"
+    }
+  ],
+  "assets": [
+    {
+      "id": "external-blue-long-hair-portrait-20261011",
+      "title": "冷调蓝裙珍珠发饰肖像",
+      "user_label": "蓝衣长发这张",
+      "locator": "本轮观察时，与含一张古风女性参考、正文开头为‘真实数码人像摄影，一位19岁的成年中国女性，空灵清秀而令人印象深刻的美貌’的请求对应的生成图；按该请求与图名定位，不按对话后来新增内容的最后一张定位",
+      "framing": "头肩近景，发顶略裁切",
+      "source": "用户提供的已有外部生成样本",
+      "local_path": null,
+      "sha256": null,
+      "pixel_sha256": null,
+      "byte_length": null,
+      "project_run_id": null,
+      "numeric_score": null,
+      "role": "人物面容完成度、妆肤与含蓄神态的审美示例之一；不自动提供所有新人物的身份",
+      "user_status": "accepted_aesthetic_example",
+      "generation_context": {
+        "actual_reference_count": 1,
+        "actual_reference_description": "一张古风女性参考图",
+        "text_direction": "空灵疏离型女性肖像文字",
+        "model": null,
+        "observed_reference_continuity": [
+          "眉眼与鼻唇关系明显延续",
+          "半束长发轮廓与脸侧细发延续",
+          "侧后明亮发缘延续"
+        ],
+        "observed_changes": [
+          "衣装改为现代浅蓝褶裥衬衫"
+        ],
+        "attribution_limit": "仅观察到参考图与文字共同作用的成图；未取得本地原文件及完整执行记录，不能证明文字单独生成、独立通道控制或跨模型稳定。"
+      },
+      "observations": {
+        "face": "颊颌柔和连贯，眉眼理想化而精致，鼻唇细巧。",
+        "makeup_skin": "柔亮细腻肤质、浅粉腮红与润泽唇色，肤光局部且对比柔和。",
+        "expression": "目光看向镜头，上眼睑略低，唇角松弛，神态含蓄安静。",
+        "hair": "发顶有体积，长发分束，少量细发经过脸侧。",
+        "wardrobe_light": "可见衣料为浅蓝褶裥衬衫，背景灰蓝；侧后发缘明亮，脸部受光柔和。",
+        "framing_execution": "头部略倾斜、发顶略裁切，与文字中的头部端正及完整发型入镜要求不完全相符。"
+      },
+      "transfer": {
+        "shared_finish": [
+          "面部软组织过渡、五官衔接与适度理想化的精致完成度",
+          "眉眼、腮红、唇面与局部肤光共同协调的柔亮妆肤",
+          "目光、眼睑或眉部张力与嘴角动作共同表达具体情绪"
+        ],
+        "independent_per_character": [
+          "脸部外轮廓与颊颌体积关系",
+          "眉眼组合及辨识锚点",
+          "鼻唇形态与软组织关系",
+          "肤色、年龄特征、妆色与具体神态"
+        ],
+        "not_global_defaults": [
+          "参考人物的同一张脸",
+          "小巧鼻唇或固定脸型眼型",
+          "浅肤、粉腮红及粉唇",
+          "半垂眼睑与疏离神态",
+          "蓝衣、长发、半束发与灰蓝背景"
+        ]
+      },
+      "limits": [
+        "用户认可整体审美方向，不等于逐项文字执行、完整母图或生产资格全部通过。",
+        "近景只证明可见面容、妆肤、神态及头肩关系，不能证明全身比例、鞋履或隐藏衣装。",
+        "图名中的蓝裙不作为实际服装观察依据。",
+        "本样本不计作项目本轮新生成或规则更新后的视觉验证。"
+      ]
+    },
+    {
+      "id": "external-short-hair-leather-portrait-20261011",
+      "title": "灰色背景下的皮衣短发肖像",
+      "user_label": "短发皮衣",
+      "locator": "本轮观察时，与正文开头为‘真实数码人像摄影，一位19岁的成年中国女性，漂亮而有辨识度的小方圆脸’的短发皮衣请求对应的生成图",
+      "source": "用户提供的已有外部生成样本",
+      "local_path": null,
+      "sha256": null,
+      "pixel_sha256": null,
+      "byte_length": null,
+      "project_run_id": null,
+      "numeric_score": null,
+      "role": "用户拒绝样本，不能列作本轮接受的审美方向",
+      "user_status": "rejected_sample",
+      "user_quote": "短发皮衣不满足需要",
+      "rejection_reason": null,
+      "limits": [
+        "仅确定该样本没有满足用户需求，不能推测具体五官、肤质、发型或材料是拒绝原因。",
+        "不将本次拒绝扩展为短发、皮衣或摄影媒介的普遍禁用规则。",
+        "没有用户数值评分，不补造分数；不改写原图或原评审。"
+      ]
+    }
+  ],
+  "validation_boundary": "这是外部来源及本轮用户反馈记录；规则、示例、程序测试与打包通过均不能证明更新后的实图效果。"
+}

@@ -1,0 +1,27 @@
+{
+  "subject_kind": "character",
+  "request": "为原创药师制作一张单人肩部以上定妆肖像，面容结构由独立捏脸方案注入；这是文字设计示例。",
+  "references": [],
+  "unresolved": [],
+  "requirements": [
+    {"id": "portrait-frame", "channel": "composition", "priority": "must", "text": "单人肩部以上正面平视肖像，头顶与发型完整入画，双眼、鼻唇和下颌清楚可见，四周有适度留白。"},
+    {"id": "portrait-proportion", "channel": "proportion", "priority": "must", "text": "仅检查可见头肩关系：头部、颈部与肩部协调，肩颈舒展自然；不拉长颈部，也不推断未显示的全身比例。"},
+    {"id": "portrait-style", "channel": "style", "priority": "must", "text": "自然细腻的人物摄影表现，五官和软组织有可信体积，保持清楚的面容设计与生命感。"},
+    {"id": "portrait-costume", "channel": "costume", "priority": "must", "text": "可见米白色亚麻交领衣的领口和肩部，织物低光泽，领缘厚度及搭接自然。"},
+    {"id": "portrait-background", "channel": "background", "priority": "must", "text": "浅暖灰无缝背景，无文字、图表或其他人物，让面部结构清楚可读。"}
+  ],
+  "sections": [
+    {"label": "构图与视点", "channel": "composition", "items": [{"text": "单人肩部以上正面平视肖像，头顶与发型完整入画，双眼、鼻唇和下颌清楚可见，四周有适度留白。", "basis": ["portrait-frame"], "intent": "constraint"}]},
+    {"label": "可见头肩比例", "channel": "proportion", "items": [{"text": "仅检查可见头肩关系：头部、颈部与肩部协调，肩颈舒展自然；不拉长颈部，也不推断未显示的全身比例。", "basis": ["portrait-proportion"], "intent": "constraint"}]},
+    {"label": "画面表现", "channel": "style", "items": [{"text": "自然细腻的人物摄影表现，五官和软组织有可信体积，保持清楚的面容设计与生命感。", "basis": ["portrait-style"], "intent": "constraint"}]},
+    {"label": "可见衣装", "channel": "costume", "items": [{"text": "可见米白色亚麻交领衣的领口和肩部，织物低光泽，领缘厚度及搭接自然。", "basis": ["portrait-costume"], "intent": "constraint"}]},
+    {"label": "背景", "channel": "background", "items": [{"text": "浅暖灰无缝背景，无文字、图表或其他人物，让面部结构清楚可读。", "basis": ["portrait-background"], "intent": "constraint"}]}
+  ],
+  "acceptance": [
+    {"id": "portrait-frame-check", "basis": "portrait-frame", "critical": true, "question": "是否单人肩部以上、正面平视、发型与面部完整且留白适当？"},
+    {"id": "portrait-proportion-check", "basis": "portrait-proportion", "critical": true, "question": "可见头颈肩是否协调自然，没有为显得修长而拉长颈部？"},
+    {"id": "portrait-style-check", "basis": "portrait-style", "critical": true, "question": "整体人物表现是否自然细腻且有可信体积与生命感？"},
+    {"id": "portrait-costume-check", "basis": "portrait-costume", "critical": true, "question": "可见衣领与肩部是否为米白低光泽亚麻，厚度与搭接可信？"},
+    {"id": "portrait-background-check", "basis": "portrait-background", "critical": true, "question": "是否为清楚衬托面部的浅暖灰背景，没有额外文字或人物？"}
+  ]
+}

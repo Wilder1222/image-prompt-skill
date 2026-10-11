@@ -1,6 +1,26 @@
 {
   "version": "0.7.7",
   "name": "makeup_skin_integration_v2",
+  "control_scope": "legacy_light_makeup_profile_not_universal_character_defaults",
+  "selection_policy": {
+    "refinement": "visible_structure_finish_and_coordination",
+    "preserve": [
+      "own_identity_relationships",
+      "apparent_age",
+      "skin_tone_and_undertone",
+      "confirmed_distinctive_features"
+    ],
+    "choose_per_task": [
+      "makeup_presence_and_intensity",
+      "foundation_coverage",
+      "blush_and_lip_palette",
+      "matte_satin_or_moist_finish",
+      "texture_strength_by_framing_and_medium"
+    ],
+    "benchmark_authority": "aesthetic_method_only_unless_identity_is_explicitly_authorized",
+    "benchmark_causality": "reference_and_text_joint_observation_not_text_only_proof",
+    "character_diversity": "compare_each_characters_own_stable_face_relations_not_hair_or_makeup_color_only"
+  },
   "controls": {
     "foundation_coverage": "light",
     "skin_visibility": "subtle_under_refined_makeup",
@@ -13,14 +33,22 @@
     "lip_color_uniformity": "slight_variation"
   },
   "prompt_translation": [
-    "先建立精致完整且好看的妆面，面容真实感与肌肤纹理服务于美感，并保留人物身份和表观年龄。",
+    "先让当前人物自身的面部结构、妆肤、神态与灯光共同成立，精致体现为形体衔接、呈现完成度与视觉协调；保留人物身份、表观年龄、肤色底色及已确认辨识点。",
+    "按角色、媒介与本轮要求选择有无彩妆、浓淡、颜色和哑光或润泽程度；此轻妆控制组只是兼容方案，不强制所有人物淡妆、白皙、粉唇或幼态。",
     "底妆贴肤细腻，眉毛与睫毛根部自然，眼影、腮红和唇妆与人物气质协调；克制的分区反射和轻微纹理支持妆面，不喧宾夺主。",
+    "眉形、眼妆、腮红和唇缘顺应当前人物自己的眉骨眼睑、面颊体积与鼻唇关系；柔亮肤感由面颊渐变和局部光泽形成，不用削尖下巴、收窄鼻翼、全脸提白或复制标杆五官换取精致。",
+    "神态写清视线、眼睑与眉部张力、嘴角和唇部动作；表情引起的面颊与下颌运动属于表演，先排除妆容、照明和角度影响，再判断稳定身份是否改变。",
     "纹理强度适配景别和输出尺寸：全身小脸不强行显示毛孔，近景纹理也保持低对比与美感，避免粗糙锐化和塑料磨皮。"
   ],
   "forbidden": [
     "opaque_foundation_mask",
     "vector_eyeliner",
     "uniform_brow_stamp",
-    "flat_lip_fill"
+    "flat_lip_fill",
+    "benchmark_identity_overborrow",
+    "universal_beauty_face_geometry",
+    "unwanted_skin_whitening_or_age_erasure",
+    "makeup_color_as_only_identity_difference",
+    "uniform_distant_or_smiling_expression"
   ]
 }

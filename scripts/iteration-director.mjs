@@ -217,7 +217,7 @@ function humanPresenceV31(level){const id=level||HUMAN31.default;const x=HUMAN31
 function eyeOpticsV2(){return {name:EYE2.name,controls:EYE2.controls,prompt_translation:EYE2.prompt_translation,forbidden:EYE2.forbidden};}
 function skinOpticsV2(){return {name:SKIN2.name,age_policy:SKIN2.age_policy,regions:SKIN2.regions,prompt_translation:SKIN2.prompt_translation,forbidden:SKIN2.forbidden};}
 function softTissueV2(){return {name:SOFT2.name,controls:SOFT2.controls,prompt_translation:SOFT2.prompt_translation,forbidden:SOFT2.forbidden};}
-function makeupSkinV2(){return {name:MAKEUP2.name,controls:MAKEUP2.controls,prompt_translation:MAKEUP2.prompt_translation,forbidden:MAKEUP2.forbidden};}
+function makeupSkinV2(){return {name:MAKEUP2.name,control_scope:MAKEUP2.control_scope,selection_policy:MAKEUP2.selection_policy,controls:MAKEUP2.controls,prompt_translation:MAKEUP2.prompt_translation,forbidden:MAKEUP2.forbidden};}
 function hairFrequencyV2(){return {name:HAIR2.name,controls:HAIR2.controls,frequency_layers:HAIR2.frequency_layers,prompt_translation:HAIR2.prompt_translation,forbidden:HAIR2.forbidden};}
 function photographicFocusV2(profile='asset_balanced'){const x=FOCUS2.profiles[profile];if(!x)throw new Error(`unknown photographic focus v2 profile ${profile}`);return {profile,weights:x,rules:FOCUS2.rules,prompt_translation:FOCUS2.prompt_translation,note:FOCUS2.note};}
 function realismCoherenceV2(){return {channels:COHERENCE2.channels,rule:COHERENCE2.default_rule,repair_order:COHERENCE2.repair_order,failure_codes:COHERENCE2.failure_codes};}

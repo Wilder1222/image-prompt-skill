@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "kind": "authored_text_design_exercise",
+  "aesthetic_source": {
+    "title": "蓝衣长发肖像",
+    "url": "https://chatgpt.com/g/g-p-6aa92bfc14e081919bf3fa7d4cf59809-ren-xiang/c/6aaccf0d-d2b8-83ec-936f-88d356497a2f",
+    "user_feedback": "以蓝衣长发这张为审美示例之一",
+    "transfer_scope": ["妆面贴合度与完成度", "分区柔亮肤光", "眉睫唇缘的完整细节", "自然且有反应的神态"],
+    "identity_transfer": false,
+    "costume_or_hair_transfer": false
+  },
+  "evidence": {
+    "new_images_generated": false,
+    "individual_user_acceptance": "not_established",
+    "visual_distinctness_verified": false,
+    "cross_model_evidence": "none",
+    "scope": "三套面容是原创文字设计演练；共用呈现用于检查结构目标是否独立传递，不能证明实际图像美感、身份区分或跨模型稳定性。"
+  },
+  "portrait_base": "blue-benchmark-distinct-faces-portrait-base.json",
+  "presentation_change": "blue-benchmark-distinct-faces-presentation-change.json",
+  "cases": [
+    {"label": "26岁陶艺师：短圆轮廓、圆钝下巴与柔和低鼻梁", "file": "blue-benchmark-distinct-faces-round.json"},
+    {"label": "34岁制琴师：方圆下颌、内双细长眼与收敛鼻尖", "file": "blue-benchmark-distinct-faces-square.json"},
+    {"label": "46岁修复师：较长面容、清楚颧骨与平缓薄唇", "file": "blue-benchmark-distinct-faces-long.json"}
+  ]
+}

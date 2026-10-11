@@ -1,0 +1,132 @@
+{
+  "version": "1.0.0",
+  "source": {
+    "url": "https://chatgpt.com/g/g-p-6a81697f835c8191b3877ea4c99eac30-aigc/c/6acb7547-a578-83ec-81e8-962a41c7e549",
+    "title": "人物相貌提示词分析",
+    "accessed_at": "2026-10-11",
+    "evidence_kind": "analysis_import",
+    "images_reviewed_this_run": false,
+    "user_acceptance": "not_established",
+    "scope": "来源分析涉及十张年轻成年东方女性图像；本目录导入文字判断，未在本轮重新逐张核对像素。",
+    "limitations": [
+      "十个起点不是十个已经证实互不相同的人物身份。",
+      "来源的年龄、性别、族群与媒介范围不构成系统的固定默认。",
+      "图二、图九的低头姿态与侧光不能直接证明固定的高眉骨或深眼窝。",
+      "未观察的结构、侧面和被遮挡部分应保持未知，或在获准范围内明确作为设计延展。"
+    ]
+  },
+  "families": {
+    "F01": { "label": "冷艳骨相与修长眼", "seed_ids": ["FD01", "FD02", "FD06", "FD09"] },
+    "F02": { "label": "明艳均衡", "seed_ids": ["FD03"] },
+    "F03": { "label": "明眸柔颜", "seed_ids": ["FD04", "FD05"] },
+    "F04": { "label": "自然软颜", "seed_ids": ["FD07", "FD08", "FD10"] }
+  },
+  "dimensions": {
+    "face_shape": { "label": "脸型轮廓", "layer": "structure", "suggested_values": ["椭圆", "短椭圆", "长椭圆", "圆", "方圆", "方", "心形", "长方"] },
+    "face_length": { "label": "面部长短关系", "layer": "structure", "suggested_values": ["偏短", "均衡", "略长"] },
+    "cheekbone": { "label": "颧骨形态", "layer": "structure", "suggested_values": ["平顺", "柔和外展", "清楚但不过分突起", "自然突出"] },
+    "jaw": { "label": "下颌转折与宽度", "layer": "structure", "suggested_values": ["柔和圆转", "清楚转折", "宽而有力", "自然收束"] },
+    "chin": { "label": "下巴轮廓", "layer": "structure", "suggested_values": ["短圆", "窄圆", "均衡圆", "方圆", "较长但不尖削"] },
+    "eye_shape": { "label": "眼睛形状", "layer": "structure", "suggested_values": ["修长杏眼", "圆杏眼", "细长眼", "杏圆眼"] },
+    "eye_aperture": { "label": "中性状态眼睛开合", "layer": "structure", "suggested_values": ["较小", "适中", "较大"] },
+    "eye_tail": { "label": "眼尾方向", "layer": "structure", "suggested_values": ["平直", "轻微上扬", "轻微下垂"] },
+    "eye_spacing": { "label": "眼距关系", "layer": "structure", "suggested_values": ["略窄", "均衡", "略宽"] },
+    "eyelid": { "label": "眼睑结构", "layer": "structure", "suggested_values": ["上睑轻覆", "清楚自然褶皱", "内双", "单眼皮"] },
+    "brow": { "label": "自然眉形", "layer": "structure", "suggested_values": ["平直", "柔和弧形", "清楚眉峰", "自然浓眉"] },
+    "nose_bridge": { "label": "鼻梁形态", "layer": "structure", "suggested_values": ["细直", "自然挺直", "柔和低起伏", "清楚起伏"] },
+    "nose_tip": { "label": "鼻尖体积与形态", "layer": "structure", "suggested_values": ["小而圆", "收敛", "自然圆润", "较宽厚"] },
+    "nose_wing": { "label": "鼻翼形态", "layer": "structure", "suggested_values": ["收敛", "自然可见", "较宽"] },
+    "lip_shape": { "label": "唇部轮廓", "layer": "structure", "suggested_values": ["柔和唇峰", "清楚唇峰", "圆润唇珠", "自然平缓唇线"] },
+    "lip_balance": { "label": "上下唇体积关系", "layer": "structure", "suggested_values": ["自然均衡", "下唇略丰满", "上唇略丰满", "上下唇均薄", "上下唇均丰满"] },
+    "cheek_volume": { "label": "面颊软组织体积", "layer": "soft_tissue", "suggested_values": ["纤薄但有体积", "适度", "自然饱满", "丰润"] },
+    "asymmetry": { "label": "面部不对称设计", "layer": "structure", "suggested_values": ["不额外指定", "自然轻微不对称", "沿用已观察的不对称特征"] },
+    "gaze": { "label": "当前视线与眼神", "layer": "expression", "suggested_values": ["平静直视", "专注凝视", "柔和注视", "看向指定对象"] },
+    "mouth_state": { "label": "当前唇口状态", "layer": "expression", "suggested_values": ["自然闭合", "轻微微笑", "嘴唇微启", "明确的说话阶段"] },
+    "makeup": { "label": "妆容", "layer": "presentation", "suggested_values": ["自然淡妆", "柔亮妆容", "明确的舞台妆", "不施明显彩妆"] },
+    "skin_finish": { "label": "肤质表现", "layer": "presentation", "suggested_values": ["柔润且保留体积", "自然肌肤层次", "符合绘画媒介的肤色过渡"] },
+    "lighting": { "label": "照明条件", "layer": "presentation", "suggested_values": ["柔和正面补光", "明确方向的自然光", "场景内合理主光与补光"] },
+    "hair": { "label": "发型与脸部遮挡", "layer": "presentation", "suggested_values": ["露出眉眼鼻口的任务专属发型", "沿用指定发型", "按设计保留局部刘海遮挡"] }
+  },
+  "presets": {
+    "FD01": {
+      "label": "清冷细长", "family": "F01", "scope": "young_adult_female_reference_group", "source_image_number": 1,
+      "traits": { "face_shape": "窄长椭圆脸", "face_length": "略长", "cheekbone": "颧骨平顺", "chin": "窄而圆的下巴", "eye_shape": "修长杏眼", "eye_tail": "眼尾轻微上扬", "nose_bridge": "细直鼻梁", "nose_tip": "小鼻尖", "lip_shape": "柔和唇峰，中等偏丰满的唇部", "cheek_volume": "纤薄面颊仍保留自然体积" },
+      "expression": { "gaze": "平静而克制的直视", "mouth_state": "嘴唇自然闭合" },
+      "expression_basis": "design_default",
+      "uncertain": ["眼距、自然眉形、眼睑褶皱和鼻翼形态未由导入分析确认", "上下唇分别的体积关系未确认", "侧面骨相未在本轮看图确认"],
+      "distinctive_axes": ["face_shape", "cheek_volume", "eye_shape", "chin"]
+    },
+    "FD02": {
+      "label": "锋锐英气", "family": "F01", "scope": "young_adult_female_reference_group", "source_image_number": 2,
+      "traits": { "face_shape": "窄椭圆脸", "jaw": "下颌转折清晰", "eye_shape": "较长且略窄的杏眼", "eye_tail": "眼尾轻微上扬", "nose_bridge": "细直鼻梁", "nose_tip": "收敛的鼻尖", "lip_shape": "精致清楚的唇线" },
+      "expression": { "gaze": "专注而克制的凝视", "mouth_state": "嘴唇自然闭合" },
+      "expression_basis": "design_default",
+      "uncertain": ["低头与侧光影响眉眼阴影，不能据此固定为高眉骨或深眼窝", "眼距、自然眉形、眼睑和面颊体积未由导入分析确认", "下巴具体形态和上下唇体积关系未确认"],
+      "distinctive_axes": ["jaw", "eye_shape", "nose_tip", "lip_shape"]
+    },
+    "FD03": {
+      "label": "都市明艳", "family": "F02", "scope": "young_adult_female_reference_group", "source_image_number": 3,
+      "traits": { "face_shape": "均衡的小椭圆脸", "chin": "短圆下巴", "eye_shape": "圆杏眼", "eye_aperture": "中性状态下开合较大", "nose_tip": "细圆鼻尖", "lip_shape": "丰满的唇部和清楚的唇峰", "cheek_volume": "柔和饱满的面颊" },
+      "expression": { "gaze": "明亮自信的直视", "mouth_state": "嘴唇自然闭合" },
+      "expression_basis": "design_default",
+      "uncertain": ["眼尾、眼距、自然眉形和鼻梁高度未由导入分析确认", "上下唇分别的体积关系和侧面结构未确认"],
+      "distinctive_axes": ["eye_aperture", "cheek_volume", "lip_shape", "chin"]
+    },
+    "FD04": {
+      "label": "明媚灵动", "family": "F03", "scope": "young_adult_female_reference_group", "source_image_number": 4,
+      "traits": { "face_shape": "柔和的小椭圆脸", "chin": "短圆下巴", "eye_shape": "圆杏眼", "eye_tail": "眼尾平直", "lip_shape": "柔和唇形", "cheek_volume": "自然的苹果肌体积" },
+      "expression": { "gaze": "明亮灵动的注视", "mouth_state": "轻微微笑" },
+      "expression_basis": "design_default",
+      "uncertain": ["眼距、眼睑、自然眉形及鼻梁与鼻尖的具体结构未由导入分析确认", "苹果肌在不同表情下的体积变化未核对", "上下唇分别的体积关系未确认"],
+      "distinctive_axes": ["eye_tail", "cheek_volume", "chin", "lip_shape"]
+    },
+    "FD05": {
+      "label": "温柔仙气", "family": "F03", "scope": "young_adult_female_reference_group", "source_image_number": 5,
+      "traits": { "face_shape": "柔和椭圆脸", "jaw": "下半脸细而自然地收束", "eye_shape": "较大的圆杏眼", "eye_aperture": "中性状态下开合较大", "eye_tail": "眼尾轻微下垂", "nose_bridge": "细直鼻梁", "nose_tip": "圆润鼻尖", "lip_shape": "柔和丰满的唇形" },
+      "expression": { "gaze": "柔和安静的注视", "mouth_state": "嘴唇自然闭合" },
+      "expression_basis": "design_default",
+      "uncertain": ["眼距、自然眉形、面颊体积和眼睑细节未由导入分析确认", "下半脸收束不证明尖削下巴", "上下唇分别的体积关系未确认"],
+      "distinctive_axes": ["jaw", "eye_tail", "eye_aperture", "nose_tip"]
+    },
+    "FD06": {
+      "label": "冷艳凝视", "family": "F01", "scope": "young_adult_female_reference_group", "source_image_number": 6,
+      "traits": { "face_shape": "窄长椭圆脸", "face_length": "略长", "eye_shape": "修长而轮廓清晰的杏眼", "eye_tail": "眼尾轻微上扬", "nose_bridge": "细直鼻梁", "nose_tip": "小鼻尖", "lip_shape": "立体丰满的唇部", "cheek_volume": "收敛但仍有体积的面颊" },
+      "expression": { "gaze": "眉眼张力较强的专注凝视", "mouth_state": "嘴唇自然闭合" },
+      "expression_basis": "design_default",
+      "uncertain": ["眼窝深度受光线影响，未获得本轮像素核验", "眼距、自然眉形、下颌和下巴细节未由导入分析确认", "上下唇分别的体积关系未确认"],
+      "distinctive_axes": ["eye_shape", "cheek_volume", "lip_shape", "face_length"]
+    },
+    "FD07": {
+      "label": "柔和淡颜", "family": "F04", "scope": "young_adult_female_reference_group", "source_image_number": 7,
+      "traits": { "face_shape": "短椭圆脸", "face_length": "偏短", "cheekbone": "颧骨平顺", "chin": "圆润下巴", "eye_shape": "杏圆眼", "eye_tail": "眼尾轻微下垂", "eyelid": "上睑自然轻覆", "nose_bridge": "自然鼻梁", "nose_tip": "圆润鼻尖", "lip_shape": "自然丰满的唇形", "cheek_volume": "圆润面颊" },
+      "expression": { "gaze": "平静柔和的注视", "mouth_state": "嘴唇自然闭合" },
+      "expression_basis": "design_default",
+      "uncertain": ["眼距、自然眉形和鼻翼形态未由导入分析确认", "上下唇分别的体积关系和侧面结构未确认"],
+      "distinctive_axes": ["face_length", "eyelid", "eye_tail", "cheekbone"]
+    },
+    "FD08": {
+      "label": "软圆纯净", "family": "F04", "scope": "young_adult_female_reference_group", "source_image_number": 8,
+      "traits": { "face_shape": "短小椭圆脸", "face_length": "偏短", "chin": "短圆下巴", "eye_shape": "圆杏眼", "eye_tail": "无明显上挑的眼尾", "nose_tip": "小而圆的鼻尖", "lip_shape": "丰满唇部与柔和唇珠", "cheek_volume": "丰润面颊" },
+      "expression": { "gaze": "清澈柔和的直视", "mouth_state": "嘴唇自然闭合" },
+      "expression_basis": "design_default",
+      "uncertain": ["眼距、眼睑、自然眉形及鼻梁形态未由导入分析确认", "上下唇分别的体积关系未确认", "纯净是审美表达，不是未成年年龄标记"],
+      "distinctive_axes": ["cheek_volume", "chin", "nose_tip", "lip_shape"]
+    },
+    "FD09": {
+      "label": "明丽锐感", "family": "F01", "scope": "young_adult_female_reference_group", "source_image_number": 9,
+      "traits": { "face_shape": "窄椭圆脸", "eye_shape": "清晰修长的杏眼", "eye_tail": "眼尾轻微上扬", "nose_bridge": "细直而精巧的鼻梁", "lip_shape": "柔和唇峰", "lip_balance": "下唇略丰满", "cheek_volume": "适度面颊体积" },
+      "expression": { "gaze": "明亮而锐利的注视", "mouth_state": "嘴唇自然闭合" },
+      "expression_basis": "design_default",
+      "uncertain": ["低头与侧光影响眉眼阴影，不能据此固定为高眉骨或深眼窝", "眼距、自然眉形、眼睑和鼻尖形态未由导入分析确认", "下颌与下巴细节未确认"],
+      "distinctive_axes": ["eye_shape", "cheek_volume", "lip_balance", "nose_bridge"]
+    },
+    "FD10": {
+      "label": "自然电影感", "family": "F04", "scope": "young_adult_female_reference_group", "source_image_number": 10,
+      "traits": { "face_shape": "自然椭圆脸", "jaw": "不尖瘦的自然下颌", "eye_shape": "较大的杏眼", "eye_aperture": "中性状态下开合较大", "eyelid": "上睑自然轻覆", "nose_bridge": "自然挺直的鼻梁", "nose_wing": "自然可见的真实鼻翼结构", "lip_shape": "柔和丰满的唇形", "cheek_volume": "柔软自然的面颊" },
+      "expression": { "gaze": "安静而有反应的注视", "mouth_state": "嘴唇自然闭合" },
+      "expression_basis": "design_default",
+      "uncertain": ["眼距、自然眉形、眼尾和鼻尖形态未由导入分析确认", "不对称的具体部位与幅度尚未由本轮像素核验", "上下唇分别的体积关系未确认"],
+      "distinctive_axes": ["jaw", "eyelid", "nose_wing", "cheek_volume"]
+    }
+  }
+}
