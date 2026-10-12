@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>原图绑定 · 白底人物参考卡</title>
+  <style>
+    :root { color-scheme: light; font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: #29312d; background: #f5f6f3; --muted: #56655b; --line: #cbd3ca; --accent: #385b47; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    [hidden] { display: none !important; }
+    button, input, select { font: inherit; color: inherit; }
+    button, select, input[type="search"] { border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+    button { cursor: pointer; padding: 8px 12px; }
+    button:hover:not(:disabled) { background: #e9eee7; }
+    button:disabled { cursor: not-allowed; color: #687269; background: #eef0ec; }
+    button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid #3c6173; outline-offset: 3px; }
+    input[type="radio"] { width: 17px; height: 17px; accent-color: var(--accent); margin: 0; }
+    a { color: #315b4d; text-underline-offset: 3px; }
+    p { line-height: 1.85; }
+    h1 { font-size: clamp(25px, 3vw, 33px); line-height: 1.4; margin: 0 0 13px; }
+    h2 { font-size: 21px; line-height: 1.6; margin: 0; }
+    h3 { font-size: 16px; line-height: 1.7; margin: 0 0 10px; }
+    .page { max-width: 1510px; margin: 0 auto; padding: 30px 28px 50px; }
+    .intro { max-width: 1150px; color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+    .notice { margin: 0 0 20px; padding: 12px 15px; background: #e8ede5; color: #42553f; font-size: 13px; line-height: 1.9; }
+    .load-state { margin: 18px 0; padding: 22px; background: #fff; border: 1px solid var(--line); border-radius: 8px; line-height: 1.8; }
+    .summary { display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 13px; color: var(--muted); margin: 18px 0 10px; line-height: 1.8; }
+    .summary strong { color: #29312d; font-size: 19px; margin-right: 5px; }
+    .build-note { font-size: 12px; color: var(--muted); margin: 0 0 18px; }
+    .filters { display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 11px 16px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: end; }
+    .field { display: flex; flex-direction: column; min-width: 0; gap: 7px; font-size: 13px; }
+    .field select, .field input { width: 100%; padding: 10px 11px; min-height: 42px; }
+    .filter-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .result-line { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 17px 0; color: var(--muted); font-size: 13px; }
+    .gallery { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 12px; }
+    .asset-button { display: block; padding: 0; min-width: 0; text-align: left; overflow: hidden; border-radius: 7px; }
+    .asset-button[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+    .thumb-stage { display: flex; align-items: center; justify-content: center; height: 165px; background: #e7ebe3; }
+    .thumb-stage img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .placeholder { font-size: 12px; padding: 16px; line-height: 1.8; text-align: center; color: var(--muted); }
+    .asset-caption { display: flex; flex-direction: column; gap: 5px; padding: 10px 10px 12px; }
+    .asset-id { font-size: 13px; font-weight: 600; line-height: 1.6; }
+    .asset-status, .asset-medium { font-size: 11px; color: var(--muted); line-height: 1.6; }
+    .empty { margin: 0; padding: 30px; text-align: center; border: 1px dashed var(--line); color: var(--muted); font-size: 14px; }
+    .detail { margin-top: 31px; }
+    .detail-header { display: flex; justify-content: space-between; gap: 20px; align-items: start; margin-bottom: 16px; }
+    .detail-header p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+    .pager { display: flex; gap: 7px; flex-shrink: 0; }
+    .controls { display: flex; flex-wrap: wrap; align-items: end; gap: 16px 26px; margin-bottom: 18px; }
+    .version-field { width: min(100%, 430px); }
+    .card-field { min-width: 175px; }
+    fieldset { display: flex; flex-wrap: wrap; gap: 13px; padding: 0 0 12px; margin: 0; border: 0; }
+    legend { font-size: 13px; color: var(--muted); margin-bottom: 9px; }
+    .radio-label { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; font-size: 13px; }
+    .version-note { margin: 0 0 17px; padding: 11px 14px; font-size: 13px; background: #fff; border-left: 3px solid var(--line); color: var(--muted); }
+    .viewer { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr); gap: 20px; align-items: start; }
+    .viewer.parallel { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; }
+    figure { margin: 0; min-width: 0; }
+    .image-heading { font-size: 14px; margin: 0 0 9px; line-height: 1.7; font-weight: 600; }
+    .large-stage { min-height: 290px; display: flex; align-items: center; justify-content: center; background: #e7ebe3; }
+    .large-stage a { display: block; width: 100%; }
+    .large-stage img { display: block; width: 100%; max-height: 72vh; object-fit: contain; }
+    .viewer.parallel .large-stage { min-height: 220px; }
+    figcaption { font-size: 12px; color: var(--muted); line-height: 1.85; padding: 10px 0; }
+    .links { display: flex; flex-wrap: wrap; gap: 9px 20px; font-size: 13px; margin: 17px 0; line-height: 1.9; }
+    .record-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 26px; margin-top: 25px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .metadata { margin: 0; font-size: 12px; line-height: 1.9; }
+    .metadata dt { margin-top: 9px; color: var(--muted); }
+    .metadata dd { margin: 2px 0 0; overflow-wrap: anywhere; }
+    .review p { font-size: 13px; margin: 0 0 12px; }
+    .review details { margin-top: 12px; font-size: 13px; }
+    .review summary { cursor: pointer; padding: 6px 0; }
+    .check { padding: 12px 0; border-top: 1px solid #dde2d9; }
+    .check strong { font-size: 13px; line-height: 1.8; }
+    .check p { font-size: 12px; color: var(--muted); margin: 5px 0 0; }
+    .limitations, .warnings { padding-left: 20px; margin: 8px 0; font-size: 12px; color: var(--muted); line-height: 1.9; }
+    .warnings { color: #745b34; }
+    .source-details { margin-top: 19px; font-size: 13px; }
+    .source-details summary { cursor: pointer; padding: 6px 0; }
+    footer { margin-top: 30px; padding-top: 17px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); line-height: 1.9; }
+    @media (max-width: 1250px) { .gallery { grid-template-columns: repeat(6, minmax(0, 1fr)); } .viewer.parallel { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 850px) { .page { padding: 23px 18px 38px; } .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); } .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); } .record-grid { grid-template-columns: 1fr; } .large-stage img { max-height: 65vh; } }
+    @media (max-width: 560px) { .page { padding: 20px 14px 35px; } .search-field { grid-column: 1 / -1; } .filter-actions { grid-column: 1 / -1; } .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; } .thumb-stage { height: 185px; } .viewer, .viewer.parallel { grid-template-columns: 1fr; } .detail-header { flex-wrap: wrap; } .controls { gap: 13px; } .version-field { width: 100%; } .result-line { align-items: start; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>原图绑定 · 白底人物参考卡</h1>
+    <p class="intro">32 项原图逐一制作正面肖像、正面全身和正侧背三视图。目标采用白色背景与柔和棚光，保留各源图可见的肖像、妆容、发型衣装及媒介；头、肩、胸、腰、臀和肢段共同尺度随转面保持。</p>
+    <p class="notice">原图未见的身体、侧脸和背部属于本轮生成补全，不能当作来源事实；原图 SHA-256 仍是唯一身份绑定。卡片可来自同板裁切，也可包含另一轮独立全身生成，具体来源、调用数和评审分别列明。独立卡不继承板图评审，两轮衣装与身体尺度一致性仍需共同复核。准备版提示词和执行快照不计为已出图，前版评审不计作当前目标通过。</p>
+    <div id="load-state" class="load-state" role="status" aria-live="polite">正在读取参考卡目录……</div>
+    <div id="content" hidden>
+      <div id="summary" class="summary"></div>
+      <p id="build-note" class="build-note"></p>
+      <form id="filters" class="filters" role="search" aria-label="筛选人物参考卡">
+        <label class="field search-field">源图编号 <input id="search" type="search" placeholder="例如 VP-B15、C08" autocomplete="off"></label>
+        <label class="field">原图媒介 <select id="medium"><option value="">全部媒介</option></select></label>
+        <label class="field">当前目标状态 <select id="status"><option value="">全部状态</option><option value="not_dispatched">未派发</option><option value="generating">生成中</option><option value="candidate">候选 · 待审</option><option value="reviewed">已审</option></select></label>
+        <div class="filter-actions"><button id="reset" type="button">重置筛选</button><button id="refresh" type="button">刷新目录</button></div>
+      </form>
+      <div class="result-line"><span id="result-count" role="status" aria-live="polite"></span><span>点选原图，再查看本版或前版卡片</span></div>
+      <div id="gallery" class="gallery" aria-label="32 项原图名单"></div>
+      <p id="empty" class="empty" hidden>没有符合筛选条件的源图。可清空编号或重置筛选。</p>
+      <section id="detail" class="detail" aria-labelledby="detail-title">
+        <div class="detail-header"><div><h2 id="detail-title" tabindex="-1"></h2><p id="detail-subtitle"></p></div><div class="pager"><button id="previous" type="button">上一项</button><button id="next" type="button">下一项</button></div></div>
+        <div class="controls">
+          <label class="field version-field">查看目标版本 <select id="version"></select></label>
+          <fieldset><legend>对照方式</legend><label class="radio-label"><input type="radio" name="layout" value="single" checked>单卡对照</label><label class="radio-label"><input type="radio" name="layout" value="parallel">三卡并排</label></fieldset>
+          <label class="field card-field" id="card-field">查看卡片 <select id="card"><option value="portrait">正面肖像</option><option value="full_body">正面全身</option><option value="three_views">正侧背三视图</option></select></label>
+        </div>
+        <p id="version-note" class="version-note"></p>
+        <div id="viewer" class="viewer"></div>
+        <div id="downloads" class="links" aria-label="本版真实图片文件"></div>
+        <ul id="warnings" class="warnings" hidden></ul>
+        <div class="record-grid">
+          <section aria-labelledby="source-title"><h3 id="source-title">原图与卡片来源</h3><dl id="metadata" class="metadata"></dl><details class="source-details"><summary>本版板图、裁切与独立生成记录</summary><dl id="derivation" class="metadata"></dl></details></section>
+          <section class="review" aria-labelledby="review-title"><h3 id="review-title">实际图像评审</h3><p id="review-summary"></p><p id="review-scope"></p><div id="review-links" class="links"></div><details id="review-checks"><summary>逐项检查与观察限制</summary><div id="checks"></div><ul id="limitations" class="limitations"></ul></details></section>
+        </div>
+      </section>
+    </div>
+    <footer>原图及卡片完整按原始比例显示，无页面裁剪或滤镜。点击图片打开大图；下载链接只提供已有且与对应板图或独立生成记录一致的实际卡片。“已审”表示有实际像素检查记录，不表示合格或用户已采用。</footer>
+    <noscript><p>请启用 JavaScript 查看原图与卡片对照。</p></noscript>
+  </main>
+  <script>
+    'use strict';
+    (() => {
+      const $ = id => document.getElementById(id);
+      const state = {data: null, filtered: [], currentId: null, versionStem: null};
+      const mediumLabels = {photographic: '摄影观感', cg: 'CG 观感', cg_precise: '精细 CG 观感', painterly: '绘画观感', mixed: '混合观感', unknown: '未标注媒介'};
+      const statusLabels = {not_dispatched: '未派发', generating: '生成中', candidate: '候选 · 待审', reviewed: '已审'};
+      const cardLabels = {portrait: '正面肖像', full_body: '正面全身', three_views: '正侧背三视图'};
+      const verdictLabels = {pass: '通过', fail: '未通过', uncertain: '不确定', not_assessable: '不可判断', pending: '待审'};
+      const viewLabels = {front_portrait: '正面肖像', front_full_body: '正面全身', own_left_full_body: '人物自身左侧全身', back_full_body: '背面全身', portrait: '正面肖像', front: '正面全身', side: '侧面全身（实际朝向见评审）', back: '背面全身'};
+      const checkLabels = {'person-check': '肖像', 'makeup-check': '妆容', 'style-check': '媒介', 'costume-check': '造型', 'proportion-check': '身体比例', 'card-layout-check': '板式与视角', 'white-cards-check': '白底参考卡', 'standing-turns-check': '定妆转面', 'studio-check': '柔和棚光', 'studio-light-check': '柔和棚光', 'same-body-turns-check': '转面共同尺度', 'frontal-camera-check': '正面朝向'};
+      const independent = image => image?.origin_kind === 'independent_generated_card';
+      const cardOrigin = image => independent(image) ? '独立生成' : '同板裁切';
+      const node = (tag, text, className) => { const element = document.createElement(tag); if (text !== undefined) element.textContent = text; if (className) element.className = className; return element; };
+      const currentRow = () => state.data.rows.find(row => row.id === state.currentId);
+      const currentVersion = row => row.versions.find(version => version.stem === state.versionStem) || row.versions[0];
+      const localHref = value => typeof value === 'string' && value && !value.startsWith('/') && !value.includes('\\') && !/^[a-z][a-z0-9+.-]*:/i.test(value) && !/[\x00-\x1f]/.test(value) ? value : null;
+
+      function imageStage(image, description, emptyText, large) {
+        const stage = node('div', undefined, large ? 'large-stage' : 'thumb-stage');
+        const href = localHref(image?.href);
+        if (!href) { stage.append(node('span', emptyText, 'placeholder')); return stage; }
+        const img = node('img'); img.alt = description;
+        if (!large) img.loading = 'lazy';
+        const host = large ? node('a') : stage;
+        if (large) { host.href = href; host.target = '_blank'; host.rel = 'noopener'; host.setAttribute('aria-label', '打开大图：' + description); }
+        img.addEventListener('error', () => { stage.replaceChildren(node('span', '实际文件未能载入，请刷新或检查本地文件。', 'placeholder')); }, {once: true});
+        host.append(img); if (large) stage.append(host); img.src = href;
+        return stage;
+      }
+
+      function addLink(container, href, text, download = false) {
+        const safe = localHref(href); if (!safe) return;
+        const link = node('a', text); link.href = safe;
+        if (download) link.download = safe.split('/').pop(); else { link.target = '_blank'; link.rel = 'noopener'; }
+        container.append(link);
+      }
+
+      function addMetadata(container, term, value) { container.append(node('dt', term), node('dd', value || '未记录')); }
+
+      function renderSummary() {
+        const totals = state.data.totals, summary = $('summary'); summary.replaceChildren();
+        for (const [value, label] of [[state.data.source_count, '项原图'], [totals.current_sources_with_board, '源已有本版板图'], [totals.current_board_reviews, '源本版板图已审'], [totals.current_independent_reviews, '张本版独立卡已审'], [totals.current_sources_reviewed, '源本版整组已审'], [totals.current_reference_cards, '张本版参考卡'], [totals.current_derived_cards, '张同板裁切卡'], [totals.current_independent_cards, '张本版独立卡'], [totals.actual_board_images_including_previous, '张实际板图（含前版）'], [totals.actual_independent_card_images, '张实际独立卡（含前版）'], [totals.actual_model_outputs, '次实际图像输出']]) {
+          const span = node('span'); span.append(node('strong', String(value)), document.createTextNode(label)); summary.append(span);
+        }
+        $('build-note').textContent = '目录快照：' + new Date(state.data.built_at).toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai'}) + ' · 前版板图 ' + totals.previous_board_images + ' 张，分别保留原目标和评审。混合来源组的跨输出衣装与共同尺度待共同复核，已有的板图和单卡像素评审分别计数。每张板图与独立卡各计一次实际图像输出，同板裁切不增加调用数。';
+      }
+
+      function renderGallery() {
+        const search = $('search').value.trim().toLowerCase(), medium = $('medium').value, status = $('status').value;
+        state.filtered = state.data.rows.filter(row => (!search || row.id.toLowerCase().includes(search) || row.title.toLowerCase().includes(search)) && (!medium || row.medium === medium) && (!status || row.current_status === status));
+        if (!state.filtered.some(row => row.id === state.currentId)) { state.currentId = state.filtered[0]?.id || null; state.versionStem = null; }
+        const gallery = $('gallery'); gallery.replaceChildren();
+        for (const row of state.filtered) {
+          const button = node('button', undefined, 'asset-button'); button.type = 'button'; button.dataset.sourceId = row.id;
+          button.setAttribute('aria-pressed', String(row.id === state.currentId)); button.setAttribute('aria-label', row.id + '，' + statusLabels[row.current_status]);
+          button.append(imageStage(row.source.image, row.id + ' 绑定原图', '原图尚未载入', false));
+          const caption = node('span', undefined, 'asset-caption');
+          const previous = row.versions.filter(version => !version.current && version.board).length;
+          caption.append(node('span', row.id, 'asset-id'), node('span', mediumLabels[row.medium] || row.medium, 'asset-medium'), node('span', statusLabels[row.current_status] + (previous ? ' · 前版 ' + previous : ''), 'asset-status'));
+          button.append(caption); button.addEventListener('click', () => selectRow(row.id, true)); gallery.append(button);
+        }
+        $('result-count').textContent = '当前 ' + state.filtered.length + ' 项 / 原图名单 ' + state.data.source_count + ' 项';
+        $('empty').hidden = state.filtered.length > 0; renderDetail();
+      }
+
+      function selectRow(id, focus = false) {
+        if (!state.filtered.some(row => row.id === id)) return;
+        state.currentId = id; state.versionStem = null;
+        for (const button of $('gallery').querySelectorAll('[data-source-id]')) button.setAttribute('aria-pressed', String(button.dataset.sourceId === id));
+        renderDetail();
+        if (focus) { $('detail-title').focus({preventScroll: true}); if (window.matchMedia('(max-width: 850px)').matches) $('detail').scrollIntoView({block: 'start', behavior: 'auto'}); }
+      }
+
+      function renderDetail() {
+        const row = currentRow(); $('detail').hidden = !row; if (!row) return;
+        $('detail-title').textContent = row.title === row.id ? row.id : row.id + ' · ' + row.title;
+        $('detail-subtitle').textContent = (mediumLabels[row.medium] || row.medium) + ' · 当前目标：' + statusLabels[row.current_status];
+        const select = $('version'); select.replaceChildren();
+        for (const version of row.versions) { const option = node('option', (version.current ? '当前目标 · ' : '前版 · ') + version.stem + ' · ' + statusLabels[version.status]); option.value = version.stem; select.append(option); }
+        const version = currentVersion(row); state.versionStem = version.stem; select.value = version.stem;
+        const provenance = version.provenance;
+        $('version-note').textContent = (version.current ? '当前目标' : '前版目标，评审仅适用于该版') + ' · ' + statusLabels[version.status] + ' · ' + (version.board ? '参考卡 ' + provenance.reference_card_count + ' / 3 张：同板裁切 ' + provenance.derived_card_count + ' 张，独立生成 ' + provenance.independent_card_count + ' 张；本组 ' + provenance.model_calls_for_group + ' 次模型调用。' : '尚无本版实际板图；准备记录不表示已出图。') + (provenance.kind === 'mixed' ? ' ' + provenance.note : '');
+        renderViewer(row, version); renderRecords(row, version); renderReview(version);
+        const warnings = $('warnings'); warnings.replaceChildren(); for (const warning of [...row.warnings, ...version.warnings]) warnings.append(node('li', warning)); warnings.hidden = !warnings.childElementCount;
+        const index = state.filtered.findIndex(item => item.id === row.id); $('previous').disabled = index <= 0; $('next').disabled = index < 0 || index >= state.filtered.length - 1;
+      }
+
+      function renderViewer(row, version) {
+        const provenance = version.provenance;
+        const parallel = document.querySelector('input[name="layout"]:checked').value === 'parallel';
+        const viewer = $('viewer'); viewer.classList.toggle('parallel', parallel); viewer.replaceChildren(); $('card-field').hidden = parallel;
+        const original = node('figure'); original.append(node('p', '原图 · 唯一身份绑定', 'image-heading'), imageStage(row.source.image, row.id + ' 完整原图', '原图尚未载入', true), node('figcaption', '完整原图，保留原场景和取景。未见部位继续按来源限制处理。')); viewer.append(original);
+        for (const type of parallel ? ['portrait', 'full_body', 'three_views'] : [$('card').value]) {
+          const image = version.cards[type];
+          const figure = node('figure'); figure.append(node('p', cardLabels[type] + (image ? ' · ' + cardOrigin(image) : ''), 'image-heading'), imageStage(image, row.id + ' ' + version.stem + ' ' + cardLabels[type], version.board ? '实际板图已生成，本卡尚未整理。' : '本版尚无实际卡片。', true));
+          const note = type === 'three_views' ? '正面、指定侧面、背面；实际朝向与偏差见本版逐视角评审。原未见侧脸与背部为生成补全，背面不承担肖像或妆容证明。' : type === 'full_body' ? '正面完整全身；来源未见衣身、肢段及鞋履为生成补全，不是原图恢复。' : '正面肖像；检查原可见五官与妆容，未见正面结构仍属生成补全。';
+          figure.append(node('figcaption', note + (independent(image) ? ' 本卡来自另一轮独立生成，单卡评审另列；与板图衣装、身体尺度的一致性待共同复核。' : '') + (provenance.costume_version_changed ? (type === 'full_body' ? ' 本张为简化衣装的新候选。' : ' 本卡仍属旧衣装版本。') : ''))); viewer.append(figure);
+        }
+        const downloads = $('downloads'); downloads.replaceChildren();
+        for (const [type, image] of Object.entries(version.cards)) addLink(downloads, image.href, '下载' + cardLabels[type] + '（' + cardOrigin(image) + '）', true);
+        if (version.board) addLink(downloads, version.board.href, '打开本版完整板图');
+        if (!downloads.childElementCount) downloads.append(node('span', '本版尚无真实可下载图片。'));
+      }
+
+      function renderRecords(row, version) {
+        const metadata = $('metadata'); metadata.replaceChildren();
+        addMetadata(metadata, '源图编号', row.id);
+        addMetadata(metadata, '原图 SHA-256 · 唯一身份绑定', row.source.sha256);
+        addMetadata(metadata, '原图文件', row.source.local_path);
+        addMetadata(metadata, '既有身份关联', row.identity_preset_id ? row.identity_preset_id + '（仍以绑定原图为准）' : '未另建人物身份预设');
+        const provenance = version.provenance;
+        addMetadata(metadata, '本版实际输出', (version.board ? '1 张板图' : '0 张板图') + '，' + provenance.independent_card_count + ' 张独立卡；本组 ' + provenance.model_calls_for_group + ' 次模型调用。');
+        addMetadata(metadata, '本版参考卡来源', provenance.derived_card_count + ' 张同板裁切，' + provenance.independent_card_count + ' 张独立生成，共 ' + provenance.reference_card_count + ' 张。');
+        if (provenance.kind === 'mixed') addMetadata(metadata, '两轮一致性评审', provenance.note);
+        const derivation = $('derivation'); derivation.replaceChildren();
+        addMetadata(derivation, '板图 SHA-256', version.board?.sha256 || '尚无实际板图');
+        for (const [type, image] of Object.entries(version.cards)) {
+          addMetadata(derivation, cardLabels[type] + ' 来源', cardOrigin(image));
+          addMetadata(derivation, cardLabels[type] + ' SHA-256', image.sha256);
+          if (independent(image)) {
+            addMetadata(derivation, cardLabels[type] + ' 原图 SHA-256', image.source_sha256);
+            addMetadata(derivation, cardLabels[type] + ' 冻结快照 SHA-256', image.snapshot_sha256);
+            const cardRecords = node('dd', undefined, 'links'); addLink(cardRecords, image.records.generation, '独立生成记录'); addLink(cardRecords, image.records.snapshot, '独立冻结快照'); addLink(cardRecords, image.records.prompt, '独立提示词'); addLink(cardRecords, image.records.review, '独立全身卡评审'); if (cardRecords.childElementCount) derivation.append(node('dt', cardLabels[type] + ' 记录'), cardRecords);
+          } else addMetadata(derivation, cardLabels[type] + ' 裁切矩形', image.crop ? JSON.stringify(image.crop) : '未记录矩形');
+        }
+        const records = node('dd', undefined, 'links'); addLink(records, version.records.generation, '板图生成记录'); addLink(records, version.records.cards, '卡片来源记录'); if (records.childElementCount) derivation.append(node('dt', '本版记录'), records);
+      }
+
+      function renderReview(version) {
+        const parallel = document.querySelector('input[name="layout"]:checked').value === 'parallel';
+        const selectedCard = version.cards[$('card').value];
+        const ownCard = !parallel && independent(selectedCard) ? selectedCard : null;
+        const review = ownCard ? ownCard.review : version.review;
+        const scopeLabel = ownCard ? '独立全身卡' : '本版板图';
+        $('review-title').textContent = scopeLabel + '实际评审 · ' + (review.status === 'reviewed' ? '已审' : '待审');
+        $('review-summary').textContent = review.summary + (version.provenance.kind === 'mixed' ? ' ' + version.provenance.note : '');
+        $('review-scope').textContent = review.target_scope; $('review-scope').hidden = !review.target_scope;
+        const links = $('review-links'); links.replaceChildren(); addLink(links, ownCard ? ownCard.records.review : version.records.review, '打开' + scopeLabel + '评审记录');
+        if (ownCard) addLink(links, version.records.review, '板图评审（不证明本独立卡）');
+        const checks = $('checks'); checks.replaceChildren();
+        const appendChecks = record => {
+          for (const check of record.checks || []) { const item = node('div', undefined, 'check'); item.append(node('strong', (check.label || checkLabels[check.id] || check.id) + ' · ' + (verdictLabels[check.verdict] || check.verdict)), node('p', check.evidence)); checks.append(item); }
+          for (const check of record.preservation_checks || []) { const item = node('div', undefined, 'check'); item.append(node('strong', '保持范围 ' + (check.index + 1) + ' · ' + (verdictLabels[check.verdict] || check.verdict)), node('p', check.evidence)); checks.append(item); }
+          for (const view of record.views || []) { const item = node('div', undefined, 'check'); item.append(node('strong', viewLabels[view.view] || view.view)); const verdicts = [['视角', view.direction], ['可见肖像', view.visible_identity], ['可见妆容', view.visible_makeup], ['比例', view.proportion], ['媒介', view.medium], ['衣装', view.costume]].filter(([, verdict]) => verdict).map(([label, verdict]) => label + '：' + (verdictLabels[verdict] || verdict)); item.append(node('p', verdicts.join(' · ')), node('p', view.evidence)); checks.append(item); }
+        };
+        appendChecks(review);
+        const limitations = $('limitations'); limitations.replaceChildren(); for (const limitation of review.limitations || []) limitations.append(node('li', limitation));
+        if (parallel) for (const [type, image] of Object.entries(version.cards).filter(([, image]) => independent(image))) {
+          checks.append(node('h3', cardLabels[type] + ' · 独立生成评审 · ' + (image.review.status === 'reviewed' ? '已审' : '待审')), node('p', image.review.summary));
+          if (image.review.target_scope) checks.append(node('p', image.review.target_scope));
+          appendChecks(image.review); addLink(links, image.records.review, '打开独立全身卡评审记录');
+          for (const limitation of image.review.limitations || []) limitations.append(node('li', '独立全身卡：' + limitation));
+        }
+        $('review-checks').hidden = !checks.childElementCount && !limitations.childElementCount;
+      }
+
+      function step(direction) { const index = state.filtered.findIndex(row => row.id === state.currentId); const next = state.filtered[index + direction]; if (next) selectRow(next.id); }
+      $('filters').addEventListener('submit', event => event.preventDefault());
+      $('search').addEventListener('input', renderGallery); $('medium').addEventListener('change', renderGallery); $('status').addEventListener('change', renderGallery);
+      $('reset').addEventListener('click', () => { $('search').value = ''; $('medium').value = ''; $('status').value = ''; renderGallery(); });
+      $('refresh').addEventListener('click', () => window.location.reload());
+      $('previous').addEventListener('click', () => step(-1)); $('next').addEventListener('click', () => step(1));
+      $('version').addEventListener('change', () => { state.versionStem = $('version').value; renderDetail(); });
+      $('card').addEventListener('change', renderDetail); for (const radio of document.querySelectorAll('input[name="layout"]')) radio.addEventListener('change', renderDetail);
+
+      async function load() {
+        try {
+          const response = await fetch('./gallery-data.json', {cache: 'no-store'}); if (!response.ok) throw Error('目录文件未载入（' + response.status + '）。');
+          state.data = await response.json(); if (!Array.isArray(state.data.rows) || state.data.rows.length !== 32) throw Error('目录必须保留 32 项原图名单。');
+          for (const medium of [...new Set(state.data.rows.map(row => row.medium))]) { const option = node('option', mediumLabels[medium] || medium); option.value = medium; $('medium').append(option); }
+          state.currentId = (state.data.rows.find(row => row.versions[0].board) || state.data.rows.find(row => row.versions.some(version => version.board)) || state.data.rows[0]).id;
+          renderSummary(); renderGallery(); $('load-state').hidden = true; $('content').hidden = false;
+        } catch (error) { $('load-state').textContent = error.message + ' 请使用本地预览服务打开已构建的参考卡页面。'; }
+      }
+      load();
+    })();
+  </script>
+</body>
+</html>

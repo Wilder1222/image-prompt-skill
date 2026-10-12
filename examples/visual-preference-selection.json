@@ -1,0 +1,7 @@
+{
+  "id": "ivory-creature-scene",
+  "context": "scene_creation",
+  "selections": [
+    {"asset_id": "VP-C04", "dimensions": ["material", "lighting", "palette", "composition", "scene", "creature"]}
+  ]
+}

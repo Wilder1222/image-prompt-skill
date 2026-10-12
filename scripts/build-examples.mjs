@@ -59,12 +59,24 @@ export function currentBlueBenchmarkDistinctFacesExamples() {
     }).join('\n');
 }
 
+export function currentFaceControlExamples() {
+  const read = name => JSON.parse(fs.readFileSync(new URL(`../examples/${name}`, import.meta.url), 'utf8'));
+  const sided = read('face-design-sided-original.json');
+  const changed = reviseFaceDesign(sided, read('face-design-left-eye-change.json'));
+  return '# 全面细部与左右局部设计示例\n\n由 `npm run examples:build` 生成。目录有205项可选因素，正文只使用本例选定的因素；以下是未生成像素的原创设计，不是游戏滑杆执行、参考复刻或人物质量证据。三十五岁女性、衣领与灰底均属于具体示例，不是系统默认。\n\n'
+    + [['细部文士：人中、眉眼与鼻唇连接',read('face-design-full-detail.json')],['左右独立：自然轻微差异',sided],['授权变体：仅修改人物自身左眼',changed]].map(([title,face]) => {
+      const brief = applyFaceDesign(read('face-design-portrait-base.json'),face);
+      return `## ${title}\n\n\`\`\`text\n${compileProductionPrompt(brief).prompt}\n\`\`\`\n`;
+    }).join('\n');
+}
+
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
   fs.writeFileSync(path.join(root, 'examples/ancient-white-asset-current-prompts.md'), currentExamples());
   fs.writeFileSync(path.join(root, 'examples/character-style-current-prompts.md'), currentCharacterStyleExamples());
   fs.writeFileSync(path.join(root, 'examples/face-design-current-prompts.md'), currentFaceDesignExamples());
   fs.writeFileSync(path.join(root, 'examples/blue-benchmark-distinct-faces-current-prompts.md'), currentBlueBenchmarkDistinctFacesExamples());
+  fs.writeFileSync(path.join(root, 'examples/face-design-controls-current-prompts.md'), currentFaceControlExamples());
   fs.writeFileSync(path.join(root, 'docs/current-asset-plan.json'), `${JSON.stringify(createAssetPlan({ presentation: 'costume_showcase', maturityGuard: 'none' }), null, 2)}\n`);
   console.log('Generated current prompts and plan; visual regression remains pending.');
 }

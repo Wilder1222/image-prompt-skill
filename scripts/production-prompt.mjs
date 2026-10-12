@@ -129,6 +129,10 @@ export function compileProductionPrompt(input) {
   for (const req of input.subject_kind === 'character' ? characterProportions : []) {
     if (!input.sections.some(s => s.channel === 'proportion' && s.items?.some(i => i.basis?.includes(req.id)))) errors.push(`character proportion needs its own authored proportion clause: ${req.id}`);
   }
+  for (const req of input.requirements.filter(r => r.priority === 'must' && r.channel !== 'proportion')) {
+    if (!input.sections.some(s => s.channel === req.channel && s.items?.some(i => i.basis?.includes(req.id))))
+      errors.push(`required instruction needs its own authored ${req.channel} clause: ${req.id}`);
+  }
   if (!Array.isArray(input.acceptance) || !input.acceptance.length) errors.push('missing image acceptance criteria');
   const criterionIds = new Set();
   for (const criterion of input.acceptance ?? []) {
@@ -151,6 +155,8 @@ export function compileProductionPrompt(input) {
     } else {
       if (labels.has('本次编辑范围') || criterionIds.has('__edit_scope__')) errors.push('reserved edit scope label or criterion');
       for(const text of [...scope.changes,...scope.preserve])checkProse(text,'本次编辑范围');
+      const changes = new Set(scope.changes.map(text => text.trim()));
+      if (scope.preserve.some(text => changes.has(text.trim()))) errors.push('the same edit instruction cannot be both a change and a preservation');
       editScope=structuredClone(scope);
       const scopeList=items=>items.map(text=>`- ${text.trim()}`).join('\n');
       paragraphs.push(`【本次编辑范围】\n允许修改：\n${scopeList(scope.changes)}\n\n必须保持：\n${scopeList(scope.preserve)}`);

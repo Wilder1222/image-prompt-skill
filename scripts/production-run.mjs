@@ -3,6 +3,8 @@ import {adaptModelPrompt,verifyModelPlan,verifyRuntimeValidation} from './model-
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {compileProductionPrompt, reviewProductionResult, promptHash, objectHash} from './production-prompt.mjs';
+import {assertReferenceFacePresetBindings} from './reference-face-presets.mjs';
+import {assertStyleStandardizationBindings,styleStandardizationContract,validateStyleStandardizationChecks} from './style-standardization.mjs';
 export {canonical,objectHash} from './production-prompt.mjs';
 const fileHash = file => promptHash(fs.readFileSync(file));
 const read = file => JSON.parse(fs.readFileSync(file,'utf8'));
@@ -35,12 +37,17 @@ export function freezeProductionRun(input, options={}) {
   if(kind==='initial'&&compiled.edit_scope)throw new Error('edit_scope needs an edit or revision with a parent');
   if(options.parent)verifyFrozenRun(options.parent,{verifyFiles:false});
   const refs=input.references.map(r=>({...r,source:path.resolve(options.base_dir??process.cwd(),r.source),content_sha256:fileHash(path.resolve(options.base_dir??process.cwd(),r.source))}));
+  assertReferenceFacePresetBindings(refs);
+  const parentStyle=options.parent?.target.requirements.some(requirement=>Object.hasOwn(requirement,'style_standardization_plan'));
+  const stylePlan=assertStyleStandardizationBindings(refs,input.requirements,{acceptance:compiled.acceptance,edit_scope:compiled.edit_scope,sections:input.sections,
+    required:input.metadata?.style_standardization!==undefined||parentStyle===true});
+  if(stylePlan&&stylePlan.scope_contract!==styleStandardizationContract)throw new Error('legacy style plans are historical records; rebuild a current style contract before a new dispatch');
   const target={subject_kind:input.subject_kind,requirements:input.requirements,acceptance:compiled.acceptance,
     identity_targets:identityTargets(refs,options.parent)};
   const targetHash=objectHash(target);
   if(compiled.model_execution)compiled.model_execution=adaptModelPrompt({...compiled,reference_inputs:refs.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source}))},input.target);
   if(options.parent&&(options.parent.case_id!==options.case_id||options.parent.cohort!==options.cohort))throw new Error('revision case and cohort must match parent');
-  const record={schema_version:1,target_contract:targetContract,run_id:options.run_id,case_id:options.case_id,cohort:options.cohort,kind,
+  const record={schema_version:1,target_contract:targetContract,...(stylePlan?{style_standardization_contract:styleStandardizationContract}:{}),run_id:options.run_id,case_id:options.case_id,cohort:options.cohort,kind,
     created_at:new Date().toISOString(),tool:compiled.model_execution?.transport??'built-in image_gen',
     tool_parameters:compiled.model_execution?{model:compiled.model_execution.model,...compiled.model_execution.settings}:{model:null,seed:null},
     ...(compiled.model_execution?{model_execution:compiled.model_execution}:{}),
@@ -65,6 +72,10 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}
   if(promptHash(snapshot.prompt)!==snapshot.prompt_sha256||objectHash(snapshot.target)!==snapshot.target_sha256)throw new Error('frozen prompt or target changed');
   const inputs=snapshot.references.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source,content_sha256:r.content_sha256}));
   if(objectHash(inputs)!==objectHash(snapshot.actual_inputs))throw new Error('actual input order or roles changed');
+  assertReferenceFacePresetBindings(snapshot.references);
+  if(snapshot.style_standardization_contract!==undefined&&snapshot.style_standardization_contract!==styleStandardizationContract)throw new Error('unsupported frozen style standardization contract');
+  assertStyleStandardizationBindings(snapshot.references,snapshot.target.requirements,{acceptance:snapshot.target.acceptance,edit_scope:snapshot.edit_scope,prompt:snapshot.prompt,
+    required:snapshot.style_standardization_contract!==undefined});
   if(verifyFiles)for(const ref of snapshot.references)if(fileHash(ref.source)!==ref.content_sha256)throw new Error(`reference content changed: ${ref.id}`);
   if(snapshot.model_execution){
     verifyModelPlan(snapshot.model_execution);
@@ -85,6 +96,11 @@ function evaluateCompletedReview(snapshot, receipt) {
   if(snapshot.model_execution?.runtime_validation_required)verifyRuntimeValidation(snapshot.model_execution,receipt.runtime_validation);
   if(receipt.target_sha256!==snapshot.target_sha256)throw new Error('review target changed');
   const verdict=reviewProductionResult({prompt_sha256:snapshot.prompt_sha256,acceptance:snapshot.target.acceptance},receipt);
+  const stylePlan=snapshot.target.requirements.find(requirement=>Object.hasOwn(requirement,'style_standardization_plan'))?.style_standardization_plan;
+  if(stylePlan)validateStyleStandardizationChecks(stylePlan,{plan_sha256:stylePlan.plan_sha256,checks:stylePlan.checks.map(check=>{
+    const observed=receipt.checks.find(observed=>observed.id===`${check.id}:check`);
+    return {id:check.id,verdict:observed?.verdict,evidence:observed?.evidence};
+  })});
   let scopeReview;
   if(snapshot.edit_scope){
     const scope=receipt.scope_review;

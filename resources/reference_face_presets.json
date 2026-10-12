@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "source_record": "docs/satisfied-character-references-2026-10-11.json",
+  "source_upload_count": 25,
+  "preset_count": 24,
+  "identity_count": "not_established",
+  "source_images_bundled": false,
+  "candidate_policy": {
+    "use": "preview_only",
+    "may_replace_identity_source": false
+  },
+  "presets": {
+    "RP-A01": {
+      "title": "现代休闲白棚全身",
+      "source_sha256": "6ae69a7d88a9b44e46e8d8cabcd8dd0e8b9a1b3ed9483dc5376699e8e7dfb97c",
+      "source_record_ids": [
+        "A01"
+      ],
+      "aliases": []
+    },
+    "RP-A02": {
+      "title": "白蓝古金幻想宽袖长靴",
+      "source_sha256": "fc6bdcbabea535af66778e8eebca20b6949c1e4c94f572550fa07aa658878c00",
+      "source_record_ids": [
+        "A02",
+        "A06"
+      ],
+      "aliases": [
+        "RP-A06"
+      ]
+    },
+    "RP-A03": {
+      "title": "暖逆光亲和古风半身",
+      "source_sha256": "546873496d9133c009e5d81bcbea75c329ee80cae7f2df3c494a6013e320d7cb",
+      "source_record_ids": [
+        "A03"
+      ],
+      "aliases": []
+    },
+    "RP-A04": {
+      "title": "柔亮古风含蓄近景",
+      "source_sha256": "bdd95c19bb15c4066e67933ad5608906038c8d776e9cd50e4343814e5002ca1a",
+      "source_record_ids": [
+        "A04"
+      ],
+      "aliases": []
+    },
+    "RP-A05": {
+      "title": "灰青古金织锦华服",
+      "source_sha256": "e5b7e9de8fde3c4270d22ccf1966d74bacb8448c765525bd8529d75ba82784d0",
+      "source_record_ids": [
+        "A05"
+      ],
+      "aliases": []
+    },
+    "RP-A07": {
+      "title": "米白灰蓝深绣边华服",
+      "source_sha256": "9a50eb1e63dcec25a6aae483c0e3a2e20e28924d0d5946e327cebe57df6bb226",
+      "source_record_ids": [
+        "A07"
+      ],
+      "aliases": []
+    },
+    "RP-A08": {
+      "title": "香槟金非对称手势华服",
+      "source_sha256": "a663330617940fb70f58c4eae8869a78cc6e3e8702f3d2bcd403791edefbd9b2",
+      "source_record_ids": [
+        "A08"
+      ],
+      "aliases": []
+    },
+    "RP-A09": {
+      "title": "浅蓝白纱花饰拖尾",
+      "source_sha256": "97551e340d328bd3bbc870a85c044a8e8d7d951a44d26d6fe98b8cd3a7c2deb8",
+      "source_record_ids": [
+        "A09"
+      ],
+      "aliases": []
+    },
+    "RP-A10": {
+      "title": "暖色低对比面容近景",
+      "source_sha256": "c05f24195f5af9d847153f0575d15d7ec48818b7cd2bcf8e0dcc6627928f6796",
+      "source_record_ids": [
+        "A10"
+      ],
+      "aliases": []
+    },
+    "RP-B01": {
+      "title": "暖米白高髻端庄半身",
+      "source_sha256": "1f3a738fe1bcccb96fe1bb7bba30d6847d6d6e73958c0e79c14b3936f25b5f06",
+      "source_record_ids": [
+        "B01"
+      ],
+      "aliases": []
+    },
+    "RP-B02": {
+      "title": "暖柔回望古风肖像",
+      "source_sha256": "da0afc0c02c66067c4d1540f68cb1d5d0323630fb07510e3ea0df9a14bcb748d",
+      "source_record_ids": [
+        "B02"
+      ],
+      "aliases": []
+    },
+    "RP-B03": {
+      "title": "倾头凝视与飘带近景",
+      "source_sha256": "d53c46400b1d4ba24708200f9c002f7b66a2ad883c89f106337faf8e17335692",
+      "source_record_ids": [
+        "B03"
+      ],
+      "aliases": []
+    },
+    "RP-B04": {
+      "title": "素衣散发偏侧肖像",
+      "source_sha256": "14bee1e58238a2322326775f5e7a02c67542b739d08273e5e363a5981aaa52d7",
+      "source_record_ids": [
+        "B04"
+      ],
+      "aliases": []
+    },
+    "RP-B05": {
+      "title": "暖灯环境画外凝视",
+      "source_sha256": "ee9632bbce7f3ec0fa521a0b36f2acf1c573fed4edf3d1162c7e19fe02f20cc9",
+      "source_record_ids": [
+        "B05"
+      ],
+      "aliases": []
+    },
+    "RP-B06": {
+      "title": "古金宝石华冠浓妆近景",
+      "source_sha256": "d4c5b4fbb83f633c47075f43d606f8da9a5f7c594f454682c8a607993bb68f36",
+      "source_record_ids": [
+        "B06"
+      ],
+      "aliases": []
+    },
+    "RP-B07": {
+      "title": "浅蓝回眸横幅近景",
+      "source_sha256": "551d743a905ebfc9646f7fac50eb46f2a4e01e3e1b269cd26959b13d884e1744",
+      "source_record_ids": [
+        "B07"
+      ],
+      "aliases": []
+    },
+    "RP-B08": {
+      "title": "室内暖光松弛现代肖像",
+      "source_sha256": "ebd217a8f1027e47d067815a568550db6fec7bf45c7158ba4770ef185ca0458b",
+      "source_record_ids": [
+        "B08"
+      ],
+      "aliases": []
+    },
+    "RP-B09": {
+      "title": "白蓝花绣轻纱全身",
+      "source_sha256": "2ceb15b21d6a168862b4d6e477fe2a1abfb99e8447952d62a0d2332e29a4719c",
+      "source_record_ids": [
+        "B09"
+      ],
+      "aliases": []
+    },
+    "RP-B10": {
+      "title": "黑金露肩古装全身",
+      "source_sha256": "905ba884a317297576ffe483403919dc6b2a012fdbcdd3fb4b4b3be27c13c9a9",
+      "source_record_ids": [
+        "B10"
+      ],
+      "aliases": []
+    },
+    "RP-B11": {
+      "title": "灰青古金织锦的补充文件",
+      "source_sha256": "0ca0acc38cf0020cadbe68ea63b4f85089a5cf1da11d6469b9d775eb7dee6115",
+      "source_record_ids": [
+        "B11"
+      ],
+      "aliases": []
+    },
+    "RP-B12": {
+      "title": "米白银蓝纹样端整全身",
+      "source_sha256": "cacfc952785c8518158a4e248c687814ecdc184e6a4ea090c0310cc3165ffe57",
+      "source_record_ids": [
+        "B12"
+      ],
+      "aliases": []
+    },
+    "RP-B13": {
+      "title": "白绿银饰幻想华服",
+      "source_sha256": "b752fcc108f1add4a564a996f6d3b1f8b76d5df0d72e48b62a2b49f255c01509",
+      "source_record_ids": [
+        "B13"
+      ],
+      "aliases": []
+    },
+    "RP-B14": {
+      "title": "动态黑金幻想原画",
+      "source_sha256": "12045e72c66a12ab7cf6837b499df39f30c107389ff6737ca69abcdd360c3c92",
+      "source_record_ids": [
+        "B14"
+      ],
+      "aliases": []
+    },
+    "RP-B15": {
+      "title": "自然轻妆户外面容",
+      "source_sha256": "8f4edd67ee307f71fb7702c312e98b729598acace8f755e53bbf34f635d0634d",
+      "source_record_ids": [
+        "B15"
+      ],
+      "aliases": []
+    }
+  }
+}

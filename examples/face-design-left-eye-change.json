@@ -1,0 +1,19 @@
+{
+  "request": "获准只将人物自身左眼形状略舒展，保留右眼、眼距、人中、鼻尖与下巴。",
+  "allowed_changes": [
+    "eye_shape:left"
+  ],
+  "traits": {
+    "eye_shape": {
+      "sides": {
+        "left": {
+          "value": "左眼杏眼轮廓横向略舒展，外眼角仍平缓。",
+          "origin": "design",
+          "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+        }
+      }
+    }
+  },
+  "identity_change": true,
+  "new_id": "face-sided-scholar-left-v2"
+}

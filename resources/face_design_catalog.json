@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "source": {
     "url": "https://chatgpt.com/g/g-p-6a81697f835c8191b3877ea4c99eac30-aigc/c/6acb7547-a578-83ec-81e8-962a41c7e549",
     "title": "人物相貌提示词分析",
@@ -16,117 +16,4175 @@
     ]
   },
   "families": {
-    "F01": { "label": "冷艳骨相与修长眼", "seed_ids": ["FD01", "FD02", "FD06", "FD09"] },
-    "F02": { "label": "明艳均衡", "seed_ids": ["FD03"] },
-    "F03": { "label": "明眸柔颜", "seed_ids": ["FD04", "FD05"] },
-    "F04": { "label": "自然软颜", "seed_ids": ["FD07", "FD08", "FD10"] }
+    "F01": {
+      "label": "冷艳骨相与修长眼",
+      "seed_ids": [
+        "FD01",
+        "FD02",
+        "FD06",
+        "FD09"
+      ]
+    },
+    "F02": {
+      "label": "明艳均衡",
+      "seed_ids": [
+        "FD03"
+      ]
+    },
+    "F03": {
+      "label": "明眸柔颜",
+      "seed_ids": [
+        "FD04",
+        "FD05"
+      ]
+    },
+    "F04": {
+      "label": "自然软颜",
+      "seed_ids": [
+        "FD07",
+        "FD08",
+        "FD10"
+      ]
+    }
   },
   "dimensions": {
-    "face_shape": { "label": "脸型轮廓", "layer": "structure", "suggested_values": ["椭圆", "短椭圆", "长椭圆", "圆", "方圆", "方", "心形", "长方"] },
-    "face_length": { "label": "面部长短关系", "layer": "structure", "suggested_values": ["偏短", "均衡", "略长"] },
-    "cheekbone": { "label": "颧骨形态", "layer": "structure", "suggested_values": ["平顺", "柔和外展", "清楚但不过分突起", "自然突出"] },
-    "jaw": { "label": "下颌转折与宽度", "layer": "structure", "suggested_values": ["柔和圆转", "清楚转折", "宽而有力", "自然收束"] },
-    "chin": { "label": "下巴轮廓", "layer": "structure", "suggested_values": ["短圆", "窄圆", "均衡圆", "方圆", "较长但不尖削"] },
-    "eye_shape": { "label": "眼睛形状", "layer": "structure", "suggested_values": ["修长杏眼", "圆杏眼", "细长眼", "杏圆眼"] },
-    "eye_aperture": { "label": "中性状态眼睛开合", "layer": "structure", "suggested_values": ["较小", "适中", "较大"] },
-    "eye_tail": { "label": "眼尾方向", "layer": "structure", "suggested_values": ["平直", "轻微上扬", "轻微下垂"] },
-    "eye_spacing": { "label": "眼距关系", "layer": "structure", "suggested_values": ["略窄", "均衡", "略宽"] },
-    "eyelid": { "label": "眼睑结构", "layer": "structure", "suggested_values": ["上睑轻覆", "清楚自然褶皱", "内双", "单眼皮"] },
-    "brow": { "label": "自然眉形", "layer": "structure", "suggested_values": ["平直", "柔和弧形", "清楚眉峰", "自然浓眉"] },
-    "nose_bridge": { "label": "鼻梁形态", "layer": "structure", "suggested_values": ["细直", "自然挺直", "柔和低起伏", "清楚起伏"] },
-    "nose_tip": { "label": "鼻尖体积与形态", "layer": "structure", "suggested_values": ["小而圆", "收敛", "自然圆润", "较宽厚"] },
-    "nose_wing": { "label": "鼻翼形态", "layer": "structure", "suggested_values": ["收敛", "自然可见", "较宽"] },
-    "lip_shape": { "label": "唇部轮廓", "layer": "structure", "suggested_values": ["柔和唇峰", "清楚唇峰", "圆润唇珠", "自然平缓唇线"] },
-    "lip_balance": { "label": "上下唇体积关系", "layer": "structure", "suggested_values": ["自然均衡", "下唇略丰满", "上唇略丰满", "上下唇均薄", "上下唇均丰满"] },
-    "cheek_volume": { "label": "面颊软组织体积", "layer": "soft_tissue", "suggested_values": ["纤薄但有体积", "适度", "自然饱满", "丰润"] },
-    "asymmetry": { "label": "面部不对称设计", "layer": "structure", "suggested_values": ["不额外指定", "自然轻微不对称", "沿用已观察的不对称特征"] },
-    "gaze": { "label": "当前视线与眼神", "layer": "expression", "suggested_values": ["平静直视", "专注凝视", "柔和注视", "看向指定对象"] },
-    "mouth_state": { "label": "当前唇口状态", "layer": "expression", "suggested_values": ["自然闭合", "轻微微笑", "嘴唇微启", "明确的说话阶段"] },
-    "makeup": { "label": "妆容", "layer": "presentation", "suggested_values": ["自然淡妆", "柔亮妆容", "明确的舞台妆", "不施明显彩妆"] },
-    "skin_finish": { "label": "肤质表现", "layer": "presentation", "suggested_values": ["柔润且保留体积", "自然肌肤层次", "符合绘画媒介的肤色过渡"] },
-    "lighting": { "label": "照明条件", "layer": "presentation", "suggested_values": ["柔和正面补光", "明确方向的自然光", "场景内合理主光与补光"] },
-    "hair": { "label": "发型与脸部遮挡", "layer": "presentation", "suggested_values": ["露出眉眼鼻口的任务专属发型", "沿用指定发型", "按设计保留局部刘海遮挡"] }
+    "face_shape": {
+      "label": "脸型轮廓",
+      "layer": "structure",
+      "suggested_values": [
+        "椭圆",
+        "短椭圆",
+        "长椭圆",
+        "圆",
+        "方圆",
+        "方",
+        "心形",
+        "长方"
+      ],
+      "group": "head",
+      "channel": "identity",
+      "laterality": "global",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "face_length": {
+      "label": "面部长短关系",
+      "layer": "structure",
+      "suggested_values": [
+        "偏短",
+        "均衡",
+        "略长"
+      ],
+      "group": "head",
+      "channel": "identity",
+      "laterality": "global",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "cheekbone": {
+      "label": "颧骨形态",
+      "layer": "structure",
+      "suggested_values": [
+        "平顺",
+        "柔和外展",
+        "清楚但不过分突起",
+        "自然突出"
+      ],
+      "group": "cheeks",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "jaw": {
+      "label": "下颌转折与宽度",
+      "layer": "structure",
+      "suggested_values": [
+        "柔和圆转",
+        "清楚转折",
+        "宽而有力",
+        "自然收束"
+      ],
+      "group": "jaw_chin",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "chin": {
+      "label": "下巴轮廓",
+      "layer": "structure",
+      "suggested_values": [
+        "短圆",
+        "窄圆",
+        "均衡圆",
+        "方圆",
+        "较长但不尖削"
+      ],
+      "group": "jaw_chin",
+      "channel": "identity",
+      "laterality": "midline",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eye_shape": {
+      "label": "眼睛形状",
+      "layer": "structure",
+      "suggested_values": [
+        "修长杏眼",
+        "圆杏眼",
+        "细长眼",
+        "杏圆眼"
+      ],
+      "group": "eyes",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eye_aperture": {
+      "label": "中性状态眼睛开合",
+      "layer": "structure",
+      "suggested_values": [
+        "较小",
+        "适中",
+        "较大"
+      ],
+      "group": "eyes",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eye_tail": {
+      "label": "眼尾方向",
+      "layer": "structure",
+      "suggested_values": [
+        "平直",
+        "轻微上扬",
+        "轻微下垂"
+      ],
+      "group": "eyes",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eye_spacing": {
+      "label": "眼距关系",
+      "layer": "structure",
+      "suggested_values": [
+        "略窄",
+        "均衡",
+        "略宽"
+      ],
+      "group": "eyes",
+      "channel": "identity",
+      "laterality": "global",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eyelid": {
+      "label": "眼睑结构",
+      "layer": "structure",
+      "suggested_values": [
+        "上睑轻覆",
+        "清楚自然褶皱",
+        "内双",
+        "单眼皮"
+      ],
+      "group": "eyes",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow": {
+      "label": "自然眉形",
+      "layer": "structure",
+      "suggested_values": [
+        "平直",
+        "柔和弧形",
+        "清楚眉峰",
+        "自然浓眉"
+      ],
+      "group": "brows",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_bridge": {
+      "label": "鼻梁形态",
+      "layer": "structure",
+      "suggested_values": [
+        "细直",
+        "自然挺直",
+        "柔和低起伏",
+        "清楚起伏"
+      ],
+      "group": "nose",
+      "channel": "identity",
+      "laterality": "midline",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_tip": {
+      "label": "鼻尖体积与形态",
+      "layer": "structure",
+      "suggested_values": [
+        "小而圆",
+        "收敛",
+        "自然圆润",
+        "较宽厚"
+      ],
+      "group": "nose",
+      "channel": "identity",
+      "laterality": "midline",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_wing": {
+      "label": "鼻翼形态",
+      "layer": "structure",
+      "suggested_values": [
+        "收敛",
+        "自然可见",
+        "较宽"
+      ],
+      "group": "nose",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lip_shape": {
+      "label": "唇部轮廓",
+      "layer": "structure",
+      "suggested_values": [
+        "柔和唇峰",
+        "清楚唇峰",
+        "圆润唇珠",
+        "自然平缓唇线"
+      ],
+      "group": "mouth",
+      "channel": "identity",
+      "laterality": "midline",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lip_balance": {
+      "label": "上下唇体积关系",
+      "layer": "structure",
+      "suggested_values": [
+        "自然均衡",
+        "下唇略丰满",
+        "上唇略丰满",
+        "上下唇均薄",
+        "上下唇均丰满"
+      ],
+      "group": "mouth",
+      "channel": "identity",
+      "laterality": "midline",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "cheek_volume": {
+      "label": "面颊软组织体积",
+      "layer": "soft_tissue",
+      "suggested_values": [
+        "纤薄但有体积",
+        "适度",
+        "自然饱满",
+        "丰润"
+      ],
+      "group": "cheeks",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "asymmetry": {
+      "label": "面部不对称设计",
+      "layer": "structure",
+      "suggested_values": [
+        "不额外指定",
+        "自然轻微不对称",
+        "沿用已观察的不对称特征"
+      ],
+      "group": "asymmetry",
+      "channel": "identity",
+      "laterality": "global",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "gaze": {
+      "label": "当前视线与眼神",
+      "layer": "expression",
+      "suggested_values": [
+        "平静直视",
+        "专注凝视",
+        "柔和注视",
+        "看向指定对象"
+      ],
+      "group": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "mouth_state": {
+      "label": "当前唇口状态",
+      "layer": "expression",
+      "suggested_values": [
+        "自然闭合",
+        "轻微微笑",
+        "嘴唇微启",
+        "明确的说话阶段"
+      ],
+      "group": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "makeup": {
+      "label": "妆容",
+      "layer": "presentation",
+      "suggested_values": [
+        "自然淡妆",
+        "柔亮妆容",
+        "明确的舞台妆",
+        "不施明显彩妆"
+      ],
+      "group": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "skin_finish": {
+      "label": "肤质表现",
+      "layer": "presentation",
+      "suggested_values": [
+        "柔润且保留体积",
+        "自然肌肤层次",
+        "符合绘画媒介的肤色过渡"
+      ],
+      "group": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lighting": {
+      "label": "照明条件",
+      "layer": "presentation",
+      "suggested_values": [
+        "柔和正面补光",
+        "明确方向的自然光",
+        "场景内合理主光与补光"
+      ],
+      "group": "presentation",
+      "channel": "lighting",
+      "laterality": "global",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "hair": {
+      "label": "发型与脸部遮挡",
+      "layer": "presentation",
+      "suggested_values": [
+        "露出眉眼鼻口的任务专属发型",
+        "沿用指定发型",
+        "按设计保留局部刘海遮挡"
+      ],
+      "group": "presentation",
+      "channel": "hair",
+      "laterality": "global",
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "head_shape": {
+      "label": "头颅整体外形",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "圆弧",
+        "椭圆",
+        "宽阔",
+        "纵向较长"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "head_width": {
+      "label": "头颅左右宽度",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏窄",
+        "均衡",
+        "偏宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "head_depth": {
+      "label": "头颅前后深度",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "较浅",
+        "适中",
+        "较深"
+      ],
+      "assessment_views": [
+        "profile"
+      ]
+    },
+    "face_width": {
+      "label": "面部整体宽度",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏窄",
+        "均衡",
+        "偏宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "face_profile": {
+      "label": "面部侧面轮廓关系",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "平顺",
+        "略凸",
+        "略凹"
+      ],
+      "assessment_views": [
+        "profile"
+      ]
+    },
+    "face_taper": {
+      "label": "上脸到下脸收束关系",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "平缓收束",
+        "清楚收束",
+        "上下宽度接近"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "upper_face_width": {
+      "label": "上面部宽度",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏窄",
+        "均衡",
+        "偏宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "midface_width": {
+      "label": "中面部宽度",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏窄",
+        "均衡",
+        "偏宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lower_face_width": {
+      "label": "下面部宽度",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏窄",
+        "均衡",
+        "偏宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "upper_face_height": {
+      "label": "上庭可见高度",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏短",
+        "均衡",
+        "偏长"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "midface_height": {
+      "label": "中庭可见高度",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏短",
+        "均衡",
+        "偏长"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lower_face_height": {
+      "label": "下庭可见高度",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏短",
+        "均衡",
+        "偏长"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "feature_vertical_distribution": {
+      "label": "五官纵向分布",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "相对集中",
+        "舒展均衡",
+        "相对疏展"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "feature_center_alignment": {
+      "label": "五官中轴与整体摆位",
+      "group": "head",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "中轴自然衔接",
+        "保留已观察轻微偏移"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "forehead_height": {
+      "label": "额头可见高度",
+      "group": "forehead",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏低",
+        "适中",
+        "偏高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "forehead_width": {
+      "label": "额头左右宽度",
+      "group": "forehead",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏窄",
+        "均衡",
+        "偏宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "forehead_projection": {
+      "label": "额头前向体积",
+      "group": "forehead",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "平顺",
+        "柔和饱满",
+        "较突出"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "forehead_slope": {
+      "label": "额头侧面倾斜",
+      "group": "forehead",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "近直",
+        "自然后倾",
+        "后倾较明显"
+      ],
+      "assessment_views": [
+        "profile"
+      ]
+    },
+    "forehead_curvature": {
+      "label": "额头曲面弧度",
+      "group": "forehead",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "平缓",
+        "圆润",
+        "起伏清楚"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "temple_volume": {
+      "label": "太阳穴软组织体积",
+      "group": "forehead",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略凹",
+        "平顺",
+        "柔和饱满"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "temple_width": {
+      "label": "太阳穴区域宽度",
+      "group": "forehead",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "收敛",
+        "均衡",
+        "外展"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "hairline_height": {
+      "label": "发际线位置",
+      "group": "forehead",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "偏低",
+        "适中",
+        "偏高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "hairline_shape": {
+      "label": "发际线轮廓",
+      "group": "forehead",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "圆弧",
+        "自然折线",
+        "轻微美人尖"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "hairline_recession": {
+      "label": "额角发际线后退关系",
+      "group": "forehead",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "不额外指定",
+        "保留已观察额角形态"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_head_shape": {
+      "label": "眉头轮廓",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "柔和圆起",
+        "平顺起笔",
+        "方而自然"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_body_curve": {
+      "label": "眉身弯曲走势",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "近直",
+        "柔弧",
+        "弯曲清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_peak_shape": {
+      "label": "眉峰转折形状",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平缓",
+        "柔和转折",
+        "清楚眉峰"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_peak_position": {
+      "label": "眉峰沿眉长的位置",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "相对靠内",
+        "居中偏外",
+        "相对靠外"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_arch_height": {
+      "label": "眉峰抬高幅度",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较低",
+        "适中",
+        "较高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_tail_shape": {
+      "label": "眉尾收束轮廓",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "渐细",
+        "自然圆收",
+        "较平直"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_tail_angle": {
+      "label": "眉尾走势方向",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平直",
+        "轻上扬",
+        "轻下斜"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_length": {
+      "label": "眉毛长度",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "偏短",
+        "适中",
+        "偏长"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_thickness": {
+      "label": "自然眉毛粗细",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "偏细",
+        "适中",
+        "偏粗"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_spacing": {
+      "label": "两眉头间距",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "略窄",
+        "均衡",
+        "略宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_eye_distance": {
+      "label": "眉眼纵向距离",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略近",
+        "均衡",
+        "略远"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_bone_height": {
+      "label": "眉骨上下位置",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "偏低",
+        "适中",
+        "偏高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_bone_projection": {
+      "label": "眉骨前向突出",
+      "group": "brows",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平缓",
+        "自然起伏",
+        "较清楚"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "brow_density": {
+      "label": "自然眉毛疏密",
+      "group": "brows",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较疏",
+        "适中",
+        "浓密"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_hair_direction": {
+      "label": "自然眉毛毛流",
+      "group": "brows",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "眉头上行后向外",
+        "自然顺眉形",
+        "保留原毛流"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_natural_color": {
+      "label": "自然眉毛基础颜色",
+      "group": "brows",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "随人物设计",
+        "沿用已观察基础颜色"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eye_width": {
+      "label": "中性状态眼裂长度",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较短",
+        "适中",
+        "较长"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eye_height_position": {
+      "label": "眼睛上下位置",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略低",
+        "均衡",
+        "略高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eye_depth": {
+      "label": "眼窝与眼球深浅关系",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平缓",
+        "适度层次",
+        "较深"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "eye_protrusion": {
+      "label": "眼球与周边的突出关系",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较内收",
+        "自然",
+        "较突出"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "inner_canthus_shape": {
+      "label": "内眼角轮廓",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "圆润",
+        "柔和收束",
+        "较锐而自然"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "outer_canthus_shape": {
+      "label": "外眼角轮廓",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "圆润",
+        "收束清楚",
+        "柔和延伸"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "inner_canthus_height": {
+      "label": "内眼角上下位置",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略低",
+        "均衡",
+        "略高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "outer_canthus_height": {
+      "label": "外眼角上下位置",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略低",
+        "均衡",
+        "略高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "upper_eyelid_fold_height": {
+      "label": "上眼睑褶皱高度",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较低",
+        "自然适中",
+        "较高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "upper_eyelid_fold_width": {
+      "label": "上眼睑褶皱宽度",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较窄",
+        "自然适中",
+        "较宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "upper_lid_coverage": {
+      "label": "中性状态上眼睑覆盖",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较少",
+        "自然轻覆",
+        "覆盖较多"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lower_lid_contour": {
+      "label": "下眼睑轮廓",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平缓",
+        "柔和弧形",
+        "层次清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eyelid_thickness": {
+      "label": "眼睑边缘体积",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "纤薄",
+        "自然",
+        "较厚实"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "epicanthal_fold": {
+      "label": "内眼角褶皱形态",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "不明显",
+        "部分覆盖",
+        "保留已观察褶皱"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "iris_size": {
+      "label": "虹膜可见大小关系",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较小",
+        "适中",
+        "较大"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "pupil_size": {
+      "label": "指定观察条件下瞳孔可见大小",
+      "group": "expression",
+      "layer": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "suggested_values": [
+        "较小",
+        "适中",
+        "较大"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eye_white_showing": {
+      "label": "中性状态眼白显露关系",
+      "group": "eyes",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较少",
+        "自然",
+        "较多"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "under_eye_volume": {
+      "label": "眼下软组织体积",
+      "group": "eyes",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平顺",
+        "柔和隆起",
+        "较饱满"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "tear_trough_depth": {
+      "label": "泪沟与眼下过渡",
+      "group": "eyes",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "不明显",
+        "浅柔",
+        "较清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "iris_color": {
+      "label": "虹膜基础颜色",
+      "group": "eyes",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "随人物设计",
+        "沿用参考可见瞳色"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lashes_length": {
+      "label": "自然睫毛长度",
+      "group": "eyes",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较短",
+        "适中",
+        "较长"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lashes_density": {
+      "label": "自然睫毛疏密",
+      "group": "eyes",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较疏",
+        "适中",
+        "浓密"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lashes_curve": {
+      "label": "自然睫毛弯曲",
+      "group": "eyes",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较直",
+        "柔和上弯",
+        "弯曲清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_length": {
+      "label": "鼻部整体长度",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "偏短",
+        "均衡",
+        "偏长"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_width": {
+      "label": "鼻部整体宽度",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "偏窄",
+        "均衡",
+        "偏宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_height_position": {
+      "label": "鼻部上下位置",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "略低",
+        "均衡",
+        "略高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_root_height": {
+      "label": "鼻根起点高度",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "偏低",
+        "适中",
+        "偏高"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "nose_root_width": {
+      "label": "鼻根横向宽度",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "偏窄",
+        "适中",
+        "偏宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_bridge_height": {
+      "label": "鼻梁前向高度",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "较低",
+        "自然",
+        "较高"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "nose_bridge_width": {
+      "label": "鼻梁横向宽度",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "较窄",
+        "适中",
+        "较宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_bridge_curvature": {
+      "label": "鼻梁侧面走势",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "近直",
+        "轻微凸弧",
+        "柔和凹弧"
+      ],
+      "assessment_views": [
+        "profile"
+      ]
+    },
+    "nose_tip_projection": {
+      "label": "鼻尖前向突出",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "内收",
+        "自然",
+        "较突出"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "nose_tip_rotation": {
+      "label": "鼻尖侧面朝向",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "略下向",
+        "自然",
+        "略上向"
+      ],
+      "assessment_views": [
+        "profile"
+      ]
+    },
+    "alar_width": {
+      "label": "左右鼻翼展开宽度",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "收敛",
+        "自然",
+        "较宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "alar_height": {
+      "label": "鼻翼上下位置",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略低",
+        "自然",
+        "略高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nostril_shape": {
+      "label": "鼻孔可见轮廓",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "圆润",
+        "椭圆",
+        "自然收束"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nostril_visibility": {
+      "label": "指定视角鼻孔显露",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较少",
+        "自然",
+        "较多"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "columella_visibility": {
+      "label": "鼻小柱可见形态",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "收敛",
+        "自然可见",
+        "较清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "nose_base_projection": {
+      "label": "鼻基底前后关系",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "平顺",
+        "较饱满",
+        "略内收"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "nasolabial_angle": {
+      "label": "鼻小柱与上唇侧面夹角观感",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "较收敛",
+        "自然",
+        "较展开"
+      ],
+      "assessment_views": [
+        "profile"
+      ]
+    },
+    "philtrum_length": {
+      "label": "人中纵向长度",
+      "group": "philtrum",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "偏短",
+        "均衡",
+        "偏长"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "philtrum_width": {
+      "label": "人中横向宽度",
+      "group": "philtrum",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "较窄",
+        "适中",
+        "较宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "philtrum_depth": {
+      "label": "人中沟深浅",
+      "group": "philtrum",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "平缓",
+        "浅柔",
+        "较清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "philtrum_ridge_shape": {
+      "label": "人中两侧嵴形态",
+      "group": "philtrum",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平顺",
+        "柔和隆起",
+        "轮廓清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "subnasal_transition": {
+      "label": "鼻下到上唇的体积过渡",
+      "group": "philtrum",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "平缓",
+        "柔和立体",
+        "转折较清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "mouth_width": {
+      "label": "嘴巴整体横向宽度",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "偏窄",
+        "均衡",
+        "偏宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "mouth_height_position": {
+      "label": "嘴巴上下位置",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "略低",
+        "均衡",
+        "略高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "upper_lip_thickness": {
+      "label": "上唇可见厚度",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "较薄",
+        "适中",
+        "较丰满"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lower_lip_thickness": {
+      "label": "下唇可见厚度",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "较薄",
+        "适中",
+        "较丰满"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "upper_lip_projection": {
+      "label": "上唇前向体积",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "内收",
+        "自然",
+        "较突出"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "lower_lip_projection": {
+      "label": "下唇前向体积",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "内收",
+        "自然",
+        "较突出"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "cupid_bow_width": {
+      "label": "唇峰之间的宽度",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "较窄",
+        "适中",
+        "较宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "cupid_bow_height": {
+      "label": "唇峰起伏高度",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "平缓",
+        "柔和",
+        "清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lip_tubercle": {
+      "label": "上唇中央唇珠体积",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "不明显",
+        "柔和",
+        "较饱满"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "vermilion_border": {
+      "label": "自然唇缘轮廓",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "柔和",
+        "清楚",
+        "局部起伏可辨"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "mouth_corner_height": {
+      "label": "中性状态嘴角位置",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略低",
+        "平缓",
+        "略高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "mouth_corner_shape": {
+      "label": "自然口角收束形状",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "圆收",
+        "柔和收束",
+        "清楚收束"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "mouth_corner_depth": {
+      "label": "口角自然深浅",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "浅柔",
+        "自然",
+        "较清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "mouth_protrusion": {
+      "label": "口唇区整体前后关系",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "内收",
+        "平顺",
+        "略突出"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "mentolabial_fold_depth": {
+      "label": "下唇到下巴沟形",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "平缓",
+        "浅柔",
+        "较清楚"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "lip_natural_color": {
+      "label": "唇部基础颜色",
+      "group": "mouth",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "随人物设计",
+        "沿用可见自然唇色"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "cheekbone_height": {
+      "label": "颧骨上下位置",
+      "group": "cheeks",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略低",
+        "均衡",
+        "略高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "cheekbone_width": {
+      "label": "颧骨横向展开",
+      "group": "cheeks",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "收敛",
+        "均衡",
+        "外展"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "cheekbone_projection": {
+      "label": "颧骨前向体积",
+      "group": "cheeks",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平顺",
+        "自然",
+        "较清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "midface_projection": {
+      "label": "中面部前后关系",
+      "group": "cheeks",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "平顺",
+        "较饱满",
+        "略内收"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "upper_cheek_volume": {
+      "label": "上面颊软组织体积",
+      "group": "cheeks",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "纤薄",
+        "适中",
+        "饱满"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lower_cheek_volume": {
+      "label": "下面颊软组织体积",
+      "group": "cheeks",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "收敛",
+        "适中",
+        "丰润"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "cheek_hollow": {
+      "label": "面颊凹陷关系",
+      "group": "cheeks",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "不明显",
+        "浅柔",
+        "清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nasolabial_fold": {
+      "label": "鼻唇沟可见深浅",
+      "group": "cheeks",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "不明显",
+        "浅柔",
+        "较清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nasolabial_fold_orientation": {
+      "label": "鼻唇沟走向",
+      "group": "cheeks",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "柔和外展",
+        "自然下行",
+        "保留已观察走向"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_cheek_transition": {
+      "label": "鼻翼到面颊的连接",
+      "group": "cheeks",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平顺",
+        "柔和转折",
+        "较清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "jaw_width": {
+      "label": "下颌横向宽度",
+      "group": "jaw_chin",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "偏窄",
+        "均衡",
+        "偏宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "jaw_angle_height": {
+      "label": "下颌角上下位置",
+      "group": "jaw_chin",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略低",
+        "适中",
+        "略高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "jaw_angle_shape": {
+      "label": "下颌角转折形状",
+      "group": "jaw_chin",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "圆转",
+        "方圆",
+        "清楚转折"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "jaw_angle_projection": {
+      "label": "下颌角外向体积",
+      "group": "jaw_chin",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "收敛",
+        "自然",
+        "外展"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "mandible_body_slope": {
+      "label": "下颌缘到下巴的走势",
+      "group": "jaw_chin",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平缓",
+        "自然斜收",
+        "斜收较明显"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "chin_width": {
+      "label": "下巴横向宽度",
+      "group": "jaw_chin",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "较窄",
+        "适中",
+        "较宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "chin_height": {
+      "label": "下巴纵向长度",
+      "group": "jaw_chin",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "较短",
+        "均衡",
+        "较长"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "chin_projection": {
+      "label": "下巴前向突出",
+      "group": "jaw_chin",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "略内收",
+        "自然",
+        "较突出"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "chin_point_position": {
+      "label": "颏点位置关系",
+      "group": "jaw_chin",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "中轴自然",
+        "保留已观察轻微偏移"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "chin_cleft": {
+      "label": "下巴中央沟或凹形",
+      "group": "jaw_chin",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "不额外指定",
+        "浅凹",
+        "保留已观察颏沟"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "under_chin_volume": {
+      "label": "颏下软组织体积",
+      "group": "jaw_chin",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "收敛",
+        "自然",
+        "较饱满"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "chin_neck_transition": {
+      "label": "下巴到颈部连接",
+      "group": "jaw_chin",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "柔和",
+        "自然清楚",
+        "保留本人体积"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "ear_size": {
+      "label": "耳部整体大小",
+      "group": "ears",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较小",
+        "适中",
+        "较大"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "ear_position": {
+      "label": "耳部上下位置",
+      "group": "ears",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略低",
+        "均衡",
+        "略高"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "ear_projection": {
+      "label": "耳部离头侧的展开",
+      "group": "ears",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "贴近",
+        "自然",
+        "较外展"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "ear_rotation": {
+      "label": "耳部前后朝向",
+      "group": "ears",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "略后向",
+        "自然",
+        "略前向"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "helix_shape": {
+      "label": "耳轮外缘轮廓",
+      "group": "ears",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "圆弧",
+        "自然折线",
+        "保留原轮廓"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "antihelix_shape": {
+      "label": "对耳轮内侧起伏",
+      "group": "ears",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "平缓",
+        "自然清楚",
+        "保留原形态"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "concha_shape": {
+      "label": "耳甲腔可见形态",
+      "group": "ears",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较浅",
+        "自然",
+        "较清楚"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "earlobe_shape": {
+      "label": "耳垂形状与体积",
+      "group": "ears",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "小而圆",
+        "自然适中",
+        "较丰满"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "earlobe_attachment": {
+      "label": "耳垂与脸侧连接",
+      "group": "ears",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "较贴附",
+        "自然过渡",
+        "游离较清楚"
+      ],
+      "assessment_views": [
+        "three_quarter",
+        "profile"
+      ]
+    },
+    "skin_base_color": {
+      "label": "中性观察条件下基础肤色",
+      "group": "surface",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "按人物设定",
+        "沿用已观察本人肤色"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "skin_undertone": {
+      "label": "基础肤色冷暖倾向",
+      "group": "surface",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "中性",
+        "偏暖",
+        "偏冷"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "freckles": {
+      "label": "雀斑可见分布",
+      "group": "surface",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "不额外添加",
+        "保留已观察位置",
+        "获准设计分布"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "moles": {
+      "label": "痣的可见位置与形态",
+      "group": "surface",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "不额外添加",
+        "保留已观察位置",
+        "获准设计位置"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "scars": {
+      "label": "疤痕可见位置与形态",
+      "group": "surface",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "不额外添加",
+        "保留已观察形态",
+        "获准设计形态"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "birthmarks": {
+      "label": "胎记可见位置与形态",
+      "group": "surface",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "不额外添加",
+        "保留已观察形态",
+        "获准设计形态"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "skin_age_lines": {
+      "label": "自然年龄纹理与体积线索",
+      "group": "surface",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "符合人物年龄",
+        "沿用已观察自然线索"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "facial_hair_density": {
+      "label": "自然面部毛发疏密",
+      "group": "surface",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "稀疏",
+        "适中",
+        "浓密"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "facial_hair_distribution": {
+      "label": "自然面部毛发分布",
+      "group": "surface",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "按人物设定",
+        "沿用已观察分布"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_motion": {
+      "label": "当前眉毛动作",
+      "group": "expression",
+      "layer": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "suggested_values": [
+        "放松",
+        "眉头轻抬",
+        "眉间收紧"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eyelid_motion": {
+      "label": "当前眼睑动作",
+      "group": "expression",
+      "layer": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "suggested_values": [
+        "自然放松",
+        "轻收窄",
+        "睁开关注"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "mouth_corner_motion": {
+      "label": "当前嘴角动作",
+      "group": "expression",
+      "layer": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "suggested_values": [
+        "放松",
+        "轻抬",
+        "下压"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "cheek_motion": {
+      "label": "当前面颊动作",
+      "group": "expression",
+      "layer": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "suggested_values": [
+        "放松",
+        "随笑容自然抬起",
+        "随表情自然变化"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_motion": {
+      "label": "当前鼻部表情动作",
+      "group": "expression",
+      "layer": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "suggested_values": [
+        "放松",
+        "随表情轻微变化"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "jaw_motion": {
+      "label": "当前下颌动作",
+      "group": "expression",
+      "layer": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "suggested_values": [
+        "放松闭合",
+        "随说话打开",
+        "自然绷紧"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "expression_tension": {
+      "label": "当前面部肌肉松紧",
+      "group": "expression",
+      "layer": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "suggested_values": [
+        "放松",
+        "适度张力",
+        "紧张"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "expression_intensity": {
+      "label": "当前表情幅度",
+      "group": "expression",
+      "layer": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "suggested_values": [
+        "含蓄",
+        "清楚",
+        "强烈但协调"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "brow_makeup": {
+      "label": "眉妆描画",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "沿自然眉形轻修",
+        "获准明确眉妆"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eyeshadow": {
+      "label": "眼影色彩与范围",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "不施明显眼影",
+        "浅柔晕染",
+        "任务指定颜色范围"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eyeliner": {
+      "label": "眼线表现",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "不外扩原眼形",
+        "贴睫毛根部",
+        "获准舞台眼线"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eyelash_makeup": {
+      "label": "睫毛妆表现",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "自然梳理",
+        "适度增强",
+        "获准舞台睫毛"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lip_makeup": {
+      "label": "唇妆色彩与质地",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "自然唇色",
+        "柔润薄涂",
+        "任务指定唇色质地"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "blush": {
+      "label": "腮红色彩与位置",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "轻浅气色",
+        "任务指定范围"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "contour": {
+      "label": "修容光影",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "不重画骨相",
+        "获准轻度修容"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "highlighter": {
+      "label": "妆面高光",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "局部细润",
+        "任务指定强调"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "skin_coverage": {
+      "label": "底妆覆盖程度",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "轻薄",
+        "适度",
+        "任务指定覆盖"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "skin_gloss": {
+      "label": "肤面反光强弱",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "柔哑",
+        "局部柔润",
+        "光泽清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "skin_texture": {
+      "label": "肤面纹理表现",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "适量自然细节",
+        "符合媒介的概括"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "face_decoration": {
+      "label": "面部装饰妆造",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "makeup",
+      "laterality": "global",
+      "suggested_values": [
+        "不额外添加",
+        "保留指定额饰眼下装饰",
+        "获准设计装饰"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "hair_color": {
+      "label": "发色呈现",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "hair",
+      "laterality": "global",
+      "suggested_values": [
+        "沿用原发色",
+        "本轮指定发色"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "hair_parting": {
+      "label": "发缝与前额遮挡",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "hair",
+      "laterality": "global",
+      "suggested_values": [
+        "沿用原发缝",
+        "获准整理遮挡"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "facial_hair_grooming": {
+      "label": "面部毛发整理",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "hair",
+      "laterality": "global",
+      "suggested_values": [
+        "沿用原整理状态",
+        "本轮获准修整"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "eye_catchlight": {
+      "label": "眼部受光与反光",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "lighting",
+      "laterality": "global",
+      "suggested_values": [
+        "自然小面积反光",
+        "符合场景主光"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lighting_direction": {
+      "label": "面部主光方向",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "lighting",
+      "laterality": "global",
+      "suggested_values": [
+        "正面均衡",
+        "明确任务方向"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lighting_softness": {
+      "label": "面部阴影软硬",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "lighting",
+      "laterality": "global",
+      "suggested_values": [
+        "柔和",
+        "适中",
+        "场景指定硬光"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "camera_angle": {
+      "label": "肖像观察视角",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "composition",
+      "laterality": "global",
+      "suggested_values": [
+        "正面平视",
+        "三分之二侧面",
+        "严格侧面"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "camera_distance": {
+      "label": "肖像取景距离",
+      "group": "presentation",
+      "layer": "presentation",
+      "channel": "composition",
+      "laterality": "global",
+      "suggested_values": [
+        "头肩近景",
+        "任务指定可比范围"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_tip_width": {
+      "label": "鼻尖横向宽度",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "收敛",
+        "自然",
+        "较宽"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_tip_height": {
+      "label": "鼻尖纵向体积",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "短圆",
+        "自然",
+        "较高"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_tip_roundness": {
+      "label": "鼻尖圆钝与转折",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "圆润",
+        "自然收束",
+        "转折清楚"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "alar_thickness": {
+      "label": "鼻翼软组织厚度",
+      "group": "nose",
+      "layer": "soft_tissue",
+      "channel": "identity",
+      "laterality": "bilateral",
+      "suggested_values": [
+        "纤薄",
+        "自然",
+        "较厚实"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "nose_midline_alignment": {
+      "label": "鼻部中轴偏向",
+      "group": "nose",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "自然居中",
+        "保留已观察轻微偏移"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "lip_seam_curve": {
+      "label": "中性闭合时唇缝曲线",
+      "group": "mouth",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "midline",
+      "suggested_values": [
+        "平缓",
+        "柔弧",
+        "保留自然起伏"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "teeth_alignment": {
+      "label": "可见齿列排列",
+      "group": "oral",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "自然整齐",
+        "保留已观察排列",
+        "本轮获准设计"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "tooth_shape": {
+      "label": "可见牙齿轮廓",
+      "group": "oral",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "自然圆收",
+        "轮廓清楚",
+        "保留已观察形态"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "tooth_spacing": {
+      "label": "可见齿间关系",
+      "group": "oral",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "自然紧密",
+        "保留已观察间隙",
+        "本轮获准设计"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "dental_arch": {
+      "label": "可见牙弓关系",
+      "group": "oral",
+      "layer": "structure",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "自然弧形",
+        "保留已观察形态",
+        "本轮获准设计"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "teeth_color": {
+      "label": "中性观察条件下自然牙色",
+      "group": "oral",
+      "layer": "surface_identity",
+      "channel": "identity",
+      "laterality": "global",
+      "suggested_values": [
+        "自然牙色",
+        "保留已观察颜色"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    },
+    "gum_showing": {
+      "label": "当前表情露龈程度",
+      "group": "expression",
+      "layer": "expression",
+      "channel": "expression",
+      "laterality": "global",
+      "suggested_values": [
+        "不显露",
+        "自然少量",
+        "随指定表情显露"
+      ],
+      "assessment_views": [
+        "front",
+        "three_quarter"
+      ]
+    }
   },
   "presets": {
     "FD01": {
-      "label": "清冷细长", "family": "F01", "scope": "young_adult_female_reference_group", "source_image_number": 1,
-      "traits": { "face_shape": "窄长椭圆脸", "face_length": "略长", "cheekbone": "颧骨平顺", "chin": "窄而圆的下巴", "eye_shape": "修长杏眼", "eye_tail": "眼尾轻微上扬", "nose_bridge": "细直鼻梁", "nose_tip": "小鼻尖", "lip_shape": "柔和唇峰，中等偏丰满的唇部", "cheek_volume": "纤薄面颊仍保留自然体积" },
-      "expression": { "gaze": "平静而克制的直视", "mouth_state": "嘴唇自然闭合" },
+      "label": "清冷细长",
+      "family": "F01",
+      "scope": "young_adult_female_reference_group",
+      "source_image_number": 1,
+      "traits": {
+        "face_shape": "窄长椭圆脸",
+        "face_length": "略长",
+        "cheekbone": "颧骨平顺",
+        "chin": "窄而圆的下巴",
+        "eye_shape": "修长杏眼",
+        "eye_tail": "眼尾轻微上扬",
+        "nose_bridge": "细直鼻梁",
+        "nose_tip": "小鼻尖",
+        "lip_shape": "柔和唇峰，中等偏丰满的唇部",
+        "cheek_volume": "纤薄面颊仍保留自然体积"
+      },
+      "expression": {
+        "gaze": "平静而克制的直视",
+        "mouth_state": "嘴唇自然闭合"
+      },
       "expression_basis": "design_default",
-      "uncertain": ["眼距、自然眉形、眼睑褶皱和鼻翼形态未由导入分析确认", "上下唇分别的体积关系未确认", "侧面骨相未在本轮看图确认"],
-      "distinctive_axes": ["face_shape", "cheek_volume", "eye_shape", "chin"]
+      "uncertain": [
+        "眼距、自然眉形、眼睑褶皱和鼻翼形态未由导入分析确认",
+        "上下唇分别的体积关系未确认",
+        "侧面骨相未在本轮看图确认"
+      ],
+      "distinctive_axes": [
+        "face_shape",
+        "cheek_volume",
+        "eye_shape",
+        "chin"
+      ]
     },
     "FD02": {
-      "label": "锋锐英气", "family": "F01", "scope": "young_adult_female_reference_group", "source_image_number": 2,
-      "traits": { "face_shape": "窄椭圆脸", "jaw": "下颌转折清晰", "eye_shape": "较长且略窄的杏眼", "eye_tail": "眼尾轻微上扬", "nose_bridge": "细直鼻梁", "nose_tip": "收敛的鼻尖", "lip_shape": "精致清楚的唇线" },
-      "expression": { "gaze": "专注而克制的凝视", "mouth_state": "嘴唇自然闭合" },
+      "label": "锋锐英气",
+      "family": "F01",
+      "scope": "young_adult_female_reference_group",
+      "source_image_number": 2,
+      "traits": {
+        "face_shape": "窄椭圆脸",
+        "jaw": "下颌转折清晰",
+        "eye_shape": "较长且略窄的杏眼",
+        "eye_tail": "眼尾轻微上扬",
+        "nose_bridge": "细直鼻梁",
+        "nose_tip": "收敛的鼻尖",
+        "lip_shape": "精致清楚的唇线"
+      },
+      "expression": {
+        "gaze": "专注而克制的凝视",
+        "mouth_state": "嘴唇自然闭合"
+      },
       "expression_basis": "design_default",
-      "uncertain": ["低头与侧光影响眉眼阴影，不能据此固定为高眉骨或深眼窝", "眼距、自然眉形、眼睑和面颊体积未由导入分析确认", "下巴具体形态和上下唇体积关系未确认"],
-      "distinctive_axes": ["jaw", "eye_shape", "nose_tip", "lip_shape"]
+      "uncertain": [
+        "低头与侧光影响眉眼阴影，不能据此固定为高眉骨或深眼窝",
+        "眼距、自然眉形、眼睑和面颊体积未由导入分析确认",
+        "下巴具体形态和上下唇体积关系未确认"
+      ],
+      "distinctive_axes": [
+        "jaw",
+        "eye_shape",
+        "nose_tip",
+        "lip_shape"
+      ]
     },
     "FD03": {
-      "label": "都市明艳", "family": "F02", "scope": "young_adult_female_reference_group", "source_image_number": 3,
-      "traits": { "face_shape": "均衡的小椭圆脸", "chin": "短圆下巴", "eye_shape": "圆杏眼", "eye_aperture": "中性状态下开合较大", "nose_tip": "细圆鼻尖", "lip_shape": "丰满的唇部和清楚的唇峰", "cheek_volume": "柔和饱满的面颊" },
-      "expression": { "gaze": "明亮自信的直视", "mouth_state": "嘴唇自然闭合" },
+      "label": "都市明艳",
+      "family": "F02",
+      "scope": "young_adult_female_reference_group",
+      "source_image_number": 3,
+      "traits": {
+        "face_shape": "均衡的小椭圆脸",
+        "chin": "短圆下巴",
+        "eye_shape": "圆杏眼",
+        "eye_aperture": "中性状态下开合较大",
+        "nose_tip": "细圆鼻尖",
+        "lip_shape": "丰满的唇部和清楚的唇峰",
+        "cheek_volume": "柔和饱满的面颊"
+      },
+      "expression": {
+        "gaze": "明亮自信的直视",
+        "mouth_state": "嘴唇自然闭合"
+      },
       "expression_basis": "design_default",
-      "uncertain": ["眼尾、眼距、自然眉形和鼻梁高度未由导入分析确认", "上下唇分别的体积关系和侧面结构未确认"],
-      "distinctive_axes": ["eye_aperture", "cheek_volume", "lip_shape", "chin"]
+      "uncertain": [
+        "眼尾、眼距、自然眉形和鼻梁高度未由导入分析确认",
+        "上下唇分别的体积关系和侧面结构未确认"
+      ],
+      "distinctive_axes": [
+        "eye_aperture",
+        "cheek_volume",
+        "lip_shape",
+        "chin"
+      ]
     },
     "FD04": {
-      "label": "明媚灵动", "family": "F03", "scope": "young_adult_female_reference_group", "source_image_number": 4,
-      "traits": { "face_shape": "柔和的小椭圆脸", "chin": "短圆下巴", "eye_shape": "圆杏眼", "eye_tail": "眼尾平直", "lip_shape": "柔和唇形", "cheek_volume": "自然的苹果肌体积" },
-      "expression": { "gaze": "明亮灵动的注视", "mouth_state": "轻微微笑" },
+      "label": "明媚灵动",
+      "family": "F03",
+      "scope": "young_adult_female_reference_group",
+      "source_image_number": 4,
+      "traits": {
+        "face_shape": "柔和的小椭圆脸",
+        "chin": "短圆下巴",
+        "eye_shape": "圆杏眼",
+        "eye_tail": "眼尾平直",
+        "lip_shape": "柔和唇形",
+        "cheek_volume": "自然的苹果肌体积"
+      },
+      "expression": {
+        "gaze": "明亮灵动的注视",
+        "mouth_state": "轻微微笑"
+      },
       "expression_basis": "design_default",
-      "uncertain": ["眼距、眼睑、自然眉形及鼻梁与鼻尖的具体结构未由导入分析确认", "苹果肌在不同表情下的体积变化未核对", "上下唇分别的体积关系未确认"],
-      "distinctive_axes": ["eye_tail", "cheek_volume", "chin", "lip_shape"]
+      "uncertain": [
+        "眼距、眼睑、自然眉形及鼻梁与鼻尖的具体结构未由导入分析确认",
+        "苹果肌在不同表情下的体积变化未核对",
+        "上下唇分别的体积关系未确认"
+      ],
+      "distinctive_axes": [
+        "eye_tail",
+        "cheek_volume",
+        "chin",
+        "lip_shape"
+      ]
     },
     "FD05": {
-      "label": "温柔仙气", "family": "F03", "scope": "young_adult_female_reference_group", "source_image_number": 5,
-      "traits": { "face_shape": "柔和椭圆脸", "jaw": "下半脸细而自然地收束", "eye_shape": "较大的圆杏眼", "eye_aperture": "中性状态下开合较大", "eye_tail": "眼尾轻微下垂", "nose_bridge": "细直鼻梁", "nose_tip": "圆润鼻尖", "lip_shape": "柔和丰满的唇形" },
-      "expression": { "gaze": "柔和安静的注视", "mouth_state": "嘴唇自然闭合" },
+      "label": "温柔仙气",
+      "family": "F03",
+      "scope": "young_adult_female_reference_group",
+      "source_image_number": 5,
+      "traits": {
+        "face_shape": "柔和椭圆脸",
+        "jaw": "下半脸细而自然地收束",
+        "eye_shape": "较大的圆杏眼",
+        "eye_aperture": "中性状态下开合较大",
+        "eye_tail": "眼尾轻微下垂",
+        "nose_bridge": "细直鼻梁",
+        "nose_tip": "圆润鼻尖",
+        "lip_shape": "柔和丰满的唇形"
+      },
+      "expression": {
+        "gaze": "柔和安静的注视",
+        "mouth_state": "嘴唇自然闭合"
+      },
       "expression_basis": "design_default",
-      "uncertain": ["眼距、自然眉形、面颊体积和眼睑细节未由导入分析确认", "下半脸收束不证明尖削下巴", "上下唇分别的体积关系未确认"],
-      "distinctive_axes": ["jaw", "eye_tail", "eye_aperture", "nose_tip"]
+      "uncertain": [
+        "眼距、自然眉形、面颊体积和眼睑细节未由导入分析确认",
+        "下半脸收束不证明尖削下巴",
+        "上下唇分别的体积关系未确认"
+      ],
+      "distinctive_axes": [
+        "jaw",
+        "eye_tail",
+        "eye_aperture",
+        "nose_tip"
+      ]
     },
     "FD06": {
-      "label": "冷艳凝视", "family": "F01", "scope": "young_adult_female_reference_group", "source_image_number": 6,
-      "traits": { "face_shape": "窄长椭圆脸", "face_length": "略长", "eye_shape": "修长而轮廓清晰的杏眼", "eye_tail": "眼尾轻微上扬", "nose_bridge": "细直鼻梁", "nose_tip": "小鼻尖", "lip_shape": "立体丰满的唇部", "cheek_volume": "收敛但仍有体积的面颊" },
-      "expression": { "gaze": "眉眼张力较强的专注凝视", "mouth_state": "嘴唇自然闭合" },
+      "label": "冷艳凝视",
+      "family": "F01",
+      "scope": "young_adult_female_reference_group",
+      "source_image_number": 6,
+      "traits": {
+        "face_shape": "窄长椭圆脸",
+        "face_length": "略长",
+        "eye_shape": "修长而轮廓清晰的杏眼",
+        "eye_tail": "眼尾轻微上扬",
+        "nose_bridge": "细直鼻梁",
+        "nose_tip": "小鼻尖",
+        "lip_shape": "立体丰满的唇部",
+        "cheek_volume": "收敛但仍有体积的面颊"
+      },
+      "expression": {
+        "gaze": "眉眼张力较强的专注凝视",
+        "mouth_state": "嘴唇自然闭合"
+      },
       "expression_basis": "design_default",
-      "uncertain": ["眼窝深度受光线影响，未获得本轮像素核验", "眼距、自然眉形、下颌和下巴细节未由导入分析确认", "上下唇分别的体积关系未确认"],
-      "distinctive_axes": ["eye_shape", "cheek_volume", "lip_shape", "face_length"]
+      "uncertain": [
+        "眼窝深度受光线影响，未获得本轮像素核验",
+        "眼距、自然眉形、下颌和下巴细节未由导入分析确认",
+        "上下唇分别的体积关系未确认"
+      ],
+      "distinctive_axes": [
+        "eye_shape",
+        "cheek_volume",
+        "lip_shape",
+        "face_length"
+      ]
     },
     "FD07": {
-      "label": "柔和淡颜", "family": "F04", "scope": "young_adult_female_reference_group", "source_image_number": 7,
-      "traits": { "face_shape": "短椭圆脸", "face_length": "偏短", "cheekbone": "颧骨平顺", "chin": "圆润下巴", "eye_shape": "杏圆眼", "eye_tail": "眼尾轻微下垂", "eyelid": "上睑自然轻覆", "nose_bridge": "自然鼻梁", "nose_tip": "圆润鼻尖", "lip_shape": "自然丰满的唇形", "cheek_volume": "圆润面颊" },
-      "expression": { "gaze": "平静柔和的注视", "mouth_state": "嘴唇自然闭合" },
+      "label": "柔和淡颜",
+      "family": "F04",
+      "scope": "young_adult_female_reference_group",
+      "source_image_number": 7,
+      "traits": {
+        "face_shape": "短椭圆脸",
+        "face_length": "偏短",
+        "cheekbone": "颧骨平顺",
+        "chin": "圆润下巴",
+        "eye_shape": "杏圆眼",
+        "eye_tail": "眼尾轻微下垂",
+        "eyelid": "上睑自然轻覆",
+        "nose_bridge": "自然鼻梁",
+        "nose_tip": "圆润鼻尖",
+        "lip_shape": "自然丰满的唇形",
+        "cheek_volume": "圆润面颊"
+      },
+      "expression": {
+        "gaze": "平静柔和的注视",
+        "mouth_state": "嘴唇自然闭合"
+      },
       "expression_basis": "design_default",
-      "uncertain": ["眼距、自然眉形和鼻翼形态未由导入分析确认", "上下唇分别的体积关系和侧面结构未确认"],
-      "distinctive_axes": ["face_length", "eyelid", "eye_tail", "cheekbone"]
+      "uncertain": [
+        "眼距、自然眉形和鼻翼形态未由导入分析确认",
+        "上下唇分别的体积关系和侧面结构未确认"
+      ],
+      "distinctive_axes": [
+        "face_length",
+        "eyelid",
+        "eye_tail",
+        "cheekbone"
+      ]
     },
     "FD08": {
-      "label": "软圆纯净", "family": "F04", "scope": "young_adult_female_reference_group", "source_image_number": 8,
-      "traits": { "face_shape": "短小椭圆脸", "face_length": "偏短", "chin": "短圆下巴", "eye_shape": "圆杏眼", "eye_tail": "无明显上挑的眼尾", "nose_tip": "小而圆的鼻尖", "lip_shape": "丰满唇部与柔和唇珠", "cheek_volume": "丰润面颊" },
-      "expression": { "gaze": "清澈柔和的直视", "mouth_state": "嘴唇自然闭合" },
+      "label": "软圆纯净",
+      "family": "F04",
+      "scope": "young_adult_female_reference_group",
+      "source_image_number": 8,
+      "traits": {
+        "face_shape": "短小椭圆脸",
+        "face_length": "偏短",
+        "chin": "短圆下巴",
+        "eye_shape": "圆杏眼",
+        "eye_tail": "无明显上挑的眼尾",
+        "nose_tip": "小而圆的鼻尖",
+        "lip_shape": "丰满唇部与柔和唇珠",
+        "cheek_volume": "丰润面颊"
+      },
+      "expression": {
+        "gaze": "清澈柔和的直视",
+        "mouth_state": "嘴唇自然闭合"
+      },
       "expression_basis": "design_default",
-      "uncertain": ["眼距、眼睑、自然眉形及鼻梁形态未由导入分析确认", "上下唇分别的体积关系未确认", "纯净是审美表达，不是未成年年龄标记"],
-      "distinctive_axes": ["cheek_volume", "chin", "nose_tip", "lip_shape"]
+      "uncertain": [
+        "眼距、眼睑、自然眉形及鼻梁形态未由导入分析确认",
+        "上下唇分别的体积关系未确认",
+        "纯净是审美表达，不是未成年年龄标记"
+      ],
+      "distinctive_axes": [
+        "cheek_volume",
+        "chin",
+        "nose_tip",
+        "lip_shape"
+      ]
     },
     "FD09": {
-      "label": "明丽锐感", "family": "F01", "scope": "young_adult_female_reference_group", "source_image_number": 9,
-      "traits": { "face_shape": "窄椭圆脸", "eye_shape": "清晰修长的杏眼", "eye_tail": "眼尾轻微上扬", "nose_bridge": "细直而精巧的鼻梁", "lip_shape": "柔和唇峰", "lip_balance": "下唇略丰满", "cheek_volume": "适度面颊体积" },
-      "expression": { "gaze": "明亮而锐利的注视", "mouth_state": "嘴唇自然闭合" },
+      "label": "明丽锐感",
+      "family": "F01",
+      "scope": "young_adult_female_reference_group",
+      "source_image_number": 9,
+      "traits": {
+        "face_shape": "窄椭圆脸",
+        "eye_shape": "清晰修长的杏眼",
+        "eye_tail": "眼尾轻微上扬",
+        "nose_bridge": "细直而精巧的鼻梁",
+        "lip_shape": "柔和唇峰",
+        "lip_balance": "下唇略丰满",
+        "cheek_volume": "适度面颊体积"
+      },
+      "expression": {
+        "gaze": "明亮而锐利的注视",
+        "mouth_state": "嘴唇自然闭合"
+      },
       "expression_basis": "design_default",
-      "uncertain": ["低头与侧光影响眉眼阴影，不能据此固定为高眉骨或深眼窝", "眼距、自然眉形、眼睑和鼻尖形态未由导入分析确认", "下颌与下巴细节未确认"],
-      "distinctive_axes": ["eye_shape", "cheek_volume", "lip_balance", "nose_bridge"]
+      "uncertain": [
+        "低头与侧光影响眉眼阴影，不能据此固定为高眉骨或深眼窝",
+        "眼距、自然眉形、眼睑和鼻尖形态未由导入分析确认",
+        "下颌与下巴细节未确认"
+      ],
+      "distinctive_axes": [
+        "eye_shape",
+        "cheek_volume",
+        "lip_balance",
+        "nose_bridge"
+      ]
     },
     "FD10": {
-      "label": "自然电影感", "family": "F04", "scope": "young_adult_female_reference_group", "source_image_number": 10,
-      "traits": { "face_shape": "自然椭圆脸", "jaw": "不尖瘦的自然下颌", "eye_shape": "较大的杏眼", "eye_aperture": "中性状态下开合较大", "eyelid": "上睑自然轻覆", "nose_bridge": "自然挺直的鼻梁", "nose_wing": "自然可见的真实鼻翼结构", "lip_shape": "柔和丰满的唇形", "cheek_volume": "柔软自然的面颊" },
-      "expression": { "gaze": "安静而有反应的注视", "mouth_state": "嘴唇自然闭合" },
+      "label": "自然电影感",
+      "family": "F04",
+      "scope": "young_adult_female_reference_group",
+      "source_image_number": 10,
+      "traits": {
+        "face_shape": "自然椭圆脸",
+        "jaw": "不尖瘦的自然下颌",
+        "eye_shape": "较大的杏眼",
+        "eye_aperture": "中性状态下开合较大",
+        "eyelid": "上睑自然轻覆",
+        "nose_bridge": "自然挺直的鼻梁",
+        "nose_wing": "自然可见的真实鼻翼结构",
+        "lip_shape": "柔和丰满的唇形",
+        "cheek_volume": "柔软自然的面颊"
+      },
+      "expression": {
+        "gaze": "安静而有反应的注视",
+        "mouth_state": "嘴唇自然闭合"
+      },
       "expression_basis": "design_default",
-      "uncertain": ["眼距、自然眉形、眼尾和鼻尖形态未由导入分析确认", "不对称的具体部位与幅度尚未由本轮像素核验", "上下唇分别的体积关系未确认"],
-      "distinctive_axes": ["jaw", "eyelid", "nose_wing", "cheek_volume"]
+      "uncertain": [
+        "眼距、自然眉形、眼尾和鼻尖形态未由导入分析确认",
+        "不对称的具体部位与幅度尚未由本轮像素核验",
+        "上下唇分别的体积关系未确认"
+      ],
+      "distinctive_axes": [
+        "jaw",
+        "eyelid",
+        "nose_wing",
+        "cheek_volume"
+      ]
     }
-  }
+  },
+  "identity_layers": [
+    "structure",
+    "soft_tissue",
+    "surface_identity"
+  ],
+  "control_semantics": {
+    "value_type": "authored_visual_prose",
+    "range": "qualitative, task-specific; no universal game slider range",
+    "laterality_frame": "subject_left_and_right",
+    "selection": "only selected known or explicitly designed axes enter the prompt",
+    "unobserved": "not automatically filled from seeds, mirrors or other faces",
+    "game_parameter_import": false,
+    "precise_geometry_execution": false
+  },
+  "schema_provenance": {
+    "kind": "project_authored_factor_model",
+    "research": "docs/game-face-system-research-2026-10-11.md",
+    "basis": [
+      "Official game workflows inform organization and review, not exact anatomical slider names or ranges.",
+      "Existing FD seeds and their analysis_import limitations remain unchanged."
+    ],
+    "sources": [
+      "https://m.yjwujian.cn/news/official/20240708/40281_1165610.html",
+      "https://www.yysls.cn/news/official/20250107/37780_1204881.html",
+      "https://www.wherewindsmeetgame.com/news/official/JAN8.html"
+    ]
+  },
+  "groups": {
+    "head": {
+      "label": "整体头脸与五官布局",
+      "stage": "global_structure",
+      "axes": [
+        "face_shape",
+        "face_length",
+        "head_shape",
+        "head_width",
+        "head_depth",
+        "face_width",
+        "face_profile",
+        "face_taper",
+        "upper_face_width",
+        "midface_width",
+        "lower_face_width",
+        "upper_face_height",
+        "midface_height",
+        "lower_face_height",
+        "feature_vertical_distribution",
+        "feature_center_alignment"
+      ]
+    },
+    "forehead": {
+      "label": "额头、太阳穴与发际线",
+      "stage": "regional_structure",
+      "axes": [
+        "forehead_height",
+        "forehead_width",
+        "forehead_projection",
+        "forehead_slope",
+        "forehead_curvature",
+        "temple_volume",
+        "temple_width",
+        "hairline_height",
+        "hairline_shape",
+        "hairline_recession"
+      ]
+    },
+    "brows": {
+      "label": "眉骨与自然眉毛",
+      "stage": "regional_structure",
+      "axes": [
+        "brow",
+        "brow_head_shape",
+        "brow_body_curve",
+        "brow_peak_shape",
+        "brow_peak_position",
+        "brow_arch_height",
+        "brow_tail_shape",
+        "brow_tail_angle",
+        "brow_length",
+        "brow_thickness",
+        "brow_spacing",
+        "brow_eye_distance",
+        "brow_bone_height",
+        "brow_bone_projection",
+        "brow_density",
+        "brow_hair_direction",
+        "brow_natural_color"
+      ]
+    },
+    "eyes": {
+      "label": "眼睛、眼睑与眼周",
+      "stage": "regional_structure",
+      "axes": [
+        "eye_shape",
+        "eye_aperture",
+        "eye_tail",
+        "eye_spacing",
+        "eyelid",
+        "eye_width",
+        "eye_height_position",
+        "eye_depth",
+        "eye_protrusion",
+        "inner_canthus_shape",
+        "outer_canthus_shape",
+        "inner_canthus_height",
+        "outer_canthus_height",
+        "upper_eyelid_fold_height",
+        "upper_eyelid_fold_width",
+        "upper_lid_coverage",
+        "lower_lid_contour",
+        "eyelid_thickness",
+        "epicanthal_fold",
+        "iris_size",
+        "eye_white_showing",
+        "under_eye_volume",
+        "tear_trough_depth",
+        "iris_color",
+        "lashes_length",
+        "lashes_density",
+        "lashes_curve"
+      ]
+    },
+    "nose": {
+      "label": "鼻根、鼻梁、鼻尖与鼻翼",
+      "stage": "regional_structure",
+      "axes": [
+        "nose_bridge",
+        "nose_tip",
+        "nose_wing",
+        "nose_length",
+        "nose_width",
+        "nose_height_position",
+        "nose_root_height",
+        "nose_root_width",
+        "nose_bridge_height",
+        "nose_bridge_width",
+        "nose_bridge_curvature",
+        "nose_tip_projection",
+        "nose_tip_rotation",
+        "alar_width",
+        "alar_height",
+        "nostril_shape",
+        "nostril_visibility",
+        "columella_visibility",
+        "nose_base_projection",
+        "nasolabial_angle",
+        "nose_tip_width",
+        "nose_tip_height",
+        "nose_tip_roundness",
+        "alar_thickness",
+        "nose_midline_alignment"
+      ]
+    },
+    "philtrum": {
+      "label": "人中与鼻唇过渡",
+      "stage": "regional_structure",
+      "axes": [
+        "philtrum_length",
+        "philtrum_width",
+        "philtrum_depth",
+        "philtrum_ridge_shape",
+        "subnasal_transition"
+      ]
+    },
+    "mouth": {
+      "label": "嘴巴、唇部与口角",
+      "stage": "regional_structure",
+      "axes": [
+        "lip_shape",
+        "lip_balance",
+        "mouth_width",
+        "mouth_height_position",
+        "upper_lip_thickness",
+        "lower_lip_thickness",
+        "upper_lip_projection",
+        "lower_lip_projection",
+        "cupid_bow_width",
+        "cupid_bow_height",
+        "lip_tubercle",
+        "vermilion_border",
+        "mouth_corner_height",
+        "mouth_corner_shape",
+        "mouth_corner_depth",
+        "mouth_protrusion",
+        "mentolabial_fold_depth",
+        "lip_natural_color",
+        "lip_seam_curve"
+      ]
+    },
+    "cheeks": {
+      "label": "颧骨、面颊与中面部",
+      "stage": "regional_structure",
+      "axes": [
+        "cheekbone",
+        "cheek_volume",
+        "cheekbone_height",
+        "cheekbone_width",
+        "cheekbone_projection",
+        "midface_projection",
+        "upper_cheek_volume",
+        "lower_cheek_volume",
+        "cheek_hollow",
+        "nasolabial_fold",
+        "nasolabial_fold_orientation",
+        "nose_cheek_transition"
+      ]
+    },
+    "jaw_chin": {
+      "label": "下颌、下巴与颏颈过渡",
+      "stage": "regional_structure",
+      "axes": [
+        "jaw",
+        "chin",
+        "jaw_width",
+        "jaw_angle_height",
+        "jaw_angle_shape",
+        "jaw_angle_projection",
+        "mandible_body_slope",
+        "chin_width",
+        "chin_height",
+        "chin_projection",
+        "chin_point_position",
+        "chin_cleft",
+        "under_chin_volume",
+        "chin_neck_transition"
+      ]
+    },
+    "ears": {
+      "label": "耳部",
+      "stage": "regional_structure",
+      "axes": [
+        "ear_size",
+        "ear_position",
+        "ear_projection",
+        "ear_rotation",
+        "helix_shape",
+        "antihelix_shape",
+        "concha_shape",
+        "earlobe_shape",
+        "earlobe_attachment"
+      ]
+    },
+    "surface": {
+      "label": "基础肤色与个体表面特征",
+      "stage": "identity_surface",
+      "axes": [
+        "skin_base_color",
+        "skin_undertone",
+        "freckles",
+        "moles",
+        "scars",
+        "birthmarks",
+        "skin_age_lines",
+        "facial_hair_density",
+        "facial_hair_distribution"
+      ]
+    },
+    "asymmetry": {
+      "label": "已观察或获准的不对称",
+      "stage": "identity_relationship",
+      "axes": [
+        "asymmetry"
+      ]
+    },
+    "expression": {
+      "label": "当前神态与表情动作",
+      "stage": "variable_expression",
+      "axes": [
+        "gaze",
+        "mouth_state",
+        "pupil_size",
+        "brow_motion",
+        "eyelid_motion",
+        "mouth_corner_motion",
+        "cheek_motion",
+        "nose_motion",
+        "jaw_motion",
+        "expression_tension",
+        "expression_intensity",
+        "gum_showing"
+      ]
+    },
+    "presentation": {
+      "label": "妆肤、毛发呈现与观察条件",
+      "stage": "variable_presentation",
+      "axes": [
+        "makeup",
+        "skin_finish",
+        "lighting",
+        "hair",
+        "brow_makeup",
+        "eyeshadow",
+        "eyeliner",
+        "eyelash_makeup",
+        "lip_makeup",
+        "blush",
+        "contour",
+        "highlighter",
+        "skin_coverage",
+        "skin_gloss",
+        "skin_texture",
+        "face_decoration",
+        "hair_color",
+        "hair_parting",
+        "facial_hair_grooming",
+        "eye_catchlight",
+        "lighting_direction",
+        "lighting_softness",
+        "camera_angle",
+        "camera_distance"
+      ]
+    },
+    "oral": {
+      "label": "可见牙齿与口内关系",
+      "stage": "regional_structure",
+      "axes": [
+        "teeth_alignment",
+        "tooth_shape",
+        "tooth_spacing",
+        "dental_arch",
+        "teeth_color"
+      ]
+    }
+  },
+  "relationship_checks": [
+    {
+      "id": "head_face_widths",
+      "axes": [
+        "head_width",
+        "face_width",
+        "upper_face_width",
+        "midface_width",
+        "lower_face_width",
+        "face_taper"
+      ],
+      "question": "整体头脸、各段宽度与下脸收束是否协调，是否意外把所有人物缩成同款V脸？"
+    },
+    {
+      "id": "vertical_layout",
+      "axes": [
+        "upper_face_height",
+        "midface_height",
+        "lower_face_height",
+        "forehead_height",
+        "hairline_height",
+        "feature_vertical_distribution"
+      ],
+      "question": "上下庭、中庭与发际线是否匹配本人物；不把三等分当强制美学模板。"
+    },
+    {
+      "id": "brow_eye",
+      "axes": [
+        "brow_eye_distance",
+        "brow_arch_height",
+        "brow_bone_projection",
+        "eye_height_position",
+        "upper_eyelid_fold_height"
+      ],
+      "question": "眉形、眉骨与眼睑是否衔接，眉妆和侧光是否被误判为骨相变化？"
+    },
+    {
+      "id": "eye_spacing_width",
+      "axes": [
+        "eye_spacing",
+        "eye_width",
+        "face_width",
+        "nose_root_width"
+      ],
+      "question": "眼距与眼裂长度、脸宽和鼻根宽度是否协调，不用一条固定比例覆盖不同人。"
+    },
+    {
+      "id": "eyelid_opening",
+      "axes": [
+        "eye_aperture",
+        "upper_lid_coverage",
+        "eyelid",
+        "eye_white_showing",
+        "eyelid_motion"
+      ],
+      "question": "中性眼型与当前眨眼、笑眯眼的表情变化是否分开？"
+    },
+    {
+      "id": "nose_philtrum_mouth",
+      "axes": [
+        "nose_length",
+        "nose_height_position",
+        "nose_base_projection",
+        "philtrum_length",
+        "mouth_height_position",
+        "upper_lip_projection"
+      ],
+      "question": "鼻下、人中与嘴部摆位是否连贯；改鼻或上唇后只复查邻接关系，不自动改未授权轴。"
+    },
+    {
+      "id": "philtrum_cupid_bow",
+      "axes": [
+        "philtrum_width",
+        "philtrum_depth",
+        "philtrum_ridge_shape",
+        "cupid_bow_width",
+        "cupid_bow_height",
+        "lip_tubercle"
+      ],
+      "question": "人中沟嵴、唇峰和唇珠的连接是否连续？"
+    },
+    {
+      "id": "lip_balance_detail",
+      "axes": [
+        "lip_shape",
+        "lip_balance",
+        "upper_lip_thickness",
+        "lower_lip_thickness",
+        "mouth_width",
+        "vermilion_border"
+      ],
+      "question": "综合唇形与细项是否相容，唇妆是否外扩成另一套唇形？"
+    },
+    {
+      "id": "lower_lip_chin",
+      "axes": [
+        "lower_lip_projection",
+        "mentolabial_fold_depth",
+        "chin_height",
+        "chin_projection",
+        "lower_face_height"
+      ],
+      "question": "下唇、颏沟和下巴是否衔接，不把尖削长颏当所有人的默认。"
+    },
+    {
+      "id": "cheek_jaw_volume",
+      "axes": [
+        "cheekbone",
+        "cheekbone_width",
+        "cheekbone_projection",
+        "cheek_volume",
+        "lower_cheek_volume",
+        "jaw_width",
+        "jaw_angle_shape"
+      ],
+      "question": "骨性转折与软组织体积是否各自成立，不把受光凹影当固定凹颊？"
+    },
+    {
+      "id": "profile_continuity",
+      "axes": [
+        "forehead_slope",
+        "nose_bridge_curvature",
+        "nose_tip_projection",
+        "nasolabial_angle",
+        "mouth_protrusion",
+        "chin_projection"
+      ],
+      "question": "侧面额鼻唇颏是否连续；缺侧面参考时不声称精准侧脸复刻。"
+    },
+    {
+      "id": "ear_head",
+      "axes": [
+        "ear_size",
+        "ear_position",
+        "ear_projection",
+        "head_width",
+        "jaw_angle_height"
+      ],
+      "question": "耳部位置体积与头颌关系是否协调，遮耳来源仍保持未知？"
+    },
+    {
+      "id": "surface_vs_finish",
+      "axes": [
+        "skin_base_color",
+        "skin_undertone",
+        "skin_age_lines",
+        "skin_finish",
+        "skin_gloss",
+        "lighting"
+      ],
+      "question": "基础肤色和年龄体积与妆面、纹理、白平衡是否分开，不借提亮换年龄或肤色。"
+    },
+    {
+      "id": "natural_brow_vs_makeup",
+      "axes": [
+        "brow",
+        "brow_thickness",
+        "brow_density",
+        "brow_makeup",
+        "eyeliner",
+        "eye_tail"
+      ],
+      "question": "自然毛流和眼裂轮廓与眉妆、眼线是否分开？"
+    },
+    {
+      "id": "laterality",
+      "axes": [
+        "asymmetry",
+        "feature_center_alignment",
+        "eye_shape",
+        "brow",
+        "mouth_corner_height"
+      ],
+      "question": "左右均指人物自身；参考没露出的另一侧不镜像推定已核实。"
+    },
+    {
+      "id": "oral_expression",
+      "axes": [
+        "mouth_state",
+        "jaw_motion",
+        "gum_showing",
+        "teeth_alignment",
+        "dental_arch"
+      ],
+      "question": "表情与口内显露是否连贯；闭唇来源没有看到的牙齿不得记为严格保持，获准露齿时另列设计补全。"
+    }
+  ],
+  "preview_protocol": {
+    "baseline": [
+      "front",
+      "three_quarter",
+      "profile"
+    ],
+    "neutral_expression": true,
+    "comparable_camera_and_lighting": true,
+    "separate_expression_and_scene_checks": true,
+    "unavailable_view": "mark uncertain or not_assessable, never synthesize validation",
+    "requires_actual_images": true
+  },
+  "group_order": [
+    "head",
+    "forehead",
+    "brows",
+    "eyes",
+    "nose",
+    "philtrum",
+    "mouth",
+    "oral",
+    "cheeks",
+    "jaw_chin",
+    "ears",
+    "surface",
+    "asymmetry",
+    "expression",
+    "presentation"
+  ]
 }

@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>视觉偏好参考库</title>
+  <style>
+    :root { color-scheme: light; font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: #29312d; background: #f5f6f3; --ink: #29312d; --muted: #56655b; --line: #cbd3ca; --accent: #385b47; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    [hidden] { display: none !important; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button, select, input[type="search"], input[type="text"], textarea { border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+    button { cursor: pointer; padding: 8px 12px; }
+    button:hover:not(:disabled) { background: #e9eee7; }
+    button:disabled { cursor: not-allowed; color: #687269; background: #eef0ec; }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid #3c6173; outline-offset: 3px; }
+    input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); flex-shrink: 0; }
+    a { color: #315b4d; text-underline-offset: 3px; }
+    p { line-height: 1.85; }
+    h1 { font-size: clamp(25px, 3vw, 33px); line-height: 1.4; margin: 0 0 13px; }
+    h2 { font-size: 21px; line-height: 1.6; margin: 0; }
+    h3 { font-size: 16px; line-height: 1.7; margin: 0; }
+    .page { max-width: 1510px; margin: 0 auto; padding: 30px 28px 50px; }
+    .intro { max-width: 1050px; color: var(--muted); font-size: 14px; margin: 0 0 20px; }
+    .notice { margin: 0 0 20px; padding: 12px 15px; background: #e8ede5; color: #42553f; font-size: 13px; }
+    .load-state { margin: 18px 0; padding: 22px; background: #fff; border: 1px solid var(--line); border-radius: 8px; line-height: 1.8; }
+    .filters { display: grid; grid-template-columns: 2fr repeat(3, minmax(125px, 1fr)); gap: 11px 16px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .field { display: flex; flex-direction: column; min-width: 0; gap: 7px; font-size: 13px; }
+    .field select, .field input { width: 100%; padding: 10px 11px; min-height: 42px; }
+    .filter-actions { display: flex; align-items: end; gap: 14px; flex-wrap: wrap; }
+    .checkbox-label { display: inline-flex; align-items: center; gap: 7px; min-height: 42px; font-size: 13px; cursor: pointer; }
+    .result-line { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 17px 0; color: var(--muted); font-size: 13px; }
+    .gallery { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 12px; }
+    .asset-button { display: block; padding: 0; min-width: 0; text-align: left; overflow: hidden; border-radius: 7px; }
+    .asset-button[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+    .thumb-stage { display: flex; align-items: center; justify-content: center; height: 166px; background: #e7ebe3; }
+    .thumb-stage img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .placeholder { font-size: 12px; padding: 12px; line-height: 1.7; text-align: center; color: var(--muted); }
+    .asset-caption { display: flex; flex-direction: column; gap: 4px; padding: 10px 10px 12px; }
+    .asset-id { font-size: 12px; color: var(--muted); }
+    .asset-title { font-size: 13px; font-weight: 600; line-height: 1.7; }
+    .asset-source { font-size: 11px; color: var(--muted); line-height: 1.6; }
+    .empty { margin: 0; padding: 30px; text-align: center; border: 1px dashed var(--line); color: var(--muted); font-size: 14px; }
+    .workspace { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 26px; margin-top: 31px; align-items: start; }
+    .detail { min-width: 0; }
+    .detail-header { display: flex; justify-content: space-between; gap: 17px; align-items: start; margin-bottom: 16px; }
+    .detail-header p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+    .pager { display: flex; gap: 7px; flex-shrink: 0; }
+    .detail-body { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr); gap: 22px; }
+    .image-frame { margin: 0; min-width: 0; }
+    .large-stage { min-height: 310px; display: flex; align-items: center; justify-content: center; background: #e7ebe3; }
+    .large-stage a { display: block; width: 100%; }
+    .large-stage img { display: block; width: 100%; max-height: 76vh; object-fit: contain; }
+    .image-frame figcaption { font-size: 12px; color: var(--muted); line-height: 1.8; padding: 10px 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .tag { font-size: 12px; line-height: 1.7; padding: 3px 7px; background: #e8ede5; color: #42583e; border-radius: 4px; }
+    .metadata { font-size: 13px; line-height: 1.85; margin: 0 0 17px; }
+    .metadata dt { color: var(--muted); margin-top: 9px; }
+    .metadata dd { margin: 2px 0 0; overflow-wrap: anywhere; }
+    .source-details { margin: 0 0 18px; font-size: 13px; }
+    .source-details summary { cursor: pointer; padding: 5px 0; color: var(--muted); }
+    .source-details .metadata { margin: 4px 0 10px; }
+    .boundary { font-size: 13px; line-height: 1.85; margin: 0 0 16px; padding-left: 20px; }
+    .observation { margin-top: 11px; border-top: 1px solid var(--line); }
+    .observation summary { cursor: pointer; padding: 13px 0 8px; font-size: 14px; font-weight: 600; }
+    .observation-content { padding: 2px 0 13px; }
+    .observation-content p { font-size: 13px; line-height: 1.85; margin: 5px 0 11px; }
+    .observation-content ul { font-size: 12px; line-height: 1.85; padding-left: 20px; color: var(--muted); margin: 5px 0 11px; }
+    .observation-label { font-size: 12px; color: var(--muted); margin-right: 7px; font-weight: 400; }
+    .dimension-select { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; line-height: 1.8; }
+    .unavailable { display: block; margin-top: 6px; color: #735c36; font-size: 12px; line-height: 1.8; }
+    .plan { min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 18px; position: sticky; top: 18px; }
+    .plan h2 { font-size: 19px; }
+    .plan p { font-size: 12px; color: var(--muted); margin: 8px 0 15px; }
+    .plan .field { margin: 13px 0; }
+    .plan-status { font-size: 12px; line-height: 1.85; min-height: 22px; color: #735c36; margin: 12px 0; }
+    .plan-list { list-style: none; padding: 0; margin: 17px 0; }
+    .plan-list li { border-top: 1px solid #dbe0d6; padding: 11px 0; display: flex; gap: 10px; align-items: center; }
+    .plan-list strong { display: block; font-size: 13px; line-height: 1.7; }
+    .plan-list span { font-size: 12px; line-height: 1.7; color: var(--muted); }
+    .plan-list .remove { margin-left: auto; flex-shrink: 0; font-size: 12px; padding: 5px 8px; }
+    .plan-list .plan-empty { display: block; color: var(--muted); font-size: 13px; }
+    .replacement { padding: 12px; background: #fff1d9; border: 1px solid #c7b591; border-radius: 6px; margin: 14px 0; }
+    .replacement p { color: #624b28; margin: 0 0 11px; }
+    .replacement-actions, .plan-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .primary:hover:not(:disabled) { background: #294a39; }
+    .json-label { display: block; font-size: 12px; color: var(--muted); margin: 18px 0 7px; }
+    #selection-json { width: 100%; min-height: 215px; resize: vertical; padding: 11px; font-family: Consolas, "SFMono-Regular", monospace; font-size: 12px; line-height: 1.7; white-space: pre; }
+    .help { margin-top: 30px; border-top: 1px solid var(--line); padding-top: 20px; font-size: 13px; color: var(--muted); }
+    .help p { max-width: 1050px; margin: 8px 0; }
+    .help summary { cursor: pointer; color: var(--ink); font-weight: 600; }
+    .help ul { line-height: 1.9; margin: 12px 0; padding-left: 20px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    @media (max-width: 1260px) { .gallery { grid-template-columns: repeat(6, minmax(0, 1fr)); } .workspace { grid-template-columns: minmax(0, 1fr) 305px; gap: 20px; } .detail-body { grid-template-columns: 1fr; } .large-stage img { max-height: 65vh; } }
+    @media (max-width: 850px) { .page { padding: 23px 18px 38px; } .filters { grid-template-columns: repeat(3, minmax(0, 1fr)); } .search-field { grid-column: 1 / -1; } .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); } .workspace { grid-template-columns: 1fr; } .plan { position: static; } .detail-body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+    @media (max-width: 560px) { .page { padding: 20px 14px 35px; } .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .filter-actions { grid-column: 1 / -1; justify-content: space-between; } .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; } .thumb-stage { height: 188px; } .detail-body { grid-template-columns: 1fr; } .detail-header { flex-wrap: wrap; } .detail-header h2 { font-size: 20px; } .result-line { align-items: start; } .plan { padding: 16px; } }
+  </style>
+</head>
+<body>
+  <!-- This reference-library feature inherits the project's restrained green portrait galleries. Originals remain complete; source-level feedback and agent observations are distinct. The visitor finds an image, reads its dimensional limits, and drafts a local plan. There is no image generation, identity registration, feedback mutation, or automatic acceptance in this page. -->
+  <main class="page">
+    <h1>视觉偏好参考库</h1>
+    <p class="intro">按相貌、妆发、服装材质、光色、构图和场景组织参考图。每张图保留完整原图与来源，同一张图可以归入多个类别，借鉴时只取当前任务需要的维度。</p>
+    <p class="notice">“参考视觉偏好”是对整张图的选择；以下细分属性是图像观察，尚未逐项获得用户确认。暖逆光、动势和绘画色块适用于创作参考；统一正面测脸仍使用独立的灯光与构图标准。</p>
+    <div id="load-state" class="load-state" role="status" aria-live="polite">正在读取本地参考目录……</div>
+    <div id="library-content" hidden>
+      <form id="filters" class="filters" role="search" aria-label="筛选视觉参考">
+        <label class="field search-field">搜索图名、标签或观察 <input id="filter-search" type="search" placeholder="例如：暖逆光、青绿、长发" autocomplete="off"></label>
+        <label class="field">偏好维度 <select id="filter-dimension"><option value="">全部维度</option></select></label>
+        <label class="field">参考合集 <select id="filter-collection"><option value="">全部合集</option></select></label>
+        <label class="field">表现媒介 <select id="filter-medium"><option value="">全部媒介</option></select></label>
+        <label class="field">题材 <select id="filter-genre"><option value="">全部题材</option></select></label>
+        <label class="field">来源状态 <select id="filter-source"><option value="">全部来源</option></select></label>
+        <div class="filter-actions"><label class="checkbox-label"><input id="show-rejected" type="checkbox">显示已拒绝样本</label><button id="reset-filters" type="button">重置筛选</button></div>
+      </form>
+      <div class="result-line"><span id="result-count" role="status" aria-live="polite"></span><span>点选原图，查看分项观察</span></div>
+      <div id="gallery" class="gallery" aria-label="参考图目录"></div>
+      <p id="empty-state" class="empty" hidden>没有符合筛选条件的参考。可清空关键词或重置筛选。</p>
+      <div class="workspace">
+        <section id="detail" class="detail" aria-labelledby="detail-title">
+          <div class="detail-header"><div><h2 id="detail-title" tabindex="-1"></h2><p id="detail-subtitle"></p></div><div class="pager"><button id="previous-asset" type="button">上一张</button><button id="next-asset" type="button">下一张</button></div></div>
+          <div class="detail-body"><figure class="image-frame"><div id="large-stage" class="large-stage"></div><figcaption id="image-caption"></figcaption></figure><div><div id="detail-tags" class="tags"></div><dl id="detail-metadata" class="metadata"></dl><details id="source-details" class="source-details"><summary>来源详情</summary><dl id="source-metadata" class="metadata"></dl></details><h3>整图使用边界</h3><ul id="asset-limits" class="boundary"></ul><div id="observations"></div></div></div>
+        </section>
+        <aside class="plan" aria-labelledby="plan-title">
+          <h2 id="plan-title">本地借鉴计划</h2>
+          <p>每个维度保留一个主参考。选择只生成待审阅 JSON；不会调用生图，也不会改变原图、肖像预设或反馈。</p>
+          <label class="field">本轮用途 <select id="selection-context"><option value="new_character">新人物设计</option><option value="scene_creation">场景创作</option><option value="reference_preserve">已有参考保留</option><option value="portrait_standardization">肖像统一测试</option><option value="costume_design">服装设计</option><option value="style_conversion">表现风格转换</option></select></label>
+          <label class="field">计划名称 <input id="plan-id" type="text" value="visual-preference-local-plan" autocomplete="off" spellcheck="false" aria-describedby="plan-id-help"></label>
+          <span id="plan-id-help" class="asset-source">使用英文字母、数字、下划线或短横线。</span>
+          <div id="plan-status" class="plan-status" role="status" aria-live="polite"></div>
+          <div id="replacement" class="replacement" hidden><p id="replacement-text"></p><button id="undo-replacement" type="button">撤销替换</button></div>
+          <ul id="plan-list" class="plan-list"></ul>
+          <div class="plan-actions"><button id="copy-json" type="button" class="primary" disabled>复制计划 JSON</button><button id="clear-plan" type="button" disabled>清空选择</button></div>
+          <label for="selection-json" class="json-label">完整选择输入 · 需通过项目校验后使用</label>
+          <textarea id="selection-json" readonly spellcheck="false" aria-describedby="json-help"></textarea>
+          <p id="json-help">这里保留完整文本。浏览器不支持复制时，可选中文本手动复制；计划未生成图片，也不表示新输出已通过审核。</p>
+        </aside>
+      </div>
+      <details class="help"><summary>偏好类别与肖像预设如何配合</summary><ul><li>相貌观察只可借鉴于“新人物设计”；已有身份以绑定的原图为依据。</li><li>肖像统一测试不继承创作图的灯光、调色、构图、姿态、场景、异兽或媒介，以免干扰测脸比较。</li><li>同样的妆发和服装可能出现在多张图中；画面相似不能据此确认人物是同一身份。</li><li>来源仅为历史记录或外部指针时，只展示已有资料。无法观察的属性保留为未知。</li><li>“已拒绝样本”属于这张图的反馈，不延伸为短发、皮衣或其他类别的统一禁令。</li></ul></details>
+    </div>
+  </main>
+  <script>
+    (() => {
+      'use strict';
+      const contextLabels = {new_character:'新人物设计',scene_creation:'场景创作',reference_preserve:'已有参考保留',portrait_standardization:'肖像统一测试',costume_design:'服装设计',style_conversion:'表现风格转换'};
+      const mediumLabels = {photographic:'摄影表现',cg_precise:'精细 CG',painterly:'绘画表现',mixed:'混合表现',unknown:'媒介未知'};
+      const genreLabels = {ancient:'古风',fantasy:'幻想',modern:'现代'};
+      const subjectLabels = {character:'人物',scene:'环境',creature:'生物'};
+      const framingLabels = {head_shoulders:'头肩近景',full_body:'全身构图',half_body:'半身构图',close_up:'面部特写',scene_integrated:'环境融合构图',multi_look_board:'多造型对照板'};
+      const sourceLabels = {local_verified:'本地原图已核对',historical_record:'历史记录',external_pointer:'外部指针'};
+      const inspectionLabels = {actual_pixels:'实际图像观察',historical_pixels:'历史图像观察',record_only:'仅记录资料'};
+      const feedbackLabels = {provided_preference:'用户提供的整图偏好',accepted_aesthetic_example:'已接受的审美样例',rejected_sample:'已拒绝样本'};
+      const visibilityLabels = {visible:'可见',partial:'部分可见',unknown:'未知'};
+      const blockedStandardization = new Set(['lighting','palette','composition','pose','scene','creature','medium']);
+      const dimensionIds = ['face','expression','makeup','hair','costume','material','pose','lighting','palette','composition','scene','creature','medium'];
+      const state = {catalog:null,filtered:[],current:null,choices:new Map(),context:'new_character',undo:null};
+      const $ = id => document.getElementById(id);
+      const node = (tag, text, className) => { const element=document.createElement(tag); if(text!==undefined) element.textContent=text; if(className) element.className=className; return element; };
+      const nonempty = value => typeof value==='string' && value.trim().length>0;
+      const array = value => Array.isArray(value) ? value : [];
+      const assetById = id => state.catalog.assets.find(asset=>asset.id===id);
+      const label = dimension => state.catalog.dimensions[dimension].label;
+      const displayLabel = (value,labels,fallback) => labels[value] || (typeof value==='string' && /[^\x00-\x7F]/.test(value) ? value : fallback);
+
+      // Only source originals in these known local directories can become URLs.
+      // Reject traversal, escapes, encoded separators and remote URLs before URL construction.
+      function safeImagePath(source) {
+        if(source?.availability!=='local_verified' || typeof source.local_path!=='string') return null;
+        const path=source.local_path;
+        if(!/^output\/(visual-preference-library-20261012|reference-portrait-presets-20261011)\/originals\/[A-Za-z0-9_-]+\.(png|jpe?g|webp)$/i.test(path)) return null;
+        return '../'+path.slice('output/'.length);
+      }
+      function validateCatalog(catalog) {
+        if(!catalog || catalog.schema_version!==1 || typeof catalog.dimensions!=='object' || typeof catalog.collections!=='object' || !Array.isArray(catalog.assets)) throw new Error('目录格式不完整。');
+        if(dimensionIds.some(id=>!nonempty(catalog.dimensions[id]?.label)) || Object.keys(catalog.dimensions).length!==dimensionIds.length) throw new Error('目录需要全部 13 个偏好维度。');
+        const ids=new Set();
+        for(const asset of catalog.assets) {
+          if(!nonempty(asset.id) || ids.has(asset.id) || !nonempty(asset.title) || !asset.source || !asset.feedback || !asset.inspection || !Array.isArray(asset.observations) || !Array.isArray(asset.collections)) throw new Error('目录中有缺失或重复的图像记录。');
+          ids.add(asset.id);
+          if(asset.collections.some(id=>!catalog.collections[id]) || asset.observations.some(row=>!dimensionIds.includes(row.dimension))) throw new Error('目录中有未定义的合集或维度。');
+        }
+        return catalog;
+      }
+      function eligibility(asset, dimension, context=state.context, catalog=state.catalog) {
+        if(!asset) return '参考记录不存在。';
+        if(asset.feedback.status==='rejected_sample') return '已拒绝样本只保留反馈记录，不能进入借鉴计划。';
+        if(asset.source.availability==='external_pointer') return '外部指针仅展示元数据，不能进入本地借鉴计划。';
+        if(typeof asset.source.sha256!=='string' || !/^[a-f0-9]{64}$/.test(asset.source.sha256)) return '尚未绑定原图文件摘要，只保留资料记录，不能进入借鉴计划。';
+        if(asset.inspection.status==='record_only') return '仅记录资料，缺少实际图像观察。';
+        if(!asset.collections.some(id=>array(catalog.collections[id]?.contexts).includes(context))) return '所在合集不支持“'+contextLabels[context]+'”。';
+        if(dimension==='face' && context!=='new_character') return '相貌借鉴仅用于新人物设计，不能覆盖已有肖像身份。';
+        if(context==='portrait_standardization' && blockedStandardization.has(dimension)) return '肖像统一测试不借鉴'+catalog.dimensions[dimension].label+'，请遵循本轮测试目标。';
+        const observations=asset.observations.filter(row=>row.dimension===dimension);
+        if(!observations.length) return '该维度未记录观察。';
+        if(!observations.some(row=>['visible','partial'].includes(row.visibility) && nonempty(row.transfer))) return '该维度未知或没有可迁移的可见观察。';
+        return null;
+      }
+      function currentPlan() {
+        const grouped=new Map();
+        for(const dimension of dimensionIds) {
+          const assetId=state.choices.get(dimension);
+          if(!assetId) continue;
+          const asset=assetById(assetId);
+          if(eligibility(asset,dimension)) continue;
+          if(!grouped.has(assetId)) grouped.set(assetId,[]);
+          grouped.get(assetId).push(dimension);
+        }
+        return {id:$('plan-id').value.trim(),context:state.context,selections:[...grouped].map(([asset_id,dimensions])=>({asset_id,dimensions}))};
+      }
+      function notify(message) { $('plan-status').textContent=message; }
+      function clearUndo() { state.undo=null; $('replacement').hidden=true; }
+      function fillSelect(selectId, rows, allLabel) {
+        const select=$(selectId); select.replaceChildren(node('option',allLabel)); select.firstElementChild.value='';
+        for(const [value,text] of rows) { const option=node('option',text); option.value=value; select.append(option); }
+      }
+      function populateFilters() {
+        const assets=state.catalog.assets;
+        const count=predicate=>assets.filter(predicate).length;
+        fillSelect('filter-dimension',dimensionIds.map(id=>[id,label(id)+' · '+count(asset=>asset.observations.some(row=>row.dimension===id))]),'全部维度');
+        fillSelect('filter-collection',Object.entries(state.catalog.collections).map(([id,row])=>[id,row.label+' · '+count(asset=>asset.collections.includes(id))]),'全部合集');
+        fillSelect('filter-medium',Object.keys(mediumLabels).filter(id=>assets.some(asset=>asset.medium===id)).map(id=>[id,mediumLabels[id]+' · '+count(asset=>asset.medium===id)]),'全部媒介');
+        fillSelect('filter-genre',[...new Set(assets.flatMap(asset=>array(asset.genres)))].sort().map(id=>[id,displayLabel(id,genreLabels,'其他题材')+' · '+count(asset=>array(asset.genres).includes(id))]),'全部题材');
+        fillSelect('filter-source',Object.keys(sourceLabels).filter(id=>assets.some(asset=>asset.source.availability===id)).map(id=>[id,sourceLabels[id]+' · '+count(asset=>asset.source.availability===id)]),'全部来源');
+      }
+      function matchesFilters(asset) {
+        if(!$('show-rejected').checked && asset.feedback.status==='rejected_sample') return false;
+        const dimension=$('filter-dimension').value,collection=$('filter-collection').value,medium=$('filter-medium').value,genre=$('filter-genre').value,source=$('filter-source').value;
+        if(dimension && !asset.observations.some(row=>row.dimension===dimension)) return false;
+        if(collection && !asset.collections.includes(collection)) return false;
+        if(medium && asset.medium!==medium) return false;
+        if(genre && !array(asset.genres).includes(genre)) return false;
+        if(source && asset.source.availability!==source) return false;
+        const search=$('filter-search').value.trim().toLocaleLowerCase();
+        const haystack=JSON.stringify([asset.id,asset.title,asset.aliases,asset.subjects,asset.genres,asset.framing,array(asset.subjects).map(value=>displayLabel(value,subjectLabels,'其他主体')),array(asset.genres).map(value=>displayLabel(value,genreLabels,'其他题材')),displayLabel(asset.framing,framingLabels,'其他构图'),asset.collections.map(id=>state.catalog.collections[id].label),asset.observations.map(row=>[label(row.dimension),row.text,row.transfer,...array(row.visual_limits),...array(row.limits)]),asset.limits]).toLocaleLowerCase();
+        return !search || haystack.includes(search);
+      }
+      function originalImage(asset, large=false) {
+        const wrapper=node('div'); const src=safeImagePath(asset.source);
+        if(!src) { wrapper.append(node('p',asset.source.availability==='local_verified'?'原图路径不在许可范围，已停止加载。':'此项仅展示来源记录，本页不加载外部图像。','placeholder')); return wrapper; }
+        const img=node('img'); img.alt=asset.title+'（完整原图）'; img.loading=large?'eager':'lazy'; img.decoding='async';
+        img.addEventListener('error',()=> { wrapper.replaceChildren(node('p','本地原图无法读取。请确认目录文件完整。','placeholder')); },{once:true});
+        img.src=src;
+        if(large) { const link=node('a'); link.href=src; link.target='_blank'; link.rel='noopener'; link.setAttribute('aria-label','打开 '+asset.title+' 的完整原图'); link.append(img); wrapper.append(link); }
+        else wrapper.append(img);
+        return wrapper;
+      }
+      function renderGallery() {
+        state.filtered=state.catalog.assets.filter(matchesFilters).sort((a,b)=>Number(b.inspection.status==='actual_pixels')-Number(a.inspection.status==='actual_pixels'));
+        const gallery=$('gallery'); gallery.replaceChildren();
+        for(const asset of state.filtered) {
+          const button=node('button',undefined,'asset-button'); button.type='button'; button.dataset.assetId=asset.id; button.setAttribute('aria-pressed',String(state.current===asset.id)); button.setAttribute('aria-label','查看 '+asset.id+' '+asset.title);
+          const stage=originalImage(asset); stage.className='thumb-stage';
+          const caption=node('span',undefined,'asset-caption'); caption.append(node('span',asset.id,'asset-id'),node('span',asset.title,'asset-title'),node('span',(sourceLabels[asset.source.availability]||asset.source.availability)+' · '+(mediumLabels[asset.medium]||asset.medium),'asset-source'));
+          if(asset.feedback.status==='rejected_sample') caption.append(node('span','已拒绝，仅记录样本反馈','asset-source'));
+          button.append(stage,caption); button.addEventListener('click',()=>selectAsset(asset.id,true)); gallery.append(button);
+        }
+        const rejected=state.catalog.assets.filter(asset=>asset.feedback.status==='rejected_sample').length;
+        $('result-count').textContent='当前 '+state.filtered.length+' 项 / 目录 '+state.catalog.assets.length+' 项'+(!$('show-rejected').checked && rejected?' · 隐藏 '+rejected+' 项已拒绝样本':'');
+        $('empty-state').hidden=state.filtered.length>0;
+        if(!state.filtered.some(asset=>asset.id===state.current)) {
+          const preferred=state.filtered.find(asset=>asset.inspection.status==='actual_pixels')||state.filtered[0];
+          state.current=preferred?.id||null;
+        }
+        for(const button of gallery.querySelectorAll('[data-asset-id]')) button.setAttribute('aria-pressed',String(button.dataset.assetId===state.current));
+        renderDetail();
+      }
+      function addMetadata(list,term,text) { list.append(node('dt',term),node('dd',text)); }
+      function selectAsset(id, focus=false) {
+        if(!state.filtered.some(asset=>asset.id===id)) return;
+        state.current=id;
+        for(const button of $('gallery').querySelectorAll('[data-asset-id]')) button.setAttribute('aria-pressed',String(button.dataset.assetId===id));
+        renderDetail();
+        if(focus) {
+          $('detail-title').focus({preventScroll:true});
+          if(window.matchMedia('(max-width: 850px)').matches && $('detail').getBoundingClientRect().top>80) $('detail').scrollIntoView({block:'start',behavior:'auto'});
+        }
+      }
+      function renderDetail() {
+        const asset=assetById(state.current); $('detail').hidden=!asset;
+        if(!asset) return;
+        $('detail-title').textContent=asset.title; $('detail-subtitle').textContent=asset.id+' · '+feedbackLabels[asset.feedback.status];
+        $('large-stage').replaceChildren(...originalImage(asset,true).childNodes);
+        $('image-caption').textContent=safeImagePath(asset.source)?'完整原图，按原始比例显示。点击图像可打开原文件。':'仅元数据资料；不会用占位图片代替原图。';
+        const tags=$('detail-tags'); tags.replaceChildren();
+        for(const id of asset.collections) tags.append(node('span',state.catalog.collections[id].label,'tag'));
+        for(const tag of array(asset.subjects)) tags.append(node('span',displayLabel(tag,subjectLabels,'其他主体'),'tag'));
+        for(const tag of array(asset.genres)) tags.append(node('span',displayLabel(tag,genreLabels,'其他题材'),'tag'));
+        const metadata=$('detail-metadata'); metadata.replaceChildren();
+        addMetadata(metadata,'媒介与构图',(mediumLabels[asset.medium]||asset.medium)+' · '+displayLabel(asset.framing,framingLabels,'其他构图'));
+        addMetadata(metadata,'来源与观察',(sourceLabels[asset.source.availability]||asset.source.availability)+' · '+(inspectionLabels[asset.inspection.status]||asset.inspection.status));
+        addMetadata(metadata,'用户反馈范围','整张图'+(asset.feedback.quote?' · 原话：“'+asset.feedback.quote+'”':''));
+        addMetadata(metadata,'肖像身份',asset.identity_preset_id?'已有关联预设 '+asset.identity_preset_id+'；身份继续以绑定原图为准。':'未建立肖像身份绑定；视觉相似不代表同一人物。');
+        const sourceMetadata=$('source-metadata'); sourceMetadata.replaceChildren(); $('source-details').open=false;
+        if(array(asset.aliases).length) addMetadata(sourceMetadata,'合并来源别名',asset.aliases.join('、'));
+        addMetadata(sourceMetadata,'来源记录',array(asset.source.source_records).join('；'));
+        addMetadata(sourceMetadata,'原图文件路径',asset.source.local_path||'未保留本地文件路径。');
+        addMetadata(sourceMetadata,'完整原图 SHA-256',asset.source.sha256||'未记录原图文件摘要。');
+        const limits=$('asset-limits'); limits.replaceChildren();
+        for(const item of array(asset.limits)) limits.append(node('li',item));
+        if(!limits.childElementCount) limits.append(node('li','未附加整图边界；借鉴仍须服从当前任务目标与各维度限制。'));
+        const observations=$('observations'); observations.replaceChildren();
+        for(const dimension of dimensionIds) {
+          const rows=asset.observations.filter(row=>row.dimension===dimension);
+          const details=node('details',undefined,'observation'); details.dataset.dimension=dimension; details.open=rows.length>0;
+          const summary=node('summary',label(dimension)); summary.append(node('span',' · '+(rows.length?rows.length+' 条观察':'未记录'),'observation-label')); details.append(summary);
+          const content=node('div',undefined,'observation-content');
+          if(!rows.length) content.append(node('p','该图尚未记录此维度的可见观察。'));
+          for(const row of rows) {
+            content.append(node('p','观察（'+(visibilityLabels[row.visibility]||row.visibility)+'）：'+row.text));
+            content.append(node('p','可迁移：'+(nonempty(row.transfer)?row.transfer:'暂未提取可迁移属性。')));
+            if(array(row.visual_limits).length) { content.append(node('p','视觉保持边界：')); const list=node('ul'); for(const item of row.visual_limits) list.append(node('li',item)); content.append(list); }
+            if(array(row.limits).length) { content.append(node('p','证据与使用说明：')); const list=node('ul'); for(const item of row.limits) list.append(node('li',item)); content.append(list); }
+          }
+          const reason=eligibility(asset,dimension);
+          const choice=node('label',undefined,'dimension-select'); const input=node('input'); input.type='checkbox'; input.dataset.selectDimension=dimension; input.disabled=Boolean(reason); input.checked=state.choices.get(dimension)===asset.id; input.setAttribute('aria-label','以 '+asset.title+' 作为'+label(dimension)+'主参考');
+          input.addEventListener('change',()=>requestChoice(asset.id,dimension,input.checked)); choice.append(input,node('span',input.checked?'已选为此维度主参考':'选为此维度主参考')); content.append(choice);
+          if(reason) content.append(node('span',reason,'unavailable'));
+          details.append(content); observations.append(details);
+        }
+        const index=state.filtered.findIndex(row=>row.id===asset.id); $('previous-asset').disabled=index<=0; $('next-asset').disabled=index<0 || index>=state.filtered.length-1;
+      }
+      function requestChoice(assetId, dimension, checked) {
+        clearUndo();
+        if(!checked && state.choices.get(dimension)===assetId) { state.choices.delete(dimension); notify('已移除'+label(dimension)+'主参考；图像反馈未改变。'); renderPlan(); renderDetail(); return; }
+        const asset=assetById(assetId),reason=eligibility(asset,dimension);
+        if(reason) { notify(reason); renderDetail(); return; }
+        const previousId=state.choices.get(dimension);
+        if(previousId && previousId!==assetId) {
+          state.undo={assetId,dimension,previousId,context:state.context};
+          state.choices.set(dimension,assetId);
+          $('replacement-text').textContent=label(dimension)+'主参考已由“'+assetById(previousId).title+'”替换为“'+asset.title+'”。其他维度保留。';
+          $('replacement').hidden=false; notify('已替换'+label(dimension)+'主参考，可撤销最近这次替换。'); renderPlan(); renderDetail(); return;
+        }
+        state.choices.set(dimension,assetId); notify('已将“'+asset.title+'”设为'+label(dimension)+'主参考。'); renderPlan(); renderDetail();
+      }
+      function renderPlan() {
+        const list=$('plan-list'); list.replaceChildren();
+        for(const dimension of dimensionIds) {
+          const assetId=state.choices.get(dimension); if(!assetId) continue;
+          const asset=assetById(assetId); const item=node('li'); const text=node('div'); text.append(node('strong',label(dimension)),node('span',assetId+' · '+asset.title));
+          const remove=node('button','移除','remove'); remove.type='button'; remove.setAttribute('aria-label','移除'+label(dimension)+'主参考'); remove.addEventListener('click',()=> { state.choices.delete(dimension); clearUndo(); notify('已移除'+label(dimension)+'主参考。'); renderPlan(); renderDetail(); }); item.append(text,remove); list.append(item);
+        }
+        if(!state.choices.size) list.append(node('li','尚未选择主参考。请从当前图的维度观察中选择。','plan-empty'));
+        const plan=currentPlan(); const validId=/^[A-Za-z0-9_-]+$/.test(plan.id);
+        $('selection-json').value=JSON.stringify(plan,null,2);
+        $('copy-json').disabled=!validId || !plan.selections.length; $('clear-plan').disabled=!state.choices.size;
+        if(!validId) notify('计划名称只能包含英文字母、数字、下划线或短横线。');
+      }
+      function changeContext(context) {
+        if(!Object.hasOwn(contextLabels,context)) return;
+        state.context=context; clearUndo(); const removed=[];
+        for(const [dimension,assetId] of state.choices) {
+          const reason=eligibility(assetById(assetId),dimension,context);
+          if(reason) { removed.push(label(dimension)+'（'+assetId+'）'); state.choices.delete(dimension); }
+        }
+        notify('用途已切换为“'+contextLabels[context]+'”。'+(removed.length?'已移除不适用项：'+removed.join('、')+'。':'当前选择均适用。')); renderPlan(); renderDetail();
+      }
+      function setup() {
+        $('filters').addEventListener('submit',event=>event.preventDefault());
+        for(const id of ['filter-dimension','filter-collection','filter-medium','filter-genre','filter-source','show-rejected']) $(id).addEventListener('change',renderGallery);
+        $('filter-search').addEventListener('input',renderGallery);
+        $('reset-filters').addEventListener('click',()=> { $('filters').reset(); renderGallery(); });
+        $('previous-asset').addEventListener('click',()=> { const index=state.filtered.findIndex(row=>row.id===state.current); if(index>0) selectAsset(state.filtered[index-1].id,true); });
+        $('next-asset').addEventListener('click',()=> { const index=state.filtered.findIndex(row=>row.id===state.current); if(index>=0 && index<state.filtered.length-1) selectAsset(state.filtered[index+1].id,true); });
+        $('selection-context').addEventListener('change',event=>changeContext(event.target.value));
+        $('plan-id').addEventListener('input',renderPlan);
+        $('undo-replacement').addEventListener('click',()=> { const undo=state.undo; if(!undo || undo.context!==state.context) return; const reason=eligibility(assetById(undo.previousId),undo.dimension); if(reason) { clearUndo(); notify(reason); return; } state.choices.set(undo.dimension,undo.previousId); clearUndo(); notify('已恢复“'+assetById(undo.previousId).title+'”作为'+label(undo.dimension)+'主参考。'); renderPlan(); renderDetail(); });
+        $('clear-plan').addEventListener('click',()=> { state.choices.clear(); clearUndo(); notify('本地选择已清空；原图、预设和用户反馈未改变。'); renderPlan(); renderDetail(); });
+        $('copy-json').addEventListener('click',async()=> {
+          const plan=currentPlan(); if(!/^[A-Za-z0-9_-]+$/.test(plan.id) || !plan.selections.length) { notify('请选择可用维度并填写有效计划名称。'); return; }
+          $('selection-json').value=JSON.stringify(plan,null,2);
+          try { if(!navigator.clipboard?.writeText) throw new Error('clipboard unavailable'); await navigator.clipboard.writeText($('selection-json').value); notify('计划 JSON 已复制；请先通过项目校验，再用于后续任务。'); }
+          catch { $('selection-json').focus(); $('selection-json').select(); notify('浏览器未允许自动复制。完整 JSON 已选中，请手动复制。'); }
+        });
+      }
+      async function load() {
+        try {
+          const response=await fetch('./library.json',{cache:'no-store'}); if(!response.ok) throw new Error('目录读取失败（HTTP '+response.status+'）。');
+          state.catalog=validateCatalog(await response.json()); populateFilters(); setup(); renderGallery(); renderPlan();
+          $('load-state').hidden=true; $('library-content').hidden=false;
+        } catch(error) {
+          const recovery=node('button','重新读取目录'); recovery.type='button'; recovery.addEventListener('click',()=>location.reload());
+          $('load-state').replaceChildren(node('p','未能读取本地参考目录：'+error.message),node('p','请确认 gallery.html 与 library.json 位于同一预览目录，并通过本地预览服务打开。'),recovery); $('load-state').setAttribute('role','alert');
+        }
+      }
+      // Pure guards are exposed for bounded fixture verification; the UI never writes catalog data.
+      window.visualPreferenceLibrary={safeImagePath,validateCatalog,eligibility,contextLabels,dimensionIds,currentPlan};
+      load();
+    })();
+  </script>
+</body>
+</html>

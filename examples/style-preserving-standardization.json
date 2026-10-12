@@ -1,0 +1,9 @@
+{
+  "id": "lotus-task-style-calibration",
+  "asset_id": "VP-C05",
+  "original_reference_id": "ORIGINAL",
+  "mode": "task_style_preserve",
+  "scope_format": "compact",
+  "standardization_goals": ["tonal_hierarchy"],
+  "change_variant": "face_tonal_only"
+}

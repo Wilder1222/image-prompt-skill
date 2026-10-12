@@ -1,0 +1,254 @@
+{
+  "id": "face-detail-scholar-v1",
+  "request": "为原创成年文士建立细部面容方案，包含眉眼、人中、鼻唇与下巴的协调关系；仅为文字设计示例。",
+  "mode": "new_design",
+  "subject": {
+    "description": "三十五岁左右的原创成年女性文士，神态沉静，有清楚骨相与自然柔和体积，摄影表现。",
+    "seed_scope": "custom"
+  },
+  "traits": {
+    "face_shape": {
+      "value": "柔和方圆脸，颊颌转折有分量而不过度外展。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "face_length": {
+      "value": "面部长短均衡。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "face_width": {
+      "value": "脸宽适中，保留自然体积。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "feature_vertical_distribution": {
+      "value": "五官纵向舒展，各部位衔接连贯。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "forehead_height": {
+      "value": "额头高度适中。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "forehead_projection": {
+      "value": "额头曲面平顺而略饱满。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "temple_volume": {
+      "value": "太阳穴平顺，略带自然体积。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "brow": {
+      "value": "自然柔弧眉，形态清楚而不画成锐折。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "brow_head_shape": {
+      "value": "眉头柔和，毛流向上再转向外。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "brow_peak_position": {
+      "value": "眉峰位于眉长偏外位置。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "brow_arch_height": {
+      "value": "眉峰抬高较含蓄。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "brow_tail_angle": {
+      "value": "眉尾自然平缓向外舒展。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "brow_thickness": {
+      "value": "自然眉宽适中。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "brow_eye_distance": {
+      "value": "眉眼纵向距离自然适中。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "eye_shape": {
+      "value": "修长杏眼，内外眼角柔和。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "eye_width": {
+      "value": "眼裂横向较舒展。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "eye_spacing": {
+      "value": "两眼内眦间距均衡，与当前脸宽和眼裂长度协调。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "upper_lid_coverage": {
+      "value": "中性表情下上眼睑自然轻覆。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "upper_eyelid_fold_height": {
+      "value": "上睑褶皱较低而清楚。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "inner_canthus_shape": {
+      "value": "内眼角柔和收束。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "nose_root_width": {
+      "value": "鼻根宽度适中。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "nose_bridge": {
+      "value": "鼻梁走势自然挺直。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "nose_tip_roundness": {
+      "value": "鼻尖圆润但转折清楚。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "nose_tip_width": {
+      "value": "鼻尖横向体积适中。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "alar_width": {
+      "value": "鼻翼自然展开，鼻孔仍可辨。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "philtrum_length": {
+      "value": "人中长度均衡，鼻下与上唇之间过渡自然。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "philtrum_width": {
+      "value": "人中横向略收敛。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "philtrum_depth": {
+      "value": "人中沟浅柔可辨。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "philtrum_ridge_shape": {
+      "value": "两侧沟嵴柔和隆起并衔接唇峰。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "mouth_width": {
+      "value": "嘴宽适中，口角自然收束。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "mouth_height_position": {
+      "value": "嘴部位于下庭协调的位置。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "lip_shape": {
+      "value": "清楚但柔和的唇峰与自然唇缘。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "lip_balance": {
+      "value": "上下唇关系自然，下唇略丰满。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "cupid_bow_width": {
+      "value": "两唇峰间距适中。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "lip_seam_curve": {
+      "value": "自然闭唇时唇缝平缓，中央保留浅柔起伏。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "cheekbone_height": {
+      "value": "颧骨位置均衡。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "cheek_volume": {
+      "value": "面颊体积适中，软组织柔和。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "jaw_angle_shape": {
+      "value": "下颌角呈自然方圆转折。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "chin_width": {
+      "value": "下巴宽度适中。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "chin_height": {
+      "value": "下巴纵向长度均衡。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "chin_projection": {
+      "value": "侧面下巴突出自然，与唇颏连接协调。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "ear_size": {
+      "value": "耳部大小适中。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "skin_base_color": {
+      "value": "中性光下为本人物设计的自然暖米肤色。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "iris_color": {
+      "value": "虹膜采用柔和深棕色。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    }
+  },
+  "anchors": [
+    "face_shape",
+    "eye_shape",
+    "philtrum_depth",
+    "lip_shape",
+    "jaw_angle_shape"
+  ],
+  "expression": {
+    "gaze": "平静地看向镜头。",
+    "mouth_state": "双唇自然闭合。",
+    "brow_motion": "眉间与额头放松。",
+    "expression_tension": "适度清醒张力，不僵硬。"
+  },
+  "presentation": {
+    "makeup": "轻薄协调的妆面。",
+    "skin_finish": "柔润肤面保留颊颌体积。",
+    "brow_makeup": "沿自然眉形轻修，不另画眉峰。",
+    "eyeliner": "贴睫毛根部的细眼线，不外扩眼裂。",
+    "lip_makeup": "低光泽暖玫瑰唇色，沿原设计唇缘。",
+    "hair": "深色头发自然后束，眉眼与鼻唇可见。",
+    "lighting": "中性白平衡的均衡正面柔光。",
+    "camera_angle": "正面平视。"
+  }
+}

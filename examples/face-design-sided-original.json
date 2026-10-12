@@ -1,0 +1,79 @@
+{
+  "id": "face-sided-scholar-v1",
+  "request": "原创成年人物的自然轻微左右差异示例；不是任何参考人物复刻。",
+  "mode": "new_design",
+  "subject": {
+    "description": "原创成年女性文士的摄影定妆肖像，轻微自然左右差异与协调面容。",
+    "seed_scope": "custom"
+  },
+  "traits": {
+    "face_shape": {
+      "value": "柔和方圆轮廓。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "eye_shape": {
+      "sides": {
+        "left": {
+          "value": "修长杏眼，外眼角平缓。",
+          "origin": "design",
+          "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+        },
+        "right": {
+          "value": "同属杏眼，开合略柔圆，差别含蓄。",
+          "origin": "design",
+          "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+        }
+      }
+    },
+    "brow_tail_angle": {
+      "sides": {
+        "left": {
+          "value": "眉尾自然平直舒展。",
+          "origin": "design",
+          "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+        },
+        "right": {
+          "value": "眉尾自然微扬，差别含蓄。",
+          "origin": "design",
+          "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+        }
+      }
+    },
+    "eye_spacing": {
+      "value": "眼距均衡，左右眼形差异不改变整体摆位。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "philtrum_length": {
+      "value": "人中长度适中。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "nose_tip": {
+      "value": "鼻尖自然圆润。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    },
+    "chin": {
+      "value": "下巴宽度适中、圆钝收束。",
+      "origin": "design",
+      "reason": "本例原创成年文士的获准面容设计，选择协调的局部形态；不声称来自参考像素。"
+    }
+  },
+  "anchors": [
+    "face_shape",
+    "eye_shape:left",
+    "chin"
+  ],
+  "expression": {
+    "gaze": "平静直视。",
+    "mouth_state": "自然闭唇。"
+  },
+  "presentation": {
+    "makeup": "轻薄协调的妆面。",
+    "skin_finish": "柔润而保留体积。",
+    "hair": "头发后束，眉眼鼻口清楚。",
+    "lighting": "均衡中性柔光。"
+  }
+}
