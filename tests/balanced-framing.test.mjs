@@ -14,11 +14,16 @@ test('default body and full-body framing are consistent in all media and languag
   const plan=createAssetPlan({styleWorkflow});
   assert.equal(plan.configuration.proportion_profile,'BALANCED_ELEGANT');
   assert.equal(plan.stage_2.fashion_asset.visual_head_count_target,null);
+  assert.equal(plan.stage_2.fashion_asset.mandatory,true);
+  assert.equal(plan.stage_2.fashion_asset.aesthetic_direction,'mandatory_elongated_athletic_slender');
+  assert.equal(plan.stage_2.fashion_asset.idealization_scope,'all_character_tasks');
   for(const language of ['zh-CN','en']){
    const result=compileAssetPrompt({styleWorkflow,language});
    assert.doesNotMatch(result.prompt,/九头|nine.head|BALANCED_ELEGANT|P9/);
    assert.match(result.prompt,language==='en'?/breathing room above, below and beside/:/头顶、脚下与左右/);
    assert.match(result.prompt,language==='en'?/rather than stretching anatomy/:/不为了填满画幅拉伸身体/);
+   assert.match(result.prompt,language==='en'?/elongated, athletic and slender/:/修长好看、健美且苗条/);
+   assert.match(result.prompt,language==='en'?/all genres, media/:/所有题材、媒介/);
   }
  }
 });
@@ -62,6 +67,19 @@ test('narrow repairs preserve existing framing and do not introduce showcase occ
  }
 });
 
+test('reference anchors, numeric profiles and scoped repairs retain the shared body goal in both languages',()=>{
+ const variants=[{referenceMode:'full_body_anchor'},{proportionProfile:'P9_FASHION_ASSET'},
+  {stage:'face'},{stage:'structure',focus:'hands'},{stage:'structure',focus:'framing'},
+  {stage:'material-light',focus:'materials'},{stage:'material-light',focus:'lighting'}];
+ for(const options of variants)for(const language of ['zh-CN','en']){
+  const result=compileAssetPrompt({...options,language});
+  assert.match(result.prompt,language==='en'?/Across all character tasks/:/所有人物统一/);
+  assert.match(result.prompt,language==='en'?/moderate muscle tone/:/适当有肌肉/);
+  assert.match(result.prompt,language==='en'?/only body relationships visible/:/当前取景实际可见/);
+  assert.equal(result.evidence.visual_quality_verified,false);
+ }
+});
+
 test('legacy planning entry points also default to nonnumeric proportions',()=>{
  for(const command of ['proportion-profile','proportion-plan','fashion-human-plan','fashion-human-v3-plan','fashion-human-v31-plan','fashion-asset-v082','p9-persistence','p9-body-plan','fashion-persistence-pipeline']){
   const r=spawnSync(process.execPath,['scripts/iteration-director.mjs',command],{encoding:'utf8'});
@@ -88,10 +106,15 @@ test('user-requested qualitative revision creates a new goal and preserves its n
  assert.equal(child.target.requirements.find(r=>r.id==='body').target_head_count,undefined);
 });
 
-test('framing and body remain separately critical under qualitative acceptance',()=>{
+test('framing, elongated proportions, athletic support and slender silhouette are independently critical',()=>{
  const c=compileProductionPrompt(garden());
- for(const id of ['space-check','body-check']){
+ for(const id of ['space-check','body-check','body-athletic-check','body-slender-check']){
   const r=reviewProductionResult(c,{prompt_sha256:c.prompt_sha256,output_image:'synthetic.png',output_sha256:'0'.repeat(64),inspected:true,reviewer:'Synthetic state test, not image evidence',checks:c.acceptance.map(a=>({id:a.id,verdict:a.id===id?'fail':'pass',evidence:'Synthetic decision only.'}))});
   assert.equal(r.status,'needs_revision');assert.deepEqual(r.critical_failures,[id]);
+ }
+ for(const basis of ['body','body-athletic','body-slender']){
+  const brief=garden();
+  brief.acceptance=brief.acceptance.filter(c=>c.basis!==basis);
+  assert.throws(()=>compileProductionPrompt(brief),/missing critical image criterion/);
  }
 });

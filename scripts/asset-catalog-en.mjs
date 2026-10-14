@@ -345,8 +345,8 @@ export const catalogEnglish = [
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.principle",
-    "zh": "所有类型的人物在新设计或获准身体优化中均可适度完美化，朝舒展修长、匀称且整体比例协调的方向发展。体型和角色特点决定程度，不取消美化；保留年龄、性别、媒介与辨识度，不统一为同一瘦高模板。已认可母图或明确保持范围优先，默认不设固定头身数，完美是设计目标而非自动通过。",
-    "en": "Every character type may receive moderate idealization in new design or an authorized body revision, aiming for an open, elegantly elongated and harmonious whole figure. Body type and role determine the degree rather than disabling refinement. Preserve age, gender, medium and recognizable traits without imposing one slim-tall template. Accepted anchors and explicit preservation scopes take precedence. No fixed head count is imposed, and perfection is a design goal rather than automatic qualification."
+    "zh": "所有包含人物的任务均以苗条、修长舒展、适当有肌肉的黄金身材比例美化为共同强约束，不限题材、媒介或生成编辑流程。新图、参考处理、换装、风格转换、标准化、肖像、多视角和编辑分别检查；已达标保持，旧母图未达标仍需美化。明确限定的局部操作保留本步骤边界，身材不足另建美化版本，局部通过不等于整体达标。不固定头身数或1.618，年龄与身份仍保持。",
+    "en": "All tasks containing characters share a mandatory goal of ideal body proportion refinement: slender, gracefully elongated and open, with moderate muscle tone, across every genre, medium and generation or editing workflow. Check new generation, reference processing, wardrobe changes, style conversion, standardization, portraits, multi-view assets and edits. Preserve already refined bodies; an existing anchor does not exempt an unrefined figure. Explicit local operations retain their step boundaries, with body issues recorded for a separate refinement version. Local success does not establish whole-figure approval. No fixed head count or 1.618 formula is imposed; retain age and identity."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
@@ -573,8 +573,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_presentation_v084_catalog.json",
     "path": "$.reference_modes.full_body_anchor.meaning",
-    "zh": "已有全身设计作为身份与衣装依据，保留已认可的体型与比例。",
-    "en": "Use the existing full-body design as identity and costume authority, preserving its accepted body type and proportions."
+    "zh": "已有全身设计作为身份与衣装依据，身材仍按共同黄金比例美化目标检查；保持已达标身体关系。",
+    "en": "Use the existing full-body design as identity and costume authority; still check the common ideal-body refinement goal and preserve body relationships that already meet it."
   },
   {
     "resource": "asset_presentation_v084_catalog.json",
@@ -585,8 +585,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_presentation_v084_catalog.json",
     "path": "$.reference_modes.full_body_anchor.prompt_translation[1]",
-    "zh": "保留人物身份、表观年龄、面部表现、发型饰物、服装构造配色、纹样位置、袖量、拖尾、手势及可见鞋履，保留已认可的体型与比例，不擅自缩头拉腿。",
-    "en": "Preserve its facial identity, apparent age, expression, hair and ornaments, costume structure and colors, motif placement, sleeve volume, train, gesture and visible footwear. Preserve the accepted body type and proportions without shrinking the head or stretching the legs."
+    "zh": "保留人物身份、表观年龄、面部表现、发型饰物、服装构造配色、纹样位置、袖量、拖尾、手势及可见鞋履；身体同样朝苗条、修长舒展、适当有肌肉的黄金比例美化，已达标部分保持，旧母图不自动豁免，不擅自缩头拉腿。",
+    "en": "Preserve its facial identity, apparent age, expression, hair and ornaments, costume structure and colors, motif placement, sleeve volume, train, gesture and visible footwear. Refine the body toward slender, gracefully elongated ideal proportions with moderate muscle tone, retaining parts that already meet the goal. An existing anchor is not an exemption; do not arbitrarily shrink the head or stretch the legs."
   },
   {
     "resource": "asset_presentation_v084_catalog.json",
@@ -597,8 +597,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_presentation_v084_catalog.json",
     "path": "$.reference_modes.full_body_anchor.prompt_translation[3]",
-    "zh": "不增加衣层、首饰、透纱或更换面孔，不套默认站姿；身体比例修改须有明确的本轮目标。",
-    "en": "Do not add garment layers, jewelry or transparency, replace the face or impose a default pose. Body proportion changes require an explicit goal for this round."
+    "zh": "不增加衣层、首饰、透纱或更换面孔，不套默认站姿；黄金身材比例美化保留原动作、衣装连接及人物辨识，不反复削瘦拉长已达标身体。",
+    "en": "Do not add garment layers, jewelry or transparency, replace the face or impose a default pose. Ideal-body refinement retains the original action, costume connections and identity without repeatedly slimming or elongating a figure that already meets the goal."
   },
   {
     "resource": "asset_presentation_v084_catalog.json",
@@ -789,8 +789,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.stylized_3d_character.appearance.finish",
-    "zh": "呈现精致的风格化三维人物，表观年龄、体型与比例符合本轮角色和造型；原人物辨识度与衣装结构保持，不因转风格改变已认可体型，也不自动套用成年时装比例。",
-    "en": "Present a refined stylized 3D character whose apparent age, body type and proportions match the current character and design. Preserve identity and costume construction; a style conversion retains the accepted body type rather than automatically imposing adult fashion proportions."
+    "zh": "呈现精致的风格化三维人物，表观年龄、体型与比例符合本轮角色和造型；原人物辨识度与衣装结构保持，转风格也执行苗条、修长舒展、适量肌肉的共同美化，保持已达标身体关系，也不自动套用成年时装比例。",
+    "en": "Present a refined stylized 3D character whose apparent age and shape language fit the current character. Preserve identity and costume construction while applying the common slender, gracefully elongated body refinement with moderate muscle tone, retaining body relationships already meeting the goal without automatically imposing adult fashion proportions."
   },
   {
     "resource": "asset_style_workflows.json",
@@ -825,8 +825,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.anime_3d_character.appearance.finish",
-    "zh": "整体为三维动画角色渲染，轮廓线、明暗色块和立体厚度协调；年龄、体型与比例符合本轮角色设计，转换媒介时保留已认可体型。",
-    "en": "The figure reads as a 3D animated render with coordinated outlines, shadow shapes and volumetric thickness. Its age, body type and proportions match the current character design; medium conversion retains the accepted body type."
+    "zh": "整体为三维动画角色渲染，轮廓线、明暗色块和立体厚度协调；年龄、体型与比例符合本轮角色设计，转换媒介也执行苗条、修长舒展、适量肌肉的共同美化，保持已达标身体关系。",
+    "en": "Create a coherent 3D animation-character rendering with coordinated outlines, tonal blocks and volume. Retain apparent age and character shape language while applying the common slender, gracefully elongated body refinement with moderate muscle tone; keep relationships already meeting the goal."
   },
   {
     "resource": "asset_style_workflows.json",
@@ -861,8 +861,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.anime_2d_character.appearance.finish",
-    "zh": "交付统一的二维动漫人物图，线条、平涂和阴影共同成立，体型与比例符合本轮角色设计，转换媒介时保留已认可体型，不附加照片皮肤、渲染毛发或油画笔触。",
-    "en": "Deliver a coherent 2D anime character with linework, flat colors and cel shadows. Body type and proportions match the current character design, and medium conversion retains the accepted body type without adding photographic skin, rendered hair or oil-paint brushwork."
+    "zh": "交付统一的二维动漫人物图，线条、平涂和阴影共同成立，体型与比例符合本轮角色设计，转换媒介也执行苗条、修长舒展、适量肌肉的共同美化，保持已达标身体关系，不附加照片皮肤、渲染毛发或油画笔触。",
+    "en": "Deliver a coherent 2D anime character through linework, flat color and shadows. Retain the character design while applying the common slender, gracefully elongated body refinement with moderate muscle tone, preserving relationships already meeting it. Do not add photographic skin, rendered hair or oil-paint strokes."
   },
   {
     "resource": "asset_style_workflows.json",
@@ -897,8 +897,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.painterly_character.appearance.finish",
-    "zh": "脸、发、衣料与肢体统一为塑造体积的厚涂色层和笔触，背景按本轮目标处理；不能只给写实图覆盖画布纹理。主体可读、材料可辨，体型与比例符合本轮角色设计，转换媒介时保留已认可体型，不自动套黑金幻想配色或原案例衣装。",
-    "en": "Unify face, hair, clothing and limbs with painted layers and strokes that build volume, handling the background according to the current target rather than merely overlaying canvas texture on a realistic image. Keep the subject readable and materials distinct, with body type and proportions matching the current character design. Medium conversion retains the accepted body type without automatically borrowing a dark-fantasy palette or example costume."
+    "zh": "脸、发、衣料与肢体统一为塑造体积的厚涂色层和笔触，背景按本轮目标处理；不能只给写实图覆盖画布纹理。主体可读、材料可辨，体型与比例符合本轮角色设计，转换媒介也执行苗条、修长舒展、适量肌肉的共同美化，保持已达标身体关系，不自动套黑金幻想配色或原案例衣装。",
+    "en": "Unify face, hair, costume and limbs through volume-shaping paint layers and brushwork, treating the background according to the current goal rather than applying canvas texture over a photograph. Keep the subject readable and materials distinct while applying the common slender, gracefully elongated body refinement with moderate muscle tone and retaining body relationships already meeting it. Do not impose black-and-gold fantasy colors or the original example costume."
   },
   {
     "resource": "asset_style_workflows.json",
@@ -933,8 +933,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.watercolor_character.appearance.finish",
-    "zh": "成图保持透明水彩与纸面质感，人物体型、比例和服装结构可读；体型与比例符合本轮角色设计，转换媒介时保留已认可体型，不混入三维塑料高光或摄影毛孔。",
-    "en": "Keep transparent watercolor and paper texture throughout, with readable body type, proportions and costume structure. Body type and proportions match the current character design, and medium conversion retains the accepted body type without 3D plastic highlights or photographic pores."
+    "zh": "成图保持透明水彩与纸面质感，人物体型、比例和服装结构可读；体型与比例符合本轮角色设计，转换媒介也执行苗条、修长舒展、适量肌肉的共同美化，保持已达标身体关系，不混入三维塑料高光或摄影毛孔。",
+    "en": "Retain transparent watercolor and paper character with readable anatomy, proportions and costume structure. Apply the common slender, gracefully elongated body refinement with moderate muscle tone and retain body relationships already meeting it. Do not mix in 3D plastic highlights or photographic pores."
   },
   {
     "resource": "asset_style_workflows.json",
@@ -969,38 +969,38 @@ export const catalogEnglish = [
   {
     "resource": "asset_style_workflows.json",
     "path": "$.profiles.ink_wash_character.appearance.finish",
-    "zh": "人物整体由勾线、浓淡墨层与克制设色组织，纸纹不能代替笔墨表现；体型与比例符合本轮角色设计，转换媒介时保留已认可体型，面容辨识和衣装连接仍成立，不强制古装或历史身份，也不为强调水墨自动改成纯黑白。",
-    "en": "Organize the figure through expressive lines, graded ink layers and restrained color rather than substituting paper texture for brushwork. Body type and proportions match the current character design, and medium conversion retains the accepted body type. Preserve recognizable features and garment connections without imposing historical clothing or identity or automatically converting the design to monochrome."
+    "zh": "人物整体由勾线、浓淡墨层与克制设色组织，纸纹不能代替笔墨表现；体型与比例符合本轮角色设计，转换媒介也执行苗条、修长舒展、适量肌肉的共同美化，保持已达标身体关系，面容辨识和衣装连接仍成立，不强制古装或历史身份，也不为强调水墨自动改成纯黑白。",
+    "en": "Organize the figure through expressive lines, graded ink layers and restrained color rather than substituting paper texture for brushwork. Apply the common slender, gracefully elongated body refinement with moderate muscle tone, preserving body relationships already meeting it, facial identity and costume connections. Do not force ancient clothing, a historical identity or pure monochrome."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[0]",
-    "zh": "所有类型的人物身材均可适度完美化，整体朝比例协调、修长好看、舒展匀称的方向设计。头脸与肩带相称、肩颈自然展开，完整躯干和四肢共同形成有吸引力的轮廓；根据年龄、体型、角色和媒介选择美化程度，力量、丰润、矮壮或Q版也适度优化肢段、曲线与体积，保留本身特点，不统一细腰长腿的极端模板，不靠极端缩头或拉长脖子制造美感。",
-    "en": "Design idealized, harmonious proportions for the current character with moderate refinement, elongation and an open, balanced silhouette for every character type. Keep the head readable and balanced with the shoulder girdle, let the neck and shoulders open naturally, and coordinate a complete torso and limbs. Choose the degree for the age, body type, role and medium; strength, fuller volume, compact stature and chibi figures also receive refined limb relationships, curves and volumes while retaining their character, without a universal narrow waist or long legs imposed as an extreme template. Achieve visual appeal without extreme head shrinking or neck stretching."
+    "zh": "所有人物任务均以黄金身材比例美化为强约束，人物必须比例协调、修长好看、健美且苗条，身形修长舒展、适当有肌肉。头脸与肩带相称，完整躯干、腰臀及四肢共同形成挺拔利落的轮廓；覆盖所有题材、媒介和生成编辑流程，不靠极端缩头或拉长脖子制造修长。",
+    "en": "Treat ideal body proportions for the current character as a mandatory design constraint in all character tasks: the figure must be harmonious, elegantly elongated, athletic and slender, with graceful openness and moderate muscle tone. Balance the readable head with open shoulders and a complete torso, waist, hips and limbs in a refined silhouette across all genres, media and generation or editing workflows, without extreme head shrinking or neck stretching."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[1]",
-    "zh": "躯干解剖关系完整，髋膝踝关系符合所选体型，不生硬拉伸腿部。比例修正保持面宽相对头高、五官间距比例和脸型；必要时协调调整完整头部与身体的尺度，不单独压窄脸部或缩放某个五官，也不无条件冻结未达标的原头身关系。",
-    "en": "Keep the torso anatomically complete, with hip-knee-ankle relationships appropriate to the selected body type rather than artificial leg stretching. During proportion correction, preserve face width relative to head height, facial-feature spacing ratios and face shape. Where needed, coordinate the scale of the complete head with the body; do not narrow only the face, independently resize a facial feature, or unconditionally freeze a noncompliant head-to-body ratio."
+    "zh": "躯干解剖关系完整，髋膝踝关系协调修长，不生硬拉伸腿部。比例修正保持面宽相对头高、五官间距比例和脸型；必要时协调调整完整头部与身体的尺度，不单独压窄脸部或缩放某个五官，也不无条件冻结未达标的原头身关系。",
+    "en": "Keep the torso anatomically complete, with harmonious, elongated hip-knee-ankle relationships rather than artificial leg stretching. During proportion correction, preserve face width relative to head height, facial-feature spacing ratios and face shape. Where needed, coordinate the scale of the complete head with the body; do not narrow only the face, independently resize a facial feature, or unconditionally freeze a noncompliant head-to-body ratio."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[2]",
-    "zh": "衣装按既定设计与所选体型贴合，保留明确的宽窄与体量；袖摆、纵向衣片和鞋跟不能代替身体结构，也不为显高把人物压成窄长筒。",
-    "en": "Fit the costume to its confirmed design and the selected body type, retaining its intended width and volume. Sleeves, hems, vertical panels and heels do not replace body structure; do not compress the figure into a narrow tube to make it look taller."
+    "zh": "衣装按既定设计与修长健美的身体关系贴合，保留明确的宽窄与体量；袖摆、纵向衣片和鞋跟不能代替身体结构，也不为显高把人物压成窄长筒。",
+    "en": "Fit the costume to its confirmed design and the elongated athletic figure, retaining its intended width and volume. Sleeves, hems, vertical panels and heels do not replace body structure; do not compress the figure into a narrow tube to make it look taller."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[3]",
-    "zh": "肩、胸廓、腰和骨盆完整连续，肩腰臀轮廓符合本轮体型；上臂、前臂、肘腕手与大腿、膝、小腿、脚踝在长度和粗细上相称，不给所有角色统一收腰或拉腿。整体美感不等于通用数值公式，也不是透过衣服推断的人体测量。",
-    "en": "Keep shoulders, ribcage, waist and pelvis complete and continuous, with shoulder-waist-hip contours appropriate to the current body type. Balance arm, hand and leg segments in both length and thickness without narrowing every character's waist or extending every character's legs. Overall visual appeal is neither a universal numeric formula nor a body measurement inferred through clothing."
+    "zh": "肩、胸廓、腰腹和骨盆完整连续，腰身清楚收束且保留厚度，肩腰臀轮廓苗条利落；上臂、前臂、大腿和小腿修长匀称，向肘腕、膝踝及手脚自然衔接。不压短腰腹，不用纸片腰、极端缩头或单独拉腿凑比例，也不把审美目标冒充通用数值公式或衣下人体测量。",
+    "en": "Keep shoulders, ribcage, abdomen and pelvis complete and continuous, with a clearly defined waist that retains depth and a slender, refined shoulder-waist-hip contour. Upper and lower arms and legs are elongated and balanced, transitioning naturally through joints to hands and feet. Do not shorten the abdomen, use a paper-thin waist, extremely shrink the head or stretch isolated leg segments. This aesthetic goal is neither a universal numeric formula nor a body measurement inferred through clothing."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[4]",
-    "zh": "肌肉与软组织体积符合人物年龄、体型和动作，按实际承重、收缩、拉伸与接触变化，不统一为柔和纤细或健美分块。厚衣下只依据轮廓、支撑与受力褶皱判断，不穿透不透明衣料描画肌肉。",
-    "en": "Match muscle and soft-tissue volume to the figure's age, body type and action, responding to actual weight bearing, contraction, stretching and contact rather than imposing slender softness or bodybuilding definition. Under thick clothing, use silhouette, support and load-bearing folds; do not draw muscles through opaque fabric."
+    "zh": "肩背、腰腹和臀腿有紧致、均衡的肌肉与软组织支撑，身形健美而敏捷，四肢苗条但不纤弱，不能以松垮、臃肿、细杆肢体、削瘦骨感或僵硬大肌肉块替代健美。线条随承重、收缩、拉伸与接触自然变化；厚衣下只用轮廓、支撑和受力褶皱表现，不穿透不透明衣料描画肌肉。",
+    "en": "Give the shoulders, back, abdomen, hips and legs firm, balanced muscle and soft-tissue support for an athletic, agile figure with slender but capable limbs. Sagging bulk, stick limbs, emaciation and rigid oversized muscle blocks do not satisfy this goal. Let definition respond to weight bearing, contraction, stretching and contact; under thick clothing, use silhouette, support and load-bearing folds without drawing muscles through opaque fabric."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
@@ -1023,14 +1023,14 @@ export const catalogEnglish = [
   {
     "resource": "fashion_proportion_catalog.json",
     "path": "$.note",
-    "zh": "所有类型的人物身材均可适度完美化，朝舒展修长与整体比例协调优化，不仅限未指定体型的成年人物。年龄、体型、角色、媒介和动作决定美化程度，明确体型保留特点但仍优化肢段、曲线与体积；已认可母图和窄范围编辑保持原边界。不固定头身数，数值仅服务明确请求，不是厂商参数或人体测量结论；不以鞋跟、发量或拖尾代替人体比例。",
-    "en": "Every character type may receive moderate idealization toward an open, elegantly elongated and harmonious whole figure, not only adult figures without explicit body-type constraints. Age, body type, role, medium and action determine the degree; explicit body types retain their traits while limb relationships, curves and volumes are refined. Accepted anchors and local edits retain their boundaries. No fixed head count is imposed; numeric targets serve explicit requests and are neither provider settings nor anatomical measurement conclusions. Heels, hair and garment trains do not substitute for body proportions."
+    "zh": "所有包含人物的任务均以苗条、修长舒展、适当有肌肉的黄金身材比例美化为共同强约束，不限题材、媒介或生成编辑流程。新图、参考处理、换装、风格转换、标准化、肖像、多视角和编辑分别检查；已达标保持，旧母图未达标仍需美化。明确限定的局部操作保留本步骤边界，身材不足另建美化版本，局部通过不等于整体达标。不固定头身数或1.618，年龄与身份仍保持。",
+    "en": "All tasks containing characters share a mandatory goal of ideal body proportion refinement: slender, gracefully elongated and open, with moderate muscle tone, across every genre, medium and generation or editing workflow. Check new generation, reference processing, wardrobe changes, style conversion, standardization, portraits, multi-view assets and edits. Preserve already refined bodies; an existing anchor does not exempt an unrefined figure. Explicit local operations retain their step boundaries, with body issues recorded for a separate refinement version. Local success does not establish whole-figure approval. No fixed head count or 1.618 formula is imposed; retain age and identity."
   },
   {
     "resource": "p9_persistence_guard_catalog.json",
     "path": "$.profiles.balanced_locked.prompt_translation[0]",
-    "zh": "保留已认可的体型与比例，局部肤质与细节修订不改变头肩、躯干、腰臀及四肢尺度和肌肉体积；新的明确比例要求另行修订。",
-    "en": "Preserve the accepted body type and proportions. Local skin and detail repairs retain head, shoulder, torso, waist, hip and limb scales and muscle volume; revise proportion goals separately when explicitly requested."
+    "zh": "保持已达到苗条、修长舒展、适当有肌肉的黄金比例身体关系；局部肤质与细节修订不改变已达标的头肩、躯干、腰臀及四肢尺度和肌肉体积。原母图未达标仍单列待修，另建身材美化版本，不因局部通过自动认可整身。",
+    "en": "Preserve body relationships already refined toward slender, gracefully elongated ideal proportions with moderate muscle tone. Local skin and detail repairs retain approved head, shoulder, torso, waist, hip and limb scales and muscle volume. Record any unresolved body issues for a separate refinement version; local success does not automatically qualify the whole figure."
   },
   {
     "resource": "asset_master_v082_catalog.json",
@@ -1041,8 +1041,14 @@ export const catalogEnglish = [
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[5]",
-    "zh": "在所选体型内优化头肩尺度、胸腰腹长度、骨盆支撑、上下臂与上下腿的长度和粗细，轮廓有连贯的收放变化，手掌、脚踝与足部尺度相称；腰部适度收束仍有厚度，肌肉与软组织体积随动作自然变化，不以一处长腿或细腰替代完整身材设计。",
-    "en": "Refine head-to-shoulder scale, the length of the chest and abdomen, pelvic support, and the lengths and volumes of upper and lower limbs within the selected body type. Keep continuous transitions in the silhouette and coherent hand, ankle and foot scales. A defined waist retains depth, and muscle and soft-tissue volume respond naturally to the pose; a long leg or narrow waist alone does not replace whole-figure design."
+    "zh": "新生成、参考图处理、扩身、换装、风格转换、标准化、肖像、三视图、四视图、表情组、人物入景及编辑共同执行该身材目标。日常、武侠、仙侠及其他题材均适用；已达标体型保持连续，旧母图不自动豁免。近景只表现可见身体关系，保留年龄和身份；明确限定局部时保持本步骤边界，身材不足另建美化版本，不强套数值头身比。",
+    "en": "Apply the same body goal to new generation, reference processing, full-body extension, wardrobe changes, style conversion, standardization, portraits, three-view and four-view assets, expression sets, characters in scenes and edits. Everyday, wuxia and xianxia characters and every other genre share this goal. Preserve already refined proportions; existing anchors are not exemptions. Judge only visible body relationships in close-ups and retain age and identity. Explicit local operations keep their step boundaries, with body shortcomings addressed in a separate refinement version; impose no fixed head count."
+  },
+  {
+    "resource": "fashion_asset_v082_catalog.json",
+    "path": "$.all_task_constraint",
+    "zh": "所有人物统一按苗条、修长舒展、适当有肌肉的方向美化黄金身材比例；头肩相称，躯干完整，腰臀保留厚度，四肢协调有支撑，仅呈现当前取景实际可见的身体关系。保持已达标身形的连续性，不以缩头、长颈、纸片腰或夸张肌肉块替代美化。",
+    "en": "Across all character tasks, refine ideal body proportions toward a slender, gracefully elongated and open figure with moderate muscle tone. Balance the head and shoulders, retain a complete torso and natural waist and pelvic depth, and keep the limbs coordinated and supported. Describe only body relationships visible in the current framing. Preserve already refined proportions without head shrinking, neck stretching, paper-thin waists or oversized muscle blocks."
   }
 ];
 

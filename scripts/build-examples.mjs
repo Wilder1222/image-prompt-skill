@@ -25,7 +25,7 @@ export function currentExamples() {
 
 export function currentCharacterStyleExamples() {
   const workflows=JSON.parse(fs.readFileSync(new URL('../resources/asset_style_workflows.json',import.meta.url),'utf8'));
-  return '# 当前人物风格编译示例\n\n由 `npm run examples:build` 从风格目录生成。以下为兼容编译素材，不是已观察具体人物后完成的生产提示词，也没有对应的逐风格实图验收。实际人物、衣装、动作和背景按当前任务编写；主工作流按角色、媒介、衣装和动作自动设计适合的体型比例，已认可体型继续保留，不统一修长；按构图保留适当留白。\n\n'
+  return '# 当前人物风格编译示例\n\n由 `npm run examples:build` 从风格目录生成。以下为兼容编译素材，不是已观察具体人物后完成的生产提示词，也没有对应的逐风格实图验收。实际人物、衣装、动作和背景按当前任务编写；所有人物任务共同按苗条、修长舒展、适当有肌肉美化黄金身材比例，覆盖各题材、媒介和生成编辑流程；已达标体型保持连续，未达标另建美化版本，明确限定的局部操作仍保持本步骤边界；按构图保留适当留白。\n\n'
     + Object.entries(workflows.profiles).filter(([,p])=>p.appearance).map(([styleWorkflow,p])=>`## ${p.label}\n\n\`\`\`text\n${compileAssetPrompt({styleWorkflow}).prompt}\n\`\`\`\n`).join('\n');
 }
 

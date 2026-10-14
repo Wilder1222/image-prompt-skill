@@ -26,7 +26,9 @@ export function applyCharacterAppearance(prompt, result, language) {
     const conversion = appearance.face_conversion ? text('face_conversion') : '';
     set('人物身份与面容', 'Identity and face', [text('face'), conversion, age].filter(Boolean).join(' '));
     set('妆容与肌肤', 'Makeup and skin', text('makeup'));
-    set('发型与头饰', 'Hair and ornaments', text('hair'));
+    set('发型与头饰', 'Hair and ornaments', `${text('hair')} ${en
+      ? 'Within this medium, keep natural hairline and root transitions, varied main and secondary masses, coherent flow and ends, and sparse fine hairs at the temples and silhouette. Keep visible brows, eyes, nose, mouth and identity landmarks clear; prohibit excessive stray hair obscuring the face. Only an explicit user request for face-covering hair, an occluding fringe or exact preservation of that occlusion overrides this default within its stated area. Retain the main hairstyle and signature ornaments without slicking all hair flat.'
+      : '以当前媒介保留自然发际线与发根过渡，主发量和次级发束有粗细疏密变化，走向、垂坠与发梢连贯，少量细发留在鬓角及轮廓边缘。眉眼、鼻口和面部辨识点清楚，禁止过多碎发遮挡面容；只有用户明确要求遮脸、指定会形成遮挡的刘海或严格复刻该遮挡时才在指定范围例外。保留主要发型与标志性饰物，不将全部头发油亮贴平。'}`);
     set('材质与服装真实感', 'Material response', `${text('material')} ${detail}`);
     set('背景与灯光', 'Background and light', `${text('lighting')} ${highlight} ${edges}`);
     set('最终目标', 'Final goal and restrictions', text('finish'));

@@ -1,7 +1,7 @@
 {
   "version": "0.7.5",
   "default": "BALANCED_ELEGANT",
-  "note": "所有类型的人物身材均可适度完美化，朝舒展修长与整体比例协调优化，不仅限未指定体型的成年人物。年龄、体型、角色、媒介和动作决定美化程度，明确体型保留特点但仍优化肢段、曲线与体积；已认可母图和窄范围编辑保持原边界。不固定头身数，数值仅服务明确请求，不是厂商参数或人体测量结论；不以鞋跟、发量或拖尾代替人体比例。",
+  "note": "所有包含人物的任务均以苗条、修长舒展、适当有肌肉的黄金身材比例美化为共同强约束，不限题材、媒介或生成编辑流程。新图、参考处理、换装、风格转换、标准化、肖像、多视角和编辑分别检查；已达标保持，旧母图未达标仍需美化。明确限定的局部操作保留本步骤边界，身材不足另建美化版本，局部通过不等于整体达标。不固定头身数或1.618，年龄与身份仍保持。",
   "levels": {
     "P7": {
       "label": "natural",
@@ -86,21 +86,23 @@
     "BALANCED_ELEGANT": {
       "label": "balanced_elegant",
       "visual_head_count_range": null,
-      "head_visual_scale": "selected_age_and_body_type_coherent",
+      "head_visual_scale": "balanced_with_elongated_athletic_slender_body",
       "neck_extension": "none",
-      "shoulder_opening": "selected_body_type_and_pose_coherent",
+      "shoulder_opening": "open_natural_with_toned_support",
       "torso_preservation": "strong",
       "waistline_visual_raise": "none",
-      "leg_extension": "selected_body_type_coherent_without_default_elongation",
+      "leg_extension": "elongated_in_harmonious_full_body_relationships",
       "garment_vertical_bias": "garment_design_dependent",
       "garment_width_control": "preserve_selected_silhouette",
       "prompt_translation": [
-        "所有类型的人物身材均可适度完美化，整体朝比例协调、修长好看、舒展匀称的方向设计。头脸与肩带相称、肩颈自然展开，完整躯干和四肢共同形成有吸引力的轮廓；根据年龄、体型、角色和媒介选择美化程度，力量、丰润、矮壮或Q版也适度优化肢段、曲线与体积，保留本身特点，不统一细腰长腿的极端模板，不靠极端缩头或拉长脖子制造美感。",
-        "肌肉与软组织体积符合人物年龄、体型和动作，按实际承重、收缩、拉伸与接触变化，不统一为柔和纤细或健美分块。厚衣下只依据轮廓、支撑与受力褶皱判断，不穿透不透明衣料描画肌肉。",
-        "在所选体型内优化头肩尺度、胸腰腹长度、骨盆支撑、上下臂与上下腿的长度和粗细，轮廓有连贯的收放变化，手掌、脚踝与足部尺度相称；腰部适度收束仍有厚度，肌肉与软组织体积随动作自然变化，不以一处长腿或细腰替代完整身材设计。"
+        "所有人物任务均以黄金身材比例美化为强约束，人物必须比例协调、修长好看、健美且苗条，身形修长舒展、适当有肌肉。头脸与肩带相称，完整躯干、腰臀及四肢共同形成挺拔利落的轮廓；覆盖所有题材、媒介和生成编辑流程，不靠极端缩头或拉长脖子制造修长。",
+        "肩、胸廓、腰腹和骨盆完整连续，腰身清楚收束且保留厚度，肩腰臀轮廓苗条利落；上臂、前臂、大腿和小腿修长匀称，向肘腕、膝踝及手脚自然衔接。不压短腰腹，不用纸片腰、极端缩头或单独拉腿凑比例，也不把审美目标冒充通用数值公式或衣下人体测量。",
+        "肩背、腰腹和臀腿有紧致、均衡的肌肉与软组织支撑，身形健美而敏捷，四肢苗条但不纤弱，不能以松垮、臃肿、细杆肢体、削瘦骨感或僵硬大肌肉块替代健美。线条随承重、收缩、拉伸与接触自然变化；厚衣下只用轮廓、支撑和受力褶皱表现，不穿透不透明衣料描画肌肉。",
+        "新生成、参考图处理、扩身、换装、风格转换、标准化、肖像、三视图、四视图、表情组、人物入景及编辑共同执行该身材目标。日常、武侠、仙侠及其他题材均适用；已达标体型保持连续，旧母图不自动豁免。近景只表现可见身体关系，保留年龄和身份；明确限定局部时保持本步骤边界，身材不足另建美化版本，不强套数值头身比。"
       ],
-      "aesthetic_direction": "idealized_harmony_for_selected_character",
-      "idealization_scope": "all_character_types_with_moderate_elongation"
+      "aesthetic_direction": "mandatory_elongated_athletic_slender",
+      "idealization_scope": "all_character_tasks",
+      "mandatory": true
     }
   },
   "head_to_body_guard": {
