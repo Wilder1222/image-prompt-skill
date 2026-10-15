@@ -1,0 +1,468 @@
+{
+  "id": "portrait-look-diversity-demo",
+  "request": "为同一位原创人物设计十套正脸头肩造型，发型、表情、情绪与妆容分别落实且相互适配；固定自然乌黑发色、端正头位、身份、画幅与布光。",
+  "identity_mode": "same_character",
+  "count": 10,
+  "variation_channels": [
+    "hair",
+    "expression",
+    "makeup"
+  ],
+  "groups": [
+    {
+      "id": "jk",
+      "label": "日韩风设计演练",
+      "count": 5
+    },
+    {
+      "id": "cn",
+      "label": "中国风设计演练",
+      "count": 5
+    }
+  ],
+  "shared": [
+    {
+      "channel": "hair",
+      "text": "所有方案均为自然乌黑发色，发束有柔和分区高光，不借染棕、染红或漂浅制造差异。发根、主束与发梢连接自然；少量细发优先留在鬓角和轮廓边缘，禁止过多碎发遮挡眉眼、鼻口与关键辨识点。"
+    }
+  ],
+  "base_brief": {
+    "subject_kind": "character",
+    "request": "为同一位原创成年女性设计独立的正脸头肩造型方案，固定身份、自然乌黑发色和端正头位；这是未出图的文字设计演练。",
+    "references": [],
+    "unresolved": [],
+    "requirements": [
+      {
+        "id": "look-identity",
+        "channel": "identity",
+        "priority": "must",
+        "text": "同一位二十八岁成年女性，中性偏暖肤色，短椭圆脸，颊部柔和，下颌转折平缓；眉眼横向舒展，自然眉形略有左右差异，鼻梁高度适中、鼻翼有自然宽度，上下唇体积均衡。所有方案保持这组脸型与五官间距、年龄和肤色，不借发型适配削脸、放大眼睛或换人。"
+      },
+      {
+        "id": "portrait-frame",
+        "channel": "composition",
+        "priority": "must",
+        "text": "单人肩部以上正面平视肖像，头脸正向镜头、头部端正，不侧转、不左右偏头或仰俯。头顶与主要发型完整入画，双眼、鼻唇与下颌清楚，四周留白；每套单独一张，画面无文字、分格或其他人物。"
+      },
+      {
+        "id": "portrait-proportion",
+        "channel": "proportion",
+        "priority": "must",
+        "text": "按修长舒展的黄金身材比例方向美化本肖像可见头颈肩：头肩相称、肩线自然展开，颈肩连接完整，不拉长脖子，不推断未显示的全身。"
+      },
+      {
+        "id": "portrait-style",
+        "channel": "style",
+        "priority": "must",
+        "text": "自然细腻的人物摄影表现，五官和软组织有可信体积，保持清楚的面容设计与生命感。"
+      },
+      {
+        "id": "portrait-costume",
+        "channel": "costume",
+        "priority": "must",
+        "text": "所有方案均为同一件简洁深灰色圆领上衣，仅展示自然连接的领口与肩部；面料低光泽，不用换衣或夸张首饰代替妆发及表演差异。"
+      },
+      {
+        "id": "portrait-background",
+        "channel": "background",
+        "priority": "must",
+        "text": "统一浅暖灰无缝背景与柔和近正面棚光，眉眼和唇缘清楚，保留颊颌体积；不换光色、失焦或镜头角度制造造型差异。"
+      },
+      {
+        "id": "portrait-slender",
+        "channel": "proportion",
+        "priority": "must",
+        "text": "可见颈肩与上身轮廓苗条利落，保留自然厚度，不用缩头、纸片颈肩或露骨削瘦制造修长。"
+      },
+      {
+        "id": "portrait-muscle",
+        "channel": "proportion",
+        "priority": "must",
+        "text": "颈肩与可见上身适当有肌肉，呈现克制紧致的软组织与支撑，姿态舒展，不松垮，也不刻出粗大僵硬肌肉；画外肌肉不作判断。"
+      }
+    ],
+    "sections": [
+      {
+        "label": "人物身份与面容",
+        "channel": "identity",
+        "items": [
+          {
+            "text": "同一位二十八岁成年女性，中性偏暖肤色，短椭圆脸，颊部柔和，下颌转折平缓；眉眼横向舒展，自然眉形略有左右差异，鼻梁高度适中、鼻翼有自然宽度，上下唇体积均衡。所有方案保持这组脸型与五官间距、年龄和肤色，不借发型适配削脸、放大眼睛或换人。",
+            "basis": [
+              "look-identity"
+            ],
+            "intent": "constraint"
+          }
+        ]
+      },
+      {
+        "label": "构图与视点",
+        "channel": "composition",
+        "items": [
+          {
+            "text": "单人肩部以上正面平视肖像，头脸正向镜头、头部端正，不侧转、不左右偏头或仰俯。头顶与主要发型完整入画，双眼、鼻唇与下颌清楚，四周留白；每套单独一张，画面无文字、分格或其他人物。",
+            "basis": [
+              "portrait-frame"
+            ],
+            "intent": "constraint"
+          }
+        ]
+      },
+      {
+        "label": "可见头肩比例",
+        "channel": "proportion",
+        "items": [
+          {
+            "text": "按修长舒展的黄金身材比例方向美化本肖像可见头颈肩：头肩相称、肩线自然展开，颈肩连接完整，不拉长脖子，不推断未显示的全身。",
+            "basis": [
+              "portrait-proportion"
+            ],
+            "intent": "constraint"
+          },
+          {
+            "text": "可见颈肩与上身轮廓苗条利落，保留自然厚度，不用缩头、纸片颈肩或露骨削瘦制造修长。",
+            "basis": [
+              "portrait-slender"
+            ],
+            "intent": "constraint"
+          },
+          {
+            "text": "颈肩与可见上身适当有肌肉，呈现克制紧致的软组织与支撑，姿态舒展，不松垮，也不刻出粗大僵硬肌肉；画外肌肉不作判断。",
+            "basis": [
+              "portrait-muscle"
+            ],
+            "intent": "constraint"
+          }
+        ]
+      },
+      {
+        "label": "画面表现",
+        "channel": "style",
+        "items": [
+          {
+            "text": "自然细腻的人物摄影表现，五官和软组织有可信体积，保持清楚的面容设计与生命感。",
+            "basis": [
+              "portrait-style"
+            ],
+            "intent": "constraint"
+          }
+        ]
+      },
+      {
+        "label": "可见衣装",
+        "channel": "costume",
+        "items": [
+          {
+            "text": "所有方案均为同一件简洁深灰色圆领上衣，仅展示自然连接的领口与肩部；面料低光泽，不用换衣或夸张首饰代替妆发及表演差异。",
+            "basis": [
+              "portrait-costume"
+            ],
+            "intent": "constraint"
+          }
+        ]
+      },
+      {
+        "label": "背景",
+        "channel": "background",
+        "items": [
+          {
+            "text": "统一浅暖灰无缝背景与柔和近正面棚光，眉眼和唇缘清楚，保留颊颌体积；不换光色、失焦或镜头角度制造造型差异。",
+            "basis": [
+              "portrait-background"
+            ],
+            "intent": "constraint"
+          }
+        ]
+      }
+    ],
+    "acceptance": [
+      {
+        "id": "look-identity-check",
+        "basis": "look-identity",
+        "critical": true,
+        "question": "在可比较的脸型、眉眼、鼻唇及自然差异上是否保持同一原创身份，没有因妆发或表情换脸？"
+      },
+      {
+        "id": "portrait-frame-check",
+        "basis": "portrait-frame",
+        "critical": true,
+        "question": "是否单人正脸平视、头部端正无侧转或偏头，发型完整且五官清楚，不靠角度或拼板制造差异？"
+      },
+      {
+        "id": "portrait-proportion-check",
+        "basis": "portrait-proportion",
+        "critical": true,
+        "question": "可见头颈肩是否按黄金比例美化方向修长舒展、头肩相称，且没有拉长颈部或推测画外全身？"
+      },
+      {
+        "id": "portrait-style-check",
+        "basis": "portrait-style",
+        "critical": true,
+        "question": "整体人物表现是否自然细腻且有可信体积与生命感？"
+      },
+      {
+        "id": "portrait-costume-check",
+        "basis": "portrait-costume",
+        "critical": true,
+        "question": "是否沿用同一件低光泽深灰圆领上衣，领肩连接自然，没有换衣撑差异？"
+      },
+      {
+        "id": "portrait-background-check",
+        "basis": "portrait-background",
+        "critical": true,
+        "question": "是否保持浅暖灰背景、近正面柔光和清楚焦点，没有靠换光或失焦制造变化？"
+      },
+      {
+        "id": "portrait-slender-check",
+        "basis": "portrait-slender",
+        "critical": true,
+        "question": "可见头颈肩与上身轮廓是否苗条利落且有厚度，没有纸片或削瘦变形？"
+      },
+      {
+        "id": "portrait-muscle-check",
+        "basis": "portrait-muscle",
+        "critical": true,
+        "question": "可见颈肩与上身体积是否适当紧致、有自然肌肉和软组织支撑，没有松垮或夸大肌肉块？"
+      }
+    ]
+  },
+  "looks": [
+    {
+      "id": "jk01",
+      "label": "日韩风演练：偏分齐颌短波波",
+      "group": "jk",
+      "fit_reason": "偏分的斜向边界与齐颌长度共同衬托本人的柔和颊颌，露出一侧眉尾和耳侧，避免全部沿用中分长鬓发。",
+      "hair": {
+        "front": {
+          "parting": "deep_side",
+          "fringe": "short_side_swept",
+          "temples": "one_ear_tucked",
+          "outline": "jaw_length_bob"
+        },
+        "text": "自然乌黑的齐颌短波波，人物自身左侧深偏分，额前由一块向右展开、宽而轻薄的侧向短刘海构成，边缘停在眉毛上方；人物自身左耳后收净，右侧发尾在下颌外轻轻内扣。发根蓬松，颧颊前不留成排长细丝。"
+      },
+      "expression": {
+        "emotion": "安静自信",
+        "gaze": "视线平稳直向镜头",
+        "brows": "眉峰保持自然，眉间舒展",
+        "eyelids": "上眼睑放松但目光有焦点",
+        "mouth": "双唇轻合，嘴角轻微上提而不露齿"
+      },
+      "makeup": "眉妆采用自然深棕细毛流；眼窝以低饱和灰棕薄晕染，细内眼线与纤细睫毛保持清楚。低位淡玫瑰腮红融入肤色，豆沙玫瑰唇色为柔和半哑光，鼻颊高光窄而克制。"
+    },
+    {
+      "id": "jk02",
+      "label": "日韩风演练：开口帘式刘海与肩部长层次",
+      "group": "jk",
+      "fit_reason": "用清楚的中央开口露出眉眼，脸侧发量在颧骨外打开，保持本人短椭圆脸而不通过削脸制造修饰。",
+      "hair": {
+        "front": {
+          "parting": "center",
+          "fringe": "broad_open_curtain",
+          "temples": "temples_swept_back",
+          "outline": "shoulder_layered"
+        },
+        "text": "自然乌黑的肩部长层次发型，中间分缝，额前两片较宽的帘式刘海向外打开，中央额头留白；两侧刘海在颧骨外转向耳后，不穿过眼鼻。肩部发尾轻微外翻，发束有厚薄变化，额前不铺中央碎丝网。"
+      },
+      "expression": {
+        "emotion": "好奇而轻快",
+        "gaze": "眼神直视镜头并略带探询",
+        "brows": "双眉轻轻抬起，眉间仍放松",
+        "eyelids": "眼睑较舒展，眼睛有明亮聚焦",
+        "mouth": "双唇自然微分，唇角放松"
+      },
+      "makeup": "自然深灰棕眉妆，杏桃眼影从睫毛根部薄薄向外晕开，细棕眼线不拉长眼形。面颊中央淡杏粉腮红，蜜桃裸粉唇色带轻润水感，底妆薄透并保留细腻肤纹。"
+    },
+    {
+      "id": "jk03",
+      "label": "日韩风演练：眉上平刘海与露耳短发",
+      "group": "jk",
+      "fit_reason": "短而完整的额前边界与露耳侧区形成独立框架，眉眼仍完整可读；造型变化不改变原脸颌和鼻唇关系。",
+      "hair": {
+        "front": {
+          "parting": "no_visible_part",
+          "fringe": "blunt_above_brows",
+          "temples": "short_clean_sideburns",
+          "outline": "ear_length_crop"
+        },
+        "text": "自然乌黑的露耳短发，发顶沿头形形成轻盈体积，无明显纵向分缝。眉上平刘海有整齐但不僵硬的短边，长度充分露出双眉；鬓角短而清楚，双耳可见，后颈发尾收束。以短束层次表达自然感，不添加长侧鬓。"
+      },
+      "expression": {
+        "emotion": "忍俊不禁的愉悦",
+        "gaze": "视线保持镜头方向，眼神带笑",
+        "brows": "眉间松开，眉尾自然舒展",
+        "eyelids": "眼睑随轻笑柔和收窄，面颊略抬",
+        "mouth": "双唇合拢形成清楚微笑，唇角上扬但不挤压成嘟嘴"
+      },
+      "makeup": "眉毛以低对比灰棕填补空隙，眼部沿睫毛根部铺极细炭棕层次，不额外加重下眼影。颊部暖粉色轻晕，暖红棕唇色为柔雾质地，皮肤半哑光，笑时保留自然褶动。"
+    },
+    {
+      "id": "jk04",
+      "label": "日韩风演练：完整露额高马尾",
+      "group": "jk",
+      "fit_reason": "完整露额与干净耳侧使额眉和颈肩关系直接可见，高扎束以发根体积衬托原脸型，避免用两缕长碎发反复遮脸。",
+      "hair": {
+        "front": {
+          "parting": "brushed_back",
+          "fringe": "no_fringe",
+          "temples": "both_ears_open",
+          "outline": "lifted_high_pony"
+        },
+        "text": "自然乌黑的完整露额高马尾，额前发根向后上方连贯梳起，中央无分缝也不留刘海，双侧耳前收净。颅顶有自然弧度，马尾根部连接可信，发尾在头后形成可辨竖向轮廓；只在外轮廓留少量短细发，不油亮贴头。"
+      },
+      "expression": {
+        "emotion": "明朗有活力",
+        "gaze": "目光明亮地迎向镜头",
+        "brows": "眉毛随笑意自然舒展，眉间不紧绷",
+        "eyelids": "下眼睑随面颊上提产生温和笑意",
+        "mouth": "嘴角明显提起，唇口轻开并少量露出上齿"
+      },
+      "makeup": "眉妆保留自然毛流，眼部采用薄暖棕层次和清楚卷翘的睫毛。杏珊瑚腮红沿面颊柔和铺开，珊瑚红唇色带克制缎光；肤色通透但不过度提白，牙齿和唇缘分开可读。"
+    },
+    {
+      "id": "jk05",
+      "label": "日韩风演练：弧形短刘海圆润微波波",
+      "group": "jk",
+      "fit_reason": "圆弧额前与短侧区改变脸前边界，眉毛完整露出，使柔和脸颌与发型圆度协调，避免用同一长刘海填满额部。",
+      "hair": {
+        "front": {
+          "parting": "off_center",
+          "fringe": "rounded_short_fringe",
+          "temples": "both_ears_partly_open",
+          "outline": "rounded_micro_bob"
+        },
+        "text": "自然乌黑的圆润微波波，发长停在耳垂附近，发顶微偏分但额前形成弧形短刘海；短边高于眉毛，中央稍短，两侧向太阳穴自然衔接。耳侧发体有轻柔弧度，发尾收净，不接长鬓角或胸前长发。"
+      },
+      "expression": {
+        "emotion": "柔和遐想",
+        "gaze": "头位不变，视线仅略向镜头下方落下",
+        "brows": "眉毛平缓放松，不皱眉",
+        "eyelids": "上眼睑稍低，保留柔和眼神与清楚瞳孔",
+        "mouth": "嘴唇轻松微分，嘴角安静而不刻意上扬"
+      },
+      "makeup": "眉妆柔和低饱和，眼睑以极薄藕灰棕色过渡，内眼线弱化但睫毛根部清楚。淡冷玫瑰腮红靠近颊外侧轻晕，玫瑰梅子唇色呈柔缎光，局部皮肤保留细腻低反差纹理。"
+    },
+    {
+      "id": "cn01",
+      "label": "中国风演练：中分露额垂直长直发",
+      "group": "cn",
+      "fit_reason": "中分露额与垂直长轮廓提供新的脸周留白，完整展示本人的眉眼和柔和下颌，不靠遮挡把脸压窄。",
+      "hair": {
+        "front": {
+          "parting": "center",
+          "fringe": "no_fringe",
+          "temples": "both_tucked",
+          "outline": "straight_long_vertical"
+        },
+        "text": "自然乌黑的中分长直发，中央发缝清楚，额头完整露出；两侧额发沿太阳穴整束顺向耳后，双耳区域干净。长发从肩后垂下，正面形成两条安静的竖向外轮廓，发尾柔和收束，眉前无稀碎长丝。"
+      },
+      "expression": {
+        "emotion": "平静而疏朗",
+        "gaze": "视线直向镜头，聚焦平稳不带笑意",
+        "brows": "眉间完全放松，眉毛沿自然走向",
+        "eyelids": "双眼自然开合，眼神安定清楚",
+        "mouth": "双唇完整轻合，嘴角保持水平放松"
+      },
+      "makeup": "眉妆以深灰细毛流保持原眉形，眼影为薄浅灰棕，深棕内眼线清楚而不外挑。极淡米玫瑰腮红，柔和花瓣红唇色由中央向唇缘渐淡，底妆为柔和半哑光。"
+    },
+    {
+      "id": "cn02",
+      "label": "中国风演练：宽侧波纹低发髻",
+      "group": "cn",
+      "fit_reason": "宽而完整的侧波纹与不对称耳侧留白柔和呼应本人颊颌，保持原脸宽和眼距；区别来自实际额前块面而非换一枚发夹。",
+      "hair": {
+        "front": {
+          "parting": "deep_lateral",
+          "fringe": "one_broad_s_wave",
+          "temples": "one_open_one_bounded",
+          "outline": "asymmetric_low_chignon"
+        },
+        "text": "自然乌黑的宽侧波纹低发髻，人物自身右侧分缝，额前一块完整S形发波沿额缘走向左耳后，波纹边界露出眉眼，不散成多缕细丝。人物自身右侧露耳，左侧以有厚度的弧形发束界定太阳穴，低发髻固定在后颈，不靠新增簪饰撑出差异。"
+      },
+      "expression": {
+        "emotion": "温和怀想",
+        "gaze": "头脸仍正向镜头，双眼仅向画面左侧轻移",
+        "brows": "眉头略向内收但不形成深皱纹",
+        "eyelids": "眼睑柔和收敛，眼神仍清楚",
+        "mouth": "双唇轻合，嘴角略向下放松，不作悲伤夸张表情"
+      },
+      "makeup": "暖琥珀棕眼影在外眼角加深后柔和消退，细棕眼线顺自然眼形，眉妆干净。暖杏棕腮红从颊中向外轻晕，酒豆沙唇色为细腻缎光，面颊光泽柔和而不油亮。"
+    },
+    {
+      "id": "cn03",
+      "label": "中国风演练：斜向露额盘绕发髻",
+      "group": "cn",
+      "fit_reason": "斜向根部发流与露额结构为眉眼留出清楚空间，收束轮廓衬托本人肩颈，避免为了盘发造型提高额头或改动下颌。",
+      "hair": {
+        "front": {
+          "parting": "diagonal_roots",
+          "fringe": "no_fringe",
+          "temples": "both_ears_open",
+          "outline": "diagonal_swept_coil"
+        },
+        "text": "自然乌黑的斜向露额盘绕发髻，额前发根从人物自身左侧斜向后上方连贯梳起，保留自然起伏；额头和双眉完整露出，双侧耳前收净。后部发束盘绕固定，正面可见斜向发流与上部收束轮廓，无中央长碎发和垂脸鬓发。"
+      },
+      "expression": {
+        "emotion": "从容而坚定",
+        "gaze": "视线稳定直向镜头，焦点明确",
+        "brows": "眉头稍收拢，眉尾自然延伸而不挑眉",
+        "eyelids": "上眼睑轻收，下眼睑有克制张力",
+        "mouth": "双唇合拢，唇口收敛但不抿成细线"
+      },
+      "makeup": "眉妆以自然深棕增强毛流清楚度，不改眉骨。眼部采用层次薄而清楚的中性棕，睫毛纤细分开；颊色低饱和暖玫瑰，正红偏暖的唇色为丝绒质地，唇缘仍贴合本人的自然轮廓。"
+    },
+    {
+      "id": "cn04",
+      "label": "中国风演练：短分束刘海与双低辫",
+      "group": "cn",
+      "fit_reason": "短而明确的额前双弧与双侧辫子在正面共同形成结构变化，眉眼完全露出，避免把双辫仅接在原有长碎刘海后面。",
+      "hair": {
+        "front": {
+          "parting": "center",
+          "fringe": "short_split_arch",
+          "temples": "neat_temples",
+          "outline": "double_braid_front"
+        },
+        "text": "自然乌黑的双低辫，额前为两片较短的分束弧形刘海，中间开口清楚，两片边缘均停在眉毛上方；太阳穴收净，不垂两根长鬓发。两条有厚度的辫子从耳后低位编起并各落在肩前，发根、编织和收尾连续，附件克制。"
+      },
+      "expression": {
+        "emotion": "含蓄的欣喜",
+        "gaze": "头位端正，视线略向镜头下缘聚焦",
+        "brows": "眉毛自然舒展，内眉略有轻盈上提",
+        "eyelids": "眼睑较明亮舒展，眼角带柔和笑意",
+        "mouth": "双唇轻合后唇角微提，笑意含蓄不露齿"
+      },
+      "makeup": "眉妆柔和保留细毛流，眼睑用浅暖米金色薄铺，睫毛根部细棕色衔接。浅玫瑰粉腮红集中颊中再向外消退，草莓红唇色薄透，唇面光泽小而清楚，不加亮片或额印。"
+    },
+    {
+      "id": "cn05",
+      "label": "中国风演练：偏分宽波浪披发",
+      "group": "cn",
+      "fit_reason": "偏分斜向开口与较宽的波浪外轮廓平衡本人柔和颊颌，露出眉尾和鼻唇，不通过改眼形或削颊配合发型。",
+      "hair": {
+        "front": {
+          "parting": "off_center",
+          "fringe": "diagonal_brow_clear",
+          "temples": "one_temple_back",
+          "outline": "broad_loose_waves"
+        },
+        "text": "自然乌黑的宽波浪披发，发顶偏右分缝，额前一片斜向刘海沿眉上外缘展开，眉眼保持清楚；人物自身右侧太阳穴发束梳向耳后，左侧宽发束在脸颊外转为大弧波浪。正面轮廓外展而不贴脸，波峰与波谷疏密有变化，不铺密集跨脸细丝。"
+      },
+      "expression": {
+        "emotion": "认真而沉静",
+        "gaze": "头脸正向镜头，视线仅向画面右侧轻移",
+        "brows": "眉间有极轻专注张力，眉形仍自然",
+        "eyelids": "眼睑自然收敛，眼神聚焦而不疲惫",
+        "mouth": "双唇轻触，唇中央略收，嘴角平稳"
+      },
+      "makeup": "眉妆采用清楚而克制的深棕毛流，眼部为细薄古铜棕层次，眼线保持短且贴睫毛根部。低饱和棕粉腮红铺在外颊，深玫瑰红唇色带小面积润泽反射，肤光与发束高光分别可辨。"
+    }
+  ],
+  "metadata": {
+    "source_conversation_id": "6ad021a2-84f4-83ec-9bc1-0ba69ccfa88e",
+    "source_role": "method_analysis_only",
+    "original_character_not_attachment_identity": true,
+    "trends_verified": false,
+    "image_generated": false
+  }
+}

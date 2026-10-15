@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { compileAssetPrompt, createAssetPlan } from './asset-master.mjs';
 import { applyFaceDesign, reviseFaceDesign } from './face-design.mjs';
 import { compileProductionPrompt } from './production-prompt.mjs';
+import { buildPortraitLookPlan, renderPortraitLookPrompts } from './portrait-look-plan.mjs';
 
 export function currentExamples() {
   const cases = [
@@ -70,6 +71,16 @@ export function currentFaceControlExamples() {
     }).join('\n');
 }
 
+export function currentPortraitLookExamples() {
+  const input = JSON.parse(fs.readFileSync(new URL('../examples/portrait-look-diversity-plan.json', import.meta.url), 'utf8'));
+  const report = buildPortraitLookPlan(input);
+  return '# 同一原创人物的多造型完整提示词\n\n'
+    + '由 `npm run examples:build` 从 [造型方案](portrait-look-diversity-plan.json) 编译。[来源分析与优化方案](../docs/portrait-look-diversity-analysis-2026-10-15.md)仅用于提炼方法；这里另行原创人物，不复刻附件面容，不把旧拼板作为身份输入。\n\n'
+    + '本例按来源场景演示十套、日韩风五套与中国风五套；这些是设计分组，不是人物族群、专属起源或2026流行榜单，实际任务的数量与分组另定。每套继承同一身份、正脸端正头位、自然乌黑发色、取景、身材和布光，分别选择脸前结构、妆面及可见表演。\n\n'
+    + '这是文字设计演练。声明查重与编译通过不证明实际造型差异、本人保持、适配、流行度或用户接受，尚未生成新图。以下每套正文独立完整，可分别复制；真实参考任务仍须绑定并实际提供自己的身份原图。\n\n'
+    + renderPortraitLookPrompts(report);
+}
+
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
   fs.writeFileSync(path.join(root, 'examples/ancient-white-asset-current-prompts.md'), currentExamples());
@@ -77,6 +88,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   fs.writeFileSync(path.join(root, 'examples/face-design-current-prompts.md'), currentFaceDesignExamples());
   fs.writeFileSync(path.join(root, 'examples/blue-benchmark-distinct-faces-current-prompts.md'), currentBlueBenchmarkDistinctFacesExamples());
   fs.writeFileSync(path.join(root, 'examples/face-design-controls-current-prompts.md'), currentFaceControlExamples());
+  fs.writeFileSync(path.join(root, 'examples/portrait-look-diversity-current-prompts.md'), currentPortraitLookExamples());
   fs.writeFileSync(path.join(root, 'docs/current-asset-plan.json'), `${JSON.stringify(createAssetPlan({ presentation: 'costume_showcase', maturityGuard: 'none' }), null, 2)}\n`);
   console.log('Generated current prompts and plan; visual regression remains pending.');
 }

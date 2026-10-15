@@ -12,6 +12,7 @@
     "plugin:check": "node scripts/plugin-support.mjs check",
     "examples:build": "node scripts/build-examples.mjs",
     "prompt:audit": "node scripts/prompt-quality-audit.mjs",
+    "portrait:looks": "node scripts/portrait-look-plan.mjs",
     "face:catalog:build": "node scripts/build-face-factor-docs.mjs",
     "visual:preferences:list": "node scripts/visual-preferences.mjs list",
     "visual:gallery:build": "node scripts/build-visual-preference-gallery.mjs",
