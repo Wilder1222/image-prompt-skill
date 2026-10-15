@@ -126,3 +126,9 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 量化图像测试采用 `scripts/visual-score-report.mjs` 汇总时，还会读取运行目录的 `review-notes.json`，处理绑定原图与冻结检查的撤回通过注记，格式和边界见 [评分标准](../core/图像评分标准.md)。原始执行统计保留历史回执结论；有复核时不能单独用它证明当前视觉合格，应同时报告生效复核。两种视角的差异需要说明，不覆盖原文件制造一致。
 
 人物风格证据报告应把适用注记原样带入报告层 `review_notes`。风格审计第三版按它计算生效合格、媒介通过和比例通过，同时保留 `original_*` 计数；不新增出图次数，也不改写原结果。只复制原 `runs.checks` 而漏掉已知撤回，仍会丢失真实验收状态；报告维护者必须检查注记来源，字段校验不能证明没有遗漏复核。
+
+## 当前文本质量合同
+
+新建人物 brief 的五项 character_goal 与明确 character_exceptions 见[生产流程](prompt-production.md#可检查的人物共同目标)。异常不能只写 metadata。新人物快照带 character_goals_contract，例外进入目标摘要；新冻结均保存 quality_audit 和与同一正文绑定的 quality_review，剩余诊断没有逐项处理理由时 prepare 失败。inspect 核对记录绑定后才返回派发内容，Diffusers 仍需实际 tokenizer 覆盖。
+
+旧快照没有这些新字段时按原合同核验，不补写目标、诊断或观察者通过。把旧 brief 用于新的生产，须先由代理按当前目标、景别和编辑范围重新构造。构造规则只核对声明，不重看图片，也不把部分身体或背面观察升级为整个人物合格。

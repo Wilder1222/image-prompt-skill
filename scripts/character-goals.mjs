@@ -9,7 +9,7 @@ export const characterGoals = Object.freeze({
 const plain=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const nonempty=x=>typeof x==='string'&&x.trim().length>0;
 export function characterGoalErrors(input) {
-  const errors=[],rows=(input.requirements??[]).filter(row=>row.character_goal!==undefined);
+  const errors=[],rows=(input.requirements??[]).filter(row=>row?.character_goal!==undefined);
   const exceptions=input.character_exceptions??{};
   if(input.subject_kind!=='character')return rows.length||Object.keys(exceptions).length?['character goals and exceptions require subject_kind character']:[];
   if(!plain(exceptions))return ['character_exceptions must be an object'];
