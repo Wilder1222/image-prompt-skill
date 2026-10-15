@@ -1,3 +1,4 @@
+import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -15,7 +16,7 @@ function metadata(id='RP-A01') {
 }
 
 function brief(source) {
-  return {subject_kind:'character',request:'合成契约测试，保持输入人物的可见头肩；不代表真实图像验收。',
+  return withCharacterGoals({subject_kind:'character',request:'合成契约测试，保持输入人物的可见头肩；不代表真实图像验收。',
     references:[{id:'R1',source,inspected:true,generation_input:true,authority:['identity'],facts:[
       {id:'F1',channel:'identity',visibility:'partial',text:'合成的局部面容声明；本测试没有检查真实像素。'}]}],
     unresolved:[],requirements:[{id:'identity',channel:'identity',priority:'must',text:'保持原身份。'},
@@ -23,7 +24,7 @@ function brief(source) {
     sections:[{label:'人物',channel:'identity',items:[{text:'保持参考可见的面容关系，未知部分不声明精确复刻。',basis:['identity','F1'],intent:'retain'}]},
       {label:'可见比例',channel:'proportion',items:[{text:'可见头颈肩协调，不推断未显示身体。',basis:['proportion'],intent:'constraint'}]}],
     acceptance:[{id:'identity-check',basis:'identity',critical:true,question:'可见身份是否保持？'},
-      {id:'proportion-check',basis:'proportion',critical:true,question:'可见头颈肩是否协调？'}]};
+      {id:'proportion-check',basis:'proportion',critical:true,question:'可见头颈肩是否协调？'}]},{bindings:{elongated:'proportion'}});
 }
 
 function temporaryImage(t) {

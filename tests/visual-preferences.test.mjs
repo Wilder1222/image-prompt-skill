@@ -1,3 +1,4 @@
+import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -35,9 +36,9 @@ function fixture(){
 function input(dimensions=['hair','makeup'],asset_id='VP-WARM',context='new_character'){return {id:'synthetic-preference',context,selections:[{asset_id,dimensions}]};}
 function brief(subject_kind='character'){
   const requirements=[{id:'task',channel:'task',priority:'must',text:'采用本轮明确的合成测试内容。'},...(subject_kind==='character'?[{id:'proportion',channel:'proportion',priority:'must',text:'可见体态与构图协调。'}]:[])];
-  return {subject_kind,request:'合成测试；验证视觉偏好投影约束，不代表实际媒体质量。',references:[],unresolved:[],requirements,
+  return withCharacterGoals({subject_kind,request:'合成测试；验证视觉偏好投影约束，不代表实际媒体质量。',references:[],unresolved:[],requirements,
     sections:requirements.map(row=>({label:row.id==='task'?'当前内容':'当前比例',channel:row.channel,items:[{text:row.text,basis:[row.id],intent:'constraint'}]})),
-    acceptance:requirements.map(row=>({id:`${row.id}-check`,basis:row.id,critical:true,question:'明确目标是否保持？'})),metadata:{authored_note:'现有元数据必须保留。'}};
+    acceptance:requirements.map(row=>({id:`${row.id}-check`,basis:row.id,critical:true,question:'明确目标是否保持？'})),metadata:{authored_note:'现有元数据必须保留。'}},{});
 }
 function withIdentity(source='unread-reference.png'){
   const result=brief();result.references=[{id:'ORIGINAL',source,inspected:true,generation_input:true,authority:['identity'],identity_target_id:'RP-A01',facts:[{id:'original-identity',channel:'identity',visibility:'partial',text:'合成可见身份声明。'}]}];return result;

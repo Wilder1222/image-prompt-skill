@@ -1,3 +1,4 @@
+import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -26,7 +27,7 @@ function customFace(overrides={}) {
   };
 }
 function productionBrief() {
-  return {
+  return withCharacterGoals({
     subject_kind:'character',request:'按独立面容设计绘制一张角色肖像。',references:[],unresolved:[],
     requirements:[
       {id:'body-ratio',channel:'proportion',priority:'must',text:'保留角色自己的头颈肩比例，颈部不过度拉长。'},
@@ -45,7 +46,7 @@ function productionBrief() {
     ],
     target:{profile:'host',settings:{}},
     metadata:{fixture:'Synthetic behavior checks; no visual approval.'},
-  };
+  },{bindings:{elongated:'body-ratio'}});
 }
 const visibleFactValues={
   face_shape:'合成身份观察：脸部轮廓较方阔。',
@@ -303,7 +304,7 @@ test('applying a face preserves authored proportion, target and all unrelated pr
   assert.deepEqual(brief,before);
   for(const key of ['subject_kind','request','references','unresolved','target','metadata'])assert.deepEqual(applied[key],before[key],key);
   assert.deepEqual(applied.requirements.filter(row=>before.requirements.some(prior=>prior.id===row.id)),before.requirements);
-  assert.deepEqual(applied.sections.filter(row=>row.channel!=='identity'&&row.channel!=='expression'&&row.channel!=='makeup'&&row.channel!=='hair'&&row.channel!=='lighting'),before.sections);
+  assert.deepEqual(applied.sections.filter(row=>before.sections.some(prior=>prior.label===row.label)),before.sections);
   assert.deepEqual(applied.acceptance.filter(row=>before.acceptance.some(prior=>prior.id===row.id)),before.acceptance);
   assert.ok(!applied.requirements.find(row=>row.id==='body-ratio').target_head_count);
   const compiled=compileProductionPrompt(applied);

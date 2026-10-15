@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {createAssetPlan, compileAssetPrompt, resolvePassedLocks} from './asset-master.mjs';
 import {compileProductionPrompt, reviewProductionResult, promptHash} from './production-prompt.mjs';
 import {listModelProfiles} from './model-adapter.mjs';
+import {auditPromptQuality,assertPromptQualityReview} from './prompt-quality-audit.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=p=>JSON.parse(fs.readFileSync(path.join(ROOT,p),'utf8'));
 const ROLE=read('resources/reference_role_manifest.template.json');
@@ -293,6 +294,9 @@ const o=argv();try{const cmd=o._[0];let out;
   if(o._.length!==1||!o.input)throw new Error('production commands require --input path-to-agent-authored-brief.json');
   if(o.format&&!['text','json'].includes(o.format))throw new Error('format must be text or json');
   const compiled=compileProductionPrompt(JSON.parse(fs.readFileSync(o.input,'utf8')));
+  const authored=JSON.parse(fs.readFileSync(o.input,'utf8'));
+  const quality=auditPromptQuality(authored);assertPromptQualityReview(quality,authored.quality_review);
+  compiled.audit.quality=quality;
   if(cmd==='prompt-review'){
    if(!o.review||o.format==='text')throw new Error('prompt-review requires --review receipt.json and JSON output');
    const receipt=JSON.parse(fs.readFileSync(o.review,'utf8'));

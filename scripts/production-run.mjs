@@ -4,6 +4,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {compileProductionPrompt, reviewProductionResult, promptHash, objectHash} from './production-prompt.mjs';
 import {assertReferenceFacePresetBindings} from './reference-face-presets.mjs';
+import {auditPromptQuality,assertPromptQualityReview} from './prompt-quality-audit.mjs';
+import {characterGoalErrors} from './character-goals.mjs';
 import {assertStyleStandardizationBindings,styleStandardizationContract,validateStyleStandardizationChecks} from './style-standardization.mjs';
 export {canonical,objectHash} from './production-prompt.mjs';
 const fileHash = file => promptHash(fs.readFileSync(file));
@@ -28,6 +30,8 @@ function identityTargets(refs, parent) {
 
 export function freezeProductionRun(input, options={}) {
   const compiled=compileProductionPrompt(input);
+  const qualityAudit=auditPromptQuality(input);
+  assertPromptQualityReview(qualityAudit,input.quality_review);
   for(const key of ['run_id','case_id','cohort']) if(typeof options[key]!=='string'||!options[key].trim()) throw new Error(`missing ${key}`);
   const kind=options.kind??'initial';
   if(!['initial','revision','edit'].includes(kind))throw new Error('invalid run kind');
@@ -43,11 +47,14 @@ export function freezeProductionRun(input, options={}) {
     required:input.metadata?.style_standardization!==undefined||parentStyle===true});
   if(stylePlan&&stylePlan.scope_contract!==styleStandardizationContract)throw new Error('legacy style plans are historical records; rebuild a current style contract before a new dispatch');
   const target={subject_kind:input.subject_kind,requirements:input.requirements,acceptance:compiled.acceptance,
+    ...(input.character_exceptions?{character_exceptions:input.character_exceptions}:{}),
     identity_targets:identityTargets(refs,options.parent)};
   const targetHash=objectHash(target);
   if(compiled.model_execution)compiled.model_execution=adaptModelPrompt({...compiled,reference_inputs:refs.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source}))},input.target);
   if(options.parent&&(options.parent.case_id!==options.case_id||options.parent.cohort!==options.cohort))throw new Error('revision case and cohort must match parent');
   const record={schema_version:1,target_contract:targetContract,...(stylePlan?{style_standardization_contract:styleStandardizationContract}:{}),run_id:options.run_id,case_id:options.case_id,cohort:options.cohort,kind,
+    ...(input.subject_kind==='character'?{character_goals_contract:'character_goals_v1'}:{}),
+    quality_audit:qualityAudit,quality_review:input.quality_review??null,
     created_at:new Date().toISOString(),tool:compiled.model_execution?.transport??'built-in image_gen',
     tool_parameters:compiled.model_execution?{model:compiled.model_execution.model,...compiled.model_execution.settings}:{model:null,seed:null},
     ...(compiled.model_execution?{model_execution:compiled.model_execution}:{}),
@@ -65,6 +72,15 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}
   if(snapshot?.schema_version!==1)throw new Error('unsupported run snapshot');
   const {snapshot_sha256,...body}=snapshot;
   if(objectHash(body)!==snapshot_sha256)throw new Error('frozen snapshot changed');
+  if(snapshot.character_goals_contract!==undefined){
+    if(snapshot.character_goals_contract!=='character_goals_v1')throw new Error('unsupported character goals contract');
+    const errors=characterGoalErrors({...snapshot.target,edit_scope:snapshot.edit_scope});if(errors.length)throw new Error(errors.join('\n'));
+  }
+  if(snapshot.quality_audit!==undefined){
+    const audit=snapshot.quality_audit;
+    if(audit.prompt_sha256!==snapshot.prompt_sha256||objectHash(audit.diagnostics)!==audit.diagnostics_sha256)throw new Error('frozen quality audit changed');
+    assertPromptQualityReview(audit,snapshot.quality_review??undefined);
+  }
   if(Object.hasOwn(snapshot,'scope_review_contract') &&
       (snapshot.scope_review_contract!==preservationContract || !snapshot.edit_scope))
     throw new Error('unsupported scope review contract');

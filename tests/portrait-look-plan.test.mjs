@@ -3,10 +3,25 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {buildPortraitLookPlan,renderPortraitLookPrompts} from '../scripts/portrait-look-plan.mjs';
-import {compileProductionPrompt} from '../scripts/production-prompt.mjs';
+import {compileProductionPrompt,objectHash} from '../scripts/production-prompt.mjs';
 
 const fixture = () => JSON.parse(fs.readFileSync(new URL('../examples/portrait-look-diversity-plan.json',import.meta.url),'utf8'));
 const ids = report => report.diagnostics.map(row => row.code);
+
+test('changing authored front hair changes delivered prose, its must target and frozen goal rather than only a signature',()=>{
+  const first=fixture(),second=structuredClone(first);
+  second.looks[0].hair.front.fringe='完整的眉上厚齐刘海，边缘有自然参差，双眉和眼睛清楚露出。';
+  const a=buildPortraitLookPlan(first),b=buildPortraitLookPlan(second);
+  assert.notEqual(a.variants[0].prompt_sha256,b.variants[0].prompt_sha256);
+  assert.match(b.variants[0].prompt,/眉上厚齐刘海/);
+  assert.notEqual(objectHash(a.variants[0].brief.requirements),objectHash(b.variants[0].brief.requirements));
+  for(const variant of b.variants)for(const field of ['parting','fringe','temples','outline']){
+    const row=variant.brief.requirements.find(r=>r.id.endsWith(`hair:${field}`));
+    assert.ok(row&&variant.prompt.includes(row.text));assert.ok(variant.brief.acceptance.some(c=>c.basis===row.id&&c.critical));
+  }
+  const codes=fixture();codes.looks[0].hair.front.fringe='no_fringe';
+  assert.throws(()=>buildPortraitLookPlan(codes),/visible Chinese prose/);
+});
 
 test('each authored look preserves the shared person, fixed view and body goals in a complete independent brief',()=>{
   const input=fixture(),before=structuredClone(input),report=buildPortraitLookPlan(input);

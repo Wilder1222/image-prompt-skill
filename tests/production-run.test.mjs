@@ -1,4 +1,5 @@
 import {test} from 'node:test';
+import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -15,7 +16,7 @@ function setup(t){
  input.requirements.push({id:'P9',channel:'proportion',priority:'must',target_head_count:9,text:'黄金九头身，排除发量与鞋跟。'});
  input.sections.push({label:'比例',channel:'proportion',items:[{text:'黄金九头身，人体直立高度为九个颅顶至下巴头长，排除发量与鞋跟，各段协调。',basis:['P9'],intent:'constraint'}]});
  input.acceptance.push({id:'proportion',basis:'P9',critical:true,question:'九头身与各段协调是否成立？'});
- return {dir,ref,input};
+ return {dir,ref,input:withCharacterGoals(input,{bindings:{elongated:'P9'}})};
 }
 const freeze=(input,extra={})=>freezeProductionRun(input,{run_id:'a',case_id:'case',cohort:'test',...extra});
 
@@ -153,8 +154,8 @@ test('local edits retain the hard proportion target and cannot downgrade it thro
  const s=freeze(result.input,{run_id:'b',parent,kind:'edit'});
  assert.equal(s.goal_changed,false);assert.equal(s.target.subject_kind,'character');
  const reviewed=outcome(s,ref,'not_assessable');assert.equal(reviewed.status,'needs_review');
- for(const update of [{...input.requirements.at(-1),target_head_count:0},{...input.requirements.at(-1),priority:'prefer'}]){
-  assert.throws(()=>reviseProductionInput(input,{request:'比例修改。',channels:['proportion'],sections:[{label:'比例',items:input.sections.at(-1).items}],requirements:[update]}),/target_head_count|must proportion/);
+ for(const update of [{...input.requirements.find(r=>r.id==='P9'),target_head_count:0},{...input.requirements.find(r=>r.id==='P9'),priority:'prefer'}]){
+  assert.throws(()=>reviseProductionInput(input,{request:'比例修改。',channels:['proportion'],sections:[{label:'比例',items:input.sections.find(s=>s.label==='比例').items}],requirements:[update]}),/target_head_count|must proportion|invalid character goal/);
  }
 });
 
@@ -257,6 +258,7 @@ test('legacy frozen targets remain inspectable without acquiring new nine-head a
  const {input,ref}=setup(t),current=freeze(input);
  // Construct the historical schema shape; this is synthetic compatibility evidence.
  const old=structuredClone(current);delete old.target.subject_kind;
+ delete old.character_goals_contract;delete old.quality_audit;delete old.quality_review;
  old.target.requirements=old.target.requirements.filter(r=>r.id!=='P9');
  old.target.acceptance=old.target.acceptance.filter(r=>r.basis!=='P9');
  old.prompt=input.sections.filter(s=>s.channel!=='proportion').map(s=>`【${s.label}】\n${s.items.map(i=>i.text).join('\n')}`).join('\n\n');

@@ -1,4 +1,5 @@
 import {test} from 'node:test';
+import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -9,7 +10,7 @@ import {compileProductionPrompt, reviseProductionInput, reviewProductionResult, 
 import {compileAssetPrompt} from '../scripts/asset-master.mjs';
 
 function fixture() {
-  return {
+  return withCharacterGoals({
     subject_kind:'character',
     request:'依据参考保留灰蓝针织开衫、奶油色长裙的成年女性，生成白底正面全身照片。',
     references:[{id:'R1',source:'test-reference.jpg',inspected:true,generation_input:true,authority:['identity','costume'],facts:[
@@ -38,7 +39,7 @@ function fixture() {
       {id:'frame',basis:'U3',question:'是否白底正面全身？',critical:true},
       {id:'proportion',basis:'P9',question:'排除发量与鞋跟，人体是否九头身且各段协调？',critical:true},
     ],
-  };
+  },{bindings:{elongated:'P9'}});
 }
 function receipt(compiled, verdict='pass') {
   return {prompt_sha256:compiled.prompt_sha256,output_image:'actual-output.png',output_sha256:'a'.repeat(64),inspected:true,reviewer:'test reviewer',checks:compiled.acceptance.map(c=>({id:c.id,verdict,evidence:'Synthetic test evidence; no real image approval.'}))};
@@ -193,9 +194,9 @@ test('character briefs cannot omit, soften or detach the authored proportion con
     p=>{delete p.subject_kind;},
     p=>{p.subject_kind='guess';},
     p=>{p.requirements=p.requirements.filter(r=>r.id!=='P9');p.sections.pop();p.acceptance.pop();},
-    p=>{p.requirements.at(-1).target_head_count='9';},
-    p=>{p.requirements.at(-1).priority='prefer';},
-    p=>{p.acceptance.at(-1).critical=false;},
+    p=>{p.requirements.find(r=>r.id==='P9').target_head_count='9';},
+    p=>{p.requirements.find(r=>r.id==='P9').priority='prefer';},
+    p=>{p.acceptance.find(r=>r.basis==='P9').critical=false;},
     p=>{p.sections.pop();p.sections[0].items[0].basis.push('P9');},
     p=>{p.requirements.push({id:'alternate',channel:'proportion',priority:'prefer',target_head_count:8,text:'八头身。'});},
   ]) {const p=fixture();mutate(p);assert.throws(()=>compileProductionPrompt(p));}

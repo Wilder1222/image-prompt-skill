@@ -1,0 +1,1340 @@
+{
+  "version": "1.0.0",
+  "source": {
+    "conversation_id": "6acdf29b-f418-83ec-b9f3-f9afdac9ae16",
+    "title": "生成白底资产图",
+    "reviewed_at": "2026-10-13",
+    "evidence_kind": "method_analysis",
+    "source_images_reviewed": true,
+    "available_evidence": "四张原始设定板截图及最后的视觉反推文字；返回记录未提供后续近景生成结果。",
+    "scope": "只吸收妆面分部位写法、柔光与清晰度分工、光色分离和定妆取景；以下需求与人物为另行原创的文字演练。",
+    "excluded_defaults": [
+      "来源人物的脸型与五官",
+      "来源的年龄、肤色和妆色",
+      "来源的发型、衣装和配件",
+      "固定焦距或真实灯位",
+      "CG作为所有古装人物的默认媒介"
+    ],
+    "generation_effect_verified": false,
+    "user_acceptance": "not_established"
+  },
+  "cases": [
+    {
+      "id": "head_shoulders_warm_makeup",
+      "label": "头肩定妆：暖小麦肤色女性与铜棕眼妆",
+      "scope": "原创三十三岁现代女性；头肩近景用于妆肤细节。年龄、脸型、肤色、妆色与衣装只属于本例。",
+      "brief": {
+        "subject_kind": "character",
+        "request": "为一位原创三十三岁女性设计纯白背景的头肩定妆照，暖小麦肤色、铜棕眼妆与栗棕缎光唇妆，面容妆肤清楚，保留衣领和耳饰。本例仅编译文字，不执行图像生成。",
+        "references": [],
+        "unresolved": [],
+        "requirements": [
+          {
+            "id": "head_shoulders_warm_makeup-task",
+            "channel": "task",
+            "priority": "must",
+            "text": "生成一张单人竖幅头肩定妆照，纯白无缝棚背景，重点展示面容与妆肤，完整保留主要发型、衣领和耳饰。画面无文字、色卡、水印或拼板。"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-style",
+            "channel": "style",
+            "priority": "must",
+            "text": "采用精致的现代演员定妆摄影观感，适度理想化但保留成年面容结构、可信皮肤和衣饰材质，细节清楚，整体协调自然。"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "三十三岁女性，暖小麦基础肤色，略方的椭圆脸，额头与颊部饱满，下颌有柔和转折。双眼横向稍长，外眼角平缓，上眼睑褶皱清楚，深棕虹膜。自然眉毛较浓，鼻梁高度适中、鼻翼有自然宽度，上下唇体积均衡。鼻梁与上颊保留少量浅雀斑，左右眉峰有轻微自然差异。"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-expression",
+            "channel": "expression",
+            "priority": "must",
+            "text": "目光平稳看向镜头，眼睑自然舒展，眉间放松，双唇轻合，嘴角放松，神态安静专注。"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-makeup",
+            "channel": "makeup",
+            "priority": "must",
+            "text": "薄透底妆均匀暖小麦肤色，鼻梁与上颊的浅雀斑仍可辨，面颊与颈部自然衔接。铜棕眼影薄薄覆盖上眼皮，外眼角稍深，向眉骨下方柔和消退；深棕内眼线贴合睫毛根部，眼尾短而平缓，睫毛纤细分明。低饱和杏棕腮红从面颊中央向外轻轻晕开，边缘融入肤色。栗棕唇色中央略深、唇缘柔和，表面呈克制缎光，下唇有小面积柔亮反射并保留细小唇纹。面颊以半哑光和低对比微纹理为主。"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-hair",
+            "channel": "hair",
+            "priority": "must",
+            "text": "深棕短卷发自然贴合头形，主发束有清楚走向，额前少量细发不遮住眉眼。人物双耳佩戴小巧圆环耳饰，轮廓完整。"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-costume",
+            "channel": "costume",
+            "priority": "must",
+            "text": "暖白色小翻领衬衫搭配深青绿色外套，仅展示衣领与肩部衣片，领口结构简洁、连接清楚。"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-material",
+            "channel": "material",
+            "priority": "must",
+            "text": "皮肤半哑光、唇部缎光、衬衫柔和漫反射与小耳环局部金属亮点分别可辨。衣领保留面料厚度、接缝及柔和衣褶，不用全图锐化增加颗粒。"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-composition",
+            "channel": "composition",
+            "priority": "must",
+            "text": "平视、头部正对镜头，从完整主发束拍至双肩上缘下方与衣领，面容占据主要可读区域。头顶和左右耳饰外缘留有舒适余量，左右肩部保留自然连接，画面下沿位于衣领以下，身体朝向与头部一致。"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-proportion",
+            "channel": "proportion",
+            "priority": "must",
+            "text": "头脸与肩宽相称，颈部长度自然，颌颈、锁骨与肩带连接连续，肩线舒展，保留柔和软组织体积。只评价当前可见头肩关系。",
+            "character_goal": "elongated"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-background",
+            "channel": "background",
+            "priority": "must",
+            "text": "纯白无缝背景均匀洁净，白色衣领通过柔和转折、衣褶和边缘层次与背景分离，衣料高光仍有细节。"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-lighting",
+            "channel": "lighting",
+            "priority": "must",
+            "text": "近正面、略高于视线的大面积柔光主光，另一侧前方提供较弱的宽面积补光。眼窝明亮，鼻翼、下唇与下颌下方保留浅淡阴影，面颊体积连续。双眼反射与同一套光源相容，眉睫、唇缘、雀斑与衣领清楚，柔和来自受光过渡。中性白平衡保留暖小麦肤色和铜棕妆色，深青绿外套在领边可有轻微局部反色，脸部整体不泛绿。背景亮度与皮肤曝光分别控制。"
+          },
+          {
+            "id": "CQ:slender",
+            "channel": "proportion",
+            "priority": "must",
+            "character_goal": "slender",
+            "text": "实际可见的身形苗条利落，轮廓自然收束且有连续厚度，不削成纸片或露骨细杆；衣装沿既定结构呈现。"
+          },
+          {
+            "id": "CQ:muscle",
+            "channel": "proportion",
+            "priority": "must",
+            "character_goal": "muscle",
+            "text": "实际可见的身体适当有肌肉与软组织支撑，线条紧致舒展，不过分硬刻或夸大肌肉，不穿透衣装推断隐藏结构。"
+          },
+          {
+            "id": "CQ:hair_natural",
+            "channel": "hair",
+            "priority": "must",
+            "character_goal": "hair_natural",
+            "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。"
+          },
+          {
+            "id": "CQ:face_readable",
+            "channel": "hair",
+            "priority": "must",
+            "character_goal": "face_readable",
+            "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。"
+          }
+        ],
+        "sections": [
+          {
+            "label": "任务与目标",
+            "channel": "task",
+            "items": [
+              {
+                "text": "生成一张单人竖幅头肩定妆照，纯白无缝棚背景，重点展示面容与妆肤，完整保留主要发型、衣领和耳饰。画面无文字、色卡、水印或拼板。",
+                "basis": [
+                  "head_shoulders_warm_makeup-task"
+                ],
+                "intent": "constraint"
+              }
+            ]
+          },
+          {
+            "label": "媒介与成片方向",
+            "channel": "style",
+            "items": [
+              {
+                "text": "采用精致的现代演员定妆摄影观感，适度理想化但保留成年面容结构、可信皮肤和衣饰材质，细节清楚，整体协调自然。",
+                "basis": [
+                  "head_shoulders_warm_makeup-style"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的媒介与成片方向选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "人物身份与面容",
+            "channel": "identity",
+            "items": [
+              {
+                "text": "三十三岁女性，暖小麦基础肤色，略方的椭圆脸，额头与颊部饱满，下颌有柔和转折。双眼横向稍长，外眼角平缓，上眼睑褶皱清楚，深棕虹膜。自然眉毛较浓，鼻梁高度适中、鼻翼有自然宽度，上下唇体积均衡。鼻梁与上颊保留少量浅雀斑，左右眉峰有轻微自然差异。",
+                "basis": [
+                  "head_shoulders_warm_makeup-identity"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的人物身份与面容选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "神态",
+            "channel": "expression",
+            "items": [
+              {
+                "text": "目光平稳看向镜头，眼睑自然舒展，眉间放松，双唇轻合，嘴角放松，神态安静专注。",
+                "basis": [
+                  "head_shoulders_warm_makeup-expression"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的神态选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "妆容与肌肤",
+            "channel": "makeup",
+            "items": [
+              {
+                "text": "薄透底妆均匀暖小麦肤色，鼻梁与上颊的浅雀斑仍可辨，面颊与颈部自然衔接。铜棕眼影薄薄覆盖上眼皮，外眼角稍深，向眉骨下方柔和消退；深棕内眼线贴合睫毛根部，眼尾短而平缓，睫毛纤细分明。低饱和杏棕腮红从面颊中央向外轻轻晕开，边缘融入肤色。栗棕唇色中央略深、唇缘柔和，表面呈克制缎光，下唇有小面积柔亮反射并保留细小唇纹。面颊以半哑光和低对比微纹理为主。",
+                "basis": [
+                  "head_shoulders_warm_makeup-makeup"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的妆容与肌肤选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "发型与耳饰",
+            "channel": "hair",
+            "items": [
+              {
+                "text": "深棕短卷发自然贴合头形，主发束有清楚走向，额前少量细发不遮住眉眼。人物双耳佩戴小巧圆环耳饰，轮廓完整。",
+                "basis": [
+                  "head_shoulders_warm_makeup-hair"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的发型与耳饰选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "服装设计",
+            "channel": "costume",
+            "items": [
+              {
+                "text": "暖白色小翻领衬衫搭配深青绿色外套，仅展示衣领与肩部衣片，领口结构简洁、连接清楚。",
+                "basis": [
+                  "head_shoulders_warm_makeup-costume"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的服装设计选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "材质层次",
+            "channel": "material",
+            "items": [
+              {
+                "text": "皮肤半哑光、唇部缎光、衬衫柔和漫反射与小耳环局部金属亮点分别可辨。衣领保留面料厚度、接缝及柔和衣褶，不用全图锐化增加颗粒。",
+                "basis": [
+                  "head_shoulders_warm_makeup-material"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的材质层次选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "构图与取景",
+            "channel": "composition",
+            "items": [
+              {
+                "text": "平视、头部正对镜头，从完整主发束拍至双肩上缘下方与衣领，面容占据主要可读区域。头顶和左右耳饰外缘留有舒适余量，左右肩部保留自然连接，画面下沿位于衣领以下，身体朝向与头部一致。",
+                "basis": [
+                  "head_shoulders_warm_makeup-composition"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的构图与取景选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "可见比例",
+            "channel": "proportion",
+            "items": [
+              {
+                "text": "头脸与肩宽相称，颈部长度自然，颌颈、锁骨与肩带连接连续，肩线舒展，保留柔和软组织体积。只评价当前可见头肩关系。",
+                "basis": [
+                  "head_shoulders_warm_makeup-proportion"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的可见比例选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "背景",
+            "channel": "background",
+            "items": [
+              {
+                "text": "纯白无缝背景均匀洁净，白色衣领通过柔和转折、衣褶和边缘层次与背景分离，衣料高光仍有细节。",
+                "basis": [
+                  "head_shoulders_warm_makeup-background"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的背景选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "灯光与成像",
+            "channel": "lighting",
+            "items": [
+              {
+                "text": "近正面、略高于视线的大面积柔光主光，另一侧前方提供较弱的宽面积补光。眼窝明亮，鼻翼、下唇与下颌下方保留浅淡阴影，面颊体积连续。双眼反射与同一套光源相容，眉睫、唇缘、雀斑与衣领清楚，柔和来自受光过渡。中性白平衡保留暖小麦肤色和铜棕妆色，深青绿外套在领边可有轻微局部反色，脸部整体不泛绿。背景亮度与皮肤曝光分别控制。",
+                "basis": [
+                  "head_shoulders_warm_makeup-lighting"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的灯光与成像选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "共同身材目标",
+            "channel": "proportion",
+            "items": [
+              {
+                "text": "实际可见的身形苗条利落，轮廓自然收束且有连续厚度，不削成纸片或露骨细杆；衣装沿既定结构呈现。",
+                "basis": [
+                  "CQ:slender"
+                ],
+                "intent": "constraint"
+              },
+              {
+                "text": "实际可见的身体适当有肌肉与软组织支撑，线条紧致舒展，不过分硬刻或夸大肌肉，不穿透衣装推断隐藏结构。",
+                "basis": [
+                  "CQ:muscle"
+                ],
+                "intent": "constraint"
+              }
+            ]
+          },
+          {
+            "label": "发型自然度与面容可读性",
+            "channel": "hair",
+            "items": [
+              {
+                "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。",
+                "basis": [
+                  "CQ:hair_natural"
+                ],
+                "intent": "constraint"
+              },
+              {
+                "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。",
+                "basis": [
+                  "CQ:face_readable"
+                ],
+                "intent": "constraint"
+              }
+            ]
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "head_shoulders_warm_makeup-task-check",
+            "basis": "head_shoulders_warm_makeup-task",
+            "critical": true,
+            "question": "是否为独立单人头肩定妆图，没有附带设定板、文字或色卡？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-style-check",
+            "basis": "head_shoulders_warm_makeup-style",
+            "critical": true,
+            "question": "摄影观感、成年结构和精致完成度是否共同成立，面容与衣饰表现是否统一？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-identity-check",
+            "basis": "head_shoulders_warm_makeup-identity",
+            "critical": true,
+            "question": "本例略方椭圆脸、较长眼形、自然鼻翼宽度、唇部关系与浅雀斑是否可辨，是否保留三十三岁的成年观感？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-expression-check",
+            "basis": "head_shoulders_warm_makeup-expression",
+            "critical": true,
+            "question": "平稳视线、放松眉间与自然轻合双唇是否成立，而非僵硬瞪视？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-makeup-check",
+            "basis": "head_shoulders_warm_makeup-makeup",
+            "critical": true,
+            "question": "铜棕眼影范围、杏棕腮红晕染和栗棕缎光唇妆是否符合设计，底妆是否保留暖小麦肤色及浅雀斑？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-hair-check",
+            "basis": "head_shoulders_warm_makeup-hair",
+            "critical": true,
+            "question": "短卷发主形与圆环耳饰是否清楚，关键眉眼是否可读？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-costume-check",
+            "basis": "head_shoulders_warm_makeup-costume",
+            "critical": true,
+            "question": "暖白小翻领与深青绿外套在可见领肩区域是否连接自然？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-material-check",
+            "basis": "head_shoulders_warm_makeup-material",
+            "critical": true,
+            "question": "皮肤、唇部、布料与金属是否有各自的反射层次，衣领结构是否清楚？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-composition-check",
+            "basis": "head_shoulders_warm_makeup-composition",
+            "critical": true,
+            "question": "头肩画框、完整主发束、双耳饰及衣领是否符合要求，面部是否足够清楚以核对妆面？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-proportion-check",
+            "basis": "head_shoulders_warm_makeup-proportion",
+            "critical": true,
+            "question": "可见头脸、颈部与肩带是否协调，有没有缩头、拉颈或颌颈连接失衡？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-background-check",
+            "basis": "head_shoulders_warm_makeup-background",
+            "critical": true,
+            "question": "背景是否纯白，暖白衣领是否仍有清楚边缘与衣褶细节？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-lighting-check",
+            "basis": "head_shoulders_warm_makeup-lighting",
+            "critical": true,
+            "question": "柔光是否保留眼窝可读性与鼻颌浅影，没有将面颊照平？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-detail-clarity",
+            "basis": "head_shoulders_warm_makeup-lighting",
+            "critical": true,
+            "question": "阴影边缘柔和时，眉睫、唇缘与衣领是否仍清楚，没有失焦、雾化或磨皮造成的细节丢失？"
+          },
+          {
+            "id": "head_shoulders_warm_makeup-skin-color",
+            "basis": "head_shoulders_warm_makeup-lighting",
+            "critical": true,
+            "question": "暖小麦肤色及铜棕妆色是否自然，青绿衣装反色是否仅为合理局部而未覆盖全脸？"
+          },
+          {
+            "id": "CQ:slender:check",
+            "basis": "CQ:slender",
+            "critical": true,
+            "question": "本轮实际可见范围内，苗条轮廓是否满足正文关系，且未越过编辑保护范围？"
+          },
+          {
+            "id": "CQ:muscle:check",
+            "basis": "CQ:muscle",
+            "critical": true,
+            "question": "本轮实际可见范围内，肌肉支撑是否满足正文关系，且未越过编辑保护范围？"
+          },
+          {
+            "id": "CQ:hair_natural:check",
+            "basis": "CQ:hair_natural",
+            "critical": true,
+            "question": "本轮实际可见范围内，发型自然度是否满足正文关系，且未越过编辑保护范围？"
+          },
+          {
+            "id": "CQ:face_readable:check",
+            "basis": "CQ:face_readable",
+            "critical": true,
+            "question": "本轮实际可见范围内，面容可读性是否满足正文关系，且未越过编辑保护范围？"
+          }
+        ],
+        "metadata": {
+          "evidence_kind": "text_design_only",
+          "image_generated": false,
+          "visual_quality_verified": false,
+          "user_accepted": false
+        }
+      }
+    },
+    {
+      "id": "bust_no_visible_color_makeup",
+      "label": "胸像定妆：中年男性、无明显彩妆与精细CG",
+      "scope": "原创四十八岁古装男性；胸像兼顾年龄结构、毛发和领肩工艺。不把精致完成度等同于青年女性或彩妆。",
+      "brief": {
+        "subject_kind": "character",
+        "request": "设计一位原创四十八岁古装男性的精细电影CG白底胸像，暖棕肤色，不追加明显彩妆，完整展示领肩结构，保留中年观感与自然面部体积。本例仅编译文字，不执行图像生成。",
+        "references": [],
+        "unresolved": [],
+        "requirements": [
+          {
+            "id": "bust_no_visible_color_makeup-task",
+            "channel": "task",
+            "priority": "must",
+            "text": "生成一张单人竖幅白底胸像定妆照，展示成年男性面容、发型和领肩衣装，画面无文字、水印、色卡或其他人物。"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-style",
+            "channel": "style",
+            "priority": "must",
+            "text": "采用精细电影数字角色的可见表现，连续脸颈曲面、可信毛发和分材质受光统一。古装造型具有现代高预算影视定妆的完成度，保留成熟角色的从容与年龄结构。"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "四十八岁男性，暖棕基础肤色，长方脸，颧颌轮廓稳健，面颊保留自然体积，下巴宽而圆。眉毛浓密，双眼开合适中、眼距自然，深褐虹膜，鼻梁有明确转折、鼻翼宽度与脸部相称，唇形平缓。眼角细纹、眼睑厚度和浅鼻唇沟共同体现中年结构，面部整洁无胡须。"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-expression",
+            "channel": "expression",
+            "priority": "must",
+            "text": "头部端正，目光平静看向镜头，眉间松弛，双唇自然轻合，表情沉稳自持。"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-makeup",
+            "channel": "makeup",
+            "priority": "must",
+            "text": "无明显彩妆，只做薄透贴肤的均匀整理，保留暖棕底色、眼角细纹和自然鼻唇沟。眉毛毛流及疏密清楚，眼睑与睫毛根部保留自然色差。嘴唇呈本人自然棕红色，唇缘与面部衔接柔和，表面柔哑并有细微唇纹。皮肤的低对比微纹理与额颊柔和反射支撑体积，脸颈肤色连续。"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-hair",
+            "channel": "hair",
+            "priority": "must",
+            "text": "黑发夹少量灰发，整齐束成中等高度发髻，以小巧暗银发扣固定，发束和发扣连接清楚。两侧短细发保持自然，眉眼不被遮住。"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-costume",
+            "channel": "costume",
+            "priority": "must",
+            "text": "明代直领大襟袍的可见上身轮廓，浅灰内领与墨蓝外袍分层，大襟开合和肩袖连接明确。领边仅有窄幅暗纹与少量精细缝线，剪裁考究，装饰克制。"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-material",
+            "channel": "material",
+            "priority": "must",
+            "text": "外袍为低光泽细密织物，内领柔和浅亮，发扣仅在转折处有少量金属反射。皮肤、发丝、织物和暗银分别呈现不同亮暗过渡，不靠满铺碎金与密集噪点制造精细。"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-composition",
+            "channel": "composition",
+            "priority": "must",
+            "text": "平视正面胸像，从完整发髻拍至胸部下方；画面下沿明确位于胸部下方、腰部上方。保留双肩轮廓、内外衣领与上胸大襟，发扣上方及肩部外缘留有余量，脸部与领肩都有足够清晰度。"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-proportion",
+            "channel": "proportion",
+            "priority": "must",
+            "text": "头部、颈部、肩宽与可见胸廓自然相称，颌颈连续，肩带舒展，胸廓有厚度，保留成熟男性的稳健体型。只评价当前可见上身关系。",
+            "character_goal": "elongated"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-background",
+            "channel": "background",
+            "priority": "must",
+            "text": "纯白无缝背景均匀明亮，浅灰内领保留边缘与衣褶，墨蓝外袍暗部仍有结构，背景不形成整圈白色描边。"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-lighting",
+            "channel": "lighting",
+            "priority": "must",
+            "text": "镜头前上方的大面积柔光偏向人物自身右侧，左前方提供宽面积补光。额颊受光连续，鼻翼、下唇和下颌下方有浅淡阴影，眼角与鼻唇沟仍可读。双眼反射与光源位置相容，脸部、发扣和领肩清楚，柔和不依赖雾化或失焦。中性白平衡保留暖棕肤色，墨蓝衣装只在近领区域产生轻微局部反色。背景提亮不使皮肤或浅衣高光溢出。"
+          },
+          {
+            "id": "CQ:slender",
+            "channel": "proportion",
+            "priority": "must",
+            "character_goal": "slender",
+            "text": "实际可见的身形苗条利落，轮廓自然收束且有连续厚度，不削成纸片或露骨细杆；衣装沿既定结构呈现。"
+          },
+          {
+            "id": "CQ:muscle",
+            "channel": "proportion",
+            "priority": "must",
+            "character_goal": "muscle",
+            "text": "实际可见的身体适当有肌肉与软组织支撑，线条紧致舒展，不过分硬刻或夸大肌肉，不穿透衣装推断隐藏结构。"
+          },
+          {
+            "id": "CQ:hair_natural",
+            "channel": "hair",
+            "priority": "must",
+            "character_goal": "hair_natural",
+            "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。"
+          },
+          {
+            "id": "CQ:face_readable",
+            "channel": "hair",
+            "priority": "must",
+            "character_goal": "face_readable",
+            "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。"
+          }
+        ],
+        "sections": [
+          {
+            "label": "任务与目标",
+            "channel": "task",
+            "items": [
+              {
+                "text": "生成一张单人竖幅白底胸像定妆照，展示成年男性面容、发型和领肩衣装，画面无文字、水印、色卡或其他人物。",
+                "basis": [
+                  "bust_no_visible_color_makeup-task"
+                ],
+                "intent": "constraint"
+              }
+            ]
+          },
+          {
+            "label": "媒介与成片方向",
+            "channel": "style",
+            "items": [
+              {
+                "text": "采用精细电影数字角色的可见表现，连续脸颈曲面、可信毛发和分材质受光统一。古装造型具有现代高预算影视定妆的完成度，保留成熟角色的从容与年龄结构。",
+                "basis": [
+                  "bust_no_visible_color_makeup-style"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的媒介与成片方向选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "人物身份与面容",
+            "channel": "identity",
+            "items": [
+              {
+                "text": "四十八岁男性，暖棕基础肤色，长方脸，颧颌轮廓稳健，面颊保留自然体积，下巴宽而圆。眉毛浓密，双眼开合适中、眼距自然，深褐虹膜，鼻梁有明确转折、鼻翼宽度与脸部相称，唇形平缓。眼角细纹、眼睑厚度和浅鼻唇沟共同体现中年结构，面部整洁无胡须。",
+                "basis": [
+                  "bust_no_visible_color_makeup-identity"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的人物身份与面容选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "神态",
+            "channel": "expression",
+            "items": [
+              {
+                "text": "头部端正，目光平静看向镜头，眉间松弛，双唇自然轻合，表情沉稳自持。",
+                "basis": [
+                  "bust_no_visible_color_makeup-expression"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的神态选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "妆容与肌肤",
+            "channel": "makeup",
+            "items": [
+              {
+                "text": "无明显彩妆，只做薄透贴肤的均匀整理，保留暖棕底色、眼角细纹和自然鼻唇沟。眉毛毛流及疏密清楚，眼睑与睫毛根部保留自然色差。嘴唇呈本人自然棕红色，唇缘与面部衔接柔和，表面柔哑并有细微唇纹。皮肤的低对比微纹理与额颊柔和反射支撑体积，脸颈肤色连续。",
+                "basis": [
+                  "bust_no_visible_color_makeup-makeup"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的妆容与肌肤选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "发型与发饰",
+            "channel": "hair",
+            "items": [
+              {
+                "text": "黑发夹少量灰发，整齐束成中等高度发髻，以小巧暗银发扣固定，发束和发扣连接清楚。两侧短细发保持自然，眉眼不被遮住。",
+                "basis": [
+                  "bust_no_visible_color_makeup-hair"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的发型与发饰选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "服装设计",
+            "channel": "costume",
+            "items": [
+              {
+                "text": "明代直领大襟袍的可见上身轮廓，浅灰内领与墨蓝外袍分层，大襟开合和肩袖连接明确。领边仅有窄幅暗纹与少量精细缝线，剪裁考究，装饰克制。",
+                "basis": [
+                  "bust_no_visible_color_makeup-costume"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的服装设计选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "材质层次",
+            "channel": "material",
+            "items": [
+              {
+                "text": "外袍为低光泽细密织物，内领柔和浅亮，发扣仅在转折处有少量金属反射。皮肤、发丝、织物和暗银分别呈现不同亮暗过渡，不靠满铺碎金与密集噪点制造精细。",
+                "basis": [
+                  "bust_no_visible_color_makeup-material"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的材质层次选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "构图与取景",
+            "channel": "composition",
+            "items": [
+              {
+                "text": "平视正面胸像，从完整发髻拍至胸部下方；画面下沿明确位于胸部下方、腰部上方。保留双肩轮廓、内外衣领与上胸大襟，发扣上方及肩部外缘留有余量，脸部与领肩都有足够清晰度。",
+                "basis": [
+                  "bust_no_visible_color_makeup-composition"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的构图与取景选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "可见比例",
+            "channel": "proportion",
+            "items": [
+              {
+                "text": "头部、颈部、肩宽与可见胸廓自然相称，颌颈连续，肩带舒展，胸廓有厚度，保留成熟男性的稳健体型。只评价当前可见上身关系。",
+                "basis": [
+                  "bust_no_visible_color_makeup-proportion"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的可见比例选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "背景",
+            "channel": "background",
+            "items": [
+              {
+                "text": "纯白无缝背景均匀明亮，浅灰内领保留边缘与衣褶，墨蓝外袍暗部仍有结构，背景不形成整圈白色描边。",
+                "basis": [
+                  "bust_no_visible_color_makeup-background"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的背景选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "灯光与成像",
+            "channel": "lighting",
+            "items": [
+              {
+                "text": "镜头前上方的大面积柔光偏向人物自身右侧，左前方提供宽面积补光。额颊受光连续，鼻翼、下唇和下颌下方有浅淡阴影，眼角与鼻唇沟仍可读。双眼反射与光源位置相容，脸部、发扣和领肩清楚，柔和不依赖雾化或失焦。中性白平衡保留暖棕肤色，墨蓝衣装只在近领区域产生轻微局部反色。背景提亮不使皮肤或浅衣高光溢出。",
+                "basis": [
+                  "bust_no_visible_color_makeup-lighting"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的灯光与成像选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "共同身材目标",
+            "channel": "proportion",
+            "items": [
+              {
+                "text": "实际可见的身形苗条利落，轮廓自然收束且有连续厚度，不削成纸片或露骨细杆；衣装沿既定结构呈现。",
+                "basis": [
+                  "CQ:slender"
+                ],
+                "intent": "constraint"
+              },
+              {
+                "text": "实际可见的身体适当有肌肉与软组织支撑，线条紧致舒展，不过分硬刻或夸大肌肉，不穿透衣装推断隐藏结构。",
+                "basis": [
+                  "CQ:muscle"
+                ],
+                "intent": "constraint"
+              }
+            ]
+          },
+          {
+            "label": "发型自然度与面容可读性",
+            "channel": "hair",
+            "items": [
+              {
+                "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。",
+                "basis": [
+                  "CQ:hair_natural"
+                ],
+                "intent": "constraint"
+              },
+              {
+                "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。",
+                "basis": [
+                  "CQ:face_readable"
+                ],
+                "intent": "constraint"
+              }
+            ]
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "bust_no_visible_color_makeup-task-check",
+            "basis": "bust_no_visible_color_makeup-task",
+            "critical": true,
+            "question": "是否生成独立单人白底胸像，展示面容与领肩而非全身或拼板？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-style-check",
+            "basis": "bust_no_visible_color_makeup-style",
+            "critical": true,
+            "question": "精细电影CG表现、成熟角色和古装影视造型完成度是否统一，而非蜡面或低模观感？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-identity-check",
+            "basis": "bust_no_visible_color_makeup-identity",
+            "critical": true,
+            "question": "长方脸、稳健颧颌、鼻梁转折及中年眼睑与细纹是否成立，是否保持无胡须设计？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-expression-check",
+            "basis": "bust_no_visible_color_makeup-expression",
+            "critical": true,
+            "question": "平静目光与松弛眉间是否表达沉稳，是否没有用怒目或僵硬唇口代替气质？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-makeup-check",
+            "basis": "bust_no_visible_color_makeup-makeup",
+            "critical": true,
+            "question": "是否保持无明显彩妆、自然棕红唇色与暖棕肤色，中年结构是否没有被底妆或磨皮擦除？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-hair-check",
+            "basis": "bust_no_visible_color_makeup-hair",
+            "critical": true,
+            "question": "黑灰发束、适中发髻与暗银发扣是否连接清楚，毛发设计是否没有新增胡须？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-costume-check",
+            "basis": "bust_no_visible_color_makeup-costume",
+            "critical": true,
+            "question": "直领、大襟开合、内外领层与肩袖连接是否可读，装饰是否符合本例克制设计？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-material-check",
+            "basis": "bust_no_visible_color_makeup-material",
+            "critical": true,
+            "question": "织物、皮肤、毛发和暗银的反射与厚度是否分别成立，领肩工艺是否清楚？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-composition-check",
+            "basis": "bust_no_visible_color_makeup-composition",
+            "critical": true,
+            "question": "画框是否从完整发髻至胸部下方，双肩、衣领与上胸大襟是否完整可读？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-proportion-check",
+            "basis": "bust_no_visible_color_makeup-proportion",
+            "critical": true,
+            "question": "头颈肩与可见胸廓是否协调，是否保留自然厚度而非纸片胸廓或拉长脖子？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-background-check",
+            "basis": "bust_no_visible_color_makeup-background",
+            "critical": true,
+            "question": "纯白背景、浅灰内领分离与墨蓝暗部结构是否同时成立？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-lighting-check",
+            "basis": "bust_no_visible_color_makeup-lighting",
+            "critical": true,
+            "question": "柔光是否保留面部和胸廓体积，中年结构是否仍可辨，没有以补光或磨皮抹平？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-detail-clarity",
+            "basis": "bust_no_visible_color_makeup-lighting",
+            "critical": true,
+            "question": "脸部、发扣及领肩在柔光下是否清楚，关键造型是否没有因过浅景深或雾化丢失？"
+          },
+          {
+            "id": "bust_no_visible_color_makeup-skin-color",
+            "basis": "bust_no_visible_color_makeup-lighting",
+            "critical": true,
+            "question": "暖棕肤色和自然棕红唇色是否保持，墨蓝反色是否局部且没有将整脸染蓝？"
+          },
+          {
+            "id": "CQ:slender:check",
+            "basis": "CQ:slender",
+            "critical": true,
+            "question": "本轮实际可见范围内，苗条轮廓是否满足正文关系，且未越过编辑保护范围？"
+          },
+          {
+            "id": "CQ:muscle:check",
+            "basis": "CQ:muscle",
+            "critical": true,
+            "question": "本轮实际可见范围内，肌肉支撑是否满足正文关系，且未越过编辑保护范围？"
+          },
+          {
+            "id": "CQ:hair_natural:check",
+            "basis": "CQ:hair_natural",
+            "critical": true,
+            "question": "本轮实际可见范围内，发型自然度是否满足正文关系，且未越过编辑保护范围？"
+          },
+          {
+            "id": "CQ:face_readable:check",
+            "basis": "CQ:face_readable",
+            "critical": true,
+            "question": "本轮实际可见范围内，面容可读性是否满足正文关系，且未越过编辑保护范围？"
+          }
+        ],
+        "metadata": {
+          "evidence_kind": "text_design_only",
+          "image_generated": false,
+          "visual_quality_verified": false,
+          "user_accepted": false
+        }
+      }
+    },
+    {
+      "id": "waist_up_matte_lip",
+      "label": "腰上定妆：深棕肤色女性、柔哑唇妆与浅衣分离",
+      "scope": "原创四十一岁现代女性；腰上半身优先整体妆色、上衣与腰带，不声称该景别能认证微细眼妆。",
+      "brief": {
+        "subject_kind": "character",
+        "request": "为一位原创四十一岁深棕肤色女性设计纯白背景的腰上半身定妆照，酒红柔哑唇妆、暖白外套和腰带，保留成熟面容与身体体积。本例仅编译文字，不执行图像生成。",
+        "references": [],
+        "unresolved": [],
+        "requirements": [
+          {
+            "id": "waist_up_matte_lip-task",
+            "channel": "task",
+            "priority": "must",
+            "text": "生成一张单人竖幅腰上半身定妆照，纯白无缝背景，完整展示发型、上身衣型和腰带，面部妆色清楚。无文字、水印、色卡或拼板。"
+          },
+          {
+            "id": "waist_up_matte_lip-style",
+            "channel": "style",
+            "priority": "must",
+            "text": "采用精致的现代演员定妆摄影观感，面容与衣装协调，保留成熟结构和深棕肤色的柔和层次。主体清楚，服装有考究剪裁和可信受光。"
+          },
+          {
+            "id": "waist_up_matte_lip-identity",
+            "channel": "identity",
+            "priority": "must",
+            "text": "四十一岁女性，深棕基础肤色，宽颊的柔圆脸，颧部与下颌有饱满软组织，颏部宽而圆润。双眼较圆、外眼角平缓，眉毛有自然弧度，深棕虹膜，鼻翼较宽且与面部相称，双唇饱满、唇峰柔和。上眼睑和鼻唇区域保留成熟的细微结构。"
+          },
+          {
+            "id": "waist_up_matte_lip-expression",
+            "channel": "expression",
+            "priority": "must",
+            "text": "目光平稳看向镜头，眉间放松，唇角轻微抬起，双唇自然闭合，不露齿，肩部放松。"
+          },
+          {
+            "id": "waist_up_matte_lip-makeup",
+            "channel": "makeup",
+            "priority": "must",
+            "text": "底妆薄透贴肤，保留深棕底色与成熟面部结构；面颊以柔和缎光支撑圆润体积。眼影选低饱和暖棕，薄薄覆盖上眼皮，外眼角略深、边缘柔和；眉妆顺应本人毛流。低饱和砖棕腮红沿面颊外侧轻薄晕开。酒红唇色均匀覆盖唇部，唇缘清楚而不硬描边，表面柔哑，与面颊缎光分别呈现。当前景别优先让妆色与光泽关系可读。"
+          },
+          {
+            "id": "waist_up_matte_lip-hair",
+            "channel": "hair",
+            "priority": "must",
+            "text": "黑色短发自然卷曲，侧分主形整洁，保留卷束体积与柔和灰亮反射。小巧暗金耳钉贴合耳垂，不遮挡面容。"
+          },
+          {
+            "id": "waist_up_matte_lip-costume",
+            "channel": "costume",
+            "priority": "must",
+            "text": "暖白色收腰外套搭配浅灰内搭，翻领与肩袖连接清楚，深棕皮革腰带位于自然腰线，扣件简洁。上衣剪裁沿身体体积自然落下，保留适量衣褶。"
+          },
+          {
+            "id": "waist_up_matte_lip-material",
+            "channel": "material",
+            "priority": "must",
+            "text": "暖白外套是柔哑细密织物，浅灰内搭表面平顺，皮革腰带有柔和低光泽，暗金耳钉仅有局部亮点。面颊缎光与柔哑唇妆保持区别，浅衣通过厚度、主褶和边缘层次表达。"
+          },
+          {
+            "id": "waist_up_matte_lip-composition",
+            "channel": "composition",
+            "priority": "must",
+            "text": "平视，头部接近正面，身体轻微转向人物自身左侧。画框从完整短发拍至腰带下方少许，完整容纳双肩、翻领、衣袖外缘与腰带，两侧留有舒适余量。双臂自然垂下，前臂和手部位于画外，取景重点是面容妆色与上身造型。"
+          },
+          {
+            "id": "waist_up_matte_lip-proportion",
+            "channel": "proportion",
+            "priority": "must",
+            "text": "头肩自然相称，颈部与肩带连续，胸廓、腰腹有自然长度与厚度，腰部收束适度，保留柔和饱满的体型。衣型服务身体，不压短腰腹或将腰部削成纸片。只评价当前可见上身。",
+            "character_goal": "elongated"
+          },
+          {
+            "id": "waist_up_matte_lip-background",
+            "channel": "background",
+            "priority": "must",
+            "text": "纯白无缝背景洁净均匀，暖白衣料通过衣褶体积、缝线和边缘层次与背景分离，翻领与袖口高光仍有细节，不使用黑色粗描边。"
+          },
+          {
+            "id": "waist_up_matte_lip-lighting",
+            "channel": "lighting",
+            "priority": "must",
+            "text": "大面积柔光从镜头前上方偏人物自身左侧照亮脸部与上衣，另一侧前方提供柔和补光。面部保持自然深棕层次，鼻翼、下唇、下颌与翻领下方有浅淡阴影，面颊和胸廓体积连续。中性白平衡，背景均匀提亮但主体曝光保留深肤层次与浅衣细节。深棕腰带在相邻衣料可有轻微局部反色。面部轮廓、妆色、翻领与腰带清楚，不以全图锐化补出当前景别看不清的微细眼妆。"
+          },
+          {
+            "id": "CQ:slender",
+            "channel": "proportion",
+            "priority": "must",
+            "character_goal": "slender",
+            "text": "实际可见的身形苗条利落，轮廓自然收束且有连续厚度，不削成纸片或露骨细杆；衣装沿既定结构呈现。"
+          },
+          {
+            "id": "CQ:muscle",
+            "channel": "proportion",
+            "priority": "must",
+            "character_goal": "muscle",
+            "text": "实际可见的身体适当有肌肉与软组织支撑，线条紧致舒展，不过分硬刻或夸大肌肉，不穿透衣装推断隐藏结构。"
+          },
+          {
+            "id": "CQ:hair_natural",
+            "channel": "hair",
+            "priority": "must",
+            "character_goal": "hair_natural",
+            "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。"
+          },
+          {
+            "id": "CQ:face_readable",
+            "channel": "hair",
+            "priority": "must",
+            "character_goal": "face_readable",
+            "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。"
+          }
+        ],
+        "sections": [
+          {
+            "label": "任务与目标",
+            "channel": "task",
+            "items": [
+              {
+                "text": "生成一张单人竖幅腰上半身定妆照，纯白无缝背景，完整展示发型、上身衣型和腰带，面部妆色清楚。无文字、水印、色卡或拼板。",
+                "basis": [
+                  "waist_up_matte_lip-task"
+                ],
+                "intent": "constraint"
+              }
+            ]
+          },
+          {
+            "label": "媒介与成片方向",
+            "channel": "style",
+            "items": [
+              {
+                "text": "采用精致的现代演员定妆摄影观感，面容与衣装协调，保留成熟结构和深棕肤色的柔和层次。主体清楚，服装有考究剪裁和可信受光。",
+                "basis": [
+                  "waist_up_matte_lip-style"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的媒介与成片方向选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "人物身份与面容",
+            "channel": "identity",
+            "items": [
+              {
+                "text": "四十一岁女性，深棕基础肤色，宽颊的柔圆脸，颧部与下颌有饱满软组织，颏部宽而圆润。双眼较圆、外眼角平缓，眉毛有自然弧度，深棕虹膜，鼻翼较宽且与面部相称，双唇饱满、唇峰柔和。上眼睑和鼻唇区域保留成熟的细微结构。",
+                "basis": [
+                  "waist_up_matte_lip-identity"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的人物身份与面容选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "神态",
+            "channel": "expression",
+            "items": [
+              {
+                "text": "目光平稳看向镜头，眉间放松，唇角轻微抬起，双唇自然闭合，不露齿，肩部放松。",
+                "basis": [
+                  "waist_up_matte_lip-expression"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的神态选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "妆容与肌肤",
+            "channel": "makeup",
+            "items": [
+              {
+                "text": "底妆薄透贴肤，保留深棕底色与成熟面部结构；面颊以柔和缎光支撑圆润体积。眼影选低饱和暖棕，薄薄覆盖上眼皮，外眼角略深、边缘柔和；眉妆顺应本人毛流。低饱和砖棕腮红沿面颊外侧轻薄晕开。酒红唇色均匀覆盖唇部，唇缘清楚而不硬描边，表面柔哑，与面颊缎光分别呈现。当前景别优先让妆色与光泽关系可读。",
+                "basis": [
+                  "waist_up_matte_lip-makeup"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的妆容与肌肤选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "发型与耳饰",
+            "channel": "hair",
+            "items": [
+              {
+                "text": "黑色短发自然卷曲，侧分主形整洁，保留卷束体积与柔和灰亮反射。小巧暗金耳钉贴合耳垂，不遮挡面容。",
+                "basis": [
+                  "waist_up_matte_lip-hair"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的发型与耳饰选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "服装设计",
+            "channel": "costume",
+            "items": [
+              {
+                "text": "暖白色收腰外套搭配浅灰内搭，翻领与肩袖连接清楚，深棕皮革腰带位于自然腰线，扣件简洁。上衣剪裁沿身体体积自然落下，保留适量衣褶。",
+                "basis": [
+                  "waist_up_matte_lip-costume"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的服装设计选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "材质层次",
+            "channel": "material",
+            "items": [
+              {
+                "text": "暖白外套是柔哑细密织物，浅灰内搭表面平顺，皮革腰带有柔和低光泽，暗金耳钉仅有局部亮点。面颊缎光与柔哑唇妆保持区别，浅衣通过厚度、主褶和边缘层次表达。",
+                "basis": [
+                  "waist_up_matte_lip-material"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的材质层次选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "构图与取景",
+            "channel": "composition",
+            "items": [
+              {
+                "text": "平视，头部接近正面，身体轻微转向人物自身左侧。画框从完整短发拍至腰带下方少许，完整容纳双肩、翻领、衣袖外缘与腰带，两侧留有舒适余量。双臂自然垂下，前臂和手部位于画外，取景重点是面容妆色与上身造型。",
+                "basis": [
+                  "waist_up_matte_lip-composition"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的构图与取景选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "可见比例",
+            "channel": "proportion",
+            "items": [
+              {
+                "text": "头肩自然相称，颈部与肩带连续，胸廓、腰腹有自然长度与厚度，腰部收束适度，保留柔和饱满的体型。衣型服务身体，不压短腰腹或将腰部削成纸片。只评价当前可见上身。",
+                "basis": [
+                  "waist_up_matte_lip-proportion"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的可见比例选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "背景",
+            "channel": "background",
+            "items": [
+              {
+                "text": "纯白无缝背景洁净均匀，暖白衣料通过衣褶体积、缝线和边缘层次与背景分离，翻领与袖口高光仍有细节，不使用黑色粗描边。",
+                "basis": [
+                  "waist_up_matte_lip-background"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的背景选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "灯光与成像",
+            "channel": "lighting",
+            "items": [
+              {
+                "text": "大面积柔光从镜头前上方偏人物自身左侧照亮脸部与上衣，另一侧前方提供柔和补光。面部保持自然深棕层次，鼻翼、下唇、下颌与翻领下方有浅淡阴影，面颊和胸廓体积连续。中性白平衡，背景均匀提亮但主体曝光保留深肤层次与浅衣细节。深棕腰带在相邻衣料可有轻微局部反色。面部轮廓、妆色、翻领与腰带清楚，不以全图锐化补出当前景别看不清的微细眼妆。",
+                "basis": [
+                  "waist_up_matte_lip-lighting"
+                ],
+                "intent": "design",
+                "reason": "本例原创文字方案的灯光与成像选择，不来自来源人物的身份或共同默认。"
+              }
+            ]
+          },
+          {
+            "label": "共同身材目标",
+            "channel": "proportion",
+            "items": [
+              {
+                "text": "实际可见的身形苗条利落，轮廓自然收束且有连续厚度，不削成纸片或露骨细杆；衣装沿既定结构呈现。",
+                "basis": [
+                  "CQ:slender"
+                ],
+                "intent": "constraint"
+              },
+              {
+                "text": "实际可见的身体适当有肌肉与软组织支撑，线条紧致舒展，不过分硬刻或夸大肌肉，不穿透衣装推断隐藏结构。",
+                "basis": [
+                  "CQ:muscle"
+                ],
+                "intent": "constraint"
+              }
+            ]
+          },
+          {
+            "label": "发型自然度与面容可读性",
+            "channel": "hair",
+            "items": [
+              {
+                "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。",
+                "basis": [
+                  "CQ:hair_natural"
+                ],
+                "intent": "constraint"
+              },
+              {
+                "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。",
+                "basis": [
+                  "CQ:face_readable"
+                ],
+                "intent": "constraint"
+              }
+            ]
+          }
+        ],
+        "acceptance": [
+          {
+            "id": "waist_up_matte_lip-task-check",
+            "basis": "waist_up_matte_lip-task",
+            "critical": true,
+            "question": "是否为单人腰上半身，发型、上衣与腰带都得到展示，没有附带其他视图？"
+          },
+          {
+            "id": "waist_up_matte_lip-style-check",
+            "basis": "waist_up_matte_lip-style",
+            "critical": true,
+            "question": "摄影观感、成熟面容与考究衣型是否共同成立，肤色层次是否自然？"
+          },
+          {
+            "id": "waist_up_matte_lip-identity-check",
+            "basis": "waist_up_matte_lip-identity",
+            "critical": true,
+            "question": "宽颊柔圆脸、自然鼻翼宽度与饱满唇部是否可辨，深棕肤色及四十一岁观感是否成立？"
+          },
+          {
+            "id": "waist_up_matte_lip-expression-check",
+            "basis": "waist_up_matte_lip-expression",
+            "critical": true,
+            "question": "平稳视线、轻微唇角变化与放松肩部是否协调，没有僵硬的统一笑容？"
+          },
+          {
+            "id": "waist_up_matte_lip-makeup-check",
+            "basis": "waist_up_matte_lip-makeup",
+            "critical": true,
+            "question": "深棕肤色、砖棕腮红与酒红柔哑唇妆是否协调，面颊缎光与唇部柔哑是否分别可读？只判实际可见细节。"
+          },
+          {
+            "id": "waist_up_matte_lip-hair-check",
+            "basis": "waist_up_matte_lip-hair",
+            "critical": true,
+            "question": "侧分短卷发和小耳钉是否可读，发束是否有体积并保持主要五官清楚？"
+          },
+          {
+            "id": "waist_up_matte_lip-costume-check",
+            "basis": "waist_up_matte_lip-costume",
+            "critical": true,
+            "question": "暖白外套、浅灰内搭、自然腰线与深棕腰带是否完整可读且结构连贯？"
+          },
+          {
+            "id": "waist_up_matte_lip-material-check",
+            "basis": "waist_up_matte_lip-material",
+            "critical": true,
+            "question": "暖白织物、皮革和暗金是否分材质可读，皮肤和唇部光泽是否没有统一成油亮反射？"
+          },
+          {
+            "id": "waist_up_matte_lip-composition-check",
+            "basis": "waist_up_matte_lip-composition",
+            "critical": true,
+            "question": "取景是否到腰带下方，双肩、翻领、袖缘与腰带是否完整，画外手部是否没有被误作完整展示要求？"
+          },
+          {
+            "id": "waist_up_matte_lip-proportion-check",
+            "basis": "waist_up_matte_lip-proportion",
+            "critical": true,
+            "question": "可见头肩与胸腰是否协调且保留饱满体积，有没有长颈、短腰或纸片腰失衡？"
+          },
+          {
+            "id": "waist_up_matte_lip-background-check",
+            "basis": "waist_up_matte_lip-background",
+            "critical": true,
+            "question": "纯白背景与暖白外套是否保持边缘、主褶和袖口层次，是否没有过曝或黑色粗描边？"
+          },
+          {
+            "id": "waist_up_matte_lip-lighting-check",
+            "basis": "waist_up_matte_lip-lighting",
+            "critical": true,
+            "question": "柔光是否保留深肤层次及面部、胸廓、翻领的体积，没有为了白底把肤色提成浅色？"
+          },
+          {
+            "id": "waist_up_matte_lip-detail-clarity",
+            "basis": "waist_up_matte_lip-lighting",
+            "critical": true,
+            "question": "腰上半身是否清楚展示面容妆色、衣型与腰带，没有用失焦或雾化制造柔和，也没有宣称画外或微细结构已确认？"
+          },
+          {
+            "id": "waist_up_matte_lip-skin-color",
+            "basis": "waist_up_matte_lip-lighting",
+            "critical": true,
+            "question": "深棕基础肤色与酒红唇色是否保持，背景提亮是否没有使主体肤色或浅衣高光丢失？"
+          },
+          {
+            "id": "CQ:slender:check",
+            "basis": "CQ:slender",
+            "critical": true,
+            "question": "本轮实际可见范围内，苗条轮廓是否满足正文关系，且未越过编辑保护范围？"
+          },
+          {
+            "id": "CQ:muscle:check",
+            "basis": "CQ:muscle",
+            "critical": true,
+            "question": "本轮实际可见范围内，肌肉支撑是否满足正文关系，且未越过编辑保护范围？"
+          },
+          {
+            "id": "CQ:hair_natural:check",
+            "basis": "CQ:hair_natural",
+            "critical": true,
+            "question": "本轮实际可见范围内，发型自然度是否满足正文关系，且未越过编辑保护范围？"
+          },
+          {
+            "id": "CQ:face_readable:check",
+            "basis": "CQ:face_readable",
+            "critical": true,
+            "question": "本轮实际可见范围内，面容可读性是否满足正文关系，且未越过编辑保护范围？"
+          }
+        ],
+        "metadata": {
+          "evidence_kind": "text_design_only",
+          "image_generated": false,
+          "visual_quality_verified": false,
+          "user_accepted": false
+        }
+      }
+    }
+  ]
+}

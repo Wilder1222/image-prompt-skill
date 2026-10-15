@@ -1,13 +1,14 @@
 import crypto from 'node:crypto';
 import {adaptModelPrompt} from './model-adapter.mjs';
 import {characterStyleIds} from './character-style-render.mjs';
+import {characterGoalErrors} from './character-goals.mjs';
 
 // The host agent performs visual observation and design reasoning. This compiler only
 // checks declared provenance, coverage and delivery integrity; it does not see images.
 const channels = new Set(['identity','expression','action','makeup','hair','costume','material','composition','layout','proportion','hands_feet','background','lighting','style','task','output']);
 const nonempty = x => typeof x === 'string' && x.trim().length > 0;
 const referenceFields = new Set(['id','source','inspected','generation_input','authority','facts','identity_group','identity_role','identity_target_id']);
-const inputFields = new Set(['subject_kind','request','references','requirements','unresolved','sections','acceptance','target','edit_scope','metadata']);
+const inputFields = new Set(['subject_kind','request','references','requirements','unresolved','sections','acceptance','target','edit_scope','metadata','character_exceptions','quality_review']);
 const internalStyle = new RegExp(`\\b(?:${characterStyleIds.join('|')})\\b`);
 export const promptHash = text => crypto.createHash('sha256').update(text).digest('hex');
 
@@ -31,6 +32,7 @@ export function compileProductionPrompt(input) {
   if (!Array.isArray(input.sections) || !input.sections.length) errors.push('missing reference-specific sections');
   if (!Array.isArray(input.unresolved) || input.unresolved.length) errors.push('resolve critical ambiguities and conflicts before delivery');
   if (errors.length) throw new Error(errors.join('\n'));
+  errors.push(...characterGoalErrors(input));
   function checkProse(text,label) {
     if (!nonempty(text) || /【|】|\bTODO\b|待填写|逐项填写|填写本套/.test(text)) errors.push(`unfinished clause in ${label}`);
     if (internalStyle.test(text ?? '')) errors.push(`replace internal style identifiers with concrete visual prose in ${label}`);

@@ -33,7 +33,8 @@ export function buildPortraitLookPlan(input) {
   if (base?.subject_kind !== 'character' || base.edit_scope !== undefined) throw new Error('use a character base for new look targets, not an inherited narrow edit_scope');
   compileProductionPrompt(base);
   if (!base.requirements.some(row => row.channel === 'identity' && row.priority === 'must')) throw new Error('same-character looks need an authored stable identity requirement');
-  if (base.requirements.some(row => mutable.includes(row.channel)) || base.sections.some(row => mutable.includes(row.channel)))
+  const commonGoals=new Set(base.requirements.filter(row=>row.character_goal).map(row=>row.id));
+  if (base.requirements.some(row => mutable.includes(row.channel)&&!row.character_goal) || base.sections.some(row => mutable.includes(row.channel)&&row.items.some(item=>item.basis.some(id=>!commonGoals.has(id)))))
     throw new Error('clean inherited hair, expression and makeup channels; put fixed presentation clauses in shared');
   const groups = input.groups ?? [], shared = input.shared ?? [];
   if (!Array.isArray(groups) || !Array.isArray(shared)) throw new Error('groups and shared must be arrays');
@@ -75,7 +76,14 @@ export function buildPortraitLookPlan(input) {
       brief.acceptance.push({id:`${id}:check`,basis:id,critical:true,question});
     };
     shared.forEach((row,index) => add(row.channel,`PL:${input.id}:shared:${index}`,row.text,'constraint',`是否满足共同保持要求：${row.text}`));
-    if (look.hair) add('hair',`PL:${input.id}:${look.id}:hair`,look.hair.text,'design','本套额前分区、刘海、鬓角耳侧与正面轮廓是否符合所写设计，且关键眉眼鼻口仍可读？');
+    if (look.hair) {
+      const frontLabels={parting:'额前分区与露额',fringe:'刘海结构',temples:'鬓角与耳侧',outline:'正面轮廓'};
+      for(const field of frontFields){
+        if(!/[\u3400-\u9fff]/u.test(look.hair.front[field]))throw new Error(`front hair ${field} needs visible Chinese prose, not an internal signature code`);
+        add('hair',`PL:${input.id}:${look.id}:hair:${field}`,`${frontLabels[field]}：${look.hair.front[field]}`,'design',`本套实际可见的${frontLabels[field]}是否符合正文设计？`);
+      }
+      add('hair',`PL:${input.id}:${look.id}:hair`,look.hair.text,'design','后部扎束、附件及发束衔接是否符合本套补充设计，且没有覆盖脸前设计？');
+    }
     if (look.expression) {
       const e = look.expression;
       add('expression',`PL:${input.id}:${look.id}:expression`,`${e.emotion}；${e.gaze}；${e.brows}；${e.eyelids}；${e.mouth}。`,'design',

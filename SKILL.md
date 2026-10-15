@@ -30,11 +30,11 @@ description: 将文字描述与可选参考图转为任务专属的中文分类�
 | 保持原图任务与风格的统一标准化 | [风格保持标准化](references/routes/style-preserving-standardization.md)，按用途统一可读性与明暗层次，保护原光色、动势、媒介和场景 |
 | 明确要求正面中性肖像对照、对应失败项逐张修订 | [原图绑定肖像对照](references/routes/reference-portrait-standardization.md)，另建对照目标，先查保护，再查呈现；来源未知独立保留 |
 | 人物媒介或风格转换 | [人物风格](references/routes/character-visual-styles.md) |
-| 妆肤、发型、表情与生命感 | [妆肤](references/core/makeup-skin-integration-v2.md)、[发型与发丝](references/core/hair-frequency-variation-v2.md)用于自然层次和资产面部可读性；[身份与表情](references/core/identity-vs-temperament-diagnostics.md)、[动作](references/core/action-direction.md)按问题选读 |
+| 妆肤、发型、表情与生命感 | [妆肤](references/core/makeup-skin-integration-v2.md)按可见部位写色彩、范围、过渡与光泽；[发型与发丝](references/core/hair-frequency-variation-v2.md)用于自然层次和资产面部可读性；[身份与表情](references/core/identity-vs-temperament-diagnostics.md)、[动作](references/core/action-direction.md)按问题选读 |
 | 换装、复杂衣装与适度再设计 | [人物与衣装资产](references/routes/character-asset-pipeline.md)、[标杆与服装](references/routes/benchmark-costume-refinement.md) |
 | 多视角、表情组与同人物资产包 | [同人物成组验收](references/routes/character-consistency-assets.md) |
 | 多套肖像、发型试款与同人物不同造型 | [多造型与发型差异化](references/routes/portrait-look-variation.md)，固定身份与本轮视点、发色，分别设计脸前结构、妆容和表演，整组检查重复 |
-| 白底棚光的正面肖像、全身及三视图参考卡 | [白底参考卡](references/routes/white-background-reference-cards.md)、[比例选择](references/core/fashion-proportion-system.md)，先输出当前中文正文，逐视角核对本人、原妆与共同身体尺度 |
+| 白底棚光的定妆肖像、全身及三视图参考卡 | [白底参考卡](references/routes/white-background-reference-cards.md)、[定妆取景](references/core/character-framing.md)、[比例选择](references/core/fashion-proportion-system.md)，柔光与清晰度分别表达，逐视角核对本人、原妆与可见比例，成组保持共同身体尺度 |
 | 独立场景、人物入景与换背景 | [背景与空间协调](references/core/background-direction.md) |
 | 商品、包装、品牌外观与广告 | [产品设计与保持](references/routes/product-design.md) |
 | 招牌、海报、标签及准确文字 | [文字与排版](references/routes/text-layout.md)；含商品时同时读产品路线 |

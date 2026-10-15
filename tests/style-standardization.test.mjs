@@ -1,3 +1,4 @@
+import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -7,8 +8,19 @@ import {fileURLToPath} from 'node:url';
 import {applyStyleStandardizationPlan,assertStyleStandardizationBindings,buildStyleStandardizationPlan,validateStyleStandardizationChecks} from '../scripts/style-standardization.mjs';
 import {loadVisualPreferenceCatalog} from '../scripts/visual-preferences.mjs';
 import {compileProductionPrompt,objectHash,promptHash} from '../scripts/production-prompt.mjs';
-import {finishProductionRun,freezeProductionRun,summarizeProductionRuns,verifyFrozenRun} from '../scripts/production-run.mjs';
+import {finishProductionRun,freezeProductionRun as freezeRun,summarizeProductionRuns,verifyFrozenRun} from '../scripts/production-run.mjs';
 import {auditPromptQuality} from '../scripts/prompt-quality-audit.mjs';
+
+// Detailed legacy scopes intentionally repeat protected text; retain only that
+// known diagnostic in these synthetic tests, never waive other quality failures.
+function freezeProductionRun(input,options){
+  const reviewed=structuredClone(input),audit=auditPromptQuality(reviewed);
+  assert.ok(audit.diagnostics.every(row=>row.code==='scope_repeats_clause'));
+  if(audit.diagnostics.length)reviewed.quality_review={prompt_sha256:audit.prompt_sha256,diagnostics_sha256:audit.diagnostics_sha256,
+    reviewer:'synthetic style-preservation test author; no visual approval',decisions:audit.diagnostics.map(row=>({diagnostic_sha256:objectHash(row),resolution:'retain',
+      reason:'本合成夹具有意保留旧版详细保护范围与正文的重复，用于检验来源、原妆和编辑边界；不代表视觉质量通过。'}))};
+  return freezeRun(reviewed,options);
+}
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 function setup(t,id='VP-C01'){
@@ -26,7 +38,7 @@ function setup(t,id='VP-C01'){
     references:[{id:'ORIGINAL',source:original,inspected:true,generation_input:true,authority:['identity'],identity_role:'primary',facts:[{id:'source-visible',channel:'identity',text:'合成可见面容声明，不证明测试图里有人物。',visibility:'partial'}]}],unresolved:[],requirements,
     sections:requirements.map(requirement=>({label:requirement.channel==='identity'?'当前人物':'当前比例',channel:requirement.channel,items:[{text:requirement.text,basis:[requirement.id],intent:'constraint'}]})),
     acceptance:requirements.map(requirement=>({id:`${requirement.id}-check`,basis:requirement.id,critical:true,question:'当前原图可见范围是否保持？'})),metadata:{author:'synthetic declaration'}};
-  return {catalog,asset,brief,original,candidate,input:{id:'style-source-v1',asset_id:id}};
+  return {catalog,asset,brief:withCharacterGoals(brief,{bindings:{elongated:'proportion'}}),original,candidate,input:{id:'style-source-v1',asset_id:id}};
 }
 
 test('compact scope reduces repeated delivery while retaining all detailed targets and checks',t=>{
@@ -160,7 +172,8 @@ test('style and source contract enters audited frozen target while original iden
 test('new visual preferences cannot acquire unrelated RP ids and one person with creatures is still character',t=>{
   const {catalog,input,brief}=setup(t,'VP-C03'),wrong=structuredClone(brief);wrong.references[0].identity_target_id='RP-A01';
   assert.throws(()=>applyStyleStandardizationPlan(wrong,input,{catalog}),/unrelated RP/);
-  const scene=structuredClone(brief);scene.subject_kind='scene';assert.throws(()=>applyStyleStandardizationPlan(scene,input,{catalog}),/person with creature remains character/);
+  const scene=structuredClone(brief);scene.subject_kind='scene';for(const requirement of scene.requirements)delete requirement.character_goal;
+  assert.throws(()=>applyStyleStandardizationPlan(scene,input,{catalog}),/person with creature remains character/);
   const multiple=structuredClone(catalog);multiple.assets[0].subjects.push('multi_person');assert.throws(()=>buildStyleStandardizationPlan(input,{catalog:multiple}),/multiple person identities/);
 });
 
@@ -300,7 +313,8 @@ test('frozen verification also rejects individually deleted protections and prom
   const check=snapshot.target.requirements.find(requirement=>requirement.id.endsWith(':preserve:lighting'));
   for(const mutate of [candidate=>{candidate.target.requirements=candidate.target.requirements.filter(requirement=>requirement.id!==check.id);candidate.target.acceptance=candidate.target.acceptance.filter(criterion=>criterion.basis!==check.id);},
     candidate=>{candidate.target.acceptance.find(criterion=>criterion.basis===check.id).critical=false;},
-    candidate=>{candidate.prompt=candidate.prompt.replaceAll(check.text,'');candidate.prompt_sha256=promptHash(candidate.prompt);}]){
+    candidate=>{candidate.prompt=candidate.prompt.replaceAll(check.text,'');candidate.prompt_sha256=promptHash(candidate.prompt);
+      candidate.quality_audit.prompt_sha256=candidate.prompt_sha256;candidate.quality_review.prompt_sha256=candidate.prompt_sha256;}]){
     const changed=structuredClone(snapshot);mutate(changed);changed.target_sha256=objectHash(changed.target);const {snapshot_sha256,...body}=changed;changed.snapshot_sha256=objectHash(body);
     assert.throws(()=>verifyFrozenRun(changed,{verifyFiles:false}),/style standardization (?:must retain|text projection)/);
   }
@@ -311,7 +325,7 @@ test('pre-contract exact tonal pilots remain historical records but cannot autho
   const legacyPlan=structuredClone(plan);delete legacyPlan.scope_contract;const {plan_sha256,...planBody}=legacyPlan;legacyPlan.plan_sha256=objectHash(planBody);
   const legacyBrief=structuredClone(projected);legacyBrief.requirements.find(requirement=>requirement.style_standardization_plan).style_standardization_plan=legacyPlan;
   legacyBrief.edit_scope.changes=['只在原图画布内，对已经可见的面部暗部做极轻微的亮度补偿，保持原对比、低饱和关系、雾化空气感和色温。衣料、金纹、发饰、叶花、石水与背景原样保留；原颗粒、粗细笔触和软边不去除、不锐化，不追加细金线、刺绣或微观纹理，不重画人物或场景。画幅横竖类别、长宽关系、取景和所有原动作保持。'];
-  const legacy=structuredClone(snapshot);delete legacy.style_standardization_contract;legacy.target.requirements=legacyBrief.requirements;legacy.target_sha256=objectHash(legacy.target);legacy.edit_scope=legacyBrief.edit_scope;const compiled=compileProductionPrompt(legacyBrief);legacy.prompt=compiled.prompt;legacy.prompt_sha256=compiled.prompt_sha256;const {snapshot_sha256,...legacyBody}=legacy;legacy.snapshot_sha256=objectHash(legacyBody);
+  const legacy=structuredClone(snapshot);delete legacy.style_standardization_contract;delete legacy.quality_audit;delete legacy.quality_review;legacy.target.requirements=legacyBrief.requirements;legacy.target_sha256=objectHash(legacy.target);legacy.edit_scope=legacyBrief.edit_scope;const compiled=compileProductionPrompt(legacyBrief);legacy.prompt=compiled.prompt;legacy.prompt_sha256=compiled.prompt_sha256;const {snapshot_sha256,...legacyBody}=legacy;legacy.snapshot_sha256=objectHash(legacyBody);
   const before=structuredClone(legacy);verifyFrozenRun(legacy);assert.deepEqual(legacy,before);assert.ok(!Object.hasOwn(legacy,'style_standardization_contract'));
   assert.throws(()=>freezeProductionRun(legacyBrief,{run_id:'new-legacy-dispatch',case_id:'synthetic',cohort:'style',kind:'edit',parent}),/legacy style plans are historical/);
   const unsafe=structuredClone(legacy);unsafe.edit_scope.changes.push('同时增加一个人并换成灰底。');const {snapshot_sha256:oldHash,...unsafeBody}=unsafe;unsafe.snapshot_sha256=objectHash(unsafeBody);

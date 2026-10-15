@@ -1,11 +1,24 @@
+import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {applyFaceReviewPlan,buildFaceReviewPlan,validateFaceReviewChecks} from '../scripts/face-review-plan.mjs';
-import {compileProductionPrompt} from '../scripts/production-prompt.mjs';
-import {freezeProductionRun,verifyFrozenRun} from '../scripts/production-run.mjs';
+import {compileProductionPrompt,objectHash} from '../scripts/production-prompt.mjs';
+import {freezeProductionRun as freezeRun,verifyFrozenRun} from '../scripts/production-run.mjs';
+import {auditPromptQuality} from '../scripts/prompt-quality-audit.mjs';
+
+// These fixtures intentionally repeat exact protection prose in the detailed scope.
+// Review that known diagnostic explicitly without weakening the production gate.
+function freezeProductionRun(input,options){
+  const reviewed=structuredClone(input),audit=auditPromptQuality(reviewed);
+  assert.ok(audit.diagnostics.every(row=>row.code==='scope_repeats_clause'));
+  if(audit.diagnostics.length)reviewed.quality_review={prompt_sha256:audit.prompt_sha256,diagnostics_sha256:audit.diagnostics_sha256,
+    reviewer:'synthetic source-preservation test author; no visual approval',decisions:audit.diagnostics.map(row=>({diagnostic_sha256:objectHash(row),resolution:'retain',
+      reason:'本合成夹具有意保留详细保护范围与正文的重复，以验证来源和编辑边界；不代表视觉质量通过。'}))};
+  return freezeRun(reviewed,options);
+}
 
 function setup(t){
   const parent=path.resolve(os.tmpdir()),dir=fs.mkdtempSync(path.join(parent,'face-review-plan-'));
@@ -37,7 +50,7 @@ function setup(t){
       {selector:'chin',role:'preserve',observation:observation('ORIGINAL',originalFacts[3])},
       {selector:'nose_bridge',role:'inspect',observation:observation('ORIGINAL',originalFacts[4])},
       {selector:'nose_tip_projection',role:'inspect',observation:observation('ORIGINAL',originalFacts[5])}]};
-  return {brief,input,original,candidate};
+  return {brief:withCharacterGoals(brief,{bindings:{elongated:'proportion'}}),input,original,candidate};
 }
 
 test('review plans separate mutable changes, visible protection, unavailable structure and relationship review',t=>{

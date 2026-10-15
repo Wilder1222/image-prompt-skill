@@ -39,7 +39,36 @@
       "channel": "proportion",
       "priority": "must",
       "target_head_count": 9,
-      "text": "黄金九头身为硬性目标，人体直立高度等于九个颅顶至下巴的头长，不计头饰、鞋跟和拖尾；头肩、躯干、上下臂和上下腿协调，有适度肌肉体积，可见手部结构与双脚承重自然。"
+      "text": "黄金九头身为硬性目标，人体直立高度等于九个颅顶至下巴的头长，不计头饰、鞋跟和拖尾；头肩、躯干、上下臂和上下腿协调，有适度肌肉体积，可见手部结构与双脚承重自然。",
+      "character_goal": "elongated"
+    },
+    {
+      "id": "CQ:slender",
+      "channel": "proportion",
+      "priority": "must",
+      "character_goal": "slender",
+      "text": "实际可见的身形苗条利落，轮廓自然收束且有连续厚度，不削成纸片或露骨细杆；衣装沿既定结构呈现。"
+    },
+    {
+      "id": "CQ:muscle",
+      "channel": "proportion",
+      "priority": "must",
+      "character_goal": "muscle",
+      "text": "实际可见的身体适当有肌肉与软组织支撑，线条紧致舒展，不过分硬刻或夸大肌肉，不穿透衣装推断隐藏结构。"
+    },
+    {
+      "id": "CQ:hair_natural",
+      "channel": "hair",
+      "priority": "must",
+      "character_goal": "hair_natural",
+      "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。"
+    },
+    {
+      "id": "CQ:face_readable",
+      "channel": "hair",
+      "priority": "must",
+      "character_goal": "face_readable",
+      "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。"
     }
   ],
   "sections": [
@@ -120,6 +149,46 @@
           "text": "人物必须采用黄金九头身，人体直立高度等于九个颅顶至下巴的头长，不计头饰、鞋跟和拖尾。头肩、躯干、上下臂与上下腿协调，肌肉适度自然；不极端缩头、压短躯干或单段拉长腿部，可见手指结构连贯，双脚自然承重。"
         }
       ]
+    },
+    {
+      "label": "共同身材目标",
+      "channel": "proportion",
+      "items": [
+        {
+          "text": "实际可见的身形苗条利落，轮廓自然收束且有连续厚度，不削成纸片或露骨细杆；衣装沿既定结构呈现。",
+          "basis": [
+            "CQ:slender"
+          ],
+          "intent": "constraint"
+        },
+        {
+          "text": "实际可见的身体适当有肌肉与软组织支撑，线条紧致舒展，不过分硬刻或夸大肌肉，不穿透衣装推断隐藏结构。",
+          "basis": [
+            "CQ:muscle"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "发型自然度与面容可读性",
+      "channel": "hair",
+      "items": [
+        {
+          "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。",
+          "basis": [
+            "CQ:hair_natural"
+          ],
+          "intent": "constraint"
+        },
+        {
+          "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。",
+          "basis": [
+            "CQ:face_readable"
+          ],
+          "intent": "constraint"
+        }
+      ]
     }
   ],
   "acceptance": [
@@ -158,6 +227,30 @@
       "basis": "anatomy",
       "critical": true,
       "question": "排除头饰、鞋跟与拖尾后是否满足九头身，且头肩躯干四肢协调、可见手部和脚部承重自然？证据不足不得判通过。"
+    },
+    {
+      "id": "CQ:slender:check",
+      "basis": "CQ:slender",
+      "critical": true,
+      "question": "本轮实际可见范围内，苗条轮廓是否满足正文关系，且未越过编辑保护范围？"
+    },
+    {
+      "id": "CQ:muscle:check",
+      "basis": "CQ:muscle",
+      "critical": true,
+      "question": "本轮实际可见范围内，肌肉支撑是否满足正文关系，且未越过编辑保护范围？"
+    },
+    {
+      "id": "CQ:hair_natural:check",
+      "basis": "CQ:hair_natural",
+      "critical": true,
+      "question": "本轮实际可见范围内，发型自然度是否满足正文关系，且未越过编辑保护范围？"
+    },
+    {
+      "id": "CQ:face_readable:check",
+      "basis": "CQ:face_readable",
+      "critical": true,
+      "question": "本轮实际可见范围内，面容可读性是否满足正文关系，且未越过编辑保护范围？"
     }
   ]
 }

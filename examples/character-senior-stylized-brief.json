@@ -39,7 +39,8 @@
       "channel": "proportion",
       "priority": "must",
       "target_head_count": 9,
-      "text": "黄金九头身是硬性目标：中性直立人体高度等于九个颅顶至下巴的头长，不计两侧短发或短髭。头肩、完整胸廓、腰腹骨盆与四肢共同协调，身材高挑匀称、有适度肌肉体积；保留年长者自然软组织，不以青年健美分块覆盖年龄，也不靠极小头、长脖子、压短躯干或单段拉长小腿凑数。"
+      "text": "黄金九头身是硬性目标：中性直立人体高度等于九个颅顶至下巴的头长，不计两侧短发或短髭。头肩、完整胸廓、腰腹骨盆与四肢共同协调，身材高挑匀称、有适度肌肉体积；保留年长者自然软组织，不以青年健美分块覆盖年龄，也不靠极小头、长脖子、压短躯干或单段拉长小腿凑数。",
+      "character_goal": "elongated"
     },
     {
       "id": "limbs",
@@ -52,6 +53,34 @@
       "channel": "style",
       "priority": "must",
       "text": "全图为成熟的风格化三维角色渲染：脸部有概括而清楚的眼眶、鼻面、颧颊和下颌体积，头发为雕塑式短发束，衣服为平整大色面与有限主褶。柔和棚光展现连续明暗和衣片厚度，表面反射克制；不是真人照片、二维线稿、写实毛孔贴图或大头短身玩偶。"
+    },
+    {
+      "id": "CQ:slender",
+      "channel": "proportion",
+      "priority": "must",
+      "character_goal": "slender",
+      "text": "实际可见的身形苗条利落，轮廓自然收束且有连续厚度，不削成纸片或露骨细杆；衣装沿既定结构呈现。"
+    },
+    {
+      "id": "CQ:muscle",
+      "channel": "proportion",
+      "priority": "must",
+      "character_goal": "muscle",
+      "text": "实际可见的身体适当有肌肉与软组织支撑，线条紧致舒展，不过分硬刻或夸大肌肉，不穿透衣装推断隐藏结构。"
+    },
+    {
+      "id": "CQ:hair_natural",
+      "channel": "hair",
+      "priority": "must",
+      "character_goal": "hair_natural",
+      "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。"
+    },
+    {
+      "id": "CQ:face_readable",
+      "channel": "hair",
+      "priority": "must",
+      "character_goal": "face_readable",
+      "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。"
     }
   ],
   "sections": [
@@ -158,6 +187,46 @@
           ]
         }
       ]
+    },
+    {
+      "label": "共同身材目标",
+      "channel": "proportion",
+      "items": [
+        {
+          "text": "实际可见的身形苗条利落，轮廓自然收束且有连续厚度，不削成纸片或露骨细杆；衣装沿既定结构呈现。",
+          "basis": [
+            "CQ:slender"
+          ],
+          "intent": "constraint"
+        },
+        {
+          "text": "实际可见的身体适当有肌肉与软组织支撑，线条紧致舒展，不过分硬刻或夸大肌肉，不穿透衣装推断隐藏结构。",
+          "basis": [
+            "CQ:muscle"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "发型自然度与面容可读性",
+      "channel": "hair",
+      "items": [
+        {
+          "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。",
+          "basis": [
+            "CQ:hair_natural"
+          ],
+          "intent": "constraint"
+        },
+        {
+          "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。",
+          "basis": [
+            "CQ:face_readable"
+          ],
+          "intent": "constraint"
+        }
+      ]
     }
   ],
   "acceptance": [
@@ -208,6 +277,30 @@
       "basis": "medium",
       "critical": true,
       "question": "全图为成熟的风格化三维角色渲染：脸部有概括而清楚的眼眶、鼻面、颧颊和下颌体积，头发为雕塑式短发束，衣服为平整大色面与有限主褶。柔和棚光展现连续明暗和衣片厚度，表面反射克制；不是真人照片、二维线稿、写实毛孔贴图或大头短身玩偶。"
+    },
+    {
+      "id": "CQ:slender:check",
+      "basis": "CQ:slender",
+      "critical": true,
+      "question": "本轮实际可见范围内，苗条轮廓是否满足正文关系，且未越过编辑保护范围？"
+    },
+    {
+      "id": "CQ:muscle:check",
+      "basis": "CQ:muscle",
+      "critical": true,
+      "question": "本轮实际可见范围内，肌肉支撑是否满足正文关系，且未越过编辑保护范围？"
+    },
+    {
+      "id": "CQ:hair_natural:check",
+      "basis": "CQ:hair_natural",
+      "critical": true,
+      "question": "本轮实际可见范围内，发型自然度是否满足正文关系，且未越过编辑保护范围？"
+    },
+    {
+      "id": "CQ:face_readable:check",
+      "basis": "CQ:face_readable",
+      "critical": true,
+      "question": "本轮实际可见范围内，面容可读性是否满足正文关系，且未越过编辑保护范围？"
     }
   ]
 }

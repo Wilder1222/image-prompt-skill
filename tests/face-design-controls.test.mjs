@@ -1,3 +1,4 @@
+import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -29,10 +30,10 @@ function sideFace(){
 }
 
 function baseBrief(){
-  return {subject_kind:'character',request:'合成生产契约测试，肩部以上肖像，未知画外结构不声明通过。',references:[],unresolved:[],
+  return withCharacterGoals({subject_kind:'character',request:'合成生产契约测试，肩部以上肖像，未知画外结构不声明通过。',references:[],unresolved:[],
     requirements:[{id:'visible-head-shoulder',channel:'proportion',priority:'must',text:'仅设计可见头颈肩的协调关系。'}],
     sections:[{label:'可见比例',channel:'proportion',items:[{text:'头颈肩协调自然，不推断画外身体。',basis:['visible-head-shoulder'],intent:'constraint'}]}],
-    acceptance:[{id:'visible-head-shoulder-check',basis:'visible-head-shoulder',critical:true,question:'可见头颈肩是否协调？'}]};
+    acceptance:[{id:'visible-head-shoulder-check',basis:'visible-head-shoulder',critical:true,question:'可见头颈肩是否协调？'}]},{bindings:{elongated:'visible-head-shoulder'}});
 }
 
 function observedCase(t){

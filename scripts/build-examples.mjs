@@ -71,6 +71,20 @@ export function currentFaceControlExamples() {
     }).join('\n');
 }
 
+export function currentPortraitMakeupStudioExamples() {
+  const set = JSON.parse(fs.readFileSync(new URL('../examples/portrait-makeup-studio-set.json', import.meta.url), 'utf8'));
+  return '# 妆肤、白底棚光与定妆取景示例\n\n'
+    + '由 `npm run examples:build` 从 [原创方案](portrait-makeup-studio-set.json) 编译。方法来自对“生成白底资产图”对话与四张原始设定板截图的分析，未取得该对话后续近景生成结果。这里只迁移妆面描述、受光与清晰度关系和取景方法，不复刻其人物身份、妆容或造型。\n\n'
+    + '三例分别采用不同年龄、肤色、面容、妆量与光泽，都是独立的原创文字设计，不构成统一人物预设或同人连续资产；也不是证明某个提示词已改善出图的对照实验。摄影与精细CG分别明确，其他媒介按本轮要求调整。来源记录、完整 brief 和生成前关键验收均保留于原创方案。\n\n'
+    + '以下完整正文可分别复制。尚未生成图像、验证视觉质量或获得用户接受；正文编译与计划检查只验证声明。\n\n'
+    + set.cases.map(row => {
+      const compiled = compileProductionPrompt(row.brief);
+      const checks = row.brief.acceptance.filter(c => /-(?:makeup|composition|background|lighting)-check$|-(?:detail-clarity|skin-color)$/.test(c.id));
+      return `## ${row.label}\n\n${row.scope}\n\n\`\`\`text\n${compiled.prompt}\n\`\`\`\n\n`
+        + '生成后重点核对：\n\n' + checks.map(c => `- ${c.question}`).join('\n') + '\n';
+    }).join('\n');
+}
+
 export function currentPortraitLookExamples() {
   const input = JSON.parse(fs.readFileSync(new URL('../examples/portrait-look-diversity-plan.json', import.meta.url), 'utf8'));
   const report = buildPortraitLookPlan(input);
@@ -88,6 +102,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   fs.writeFileSync(path.join(root, 'examples/face-design-current-prompts.md'), currentFaceDesignExamples());
   fs.writeFileSync(path.join(root, 'examples/blue-benchmark-distinct-faces-current-prompts.md'), currentBlueBenchmarkDistinctFacesExamples());
   fs.writeFileSync(path.join(root, 'examples/face-design-controls-current-prompts.md'), currentFaceControlExamples());
+  fs.writeFileSync(path.join(root, 'examples/portrait-makeup-studio-current-prompts.md'), currentPortraitMakeupStudioExamples());
   fs.writeFileSync(path.join(root, 'examples/portrait-look-diversity-current-prompts.md'), currentPortraitLookExamples());
   fs.writeFileSync(path.join(root, 'docs/current-asset-plan.json'), `${JSON.stringify(createAssetPlan({ presentation: 'costume_showcase', maturityGuard: 'none' }), null, 2)}\n`);
   console.log('Generated current prompts and plan; visual regression remains pending.');
