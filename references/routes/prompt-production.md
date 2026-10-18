@@ -97,4 +97,4 @@ node scripts/production-run.mjs inspect --snapshot run-01.snapshot.json
 
 ## 全身体型基准与换装组
 
-肖像扩身和同人多套全身任务先读 [共同身体基准](full-body-baseline.md)。需要建立身体母图或证明整组身材一致时，在生成前调用 withBodyRegionChecks 写入六区正文与关键验收；普通近景不套此契约。回执按实际可见关系和相对目标填写 body_observation，整体美化与结构连续分别判断。完整成组记录再调用 body-set-review 检查共同基准、逐套比较、漏项和用户撤回，不能用单图或局部修复通过代替整组资格。
+全身生产先读 [共同身体基准](full-body-baseline.md)。生成前调用 withBodyRegionChecks 声明 body_plan 的人物位置与视角，共享六区正文、逐人物冻结关键验收；普通近景不套此契约。回执按实际可见关系和相对目标填写 body_observation，整体美化与结构连续分别判断。完整成组记录再调用 body-set-review 检查共同基准、按 run_id / figure_id 比较、漏人漏区和用户撤回，不能用一人、单图或局部修复通过代替整组资格。

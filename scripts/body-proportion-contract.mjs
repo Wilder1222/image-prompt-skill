@@ -1,4 +1,4 @@
-// Optional full-body asset contract. Authored observations are not pixel analysis.
+// Explicit full-body scope and per-figure observations; no pixel analysis.
 export const bodyRegions=Object.freeze({
   head_shoulders:'头肩与肩颈',torso_pelvis:'胸廓腰腹与骨盆',arms:'上下臂与手',
   legs:'上下腿与足',support:'肌肉软组织与承重',silhouette:'年龄体型与整体修长感'
@@ -6,29 +6,53 @@ export const bodyRegions=Object.freeze({
 const text=x=>typeof x==='string'&&x.trim().length>0;
 export const normalizeBodyEvidence=x=>x.normalize('NFKC').replace(/[\s\p{P}]+/gu,'').toLowerCase();
 
-export function withBodyRegionChecks(input,{targets}={}){
+export function withBodyRegionChecks(input,{targets,figures=[{id:'subject',view:'front',locator:'单人完整全身'}],baselineReferenceId}={}){
   if(input?.subject_kind!=='character'||input.edit_scope)throw new Error('body design needs a new character target, not a narrow edit');
   if(!targets||Object.keys(targets).length!==Object.keys(bodyRegions).length||Object.keys(bodyRegions).some(key=>!text(targets[key])))throw new Error('author all six body region targets');
+  if(!Array.isArray(figures)||!figures.length||figures.some(f=>!f||typeof f!=='object'))throw new Error('full-body plan needs unique figures with id, view and distinct visible locator');
   const next=structuredClone(input);
+  if(next.body_plan!==undefined)throw new Error('body plan already exists; revise the complete body target explicitly');
+  next.body_plan={framing:'full_body',figures:structuredClone(figures),...(baselineReferenceId?{baseline_reference_id:baselineReferenceId}:{})};
   if(next.acceptance.some(c=>c.body_region!==undefined)||next.requirements.some(r=>r.id.startsWith('BODY:')))throw new Error('body region plan already exists');
   const items=[];
   for(const [region,label]of Object.entries(bodyRegions)){
     const id=`BODY:${region}`,target=targets[region];
     next.requirements.push({id,channel:'proportion',priority:'must',text:target});
     items.push({text:target,basis:[id],intent:'design',reason:'依据本轮年龄、指定体型及可见范围，建立共同身体方案。'});
-    next.acceptance.push({id:`${id}:check`,basis:id,critical:true,body_region:region,
-      question:`${label}是否达到本轮身体方案？记录可见关系与相对目标的具体比较；无明显畸形不足以判定审美目标通过。`});
+    for(const figure of figures)next.acceptance.push({id:figures.length===1?`${id}:check`:`${id}:${figure.id}:check`,basis:id,critical:true,body_region:region,figure_id:figure.id,
+      question:`${figure.locator}的${label}是否达到本轮身体方案？记录本人物可见关系与相对目标的具体比较；无明显畸形不足以判定审美目标通过。`});
   }
   if(next.sections.some(s=>s.label==='身体方案'))throw new Error('body section already exists');
   next.sections.push({label:'身体方案',channel:'proportion',items});
+  const layout=`画面内需分别检查的全身人物共${figures.length}个：${figures.map(f=>f.locator).join('；')}。每个人物分别遵守共同身体方案，不能用其中一人代替其余人物。`;
+  next.requirements.push({id:'BODY:layout',channel:'composition',priority:'must',text:layout});
+  next.sections.push({label:'全身人物范围',channel:'composition',items:[{text:layout,basis:['BODY:layout'],intent:'constraint'}]});
+  next.acceptance.push({id:'BODY:layout:check',basis:'BODY:layout',critical:true,question:'声明的全身人物是否逐个出现且与位置对应，未用近景、重复人物或裁切掩盖缺失？'});
+  assertBodyCriteria(next);
   return next;
 }
 
 export function assertBodyCriteria(input){
   const criteria=(input.acceptance??[]).filter(c=>c.body_region!==undefined);
-  if(!criteria.length)return;
+  const plan=input.body_plan;
+  if(plan!==undefined){
+    if(!plan||typeof plan!=='object'||Array.isArray(plan)||Object.keys(plan).some(k=>!['framing','figures','baseline_reference_id'].includes(k))||plan.framing!=='full_body'||
+      !Array.isArray(plan.figures)||!plan.figures.length||plan.figures.some(f=>!f||Object.keys(f).some(k=>!['id','view','locator'].includes(k))||!text(f.id)||!['front','side','back','three_quarter'].includes(f.view)||!text(f.locator))||
+      new Set(plan.figures.map(f=>f.id)).size!==plan.figures.length||new Set(plan.figures.map(f=>normalizeBodyEvidence(f.locator))).size!==plan.figures.length)
+      throw new Error('full-body plan needs unique figures with id, view and distinct visible locator');
+    if(plan.baseline_reference_id!==undefined){
+      const ref=(input.references??[]).find(r=>r.id===plan.baseline_reference_id);
+      if(!text(plan.baseline_reference_id)||!ref||ref.generation_input!==true||!ref.authority?.includes('proportion'))throw new Error('derived full-body plan needs an actual proportion baseline reference');
+    }
+    if(criteria.some(c=>!plan.figures.some(f=>f.id===c.figure_id)))throw new Error('body criterion must bind a declared figure');
+    for(const c of input.acceptance??[])if(c.figure_id!==undefined&&!plan.figures.some(f=>f.id===c.figure_id))throw new Error('criterion uses unknown figure');
+    const layout=input.requirements?.find(r=>r.id==='BODY:layout');
+    if(layout?.channel!=='composition'||layout.priority!=='must'||!(input.acceptance??[]).some(c=>c.basis==='BODY:layout'&&c.critical===true&&c.figure_id===undefined))throw new Error('full-body plan needs a common critical layout count and locator check');
+  }else if((input.acceptance??[]).some(c=>c.figure_id!==undefined))throw new Error('figure criteria need an explicit full-body plan');
+  if(!criteria.length&&plan===undefined)return;
   if(input.subject_kind!=='character')throw new Error('body criteria require a character');
-  if(criteria.length!==Object.keys(bodyRegions).length||new Set(criteria.map(c=>c.body_region)).size!==criteria.length)throw new Error('body criteria need all six unique regions');
+  const groups=plan?plan.figures.map(f=>criteria.filter(c=>c.figure_id===f.id)):[criteria];
+  if(groups.some(group=>group.length!==Object.keys(bodyRegions).length||new Set(group.map(c=>c.body_region)).size!==group.length))throw new Error('body criteria need all six unique regions for every figure');
   for(const criterion of criteria){
     const requirement=input.requirements.find(r=>r.id===criterion.basis);
     if(!Object.hasOwn(bodyRegions,criterion.body_region)||criterion.critical!==true||requirement?.channel!=='proportion'||requirement.priority!=='must')throw new Error('body criteria require critical must proportion targets');

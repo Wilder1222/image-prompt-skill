@@ -1,6 +1,6 @@
 # 图像提示词技能
 
-当前版本 **0.17.1**。输入文字描述与可选参考图，输出任务专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
+当前版本 **0.18.0**。输入文字描述与可选参考图，输出任务专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
 
 支持纯文字描述，参考图可选。新增 OpenAI GPT Image、Gemini、FLUX、Midjourney、Seedream、Stable Diffusion、Qwen-Image 的指定版本适配，提供独立请求设置、参数检查和执行摘要绑定；停用的 Imagen Gemini API 入口会明确报错。详见 [文生图模型指南](references/providers/text-to-image-models.md)。这是提示词与请求编译支持，尚未完成各供应商的联网出图验证。
 
@@ -13,6 +13,8 @@
 提示词使用无编号中文语义标签，正文描述实际可见结果，内部模式和执行设置分开。人物先适配年龄与指定体型，未指定时默认适度美化为黄金比例审美下轻盈修长的仙侠身形，并分别落实自然发型和面容可读性；按景别及明确用户范围应用，已达标关系保持连续。完整标准只在 [主入口](SKILL.md) 与 [生产流程](references/routes/prompt-production.md) 维护，白底、站姿和数值头身均不是通用必选项。
 
 主体入口为 [SKILL.md](SKILL.md) 和 [提示词生产流程](references/routes/prompt-production.md)。代理负责观察、决策与编写，用户无需填写模板。程序检查不能代替实际图像评审，也不保证任意输入都生成好图。
+
+[全身体型基准](references/routes/full-body-baseline.md)支持在出图前声明图内每个人物的位置与视角，逐人检查头肩、躯干、手臂、双腿、体量和整体轮廓。`npm run body:review -- --input review.json` 检查真实共同基准与逐人物证据。[八张比例正例的实图核验](docs/body-proportion-validation-2026-10-18.md)保留七次实际生成：最终单人基准、五套换装及三视图通过代理评审，失败和遮挡未决记录保留，不等同用户已接受或跨任务稳定性。
 
 [多造型实图执行](docs/portrait-look-execution-2026-10-15.md)记录了原图妆发惯性、刘海落点与修订回退。现行[造型路线](references/routes/portrait-look-variation.md)支持从当前完整方案修订指定通道，并用 `npm run portrait:review -- --input review.json` 复核实际图片、选定版本、人工差异比较和连续未改善问题；文字计划通过不等于十套造型已在实图中分化。
 

@@ -6,6 +6,7 @@ import {compileProductionPrompt, reviewProductionResult, promptHash, objectHash}
 import {assertReferenceFacePresetBindings} from './reference-face-presets.mjs';
 import {auditPromptQuality,assertPromptQualityReview} from './prompt-quality-audit.mjs';
 import {characterGoalErrors} from './character-goals.mjs';
+import {assertBodyCriteria} from './body-proportion-contract.mjs';
 import {assertStyleStandardizationBindings,styleStandardizationContract,validateStyleStandardizationChecks} from './style-standardization.mjs';
 export {canonical,objectHash} from './production-prompt.mjs';
 const fileHash = file => promptHash(fs.readFileSync(file));
@@ -47,6 +48,7 @@ export function freezeProductionRun(input, options={}) {
     required:input.metadata?.style_standardization!==undefined||parentStyle===true});
   if(stylePlan&&stylePlan.scope_contract!==styleStandardizationContract)throw new Error('legacy style plans are historical records; rebuild a current style contract before a new dispatch');
   const target={subject_kind:input.subject_kind,requirements:input.requirements,acceptance:compiled.acceptance,
+    ...(input.body_plan?{body_plan:input.body_plan}:{}),
     ...(input.character_exceptions?{character_exceptions:input.character_exceptions}:{}),
     identity_targets:identityTargets(refs,options.parent)};
   const targetHash=objectHash(target);
@@ -87,6 +89,7 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}
   if(Object.hasOwn(snapshot,'target_contract') && (snapshot.target_contract!==targetContract || !Array.isArray(snapshot.target?.identity_targets))) throw new Error('unsupported identity target contract');
   if(promptHash(snapshot.prompt)!==snapshot.prompt_sha256||objectHash(snapshot.target)!==snapshot.target_sha256)throw new Error('frozen prompt or target changed');
   const inputs=snapshot.references.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source,content_sha256:r.content_sha256}));
+  assertBodyCriteria({...snapshot.target,references:snapshot.references});
   if(objectHash(inputs)!==objectHash(snapshot.actual_inputs))throw new Error('actual input order or roles changed');
   assertReferenceFacePresetBindings(snapshot.references);
   if(snapshot.style_standardization_contract!==undefined&&snapshot.style_standardization_contract!==styleStandardizationContract)throw new Error('unsupported frozen style standardization contract');

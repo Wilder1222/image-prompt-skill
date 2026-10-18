@@ -9,7 +9,7 @@ import {assertBodyCriteria,bodyObservation,assertDistinctBodyEvidence} from './b
 const channels = new Set(['identity','expression','action','makeup','hair','costume','material','composition','layout','proportion','hands_feet','background','lighting','style','task','output']);
 const nonempty = x => typeof x === 'string' && x.trim().length > 0;
 const referenceFields = new Set(['id','source','inspected','generation_input','authority','facts','identity_group','identity_role','identity_target_id']);
-const inputFields = new Set(['subject_kind','request','references','requirements','unresolved','sections','acceptance','target','edit_scope','metadata','character_exceptions','quality_review']);
+const inputFields = new Set(['subject_kind','request','references','requirements','unresolved','sections','acceptance','target','edit_scope','metadata','character_exceptions','quality_review','body_plan']);
 const internalStyle = new RegExp(`\\b(?:${characterStyleIds.join('|')})\\b`);
 export const promptHash = text => crypto.createHash('sha256').update(text).digest('hex');
 

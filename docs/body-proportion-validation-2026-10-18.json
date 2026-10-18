@@ -1,0 +1,1202 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-18",
+  "scope": "one identity, five modern looks, front/side/back body views",
+  "source_reference_record": "docs/user-approved-body-references-2026-10-18.json",
+  "actual_generation_calls": 7,
+  "not_dispatched": [
+    {
+      "name": "baseline-v2",
+      "reason": "preflight caught an incorrect reference image number",
+      "dispatch_state": "not_started"
+    }
+  ],
+  "selected_images": 3,
+  "selected_full_body_units": 9,
+  "independent_selected_generation_outputs": 3,
+  "reviewed_by": "assistant",
+  "user_accepted": false,
+  "automated_image_judgment": false,
+  "exact_anatomical_measurements_verified": false,
+  "batch_reliability_established": false,
+  "runs": [
+    {
+      "name": "baseline-v1",
+      "run_id": "accepted-body-baseline-v1",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "tool": "built-in image_gen",
+      "model": null,
+      "seed": null,
+      "snapshot_sha256": "9035011ea9ac4eeb898b0c636a368d4323650a4efeb89eb4dbfe301bdd8a6c93",
+      "target_sha256": "48f36d266e59f9947b71aa04e6496368802f701cefc5c62fafd25bf153aadba7",
+      "prompt_sha256": "a0848b6f9cbd8c66b998ccb5429b6741cf2695241d0e8dd3ed1fb51a160835f9",
+      "actual_inputs": [
+        {
+          "id": "body",
+          "content_sha256": "0012232d67a3920bccb669832605e8b5552c5949907c51f6ffc34548dffd4d7b"
+        },
+        {
+          "id": "identity",
+          "content_sha256": "0ddb4b28bbed7404d37ffb6d4e4d574381cbb8db4b235e6f9893bb5ec93df44f"
+        },
+        {
+          "id": "legs",
+          "content_sha256": "a7d2d064164815be2d071a8663bc2c128301acf61fd64fa00369fffd7f171ee7"
+        }
+      ],
+      "output_image": "output/body-validation-20261018/baseline-v1.png",
+      "output_sha256": "453418034f1e853b5453fbf6b494b98457bb0f4e487f8e4823f5c2bf1d62b706",
+      "status": "needs_revision",
+      "selected": false,
+      "figure_count": 1,
+      "critical_failures": [
+        "BODY:head_shoulders:check",
+        "BODY:torso_pelvis:check",
+        "BODY:legs:check",
+        "BODY:silhouette:check"
+      ],
+      "unresolved": [
+        "identity:check"
+      ],
+      "reviewer": "assistant visual comparison with approved BODY-02/BODY-04 and original portrait",
+      "body_checks": [
+        {
+          "figure_id": "subject",
+          "region": "head_shoulders",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "完整头部连同蓬松发量占比仍较突出，颈肩连续但头部压住了全身纵向感。",
+          "target_comparison": "相对图2正面全身的精巧头肩仍不足，应协调完整头部尺度而非削窄面部。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "torso_pelvis",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "胸廓到腰裙中段完整，腰胯收放可见，但与较大的头部一起使上半身较重。",
+          "target_comparison": "完整性成立，整体紧凑与轻盈程度仍未达到认可参照。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "双臂低位自然垂落，肘腕方向与手掌大小相称，左右长度未见明显失衡。",
+          "target_comparison": "符合本套直立姿态下连续的手臂轮廓要求。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "legs",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "裙下大腿、膝部和袜装小腿连续，有自然体量，皮鞋低跟落地。",
+          "target_comparison": "局部腿段自然，但相对头肩和中段的整体延展不足，不能单凭膝踝正常判身材目标通过。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "胸肩、手臂和双腿有柔和软组织体积，裙褶包裹胯部，双鞋接地有浅阴影。",
+          "target_comparison": "未见细杆或纸片化，符合当前可见体量与支撑目标；未认证裙内骨点。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "silhouette",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "正面完整全身、短裙袜装与直立姿态已经成立，整体仍较接近日常紧凑头身。",
+          "target_comparison": "未充分达到八图正例的时装级修长，不能作为后续合格身体基准。"
+        }
+      ],
+      "user_accepted": false
+    },
+    {
+      "name": "baseline-v2a",
+      "run_id": "accepted-body-baseline-v2a",
+      "kind": "revision",
+      "parent": {
+        "run_id": "accepted-body-baseline-v1",
+        "snapshot_sha256": "9035011ea9ac4eeb898b0c636a368d4323650a4efeb89eb4dbfe301bdd8a6c93"
+      },
+      "goal_changed": true,
+      "tool": "built-in image_gen",
+      "model": null,
+      "seed": null,
+      "snapshot_sha256": "7bcd6dc524e7df624a0d9120b8d61ce419fcd5b16ce7a76e82845bbcdb165dda",
+      "target_sha256": "9953dace553bf9d510419455c6fcf453819ea4cd377397fe1bf659ca35e4803a",
+      "prompt_sha256": "6881cb2503571cb25549897bd5c5c47ef82a4ddd35f87358b893798932a8e640",
+      "actual_inputs": [
+        {
+          "id": "candidate",
+          "content_sha256": "453418034f1e853b5453fbf6b494b98457bb0f4e487f8e4823f5c2bf1d62b706"
+        },
+        {
+          "id": "identity",
+          "content_sha256": "0ddb4b28bbed7404d37ffb6d4e4d574381cbb8db4b235e6f9893bb5ec93df44f"
+        }
+      ],
+      "output_image": "output/body-validation-20261018/baseline-v2a.png",
+      "output_sha256": "58642200de9e8d52ff3c02fead6488a102662c76c2870115b8e0699825666dd5",
+      "status": "needs_revision",
+      "selected": false,
+      "figure_count": 1,
+      "critical_failures": [
+        "BODY:head_shoulders:check",
+        "BODY:torso_pelvis:check",
+        "BODY:legs:check",
+        "BODY:silhouette:check",
+        "refine:check",
+        "__edit_scope__"
+      ],
+      "unresolved": [],
+      "reviewer": "assistant visual review against BODY-04 and source portrait",
+      "body_checks": [
+        {
+          "figure_id": "subject",
+          "region": "head_shoulders",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "完整头发外轮廓仍在身体上占显著份量，头颈到肩线连续，但视觉重点偏于大头。",
+          "target_comparison": "与BODY-04主要全身相比，完整头部对全身的精巧关系仍不充分。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "torso_pelvis",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "胸腰完整有厚度，黑色上衣至裙腰的中段显长，髋部被展开裙褶覆盖。",
+          "target_comparison": "未取得参考短裙全身的紧凑上身与纵向双腿的平衡。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "低垂双臂随身体两侧延伸，肘腕、手指及手掌大小协调，未见突兀的单段拉伸。",
+          "target_comparison": "本次保持低位手臂的连续自然目标成立。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "legs",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "膝盖、黑袜包裹的小腿和低跟鞋可见，腿部肌肉软组织自然。",
+          "target_comparison": "腿段局部正常但整组双腿相对上身延展不足，未见明确比例改善。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "肩胸和腿部维持柔和体积，站立重心稳定，两鞋底贴地有阴影。",
+          "target_comparison": "保留了自然体量与低跟支撑，没有靠薄片化来显瘦。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "silhouette",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "保持黑色短裙全身与近正面站姿，整个人物仍偏紧凑，变化主要在面容。",
+          "target_comparison": "连续两次未达到参考整体方向，停止在此候选上仅补充缩头长腿文字。"
+        }
+      ],
+      "user_accepted": false
+    },
+    {
+      "name": "baseline-v3",
+      "run_id": "accepted-body-baseline-v3",
+      "kind": "initial",
+      "parent": null,
+      "goal_changed": false,
+      "tool": "built-in image_gen",
+      "model": null,
+      "seed": null,
+      "snapshot_sha256": "58dbea649ac8a4400ae3e4760b42e1401dcc026a644eb8f41919b91d014d84fc",
+      "target_sha256": "1e48072249e6f351dba05e42b5280ebb6612db475ce2d3b1864c267e1e8dae60",
+      "prompt_sha256": "12902c51c1f1707d85dc3473c703d11c7be05394642356dbda70e4e89fc2ae23",
+      "actual_inputs": [
+        {
+          "id": "body",
+          "content_sha256": "a7d2d064164815be2d071a8663bc2c128301acf61fd64fa00369fffd7f171ee7"
+        },
+        {
+          "id": "identity",
+          "content_sha256": "0ddb4b28bbed7404d37ffb6d4e4d574381cbb8db4b235e6f9893bb5ec93df44f"
+        }
+      ],
+      "output_image": "output/body-validation-20261018/baseline-v3.png",
+      "output_sha256": "13fc5e934d89c97388f8874cc0a989f3ba880e2a66592346bdbeb9961caebb02",
+      "status": "needs_revision",
+      "selected": false,
+      "figure_count": 1,
+      "critical_failures": [
+        "BODY:head_shoulders:check",
+        "BODY:legs:check",
+        "BODY:silhouette:check"
+      ],
+      "unresolved": [],
+      "reviewer": "assistant visual comparison with BODY-04",
+      "body_checks": [
+        {
+          "figure_id": "subject",
+          "region": "head_shoulders",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "头部连同发量仍明显突出，虽肩带自然，但小幅歪头并未带来精巧头身。",
+          "target_comparison": "未充分达到正例的头身轻盈方向。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "上身到裙腰比前两版更紧凑，胸腰连续，裙褶包裹的胯部仍有体积。",
+          "target_comparison": "完整上身与收腰展开的可见关系达到本项；不认证隐藏骨点。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "手臂低位轻搭，肘腕到手指呈自然弧度，手掌大小相称。",
+          "target_comparison": "已符合本轮轻搭姿态下的长度与厚度关系。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "legs",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "裙下腿部连贯，黑袜上缘跨过膝部，双腿整体相对头部仍偏紧凑。",
+          "target_comparison": "纵向延展尚不足；袜口并不被当作膝关节测量点。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "胸肩腰胯与双腿都有软组织厚度，两只低跟鞋稳接地面。",
+          "target_comparison": "轻搭手势未破坏身体支撑和自然体量。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "silhouette",
+          "verdict": "fail",
+          "visibility": "visible",
+          "visible_relation": "小幅姿态成立，整体比直立版柔和，但头身仍未充分接近认可方向。",
+          "target_comparison": "姿态改善不能替代身体比例合格，因此不作为扩展基准。"
+        }
+      ],
+      "user_accepted": false
+    },
+    {
+      "name": "baseline-v4",
+      "run_id": "accepted-body-baseline-v4",
+      "kind": "edit",
+      "parent": {
+        "run_id": "accepted-body-baseline-v3",
+        "snapshot_sha256": "58dbea649ac8a4400ae3e4760b42e1401dcc026a644eb8f41919b91d014d84fc"
+      },
+      "goal_changed": true,
+      "tool": "built-in image_gen",
+      "model": null,
+      "seed": null,
+      "snapshot_sha256": "aa42118b85eb062b7ecd95f529cc049191c2e1b4eede52421bb89dcb00251ba8",
+      "target_sha256": "d9207490980e0cb3db4be3a909552d035ee0a349add38fb98bace269de6725bc",
+      "prompt_sha256": "c48db5dc334a9297a1c11000f7018ad78686e4fa474d491ad3a4837d745af754",
+      "actual_inputs": [
+        {
+          "id": "candidate",
+          "content_sha256": "13fc5e934d89c97388f8874cc0a989f3ba880e2a66592346bdbeb9961caebb02"
+        }
+      ],
+      "output_image": "output/body-validation-20261018/baseline-v4.png",
+      "output_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942",
+      "status": "reviewer_qualified",
+      "selected": true,
+      "figure_count": 1,
+      "critical_failures": [],
+      "unresolved": [],
+      "reviewer": "assistant direct visual comparison against approved BODY-04/BODY-08 and original identity portrait",
+      "body_checks": [
+        {
+          "figure_id": "subject",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "头部连同发量在全身里明显缩小，肩带仍自然展开，颈部衔接没有拉成细长杆。",
+          "target_comparison": "相对BODY-04和BODY-08的主要全身，已呈现精巧头肩的同方向关系；未认证精确缩放百分比。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "黑色上衣内胸廓到腰腹仍完整，腰部收束后裙褶向胯部自然展开。",
+          "target_comparison": "与认可短裙样本一致，上身紧凑而不是压掉腹部，保有正面可见体量。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "双手仍在低位轻搭，肘腕方向自然，手掌随新头身尺度相称。",
+          "target_comparison": "上下臂与修长后的全身协调，没有只改腿导致手臂显短。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "裙下大腿与长袜包裹的小腿共同延展，两侧膝部轮廓转折柔和，脚部没有随腿被夸大。",
+          "target_comparison": "相对头肩与完整中段，整组双腿的纵向关系明显改善，接近认可参考方向；不把袜口作膝位测量。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "小腿有自然起伏，胸肩腰胯维持厚度，双鞋接地和浅阴影稳定。",
+          "target_comparison": "修长没有变成削瘦细杆，符合参考中的自然身体体量。"
+        },
+        {
+          "figure_id": "subject",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "完整全身保持轻微头倾和低位手势，头身、紧凑上身与双腿形成轻盈的整体。",
+          "target_comparison": "本张可见比例达到代理对八图正例的审美比对标准，仍仅是本张评审，不代替用户接受或稳定性证明。"
+        }
+      ],
+      "user_accepted": false
+    },
+    {
+      "name": "five-looks-v1",
+      "run_id": "five-looks-v1",
+      "kind": "edit",
+      "parent": {
+        "run_id": "accepted-body-baseline-v4",
+        "snapshot_sha256": "aa42118b85eb062b7ecd95f529cc049191c2e1b4eede52421bb89dcb00251ba8"
+      },
+      "goal_changed": true,
+      "tool": "built-in image_gen",
+      "model": null,
+      "seed": null,
+      "snapshot_sha256": "ef1fcb91a8b1b1a184330feebce94112bc9a9e37f548f054de0d7f2b1d538488",
+      "target_sha256": "7962f5353d670826dbd1c24299c1b5074f9f6f8d163f2b650de96343feff3ff1",
+      "prompt_sha256": "ed441c02a2a7efa899876b8db0b26d2d20f605b4edb3cca1e21da78fd72a36ce",
+      "actual_inputs": [
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "output_image": "output/body-validation-20261018/five-looks-v1.png",
+      "output_sha256": "9956f557f2d5c9bf2285b3ec52a22c645759e8669e8dc02e235d67eed5ef7fb0",
+      "status": "needs_review",
+      "selected": false,
+      "figure_count": 5,
+      "critical_failures": [],
+      "unresolved": [
+        "BODY:arms:look5:check"
+      ],
+      "reviewer": "assistant per-figure visual review against frozen single-body baseline and user-approved examples",
+      "body_checks": [
+        {
+          "figure_id": "look1",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "披发头部在最左全身中精巧，黑色短袖的肩带自然展开，颈部接入高领处顺畅。",
+          "target_comparison": "头肩不压住全身纵向感，符合当前精巧而自然的目标。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "高马尾在发顶增加装饰高度，面部和颅部仍与自然肩带相称。",
+          "target_comparison": "扣除马尾装饰后头肩清爽，颈肩连续。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "中央双辫头部精巧，风衣肩线略宽但肩颈衔接自然。",
+          "target_comparison": "辫子沿胸侧下落，没有遮成异常粗短颈部。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "及肩发围出清楚小脸，灰色插肩袖肩线自然落下，颈部正常。",
+          "target_comparison": "头肩比例相称，短发没有让头部视觉膨胀。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "右端盘发有顶部发髻，露肩的实际肩带与精巧头部相称。",
+          "target_comparison": "发髻不作颅顶计量，肩颈轻盈且没有拉长。"
+        },
+        {
+          "figure_id": "look1",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "猫图上衣胸腰完整，裙腰收束后百褶裙向两侧展开。",
+          "target_comparison": "上身紧凑且保留腹部连接，胯部只按裙外可见体积判断。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "粉外套敞开，黑内搭与牛仔裙显示胸腰到髋部的连续收放。",
+          "target_comparison": "外套松量未把完整上身拉长，腰胯有自然体积。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "碎花上衣到奶白裙腰的中段完整，分层裙在胯部保持松量。",
+          "target_comparison": "胸腰紧凑、腰胯过渡柔和，不将裙层当人体厚度精确测量。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "粉色合体衣身显示胸腰和牛仔裤腰胯的柔和连续轮廓。",
+          "target_comparison": "完整上身紧凑，腰胯自然收放而非极细腰。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "黑高领衣身到浅蓝裤腰的胸腰连续，裤装胯部保有宽度和柔和体量。",
+          "target_comparison": "上身紧凑、收腰自然，未出现纸片腰。"
+        },
+        {
+          "figure_id": "look1",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "最左双臂低位相搭，袖口到肘腕的走向自然，双手大小相近。",
+          "target_comparison": "交搭姿态下手臂连贯，符合整组协调要求。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "一手插袋使该臂弯曲，另一臂沿外套下垂，露出的手指尺度合理。",
+          "target_comparison": "按各自投影判断，两臂没有异常断接或明显不相称。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "中央双手在风衣袖口下轻搭，肘部被袖片部分遮挡，露腕和手掌自然。",
+          "target_comparison": "可见袖形和手部连接支持协调手臂轮廓，不认证衣下精确骨点。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "两手低位提包，灰袖的前臂向内收，手腕连接可见。",
+          "target_comparison": "屈伸和提包姿态下臂段、手掌仍自然。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "arms",
+          "verdict": "not_assessable",
+          "visibility": "partial",
+          "visible_relation": "双臂置于身后，近侧上臂可见，手腕与手被身体遮住。",
+          "target_comparison": "该冻结目标包含手掌与上下臂的可见协调，本视图无法完整核验。"
+        },
+        {
+          "figure_id": "look1",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "黑裙下大腿与长袜小腿呈连续长轮廓，低跟鞋尺度适中。",
+          "target_comparison": "整组腿相对胸腰有清楚延展，袜口不作为骨点，轮廓转折可辨。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "牛仔裙下可见大腿、双膝轮廓、白短袜上的小腿，腿段细长而有体量。",
+          "target_comparison": "大腿与小腿共同延展，低帮鞋不夸大足部；可见膝踝关系顺畅。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "奶白裙下两腿向灰色长袜和低跟玛丽珍鞋连续下延。",
+          "target_comparison": "腿部整体修长，袜装包裹的膝踝外轮廓顺滑，足部相称。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "深灰微喇裤两腿从胯部向地面拉出长轮廓，一腿轻移，运动鞋正常大小。",
+          "target_comparison": "本图只认证裤装可见纵向关系与足部衔接，衣下膝点未知。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "浅蓝微喇裤从腰胯自然下垂，裤内双腿呈清楚纵向延展，黑鞋接在裤脚下。",
+          "target_comparison": "仅认证可见裤装轮廓和鞋脚相称，不推定被遮的膝部精确位置。"
+        },
+        {
+          "figure_id": "look1",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "手臂和露出的大腿有柔和圆润体积，双皮鞋并列接地，接触阴影清楚。",
+          "target_comparison": "修长同时保持自然软组织和稳定支撑。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "露腿有柔和小腿起伏，外套保有空气感，两只运动鞋接地。",
+          "target_comparison": "自然身体体积与轻微重心变化相容，未明显瘦成杆。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "露出大腿有自然厚度，袜内小腿并非等粗直线，鞋底和浅阴影贴地。",
+          "target_comparison": "衣装较蓬松时仍有真实承重与软组织体积。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "合体衣身和牛仔裤胯部有体积，轻移的脚与承重脚在灰地面形成合理支撑。",
+          "target_comparison": "低幅姿态下体量与承重成立，没有极端扭胯。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "露肩和上臂有柔和肌肉体量，腰胯不扁，两只黑鞋稳落地面。",
+          "target_comparison": "在修长轮廓下自然体量和承重依旧成立。"
+        },
+        {
+          "figure_id": "look1",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "最左整个人物由小头肩、短而完整的上身和纵向腿部共同组成。",
+          "target_comparison": "短裙长袜条件下修长成立，不依赖长裤遮挡。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "粉外套短裙全身有轻微重心偏移，头肩到腿的纵向感清楚。",
+          "target_comparison": "本套运动短裙下仍成立协调修长的共同目标。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "中央浅裙黑白外套全身轻盈，头肩、中段、双腿的纵向节奏清楚。",
+          "target_comparison": "层次裙与长袜没有破坏整体协调修长。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "粉灰上衣与微喇裤全身高挑，黑包未遮住主要胸腰和腿轮廓。",
+          "target_comparison": "服装换成长裤后同一人物的协调修长目标仍成立。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "盘发、高领上衣和浅裤组成纵向挺拔全身，头身相称。",
+          "target_comparison": "可见整体达到同方向审美，但手臂遮挡项仍须单独处理。"
+        }
+      ],
+      "user_accepted": false
+    },
+    {
+      "name": "three-views-v1",
+      "run_id": "three-views-v1",
+      "kind": "edit",
+      "parent": {
+        "run_id": "accepted-body-baseline-v4",
+        "snapshot_sha256": "aa42118b85eb062b7ecd95f529cc049191c2e1b4eede52421bb89dcb00251ba8"
+      },
+      "goal_changed": true,
+      "tool": "built-in image_gen",
+      "model": null,
+      "seed": null,
+      "snapshot_sha256": "4c258edd0ce50599fd10412afaf6cae09c8899845b9d0a847b19fd8089c2e267",
+      "target_sha256": "fa79cc602615fca7acaa4ab1710b213777878a859fb285faabd4af401f3e61db",
+      "prompt_sha256": "ee8ba7c8ecfa94bdab791c419cd452080f34d673e9ef405e979abc334bc1c745",
+      "actual_inputs": [
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "output_image": "output/body-validation-20261018/three-views-v1.png",
+      "output_sha256": "84e332701aa68b84dec22cd5966f778ffa60b25b542cf166f6b54b22e8137868",
+      "status": "reviewer_qualified",
+      "selected": true,
+      "figure_count": 3,
+      "critical_failures": [],
+      "unresolved": [],
+      "reviewer": "assistant per-figure visual review against frozen single-body baseline and user-approved examples",
+      "body_checks": [
+        {
+          "figure_id": "front",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "三视图左侧正面头部轻倾，披发仍收在肩带以内，颈部自然。",
+          "target_comparison": "正面头肩精巧，与共同身体目标相符。"
+        },
+        {
+          "figure_id": "side",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "中间人物身体朝左，头略转向镜头，后脑与颈部形成自然连续曲线。",
+          "target_comparison": "侧向可见头肩比例相称，未把脖子拉细拉长。"
+        },
+        {
+          "figure_id": "back",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "背面后脑、低束披发与肩线相连，后颈长度自然，未生出正面五官。",
+          "target_comparison": "按后脑与肩带可见关系判断，尺度相称。"
+        },
+        {
+          "figure_id": "front",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "正面上衣在胸腰处保有结构，裙腰下自然展开，衣装不紧绷。",
+          "target_comparison": "完整而紧凑的上身与胯部外轮廓成立。"
+        },
+        {
+          "figure_id": "side",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "侧面胸廓、腹部到裙腰有前后厚度，臀胯由裙褶包裹自然展开。",
+          "target_comparison": "符合完整躯干与骨盆体量要求，未被压成薄片。"
+        },
+        {
+          "figure_id": "back",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "背部上衣向腰部自然收束，裙腰以下的胯部展开有宽度。",
+          "target_comparison": "完整背腰与骨盆外轮廓有厚度，未出现硬折或过细腰。"
+        },
+        {
+          "figure_id": "front",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "正面两手低位相搭，肘腕弯曲和手指方向相容。",
+          "target_comparison": "可见上下臂及双手的关系连续自然。"
+        },
+        {
+          "figure_id": "side",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "近侧手臂自然垂落，上臂肘腕和手掌轮廓清楚，远臂受躯干遮挡。",
+          "target_comparison": "只判断本视角可见近臂的连贯和尺度，不认证隐藏远臂细节。"
+        },
+        {
+          "figure_id": "back",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "背面双臂自然垂落，肘腕轮廓、两侧手指和掌缘可见。",
+          "target_comparison": "两臂与全身协调，左右未见显著尺度差。"
+        },
+        {
+          "figure_id": "front",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "正面裙下双腿等尺度延展，黑长袜与小皮鞋连接顺畅。",
+          "target_comparison": "大腿到小腿的可见外轮廓修长，脚不显大。"
+        },
+        {
+          "figure_id": "side",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "侧面大腿到长袜小腿形成连续直立轮廓，皮鞋沿地面向前。",
+          "target_comparison": "可见腿部纵向关系与足部长度协调，重叠的远腿不独立测量。"
+        },
+        {
+          "figure_id": "back",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "背面两腿从裙下到长袜及鞋跟完整延展，膝后与小腿轮廓柔和。",
+          "target_comparison": "可见腿段连贯，鞋跟尺度符合低跟全身关系。"
+        },
+        {
+          "figure_id": "front",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "正面胸肩和腿部有细腻体积，左右鞋底贴地并有浅阴影。",
+          "target_comparison": "近正面站姿下体量和足部支撑真实可读。"
+        },
+        {
+          "figure_id": "side",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "侧向胸腰腹和臀部有可读前后厚度，低跟鞋有稳定地面接触。",
+          "target_comparison": "自然体量与承重支撑成立，没有纸片侧面。"
+        },
+        {
+          "figure_id": "back",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "背肩腰胯和腿后侧有柔和明暗体积，两只鞋跟与鞋底稳接地面。",
+          "target_comparison": "后视承重和身体厚度可读，不是平面剪影。"
+        },
+        {
+          "figure_id": "front",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "正面全身头肩精巧、上身紧凑、双腿延展，整体现代时装质感。",
+          "target_comparison": "完整轮廓达到本轮年龄与共同身体目标。"
+        },
+        {
+          "figure_id": "side",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "侧向整体高挑，头颈胸腰到鞋脚连续，裙褶与发束保留体积。",
+          "target_comparison": "转面后的协调修长与自然厚度同时成立。"
+        },
+        {
+          "figure_id": "back",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "后视头肩、中段和双腿的纵向关系清晰，衣装轮廓整体挺拔。",
+          "target_comparison": "背面整体达到同一身体审美方向。"
+        }
+      ],
+      "user_accepted": false
+    },
+    {
+      "name": "five-looks-v2",
+      "run_id": "five-looks-v2",
+      "kind": "edit",
+      "parent": {
+        "run_id": "five-looks-v1",
+        "snapshot_sha256": "ef1fcb91a8b1b1a184330feebce94112bc9a9e37f548f054de0d7f2b1d538488"
+      },
+      "goal_changed": true,
+      "tool": "built-in image_gen",
+      "model": null,
+      "seed": null,
+      "snapshot_sha256": "62ff695b883edb76e811a8a57213491f5ccccb30ef149cad6b80d3b66d62d86c",
+      "target_sha256": "5048984ac0427c45f1db57b3140d8134ff46603d392213ae1edba9780dc6ab09",
+      "prompt_sha256": "76e7df3d022565e249778406c2647241f3b567dd20130415bf316cfa9242778a",
+      "actual_inputs": [
+        {
+          "id": "board",
+          "content_sha256": "9956f557f2d5c9bf2285b3ec52a22c645759e8669e8dc02e235d67eed5ef7fb0"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "output_image": "output/body-validation-20261018/five-looks-v2.png",
+      "output_sha256": "1e2b574221f872eadb18e854fa7bfe4e3cf5349696c92caac7940c59ea69cd98",
+      "status": "reviewer_qualified",
+      "selected": true,
+      "figure_count": 5,
+      "critical_failures": [],
+      "unresolved": [],
+      "reviewer": "assistant reinspection of all five figures in the actual locally corrected image",
+      "body_checks": [
+        {
+          "figure_id": "look1",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "披发头部在最左全身中精巧，黑色短袖的肩带自然展开，颈部接入高领处顺畅。",
+          "target_comparison": "头肩不压住全身纵向感，符合当前精巧而自然的目标。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "高马尾在发顶增加装饰高度，面部和颅部仍与自然肩带相称。",
+          "target_comparison": "扣除马尾装饰后头肩清爽，颈肩连续。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "中央双辫头部精巧，风衣肩线略宽但肩颈衔接自然。",
+          "target_comparison": "辫子沿胸侧下落，没有遮成异常粗短颈部。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "及肩发围出清楚小脸，灰色插肩袖肩线自然落下，颈部正常。",
+          "target_comparison": "头肩比例相称，短发没有让头部视觉膨胀。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "head_shoulders",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "右端盘发有顶部发髻，露肩的实际肩带与精巧头部相称。",
+          "target_comparison": "发髻不作颅顶计量，肩颈轻盈且没有拉长。"
+        },
+        {
+          "figure_id": "look1",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "猫图上衣胸腰完整，裙腰收束后百褶裙向两侧展开。",
+          "target_comparison": "上身紧凑且保留腹部连接，胯部只按裙外可见体积判断。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "粉外套敞开，黑内搭与牛仔裙显示胸腰到髋部的连续收放。",
+          "target_comparison": "外套松量未把完整上身拉长，腰胯有自然体积。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "碎花上衣到奶白裙腰的中段完整，分层裙在胯部保持松量。",
+          "target_comparison": "胸腰紧凑、腰胯过渡柔和，不将裙层当人体厚度精确测量。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "粉色合体衣身显示胸腰和牛仔裤腰胯的柔和连续轮廓。",
+          "target_comparison": "完整上身紧凑，腰胯自然收放而非极细腰。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "torso_pelvis",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "黑高领衣身到浅蓝裤腰的胸腰连续，裤装胯部保有宽度和柔和体量。",
+          "target_comparison": "上身紧凑、收腰自然，未出现纸片腰。"
+        },
+        {
+          "figure_id": "look1",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "最左双臂低位相搭，袖口到肘腕的走向自然，双手大小相近。",
+          "target_comparison": "交搭姿态下手臂连贯，符合整组协调要求。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "一手插袋使该臂弯曲，另一臂沿外套下垂，露出的手指尺度合理。",
+          "target_comparison": "按各自投影判断，两臂没有异常断接或明显不相称。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "中央双手在风衣袖口下轻搭，肘部被袖片部分遮挡，露腕和手掌自然。",
+          "target_comparison": "可见袖形和手部连接支持协调手臂轮廓，不认证衣下精确骨点。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "两手低位提包，灰袖的前臂向内收，手腕连接可见。",
+          "target_comparison": "屈伸和提包姿态下臂段、手掌仍自然。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "arms",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "最右人物双臂已移到身体两侧，肩到肘、肘到腕与双手均可见，手指自然放松，左右手掌尺度相称。",
+          "target_comparison": "上下臂与修长身体协调，补齐此前被身后置臂遮住的核验范围。"
+        },
+        {
+          "figure_id": "look1",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "黑裙下大腿与长袜小腿呈连续长轮廓，低跟鞋尺度适中。",
+          "target_comparison": "整组腿相对胸腰有清楚延展，袜口不作为骨点，轮廓转折可辨。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "牛仔裙下可见大腿、双膝轮廓、白短袜上的小腿，腿段细长而有体量。",
+          "target_comparison": "大腿与小腿共同延展，低帮鞋不夸大足部；可见膝踝关系顺畅。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "奶白裙下两腿向灰色长袜和低跟玛丽珍鞋连续下延。",
+          "target_comparison": "腿部整体修长，袜装包裹的膝踝外轮廓顺滑，足部相称。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "深灰微喇裤两腿从胯部向地面拉出长轮廓，一腿轻移，运动鞋正常大小。",
+          "target_comparison": "本图只认证裤装可见纵向关系与足部衔接，衣下膝点未知。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "legs",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "浅蓝微喇裤从腰胯自然下垂，裤内双腿呈清楚纵向延展，黑鞋接在裤脚下。",
+          "target_comparison": "仅认证可见裤装轮廓和鞋脚相称，不推定被遮的膝部精确位置。"
+        },
+        {
+          "figure_id": "look1",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "手臂和露出的大腿有柔和圆润体积，双皮鞋并列接地，接触阴影清楚。",
+          "target_comparison": "修长同时保持自然软组织和稳定支撑。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "露腿有柔和小腿起伏，外套保有空气感，两只运动鞋接地。",
+          "target_comparison": "自然身体体积与轻微重心变化相容，未明显瘦成杆。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "露出大腿有自然厚度，袜内小腿并非等粗直线，鞋底和浅阴影贴地。",
+          "target_comparison": "衣装较蓬松时仍有真实承重与软组织体积。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "合体衣身和牛仔裤胯部有体积，轻移的脚与承重脚在灰地面形成合理支撑。",
+          "target_comparison": "低幅姿态下体量与承重成立，没有极端扭胯。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "support",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "露肩和上臂有柔和肌肉体量，腰胯不扁，两只黑鞋稳落地面。",
+          "target_comparison": "在修长轮廓下自然体量和承重依旧成立。"
+        },
+        {
+          "figure_id": "look1",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "最左整个人物由小头肩、短而完整的上身和纵向腿部共同组成。",
+          "target_comparison": "短裙长袜条件下修长成立，不依赖长裤遮挡。"
+        },
+        {
+          "figure_id": "look2",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "粉外套短裙全身有轻微重心偏移，头肩到腿的纵向感清楚。",
+          "target_comparison": "本套运动短裙下仍成立协调修长的共同目标。"
+        },
+        {
+          "figure_id": "look3",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "中央浅裙黑白外套全身轻盈，头肩、中段、双腿的纵向节奏清楚。",
+          "target_comparison": "层次裙与长袜没有破坏整体协调修长。"
+        },
+        {
+          "figure_id": "look4",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "粉灰上衣与微喇裤全身高挑，黑包未遮住主要胸腰和腿轮廓。",
+          "target_comparison": "服装换成长裤后同一人物的协调修长目标仍成立。"
+        },
+        {
+          "figure_id": "look5",
+          "region": "silhouette",
+          "verdict": "pass",
+          "visibility": "visible",
+          "visible_relation": "盘发高领和浅蓝微喇裤的整体纵向关系保持，露出的低位双臂自然接入肩带。",
+          "target_comparison": "完整可见的四肢与头身共同成立，原手掌未决已通过本轮实图补齐。"
+        }
+      ],
+      "user_accepted": false
+    }
+  ],
+  "selected_set": {
+    "status": "reviewer_qualified",
+    "baseline": {
+      "run_id": "accepted-body-baseline-v4",
+      "output_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942",
+      "reviewer_qualified": true,
+      "user_accepted": false
+    },
+    "members": [
+      {
+        "id": "look1",
+        "run_id": "five-looks-v2",
+        "figure_id": "look1",
+        "view": "front",
+        "locator": "从左到右第1列完整全身",
+        "output_sha256": "1e2b574221f872eadb18e854fa7bfe4e3cf5349696c92caac7940c59ea69cd98",
+        "status": "reviewer_qualified"
+      },
+      {
+        "id": "look2",
+        "run_id": "five-looks-v2",
+        "figure_id": "look2",
+        "view": "front",
+        "locator": "从左到右第2列完整全身",
+        "output_sha256": "1e2b574221f872eadb18e854fa7bfe4e3cf5349696c92caac7940c59ea69cd98",
+        "status": "reviewer_qualified"
+      },
+      {
+        "id": "look3",
+        "run_id": "five-looks-v2",
+        "figure_id": "look3",
+        "view": "front",
+        "locator": "从左到右第3列完整全身",
+        "output_sha256": "1e2b574221f872eadb18e854fa7bfe4e3cf5349696c92caac7940c59ea69cd98",
+        "status": "reviewer_qualified"
+      },
+      {
+        "id": "look4",
+        "run_id": "five-looks-v2",
+        "figure_id": "look4",
+        "view": "front",
+        "locator": "从左到右第4列完整全身",
+        "output_sha256": "1e2b574221f872eadb18e854fa7bfe4e3cf5349696c92caac7940c59ea69cd98",
+        "status": "reviewer_qualified"
+      },
+      {
+        "id": "look5",
+        "run_id": "five-looks-v2",
+        "figure_id": "look5",
+        "view": "front",
+        "locator": "从左到右第5列完整全身",
+        "output_sha256": "1e2b574221f872eadb18e854fa7bfe4e3cf5349696c92caac7940c59ea69cd98",
+        "status": "reviewer_qualified"
+      },
+      {
+        "id": "front",
+        "run_id": "three-views-v1",
+        "figure_id": "front",
+        "view": "front",
+        "locator": "左侧正面完整全身",
+        "output_sha256": "84e332701aa68b84dec22cd5966f778ffa60b25b542cf166f6b54b22e8137868",
+        "status": "reviewer_qualified"
+      },
+      {
+        "id": "side",
+        "run_id": "three-views-v1",
+        "figure_id": "side",
+        "view": "side",
+        "locator": "中间左朝向侧面完整全身",
+        "output_sha256": "84e332701aa68b84dec22cd5966f778ffa60b25b542cf166f6b54b22e8137868",
+        "status": "reviewer_qualified"
+      },
+      {
+        "id": "back",
+        "run_id": "three-views-v1",
+        "figure_id": "back",
+        "view": "back",
+        "locator": "右侧背面完整全身",
+        "output_sha256": "84e332701aa68b84dec22cd5966f778ffa60b25b542cf166f6b54b22e8137868",
+        "status": "reviewer_qualified"
+      }
+    ],
+    "regional_comparisons": 48,
+    "missing_members": [],
+    "missing_figures": [],
+    "missing_comparisons": [],
+    "reused_evidence": [],
+    "reused_outputs": []
+  },
+  "local_evidence_root": "output/body-validation-20261018",
+  "raw_images_in_release": false,
+  "limits": [
+    "Targets changed during calibration; no pooled success rate.",
+    "Combination editing success does not isolate the effect of language, input count or scale guidance.",
+    "Clothed contours are reviewed; hidden joints remain unmeasured.",
+    "Source acceptance does not grant user acceptance to generated outputs."
+  ]
+}

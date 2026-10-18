@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-18",
+  "record_kind": "user_approved_proportion_reference_observations",
+  "user_feedback": {
+    "quote": "这些是我之前人工核验看起来符合我要求的身材比例",
+    "source": "current_user_message",
+    "scope": [
+      "proportion"
+    ],
+    "status": "accepted",
+    "applies_to": "uploaded_sources_as_visual_body_examples",
+    "score": null,
+    "not_confirmed": [
+      "whole_image_acceptance",
+      "exact_anatomical_measurements",
+      "all_views_same_identity_or_body",
+      "other_visual_dimensions",
+      "current_skill_reproduction"
+    ]
+  },
+  "source_policy": {
+    "original_bytes_preserved": true,
+    "files_viewed": true,
+    "images_in_release": false,
+    "local_only_root": "output/user-approved-body-20261018/references",
+    "references_actually_dispatched_this_turn": true,
+    "identity_authority_granted": false,
+    "dispatched_source_ids": [
+      "BODY-02",
+      "BODY-04"
+    ]
+  },
+  "counts": {
+    "source_files": 8,
+    "unique_file_hashes": 8,
+    "primary_full_body_observation_units": 16,
+    "independent_original_generation_runs": null,
+    "new_generation_calls": 7
+  },
+  "recommended_primary": {
+    "source_id": "BODY-02",
+    "unit_id": "BODY-02:look-01",
+    "selection_by": "assistant",
+    "reason": "可见肩颈、双臂、上身和腰胯过渡较清楚；侧背面补身体厚度。不是用户对样本的排名。"
+  },
+  "common_body_targets": {
+    "head_shoulders": "在全身视图内协调头部、肩带与自然颈长，肩颈舒展；保持本人物脸型及五官内部关系。",
+    "torso_pelvis": "胸廓、腰腹、骨盆完整连续，上身紧凑而有厚度，腰胯自然收放；不用衣腰替代解剖位置。",
+    "arms": "肩、肘、腕和手按实际姿态连续，手臂与本身体躯干、腿部共同协调。",
+    "legs": "上下腿共同形成清楚延展，保留可见膝踝转折与自然体量；遮挡段不补造量测。",
+    "support": "躯干、骨盆和四肢保有符合本年龄体型的体积与支撑，避免只有正面细线而侧面扁塌。",
+    "silhouette": "在本轮衣装、正面轻姿态及可比取景下即体现协调修长，不以画幅放大或更换姿态服装代替身体改善。"
+  },
+  "sources": [
+    {
+      "id": "BODY-01",
+      "file_name": "1-照片-1.jpg",
+      "local_path": "output/user-approved-body-20261018/references/body-01.jpg",
+      "sha256": "c487b4379652ad55ae63e36c9b9c599248566bd74718d14d7e1351c8ef548d74",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "actually_viewed": true,
+      "title": "黑色高领肩带上衣与深色微喇裤",
+      "layout": "左侧大肖像，右侧依次为正面、侧面、背面全身",
+      "uses": [
+        "头肩与全身关系",
+        "躯干腰胯连续",
+        "侧面身体厚度"
+      ],
+      "units": [
+        {
+          "id": "BODY-01:look-01",
+          "locator": "右侧三幅全身，主要观察第一幅正面，侧背面补充",
+          "observed": "头肩与窄长身体轮廓相称，上身到裤腰过渡紧凑；侧面胸廓和骨盆保有前后体积，背面腰胯与双腿轮廓连续。"
+        }
+      ],
+      "limits": [
+        "高领和黑色衣料影响颈部及胸廓细节",
+        "裤腿遮住精确膝踝骨点",
+        "高跟及尖头鞋不计为人体延长"
+      ]
+    },
+    {
+      "id": "BODY-02",
+      "file_name": "2-照片-2.jpg",
+      "local_path": "output/user-approved-body-20261018/references/body-02.jpg",
+      "sha256": "0012232d67a3920bccb669832605e8b5552c5949907c51f6ffc34548dffd4d7b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "actually_viewed": true,
+      "title": "条纹背心与浅色微喇牛仔裤",
+      "layout": "左侧大肖像，右侧依次为正面、侧面、背面全身",
+      "uses": [
+        "主要比例参照建议",
+        "肩颈与双臂",
+        "完整上身与腰胯关系"
+      ],
+      "units": [
+        {
+          "id": "BODY-02:look-01",
+          "locator": "右侧三幅全身，主要观察第一幅正面，侧背面补充",
+          "observed": "正面肩颈打开，双臂与上身相称，上身完整且收束清楚，腰胯保有体量；腿部轮廓相对上身明显延展，侧背面仍保有身体厚度。"
+        }
+      ],
+      "limits": [
+        "推荐作为主要依据是代理判断，不是用户排序",
+        "牛仔裤膝部皱褶不能直接确定骨点",
+        "裤脚堆叠和运动鞋影响脚部轮廓"
+      ]
+    },
+    {
+      "id": "BODY-03",
+      "file_name": "3-照片-3.jpg",
+      "local_path": "output/user-approved-body-20261018/references/body-03.jpg",
+      "sha256": "cdb6689e6ff67f1e841262c815d5576557a20b687d90673ccc93d9502ed3b4f3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "actually_viewed": true,
+      "title": "深棕短上衣、腰带与长裙",
+      "layout": "左侧大肖像，右侧依次为正面、侧面、背面全身",
+      "uses": [
+        "完整紧凑的上身",
+        "侧面厚度",
+        "长裙下整体修长"
+      ],
+      "units": [
+        {
+          "id": "BODY-03:look-01",
+          "locator": "右侧三幅全身，主要观察第一幅正面",
+          "observed": "头肩与上身相称，腰腹过渡短而完整；侧面躯干有厚度，长裙自腰胯顺接到落地轮廓，轻微头倾和分脚并未破坏纵向感。"
+        }
+      ],
+      "limits": [
+        "长裙不能证明髋膝与上下腿的精确长度",
+        "腰带是服装位置",
+        "短靴跟高影响身体投影"
+      ]
+    },
+    {
+      "id": "BODY-04",
+      "file_name": "4-照片-4.jpg",
+      "local_path": "output/user-approved-body-20261018/references/body-04.jpg",
+      "sha256": "a7d2d064164815be2d071a8663bc2c128301acf61fd64fa00369fffd7f171ee7",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "actually_viewed": true,
+      "title": "浅色衬衫、黑领带、百褶短裙与短袜",
+      "layout": "左侧大肖像，右侧依次为正面、侧面、背面全身",
+      "uses": [
+        "可见腿部",
+        "资产轻姿态",
+        "短裙袜装的正例"
+      ],
+      "units": [
+        {
+          "id": "BODY-04:look-01",
+          "locator": "右侧三幅全身，正面为轻微倾头和低位交握",
+          "observed": "肩带与头部相称，衬衫到腰裙的体量收放清楚；双腿有自然厚度，露出的膝部、大小腿和踝部顺接，侧背面仍保持修长轮廓。"
+        }
+      ],
+      "limits": [
+        "裙内骨盆上界未知",
+        "轻微屈膝改变二维腿长",
+        "袜口不作为踝或膝骨点",
+        "制服不证明精确年龄"
+      ]
+    },
+    {
+      "id": "BODY-05",
+      "file_name": "5-照片-5.jpg",
+      "local_path": "output/user-approved-body-20261018/references/body-05.jpg",
+      "sha256": "391beccf623e42a2eb326cd498325736a7dded30449dec0a889d13bc20ea7dad",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "actually_viewed": true,
+      "title": "棒球帽、宽松运动外套与长裙",
+      "layout": "左侧大肖像，右侧依次为正面、侧面、背面全身",
+      "uses": [
+        "宽松衣装下整体修长",
+        "服装体积与身体体积的区分"
+      ],
+      "units": [
+        {
+          "id": "BODY-05:look-01",
+          "locator": "右侧三幅全身，主要观察第一幅正面",
+          "observed": "帽下头部与肩部、宽松外套体积及下方长轮廓协调；正面轻交握仍保持稳定支撑，侧背面衣装保有松量而整体不显压缩。"
+        }
+      ],
+      "limits": [
+        "外套遮挡腰腹与骨盆的真实分界",
+        "长裙遮挡双腿",
+        "帽子不参与头高测量",
+        "本图主要支持穿衣整体观感，不认证隐藏的上下腿比例"
+      ]
+    },
+    {
+      "id": "BODY-06",
+      "file_name": "6-照片-6.jpg",
+      "local_path": "output/user-approved-body-20261018/references/body-06.jpg",
+      "sha256": "a1639f42fdfa2c1310d0d8598f50da786e4218f4ce391632745e0b2ad18b73d6",
+      "dimensions": [
+        1280,
+        853
+      ],
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "actually_viewed": true,
+      "title": "五套造型：运动短裤、针织短裙、宽松牛仔裤、连衣裙、牛仔套装",
+      "layout": "上排五幅近景，中排五幅主要全身，下排各套小三视图",
+      "uses": [
+        "逐套全身检查",
+        "多衣装体量与轮廓",
+        "不同松量下的修长"
+      ],
+      "units": [
+        {
+          "id": "BODY-06:look-01",
+          "locator": "中排左起第1套",
+          "observed": "白外套、短上衣和短裤下可见上身与露腿关系，双腿延展清楚，运动鞋下有落地支撑。"
+        },
+        {
+          "id": "BODY-06:look-02",
+          "locator": "中排左起第2套",
+          "observed": "宽松浅色针织与短裙保有衣装体积，低位提包和微屈膝下，露腿仍与头肩、中段形成修长关系。"
+        },
+        {
+          "id": "BODY-06:look-03",
+          "locator": "中排左起第3套",
+          "observed": "深色外套和宽牛仔裤的松量较大，但头肩、上身与下身轮廓仍协调；裤脚聚拢不等同于解剖腿长。"
+        },
+        {
+          "id": "BODY-06:look-04",
+          "locator": "中排左起第4套",
+          "observed": "粉色短外层与浅色短裙在中段形成轻体量，双腿并拢下延，平缓站姿保有整体修长。"
+        },
+        {
+          "id": "BODY-06:look-05",
+          "locator": "中排左起第5套",
+          "observed": "短牛仔外套、短上衣与微喇牛仔裤使腰胯过渡可读，躯干和腿部相对关系连贯，提包与插袋不改变整体目标。"
+        }
+      ],
+      "limits": [
+        "每列是一套独立观察，不能由一列推及其余",
+        "下排小视图仅补可辨认的轮廓，细部未知",
+        "近景和重复小正面不增加独立全身成功数",
+        "长裤遮住精确腿部骨点"
+      ]
+    },
+    {
+      "id": "BODY-07",
+      "file_name": "7-照片-7.jpg",
+      "local_path": "output/user-approved-body-20261018/references/body-07.jpg",
+      "sha256": "9a87462bc35de9510a32e0af1fc9404493d7cce02f1167850bd170846e09b747",
+      "dimensions": [
+        1280,
+        853
+      ],
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "actually_viewed": true,
+      "title": "五套造型：运动长裤、学院短裙、宽针织、背心牛仔裤、黑色运动外套短裤",
+      "layout": "上排五幅主要全身，中排五幅近景，下排各套小三视图",
+      "uses": [
+        "可见肢段与体量",
+        "轻姿态修长",
+        "多套逐人物比较"
+      ],
+      "units": [
+        {
+          "id": "BODY-07:look-01",
+          "locator": "上排左起第1套",
+          "observed": "浅色短上衣、敞开外套与贴合长裤下，肩颈、上身、腰胯和腿部轮廓较清楚；双腿延展并保有自然体量。"
+        },
+        {
+          "id": "BODY-07:look-02",
+          "locator": "上排左起第2套",
+          "observed": "开衫与格裙中段保有衣装厚度，长袜下的腿部与头肩上身协调，几乎正面站立仍显修长。"
+        },
+        {
+          "id": "BODY-07:look-03",
+          "locator": "上排左起第3套",
+          "observed": "宽松针织覆盖腰胯，露出的双腿和堆袜鞋履支撑完整轮廓；宽上装没有使全身纵向关系塌缩。"
+        },
+        {
+          "id": "BODY-07:look-04",
+          "locator": "上排左起第4套",
+          "observed": "浅色背心与牛仔裤下，上身到腰胯的过渡完整，双腿轮廓长而连贯，手臂与躯干同步协调。"
+        },
+        {
+          "id": "BODY-07:look-05",
+          "locator": "上排左起第5套",
+          "observed": "宽黑外套、短裤与黑靴形成明显衣装分段，露腿仍有延展和体量，短裤靴装本身没有破坏用户认可的比例方向。"
+        }
+      ],
+      "limits": [
+        "贴合裤装只能提供外轮廓，不能认证隐藏关节精确坐标",
+        "宽针织遮挡腰胯",
+        "底部小转面不作细节证明",
+        "五套不假定具有完全相同的测量值"
+      ]
+    },
+    {
+      "id": "BODY-08",
+      "file_name": "8-照片-8.jpg",
+      "local_path": "output/user-approved-body-20261018/references/body-08.jpg",
+      "sha256": "e4c9f4d8fdde01f9a1edf98ac5ff08a75c3a8ac1642ce381eca31679815daaf1",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "actually_viewed": true,
+      "title": "浅紫衬衫、黑领结、百褶短裙与长袜",
+      "layout": "左侧大肖像，右侧依次为正面、侧面、背面全身",
+      "uses": [
+        "长袜短裙的正例",
+        "可见膝部与腿部延展",
+        "轻微屈膝与低位手势"
+      ],
+      "units": [
+        {
+          "id": "BODY-08:look-01",
+          "locator": "右侧三幅全身，主要观察第一幅正面",
+          "observed": "头肩、衬衫中段与裙腰关系连贯；裙摆以下的腿部到膝、长袜和鞋形成连续延展，轻微屈膝与手前置仍保持协调，侧背面轮廓补充整体体量。"
+        }
+      ],
+      "limits": [
+        "袜口不等于膝位，裙摆不等于髋位",
+        "与图4造型相近但摘要不同，不能合并文件或认定独立生成",
+        "不从制服推断年龄或强行套成人参数"
+      ]
+    }
+  ],
+  "derived_conclusions": [
+    "正面轻姿态可以实现用户认可的身体比例，不能将其当作失败的充分原因。",
+    "短裙、长袜、宽上装和长裙均有正例；服装分段是判读干扰，不是比例失败的单一根因。",
+    "认可样本覆盖不同衣装与身体投影，不推导统一九头身、1.618、缩头百分比或像素坐标。",
+    "已认可来源用于校准，当前目标人物仍保持身份、年龄和指定体型；不把参考组外观变成全人物模板。"
+  ],
+  "implementation_boundary": {
+    "binding_to_original_run": false,
+    "source_feedback_does_not_accept_new_outputs": true,
+    "existing_body_set_review_unit": "run_id plus frozen figure_id, manually authored visible locator and six-region evidence",
+    "proportion_dimension_in_visual_preference_api": false,
+    "notes": "本记录补足来源图的用户认可与可见关系；不伪造整图偏好索引、原始运行回执或自动审图能力。",
+    "selected_outputs_visually_reviewed": true,
+    "batch_reliability_established": false
+  },
+  "execution_followup": {
+    "record": "docs/body-proportion-validation-2026-10-18.json",
+    "selected_set_status": "reviewer_qualified",
+    "user_accepted": false
+  }
+}
