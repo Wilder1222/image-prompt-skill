@@ -975,20 +975,20 @@ export const catalogEnglish = [
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[0]",
-    "zh": "未指定体型时，按人物年龄适度美化为黄金比例审美下轻盈挺拔、修长舒展的仙侠风格身材，比例协调、修长好看，头肩相称、腰身自然收束、四肢匀称；明确指定的体型优先，不统一改瘦改高。仙侠只表达身形气质，不改变当前时代、衣装、背景或媒介。",
-    "en": "Unless a body type is specified, moderately idealize proportions for the apparent age toward a light, upright, gracefully elongated xianxia silhouette with balanced head and shoulders, a naturally defined waist and coherent limbs. An explicitly specified body type takes priority without uniformly slimming or increasing height. Xianxia describes the figure only; retain the current era, costume, background and medium."
+    "zh": "未指定体型时，按人物年龄适度美化为黄金比例审美下轻盈挺拔、修长舒展的仙侠风格身材，比例协调、修长好看，头肩相称、腰身自然收束、四肢匀称；明确指定的体型优先，不统一改瘦改高。仙侠只表达身形气质，不改变当前时代、衣装、背景或媒介。 成人默认呈现时装级修长：头部相对全身精巧、完整而紧凑的躯干、连贯腰胯与明显延展的双腿共同成立，不仅是无畸形或变瘦。",
+    "en": "Unless a body type is specified, moderately idealize proportions for the apparent age toward a light, upright, gracefully elongated xianxia silhouette with balanced head and shoulders, a naturally defined waist and coherent limbs. An explicitly specified body type takes priority without uniformly slimming or increasing height. Xianxia describes the figure only; retain the current era, costume, background and medium. For adults, show a visibly elongated fashion silhouette through a refined head scale, an intact compact torso, flowing waist-to-pelvis transitions and distinctly long legs together; absence of defects or a slimmer outline alone is insufficient."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[1]",
-    "zh": "头部与肩带、身体厚度相称，保持面宽相对头高、五官间距和脸型；胸廓、腰腹与骨盆完整连续，不压短躯干、极端缩头或拉长颈部。获准修正比例时，必要时协调调整完整头部与身体的尺度，不单独压窄脸部或缩放某个五官，也不无条件冻结未达标的原头身关系。",
-    "en": "Balance the whole head with the shoulders and body depth, retaining face width relative to head height, feature spacing and identity. Preserve the complete rib cage, abdomen and pelvis without extreme head shrinking, neck stretching or torso shortening. Where needed, coordinate the scale of the complete head with the body only within authorized proportion correction, without independently narrowing the face or rescaling individual features; do not unconditionally freeze a noncompliant head-to-body ratio."
+    "zh": "头部与肩带、身体厚度相称，保持面宽相对头高、五官间距和脸型；胸廓、腰腹与骨盆完整连续，不压短躯干、极端缩头或拉长颈部。获准修正比例时，必要时协调调整完整头部与身体的尺度，不单独压窄脸部或缩放某个五官，也不无条件冻结未达标的原头身关系。 躯干完整不等于冻结原长度；用户否定原比例时，身份只锁脸型与五官内部关系，完整头部和身体各段可在授权范围内共同调整。",
+    "en": "Balance the whole head with the shoulders and body depth, retaining face width relative to head height, feature spacing and identity. Preserve the complete rib cage, abdomen and pelvis without extreme head shrinking, neck stretching or torso shortening. Where needed, coordinate the scale of the complete head with the body only within authorized proportion correction, without independently narrowing the face or rescaling individual features; do not unconditionally freeze a noncompliant head-to-body ratio. Anatomical completeness does not freeze the original torso length. When the user rejects the original proportions, preserve face shape and internal feature relationships while coordinating whole-head and body-segment scales within the authorized scope."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[2]",
-    "zh": "衣装按既定设计贴合身体，保留衣带位置、衣片连接、袖裙宽窄和体量；纵向衣片、鞋跟和拖尾不能代替人体比例，不为显高把人物压成窄长筒。",
-    "en": "Fit the established garment construction to the body, preserving sash placement, panel attachments, sleeve and skirt volume. Vertical panels, heels and trains do not establish anatomical proportions; do not squeeze the figure into a narrow tube."
+    "zh": "衣装按既定设计贴合身体，保留衣带位置、衣片连接、袖裙宽窄和体量；纵向衣片、鞋跟和拖尾不能代替人体比例，不为显高把人物压成窄长筒。 无人服装图只提供服装构造，不提供人体尺度；按新身体重新适配衣料，保留原材质，不能以紧身化、窄裤腿或抬裤腰替代比例改善。",
+    "en": "Fit the established garment construction to the body, preserving sash placement, panel attachments, sleeve and skirt volume. Vertical panels, heels and trains do not establish anatomical proportions; do not squeeze the figure into a narrow tube. Ghost garment images specify garment construction, not body dimensions. Refit the original fabric to the new body while retaining material; tighter clothing, narrower trouser legs or a raised waistband cannot substitute for improved proportions."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
