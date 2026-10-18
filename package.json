@@ -1,6 +1,6 @@
 {
   "name": "image-prompt-skill",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,10 +13,12 @@
     "examples:build": "node scripts/build-examples.mjs",
     "prompt:audit": "node scripts/prompt-quality-audit.mjs",
     "portrait:looks": "node scripts/portrait-look-plan.mjs",
+    "portrait:review": "node scripts/portrait-look-review.mjs",
     "face:catalog:build": "node scripts/build-face-factor-docs.mjs",
     "visual:preferences:list": "node scripts/visual-preferences.mjs list",
     "visual:gallery:build": "node scripts/build-visual-preference-gallery.mjs",
-    "character:evidence-audit": "node scripts/character-style-evidence-audit.mjs"
+    "character:evidence-audit": "node scripts/character-style-evidence-audit.mjs",
+    "body:review": "node scripts/body-set-review.mjs"
   },
   "engines": {
     "node": ">=22"

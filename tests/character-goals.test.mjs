@@ -65,3 +65,45 @@ test('scene and product construction never receives body or hair clauses',()=>{
     const brief=read(file);assert.deepEqual(withCharacterGoals(brief),brief);
   }
 });
+
+test('age-specific body design reaches delivered prose and frozen critical acceptance without inventing ratios',()=>{
+  const ageCases={infant:'短而柔软的四肢',child:'尚未成熟的肩胸骨盆',adolescent:'自然生长感',adult:'完整胸廓、腰腹和骨盆',older:'不通过年轻化',unspecified:'年龄未明时'};
+  const hashes=new Set();
+  for(const [ageStage,visibleRelation]of Object.entries(ageCases)){
+    // A fresh task: no pre-authored body plan or observed reference to overwrite.
+    const brief={subject_kind:'character',request:'原创人物，按已确认表观年龄设计全身比例。',references:[],unresolved:[],requirements:[],sections:[],acceptance:[]};
+    const designed=withCharacterGoals(brief,{ageStage}),snapshot=freeze(designed);
+    const compiled=verifyFrozenRun(snapshot);
+    assert.ok(compiled.prompt.includes(visibleRelation));
+    for(const goal of ['elongated','slender','muscle']){
+      const target=snapshot.target.requirements.find(r=>r.character_goal===goal);
+      assert.equal(target.priority,'must');assert.equal(target.target_head_count,undefined);
+      assert.ok(snapshot.target.acceptance.some(c=>c.basis===target.id&&c.critical&&c.question.includes('年龄适配')));
+    }
+    assert.equal(brief.requirements.length,0);
+    hashes.add(snapshot.target_sha256);
+  }
+  assert.equal(hashes.size,Object.keys(ageCases).length);
+});
+
+test('explicit stocky body survives construction and freezing without default slimming or elongation',()=>{
+  const specified=read('character-adaptive-brief.json');
+  const result=withCharacterGoals(specified,{ageStage:'adult'});
+  assert.deepEqual(result,specified);
+  const snapshot=freeze(result),compiled=verifyFrozenRun(snapshot);
+  assert.ok(compiled.prompt.includes('矮壮力量体型'));
+  assert.equal(snapshot.target.character_exceptions.slender.source,'user_request');
+  assert.equal(snapshot.target.character_exceptions.elongated.source,'user_request');
+  assert.ok(snapshot.target.acceptance.some(c=>c.basis==='body'&&c.critical));
+  assert.ok(!snapshot.target.requirements.some(r=>['slender','elongated'].includes(r.character_goal)));
+  assert.ok(!compiled.prompt.includes(characterGoals.slender.text));
+});
+
+test('age options never rewrite existing plans, bypass scoped edits, or silently accept typos',()=>{
+  const source=read('face-design-portrait-base.json');
+  assert.deepEqual(withCharacterGoals(source,{ageStage:'older'}),source);
+  assert.throws(()=>withCharacterGoals(source,{ageStage:'chlid'}),/unknown body age stage/);
+  const narrow=removeGoal(source,'elongated');
+  narrow.edit_scope={baseline_reference_id:'source',changes:['只修肤质'],preserve:['身体比例']};
+  assert.throws(()=>withCharacterGoals(narrow,{ageStage:'child'}),/cannot expand editing permission/);
+});

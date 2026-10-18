@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import {adaptModelPrompt} from './model-adapter.mjs';
 import {characterStyleIds} from './character-style-render.mjs';
 import {characterGoalErrors} from './character-goals.mjs';
+import {assertBodyCriteria,bodyObservation,assertDistinctBodyEvidence} from './body-proportion-contract.mjs';
 
 // The host agent performs visual observation and design reasoning. This compiler only
 // checks declared provenance, coverage and delivery integrity; it does not see images.
@@ -33,6 +34,7 @@ export function compileProductionPrompt(input) {
   if (!Array.isArray(input.unresolved) || input.unresolved.length) errors.push('resolve critical ambiguities and conflicts before delivery');
   if (errors.length) throw new Error(errors.join('\n'));
   errors.push(...characterGoalErrors(input));
+  assertBodyCriteria(input);
   function checkProse(text,label) {
     if (!nonempty(text) || /【|】|\bTODO\b|待填写|逐项填写|填写本套/.test(text)) errors.push(`unfinished clause in ${label}`);
     if (internalStyle.test(text ?? '')) errors.push(`replace internal style identifiers with concrete visual prose in ${label}`);
@@ -238,8 +240,10 @@ export function reviewProductionResult(compiled, review) {
     const check = review.checks.find(c => c.id===criterion.id);
     if (!check || !['pass','fail','uncertain','not_assessable'].includes(check.verdict) || !nonempty(check.evidence)) throw new Error(`missing supported review: ${criterion.id}`);
     // Review evidence cannot rewrite the acceptance contract established before generation.
-    return {...criterion, verdict:check.verdict, evidence:check.evidence};
+    return {...criterion, verdict:check.verdict, evidence:check.evidence,
+      ...(criterion.body_region!==undefined?{body_observation:bodyObservation(check)}:{})};
   });
+  assertDistinctBodyEvidence(results);
   const criticalFailures = results.filter(c => c.critical && c.verdict==='fail');
   const uncertain = results.filter(c => c.critical && ['uncertain','not_assessable'].includes(c.verdict));
   return {

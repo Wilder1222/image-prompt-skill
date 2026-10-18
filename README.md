@@ -10,9 +10,11 @@
 
 > 使用 $image-prompt-skill，保留这个人物，适度优化服装和造型，生成中文提示词并出图测试。
 
-提示词使用无编号中文语义标签，正文描述实际可见结果，内部模式和执行设置分开。人物共同执行苗条、修长舒展、适当有肌肉的身材目标，并分别落实自然发型和面容可读性；按景别及明确用户范围应用，已达标关系保持连续。完整标准只在 [主入口](SKILL.md) 与 [生产流程](references/routes/prompt-production.md) 维护，白底、站姿和数值头身均不是通用必选项。
+提示词使用无编号中文语义标签，正文描述实际可见结果，内部模式和执行设置分开。人物先适配年龄与指定体型，未指定时默认适度美化为黄金比例审美下轻盈修长的仙侠身形，并分别落实自然发型和面容可读性；按景别及明确用户范围应用，已达标关系保持连续。完整标准只在 [主入口](SKILL.md) 与 [生产流程](references/routes/prompt-production.md) 维护，白底、站姿和数值头身均不是通用必选项。
 
 主体入口为 [SKILL.md](SKILL.md) 和 [提示词生产流程](references/routes/prompt-production.md)。代理负责观察、决策与编写，用户无需填写模板。程序检查不能代替实际图像评审，也不保证任意输入都生成好图。
+
+[多造型实图执行](docs/portrait-look-execution-2026-10-15.md)记录了原图妆发惯性、刘海落点与修订回退。现行[造型路线](references/routes/portrait-look-variation.md)支持从当前完整方案修订指定通道，并用 `npm run portrait:review -- --input review.json` 复核实际图片、选定版本、人工差异比较和连续未改善问题；文字计划通过不等于十套造型已在实图中分化。
 
 [提示词质量审查](references/routes/prompt-quality-review.md)补齐必需目标在对应通道的正文覆盖，阻止同一句同时声明允许改变与必须保持；`npm run prompt:audit -- brief.json`定位重复、编辑范围复述和捏脸呈现重叠。标准化新计划可显式选择 `scope_format: 'compact'`，保留全部详细正文及验收，只精简范围摘要；既有详细计划继续使用原格式。[本轮调研与实图复查](docs/prompt-quality-research-2026-10-12.md)区分已修复的文本结构与尚未通过的图像目标。
 

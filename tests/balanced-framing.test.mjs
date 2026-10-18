@@ -15,15 +15,15 @@ test('default body and full-body framing are consistent in all media and languag
   assert.equal(plan.configuration.proportion_profile,'BALANCED_ELEGANT');
   assert.equal(plan.stage_2.fashion_asset.visual_head_count_target,null);
   assert.equal(plan.stage_2.fashion_asset.mandatory,true);
-  assert.equal(plan.stage_2.fashion_asset.aesthetic_direction,'mandatory_elongated_athletic_slender');
+  assert.equal(plan.stage_2.fashion_asset.aesthetic_direction,'age_adapted_xianxia_default');
   assert.equal(plan.stage_2.fashion_asset.idealization_scope,'all_character_tasks');
   for(const language of ['zh-CN','en']){
    const result=compileAssetPrompt({styleWorkflow,language});
    assert.doesNotMatch(result.prompt,/九头|nine.head|BALANCED_ELEGANT|P9/);
    assert.match(result.prompt,language==='en'?/breathing room above, below and beside/:/头顶、脚下与左右/);
    assert.match(result.prompt,language==='en'?/rather than stretching anatomy/:/不为了填满画幅拉伸身体/);
-   assert.match(result.prompt,language==='en'?/elongated, athletic and slender/:/修长好看、健美且苗条/);
-   assert.match(result.prompt,language==='en'?/all genres, media/:/所有题材、媒介/);
+   assert.match(result.prompt,language==='en'?/gracefully elongated xianxia/:/修长舒展的仙侠风格/);
+   assert.match(result.prompt,language==='en'?/body type takes priority/:/指定的体型优先/);
   }
  }
 });
@@ -73,8 +73,8 @@ test('reference anchors, numeric profiles and scoped repairs retain the shared b
   {stage:'material-light',focus:'materials'},{stage:'material-light',focus:'lighting'}];
  for(const options of variants)for(const language of ['zh-CN','en']){
   const result=compileAssetPrompt({...options,language});
-  assert.match(result.prompt,language==='en'?/Across all character tasks/:/所有人物统一/);
-  assert.match(result.prompt,language==='en'?/moderate muscle tone/:/适当有肌肉/);
+  assert.match(result.prompt,language==='en'?/Across all character tasks/:/所有人物先按年龄/);
+  assert.match(result.prompt,language==='en'?/age-appropriate muscle support/:/肌肉支撑适配年龄/);
   assert.match(result.prompt,language==='en'?/only body relationships visible/:/当前取景实际可见/);
   assert.equal(result.evidence.visual_quality_verified,false);
  }

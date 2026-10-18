@@ -2,11 +2,40 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {spawnSync} from 'node:child_process';
-import {buildPortraitLookPlan,renderPortraitLookPrompts} from '../scripts/portrait-look-plan.mjs';
+import {buildPortraitLookPlan,renderPortraitLookPrompts,revisePortraitLookPlan} from '../scripts/portrait-look-plan.mjs';
 import {compileProductionPrompt,objectHash} from '../scripts/production-prompt.mjs';
 
 const fixture = () => JSON.parse(fs.readFileSync(new URL('../examples/portrait-look-diversity-plan.json',import.meta.url),'utf8'));
 const ids = report => report.diagnostics.map(row => row.code);
+
+test('expression repair carries the complete current hairstyle, makeup and fixed costume without an extra focus summary',()=>{
+  const input=fixture(),before=structuredClone(input),look=input.looks[1];
+  const changed={...look.expression,mouth:'双唇形成清楚的小圆开口，嘴角不向两侧拉开。'};
+  const result=revisePortraitLookPlan(input,{look_id:look.id,channels:['expression'],updates:{expression:changed},reason:'实图仍沿用原图露齿笑，修正口形。'});
+  assert.deepEqual(input,before);
+  assert.deepEqual(result.plan.looks[1].hair,look.hair);
+  assert.deepEqual(result.plan.looks[1].makeup,look.makeup);
+  assert.deepEqual(result.plan.base_brief,input.base_brief);
+  assert.deepEqual(result.plan.looks[0],input.looks[0]);
+  const variant=result.report.variants[1];
+  for(const [field,prose] of Object.entries(look.hair.front))assert.ok(variant.prompt.includes(prose),field);
+  assert.ok(variant.prompt.includes(changed.mouth));
+  assert.ok(variant.brief.sections.findIndex(s=>s.channel==='expression')<variant.brief.sections.findIndex(s=>s.channel==='composition'));
+  assert.equal(variant.brief.sections.filter(s=>s.channel==='hair').length,1);
+  assert.equal(variant.brief.sections.filter(s=>s.channel==='expression').length,1);
+  assert.deepEqual(variant.brief.references,input.base_brief.references);
+  assert.notEqual(variant.prompt_sha256,buildPortraitLookPlan(input).variants[1].prompt_sha256);
+});
+
+test('common hair goals merge safely with a matching label and emphasis cannot add an unauthorized channel',()=>{
+  const input=fixture();input.base_brief.sections.find(s=>s.channel==='hair').label='发型与头饰';
+  input.looks[0].focus_channels=['hair','makeup'];
+  const variant=buildPortraitLookPlan(input).variants[0];
+  for(const common of input.base_brief.sections.find(s=>s.channel==='hair').items)assert.equal(variant.prompt.split(common.text).length-1,1);
+  for(const focus of [['identity'],['hair','hair']]){const invalid=structuredClone(input);invalid.looks[0].focus_channels=focus;assert.throws(()=>buildPortraitLookPlan(invalid),/focus_channels/);}
+  assert.throws(()=>revisePortraitLookPlan(input,{look_id:'jk01',channels:['expression'],updates:{expression:input.looks[0].expression,hair:input.looks[0].hair},reason:'范围外改发型。'}),/unsupported/);
+  assert.throws(()=>revisePortraitLookPlan(input,{look_id:'jk01',channels:['hair'],updates:{hair:{front:{fringe:'只写刘海，丢掉其他发区。'}}},reason:'不完整发型。'}));
+});
 
 test('changing authored front hair changes delivered prose, its must target and frozen goal rather than only a signature',()=>{
   const first=fixture(),second=structuredClone(first);

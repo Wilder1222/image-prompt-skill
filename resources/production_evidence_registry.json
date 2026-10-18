@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-09",
+  "updated_on": "2026-10-15",
   "note": "不同目标与实验组分别登记；子集不重复相加，元数据登记不代替看图和文件核验。历史结果不回填为新规则通过。",
   "groups": [
     {
@@ -73,6 +73,16 @@
       "boundary": "三次首轮与一次产品编辑单列；不改变历史34图、44次或原九头身验收。",
       "user_rejected_outputs": 2,
       "user_accepted_outputs": 0
+    },
+    {
+      "id": "portrait-looks-20261015",
+      "label": "同人多造型18次实图",
+      "reported_outputs": 18,
+      "reported_complete_passes": 0,
+      "sources": [
+        "docs/portrait-look-execution-2026-10-15.json"
+      ],
+      "boundary": "10张选定浏览候选不等于10张通过；原0.17.1目标、失败与未决保留，0.17.2优化期间没有新图，不与历史实验合并成功率。"
     }
   ]
 }

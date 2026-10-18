@@ -345,8 +345,8 @@ export const catalogEnglish = [
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.principle",
-    "zh": "所有包含人物的任务均以苗条、修长舒展、适当有肌肉的黄金身材比例美化为共同强约束，不限题材、媒介或生成编辑流程。新图、参考处理、换装、风格转换、标准化、肖像、多视角和编辑分别检查；已达标保持，旧母图未达标仍需美化。明确限定的局部操作保留本步骤边界，身材不足另建美化版本，局部通过不等于整体达标。不固定头身数或1.618，年龄与身份仍保持。",
-    "en": "All tasks containing characters share a mandatory goal of ideal body proportion refinement: slender, gracefully elongated and open, with moderate muscle tone, across every genre, medium and generation or editing workflow. Check new generation, reference processing, wardrobe changes, style conversion, standardization, portraits, multi-view assets and edits. Preserve already refined bodies; an existing anchor does not exempt an unrefined figure. Explicit local operations retain their step boundaries, with body issues recorded for a separate refinement version. Local success does not establish whole-figure approval. No fixed head count or 1.618 formula is imposed; retain age and identity."
+    "zh": "人物比例先适配年龄与明确体型；未指定体型时，默认适度美化为黄金比例审美下轻盈挺拔、修长舒展的仙侠风格身材。仙侠只限定身形气质，不改变时代、衣装或媒介。指定丰满、魁梧、矮小等体型优先保留；局部编辑不扩大范围，已达标身体保持连续，不固定头身数或1.618。",
+    "en": "Age and explicit body type take precedence. Without a specified body type, use moderate, age-appropriate refinement toward balanced, light and elongated xianxia proportions. Preserve the era, costume and medium, body locks and local edit scope; do not impose fixed numeric ratios."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
@@ -585,8 +585,8 @@ export const catalogEnglish = [
   {
     "resource": "asset_presentation_v084_catalog.json",
     "path": "$.reference_modes.full_body_anchor.prompt_translation[1]",
-    "zh": "保留人物身份、表观年龄、面部表现、发型饰物、服装构造配色、纹样位置、袖量、拖尾、手势及可见鞋履；身体同样朝苗条、修长舒展、适当有肌肉的黄金比例美化，已达标部分保持，旧母图不自动豁免，不擅自缩头拉腿。",
-    "en": "Preserve its facial identity, apparent age, expression, hair and ornaments, costume structure and colors, motif placement, sleeve volume, train, gesture and visible footwear. Refine the body toward slender, gracefully elongated ideal proportions with moderate muscle tone, retaining parts that already meet the goal. An existing anchor is not an exemption; do not arbitrarily shrink the head or stretch the legs."
+    "zh": "保留人物身份、表观年龄、面部表现、发型饰物、服装构造配色、纹样位置、袖量、拖尾、手势及可见鞋履；先按年龄与指定体型确定身体关系，未指定体型时适度美化为黄金比例审美下轻盈修长的仙侠身形。已达标部分保持，明确身体锁定优先，不擅自缩头拉腿。",
+    "en": "Preserve its facial identity, apparent age, expression, hair and ornaments, costume structure and colors, motif placement, sleeve volume, train, gesture and visible footwear. Establish proportions for the current character from age and specified body type; without a specified type, moderately refine toward balanced, light and elongated xianxia proportions. Preserve already refined proportions and explicit body locks, without arbitrary head shrinking or leg stretching."
   },
   {
     "resource": "asset_presentation_v084_catalog.json",
@@ -975,32 +975,32 @@ export const catalogEnglish = [
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[0]",
-    "zh": "所有人物任务均以黄金身材比例美化为强约束，人物必须比例协调、修长好看、健美且苗条，身形修长舒展、适当有肌肉。头脸与肩带相称，完整躯干、腰臀及四肢共同形成挺拔利落的轮廓；覆盖所有题材、媒介和生成编辑流程，不靠极端缩头或拉长脖子制造修长。",
-    "en": "Treat ideal body proportions for the current character as a mandatory design constraint in all character tasks: the figure must be harmonious, elegantly elongated, athletic and slender, with graceful openness and moderate muscle tone. Balance the readable head with open shoulders and a complete torso, waist, hips and limbs in a refined silhouette across all genres, media and generation or editing workflows, without extreme head shrinking or neck stretching."
+    "zh": "未指定体型时，按人物年龄适度美化为黄金比例审美下轻盈挺拔、修长舒展的仙侠风格身材，比例协调、修长好看，头肩相称、腰身自然收束、四肢匀称；明确指定的体型优先，不统一改瘦改高。仙侠只表达身形气质，不改变当前时代、衣装、背景或媒介。",
+    "en": "Unless a body type is specified, moderately idealize proportions for the apparent age toward a light, upright, gracefully elongated xianxia silhouette with balanced head and shoulders, a naturally defined waist and coherent limbs. An explicitly specified body type takes priority without uniformly slimming or increasing height. Xianxia describes the figure only; retain the current era, costume, background and medium."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[1]",
-    "zh": "躯干解剖关系完整，髋膝踝关系协调修长，不生硬拉伸腿部。比例修正保持面宽相对头高、五官间距比例和脸型；必要时协调调整完整头部与身体的尺度，不单独压窄脸部或缩放某个五官，也不无条件冻结未达标的原头身关系。",
-    "en": "Keep the torso anatomically complete, with harmonious, elongated hip-knee-ankle relationships rather than artificial leg stretching. During proportion correction, preserve face width relative to head height, facial-feature spacing ratios and face shape. Where needed, coordinate the scale of the complete head with the body; do not narrow only the face, independently resize a facial feature, or unconditionally freeze a noncompliant head-to-body ratio."
+    "zh": "头部与肩带、身体厚度相称，保持面宽相对头高、五官间距和脸型；胸廓、腰腹与骨盆完整连续，不压短躯干、极端缩头或拉长颈部。获准修正比例时，必要时协调调整完整头部与身体的尺度，不单独压窄脸部或缩放某个五官，也不无条件冻结未达标的原头身关系。",
+    "en": "Balance the whole head with the shoulders and body depth, retaining face width relative to head height, feature spacing and identity. Preserve the complete rib cage, abdomen and pelvis without extreme head shrinking, neck stretching or torso shortening. Where needed, coordinate the scale of the complete head with the body only within authorized proportion correction, without independently narrowing the face or rescaling individual features; do not unconditionally freeze a noncompliant head-to-body ratio."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[2]",
-    "zh": "衣装按既定设计与修长健美的身体关系贴合，保留明确的宽窄与体量；袖摆、纵向衣片和鞋跟不能代替身体结构，也不为显高把人物压成窄长筒。",
-    "en": "Fit the costume to its confirmed design and the elongated athletic figure, retaining its intended width and volume. Sleeves, hems, vertical panels and heels do not replace body structure; do not compress the figure into a narrow tube to make it look taller."
+    "zh": "衣装按既定设计贴合身体，保留衣带位置、衣片连接、袖裙宽窄和体量；纵向衣片、鞋跟和拖尾不能代替人体比例，不为显高把人物压成窄长筒。",
+    "en": "Fit the established garment construction to the body, preserving sash placement, panel attachments, sleeve and skirt volume. Vertical panels, heels and trains do not establish anatomical proportions; do not squeeze the figure into a narrow tube."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[3]",
-    "zh": "肩、胸廓、腰腹和骨盆完整连续，腰身清楚收束且保留厚度，肩腰臀轮廓苗条利落；上臂、前臂、大腿和小腿修长匀称，向肘腕、膝踝及手脚自然衔接。不压短腰腹，不用纸片腰、极端缩头或单独拉腿凑比例，也不把审美目标冒充通用数值公式或衣下人体测量。",
-    "en": "Keep shoulders, ribcage, abdomen and pelvis complete and continuous, with a clearly defined waist that retains depth and a slender, refined shoulder-waist-hip contour. Upper and lower arms and legs are elongated and balanced, transitioning naturally through joints to hands and feet. Do not shorten the abdomen, use a paper-thin waist, extremely shrink the head or stretch isolated leg segments. This aesthetic goal is neither a universal numeric formula nor a body measurement inferred through clothing."
+    "zh": "上臂前臂、大腿小腿的长度与粗细成组协调，肘膝、腕踝和手脚尺度自然；腰臀按年龄与指定体型保留连续厚度，不单段拉腿、不削成纸片腰，不把黄金比例当作通用数值公式或衣下人体测量。",
+    "en": "Coordinate upper and lower arms and legs in length and thickness, with coherent elbows, knees, wrists, ankles, hands and feet. Preserve continuous waist and pelvic depth appropriate to age and specified body type. Do not stretch one limb segment or make a paper-thin waist; golden proportions describe aesthetic balance, not a universal formula or a measurement through clothing."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[4]",
-    "zh": "肩背、腰腹和臀腿有紧致、均衡的肌肉与软组织支撑，身形健美而敏捷，四肢苗条但不纤弱，不能以松垮、臃肿、细杆肢体、削瘦骨感或僵硬大肌肉块替代健美。线条随承重、收缩、拉伸与接触自然变化；厚衣下只用轮廓、支撑和受力褶皱表现，不穿透不透明衣料描画肌肉。",
-    "en": "Give the shoulders, back, abdomen, hips and legs firm, balanced muscle and soft-tissue support for an athletic, agile figure with slender but capable limbs. Sagging bulk, stick limbs, emaciation and rigid oversized muscle blocks do not satisfy this goal. Let definition respond to weight bearing, contraction, stretching and contact; under thick clothing, use silhouette, support and load-bearing folds without drawing muscles through opaque fabric."
+    "zh": "婴幼儿与儿童保留较大的头部占比、未成熟骨架和柔和体块，少年保留自然生长感，不套成人长腿细腰；成人可适度紧致有肌肉支撑，年长者保留骨架与软组织的年龄特征，不统一年轻化。肌肉随承重、收缩与伸展变化，厚衣下只表现轮廓和受力，不穿透面料画肌肉。",
+    "en": "Infants and children retain relatively larger heads, immature frames and soft volumes; adolescents retain their developing frame without adult long-leg and narrow-waist templates. Adults may have moderate muscle tone, while older characters retain age-specific frame and soft tissue without automatic rejuvenation. Muscle responds to load and movement; opaque garments show support and folds rather than visible underlying muscle."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
@@ -1023,8 +1023,8 @@ export const catalogEnglish = [
   {
     "resource": "fashion_proportion_catalog.json",
     "path": "$.note",
-    "zh": "所有包含人物的任务均以苗条、修长舒展、适当有肌肉的黄金身材比例美化为共同强约束，不限题材、媒介或生成编辑流程。新图、参考处理、换装、风格转换、标准化、肖像、多视角和编辑分别检查；已达标保持，旧母图未达标仍需美化。明确限定的局部操作保留本步骤边界，身材不足另建美化版本，局部通过不等于整体达标。不固定头身数或1.618，年龄与身份仍保持。",
-    "en": "All tasks containing characters share a mandatory goal of ideal body proportion refinement: slender, gracefully elongated and open, with moderate muscle tone, across every genre, medium and generation or editing workflow. Check new generation, reference processing, wardrobe changes, style conversion, standardization, portraits, multi-view assets and edits. Preserve already refined bodies; an existing anchor does not exempt an unrefined figure. Explicit local operations retain their step boundaries, with body issues recorded for a separate refinement version. Local success does not establish whole-figure approval. No fixed head count or 1.618 formula is imposed; retain age and identity."
+    "zh": "人物比例先适配年龄与明确体型；未指定体型时，默认适度美化为黄金比例审美下轻盈挺拔、修长舒展的仙侠风格身材。仙侠只限定身形气质，不改变时代、衣装或媒介。指定丰满、魁梧、矮小等体型优先保留；局部编辑不扩大范围，已达标身体保持连续，不固定头身数或1.618。",
+    "en": "Age and explicit body type take precedence. Without a specified body type, use moderate, age-appropriate refinement toward balanced, light and elongated xianxia proportions. Preserve the era, costume and medium, body locks and local edit scope; do not impose fixed numeric ratios."
   },
   {
     "resource": "p9_persistence_guard_catalog.json",
@@ -1041,14 +1041,14 @@ export const catalogEnglish = [
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.profiles.BALANCED_ELEGANT.prompt_translation[5]",
-    "zh": "新生成、参考图处理、扩身、换装、风格转换、标准化、肖像、三视图、四视图、表情组、人物入景及编辑共同执行该身材目标。日常、武侠、仙侠及其他题材均适用；已达标体型保持连续，旧母图不自动豁免。近景只表现可见身体关系，保留年龄和身份；明确限定局部时保持本步骤边界，身材不足另建美化版本，不强套数值头身比。",
-    "en": "Apply the same body goal to new generation, reference processing, full-body extension, wardrobe changes, style conversion, standardization, portraits, three-view and four-view assets, expression sets, characters in scenes and edits. Everyday, wuxia and xianxia characters and every other genre share this goal. Preserve already refined proportions; existing anchors are not exemptions. Judge only visible body relationships in close-ups and retain age and identity. Explicit local operations keep their step boundaries, with body shortcomings addressed in a separate refinement version; impose no fixed head count."
+    "zh": "仅呈现当前取景实际可见的身体关系；年龄未明时沿用可见骨架与体量，不猜精确岁数。已达标比例保持连续，明确冻结身体或只改局部时遵守本轮范围；不每轮继续削瘦拉长，未解决的比例问题另列待修。",
+    "en": "Describe only body relationships visible in the current framing. When age is unspecified, retain observed frame and volume without inventing a precise age. Preserve approved proportions and explicit body locks or local edit scope; do not repeatedly slim or elongate. Track unresolved proportion issues separately."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.all_task_constraint",
-    "zh": "所有人物统一按苗条、修长舒展、适当有肌肉的方向美化黄金身材比例；头肩相称，躯干完整，腰臀保留厚度，四肢协调有支撑，仅呈现当前取景实际可见的身体关系。保持已达标身形的连续性，不以缩头、长颈、纸片腰或夸张肌肉块替代美化。",
-    "en": "Across all character tasks, refine ideal body proportions toward a slender, gracefully elongated and open figure with moderate muscle tone. Balance the head and shoulders, retain a complete torso and natural waist and pelvic depth, and keep the limbs coordinated and supported. Describe only body relationships visible in the current framing. Preserve already refined proportions without head shrinking, neck stretching, paper-thin waists or oversized muscle blocks."
+    "zh": "所有人物先按年龄与指定体型确定比例；未指定体型时默认适度美化为轻盈修长的仙侠身形，黄金比例表达整体均衡。头肩相称、躯干完整、腰臀有厚度，肌肉支撑适配年龄与动作，仅呈现当前取景实际可见的身体关系。指定体型、身体锁定和局部编辑范围优先；已达标关系保持连续。",
+    "en": "Across all character tasks, establish proportions from apparent age and any specified body type. Without a specified type, moderately idealize toward a light, elongated xianxia figure; golden proportions mean balanced relationships. Retain balanced head and shoulders, a complete torso, waist and pelvic depth and age-appropriate muscle support. Describe only body relationships visible in the current framing. Specified body types, body locks and local edit scope take priority; preserve approved proportions."
   }
 ];
 

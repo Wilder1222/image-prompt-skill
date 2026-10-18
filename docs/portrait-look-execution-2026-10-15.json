@@ -1,0 +1,352 @@
+{
+  "date": "2026-10-15",
+  "source_kind": "actual_builtin_imagegen_runs_and_nonblind_visual_review",
+  "source_skill_version": "0.17.1",
+  "optimization_version": "0.17.2",
+  "new_images_during_optimization": 0,
+  "reference_sha256": "6d15b72c7f92e325015a80be4b081cb412e9399665150328cab802c7bc2abeec",
+  "actual_completed_tool_calls": 18,
+  "selected_images": 10,
+  "complete_passes": 0,
+  "selected_statuses": [
+    {
+      "look_id": "jk01",
+      "run_id": "jk01-v3",
+      "status": "needs_revision",
+      "output_sha256": "1bc03d0636bf499d2bf9a55cd8ec1e0a0153c53417c0cfc2cf83b004f3415238"
+    },
+    {
+      "look_id": "jk02",
+      "run_id": "jk02-v2",
+      "status": "needs_revision",
+      "output_sha256": "2c6546d5f03196bae591e71a2fa2812b6b49259245ad263b31064915f8a5df5c"
+    },
+    {
+      "look_id": "jk03",
+      "run_id": "jk03-v2",
+      "status": "needs_revision",
+      "output_sha256": "639ba2f6fd0520d31cc632227c5a5b74b7d06fe26fa69fc39a6211a277b9b6a8"
+    },
+    {
+      "look_id": "jk04",
+      "run_id": "jk04-v2",
+      "status": "needs_revision",
+      "output_sha256": "1e10045daa574f1b759d1ca41cf05268a5c1c2f817c6ad7cd1cdbe482df447f4"
+    },
+    {
+      "look_id": "jk05",
+      "run_id": "jk05-v4",
+      "status": "needs_revision",
+      "output_sha256": "13add66a15563c71ac2e17390175b1c4e4c60fb02b56557d1e962ce8147e0aa1"
+    },
+    {
+      "look_id": "cn01",
+      "run_id": "cn01-v3",
+      "status": "needs_review",
+      "output_sha256": "d362fbb68bdb3850890b7388f2205d3eb35aeabeafe9b4efb5d309ba87616345"
+    },
+    {
+      "look_id": "cn02",
+      "run_id": "cn02-v2",
+      "status": "needs_revision",
+      "output_sha256": "a70fbf7b4baa736ed9e596d55d74627302b91b47fc8eb2079d90c474e0372974"
+    },
+    {
+      "look_id": "cn03",
+      "run_id": "cn03-v3",
+      "status": "needs_revision",
+      "output_sha256": "7c44fa5ed0a2e1b73d703c6ae60b00715b452f0e19a65c5ddf6b5072de248ee5"
+    },
+    {
+      "look_id": "cn04",
+      "run_id": "cn04-v2",
+      "status": "needs_revision",
+      "output_sha256": "8c6c28ba28980d2f6c4459a2e782c06fd74409255699e12e54fe35fa815735c7"
+    },
+    {
+      "look_id": "cn05",
+      "run_id": "cn05-v2",
+      "status": "needs_revision",
+      "output_sha256": "6e3a0c6e45e63f5e70b70851f85f28d2576a15f9c16e78d6c656f208dfc6386a"
+    }
+  ],
+  "attempts": [
+    {
+      "run_id": "cn01-v2",
+      "output_sha256": "2b33d226532dcf0c2630afcb745bdf8e80584127c80e9b5a1920bcb0efd97481",
+      "status": "needs_revision",
+      "selected": false
+    },
+    {
+      "run_id": "cn01-v3",
+      "output_sha256": "d362fbb68bdb3850890b7388f2205d3eb35aeabeafe9b4efb5d309ba87616345",
+      "status": "needs_review",
+      "selected": true
+    },
+    {
+      "run_id": "cn02-v2",
+      "output_sha256": "a70fbf7b4baa736ed9e596d55d74627302b91b47fc8eb2079d90c474e0372974",
+      "status": "needs_revision",
+      "selected": true
+    },
+    {
+      "run_id": "cn03-v2",
+      "output_sha256": "3ee396fda50aaff6c2382f80be738d04d4665a12e6352b8bd9ce6377a67e7bdd",
+      "status": "needs_revision",
+      "selected": false
+    },
+    {
+      "run_id": "cn03-v3",
+      "output_sha256": "7c44fa5ed0a2e1b73d703c6ae60b00715b452f0e19a65c5ddf6b5072de248ee5",
+      "status": "needs_revision",
+      "selected": true
+    },
+    {
+      "run_id": "cn04-v2",
+      "output_sha256": "8c6c28ba28980d2f6c4459a2e782c06fd74409255699e12e54fe35fa815735c7",
+      "status": "needs_revision",
+      "selected": true
+    },
+    {
+      "run_id": "cn05-v2",
+      "output_sha256": "6e3a0c6e45e63f5e70b70851f85f28d2576a15f9c16e78d6c656f208dfc6386a",
+      "status": "needs_revision",
+      "selected": true
+    },
+    {
+      "run_id": "jk01-v1",
+      "output_sha256": "8fdacf241d623170a04ae247c855dcc76e0619a82293fed1aca1122d9e475109",
+      "status": "needs_revision",
+      "selected": false
+    },
+    {
+      "run_id": "jk01-v2",
+      "output_sha256": "9ec2cbdc893851d12aa63c5909488a27a7cd8f8cfce28483438d06b91851fe7f",
+      "status": "needs_revision",
+      "selected": false
+    },
+    {
+      "run_id": "jk01-v3",
+      "output_sha256": "1bc03d0636bf499d2bf9a55cd8ec1e0a0153c53417c0cfc2cf83b004f3415238",
+      "status": "needs_revision",
+      "selected": true
+    },
+    {
+      "run_id": "jk02-v1",
+      "output_sha256": "bb6117ad85e8b7cc0de0ef77499b3a6d343917a13f4986c5dac1d3d2b49ccf82",
+      "status": "needs_revision",
+      "selected": false
+    },
+    {
+      "run_id": "jk02-v2",
+      "output_sha256": "2c6546d5f03196bae591e71a2fa2812b6b49259245ad263b31064915f8a5df5c",
+      "status": "needs_revision",
+      "selected": true
+    },
+    {
+      "run_id": "jk02-v3",
+      "output_sha256": "dd7f6d1db4a9a9665d1e0d9ad33113933f514ae867bde373f20ecf65d55c4601",
+      "status": "needs_revision",
+      "selected": false
+    },
+    {
+      "run_id": "jk03-v2",
+      "output_sha256": "639ba2f6fd0520d31cc632227c5a5b74b7d06fe26fa69fc39a6211a277b9b6a8",
+      "status": "needs_revision",
+      "selected": true
+    },
+    {
+      "run_id": "jk04-v2",
+      "output_sha256": "1e10045daa574f1b759d1ca41cf05268a5c1c2f817c6ad7cd1cdbe482df447f4",
+      "status": "needs_revision",
+      "selected": true
+    },
+    {
+      "run_id": "jk05-v2",
+      "output_sha256": "1e7d01856a36df8eb55a2de48fd68661ffb4899b1c10aca77e7bbcc2a0b72f05",
+      "status": "needs_revision",
+      "selected": false
+    },
+    {
+      "run_id": "jk05-v3",
+      "output_sha256": "b1f28f24f3efc3f0a5f4362576f9d71fd14dacbaa480b14c4b2bce5290c49699",
+      "status": "needs_revision",
+      "selected": false
+    },
+    {
+      "run_id": "jk05-v4",
+      "output_sha256": "13add66a15563c71ac2e17390175b1c4e4c60fb02b56557d1e962ce8147e0aa1",
+      "status": "needs_revision",
+      "selected": true
+    }
+  ],
+  "authored_pair_comparisons": [
+    {
+      "channel": "hair",
+      "pair": [
+        "jk01-v3",
+        "jk05-v4"
+      ],
+      "verdict": "uncertain",
+      "evidence": "锁骨轮廓与三段姬发不同，但额前都残留偏长细束，不能确认刘海边界已充分分化。",
+      "outputs": [
+        "1bc03d0636bf499d2bf9a55cd8ec1e0a0153c53417c0cfc2cf83b004f3415238",
+        "13add66a15563c71ac2e17390175b1c4e4c60fb02b56557d1e962ce8147e0aa1"
+      ]
+    },
+    {
+      "channel": "makeup",
+      "pair": [
+        "jk01-v3",
+        "jk02-v2"
+      ],
+      "verdict": "similar",
+      "evidence": "两张仍接近柔粉颊色与润粉唇，预定杏桃与玫瑰棕的差别偏弱。",
+      "outputs": [
+        "1bc03d0636bf499d2bf9a55cd8ec1e0a0153c53417c0cfc2cf83b004f3415238",
+        "2c6546d5f03196bae591e71a2fa2812b6b49259245ad263b31064915f8a5df5c"
+      ]
+    },
+    {
+      "channel": "expression",
+      "pair": [
+        "jk02-v2",
+        "cn02-v2"
+      ],
+      "verdict": "similar",
+      "evidence": "两张都为放松眼睑和微张唇，惊喜与释然的眉睑及口形差异不足。",
+      "outputs": [
+        "2c6546d5f03196bae591e71a2fa2812b6b49259245ad263b31064915f8a5df5c",
+        "a70fbf7b4baa736ed9e596d55d74627302b91b47fc8eb2079d90c474e0372974"
+      ]
+    },
+    {
+      "channel": "hair",
+      "pair": [
+        "jk04-v2",
+        "cn03-v3"
+      ],
+      "verdict": "distinct",
+      "evidence": "一张为露耳短发与锯齿短刘海，另一张完整露额并有高马尾。",
+      "outputs": [
+        "1e10045daa574f1b759d1ca41cf05268a5c1c2f817c6ad7cd1cdbe482df447f4",
+        "7c44fa5ed0a2e1b73d703c6ae60b00715b452f0e19a65c5ddf6b5072de248ee5"
+      ]
+    },
+    {
+      "channel": "expression",
+      "pair": [
+        "jk04-v2",
+        "cn04-v2"
+      ],
+      "verdict": "distinct",
+      "evidence": "开怀露齿、抬颊与压眉闭唇忍怒有清楚区别。",
+      "outputs": [
+        "1e10045daa574f1b759d1ca41cf05268a5c1c2f817c6ad7cd1cdbe482df447f4",
+        "8c6c28ba28980d2f6c4459a2e782c06fd74409255699e12e54fe35fa815735c7"
+      ]
+    },
+    {
+      "channel": "makeup",
+      "pair": [
+        "jk03-v2",
+        "cn02-v2"
+      ],
+      "verdict": "distinct",
+      "evidence": "灰紫眼尾、较冷低饱和唇与酒红棕眼部、较浓红唇有区别；这不证明各自指定色号已准确。",
+      "outputs": [
+        "639ba2f6fd0520d31cc632227c5a5b74b7d06fe26fa69fc39a6211a277b9b6a8",
+        "a70fbf7b4baa736ed9e596d55d74627302b91b47fc8eb2079d90c474e0372974"
+      ]
+    },
+    {
+      "channel": "hair",
+      "pair": [
+        "cn01-v3",
+        "cn03-v3"
+      ],
+      "verdict": "distinct",
+      "evidence": "中央分缝露额长直发与全部后梳高马尾的额前走向及轮廓不同。",
+      "outputs": [
+        "d362fbb68bdb3850890b7388f2205d3eb35aeabeafe9b4efb5d309ba87616345",
+        "7c44fa5ed0a2e1b73d703c6ae60b00715b452f0e19a65c5ddf6b5072de248ee5"
+      ]
+    },
+    {
+      "channel": "hair",
+      "pair": [
+        "cn04-v2",
+        "cn05-v2"
+      ],
+      "verdict": "distinct",
+      "evidence": "单侧贴头额辫及侧垂长束与双环半髻的额侧和外轮廓不同。",
+      "outputs": [
+        "8c6c28ba28980d2f6c4459a2e782c06fd74409255699e12e54fe35fa815735c7",
+        "6e3a0c6e45e63f5e70b70851f85f28d2576a15f9c16e78d6c656f208dfc6386a"
+      ]
+    },
+    {
+      "channel": "expression",
+      "pair": [
+        "jk01-v3",
+        "cn03-v3"
+      ],
+      "verdict": "similar",
+      "evidence": "均接近轻闭唇微笑，后者单侧抬眉及嘴角的俏皮动作偏弱。",
+      "outputs": [
+        "1bc03d0636bf499d2bf9a55cd8ec1e0a0153c53417c0cfc2cf83b004f3415238",
+        "7c44fa5ed0a2e1b73d703c6ae60b00715b452f0e19a65c5ddf6b5072de248ee5"
+      ]
+    },
+    {
+      "channel": "expression",
+      "pair": [
+        "jk05-v4",
+        "cn01-v3"
+      ],
+      "verdict": "uncertain",
+      "evidence": "两张都闭唇且目光正向，忧思的下望与审视的张力差别不够明确。",
+      "outputs": [
+        "13add66a15563c71ac2e17390175b1c4e4c60fb02b56557d1e962ce8147e0aa1",
+        "d362fbb68bdb3850890b7388f2205d3eb35aeabeafe9b4efb5d309ba87616345"
+      ]
+    },
+    {
+      "channel": "expression",
+      "pair": [
+        "cn04-v2",
+        "cn05-v2"
+      ],
+      "verdict": "distinct",
+      "evidence": "眉头压低的忍怒与眉头内侧抬起、下眼睑泪光的悲悯清楚不同。",
+      "outputs": [
+        "8c6c28ba28980d2f6c4459a2e782c06fd74409255699e12e54fe35fa815735c7",
+        "6e3a0c6e45e63f5e70b70851f85f28d2576a15f9c16e78d6c656f208dfc6386a"
+      ]
+    }
+  ],
+  "missing_pair_comparisons": 124,
+  "stop_current_routes": [
+    {
+      "look_id": "jk01",
+      "key": "fringe-below-brow"
+    },
+    {
+      "look_id": "jk05",
+      "key": "fringe-below-brow"
+    }
+  ],
+  "scope": {
+    "files_verified": true,
+    "authored_visual_observations": true,
+    "automatic_image_understanding": false,
+    "visual_diversity_verified": false,
+    "identity_preservation_verified": false,
+    "user_accepted": false
+  },
+  "limitations": [
+    "原图与全部媒体、完整冻结快照和逐项回执保存在项目本地，不随插件发布。",
+    "复核为同一代理的非盲观察；不是独立评测、自动身份认证或用户接受。",
+    "这是旧图记录重放和程序合同验证，没有优化后新出图或视觉效果改善证据。"
+  ]
+}

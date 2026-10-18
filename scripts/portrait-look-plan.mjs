@@ -50,11 +50,14 @@ export function buildPortraitLookPlan(input) {
   }
   const variants = [];
   for (const look of input.looks) {
-    fields(look,['id','label','group','fit_reason','hair','expression','makeup'],'look');
+    fields(look,['id','label','group','fit_reason','hair','expression','makeup','focus_channels'],'look');
     text(look.label,'look label'); text(look.fit_reason,'fit reason');
     if (groups.length ? !groups.some(row => row.id === look.group) : look.group !== undefined) throw new Error(`unknown look group: ${look.id}`);
     for (const channel of mutable) if (Object.hasOwn(look,channel) !== input.variation_channels.includes(channel))
       throw new Error(`look ${look.id} must author only its declared variation channels: ${channel}`);
+    const focus=look.focus_channels??[];
+    if(!Array.isArray(focus)||new Set(focus).size!==focus.length||focus.some(channel=>!input.variation_channels.includes(channel)))
+      throw new Error('focus_channels must select declared variation channels without duplicates');
     if (look.hair) {
       fields(look.hair,['front','text'],'hair design'); fields(look.hair.front,frontFields,'front hair design');
       for (const field of frontFields) text(look.hair.front[field],`front hair ${field}`);
@@ -91,7 +94,18 @@ export function buildPortraitLookPlan(input) {
     }
     if (look.makeup !== undefined) add('makeup',`PL:${input.id}:${look.id}:makeup`,look.makeup,'design','本套眉眼妆、腮红、唇面与光泽是否实际落实，并与本人、发型和神态协调？');
     const labels = {hair:'发型与头饰',expression:'表情与情绪',makeup:'妆容与肌肤'};
-    for (const [channel,items] of clauses) brief.sections.push({label:labels[channel],channel,items});
+    for (const [channel,items] of clauses) {
+      const common=brief.sections.filter(section=>section.channel===channel);
+      brief.sections=brief.sections.filter(section=>section.channel!==channel);
+      brief.sections.push({label:labels[channel],channel,items:[...common.flatMap(section=>section.items),...items]});
+    }
+    // Emphasize existing complete sections, never add a second styling summary.
+    if(focus.length){
+      const leading=focus.flatMap(channel=>brief.sections.filter(section=>section.channel===channel));
+      brief.sections=brief.sections.filter(section=>!focus.includes(section.channel));
+      const identityEnd=brief.sections.findLastIndex(section=>section.channel==='identity')+1;
+      brief.sections.splice(identityEnd,0,...leading);
+    }
     const compiled = compileProductionPrompt(brief);
     variants.push({id:look.id,label:look.label,group:look.group ?? null,fit_reason:look.fit_reason,brief,prompt:compiled.prompt,prompt_sha256:compiled.prompt_sha256});
   }
@@ -113,6 +127,24 @@ export function buildPortraitLookPlan(input) {
   return {status:diagnostics.length ? 'needs_revision' : 'text_plan_ready',plan_sha256:objectHash(input),count:variants.length,
     groups:groups.map(group => ({...group})),variation_channels:[...input.variation_channels],diagnostics,variants,
     evidence:{text_plan_only:true,image_generated:false,semantic_fit_verified:false,visual_diversity_verified:false,identity_preservation_verified:false}};
+}
+
+// Revise the current authored look, carrying its other channels instead of rebuilding
+// a partial focus paragraph from the original identity photograph.
+export function revisePortraitLookPlan(input,revision){
+  const before=buildPortraitLookPlan(input);
+  fields(revision,['look_id','channels','updates','focus_channels','reason'],'portrait look revision');
+  text(revision.reason,'revision reason');
+  if(!Array.isArray(revision.channels)||!revision.channels.length||new Set(revision.channels).size!==revision.channels.length||
+    revision.channels.some(channel=>!input.variation_channels.includes(channel)))throw new Error('revision must select authorized variation channels');
+  fields(revision.updates,revision.channels,'portrait look updates');
+  if(Object.keys(revision.updates).length!==revision.channels.length)throw new Error('author a complete update for every selected channel');
+  const plan=structuredClone(input),look=plan.looks.find(row=>row.id===revision.look_id);
+  if(!look)throw new Error('unknown portrait look');
+  for(const channel of revision.channels)look[channel]=structuredClone(revision.updates[channel]);
+  look.focus_channels=structuredClone(revision.focus_channels??revision.channels);
+  plan.metadata={...plan.metadata,portrait_revision:{previous_plan_sha256:before.plan_sha256,look_id:look.id,channels:[...revision.channels],reason:revision.reason}};
+  return {plan,report:buildPortraitLookPlan(plan)};
 }
 
 export function renderPortraitLookPrompts(report) {

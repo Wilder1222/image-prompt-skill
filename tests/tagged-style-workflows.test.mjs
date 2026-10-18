@@ -42,8 +42,8 @@ test('qualitative proportions are default and explicit presets remain selectable
     assert.equal(createAssetPlan({ presentation }).configuration.proportion_profile, 'BALANCED_ELEGANT');
     const fashion = compileAssetPrompt({ presentation }).prompt;
     assert.match(fashion, /比例协调、修长好看/);
-    assert.match(fashion, /健美且苗条/);
-    assert.match(fashion, /不靠极端缩头或拉长脖子/);
+    assert.match(fashion, /按人物年龄适度美化/);
+    assert.match(fashion, /不压短躯干、极端缩头或拉长颈部/);
     assert.doesNotMatch(fashion, /七至七点五/);
     assert.match(compileAssetPrompt({ presentation, proportionProfile: 'NATURAL_ADULT' }).prompt, /七至七点五/);
     assert.equal(createAssetPlan({ presentation }).stage_2.fashion_asset.visual_head_count_target, null);
@@ -91,7 +91,7 @@ test('anchors retain the shared body goal while focused repairs preserve their s
     assert.equal(anchor.configuration.proportion_profile, 'BALANCED_ELEGANT');
     assert.doesNotMatch(anchor.prompt, /P9 Fashion|七至七点五/);
     assert.match(anchor.prompt, language==='en' ? /already refined proportions/ : /已达标/);
-    assert.match(anchor.prompt, language==='en' ? /moderate muscle tone/ : /苗条、修长舒展、适当有肌肉/);
+    assert.match(anchor.prompt, language==='en' ? /specified body type/ : /适配年龄与指定体型/);
     assert.equal(anchor.evidence.visual_quality_verified,false);
   }
   assert.throws(() => compileAssetPrompt({ referenceMode:'full_body_anchor', proportionProfile:'NATURAL_ADULT' }), /conflicting/);

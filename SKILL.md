@@ -25,6 +25,7 @@ description: 将文字描述与可选参考图转为任务专属的中文分类�
 | 当前任务 | 专项 |
 | --- | --- |
 | 单人物生成、扩身与体型设计 | [身材强约束与比例设计](references/core/fashion-proportion-system.md)、[取景与留白](references/core/character-framing.md) |
+| 肖像扩成全身、同人多套全身换装与身体尺度漂移 | [共同全身体型基准](references/routes/full-body-baseline.md)，先建立身体方案，再实际传入共同基准，逐部位和整组分别复核 |
 | 古装原创人物、古装偶像剧定妆与影视造型 | [古装偶像剧审美](references/routes/costume-idol-drama-aesthetics.md)，将现代精致、高奢、高预算的成片方向落实到面容、妆肤、衣装与光影 |
 | 原创捏脸、相貌差异、原图绑定预设、肖像统一化与授权局部改脸 | [人物捏脸系统](references/routes/character-face-design.md)、[全面因素](references/core/face-factor-system.md)，按区域选择参数，结构与神态、妆肤、光线分别设计 |
 | 保持原图任务与风格的统一标准化 | [风格保持标准化](references/routes/style-preserving-standardization.md)，按用途统一可读性与明暗层次，保护原光色、动势、媒介和场景 |
@@ -33,7 +34,7 @@ description: 将文字描述与可选参考图转为任务专属的中文分类�
 | 妆肤、发型、表情与生命感 | [妆肤](references/core/makeup-skin-integration-v2.md)按可见部位写色彩、范围、过渡与光泽；[发型与发丝](references/core/hair-frequency-variation-v2.md)用于自然层次和资产面部可读性；[身份与表情](references/core/identity-vs-temperament-diagnostics.md)、[动作](references/core/action-direction.md)按问题选读 |
 | 换装、复杂衣装与适度再设计 | [人物与衣装资产](references/routes/character-asset-pipeline.md)、[标杆与服装](references/routes/benchmark-costume-refinement.md) |
 | 多视角、表情组与同人物资产包 | [同人物成组验收](references/routes/character-consistency-assets.md) |
-| 多套肖像、发型试款与同人物不同造型 | [多造型与发型差异化](references/routes/portrait-look-variation.md)，固定身份与本轮视点、发色，分别设计脸前结构、妆容和表演，整组检查重复 |
+| 多套肖像、发型试款与同人物不同造型 | [多造型与发型差异化](references/routes/portrait-look-variation.md)，区分身份与原图呈现，设计脸前结构、妆面和表演；修订继承当前完整造型，按实际图片复核差异及回退 |
 | 白底棚光的定妆肖像、全身及三视图参考卡 | [白底参考卡](references/routes/white-background-reference-cards.md)、[定妆取景](references/core/character-framing.md)、[比例选择](references/core/fashion-proportion-system.md)，柔光与清晰度分别表达，逐视角核对本人、原妆与可见比例，成组保持共同身体尺度 |
 | 独立场景、人物入景与换背景 | [背景与空间协调](references/core/background-direction.md) |
 | 商品、包装、品牌外观与广告 | [产品设计与保持](references/routes/product-design.md) |
@@ -49,7 +50,7 @@ description: 将文字描述与可选参考图转为任务专属的中文分类�
 
 古装原创人物默认采用现代精致、高奢、高预算古装偶像剧的审美，适度理想化面容、妆肤、身材与造型，不自行转向过于写实的纪实肤质或朴素复原。按 [古装偶像剧审美](references/routes/costume-idol-drama-aesthetics.md) 保留年龄、角色与时代辨识，将高级感写成具体可见设计；明确的纪实、历史复原、其他审美或媒介要求，以及原图保持和局部编辑范围优先。此默认不扩展到现代人物、产品或独立场景。
 
-所有包含人物的任务均以苗条、修长舒展、适当有肌肉的黄金身材比例美化为共同强约束，覆盖各题材、媒介、新生成、参考处理及编辑。按 [身材规则](references/core/fashion-proportion-system.md) 将三项分别落实到可见身体关系和关键验收；保留身份、年龄及完整体积，不强套数值或每轮继续削瘦拉长。参考图和旧母图不自动豁免，已达标关系保持连续。明确只改局部、冻结身体或指定相反体型时记录本次例外，未解决的身材目标独立待修，局部通过不代表整体达标。
+所有人物先按年龄与用户明确体型确定身体关系；未指定体型时，默认适度美化为黄金比例审美下轻盈挺拔、修长舒展的仙侠风格身材。按 [身材规则](references/core/fashion-proportion-system.md) 将头肩、躯干腰臀、四肢与体积落实到正文和关键验收；仙侠只描述身形，不改变时代、衣装或媒介。儿童、少年、成人与中老年分别适配，不以成人长腿细腰统一各年龄，不强套九头身或1.618。指定丰满、魁梧、矮小等体型优先，不再强求默认苗条；已达标保持连续，局部编辑与身体锁定遵守用户范围。
 
 面容、妆肤、发型、表情、身体动作和衣装材料分别设计，保持身份、年龄及指定媒介。先建立协调且有吸引力的面容、完成的妆肤呈现与明确神态，再用适量纹理和可信受光支持美感。审美示例提供表现方法，每个人物独立保留脸型、眉眼、鼻唇与软组织辨识点；提高精致度不统一成同一张脸。蓝衣长发及[本轮满意图](references/routes/user-aesthetic-benchmarks.md)是审美示例，其年龄、肤色、发型、妆量与具体神态不成为通用默认。真实感服务美感与生命感，不靠粗糙毛孔、统一笑容或满屏飞发。动作支持站、坐、行走、舞蹈和腾空，选定明确阶段并检查支撑、接触与衣料响应，不强制双脚接地或十指展开。
 
