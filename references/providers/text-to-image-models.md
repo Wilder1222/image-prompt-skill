@@ -1,6 +1,6 @@
 # 文生图模型适配
 
-核对日期：2026-10-04。机器可读权威为 [模型目录](../../resources/image_model_catalog.json)，脚本为 [适配器](../../scripts/model-adapter.mjs)。下列是明确版本与入口的提示词和请求编译支持，未做供应商联网生成或跨模型画质验证。账号可用性、接口变化和实际出图效果需在执行时检查。
+核对日期：通用目录 2026-10-04；Midjourney 单独更新至 2026-10-19，以各档案 `verified_on` 为准。机器可读权威为 [模型目录](../../resources/image_model_catalog.json)，脚本为 [适配器](../../scripts/model-adapter.mjs)。下列是明确版本与入口的提示词和请求编译支持，未做供应商联网生成或跨模型画质验证。账号可用性、接口变化和实际出图效果需在执行时检查。
 
 ## 选择与编写
 
@@ -14,7 +14,7 @@
 | `gpt-image-2.5-sunburst`、`gpt-image-2.5-flare` | OpenAI Images；另有扩展质量档位及背景设置 | 文字内容、空间布局与材料分别写清；质量不自动升档 |
 | `gemini-3.1-flash-image` | Gemini Interactions REST；比例、分辨率 | 先定义画面文字再描述布局，显式描述对象关系；不混入其他 SDK 命名 |
 | `flux-2-pro` | BFL `/v1/flux-2-pro`；宽、高 | 正向陈述目标，无独立负面字段；不沿用 SD 权重表达 |
-| `midjourney-7`、`midjourney-8.2` | 原生提示词；版本、比例、种子、风格化、Raw、排除词 | 主体、构造、媒介、光线与构图优先；参数统一放最后。这里不实现图片参考语法 |
+| `midjourney-8.2`、`midjourney-8.1`、显式 `midjourney-7` | 手动粘贴正文、原生参数、网页附件角色与 Discord URL 参考语法 | 按 [MJ 专项](midjourney.md) 核对版本、范围与冲突；无 sender、不自动操作平台；V8.0 已不可用 |
 | `seedream-4.5` | 火山方舟 Images；2K、4K，单张生成 | 中文写清数量、位置、动作和文字，删除重复但不删必要约束 |
 | `sdxl-1.0` | Diffusers SDXL；尺寸、步数、引导强度、负面、种子 | 优先关键主体，实际 tokenizer 检查长文本；不用字符数代替 token 数 |
 | `sd-3.5-large` | Diffusers SD3；尺寸、步数、引导强度、负面、种子 | 完整空间关系；不移植 Turbo 或 LoRA 的步数建议 |
@@ -33,9 +33,9 @@
 
 Diffusers 原生管线不解析网页前端的 `(词:权重)` 或 LoRA 命令为通用参数。Qwen 的 `true_cfg_scale` 与 SD 的 `guidance_scale` 不互换。种子放在 `runtime.generator_seed`，执行方需构造 `torch.Generator(...).manual_seed(...)`，不能将其作为 `pipe(seed=...)` 传入。运行时还需安装相应库、加载模型并核对硬件；本脚本不做这些操作。
 
-Midjourney 的 `request.prompt` 是同一中文正文，`parameter_suffix` 保存原生参数，`submission_text` 是供原生界面粘贴的完整文本。`--format text` 只给正文；需要带参数执行时读取 JSON 的 `submission_text`。版本由档案锁定，不能在正文、负面词或设置中另塞 `--v`、`--oref` 等。V8.2 的 Edit Model 与 V7 的 Omni Reference 分开处理，不能从文生图档案推断编辑支持。
+Midjourney 的 `request.prompt` 是同一中文正文，`native_prompt` 包含所选界面的原生正文（Discord Image URL 前置），`parameter_suffix` 保存原生参数，`submission_text` 是供用户手动粘贴的完整文本。`--format text` 保持只给正文；`--format native` 给已就绪 MJ 的完整文本，JSON 同时给附件清单、警告和 `ready_to_submit`。版本由档案锁定，不能在正文、负面词或设置中另塞 `--v`、`--oref` 等。V8.1/V8.2 Edit Model 与 V7 Omni Reference 独立校验，详见 [MJ 专项](midjourney.md)。
 
-Qwen 没有排除词但需要启用真实引导时，可显式使用 `negative_prompt: " "`（单个空格）；编译器原样保留，不虚构额外排除对象。Midjourney 当前两份档案的比例上限是 14:1，超出直接报错，不压缩画幅。
+Qwen 没有排除词但需要启用真实引导时，可显式使用 `negative_prompt: " "`（单个空格）；编译器原样保留，不虚构额外排除对象。Midjourney SD/V7 的比例上限是 14:1，V8 HD 上限 4:1，超出直接报错，不压缩画幅。
 
 ## 编译与执行记录
 
@@ -49,11 +49,11 @@ node scripts/iteration-director.mjs prompt-build --input examples/text-to-image-
 node scripts/iteration-director.mjs prompt-build --input examples/text-to-image-brief.json --format text
 ```
 
-`target` 是可选字段。省略时完全保留原有编译行为；指定时只接受 `profile`、`settings`、`negative_prompt`。例如 `{"profile":"gemini-3.1-flash-image","settings":{"aspect_ratio":"3:4","image_size":"2K"}}`。模型目录可通过 `listModelProfiles()` 查询；不要把系列名称映射成未经选择的默认版本。
+`target` 是可选字段。省略时完全保留原有编译行为；通用字段为 `profile`、`settings`、`negative_prompt`，仅 MJ 另接受 `surface`、`references`。例如 `{"profile":"gemini-3.1-flash-image","settings":{"aspect_ratio":"3:4","image_size":"2K"}}`。模型目录可通过 `listModelProfiles()` 查询；编译器不把系列名称映射成未经选择的默认版本。
 
 返回的 `model_execution` 包含设置、请求、运行时信息、文档来源与 `execution_sha256`。OpenAI 的 `request` 用于 Images generations，Gemini 用于 `/v1beta/interactions`，BFL 路径由档案确定，Seedream 用于方舟 `/api/v3/images/generations`，Diffusers 的 `request` 是调用参数而非网络 JSON API。这里不提供通用 HTTP 发送器、不读取密钥、不上传素材、不触发收费任务。
 
-非宿主档案目前只处理文生图：观察用参考可以保留在内部依据中，但 `generation_input: true` 的图片会阻止该入口编译，不能为了通过检查谎改成观察用。需要图片参与生成时按 [公共适配规则](provider-adaptation.md) 核对编辑入口和参考权限。宿主档案沿用当次图像工具的图片输入。
+除 MJ 已明确核验的平台参考语法外，非宿主档案只处理文生图：观察用参考可以保留在内部依据中，但 `generation_input: true` 的图片会阻止这些文生图入口编译，不能为了通过检查谎改成观察用。需要图片参与生成时按 [公共适配规则](provider-adaptation.md) 核对编辑入口和参考权限。宿主档案沿用当次图像工具的图片输入；MJ 按其专项输出手动清单，不上传或发送。
 
 使用 `production-run.mjs prepare` 冻结任务时会同时冻结模型计划；`inspect` 返回对应的 `transport`、`request` 与 `runtime`。执行方只按已授权入口调用，并在实际完成回执中记录相同的 `execution_sha256`。模型、参数、负面内容或 Midjourney 后缀改变后必须重新冻结，不能只用未变的正文摘要复用旧验收。旧无 `target` 的回执仍兼容。
 
@@ -64,7 +64,7 @@ node scripts/iteration-director.mjs prompt-build --input examples/text-to-image-
 - [OpenAI 图像生成](https://developers.openai.com/api/docs/guides/image-generation)：版本、质量、尺寸及输出格式。
 - [Gemini 图像生成](https://ai.google.dev/gemini-api/docs/image-generation)：当前 Interactions 请求；[停用表](https://ai.google.dev/gemini-api/docs/deprecations) 与 [Imagen 页面](https://ai.google.dev/gemini-api/docs/imagen) 用于停用拦截。
 - [FLUX.2 文生图](https://docs.bfl.ai/flux_2/flux2_text_to_image)、[尺寸](https://help.bfl.ai/articles/8916739058-what-aspect-ratios-and-output-dimensions-are-supported)、[负面提示限制](https://help.bfl.ai/articles/7734566352-does-flux-2-support-negative-prompting)。
-- [Midjourney 参数](https://docs.midjourney.com/hc/en-us/articles/32859204029709-Parameter-List)、[版本](https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version)、[种子](https://docs.midjourney.com/hc/en-us/articles/32604356340877-Seeds)、[风格化参数](https://docs.midjourney.com/hc/en-us/articles/32433330574221-Personalization)。
+- [Midjourney 参数](https://docs.midjourney.com/hc/en-us/articles/32859204029709-Parameter-List)、[版本](https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version)、[种子](https://docs.midjourney.com/hc/en-us/articles/32604356340877-Seeds)、[风格化参数](https://docs.midjourney.com/hc/en-us/articles/32196176868109-Stylize)；参考角色、范围与文档冲突见 [MJ 专项](midjourney.md)。
 - [Seedream 方舟接口](https://docs.volcengine.com/docs/ark/image-generation-api?lang=zh&redirect=1)。
 - [SDXL 模型卡](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0)、[Diffusers 管线](https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_xl)、[SD 3.5 Large 模型卡](https://huggingface.co/stabilityai/stable-diffusion-3.5-large)、[Qwen-Image 模型卡](https://huggingface.co/Qwen/Qwen-Image)。
 

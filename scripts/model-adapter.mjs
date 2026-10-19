@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {normalizeMidjourneySettings,compileMidjourneyPrompt} from './midjourney-prompt.mjs';
 
 const catalog = JSON.parse(fs.readFileSync(new URL('../resources/image_model_catalog.json', import.meta.url), 'utf8'));
 const hash = value => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -11,10 +12,12 @@ export function listModelProfiles() { return structuredClone(catalog); }
 function validateSetting(key, value, rule) {
   let valid = false;
   if (rule.enum) valid = rule.enum.includes(value);
+  else if (rule.type === 'style-codes') valid = Array.isArray(value) && value.length > 0 && value.every(v=>typeof v === 'string' && /^(?:\d+|random)$/.test(v));
+  else if (rule.type === 'personalization') valid = value === true || (typeof value === 'string' && /^[A-Za-z0-9][A-Za-z0-9_-]*(?: [A-Za-z0-9][A-Za-z0-9_-]*)*$/.test(value));
   else if (rule.type === 'boolean') valid = typeof value === 'boolean';
   else if (rule.type === 'ratio') {
-    valid = typeof value === 'string' && /^[1-9]\d{0,3}:[1-9]\d{0,3}$/.test(value);
-    if(valid){const [w,h]=value.split(':').map(Number);valid=Math.max(w/h,h/w)<=14;}
+    valid = typeof value === 'string' && /^[1-9]\d*:[1-9]\d*$/.test(value);
+    if(valid){const [w,h]=value.split(':').map(Number);valid=Number.isSafeInteger(w)&&Number.isSafeInteger(h)&&Math.max(w/h,h/w)<=14;}
   }
   else if (rule.type === 'openai-size') {
     valid = value === 'auto';
@@ -31,15 +34,17 @@ function validateSetting(key, value, rule) {
 
 // Pure compilation: no credentials, network, translation, truncation, or generation.
 export function adaptModelPrompt(compiled, target) {
-  if (!object(target) || Object.keys(target).some(k => !['profile','settings','negative_prompt'].includes(k))) throw new Error('target 只接受 profile、settings、negative_prompt');
+  if (!object(target) || Object.keys(target).some(k => !['profile','settings','negative_prompt','surface','references'].includes(k))) throw new Error('target 只接受 profile、settings、negative_prompt；MJ 可另指定 surface、references');
   if (typeof target.profile !== 'string' || !Object.hasOwn(catalog.profiles, target.profile)) throw new Error(`未知模型适配：${target.profile}；先查询 model-list，不能静默回退`);
   const profile = catalog.profiles[target.profile];
+  if (profile.transport !== 'midjourney' && ('surface' in target || 'references' in target)) throw new Error('surface、target.references 仅用于 Midjourney，不能跨模型透传');
   if (profile.retired_on) throw new Error(`${profile.label} 于 ${profile.retired_on} 停用；可明确选择 ${profile.replacement}，不会自动替换`);
   if (typeof compiled?.prompt !== 'string' || !compiled.prompt.trim() || !Array.isArray(compiled.reference_inputs)) throw new Error('适配需要已编译正文与参考输入');
   if (crypto.createHash('sha256').update(compiled.prompt).digest('hex') !== compiled.prompt_sha256) throw new Error('正文与摘要不一致');
-  if (compiled.reference_inputs.length && profile.transport !== 'host') throw new Error('此适配器是文生图入口；不能丢弃参考图，须选择已核对的图像编辑入口');
-  const settings = target.settings === undefined ? {} : target.settings;
-  if (!object(settings)) throw new Error('settings 必须是对象');
+  if (compiled.reference_inputs.length && !['host','midjourney'].includes(profile.transport)) throw new Error('此适配器是文生图入口；不能丢弃参考图，须选择已核对的图像编辑入口');
+  const rawSettings = target.settings === undefined ? {} : target.settings;
+  if (!object(rawSettings)) throw new Error('settings 必须是对象');
+  const settings = profile.transport === 'midjourney' ? normalizeMidjourneySettings(rawSettings) : rawSettings;
   for (const [key,value] of Object.entries(settings)) {
     if (!Object.hasOwn(profile.settings, key)) throw new Error(`${profile.label} 不支持设置 ${key}；不得跨模型透传`);
     validateSetting(key,value,profile.settings[key]);
@@ -69,18 +74,12 @@ export function adaptModelPrompt(compiled, target) {
       request = {prompt,...kwargs,...(negative !== undefined ? {negative_prompt:negative} : {})};
       runtime = {model:profile.model,...(seed !== undefined ? {generator_seed:seed} : {})}; break;
     }
-    case 'midjourney': {
-      const flags = [`--v ${profile.model}`];
-      for (const [key,flag] of [['aspect_ratio','ar'],['seed','seed'],['stylize','stylize']]) if (s[key] !== undefined) flags.push(`--${flag} ${s[key]}`);
-      if (s.raw === true) flags.push('--raw');
-      if (negative !== undefined) flags.push(`--no ${negative}`);
-      request = {prompt,parameter_suffix:flags.join(' '),submission_text:`${prompt}\n${flags.join(' ')}`}; break;
-    }
+    case 'midjourney': request = compileMidjourneyPrompt(compiled,target,profile,s,negative); break;
     default: throw new Error('未实现的模型传输方式');
   }
-  const plan = {schema_version:1,status:'request_ready',profile:target.profile,model:profile.model,transport:profile.transport,
+  const plan = {schema_version:1,status:request.ready_to_submit === false ? 'manual_input_required' : 'request_ready',profile:target.profile,model:profile.model,transport:profile.transport,
     settings:s,negative_prompt:negative ?? null,prompt_sha256:compiled.prompt_sha256,request,runtime,
-    documentation_verified_on:catalog.verified_on,sources:profile.sources,notes:profile.notes,
+    documentation_verified_on:profile.verified_on ?? catalog.verified_on,sources:profile.sources,notes:profile.notes,
     evidence:{api_called:false,image_generated:false,visual_quality_verified:false}};
   if(profile.transport==='diffusers') plan.runtime_validation_required={
     contract:'tokenizer_coverage_v1',fields:['prompt',...(negative!==undefined?['negative_prompt']:[])],
