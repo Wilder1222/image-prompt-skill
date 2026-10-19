@@ -1,0 +1,372 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "record_kind": "user_approved_proportion_reference_observations",
+  "prior_record": "docs/user-approved-body-references-2026-10-18.json",
+  "user_feedback": {
+    "quote": "这些是我满意的比例",
+    "source": "user_message_with_ten_images",
+    "scope": [
+      "proportion"
+    ],
+    "status": "accepted",
+    "applies_to": "uploaded_sources_as_visual_body_examples",
+    "score": null,
+    "not_confirmed": [
+      "whole_image_acceptance",
+      "exact_anatomical_measurements",
+      "identity_authority",
+      "hairstyle_makeup_pose_defaults",
+      "current_generated_candidates",
+      "current_skill_reproduction"
+    ]
+  },
+  "source_policy": {
+    "original_bytes_preserved": true,
+    "images_in_release": false,
+    "local_only_root": "output/user-approved-body-20261019/references",
+    "identity_authority_granted": false,
+    "dispatched_source_ids": [],
+    "note": "本轮对这十份上传做来源校准和候选对照；本记录不把未发送的来源声称为生成输入。"
+  },
+  "counts": {
+    "incoming_files": 10,
+    "incoming_unique_file_hashes": 10,
+    "exact_duplicates_of_prior_batch": 4,
+    "new_unique_files": 6,
+    "incoming_primary_observation_units": 14,
+    "total_submitted_files": 18,
+    "total_unique_files": 14,
+    "total_primary_observation_units": 22,
+    "independent_original_generation_runs": null
+  },
+  "common_body_targets": {
+    "head_shoulders": "在全身视图内协调头部、肩带与自然颈长，肩颈舒展；保持本人物脸型及五官内部关系。",
+    "torso_pelvis": "胸廓、腰腹、骨盆完整连续，上身紧凑而有厚度，腰胯自然收放；不用衣腰替代解剖位置。",
+    "arms": "肩、肘、腕和手按实际姿态连续，手臂与本身体躯干、腿部共同协调。",
+    "legs": "上下腿共同形成清楚延展，保留可见膝踝转折与自然体量；遮挡段不补造量测。",
+    "support": "躯干、骨盆和四肢保有符合本年龄体型的体积与支撑，避免只有正面细线而侧面扁塌。",
+    "silhouette": "在本轮衣装、正面轻姿态及可比取景下即体现协调修长，不以画幅放大或更换姿态服装代替身体改善。"
+  },
+  "selection_by_use": {
+    "modern_visible_legs": {
+      "primary": "BODY-14",
+      "supplements": [
+        "BODY-02",
+        "BODY-04",
+        "BODY-08"
+      ],
+      "limit": "按实际屈伸比较可见关系，不将投影当作直立头身测量。"
+    },
+    "costume_static": {
+      "primary": "BODY-09",
+      "supplements": [
+        "BODY-10",
+        "BODY-13"
+      ],
+      "limit": "长衣可证明轮廓和上身体量，不能认证藏在衣下的腿长。"
+    },
+    "costume_dynamic": {
+      "primary": "BODY-11",
+      "supplements": [
+        "BODY-12"
+      ],
+      "limit": "动作体积与连接；不提供静态身体标尺。"
+    }
+  },
+  "acceptance_boundary": "两批用户接受均仅属于来源图的身材比例。既不撤销多妆造区分及避免统一歪头的要求，也不改写既有生成候选的失败或未决。",
+  "sources": [
+    {
+      "upload_number": 1,
+      "file_name": "1-照片-1.jpg",
+      "local_path": "output/user-approved-body-20261019/references/upload-01.jpg",
+      "sha256": "0012232d67a3920bccb669832605e8b5552c5949907c51f6ffc34548dffd4d7b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "canonical_source_id": "BODY-02",
+      "exact_duplicate_of": "BODY-02",
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "observed_in": "user_uploaded_image_and_local_file_review",
+      "title": "条纹背心与浅蓝微喇裤",
+      "layout": "左侧肖像；右侧正、侧、背全身",
+      "uses": [
+        "全身头肩与完整躯干",
+        "侧面腰胯厚度",
+        "裤装长轮廓"
+      ],
+      "primary_locator": "右侧三幅全身以正面为主，侧背补体积。",
+      "observed": "与首批BODY-02原文件完全相同；用户再次明确认可比例。",
+      "limits": [
+        "膝部骨点受牛仔裤遮挡",
+        "放大肖像不用于全身头身比较"
+      ],
+      "primary_observation_units": 1
+    },
+    {
+      "upload_number": 2,
+      "file_name": "2-照片-2.jpg",
+      "local_path": "output/user-approved-body-20261019/references/upload-02.jpg",
+      "sha256": "cdb6689e6ff67f1e841262c815d5576557a20b687d90673ccc93d9502ed3b4f3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "canonical_source_id": "BODY-03",
+      "exact_duplicate_of": "BODY-03",
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "observed_in": "user_uploaded_image_and_local_file_review",
+      "title": "棕色短上衣与棕色长裙",
+      "layout": "左侧肖像；右侧正、侧、背全身",
+      "uses": [
+        "头肩与上身体量",
+        "长裙下整体轮廓"
+      ],
+      "primary_locator": "右侧正面与侧面全身。",
+      "observed": "与首批BODY-03原文件完全相同；长裙不妨碍整体修长观感。",
+      "limits": [
+        "裙下髋膝位置和实际腿长不可见",
+        "衣腰和靴跟不作人体测量端点"
+      ],
+      "primary_observation_units": 1
+    },
+    {
+      "upload_number": 3,
+      "file_name": "3-照片-3.jpg",
+      "local_path": "output/user-approved-body-20261019/references/upload-03.jpg",
+      "sha256": "391beccf623e42a2eb326cd498325736a7dded30449dec0a889d13bc20ea7dad",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "canonical_source_id": "BODY-05",
+      "exact_duplicate_of": "BODY-05",
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "observed_in": "user_uploaded_image_and_local_file_review",
+      "title": "棒球帽运动夹克与长裙",
+      "layout": "左侧肖像；右侧正、侧、背全身",
+      "uses": [
+        "宽松上装体量",
+        "长裙轮廓与落地"
+      ],
+      "primary_locator": "右侧正面全身，侧背补衣装体积。",
+      "observed": "与首批BODY-05原文件完全相同；宽松衣装不必紧身化也可有轻盈纵向感。",
+      "limits": [
+        "帽顶不等于颅顶",
+        "上装、长裙遮住腰胯和腿部骨点"
+      ],
+      "primary_observation_units": 1
+    },
+    {
+      "upload_number": 4,
+      "file_name": "4-照片-4.jpg",
+      "local_path": "output/user-approved-body-20261019/references/upload-04.jpg",
+      "sha256": "9a87462bc35de9510a32e0af1fc9404493d7cce02f1167850bd170846e09b747",
+      "dimensions": [
+        1280,
+        853
+      ],
+      "canonical_source_id": "BODY-07",
+      "exact_duplicate_of": "BODY-07",
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "observed_in": "user_uploaded_image_and_local_file_review",
+      "title": "五套现代妆造与转面板",
+      "layout": "上排五套全身，中排肖像，下排每套小转面",
+      "uses": [
+        "多套共同身体方向",
+        "衣装差异下的比例保持"
+      ],
+      "primary_locator": "上排从左到右五个主要全身，分别观察。",
+      "observed": "与首批BODY-07原文件完全相同；每套各有修长观感，下排小图仅补可辨信息。",
+      "limits": [
+        "不能把一列的通过替代整组",
+        "同一造型小转面和中排肖像不另算独立身体正例"
+      ],
+      "primary_observation_units": 5
+    },
+    {
+      "upload_number": 5,
+      "file_name": "5-照片-5.jpg",
+      "local_path": "output/user-approved-body-20261019/references/upload-05.jpg",
+      "sha256": "1bda04ad5f9db4d54e483eceb41e9664bd65919e305368177f2587f9f5e93d3b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "canonical_source_id": "BODY-09",
+      "exact_duplicate_of": null,
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "observed_in": "user_uploaded_image_and_local_file_review",
+      "title": "浅蓝白层叠花饰古装",
+      "layout": "左侧大肖像；右侧正、侧、背全身",
+      "uses": [
+        "古装静态长轮廓",
+        "头肩上身体量",
+        "正侧背衣装下的连续性"
+      ],
+      "primary_locator": "右侧第一幅正面全身为主要轮廓，侧背为补充。",
+      "observed": "全身头部相对长衣轮廓精巧，肩颈自然；胸廓与腰腹完整，侧面仍有厚度，宽袖与层叠衣摆围绕身体展开。",
+      "limits": [
+        "高发髻与头饰不参与头长测量",
+        "宽袖遮住部分肘腕，裙下腿长和膝位未知",
+        "裙摆、拖尾长度不能替代身高或腿长"
+      ],
+      "primary_observation_units": 1
+    },
+    {
+      "upload_number": 6,
+      "file_name": "6-照片-6.jpg",
+      "local_path": "output/user-approved-body-20261019/references/upload-06.jpg",
+      "sha256": "1378fbc549d9d8ec549b63abc40f57d4d46901d3d2a15013a40f79fcb66307a3",
+      "dimensions": [
+        1024,
+        1280
+      ],
+      "canonical_source_id": "BODY-10",
+      "exact_duplicate_of": null,
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "observed_in": "user_uploaded_image_and_local_file_review",
+      "title": "白蓝金饰古装与长靴",
+      "layout": "左侧放大肖像；右侧正、侧、背全身",
+      "uses": [
+        "肩颈与完整上身",
+        "可见腿段的延展",
+        "侧面身体厚度"
+      ],
+      "primary_locator": "右侧第一幅正面与相邻侧面全身，背面只补轮廓。",
+      "observed": "完整胸廓经腰腹进入有体量的骨盆，露出的腿段呈连贯纵向延展，侧面没有压成薄片；发饰、肩甲与靴子另作衣装轮廓。",
+      "limits": [
+        "开衩只暴露部分腿段，两腿与所有关节并非同时可见",
+        "高髻、肩甲外缘、靴筒及鞋跟不当作人体端点",
+        "左侧大肖像尺度不与右侧身体直接相除"
+      ],
+      "primary_observation_units": 1
+    },
+    {
+      "upload_number": 7,
+      "file_name": "7-照片-7.jpg",
+      "local_path": "output/user-approved-body-20261019/references/upload-07.jpg",
+      "sha256": "8ae472dbf5732c7739f52f293672ac14b33712cd5c8a3f1bde3ae00f85f8cf96",
+      "dimensions": [
+        960,
+        1280
+      ],
+      "canonical_source_id": "BODY-11",
+      "exact_duplicate_of": null,
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "observed_in": "user_uploaded_image_and_local_file_review",
+      "title": "象牙白古装举臂动态",
+      "layout": "单人完整长衣轮廓，双臂外展，发丝与袖摆扬起",
+      "uses": [
+        "举臂时肩胸连接",
+        "躯干体量与舒展",
+        "动作与长衣轮廓"
+      ],
+      "primary_locator": "画面中央人物及左右可见手臂，衣下结构按可见范围判断。",
+      "observed": "头颈、肩带、上臂和胸廓保持连续，腰腹收放后接入长衣轮廓；手臂延展与躯干厚度同时存在。",
+      "limits": [
+        "宽袖覆盖部分肘位，腿部多数遮挡",
+        "扬起头发与外扩袖摆不当作身体宽度",
+        "衣摆铺地、鞋跟与露出脚尖不能给出实际腿长"
+      ],
+      "primary_observation_units": 1
+    },
+    {
+      "upload_number": 8,
+      "file_name": "8-照片-8.jpg",
+      "local_path": "output/user-approved-body-20261019/references/upload-08.jpg",
+      "sha256": "4dd3ac1855dde5d5e350db461eaa04110c59d5c08fb31e604440e65386c102a3",
+      "dimensions": [
+        853,
+        1280
+      ],
+      "canonical_source_id": "BODY-12",
+      "exact_duplicate_of": null,
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "observed_in": "user_uploaded_image_and_local_file_review",
+      "title": "粉蓝象牙白古装回身动态",
+      "layout": "单人回身、手臂向前伸展、宽袖与裙层展开",
+      "uses": [
+        "扭转中的胸廓腰胯连续",
+        "近远肢段的空间关系",
+        "体积与动态轮廓"
+      ],
+      "primary_locator": "画面上中部可见肩胸腰胯连接及伸出的手臂。",
+      "observed": "转身后的肩胸与腰胯在空间上连续，前伸手臂和衣袖形成近大远小；体量与长衣动势共同形成轻盈观感。",
+      "limits": [
+        "下肢被遮挡，不能确定站立、屈膝或跪姿的精确支撑",
+        "不能以裙摆高度推断直立身高、腿长或头身数",
+        "源图倾头与转身不自动进入多妆造默认"
+      ],
+      "primary_observation_units": 1
+    },
+    {
+      "upload_number": 9,
+      "file_name": "9-照片-9.jpg",
+      "local_path": "output/user-approved-body-20261019/references/upload-09.jpg",
+      "sha256": "9a50eb1e63dcec25a6aae483c0e3a2e20e28924d0d5946e327cebe57df6bb226",
+      "dimensions": [
+        960,
+        1280
+      ],
+      "canonical_source_id": "BODY-13",
+      "exact_duplicate_of": null,
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "observed_in": "user_uploaded_image_and_local_file_review",
+      "title": "象牙白外袍与蓝灰长裙",
+      "layout": "单人近正面完整长衣轮廓，双手在身前轻搭",
+      "uses": [
+        "静态头肩与上身体量",
+        "宽袖外袍中的长轮廓"
+      ],
+      "primary_locator": "中央全身，头肩到腰腹为可见身体关系，裙下仅评轮廓。",
+      "observed": "头部与肩带协调，上身完整且相对紧凑，衣腰以下形成连贯长轮廓；宽袖、外袍松量没有消除躯干体积。",
+      "limits": [
+        "交握手与宽袖遮挡部分上下臂",
+        "隐藏膝位和真实腿长不能认证",
+        "裙长、鞋尖和发髻不算身体延长"
+      ],
+      "primary_observation_units": 1
+    },
+    {
+      "upload_number": 10,
+      "file_name": "10-照片-10.jpg",
+      "local_path": "output/user-approved-body-20261019/references/upload-10.jpg",
+      "sha256": "2ef1b28997d221d831af3f1e7acdb7f09228fcf136e085719bc2d6cec79e7e6f",
+      "dimensions": [
+        960,
+        1280
+      ],
+      "canonical_source_id": "BODY-14",
+      "exact_duplicate_of": null,
+      "feedback_scope": "proportion",
+      "feedback_status": "accepted",
+      "observed_in": "user_uploaded_image_and_local_file_review",
+      "title": "蓝灰开衫与白色层次短裙",
+      "layout": "单人全身，躯干轻倾、双膝交错、手在身前轻搭",
+      "uses": [
+        "现代可见腿部的纵向延展",
+        "小头肩与完整上身的关系",
+        "轻姿态中的自然体量"
+      ],
+      "primary_locator": "中央全身，优先观察头肩、腰胯和可见双腿。",
+      "observed": "头肩精巧但仍有自然颈肩衔接，上身完整，腰胯和大腿保有体量；大腿与小腿共同延展，屈膝状态仍可读出长而连贯的双腿。",
+      "limits": [
+        "屈膝、交腿及躯干倾斜改变投影，不能按直立头身公式计数",
+        "裙摆、袜口和鞋底不是髋、膝、踝骨点",
+        "倾头、低位搭手、辫子和浅笑没有获得本轮默认继承权限"
+      ],
+      "primary_observation_units": 1
+    }
+  ]
+}

@@ -3,9 +3,10 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {compileProductionPrompt, objectHash} from './production-prompt.mjs';
 
-const mutable = ['hair','expression','makeup'];
+const mutable = ['hair','expression','makeup','action'];
 const frontFields = ['parting','fringe','temples','outline'];
 const performanceFields = ['gaze','brows','eyelids','mouth'];
+const actionFields = ['head','torso','hands','support'];
 const plain = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const nonempty = value => typeof value === 'string' && value.trim().length > 0;
 const normalized = value => value.normalize('NFKC').trim().toLowerCase().replace(/\s+/gu,' ');
@@ -28,14 +29,15 @@ export function buildPortraitLookPlan(input) {
     throw new Error('look count must be at least two and match the requested count');
   if (!Array.isArray(input.variation_channels) || !input.variation_channels.length ||
       new Set(input.variation_channels).size !== input.variation_channels.length || input.variation_channels.some(channel => !mutable.includes(channel)))
-    throw new Error('variation_channels must select hair, expression or makeup without duplicates');
+    throw new Error('variation_channels must select hair, expression, makeup or action without duplicates');
   const base = input.base_brief;
   if (base?.subject_kind !== 'character' || base.edit_scope !== undefined) throw new Error('use a character base for new look targets, not an inherited narrow edit_scope');
   compileProductionPrompt(base);
   if (!base.requirements.some(row => row.channel === 'identity' && row.priority === 'must')) throw new Error('same-character looks need an authored stable identity requirement');
   const commonGoals=new Set(base.requirements.filter(row=>row.character_goal).map(row=>row.id));
-  if (base.requirements.some(row => mutable.includes(row.channel)&&!row.character_goal) || base.sections.some(row => mutable.includes(row.channel)&&row.items.some(item=>item.basis.some(id=>!commonGoals.has(id)))))
-    throw new Error('clean inherited hair, expression and makeup channels; put fixed presentation clauses in shared');
+  const projected=mutable.filter(channel=>channel!=='action'||input.variation_channels.includes('action'));
+  if (base.requirements.some(row => projected.includes(row.channel)&&!row.character_goal) || base.sections.some(row => projected.includes(row.channel)&&row.items.some(item=>item.basis.some(id=>!commonGoals.has(id)))))
+    throw new Error('clean inherited hair, expression, makeup and varying action channels; put fixed presentation clauses in shared');
   const groups = input.groups ?? [], shared = input.shared ?? [];
   if (!Array.isArray(groups) || !Array.isArray(shared)) throw new Error('groups and shared must be arrays');
   for (const group of groups) {
@@ -46,15 +48,22 @@ export function buildPortraitLookPlan(input) {
   if (groups.length && groups.reduce((sum, row) => sum + row.count,0) !== input.count) throw new Error('group counts must sum to the requested count');
   for (const row of shared) {
     fields(row,['channel','text'],'shared clause'); text(row.text,'shared clause');
-    if (!mutable.includes(row.channel)) throw new Error('shared presentation clauses must use hair, expression or makeup');
+    if (!mutable.includes(row.channel)) throw new Error('shared presentation clauses must use hair, expression, makeup or action');
   }
   const variants = [];
   for (const look of input.looks) {
-    fields(look,['id','label','group','fit_reason','hair','expression','makeup','focus_channels'],'look');
+    fields(look,['id','label','group','fit_reason',...mutable,'focus_channels','detail_policy'],'look');
     text(look.label,'look label'); text(look.fit_reason,'fit reason');
     if (groups.length ? !groups.some(row => row.id === look.group) : look.group !== undefined) throw new Error(`unknown look group: ${look.id}`);
     for (const channel of mutable) if (Object.hasOwn(look,channel) !== input.variation_channels.includes(channel))
       throw new Error(`look ${look.id} must author only its declared variation channels: ${channel}`);
+    const policy=look.detail_policy;
+    if(policy!==undefined){
+      fields(policy,['critical','reason'],'look detail policy');text(policy.reason,'detail policy reason');
+      const details=input.variation_channels.flatMap(channel=>channel==='hair'?[...frontFields.map(f=>`hair:${f}`),'hair']:channel==='action'?actionFields.map(f=>`action:${f}`):[channel]);
+      if(!Array.isArray(policy.critical)||!policy.critical.length||new Set(policy.critical).size!==policy.critical.length||policy.critical.some(key=>!details.includes(key)))throw new Error('detail policy needs unique supported critical details');
+      if(input.variation_channels.some(channel=>!policy.critical.some(key=>key===channel||key.startsWith(`${channel}:`))))throw new Error('detail policy must retain a critical target for every variation channel');
+    }
     const focus=look.focus_channels??[];
     if(!Array.isArray(focus)||new Set(focus).size!==focus.length||focus.some(channel=>!input.variation_channels.includes(channel)))
       throw new Error('focus_channels must select declared variation channels without duplicates');
@@ -68,32 +77,42 @@ export function buildPortraitLookPlan(input) {
       for (const field of ['emotion',...performanceFields]) text(look.expression[field],`expression ${field}`);
     }
     if (look.makeup !== undefined) text(look.makeup,'makeup design');
+    if (look.action !== undefined) {
+      fields(look.action,actionFields,'action design');
+      for (const field of actionFields) text(look.action[field],`action ${field}`);
+    }
     const brief = structuredClone(base);
     brief.request = `${input.request} 本套：${look.label}。`;
-    brief.metadata = {...brief.metadata,portrait_look:{plan_id:input.id,look_id:look.id,group:look.group ?? null,fit_reason:look.fit_reason}};
+    brief.metadata = {...brief.metadata,portrait_look:{plan_id:input.id,look_id:look.id,group:look.group ?? null,fit_reason:look.fit_reason,...(policy?{detail_policy:structuredClone(policy)}:{})}};
     const clauses = new Map();
-    const add = (channel, id, prose, intent, question) => {
-      brief.requirements.push({id,channel,priority:'must',text:prose});
+    const add = (channel, id, prose, intent, question, detailKey) => {
+      const critical=detailKey===undefined||policy===undefined||policy.critical.includes(detailKey);
+      brief.requirements.push({id,channel,priority:critical?'must':'prefer',text:prose});
       const item = {text:prose,basis:[id],intent,...(intent === 'design' ? {reason:look.fit_reason} : {})};
       clauses.set(channel,[...(clauses.get(channel) ?? []),item]);
-      brief.acceptance.push({id:`${id}:check`,basis:id,critical:true,question});
+      brief.acceptance.push({id:`${id}:check`,basis:id,critical,question});
     };
     shared.forEach((row,index) => add(row.channel,`PL:${input.id}:shared:${index}`,row.text,'constraint',`是否满足共同保持要求：${row.text}`));
     if (look.hair) {
       const frontLabels={parting:'额前分区与露额',fringe:'刘海结构',temples:'鬓角与耳侧',outline:'正面轮廓'};
       for(const field of frontFields){
         if(!/[\u3400-\u9fff]/u.test(look.hair.front[field]))throw new Error(`front hair ${field} needs visible Chinese prose, not an internal signature code`);
-        add('hair',`PL:${input.id}:${look.id}:hair:${field}`,`${frontLabels[field]}：${look.hair.front[field]}`,'design',`本套实际可见的${frontLabels[field]}是否符合正文设计？`);
+        add('hair',`PL:${input.id}:${look.id}:hair:${field}`,`${frontLabels[field]}：${look.hair.front[field]}`,'design',`本套实际可见的${frontLabels[field]}是否符合正文设计？`,`hair:${field}`);
       }
-      add('hair',`PL:${input.id}:${look.id}:hair`,look.hair.text,'design','后部扎束、附件及发束衔接是否符合本套补充设计，且没有覆盖脸前设计？');
+      add('hair',`PL:${input.id}:${look.id}:hair`,look.hair.text,'design','后部扎束、附件及发束衔接是否符合本套补充设计，且没有覆盖脸前设计？','hair');
     }
     if (look.expression) {
       const e = look.expression;
       add('expression',`PL:${input.id}:${look.id}:expression`,`${e.emotion}；${e.gaze}；${e.brows}；${e.eyelids}；${e.mouth}。`,'design',
-        '视线、眉部、眼睑、嘴部是否实际形成所写情绪与神态，而非只换情绪名称？');
+        '视线、眉部、眼睑、嘴部是否实际形成所写情绪与神态，而非只换情绪名称？','expression');
     }
-    if (look.makeup !== undefined) add('makeup',`PL:${input.id}:${look.id}:makeup`,look.makeup,'design','本套眉眼妆、腮红、唇面与光泽是否实际落实，并与本人、发型和神态协调？');
-    const labels = {hair:'发型与头饰',expression:'表情与情绪',makeup:'妆容与肌肤'};
+    if (look.makeup !== undefined) add('makeup',`PL:${input.id}:${look.id}:makeup`,look.makeup,'design','本套眉眼妆、腮红、唇面与光泽是否实际落实，并与本人、发型和神态协调？','makeup');
+    if (look.action) {
+      const actionLabels={head:'头部朝向与倾斜',torso:'肩胸与躯干',hands:'手臂与手势',support:'重心与支撑'};
+      for (const field of actionFields)
+        add('action',`PL:${input.id}:${look.id}:action:${field}`,`${actionLabels[field]}：${look.action[field]}`,'design',`本套实际可见的${actionLabels[field]}是否符合正文，且没有沿用身体基准或其他造型的旧姿态？`,`action:${field}`);
+    }
+    const labels = {hair:'发型与头饰',expression:'表情与情绪',makeup:'妆容与肌肤',action:'身体姿态与动作'};
     for (const [channel,items] of clauses) {
       const common=brief.sections.filter(section=>section.channel===channel);
       brief.sections=brief.sections.filter(section=>section.channel!==channel);
@@ -124,6 +143,9 @@ export function buildPortraitLookPlan(input) {
   repeated('hair','repeated_hair_prose',look => normalized(look.hair.text));
   repeated('expression','repeated_expression_performance',look => performanceFields.map(field => normalized(look.expression[field])));
   repeated('makeup','repeated_makeup_prose',look => normalized(look.makeup));
+  // A new head tilt alone does not make the body's performance a different pose.
+  // Shared upright heads are allowed when torso, hands or support actually differ.
+  repeated('action','repeated_body_action',look => ['torso','hands','support'].map(field => normalized(look.action[field])));
   return {status:diagnostics.length ? 'needs_revision' : 'text_plan_ready',plan_sha256:objectHash(input),count:variants.length,
     groups:groups.map(group => ({...group})),variation_channels:[...input.variation_channels],diagnostics,variants,
     evidence:{text_plan_only:true,image_generated:false,semantic_fit_verified:false,visual_diversity_verified:false,identity_preservation_verified:false}};

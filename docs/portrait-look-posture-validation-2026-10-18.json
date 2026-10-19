@@ -1,0 +1,839 @@
+{
+  "date": "2026-10-18",
+  "request": "同一人物不同妆造分别设计姿势、发型、表情和妆容，不统一歪头。",
+  "completed_images": 13,
+  "selected_candidates": [
+    "single-look1-v2",
+    "single-look2-v2",
+    "single-look3-v2",
+    "single-look4-v2",
+    "single-look5-v2"
+  ],
+  "qualified_complete_set": false,
+  "user_accepted": false,
+  "runs": [
+    {
+      "run_id": "five-looks-diversity-v1",
+      "snapshot_sha256": "1561744723375917769beebf24b9bc8729883aabded213ae20bbb295a5ee4d60",
+      "prompt_sha256": "89dc37fb8aacf66c0f64f827db5fbe1a294970d1255909e308996d6904df4fc8",
+      "output_sha256": "b66fe9db21be79b0174f3387c298a0f9f4b672b2c17c42793b4272e894215bb9",
+      "actual_inputs": [
+        {
+          "id": "board",
+          "content_sha256": "1e2b574221f872eadb18e854fa7bfe4e3cf5349696c92caac7940c59ea69cd98"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look1:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look2:action:head:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look3:action:head:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look4:action:head:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look5:action:head:check"
+      ],
+      "unresolved": [
+        "identity:check",
+        "hair:check",
+        "readable:check",
+        "frame:check",
+        "task:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:check",
+        "PL:upright-distinct-looks-20261018:look1:expression:check",
+        "PL:upright-distinct-looks-20261018:look1:makeup:check",
+        "PL:upright-distinct-looks-20261018:look1:action:head:check",
+        "PL:upright-distinct-looks-20261018:look1:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look1:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look1:action:support:check",
+        "look-1:check",
+        "match-1:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:check",
+        "PL:upright-distinct-looks-20261018:look2:expression:check",
+        "PL:upright-distinct-looks-20261018:look2:makeup:check",
+        "PL:upright-distinct-looks-20261018:look2:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look2:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look2:action:support:check",
+        "look-2:check",
+        "match-2:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:check",
+        "PL:upright-distinct-looks-20261018:look3:expression:check",
+        "PL:upright-distinct-looks-20261018:look3:makeup:check",
+        "PL:upright-distinct-looks-20261018:look3:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look3:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look3:action:support:check",
+        "look-3:check",
+        "match-3:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:check",
+        "PL:upright-distinct-looks-20261018:look4:expression:check",
+        "PL:upright-distinct-looks-20261018:look4:makeup:check",
+        "PL:upright-distinct-looks-20261018:look4:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look4:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look4:action:support:check",
+        "look-4:check",
+        "match-4:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:check",
+        "PL:upright-distinct-looks-20261018:look5:expression:check",
+        "PL:upright-distinct-looks-20261018:look5:makeup:check",
+        "PL:upright-distinct-looks-20261018:look5:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look5:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look5:action:support:check",
+        "look-5:check",
+        "match-5:check",
+        "BODY:head_shoulders:look1:check",
+        "BODY:head_shoulders:look2:check",
+        "BODY:head_shoulders:look3:check",
+        "BODY:head_shoulders:look4:check",
+        "BODY:head_shoulders:look5:check",
+        "BODY:torso_pelvis:look1:check",
+        "BODY:torso_pelvis:look2:check",
+        "BODY:torso_pelvis:look3:check",
+        "BODY:torso_pelvis:look4:check",
+        "BODY:torso_pelvis:look5:check",
+        "BODY:arms:look1:check",
+        "BODY:arms:look2:check",
+        "BODY:arms:look3:check",
+        "BODY:arms:look4:check",
+        "BODY:arms:look5:check",
+        "BODY:legs:look1:check",
+        "BODY:legs:look2:check",
+        "BODY:legs:look3:check",
+        "BODY:legs:look4:check",
+        "BODY:legs:look5:check",
+        "BODY:support:look1:check",
+        "BODY:support:look2:check",
+        "BODY:support:look3:check",
+        "BODY:support:look4:check",
+        "BODY:support:look5:check",
+        "BODY:silhouette:look1:check",
+        "BODY:silhouette:look2:check",
+        "BODY:silhouette:look3:check",
+        "BODY:silhouette:look4:check",
+        "BODY:silhouette:look5:check",
+        "BODY:layout:check",
+        "__edit_scope__"
+      ],
+      "selected_candidate": false
+    },
+    {
+      "run_id": "five-looks-diversity-v2",
+      "snapshot_sha256": "430935fd8ce601b71964b7b43d801d9ef0f59aa09d1db8f86a57bee4920a55f9",
+      "prompt_sha256": "333bcae4da7fd563a5329517a1710040fee40e791ec7d46c8be201ad7e9ff6f7",
+      "output_sha256": "ae0008c81b0c508d70fcecb26f38d89f908d5eccc35448bacaad0f7997ddec4b",
+      "actual_inputs": [
+        {
+          "id": "board",
+          "content_sha256": "b66fe9db21be79b0174f3387c298a0f9f4b672b2c17c42793b4272e894215bb9"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look1:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look3:action:head:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look5:action:head:check"
+      ],
+      "unresolved": [
+        "identity:check",
+        "hair:check",
+        "readable:check",
+        "frame:check",
+        "task:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:check",
+        "PL:upright-distinct-looks-20261018:look1:expression:check",
+        "PL:upright-distinct-looks-20261018:look1:makeup:check",
+        "PL:upright-distinct-looks-20261018:look1:action:head:check",
+        "PL:upright-distinct-looks-20261018:look1:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look1:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look1:action:support:check",
+        "look-1:check",
+        "match-1:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:check",
+        "PL:upright-distinct-looks-20261018:look2:expression:check",
+        "PL:upright-distinct-looks-20261018:look2:makeup:check",
+        "PL:upright-distinct-looks-20261018:look2:action:head:check",
+        "PL:upright-distinct-looks-20261018:look2:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look2:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look2:action:support:check",
+        "look-2:check",
+        "match-2:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:check",
+        "PL:upright-distinct-looks-20261018:look3:expression:check",
+        "PL:upright-distinct-looks-20261018:look3:makeup:check",
+        "PL:upright-distinct-looks-20261018:look3:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look3:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look3:action:support:check",
+        "look-3:check",
+        "match-3:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:check",
+        "PL:upright-distinct-looks-20261018:look4:expression:check",
+        "PL:upright-distinct-looks-20261018:look4:makeup:check",
+        "PL:upright-distinct-looks-20261018:look4:action:head:check",
+        "PL:upright-distinct-looks-20261018:look4:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look4:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look4:action:support:check",
+        "look-4:check",
+        "match-4:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:check",
+        "PL:upright-distinct-looks-20261018:look5:expression:check",
+        "PL:upright-distinct-looks-20261018:look5:makeup:check",
+        "PL:upright-distinct-looks-20261018:look5:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look5:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look5:action:support:check",
+        "look-5:check",
+        "match-5:check",
+        "BODY:head_shoulders:look1:check",
+        "BODY:head_shoulders:look2:check",
+        "BODY:head_shoulders:look3:check",
+        "BODY:head_shoulders:look4:check",
+        "BODY:head_shoulders:look5:check",
+        "BODY:torso_pelvis:look1:check",
+        "BODY:torso_pelvis:look2:check",
+        "BODY:torso_pelvis:look3:check",
+        "BODY:torso_pelvis:look4:check",
+        "BODY:torso_pelvis:look5:check",
+        "BODY:arms:look1:check",
+        "BODY:arms:look2:check",
+        "BODY:arms:look3:check",
+        "BODY:arms:look4:check",
+        "BODY:arms:look5:check",
+        "BODY:legs:look1:check",
+        "BODY:legs:look2:check",
+        "BODY:legs:look3:check",
+        "BODY:legs:look4:check",
+        "BODY:legs:look5:check",
+        "BODY:support:look1:check",
+        "BODY:support:look2:check",
+        "BODY:support:look3:check",
+        "BODY:support:look4:check",
+        "BODY:support:look5:check",
+        "BODY:silhouette:look1:check",
+        "BODY:silhouette:look2:check",
+        "BODY:silhouette:look3:check",
+        "BODY:silhouette:look4:check",
+        "BODY:silhouette:look5:check",
+        "BODY:layout:check",
+        "__edit_scope__"
+      ],
+      "selected_candidate": false
+    },
+    {
+      "run_id": "five-looks-diversity-v3",
+      "snapshot_sha256": "226e9115276367528df6bb593b13de31b2bf79049fb5b4196e7f5f198258ddb3",
+      "prompt_sha256": "1a7e924a2082b68d7b3ca882174d4f046b76d5612c94b936f60a5c37b6f887a6",
+      "output_sha256": "8abef867d483d310ee2fbd7790ce54ef7a27390f4db29a5593d1604ee2435c4d",
+      "actual_inputs": [
+        {
+          "id": "identity",
+          "content_sha256": "0ddb4b28bbed7404d37ffb6d4e4d574381cbb8db4b235e6f9893bb5ec93df44f"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look1:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look2:action:head:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look3:action:head:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look5:action:head:check"
+      ],
+      "unresolved": [
+        "identity:check",
+        "hair:check",
+        "readable:check",
+        "frame:check",
+        "task:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:check",
+        "PL:upright-distinct-looks-20261018:look1:expression:check",
+        "PL:upright-distinct-looks-20261018:look1:makeup:check",
+        "PL:upright-distinct-looks-20261018:look1:action:head:check",
+        "PL:upright-distinct-looks-20261018:look1:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look1:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look1:action:support:check",
+        "look-1:check",
+        "match-1:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:check",
+        "PL:upright-distinct-looks-20261018:look2:expression:check",
+        "PL:upright-distinct-looks-20261018:look2:makeup:check",
+        "PL:upright-distinct-looks-20261018:look2:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look2:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look2:action:support:check",
+        "look-2:check",
+        "match-2:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:check",
+        "PL:upright-distinct-looks-20261018:look3:expression:check",
+        "PL:upright-distinct-looks-20261018:look3:makeup:check",
+        "PL:upright-distinct-looks-20261018:look3:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look3:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look3:action:support:check",
+        "look-3:check",
+        "match-3:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:check",
+        "PL:upright-distinct-looks-20261018:look4:expression:check",
+        "PL:upright-distinct-looks-20261018:look4:makeup:check",
+        "PL:upright-distinct-looks-20261018:look4:action:head:check",
+        "PL:upright-distinct-looks-20261018:look4:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look4:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look4:action:support:check",
+        "look-4:check",
+        "match-4:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:check",
+        "PL:upright-distinct-looks-20261018:look5:expression:check",
+        "PL:upright-distinct-looks-20261018:look5:makeup:check",
+        "PL:upright-distinct-looks-20261018:look5:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look5:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look5:action:support:check",
+        "look-5:check",
+        "match-5:check",
+        "BODY:head_shoulders:look1:check",
+        "BODY:head_shoulders:look2:check",
+        "BODY:head_shoulders:look3:check",
+        "BODY:head_shoulders:look4:check",
+        "BODY:head_shoulders:look5:check",
+        "BODY:torso_pelvis:look1:check",
+        "BODY:torso_pelvis:look2:check",
+        "BODY:torso_pelvis:look3:check",
+        "BODY:torso_pelvis:look4:check",
+        "BODY:torso_pelvis:look5:check",
+        "BODY:arms:look1:check",
+        "BODY:arms:look2:check",
+        "BODY:arms:look3:check",
+        "BODY:arms:look4:check",
+        "BODY:arms:look5:check",
+        "BODY:legs:look1:check",
+        "BODY:legs:look2:check",
+        "BODY:legs:look3:check",
+        "BODY:legs:look4:check",
+        "BODY:legs:look5:check",
+        "BODY:support:look1:check",
+        "BODY:support:look2:check",
+        "BODY:support:look3:check",
+        "BODY:support:look4:check",
+        "BODY:support:look5:check",
+        "BODY:silhouette:look1:check",
+        "BODY:silhouette:look2:check",
+        "BODY:silhouette:look3:check",
+        "BODY:silhouette:look4:check",
+        "BODY:silhouette:look5:check",
+        "BODY:layout:check"
+      ],
+      "selected_candidate": false
+    },
+    {
+      "run_id": "single-look1-v1",
+      "snapshot_sha256": "e3076dd862d4ef35c16f23ed06b63a9682d8d79bee2fec126a84890d533f263e",
+      "prompt_sha256": "2ae13cebc4090f1c93685627322968efcd8501d4c27fb6d012daf575aefed44d",
+      "output_sha256": "d8575bdcab57813a1b07f505ae7e81957dc571b79408b5bb6272732c116ac37a",
+      "actual_inputs": [
+        {
+          "id": "identity",
+          "content_sha256": "0ddb4b28bbed7404d37ffb6d4e4d574381cbb8db4b235e6f9893bb5ec93df44f"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look1:hair:temples:check"
+      ],
+      "unresolved": [
+        "identity:check",
+        "hair:check",
+        "readable:check",
+        "frame:check",
+        "BODY:head_shoulders:check",
+        "BODY:torso_pelvis:check",
+        "BODY:arms:check",
+        "BODY:legs:check",
+        "BODY:support:check",
+        "BODY:silhouette:check",
+        "BODY:layout:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:check",
+        "PL:upright-distinct-looks-20261018:look1:expression:check",
+        "PL:upright-distinct-looks-20261018:look1:makeup:check",
+        "PL:upright-distinct-looks-20261018:look1:action:head:check",
+        "PL:upright-distinct-looks-20261018:look1:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look1:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look1:action:support:check",
+        "single-task:check",
+        "single-costume:check"
+      ],
+      "selected_candidate": false
+    },
+    {
+      "run_id": "single-look2-v1",
+      "snapshot_sha256": "59155249190e2b4f03dc8c84a263eb608a06c1eb00318ad9ffe28086cb05532d",
+      "prompt_sha256": "b5ceba3cc310be7fa512d25da19d0a9dc50d4f8c389560cac368511a403894f1",
+      "output_sha256": "f8fbfa68b6dc50dfeaa342418c38a3907c2ce4e862ec143c7b317b1439abdcbf",
+      "actual_inputs": [
+        {
+          "id": "identity",
+          "content_sha256": "0ddb4b28bbed7404d37ffb6d4e4d574381cbb8db4b235e6f9893bb5ec93df44f"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look2:hair:temples:check"
+      ],
+      "unresolved": [
+        "identity:check",
+        "hair:check",
+        "readable:check",
+        "frame:check",
+        "BODY:head_shoulders:check",
+        "BODY:torso_pelvis:check",
+        "BODY:arms:check",
+        "BODY:legs:check",
+        "BODY:support:check",
+        "BODY:silhouette:check",
+        "BODY:layout:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look2:hair:check",
+        "PL:upright-distinct-looks-20261018:look2:expression:check",
+        "PL:upright-distinct-looks-20261018:look2:makeup:check",
+        "PL:upright-distinct-looks-20261018:look2:action:head:check",
+        "PL:upright-distinct-looks-20261018:look2:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look2:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look2:action:support:check",
+        "single-task:check",
+        "single-costume:check"
+      ],
+      "selected_candidate": false
+    },
+    {
+      "run_id": "single-look3-v1",
+      "snapshot_sha256": "5568387522beeee9d6d76316eb8b5d6575a8eaa11e3147cc05ec1f9e34cd937b",
+      "prompt_sha256": "4fa9b206120b1b5091e701315170c0a0063b1a8767c9f5cfa7ef9056201fbbf2",
+      "output_sha256": "591bc2d0d742116d51259c385076ff0786f9713bddb4ce8f37b392a6f570b900",
+      "actual_inputs": [
+        {
+          "id": "identity",
+          "content_sha256": "0ddb4b28bbed7404d37ffb6d4e4d574381cbb8db4b235e6f9893bb5ec93df44f"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look3:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look3:action:head:check"
+      ],
+      "unresolved": [
+        "identity:check",
+        "hair:check",
+        "readable:check",
+        "frame:check",
+        "BODY:head_shoulders:check",
+        "BODY:torso_pelvis:check",
+        "BODY:arms:check",
+        "BODY:legs:check",
+        "BODY:support:check",
+        "BODY:silhouette:check",
+        "BODY:layout:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:check",
+        "PL:upright-distinct-looks-20261018:look3:expression:check",
+        "PL:upright-distinct-looks-20261018:look3:makeup:check",
+        "PL:upright-distinct-looks-20261018:look3:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look3:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look3:action:support:check",
+        "single-task:check",
+        "single-costume:check"
+      ],
+      "selected_candidate": false
+    },
+    {
+      "run_id": "single-look4-v1",
+      "snapshot_sha256": "0dede8bdbba2f492551213d1d8f9828351d0ee678a5fddb51fb8973e8937d95d",
+      "prompt_sha256": "1d24cd41bf53ff96aa6f858fad90adcc0bdc4a374bbad7119778d4014703cfe2",
+      "output_sha256": "4cc324bc0bfb281468de76a1c8bbecdee26898c706a05ca97e66dedbd139c21b",
+      "actual_inputs": [
+        {
+          "id": "identity",
+          "content_sha256": "0ddb4b28bbed7404d37ffb6d4e4d574381cbb8db4b235e6f9893bb5ec93df44f"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look4:hair:temples:check"
+      ],
+      "unresolved": [
+        "identity:check",
+        "hair:check",
+        "readable:check",
+        "frame:check",
+        "BODY:head_shoulders:check",
+        "BODY:torso_pelvis:check",
+        "BODY:arms:check",
+        "BODY:legs:check",
+        "BODY:support:check",
+        "BODY:silhouette:check",
+        "BODY:layout:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:check",
+        "PL:upright-distinct-looks-20261018:look4:expression:check",
+        "PL:upright-distinct-looks-20261018:look4:makeup:check",
+        "PL:upright-distinct-looks-20261018:look4:action:head:check",
+        "PL:upright-distinct-looks-20261018:look4:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look4:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look4:action:support:check",
+        "single-task:check",
+        "single-costume:check"
+      ],
+      "selected_candidate": false
+    },
+    {
+      "run_id": "single-look5-v1",
+      "snapshot_sha256": "9add89c0a480e1da304b515850cb2656ae0ed82d7ba241f9bd9c492583eb3b94",
+      "prompt_sha256": "4e75a83b7b6db232b1634f1b8d70d9435a668fb1b3c3ec75ac51152fd300965e",
+      "output_sha256": "83abc813e121950cac11726c139062fbbd02f5e7a90b303148e442e9fa6c9c95",
+      "actual_inputs": [
+        {
+          "id": "identity",
+          "content_sha256": "0ddb4b28bbed7404d37ffb6d4e4d574381cbb8db4b235e6f9893bb5ec93df44f"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look5:hair:temples:check"
+      ],
+      "unresolved": [
+        "identity:check",
+        "hair:check",
+        "readable:check",
+        "frame:check",
+        "BODY:head_shoulders:check",
+        "BODY:torso_pelvis:check",
+        "BODY:arms:check",
+        "BODY:legs:check",
+        "BODY:support:check",
+        "BODY:silhouette:check",
+        "BODY:layout:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:outline:check",
+        "PL:upright-distinct-looks-20261018:look5:hair:check",
+        "PL:upright-distinct-looks-20261018:look5:expression:check",
+        "PL:upright-distinct-looks-20261018:look5:makeup:check",
+        "PL:upright-distinct-looks-20261018:look5:action:head:check",
+        "PL:upright-distinct-looks-20261018:look5:action:torso:check",
+        "PL:upright-distinct-looks-20261018:look5:action:hands:check",
+        "PL:upright-distinct-looks-20261018:look5:action:support:check",
+        "single-task:check",
+        "single-costume:check"
+      ],
+      "selected_candidate": false
+    },
+    {
+      "run_id": "single-look1-v2",
+      "snapshot_sha256": "74b8de953539c32f09cd92c9d8c1fdf154b2b6cd1569a745cdfdacf3dfe6d9e1",
+      "prompt_sha256": "b3485d81dcb4cff63bb0ab5b5d40f5ad692d97a3f780a4915edcc0d845261369",
+      "output_sha256": "928ab8d802dc827e4f2d3772e5d09b2a90506dfc73f168942937a686542e01d3",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "d8575bdcab57813a1b07f505ae7e81957dc571b79408b5bb6272732c116ac37a"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look1:hair:temples:check",
+        "single-task:check"
+      ],
+      "unresolved": [
+        "PL:upright-distinct-looks-20261018:look1:makeup:check"
+      ],
+      "selected_candidate": true
+    },
+    {
+      "run_id": "single-look2-v2",
+      "snapshot_sha256": "8ceaf2731ec3ce32784ef9c132b2fff204548ff84bf5aec9545956c02a826e4f",
+      "prompt_sha256": "d23e88b667317e94c7f81f4c8f838c3b398e8d58d94bd60c788c282de81bdb76",
+      "output_sha256": "d45f585b044d10badf07e85012ccf40d7cb7fd5b1ae62a8dadaa3e6b4ef73a0b",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "f8fbfa68b6dc50dfeaa342418c38a3907c2ce4e862ec143c7b317b1439abdcbf"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "reviewer_qualified",
+      "critical_failures": [],
+      "unresolved": [],
+      "selected_candidate": true
+    },
+    {
+      "run_id": "single-look3-v2",
+      "snapshot_sha256": "345968c2ffb67489547dc348971075026b759d0f301d5ca767604201ec6ffaee",
+      "prompt_sha256": "036f773d4cdd6d2df8918baec4a03eec7c1aec9b0423adbf608402daef886026",
+      "output_sha256": "f9724f55d68598054c28ef925f5a6622894f054972899ab0b27abd4012801177",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "591bc2d0d742116d51259c385076ff0786f9713bddb4ce8f37b392a6f570b900"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look3:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:temples:check",
+        "single-task:check"
+      ],
+      "unresolved": [
+        "PL:upright-distinct-looks-20261018:look3:makeup:check"
+      ],
+      "selected_candidate": true
+    },
+    {
+      "run_id": "single-look4-v2",
+      "snapshot_sha256": "982c790a45a43b372f77c20af51ea6f1bec1f29eac73e08708cf822db9618b2f",
+      "prompt_sha256": "922901dd1e3119c2494410f519975be9b28ba21b748324c2ce9279de32adecfb",
+      "output_sha256": "a93c4b56beefcc96de414571fd7c2a2c1aee8b4f9ef46bc9c07c52013a15b937",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "4cc324bc0bfb281468de76a1c8bbecdee26898c706a05ca97e66dedbd139c21b"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look4:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:outline:check",
+        "single-task:check"
+      ],
+      "unresolved": [
+        "PL:upright-distinct-looks-20261018:look4:makeup:check"
+      ],
+      "selected_candidate": true
+    },
+    {
+      "run_id": "single-look5-v2",
+      "snapshot_sha256": "ec007b557c897bcc0cd5e4f2974efa7fe74721e2b5088255b7c9e580007d304a",
+      "prompt_sha256": "82387106b34406c18ac5c3af18ee192895395013061e74c6232b5823f27290f6",
+      "output_sha256": "c97dd49a62715e3eac6ccbac01cf02ed12acd26fd3f91063a297462818e59012",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "83abc813e121950cac11726c139062fbbd02f5e7a90b303148e442e9fa6c9c95"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:upright-distinct-looks-20261018:look5:hair:parting:check"
+      ],
+      "unresolved": [],
+      "selected_candidate": true
+    }
+  ],
+  "selected_observations": [
+    {
+      "hair": "中分长直发已披到身体两侧，眉形可见；仍有长发束沿两侧脸颊垂下，耳前未达到要求的收净。",
+      "expression": "正视镜头、眉间舒展、唇口平静，未露齿。",
+      "makeup": "冷玫瑰豆沙唇比初稿更深，灰棕眼妆较收敛；全身图无法充分确认外眼线末端及哑光边界。",
+      "action": "头部基本端正，右手扶腰、左臂垂下，左脚略前，身体直立。",
+      "body": [
+        "头部相对黑色肩带精巧，颈部自然接入胸廓。",
+        "黑色上衣和裙腰显示完整胸廓、收腰及自然展开的骨盆。",
+        "扶腰的右肘与垂落左臂长度相称，两只手清楚。",
+        "黑袜上下的腿部共同延展，膝踝与低跟皮鞋尺度协调。",
+        "承重侧稳定，肩胸腰腿有自然软组织体量，双鞋落地。",
+        "长发黑裙全身仍是紧凑完整上身与修长双腿，未通过夸张鞋跟显高。"
+      ]
+    },
+    {
+      "hair": "高马尾轮廓清楚，额前长碎发已梳回，额头、双耳侧和眉眼露出。",
+      "expression": "正视镜头、面颊与嘴角抬起，少量上齿可见，形成明朗笑容。",
+      "makeup": "橙珊瑚唇和蜜桃色颊部与黑衣款的冷豆沙区别可见，眼妆轻薄。",
+      "action": "头位接近水平正直，双手轻捏领缘，双脚分开、双膝放松。",
+      "body": [
+        "马尾之外的头部与双肩相称，颈长自然。",
+        "外套和黑内搭下的胸廓腰线完整，牛仔裙在骨盆外自然展开。",
+        "双肘下落，上臂前臂围绕领缘动作连接自然，手掌尺度相称。",
+        "裸露大腿与小腿整体修长，白袜和平底运动鞋没有取代腿长。",
+        "腿部保留自然体量，分开的双脚接地，外套没有变成扁平肩片。",
+        "运动款上身完整、整体修长轻盈；不以该图证明其他款比例。"
+      ]
+    },
+    {
+      "hair": "双低辫和白色束带明显；额前薄刘海仍有部分细束落到眉区，未形成明确眉上齐短边界，脸侧仍有长细发。",
+      "expression": "温和看镜头、闭唇小幅含笑，没有沿用运动款的露齿。",
+      "makeup": "唇面为较浅粉玫瑰、面颊柔粉；与第一套眼妆的差异在全身尺寸仍不够确定。",
+      "action": "相较初稿，头部已明显回正；右手触辫、左手垂落，双腿轻交错。",
+      "body": [
+        "回正的头部与黑白外套肩带相称，颈部未被拉长。",
+        "碎花上衣到奶白裙腰有自然收束，胸腰骨盆没有压扁。",
+        "右臂弯向辫子、左臂下垂，肘腕和双手尺度自然。",
+        "交错的膝部与长袜下的小腿衔接合理，屈膝没有改成单段异常拉伸。",
+        "左腿承重、右膝轻弯，身体及衣料保留体量，鞋底有接地。",
+        "头位回正后仍保持同一修长身体方向，双辫和裙摆未用于虚增身高。"
+      ]
+    },
+    {
+      "hair": "短发比初稿更明显放下到颈侧，但前额仍偏中分、耳前细束保留；未落实指定深偏分和清楚齐下颌内弯波波轮廓。",
+      "expression": "视线明确移向镜头旁侧，唇口轻分、无露齿笑，呈专注神态。",
+      "makeup": "唇色偏暖陶土玫瑰，强度与第一套接近；哑光边缘和眼妆差异仍不足以完整确认。",
+      "action": "头部基本端正略转面，右手持右肩包带、左手在裤袋口，双脚错前后。",
+      "body": [
+        "短发头部与插肩袖的肩带相称，颈肩衔接自然。",
+        "粉灰上衣与牛仔裤腰显示完整胸腰，骨盆保留厚度。",
+        "一手持肩带一手低搭，肘腕和手指连接自然。",
+        "微喇裤沿大腿至膝踝形成连续长线，运动鞋与脚踝尺度相称。",
+        "错步站立仍有承重支撑，衣料下的胸腰与双腿有体量。",
+        "裤装全身保持修长四肢和完整躯干；没有仅拉长裤脚代替腿段。"
+      ]
+    },
+    {
+      "hair": "高盘髻、露额和耳侧收净已落实，主发型与长发、马尾、双辫和短发区分；分缝仍接近中分，未充分呈现原计划的侧分。",
+      "expression": "直视镜头，闭唇有轻微不对称上提，眼睑较收，神态与露齿款和侧视款不同。",
+      "makeup": "深莓红缎面唇与清楚眉眼形成可见较浓重心，与其余较浅或暖唇明显区分。",
+      "action": "头部端正，双臂轻交叠于胸廓下方，双腿自然窄距站立。",
+      "body": [
+        "收净头发后完整头部与露肩关系协调，颈长保持自然。",
+        "黑色高领至高腰裤呈现完整胸廓、腰线和有厚度的骨盆。",
+        "交臂时双肘、前臂与露出的双手相称，未见肢段长度突变。",
+        "微喇裤下的大腿小腿连续修长，双鞋尺度与身体相称。",
+        "肩臂胸腰均保留软组织体量，窄距站立的双鞋稳定接地。",
+        "局部修发未改变头肩与全身尺度，黑高领和浅蓝裤仍形成协调修长轮廓。"
+      ]
+    }
+  ],
+  "set_status": "needs_revision",
+  "next_action": "保留现有五套候选；进一步解决指定脸侧收净、短刘海边界和短发分缝，妆面近景复核后再提交发布。",
+  "source_revision": "48c6a8ced3aec4f34b17c273b11cf52273a92795",
+  "source_changes": "uncommitted",
+  "installed_version": "0.18.0",
+  "release_performed": false,
+  "comparison_count": 40,
+  "uncertain_comparisons": [
+    {
+      "channel": "makeup",
+      "pair": [
+        "single-look1-v2",
+        "single-look3-v2"
+      ],
+      "evidence": "第1套：冷玫瑰豆沙唇比初稿更深，灰棕眼妆较收敛；全身图无法充分确认外眼线末端及哑光边界。 第3套：唇面为较浅粉玫瑰、面颊柔粉；与第一套眼妆的差异在全身尺寸仍不够确定。两套细部妆面的区别尚不充分，不标为已分化。"
+    },
+    {
+      "channel": "makeup",
+      "pair": [
+        "single-look1-v2",
+        "single-look4-v2"
+      ],
+      "evidence": "第1套：冷玫瑰豆沙唇比初稿更深，灰棕眼妆较收敛；全身图无法充分确认外眼线末端及哑光边界。 第4套：唇色偏暖陶土玫瑰，强度与第一套接近；哑光边缘和眼妆差异仍不足以完整确认。两套细部妆面的区别尚不充分，不标为已分化。"
+    },
+    {
+      "channel": "makeup",
+      "pair": [
+        "single-look3-v2",
+        "single-look4-v2"
+      ],
+      "evidence": "第3套：唇面为较浅粉玫瑰、面颊柔粉；与第一套眼妆的差异在全身尺寸仍不够确定。 第4套：唇色偏暖陶土玫瑰，强度与第一套接近；哑光边缘和眼妆差异仍不足以完整确认。两套细部妆面的区别尚不充分，不标为已分化。"
+    }
+  ],
+  "evidence_boundary": "真实文件摘要与冻结目标已回验；像素结论来自代理观察，不是自动视觉测量、用户接受或跨模型稳定性。原图与全部产物仅在本地。"
+}

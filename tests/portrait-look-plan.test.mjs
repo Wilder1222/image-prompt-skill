@@ -7,6 +7,65 @@ import {compileProductionPrompt,objectHash} from '../scripts/production-prompt.m
 
 const fixture = () => JSON.parse(fs.readFileSync(new URL('../examples/portrait-look-diversity-plan.json',import.meta.url),'utf8'));
 const ids = report => report.diagnostics.map(row => row.code);
+const actionFixture = () => {
+  const input=fixture();input.count=2;input.groups=[];input.looks=input.looks.slice(0,2);
+  input.variation_channels.push('action');
+  input.looks.forEach((look,index)=>{delete look.group;look.action={
+    head:'头部端正，视线平视，不左右歪头。',
+    torso:index?'躯干微侧，肩线自然舒展。':'躯干正对镜头，双肩平稳。',
+    hands:index?'一手轻扶领缘，另一臂放松下垂。':'两臂自然下垂，双手不入近景。',
+    support:'上身自然挺拔，画外腿脚不补造。'
+  };});return input;
+};
+
+test('an explicit new detail policy preserves essential targets and records discretionary design checks',()=>{
+  const input=actionFixture();
+  input.shared=[{channel:'action',text:'头部端正，保持本人的表观年龄。'}];
+  for(const look of input.looks)look.detail_policy={critical:['hair:outline','expression','makeup','action:head','action:hands'],reason:'用户要求可见的妆造差异；自拟分缝和腿脚侧别作为设计偏好。'};
+  const report=buildPortraitLookPlan(input),variant=report.variants[0];
+  assert.equal(report.status,'text_plan_ready');
+  for(const [suffix,priority]of [['hair:outline','must'],['hair:parting','prefer'],['action:hands','must'],['action:support','prefer']]){
+    const req=variant.brief.requirements.find(r=>r.id.endsWith(':'+suffix));assert.equal(req.priority,priority);
+    assert.equal(variant.brief.acceptance.find(c=>c.basis===req.id).critical,priority==='must');assert.ok(variant.prompt.includes(req.text));
+  }
+  assert.equal(variant.brief.requirements.find(r=>r.id.includes(':shared:')).priority,'must');
+  assert.deepEqual(variant.brief.metadata.portrait_look.detail_policy,input.looks[0].detail_policy);
+  const invalid=structuredClone(input);invalid.looks[0].detail_policy.critical=['hair:outline'];
+  assert.throws(()=>buildPortraitLookPlan(invalid),/every variation channel/);
+  invalid.looks[0].detail_policy.critical=['hair:made-up'];assert.throws(()=>buildPortraitLookPlan(invalid),/supported critical/);
+});
+
+test('pose differences become delivered prose and critical targets while upright heads may be shared',()=>{
+  const input=actionFixture(),before=structuredClone(input),report=buildPortraitLookPlan(input);
+  assert.equal(report.status,'text_plan_ready');assert.deepEqual(input,before);
+  for(const variant of report.variants)for(const field of ['head','torso','hands','support']){
+    const target=variant.brief.requirements.find(r=>r.id===`PL:${input.id}:${variant.id}:action:${field}`);
+    assert.equal(target.channel,'action');assert.ok(variant.prompt.includes(target.text));
+    assert.ok(variant.brief.acceptance.some(c=>c.basis===target.id&&c.critical));
+  }
+  input.looks[1].action={...input.looks[0].action,head:'仅改成向左歪头。'};
+  assert.ok(ids(buildPortraitLookPlan(input)).includes('repeated_body_action'));
+});
+
+test('pose-only revision preserves the complete hair, makeup and expression and rejects partial poses',()=>{
+  const input=actionFixture(),action={...input.looks[1].action,hands:'一手轻搭腰侧，另一手放松。'};
+  const {plan,report}=revisePortraitLookPlan(input,{look_id:input.looks[1].id,channels:['action'],updates:{action},reason:'区分上身与手部表演。'});
+  for(const key of ['hair','makeup','expression'])assert.deepEqual(plan.looks[1][key],input.looks[1][key]);
+  assert.deepEqual(plan.base_brief,input.base_brief);assert.equal(report.status,'text_plan_ready');
+  assert.match(report.variants[1].prompt,/一手轻搭腰侧/);
+  delete input.looks[1].action.support;assert.throws(()=>buildPortraitLookPlan(input),/action support/);
+});
+
+test('fixed base action remains valid for hair trials but must be resolved when action varies',()=>{
+  const input=fixture(),base=input.base_brief;
+  base.requirements.push({id:'fixed-pose',channel:'action',priority:'must',text:'肩部正对镜头，手臂自然下垂。'});
+  base.sections.push({label:'固定姿态',channel:'action',items:[{text:'肩部正对镜头，手臂自然下垂。',basis:['fixed-pose'],intent:'constraint'}]});
+  base.acceptance.push({id:'fixed-pose-check',basis:'fixed-pose',critical:true,question:'肩部与手臂是否保持指定姿态？'});
+  assert.equal(buildPortraitLookPlan(input).status,'text_plan_ready');
+  const varying=actionFixture();varying.base_brief=base;
+  assert.throws(()=>buildPortraitLookPlan(varying),/clean inherited/);
+  assert.throws(()=>revisePortraitLookPlan(input,{look_id:input.looks[0].id,channels:['action'],updates:{action:varying.looks[0].action},reason:'未获准姿势变化。'}),/authorized variation/);
+});
 
 test('expression repair carries the complete current hairstyle, makeup and fixed costume without an extra focus summary',()=>{
   const input=fixture(),before=structuredClone(input),look=input.looks[1];

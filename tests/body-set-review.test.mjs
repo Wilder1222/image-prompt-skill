@@ -6,7 +6,7 @@ import path from 'node:path';
 import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {bodyRegions,withBodyRegionChecks} from '../scripts/body-proportion-contract.mjs';
 import {compileProductionPrompt,promptHash,reviewProductionResult} from '../scripts/production-prompt.mjs';
-import {freezeProductionRun,finishProductionRun} from '../scripts/production-run.mjs';
+import {freezeProductionRun,finishProductionRun,verifyFrozenRun} from '../scripts/production-run.mjs';
 import {reviewBodyAssetSet} from '../scripts/body-set-review.mjs';
 
 const targets={head_shoulders:'成人头部与肩带相称，颈部自然舒展，不缩小脸部。',torso_pelvis:'完整胸廓、腰腹与骨盆连续有厚度，腰身自然收束。',arms:'上臂前臂成组协调，肘腕及手掌尺度相称。',legs:'大腿小腿修长匀称，膝踝与足自然衔接，不单段拉伸。',support:'承重侧有柔和肌肉与软组织支撑，放松侧自然舒展。',silhouette:'成年人物整体轻盈挺拔，适度美化为修长仙侠身形，保持现代衣装。'};
@@ -16,10 +16,11 @@ function setup(t){
   const parent=path.resolve(os.tmpdir()),dir=fs.mkdtempSync(path.join(parent,'body-review-'));
   t.after(()=>{if(path.dirname(path.resolve(dir))!==parent)throw new Error('unsafe cleanup');fs.rmSync(dir,{recursive:true,force:true});});
   const runs={};
-  function add(id,input=brief()){
-    const snapshot=freezeProductionRun(input,{run_id:id,case_id:id,cohort:'synthetic-contract-only',base_dir:dir});
+  function add(id,input=brief(),options={}){
+    const snapshot=freezeProductionRun(input,{run_id:id,case_id:id,cohort:'synthetic-contract-only',base_dir:dir,...options});
     const output=`${id}.png`;fs.writeFileSync(path.join(dir,output),Buffer.concat([Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64'),Buffer.from(id)]));
     const receipt={status:'completed',snapshot_sha256:snapshot.snapshot_sha256,target_sha256:snapshot.target_sha256,prompt_sha256:snapshot.prompt_sha256,output_image:output,output_sha256:promptHash(fs.readFileSync(path.join(dir,output))),inspected:true,reviewer:'synthetic test',checks:snapshot.target.acceptance.map(c=>({id:c.id,verdict:'pass',evidence:`合成${id} ${c.id}`, ...(c.body_region?{body_observation:observation(c.body_region,input.body_plan.figures.length>1?`${id}:${c.figure_id}`:id)}:{})}))};
+    if(snapshot.edit_scope)receipt.scope_review={verdict:'pass',change_evidence:'合成局部发型修改。',preservation_evidence:'合成身体保持检查。',preservation_checks:snapshot.edit_scope.preserve.map((_,index)=>({index,verdict:'pass',evidence:'合成保护项检查，不是实际视觉证据。'}))};
     const row={snapshot:`${id}.snapshot.json`,receipt:`${id}.receipt.json`};
     const save=()=>{fs.writeFileSync(path.join(dir,row.snapshot),JSON.stringify(snapshot));fs.writeFileSync(path.join(dir,row.receipt),JSON.stringify(receipt));};save();
     return runs[id]={id,input,snapshot,receipt,row,save};
@@ -153,4 +154,36 @@ test('declared body baseline must itself be the reviewed common image, not anoth
   b.references.push({...structuredClone(b.references[0]),id:'other',source:'a.png',facts:[{id:'other:fact',channel:'proportion',visibility:'visible',text:'另一个合成比例来源。'}]});
   b.body_plan.baseline_reference_id='other';const run=s.add('wrong-baseline',b);
   s.input.members[0]={id:'a',...run.row};assert.throws(s.review,/actually receive/);
+});
+
+test('an approved body benchmark must be dispatched and retain its explicit full-body locator',t=>{
+  const s=setup(t),input=withCharacterGoals({subject_kind:'character',request:'按用户认可的比例建立新身体。',references:[{id:'approved',source:'baseline.png',inspected:true,generation_input:true,authority:['proportion'],facts:[{id:'approved:body',channel:'proportion',visibility:'visible',text:'合成来源中的右侧正面全身，非实际审美证据。'}]}],unresolved:[],requirements:[],sections:[],acceptance:[]},{ageStage:'adult'});
+  const b=withBodyRegionChecks(input,{targets,benchmark:{reference_id:'approved',locator:'图一右侧正面全身'}});
+  const snap=freezeProductionRun(b,{run_id:'benchmark-bound',case_id:'approved-body',cohort:'synthetic-contract-only',base_dir:s.dir});
+  assert.equal(snap.target.body_plan.benchmark.locator,'图一右侧正面全身');
+  assert.deepEqual(verifyFrozenRun(snap).referenced_image_paths,[path.join(s.dir,'baseline.png')]);
+  for(const change of [x=>{x.references[0].generation_input=false;},x=>{x.references[0].authority=['costume'];},x=>{x.body_plan.benchmark.locator='';},x=>{x.acceptance=x.acceptance.filter(c=>c.basis!=='BODY:benchmark');}]){
+    const invalid=structuredClone(b);change(invalid);assert.throws(()=>compileProductionPrompt(invalid),/body benchmark/);
+  }
+  const altered=structuredClone(snap);altered.target.body_plan.benchmark.locator='左侧放大肖像';
+  assert.throws(()=>verifyFrozenRun(altered),/snapshot changed/);
+});
+
+test('a current-only scoped edit may prove its body source through a fully reviewed parent chain',t=>{
+  const s=setup(t),a=s.runs.a,b=structuredClone(a.input);
+  b.references[0].source='a.png';b.body_plan.baseline_reference_id='body-base';
+  b.edit_scope={baseline_reference_id:'body-base',changes:['只修前发'],preserve:['保持当前完整身体和衣装']};
+  const edit=s.add('a-edit',b,{kind:'edit',parent:a.snapshot,case_id:a.snapshot.case_id});
+  s.input.members[0]={id:'a',...edit.row};s.input.comparisons[0].run_id=edit.id;s.input.reviewed_parents=[a.row];
+  let result=s.review();assert.equal(result.status,'reviewer_qualified');assert.equal(result.members[0].proportion_source.kind,'reviewed_parent');
+  assert.equal(result.members[0].proportion_source.upstream.kind,'direct');
+  const hairId=a.snapshot.target.acceptance.find(c=>a.snapshot.target.requirements.find(r=>r.id===c.basis)?.channel==='hair').id;
+  a.receipt.checks.find(c=>c.id===hairId).verdict='fail';a.save();
+  assert.equal(s.review().status,'reviewer_qualified','parent hair failure does not erase completed body evidence');
+  s.input.rejections=[{run_id:a.id,evidence:'用户否定这个父图的身材。'}];assert.equal(s.review().status,'needs_revision');s.input.rejections=[];
+  s.input.reviewed_parents=[];assert.throws(s.review,/verified reviewed parent/);
+  s.input.reviewed_parents=[a.row];a.receipt.checks.find(c=>c.id==='BODY:legs:check').verdict='uncertain';a.save();
+  assert.throws(s.review,/passing body/);
+  a.receipt.checks.find(c=>c.id==='BODY:legs:check').verdict='pass';a.save();
+  edit.receipt.scope_review.verdict='uncertain';edit.save();assert.throws(s.review,/scoped preservation/);
 });

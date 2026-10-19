@@ -5,7 +5,7 @@ import {finishProductionRun,objectHash} from './production-run.mjs';
 
 const nonempty=x=>typeof x==='string'&&x.trim().length>0;
 const plain=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
-const channels=['hair','makeup','expression'];
+const channels=['hair','makeup','expression','action'];
 function fields(row,keys,label){if(!plain(row)||Object.keys(row).some(key=>!keys.includes(key)))throw new Error(`unsupported ${label} fields`);}
 function text(value,label){if(!nonempty(value))throw new Error(`missing ${label}`);}
 function unique(rows,label){if(new Set(rows).size!==rows.length)throw new Error(`duplicate ${label}`);}
@@ -39,6 +39,12 @@ export function reviewPortraitLookSet(input,{base_dir=process.cwd()}={}){
     fields(row,['look_id','run_id','reason','role'],'selected look');text(row.reason,'selection reason');
     const run=runs.get(row.run_id);
     if(!run||run.look_id!==row.look_id)throw new Error('selection must bind the matching look and run');
+    for(const channel of input.variation_channels){
+      const prefix=`PL:${input.plan_id}:${row.look_id}:${channel}`;
+      const targets=run.snapshot.target.requirements.filter(r=>r.channel===channel&&r.priority==='must'&&(r.id===prefix||r.id.startsWith(`${prefix}:`)));
+      if(!targets.length||targets.some(r=>!run.snapshot.target.acceptance.some(c=>c.basis===r.id&&c.critical)))
+        throw new Error(`requested variation channel ${channel} needs a frozen per-look target and critical check`);
+    }
     if(!['candidate','deliverable'].includes(row.role))throw new Error('selection needs candidate or deliverable role');
     if(row.role==='deliverable'&&run.outcome.status!=='reviewer_qualified')throw new Error('unqualified image cannot be selected as a deliverable');
     selected.push({...row,status:run.outcome.status,output_sha256:run.outcome.output_sha256});

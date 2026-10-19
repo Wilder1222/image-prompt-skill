@@ -6,13 +6,13 @@ export const bodyRegions=Object.freeze({
 const text=x=>typeof x==='string'&&x.trim().length>0;
 export const normalizeBodyEvidence=x=>x.normalize('NFKC').replace(/[\s\p{P}]+/gu,'').toLowerCase();
 
-export function withBodyRegionChecks(input,{targets,figures=[{id:'subject',view:'front',locator:'单人完整全身'}],baselineReferenceId}={}){
+export function withBodyRegionChecks(input,{targets,figures=[{id:'subject',view:'front',locator:'单人完整全身'}],baselineReferenceId,benchmark}={}){
   if(input?.subject_kind!=='character'||input.edit_scope)throw new Error('body design needs a new character target, not a narrow edit');
   if(!targets||Object.keys(targets).length!==Object.keys(bodyRegions).length||Object.keys(bodyRegions).some(key=>!text(targets[key])))throw new Error('author all six body region targets');
   if(!Array.isArray(figures)||!figures.length||figures.some(f=>!f||typeof f!=='object'))throw new Error('full-body plan needs unique figures with id, view and distinct visible locator');
   const next=structuredClone(input);
   if(next.body_plan!==undefined)throw new Error('body plan already exists; revise the complete body target explicitly');
-  next.body_plan={framing:'full_body',figures:structuredClone(figures),...(baselineReferenceId?{baseline_reference_id:baselineReferenceId}:{})};
+  next.body_plan={framing:'full_body',figures:structuredClone(figures),...(baselineReferenceId?{baseline_reference_id:baselineReferenceId}:{}),...(benchmark!==undefined?{benchmark:structuredClone(benchmark)}:{})};
   if(next.acceptance.some(c=>c.body_region!==undefined)||next.requirements.some(r=>r.id.startsWith('BODY:')))throw new Error('body region plan already exists');
   const items=[];
   for(const [region,label]of Object.entries(bodyRegions)){
@@ -24,6 +24,12 @@ export function withBodyRegionChecks(input,{targets,figures=[{id:'subject',view:
   }
   if(next.sections.some(s=>s.label==='身体方案'))throw new Error('body section already exists');
   next.sections.push({label:'身体方案',channel:'proportion',items});
+  if(benchmark!==undefined){
+    const comparison=`以${benchmark?.locator}为本轮比例标杆，比较其可见头肩、完整上身、四肢及体量关系；人物身份和当前衣装按各自设计。`;
+    next.requirements.push({id:'BODY:benchmark',channel:'proportion',priority:'must',text:comparison});
+    next.sections.push({label:'比例来源',channel:'proportion',items:[{text:comparison,basis:['BODY:benchmark'],intent:'constraint'}]});
+    next.acceptance.push({id:'BODY:benchmark:check',basis:'BODY:benchmark',critical:true,question:'实际成片的可见身体关系是否对齐指定标杆？分开比较头肩、躯干与肢段，保留遮挡未知；参考已传入不等于比例已执行。'});
+  }
   const layout=`画面内需分别检查的全身人物共${figures.length}个：${figures.map(f=>f.locator).join('；')}。每个人物分别遵守共同身体方案，不能用其中一人代替其余人物。`;
   next.requirements.push({id:'BODY:layout',channel:'composition',priority:'must',text:layout});
   next.sections.push({label:'全身人物范围',channel:'composition',items:[{text:layout,basis:['BODY:layout'],intent:'constraint'}]});
@@ -36,13 +42,24 @@ export function assertBodyCriteria(input){
   const criteria=(input.acceptance??[]).filter(c=>c.body_region!==undefined);
   const plan=input.body_plan;
   if(plan!==undefined){
-    if(!plan||typeof plan!=='object'||Array.isArray(plan)||Object.keys(plan).some(k=>!['framing','figures','baseline_reference_id'].includes(k))||plan.framing!=='full_body'||
+    if(!plan||typeof plan!=='object'||Array.isArray(plan)||Object.keys(plan).some(k=>!['framing','figures','baseline_reference_id','benchmark'].includes(k))||plan.framing!=='full_body'||
       !Array.isArray(plan.figures)||!plan.figures.length||plan.figures.some(f=>!f||Object.keys(f).some(k=>!['id','view','locator'].includes(k))||!text(f.id)||!['front','side','back','three_quarter'].includes(f.view)||!text(f.locator))||
       new Set(plan.figures.map(f=>f.id)).size!==plan.figures.length||new Set(plan.figures.map(f=>normalizeBodyEvidence(f.locator))).size!==plan.figures.length)
       throw new Error('full-body plan needs unique figures with id, view and distinct visible locator');
     if(plan.baseline_reference_id!==undefined){
       const ref=(input.references??[]).find(r=>r.id===plan.baseline_reference_id);
       if(!text(plan.baseline_reference_id)||!ref||ref.generation_input!==true||!ref.authority?.includes('proportion'))throw new Error('derived full-body plan needs an actual proportion baseline reference');
+    }
+    if(plan.benchmark!==undefined){
+      const benchmark=plan.benchmark;
+      if(!benchmark||typeof benchmark!=='object'||Array.isArray(benchmark)||Object.keys(benchmark).some(k=>!['reference_id','locator'].includes(k))||!text(benchmark.reference_id)||!text(benchmark.locator))
+        throw new Error('body benchmark needs a reference_id and an explicit full-body locator');
+      const ref=(input.references??[]).find(r=>r.id===benchmark.reference_id);
+      if(!ref||ref.inspected!==true||ref.generation_input!==true||!ref.authority?.includes('proportion'))
+        throw new Error('body benchmark must be an inspected actual proportion input, not an observation-only source');
+      const requirement=input.requirements?.find(r=>r.id==='BODY:benchmark');
+      if(requirement?.channel!=='proportion'||requirement.priority!=='must'||!(input.acceptance??[]).some(c=>c.basis==='BODY:benchmark'&&c.critical===true&&c.figure_id===undefined))
+        throw new Error('body benchmark needs a critical must proportion comparison');
     }
     if(criteria.some(c=>!plan.figures.some(f=>f.id===c.figure_id)))throw new Error('body criterion must bind a declared figure');
     for(const c of input.acceptance??[])if(c.figure_id!==undefined&&!plan.figures.some(f=>f.id===c.figure_id))throw new Error('criterion uses unknown figure');

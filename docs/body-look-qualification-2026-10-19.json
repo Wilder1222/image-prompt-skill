@@ -1,0 +1,412 @@
+{
+  "schema": 1,
+  "date": "2026-10-19",
+  "scope": "body proportions, complete look differences and slight even face lighting",
+  "provider": "built-in image_gen",
+  "actual_calls": 14,
+  "selected": [
+    "sport-soft-v2",
+    "city-tailored",
+    "costume-final"
+  ],
+  "user_acceptance": null,
+  "look_set_status": "reviewer_qualified",
+  "body_set_status": "reviewer_qualified",
+  "comparisons": 12,
+  "criteria_policy": {
+    "plan_id": "user-body-look-qualification-20261019",
+    "frozen_before_new_generations": true,
+    "critical": [
+      "hair:outline",
+      "expression",
+      "makeup",
+      "action:head",
+      "action:hands"
+    ],
+    "other_design_details": "prefer; inspected and uncertainty retained",
+    "old_failures_unchanged": true
+  },
+  "user_feedback": {
+    "quote": "为什么脸部灯光怪怪的，感觉不均匀",
+    "scope": [
+      "lighting"
+    ],
+    "source": "sport-final.png",
+    "source_sha256": "93f6367f1bb9d55dd0f0b9eed3fc068e8b484183a784a2d755bcccfe1287ac7c",
+    "selected_revision": "sport-soft-v2",
+    "user_acceptance_of_revision": null,
+    "additional_quote": "我希望略微带一些柔光，面部均匀光线"
+  },
+  "runs": [
+    {
+      "run_id": "city-clean",
+      "snapshot_sha256": "74b4d7b7e0d560ab6e3e26104be08e9b3297ac627cf503d1018686d7a4013690",
+      "prompt_sha256": "9c3e29e5b8eb1e58fa170172ff7498f8a3bda6a1fee1f1b5bd260def84f92d46",
+      "output_sha256": "ea8c58b538c5b6da0b979f68771f491a924126b11b1360f1d27a00ece189688b",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "f6fb62fb8e4f04564c391b41ba770a163844ef75d9a8a1eb4ee6f0d88d8be941"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "costume:check",
+        "__edit_scope__"
+      ],
+      "unresolved": []
+    },
+    {
+      "run_id": "city-final",
+      "snapshot_sha256": "bc88d57976ee5e9e8093ec60d6107cebc18245bb608a23af49fe5a419d0ef70e",
+      "prompt_sha256": "d1d2f7588e526c29128715751540a80d70fd1f1d5464e9f36e7656c3dc1fa69a",
+      "output_sha256": "1559a6ee73471d784d2bd37802ebaa71e06205306758f8502a0ea5a1beda0894",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "f6fb62fb8e4f04564c391b41ba770a163844ef75d9a8a1eb4ee6f0d88d8be941"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "__edit_scope__"
+      ],
+      "unresolved": []
+    },
+    {
+      "run_id": "city-tailored",
+      "snapshot_sha256": "c0fd68d00ab6f31739c41f80620bb7368c7c0727b3eddd398692ef4f4aee2829",
+      "prompt_sha256": "10c0853e0cd8b403e1af82e0aaf6fd997d541be855d88e2a8761ec4467bd636e",
+      "output_sha256": "6f012e3dc610374db1910e7f1bfaf14879f9b30b401b7105e553cb243c147de3",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "f6fb62fb8e4f04564c391b41ba770a163844ef75d9a8a1eb4ee6f0d88d8be941"
+        }
+      ],
+      "status": "reviewer_qualified",
+      "critical_failures": [],
+      "unresolved": []
+    },
+    {
+      "run_id": "city-v1",
+      "snapshot_sha256": "1d8aaeaa0d39b7be227a598bc322fa4c549afd6bb1eb6d30079e2da399f8925e",
+      "prompt_sha256": "b1ff7e046ae32c33ccc57e866e33034eb267b64308260345924107acaa9845de",
+      "output_sha256": "f840d76c7c099846e8b739a6b4a7ae264d7d293dfb18fb5b76cf2c898138dbb7",
+      "actual_inputs": [
+        {
+          "id": "body",
+          "content_sha256": "a5d558b779e3e7a6c9bb2a6c6bca3fdaec7ac694d8d9e253eb6412adf62847ec"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:proportion-primary-looks-20261019:city:hair:parting:check",
+        "PL:proportion-primary-looks-20261019:city:hair:fringe:check",
+        "PL:proportion-primary-looks-20261019:city:expression:check",
+        "PL:proportion-primary-looks-20261019:city:makeup:check",
+        "PL:proportion-primary-looks-20261019:city:action:hands:check"
+      ],
+      "unresolved": [
+        "PL:proportion-primary-looks-20261019:city:action:torso:check",
+        "PL:proportion-primary-looks-20261019:city:action:support:check"
+      ]
+    },
+    {
+      "run_id": "city-v2",
+      "snapshot_sha256": "016ae773a4d849b65016d60ca1807552242415270e17da6740406a95aec5e567",
+      "prompt_sha256": "7740992572e55317e7171f66ca6fc81ddfad5eb4668147f1c513d65542cef289",
+      "output_sha256": "f6fb62fb8e4f04564c391b41ba770a163844ef75d9a8a1eb4ee6f0d88d8be941",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "f840d76c7c099846e8b739a6b4a7ae264d7d293dfb18fb5b76cf2c898138dbb7"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:proportion-primary-looks-20261019:city:action:hands:check"
+      ],
+      "unresolved": [
+        "PL:proportion-primary-looks-20261019:city:action:torso:check",
+        "PL:proportion-primary-looks-20261019:city:action:support:check"
+      ]
+    },
+    {
+      "run_id": "costume-final",
+      "snapshot_sha256": "25da1e90226e70c5b8cbbb3d51493f6e679bb52141fad21926ad679d1dc20308",
+      "prompt_sha256": "8872f37aa34730b8f50466bd9741de5f2e96aed217ef2f9444b7cfcb89c7119f",
+      "output_sha256": "c0796ed170cd0e116c6c77f3ffa74e3b4ac313a4ea95a47ef39eb8695f5741f0",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "5a98c7d27967719968bd6689621796ead895bb35f08d46b9cbd65302123e1f8c"
+        }
+      ],
+      "status": "reviewer_qualified",
+      "critical_failures": [],
+      "unresolved": []
+    },
+    {
+      "run_id": "costume-v1",
+      "snapshot_sha256": "36302a9dc2895e109444f25a305e3e985a12c782254b310ec74f56a59488cd30",
+      "prompt_sha256": "799804b3538e0f11c6cceab0ca2eca6185c0f82345db56a4ee15603465059961",
+      "output_sha256": "77be153961d67083239a73a367aff3d4b7c923c257189bf1e997ca71cffd4022",
+      "actual_inputs": [
+        {
+          "id": "body",
+          "content_sha256": "a5d558b779e3e7a6c9bb2a6c6bca3fdaec7ac694d8d9e253eb6412adf62847ec"
+        },
+        {
+          "id": "costume-body",
+          "content_sha256": "1bda04ad5f9db4d54e483eceb41e9664bd65919e305368177f2587f9f5e93d3b"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:proportion-primary-looks-20261019:costume:expression:check",
+        "PL:proportion-primary-looks-20261019:costume:makeup:check"
+      ],
+      "unresolved": [
+        "PL:proportion-primary-looks-20261019:costume:hair:parting:check",
+        "PL:proportion-primary-looks-20261019:costume:hair:temples:check",
+        "PL:proportion-primary-looks-20261019:costume:hair:check"
+      ]
+    },
+    {
+      "run_id": "costume-v2",
+      "snapshot_sha256": "8ebe8fbd68c4ecf6b8a8cae42c20647a39c3ae9b51852b937508c9831c1e443a",
+      "prompt_sha256": "f6e9bfd46a29b7daf255ec0d4cd7db926d431205103c0d36a941035af4bc9dfe",
+      "output_sha256": "5a98c7d27967719968bd6689621796ead895bb35f08d46b9cbd65302123e1f8c",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "77be153961d67083239a73a367aff3d4b7c923c257189bf1e997ca71cffd4022"
+        }
+      ],
+      "status": "needs_review",
+      "critical_failures": [],
+      "unresolved": [
+        "PL:proportion-primary-looks-20261019:costume:hair:parting:check",
+        "PL:proportion-primary-looks-20261019:costume:hair:temples:check",
+        "PL:proportion-primary-looks-20261019:costume:hair:check"
+      ]
+    },
+    {
+      "run_id": "sport-final",
+      "snapshot_sha256": "a7d010dc8a67932b6893af656513e28cfec358c5f807637198e569da1731685a",
+      "prompt_sha256": "b1e82e7b681ecd091d9641fb61c741830919a33b7a77072663696292d549f4b7",
+      "output_sha256": "93f6367f1bb9d55dd0f0b9eed3fc068e8b484183a784a2d755bcccfe1287ac7c",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "a5d558b779e3e7a6c9bb2a6c6bca3fdaec7ac694d8d9e253eb6412adf62847ec"
+        }
+      ],
+      "status": "reviewer_qualified",
+      "critical_failures": [],
+      "unresolved": []
+    },
+    {
+      "run_id": "sport-light-v1",
+      "snapshot_sha256": "4deb142f1b366a056cf03fde0d484288762f0b344d382864d8d174ed8348490d",
+      "prompt_sha256": "7e179675d550e3e1d0a74be4a0bd4db2a583492b406bf274013c7cb7128bb786",
+      "output_sha256": "6f4b6751e994f01a8d2409f41b808fedd57c25548b89c5078044876e09653ca9",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "93f6367f1bb9d55dd0f0b9eed3fc068e8b484183a784a2d755bcccfe1287ac7c"
+        }
+      ],
+      "status": "reviewer_qualified",
+      "critical_failures": [],
+      "unresolved": []
+    },
+    {
+      "run_id": "sport-v1",
+      "snapshot_sha256": "0f1956dc7836b414fe4ac8196d90eb7e6b6146f7f4bdb80f3bd1c2c398c00202",
+      "prompt_sha256": "152263923fd2bd6a4c83392c8eb5e80742a2c16f4280326e58349d8c92ec3465",
+      "output_sha256": "23ce31fb20c682ebf18b76b13804d9359db94c27396b255efb7f653b064c6ede",
+      "actual_inputs": [
+        {
+          "id": "identity",
+          "content_sha256": "0ddb4b28bbed7404d37ffb6d4e4d574381cbb8db4b235e6f9893bb5ec93df44f"
+        },
+        {
+          "id": "body-source",
+          "content_sha256": "2ef1b28997d221d831af3f1e7acdb7f09228fcf136e085719bc2d6cec79e7e6f"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:proportion-primary-looks-20261019:sport:hair:parting:check",
+        "PL:proportion-primary-looks-20261019:sport:hair:fringe:check",
+        "PL:proportion-primary-looks-20261019:sport:hair:temples:check",
+        "PL:proportion-primary-looks-20261019:sport:hair:outline:check",
+        "PL:proportion-primary-looks-20261019:sport:hair:check",
+        "PL:proportion-primary-looks-20261019:sport:action:head:check"
+      ],
+      "unresolved": []
+    },
+    {
+      "run_id": "sport-v2",
+      "snapshot_sha256": "9b1ccffa8ee6fd1c3c839bb4d5b90bdf15151b85a08503fcc92651ce6bcce0f5",
+      "prompt_sha256": "85e4d8624b020060a82163720f819e71c6a07e3399c2da165864ba6d11139972",
+      "output_sha256": "8a192f0d4945764b026276ac82201ba9468a88068a028f839a6f27edc48d6508",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "23ce31fb20c682ebf18b76b13804d9359db94c27396b255efb7f653b064c6ede"
+        }
+      ],
+      "status": "needs_revision",
+      "critical_failures": [
+        "PL:proportion-primary-looks-20261019:sport:hair:fringe:check",
+        "PL:proportion-primary-looks-20261019:sport:hair:temples:check"
+      ],
+      "unresolved": []
+    },
+    {
+      "run_id": "sport-v3",
+      "snapshot_sha256": "39dced4efd99c4cf3f520a299a9f372feb381777e57992333eba9e82ab4f7d01",
+      "prompt_sha256": "520b17a076a6992542d1c2dbfdbbedfab64a0379045af5a79ea7ddfd7c99e951",
+      "output_sha256": "a5d558b779e3e7a6c9bb2a6c6bca3fdaec7ac694d8d9e253eb6412adf62847ec",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "8a192f0d4945764b026276ac82201ba9468a88068a028f839a6f27edc48d6508"
+        }
+      ],
+      "status": "reviewer_qualified",
+      "critical_failures": [],
+      "unresolved": []
+    },
+    {
+      "run_id": "sport-soft-v2",
+      "snapshot_sha256": "da9afea9438cb6d2785d67097f79aa4f879e74eb31d8a477d4120f491bac2448",
+      "prompt_sha256": "2e876d3cfed5c44268ee597344cd1eb2fc6d2914157bf335c29e2a2e1a1ac5b8",
+      "output_sha256": "9b60212aebe2dcbfc32268fbdf0174382d32493ddfef675993ab6561bdbadc5e",
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "6f4b6751e994f01a8d2409f41b808fedd57c25548b89c5078044876e09653ca9"
+        }
+      ],
+      "status": "reviewer_qualified",
+      "critical_failures": [],
+      "unresolved": []
+    }
+  ],
+  "noncritical_unknowns": [
+    {
+      "run_id": "sport-soft-v2",
+      "checks": []
+    },
+    {
+      "run_id": "city-tailored",
+      "checks": []
+    },
+    {
+      "run_id": "costume-final",
+      "checks": [
+        {
+          "id": "PL:user-body-look-qualification-20261019:costume:hair:parting:check",
+          "verdict": "uncertain",
+          "evidence": "额部与眉眼清楚，盘髻和沿背披落的余发、髻侧花饰可辨；细小编辫节段在全身尺寸下不完全可判。 对指定细小编节保持未决，不虚构全身图未看清的结构。"
+        },
+        {
+          "id": "PL:user-body-look-qualification-20261019:costume:hair:temples:check",
+          "verdict": "uncertain",
+          "evidence": "额部与眉眼清楚，盘髻和沿背披落的余发、髻侧花饰可辨；细小编辫节段在全身尺寸下不完全可判。 对指定细小编节保持未决，不虚构全身图未看清的结构。"
+        },
+        {
+          "id": "PL:user-body-look-qualification-20261019:costume:hair:check",
+          "verdict": "uncertain",
+          "evidence": "额部与眉眼清楚，盘髻和沿背披落的余发、髻侧花饰可辨；细小编辫节段在全身尺寸下不完全可判。 对指定细小编节保持未决，不虚构全身图未看清的结构。"
+        }
+      ]
+    }
+  ],
+  "proportion_lineage": [
+    {
+      "id": "sport",
+      "run_id": "sport-soft-v2",
+      "output_sha256": "9b60212aebe2dcbfc32268fbdf0174382d32493ddfef675993ab6561bdbadc5e",
+      "proportion_source": {
+        "kind": "reviewed_parent",
+        "input_reference_id": "current",
+        "parent_run_id": "sport-light-v1",
+        "parent_snapshot_sha256": "4deb142f1b366a056cf03fde0d484288762f0b344d382864d8d174ed8348490d",
+        "parent_output_sha256": "6f4b6751e994f01a8d2409f41b808fedd57c25548b89c5078044876e09653ca9",
+        "upstream": {
+          "kind": "reviewed_parent",
+          "input_reference_id": "current",
+          "parent_run_id": "sport-final",
+          "parent_snapshot_sha256": "a7d010dc8a67932b6893af656513e28cfec358c5f807637198e569da1731685a",
+          "parent_output_sha256": "93f6367f1bb9d55dd0f0b9eed3fc068e8b484183a784a2d755bcccfe1287ac7c",
+          "upstream": {
+            "kind": "direct",
+            "input_reference_id": "current",
+            "baseline_sha256": "a5d558b779e3e7a6c9bb2a6c6bca3fdaec7ac694d8d9e253eb6412adf62847ec"
+          }
+        }
+      }
+    },
+    {
+      "id": "city",
+      "run_id": "city-tailored",
+      "output_sha256": "6f012e3dc610374db1910e7f1bfaf14879f9b30b401b7105e553cb243c147de3",
+      "proportion_source": {
+        "kind": "reviewed_parent",
+        "input_reference_id": "current",
+        "parent_run_id": "city-v2",
+        "parent_snapshot_sha256": "016ae773a4d849b65016d60ca1807552242415270e17da6740406a95aec5e567",
+        "parent_output_sha256": "f6fb62fb8e4f04564c391b41ba770a163844ef75d9a8a1eb4ee6f0d88d8be941",
+        "upstream": {
+          "kind": "reviewed_parent",
+          "input_reference_id": "current",
+          "parent_run_id": "city-v1",
+          "parent_snapshot_sha256": "1d8aaeaa0d39b7be227a598bc322fa4c549afd6bb1eb6d30079e2da399f8925e",
+          "parent_output_sha256": "f840d76c7c099846e8b739a6b4a7ae264d7d293dfb18fb5b76cf2c898138dbb7",
+          "upstream": {
+            "kind": "direct",
+            "input_reference_id": "body",
+            "baseline_sha256": "a5d558b779e3e7a6c9bb2a6c6bca3fdaec7ac694d8d9e253eb6412adf62847ec"
+          }
+        }
+      }
+    },
+    {
+      "id": "costume",
+      "run_id": "costume-final",
+      "output_sha256": "c0796ed170cd0e116c6c77f3ffa74e3b4ac313a4ea95a47ef39eb8695f5741f0",
+      "proportion_source": {
+        "kind": "reviewed_parent",
+        "input_reference_id": "current",
+        "parent_run_id": "costume-v2",
+        "parent_snapshot_sha256": "8ebe8fbd68c4ecf6b8a8cae42c20647a39c3ae9b51852b937508c9831c1e443a",
+        "parent_output_sha256": "5a98c7d27967719968bd6689621796ead895bb35f08d46b9cbd65302123e1f8c",
+        "upstream": {
+          "kind": "reviewed_parent",
+          "input_reference_id": "current",
+          "parent_run_id": "costume-v1",
+          "parent_snapshot_sha256": "36302a9dc2895e109444f25a305e3e985a12c782254b310ec74f56a59488cd30",
+          "parent_output_sha256": "77be153961d67083239a73a367aff3d4b7c923c257189bf1e997ca71cffd4022",
+          "upstream": {
+            "kind": "direct",
+            "input_reference_id": "body",
+            "baseline_sha256": "a5d558b779e3e7a6c9bb2a6c6bca3fdaec7ac694d8d9e253eb6412adf62847ec"
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "No user acceptance of these generated images",
+    "Hidden joints and exact leg lengths under long garments remain unknown",
+    "Ancient fine braid segments remain noncritical and unresolved",
+    "Cloth microtexture may vary during generative edits",
+    "Three selected images from one provider are not a stability benchmark"
+  ],
+  "raw_assets_distributed": false
+}

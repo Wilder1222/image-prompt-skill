@@ -35,12 +35,12 @@ description: 将文字描述与可选参考图转为任务专属的中文分类�
 | 妆肤、发型、表情与生命感 | [妆肤](references/core/makeup-skin-integration-v2.md)按可见部位写色彩、范围、过渡与光泽；[发型与发丝](references/core/hair-frequency-variation-v2.md)用于自然层次和资产面部可读性；[身份与表情](references/core/identity-vs-temperament-diagnostics.md)、[动作](references/core/action-direction.md)按问题选读 |
 | 换装、复杂衣装与适度再设计 | [人物与衣装资产](references/routes/character-asset-pipeline.md)、[标杆与服装](references/routes/benchmark-costume-refinement.md) |
 | 多视角、表情组与同人物资产包 | [同人物成组验收](references/routes/character-consistency-assets.md) |
-| 多套肖像、发型试款与同人物不同造型 | [多造型与发型差异化](references/routes/portrait-look-variation.md)，区分身份与原图呈现，设计脸前结构、妆面和表演；修订继承当前完整造型，按实际图片复核差异及回退 |
+| 多套肖像、发型试款与同人物不同造型 | [多造型与发型差异化](references/routes/portrait-look-variation.md)，区分身份与原图呈现，分别设计姿势、脸前结构、妆面和表演；修订继承当前完整造型，按实际图片复核差异及回退 |
 | 白底棚光的定妆肖像、全身及三视图参考卡 | [白底参考卡](references/routes/white-background-reference-cards.md)、[定妆取景](references/core/character-framing.md)、[比例选择](references/core/fashion-proportion-system.md)，柔光与清晰度分别表达，逐视角核对本人、原妆与可见比例，成组保持共同身体尺度 |
 | 独立场景、人物入景与换背景 | [背景与空间协调](references/core/background-direction.md) |
 | 商品、包装、品牌外观与广告 | [产品设计与保持](references/routes/product-design.md) |
 | 招牌、海报、标签及准确文字 | [文字与排版](references/routes/text-layout.md)；含商品时同时读产品路线 |
-| 用户提供视觉偏好、分类管理参考、满意标杆或否定旧审美 | [分类偏好库](references/routes/visual-preference-library.md)、[用户审美标杆](references/routes/user-aesthetic-benchmarks.md)，按用途及借鉴维度选择，不将整图变成共同默认 |
+| 用户提供视觉偏好、分类管理参考、满意标杆或否定旧审美 | [分类偏好库](references/routes/visual-preference-library.md)、[用户审美标杆](references/routes/user-aesthetic-benchmarks.md)；明确认可身材比例时进入[比例正例校准](references/routes/user-approved-body-calibration.md)，按可见关系选主图，不将整图变成共同默认 |
 | 多参考分工、旧风格融合 | [来源权限](references/core/reference-authority-matrix-v080.md)、[风格融合](references/routes/style-target-fusion-pipeline-v080.md) |
 | 实图评审与迭代 | [视觉验收](references/core/visual-acceptance.md)、[候选对照](references/routes/character-candidate-comparison.md)，非人物只采用适用维度 |
 | 模型设置、生成记录与标签修订 | [模型指南](references/providers/text-to-image-models.md)、[执行契约](references/routes/production-execution.md) |
@@ -57,13 +57,13 @@ description: 将文字描述与可选参考图转为任务专属的中文分类�
 
 面容、妆肤、发型、表情、身体动作和衣装材料分别设计，保持身份、年龄及指定媒介。先建立协调且有吸引力的面容、完成的妆肤呈现与明确神态，再用适量纹理和可信受光支持美感。审美示例提供表现方法，每个人物独立保留脸型、眉眼、鼻唇与软组织辨识点；提高精致度不统一成同一张脸。蓝衣长发及[本轮满意图](references/routes/user-aesthetic-benchmarks.md)是审美示例，其年龄、肤色、发型、妆量与具体神态不成为通用默认。真实感服务美感与生命感，不靠粗糙毛孔、统一笑容或满屏飞发。动作支持站、坐、行走、舞蹈和腾空，选定明确阶段并检查支撑、接触与衣料响应，不强制双脚接地或十指展开。
 
-人物资产的发型与发丝按 [自然层次与面部可读性](references/core/hair-frequency-variation-v2.md) 写入正文：发根走向、发束粗细疏密、自然垂坠与发梢收束共同建立生命感，避免贴头皮假发感、整片胶结和等距亮丝。肖像、定妆、三视图、四视图及其他人物资产默认禁止过多碎发遮挡面容，眉眼、鼻口与关键辨识点应清楚；少量细发优先留在鬓角和轮廓边缘，不用跨脸乱发制造自然感。只有用户明确要求遮脸、特定刘海或严格复刻该遮挡时才按指定范围例外，参考图带有遮脸碎发或泛称氛围感不构成例外。成组沿用同一主要发型，各视角检查实际可见区域；此默认不授权改动局部编辑中已锁定的发型。
+人物资产的发型与发丝按 [自然层次与面部可读性](references/core/hair-frequency-variation-v2.md) 写入正文：发根走向、发束粗细疏密、自然垂坠与发梢收束共同建立生命感，避免贴头皮假发感、整片胶结和等距亮丝。肖像、定妆、三视图、四视图及其他人物资产默认禁止过多碎发遮挡面容，眉眼、鼻口与关键辨识点应清楚；少量细发优先留在鬓角和轮廓边缘，不用跨脸乱发制造自然感。只有用户明确要求遮脸、特定刘海或严格复刻该遮挡时才按指定范围例外，参考图带有遮脸碎发或泛称氛围感不构成例外。同一套造型的多视角沿用同一主要发型；不同妆造按每套设计变化，各视角检查实际可见区域；此默认不授权改动局部编辑中已锁定的发型。
 
-用户要求多套不同造型时，保持同一人的稳定五官，不自动冻结原刘海、分缝或鬓角。按 [多造型路线](references/routes/portrait-look-variation.md) 逐套设计额前分区、刘海边界、耳侧与正面轮廓，不能只换扎束、发饰和地区名称；情绪落实到视线、眉睑与唇口动作，妆容按本人和发型适配。正脸、不偏头、指定发色等要求整组继承，数量和分组由本轮决定。用户要求流行款时先实际检索并记录来源，不把设计建议冒充趋势；文字查重和完整编译不证明实图已差异化。
+用户要求多套不同造型时，保持同一人的稳定五官，不自动冻结原刘海、分缝或鬓角。按 [多造型路线](references/routes/portrait-look-variation.md) 逐套设计额前分区、刘海边界、耳侧与正面轮廓，不能只换扎束、发饰和地区名称；情绪落实到视线、眉睑与唇口动作，妆容按本人和发型适配。完整妆造逐套区分姿势、发型、表情与妆容；头部默认端正，不统一成歪头形象，姿势差异来自肩胸躯干、手势和重心。身体基准不自动冻结这些呈现。同一造型的转面仍保持妆发；只换发型或服装时仅改授权内容。正脸、不偏头、指定发色等要求整组继承，数量和分组由本轮决定。用户要求流行款时先实际检索并记录来源，不把设计建议冒充趋势；文字查重和完整编译不证明实图已差异化。
 
 捏脸先确定原创设计、参考保持或授权局部修改，再选择外轮廓、眉眼、鼻唇和软组织关系及辨识锚点。四个面容方向与十个种子只来自特定女性参考组，作为可调起点，不覆盖当前人物的年龄、性别、族群或媒介。侧光、角度和妆容形成的观感不直接锁成骨相；未观察区域明确为未知或设计。需要复用时保存独立方案，并将生效结构、中文正文及关键验收投影到生产 brief；仅放内部备注不构成冻结目标。用户选择自己的参考图作为肖像偏好时，使用RP原图绑定预设，调用时提供对应真实原图作为唯一身份输入；统一化候选只作预览，不能自动替代原图，文件绑定通过也不能代替逐张肖像评审。
 
-背景、灯光与人物共同协调。选择白底定妆时采用充分正面补光的柔和棚光，五官清楚、中性白平衡且保留体积；场景任务依据合理光源设计，不默认删掉环境。全身完整容纳外轮廓与四周留白；近景只验可见范围，不虚构隐藏关节或为显高拉伸身体。
+背景、灯光与人物共同协调。选择白底或浅灰棚拍定妆时采用轻微柔光与均匀面部照明，额颊、眼下到面颈受光连续，中性白平衡且保留鼻唇下颌浅影，眉睫和妆色清楚；按[棚光路线](references/routes/white-background-reference-cards.md)实际观察，不用磨皮、雾化或过曝代替柔光。场景任务依据合理光源设计，用户原光保持和另定照明优先。全身完整容纳外轮廓与四周留白；近景只验可见范围，不虚构隐藏关节或为显高拉伸身体。
 
 ## 输出与执行
 

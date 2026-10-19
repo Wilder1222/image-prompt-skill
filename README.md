@@ -1,6 +1,6 @@
 # 图像提示词技能
 
-当前版本 **0.18.0**。输入文字描述与可选参考图，输出任务专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
+当前版本 **0.19.0**。输入文字描述与可选参考图，输出任务专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
 
 支持纯文字描述，参考图可选。新增 OpenAI GPT Image、Gemini、FLUX、Midjourney、Seedream、Stable Diffusion、Qwen-Image 的指定版本适配，提供独立请求设置、参数检查和执行摘要绑定；停用的 Imagen Gemini API 入口会明确报错。详见 [文生图模型指南](references/providers/text-to-image-models.md)。这是提示词与请求编译支持，尚未完成各供应商的联网出图验证。
 
@@ -16,7 +16,11 @@
 
 [全身体型基准](references/routes/full-body-baseline.md)支持在出图前声明图内每个人物的位置与视角，逐人检查头肩、躯干、手臂、双腿、体量和整体轮廓。`npm run body:review -- --input review.json` 检查真实共同基准与逐人物证据。[八张比例正例的实图核验](docs/body-proportion-validation-2026-10-18.md)保留七次实际生成：最终单人基准、五套换装及三视图通过代理评审，失败和遮挡未决记录保留，不等同用户已接受或跨任务稳定性。
 
+后续[十张满意比例参考](docs/user-approved-body-references-2026-10-19.json)与首批精确去重后累计十四份不同图像，按现代可见腿部、古装静态长轮廓和动态体量选用；不把长裙、发髻、鞋跟或原图倾头写成身体数值及统一姿势。[四次近景与全身复核](docs/portrait-look-detail-validation-2026-10-19.md)保留原发区、妆面及构图失败。0.19.0新增实际比例标杆绑定和可核验的局部父图链，减少旧身体基准反复带入旧妆发；来源认可不替代新图验收。
+
 [多造型实图执行](docs/portrait-look-execution-2026-10-15.md)记录了原图妆发惯性、刘海落点与修订回退。现行[造型路线](references/routes/portrait-look-variation.md)支持从当前完整方案修订指定通道，并用 `npm run portrait:review -- --input review.json` 复核实际图片、选定版本、人工差异比较和连续未改善问题；文字计划通过不等于十套造型已在实图中分化。
+
+姿势 `action` 已纳入多妆造计划和成组复核，默认端正头位，分别设计躯干、手势、重心及妆发神态。旧[13次试验](docs/portrait-look-posture-validation-2026-10-18.md)保留原失败；[本批14次实际生成](docs/body-look-qualification-2026-10-19.md)在新计划中区分用户关键要求与代理自选细节，三套最终图通过代理的身体和四通道差异评审。棚拍采用轻微柔光、均匀面部照明，保留浅淡体积与妆色；用户接受及跨模型稳定性仍未验证。
 
 [提示词质量审查](references/routes/prompt-quality-review.md)补齐必需目标在对应通道的正文覆盖，阻止同一句同时声明允许改变与必须保持；`npm run prompt:audit -- brief.json`定位重复、编辑范围复述和捏脸呈现重叠。标准化新计划可显式选择 `scope_format: 'compact'`，保留全部详细正文及验收，只精简范围摘要；既有详细计划继续使用原格式。[本轮调研与实图复查](docs/prompt-quality-research-2026-10-12.md)区分已修复的文本结构与尚未通过的图像目标。
 

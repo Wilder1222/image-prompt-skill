@@ -31,7 +31,7 @@ function figureStatus(outcome,id){
 // No semantic judging, anthropometric measurement or implicit user acceptance.
 export function reviewBodyAssetSet(input,{base_dir=process.cwd()}={}){
   if(!input||!Array.isArray(input.expected_ids)||!input.expected_ids.length||input.expected_ids.some(id=>!nonempty(id))||
-    !Array.isArray(input.members)||!Array.isArray(input.comparisons)||!Array.isArray(input.rejections??[]))throw new Error('body set needs expected_ids, members, comparisons and optional rejections');
+    !Array.isArray(input.members)||!Array.isArray(input.comparisons)||!Array.isArray(input.rejections??[])||!Array.isArray(input.reviewed_parents??[]))throw new Error('body set needs expected_ids, members, comparisons and optional rejections/reviewed_parents');
   unique(input.expected_ids,'expected member');
   function load(row){
     if(!nonempty(row?.snapshot)||!nonempty(row?.receipt))throw new Error('body review needs snapshot and receipt paths');
@@ -45,6 +45,33 @@ export function reviewBodyAssetSet(input,{base_dir=process.cwd()}={}){
   const baseline=load(input.baseline),members=[];
   if(figures(baseline.snapshot).length!==1)throw new Error('common body baseline must be a reviewed single-figure image');
   baseline.figure=selectFigure(baseline.snapshot,input.baseline.figure_id);
+  const parents=new Map();
+  for(const row of input.reviewed_parents??[]){
+    const parent=load(row),id=parent.snapshot.run_id;
+    if(parents.has(id)||id===baseline.snapshot.run_id)throw new Error('duplicate reviewed body parent');
+    parents.set(id,parent);
+  }
+  const actualBodyInput=(snap,sha)=>snap.actual_inputs.find(ref=>(snap.target.body_plan?.baseline_reference_id===undefined||ref.id===snap.target.body_plan.baseline_reference_id)&&ref.content_sha256===sha&&snap.references.some(r=>r.id===ref.id&&r.authority.includes('proportion')));
+  function bodySource(member,trail=new Set()){
+    const snap=member.snapshot;
+    const direct=actualBodyInput(snap,baseline.outcome.output_sha256);
+    if(direct)return {kind:'direct',input_reference_id:direct.id,baseline_sha256:baseline.outcome.output_sha256};
+    const parent=parents.get(snap.parent?.run_id);
+    if(!parent)throw new Error('each variant must actually receive the common full-body baseline or a verified reviewed parent with proportion authority');
+    if(trail.has(snap.run_id))throw new Error('cyclic body parent lineage');
+    const nextTrail=new Set(trail).add(snap.run_id);
+    if(snap.kind!=='edit'||snap.parent.snapshot_sha256!==parent.snapshot.snapshot_sha256||snap.case_id!==parent.snapshot.case_id||snap.cohort!==parent.snapshot.cohort||
+       figures(snap).length!==1||figures(parent.snapshot).length!==1)throw new Error('body lineage requires a matching single-figure scoped edit parent');
+    const parentInput=actualBodyInput(snap,parent.outcome.output_sha256);
+    if(!parentInput||snap.edit_scope?.baseline_reference_id!==parentInput.id)throw new Error('body edit must actually receive its declared parent image');
+    const parentFigure=selectFigure(parent.snapshot);
+    if(objectHash(parent.snapshot.target.identity_targets??[])!==objectHash(baseline.snapshot.target.identity_targets??[])||bodySignature(parent.snapshot,parentFigure.id)!==bodySignature(baseline.snapshot,baseline.figure.id))throw new Error('reviewed parent has different identity or body targets');
+    const bodyChecks=parent.outcome.checks.filter(c=>c.body_region!==undefined);
+    const protectedChecks=parent.outcome.checks.filter(c=>c.critical&&['identity','proportion','composition'].includes(parent.snapshot.target.requirements.find(r=>r.id===c.basis)?.channel));
+    if(bodyChecks.length!==Object.keys(bodyRegions).length||bodyChecks.some(c=>c.verdict!=='pass')||protectedChecks.some(c=>c.verdict!=='pass')||
+       (parent.snapshot.edit_scope&&parent.outcome.scope_review?.verdict!=='pass')||member.outcome.scope_review?.verdict!=='pass')throw new Error('body parent and scoped preservation need completed passing body, identity and composition reviews');
+    return {kind:'reviewed_parent',input_reference_id:parentInput.id,parent_run_id:parent.snapshot.run_id,parent_snapshot_sha256:parent.snapshot.snapshot_sha256,parent_output_sha256:parent.outcome.output_sha256,upstream:bodySource(parent,nextTrail)};
+  }
   for(const row of input.members){
     if(!input.expected_ids.includes(row.id))throw new Error('unknown body member');
     const member=load(row),snap=member.snapshot,figure=selectFigure(snap,row.figure_id);
@@ -52,10 +79,8 @@ export function reviewBodyAssetSet(input,{base_dir=process.cwd()}={}){
     if(isBaseline&&snap.snapshot_sha256!==baseline.snapshot.snapshot_sha256)throw new Error('baseline run id cannot identify a different snapshot');
     if(objectHash(snap.target.identity_targets??[])!==objectHash(baseline.snapshot.target.identity_targets??[]))throw new Error('body set has different identity targets');
     if(bodySignature(snap,figure.id)!==bodySignature(baseline.snapshot,baseline.figure.id))throw new Error('body scheme changed; establish a new baseline');
-    const bodyInput=snap.actual_inputs.find(ref=>(snap.target.body_plan?.baseline_reference_id===undefined||ref.id===snap.target.body_plan.baseline_reference_id)&&ref.content_sha256===baseline.outcome.output_sha256&&
-      snap.references.some(r=>r.id===ref.id&&r.authority.includes('proportion')));
-    if(!isBaseline&&!bodyInput)throw new Error('each variant must actually receive the common full-body baseline with proportion authority');
-    members.push({id:row.id,...member,figure,status:figureStatus(member.outcome,figure.id)});
+    const proportion_source=isBaseline?{kind:'baseline',output_sha256:baseline.outcome.output_sha256}:bodySource(member);
+    members.push({id:row.id,...member,figure,proportion_source,status:figureStatus(member.outcome,figure.id)});
   }
   unique(members.map(m=>m.id),'body member');unique(members.map(m=>figureKey(m.snapshot.run_id,m.figure.id)),'body run figure');
   const known=new Map([[baseline.snapshot.run_id,baseline]]);
@@ -65,10 +90,12 @@ export function reviewBodyAssetSet(input,{base_dir=process.cwd()}={}){
     known.set(member.snapshot.run_id,member);
   }
   const all=[...known.values()];
+  for(const [id,parent]of parents){const selected=known.get(id);if(selected&&(selected.snapshot.snapshot_sha256!==parent.snapshot.snapshot_sha256||objectHash(selected.outcome.checks)!==objectHash(parent.outcome.checks)||selected.outcome.output_sha256!==parent.outcome.output_sha256))throw new Error('reviewed parent conflicts with selected run');}
+  const rejectionRuns=new Map([...parents,...known]);
   const rejections=(input.rejections??[]).map(row=>{
-    if(!known.has(row.run_id)||!nonempty(row.evidence))throw new Error('rejection must identify an actual run and user feedback');
-    if(row.figure_id!==undefined)selectFigure(known.get(row.run_id).snapshot,row.figure_id);
-    return {...row,output_sha256:known.get(row.run_id).outcome.output_sha256};
+    if(!rejectionRuns.has(row.run_id)||!nonempty(row.evidence))throw new Error('rejection must identify an actual run and user feedback');
+    if(row.figure_id!==undefined)selectFigure(rejectionRuns.get(row.run_id).snapshot,row.figure_id);
+    return {...row,output_sha256:rejectionRuns.get(row.run_id).outcome.output_sha256};
   });
   unique(rejections.map(r=>figureKey(r.run_id,r.figure_id)),'user rejection');
   const rejected=(run,figure)=>rejections.some(r=>r.run_id===run&&(r.figure_id===undefined||r.figure_id===figure));
@@ -105,7 +132,7 @@ export function reviewBodyAssetSet(input,{base_dir=process.cwd()}={}){
     members.some(m=>m.outcome.status!=='reviewer_qualified')||comparisons.some(c=>['uncertain','not_assessable'].includes(c.verdict));
   return {status:failed?'needs_revision':pending?'needs_review':'reviewer_qualified',
     baseline:{run_id:baseline.snapshot.run_id,output_sha256:baseline.outcome.output_sha256,reviewer_qualified:baseline_qualified,user_accepted:false},
-    members:members.map(m=>({id:m.id,run_id:m.snapshot.run_id,figure_id:m.figure.id,view:m.figure.view,locator:m.figure.locator,output_sha256:m.outcome.output_sha256,status:rejected(m.snapshot.run_id,m.figure.id)?'user_rejected':m.status})),
+    members:members.map(m=>({id:m.id,run_id:m.snapshot.run_id,figure_id:m.figure.id,view:m.figure.view,locator:m.figure.locator,output_sha256:m.outcome.output_sha256,proportion_source:m.proportion_source,status:rejected(m.snapshot.run_id,m.figure.id)?'user_rejected':m.status})),
     missing_members,missing_figures,missing_comparisons,comparisons,reused_evidence,reused_outputs,rejections,
     evidence:{files_verified:true,authored_visual_observations:true,automatic_image_understanding:false,geometric_control_verified:false,user_accepted:false}};
 }

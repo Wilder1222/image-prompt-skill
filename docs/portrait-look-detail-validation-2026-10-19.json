@@ -1,0 +1,148 @@
+{
+  "date": "2026-10-19",
+  "record_kind": "portrait_detail_followup_validation",
+  "new_generation_calls": 4,
+  "total_with_previous_look_tests": 17,
+  "new_user_approved_proportion_sources": 6,
+  "source_feedback_is_output_acceptance": false,
+  "actual_reference_inputs": "每张实际输入为其single-look-v2当前候选与baseline-v4共同身体基准；新增十张满意图用于来源校准与观察对照，未作为这四次工具输入。",
+  "records": [
+    {
+      "run_id": "detail-look1-v3",
+      "source_previous_run": "single-look1-v2",
+      "snapshot_sha256": "416005b9d869008e95c2dc0e0ae8599829f04da2d4c9a1f3c2334d7c2f8c0f57",
+      "prompt_sha256": "c59406f2d30c91c553e8d4a9bc652111512b81bc834adaaecaebb0c2ae0c43c8",
+      "output_sha256": "e52e62a715e4721d01b74dd7a2a2755010fa9016ce7faa0a7f78c4e119482de0",
+      "status": "needs_revision",
+      "critical_failures": [
+        "frame:check",
+        "PL:upright-distinct-looks-20261018:look1:hair:temples:check",
+        "single-task:check"
+      ],
+      "unresolved": [
+        "BODY:arms:check",
+        "PL:upright-distinct-looks-20261018:look1:makeup:check",
+        "__edit_scope__"
+      ],
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "928ab8d802dc827e4f2d3772e5d09b2a90506dfc73f168942937a686542e01d3"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "observations": {
+        "hair": "两侧长直发和自然中分保留；脸侧仍有长发束跨过耳前与颊边，未完整收至耳后。",
+        "makeup": "冷豆沙唇色和细眼线在近景中可辨，眼妆较收敛；唇面有小范围自然反光，柔哑光与低光泽边界仍不作充分确认。",
+        "action": "全身右手扶腰、左臂下垂，头位端正；扶腰侧手肘触到左右两区交界。",
+        "framing": "输出是竖幅双区，未执行横向卡片；右侧扶腰肘贴分界，缺少要求的边缘留白。"
+      }
+    },
+    {
+      "run_id": "detail-look3-v3",
+      "source_previous_run": "single-look3-v2",
+      "snapshot_sha256": "2a957b8056f5045cf6f907a4685044eccde9326bcd3c99814c9f938360ab94ca",
+      "prompt_sha256": "acb89b05e36bfcf313d2560de0dc14555590d3e4269bce459669366043518b02",
+      "output_sha256": "ef86917998282c2fb82063c0cb6971088f40c814204faec6aa4e526b82ec3018",
+      "status": "needs_revision",
+      "critical_failures": [
+        "frame:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:fringe:check",
+        "PL:upright-distinct-looks-20261018:look3:hair:temples:check",
+        "single-task:check"
+      ],
+      "unresolved": [
+        "PL:upright-distinct-looks-20261018:look3:makeup:check"
+      ],
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "f9724f55d68598054c28ef925f5a6622894f054972899ab0b27abd4012801177"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "observations": {
+        "hair": "双低辫与白色束带保留，额前细束仍落入眉区，没有形成眉上平齐下缘；脸侧长碎发仍在。",
+        "makeup": "近景可见淡粉眼影与粉玫瑰颊部；唇缘及下唇亮光较清楚，柔焦花瓣边缘和低光泽目标仍不足以判为通过。",
+        "action": "右手触辫、左臂垂落，轻交腿与承重方向保留，头位基本端正。",
+        "framing": "横向双区、近景头发与全身鞋底完整；左区宽于计划的约四成，版面分配未按指定值落实。"
+      }
+    },
+    {
+      "run_id": "detail-look4-v3",
+      "source_previous_run": "single-look4-v2",
+      "snapshot_sha256": "d4804f4b9f14d502940e55e768e1c675e7850a8c7f142d01446d92525384f013",
+      "prompt_sha256": "4cabbdfbcb2b4ef7ee01c7bea0c41e1daf9d589c2340be304695d581e9d8e739",
+      "output_sha256": "4e5a402f20b991523019ab646f49e97c5ac5331f7847fce4f8e12293b4020e6f",
+      "status": "needs_revision",
+      "critical_failures": [
+        "frame:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:parting:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:temples:check",
+        "PL:upright-distinct-looks-20261018:look4:hair:outline:check",
+        "single-task:check"
+      ],
+      "unresolved": [
+        "PL:upright-distinct-looks-20261018:look4:makeup:check"
+      ],
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "a93c4b56beefcc96de414571fd7c2a2c1aee8b4f9ef46bc9c07c52013a15b937"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "observations": {
+        "hair": "近远景均有齐颈短发轮廓，但额前仍偏中分、耳前长片贴颊；指定深偏分、耳后收净与完整齐下颌内弯轮廓未实现。",
+        "makeup": "近景有暖棕眼睑、淡杏颊部与陶土玫瑰唇，较冷豆沙及深莓红有可见色彩区别；精确唇面哑光程度仍保留不确定。",
+        "action": "持右肩包带、另一手在裤袋口，双脚错步，头部基本端正略转向视线。",
+        "framing": "横向双区、全身鞋底完整，近景也容纳发顶；左近景占超过一半，未按约四成宽分配。"
+      }
+    },
+    {
+      "run_id": "detail-look5-v3",
+      "source_previous_run": "single-look5-v2",
+      "snapshot_sha256": "be739df88a5466338995ec5a9fa4e42497db83a808261a0796bcb5cef118f471",
+      "prompt_sha256": "ef2a86cad5ef5054827d1a982580db6bf80364b3e18b750e2c07784f9eba43ab",
+      "output_sha256": "adffde7c87d7a4b89e9ee45921c1269b0ac0e67821c04d938d2d5f77ad218ce6",
+      "status": "needs_revision",
+      "critical_failures": [
+        "frame:check",
+        "single-task:check"
+      ],
+      "unresolved": [],
+      "actual_inputs": [
+        {
+          "id": "current",
+          "content_sha256": "c97dd49a62715e3eac6ccbac01cf02ed12acd26fd3f91063a297462818e59012"
+        },
+        {
+          "id": "baseline",
+          "content_sha256": "d34c6c1453a5a830448efa64e9c9cf46c2be0e14d802993696e32894fc666942"
+        }
+      ],
+      "observations": {
+        "hair": "额顶分缝已明显偏向人物左侧，较大一侧头发向后收拢；紧凑盘髻、露额和耳侧收净均可见。",
+        "makeup": "深莓红唇缘清楚、薄缎光可见，外眼线向上延伸，眉峰与上外颧淡腮红可辨。",
+        "action": "两臂在胸廓下轻交叠，双肘和两手外露，双脚窄距站立；头部基本端正。",
+        "framing": "近景与全身都清楚，但输出竖幅双区，未满足明确冻结的横向构图。"
+      }
+    }
+  ],
+  "qualified_complete_set": false,
+  "committed": false,
+  "pushed": false,
+  "installed_version": "0.18.0",
+  "installed_updated_this_followup": false,
+  "local_artifacts_root": "output/look-diversity-20261019",
+  "engineering_checks_prove_visual_quality": false
+}

@@ -8,13 +8,14 @@ import {freezeProductionRun} from '../scripts/production-run.mjs';
 import {promptHash} from '../scripts/production-prompt.mjs';
 import {reviewPortraitLookSet} from '../scripts/portrait-look-review.mjs';
 
-function setup(t){
+function setup(t,{action=false}={}){
  const parent=path.resolve(os.tmpdir()),dir=fs.mkdtempSync(path.join(parent,'portrait-set-review-'));
  t.after(()=>{if(path.dirname(path.resolve(dir))!==parent)throw new Error('unsafe test cleanup');fs.rmSync(dir,{recursive:true,force:true});});
  const plan=JSON.parse(fs.readFileSync(new URL('../examples/portrait-look-diversity-plan.json',import.meta.url),'utf8'));
  plan.count=2;plan.looks=plan.looks.slice(0,2);plan.groups=[{id:'jk',label:'两套合成结构测试',count:2}];
+ if(action){plan.variation_channels.push('action');plan.looks.forEach((look,index)=>{look.action={head:'头部端正。',torso:index?'躯干轻侧。':'躯干正面。',hands:index?'一手扶领。':'双臂自然垂落。',support:'上身挺拔，画外支撑不补造。'};});}
  const variants=buildPortraitLookPlan(plan).variants;
- const input={plan_id:plan.id,look_ids:plan.looks.map(l=>l.id),variation_channels:['hair','makeup','expression'],runs:[],selection:[],comparisons:[],issues:[]};
+ const input={plan_id:plan.id,look_ids:plan.looks.map(l=>l.id),variation_channels:[...plan.variation_channels],runs:[],selection:[],comparisons:[],issues:[]};
  const snapshots=new Map();
  function add(index,version=1,{failed=false,parentRun,brief:override}={}){
   const variant=variants[index],id=`${variant.id}-v${version}`,brief=structuredClone(override??variant.brief);
@@ -34,6 +35,31 @@ function setup(t){
  const compare=()=>{input.comparisons=input.variation_channels.map(channel=>({channel,pair:input.selection.map(s=>s.run_id),verdict:'distinct',evidence:`合成的${channel}差异声明，不是视觉证据。`}));};
  return {dir,plan,variants,input,add,select,compare,review:()=>reviewPortraitLookSet(input,{base_dir:dir})};
 }
+
+test('distinct hair and makeup cannot substitute for missing or repeated pose comparisons',t=>{
+ const s=setup(t,{action:true});const a=s.add(0),b=s.add(1);s.select(0,a.id);s.select(1,b.id);s.compare();
+ assert.equal(s.review().status,'reviewer_qualified');
+ const pose=s.input.comparisons.find(c=>c.channel==='action');pose.verdict='similar';assert.equal(s.review().status,'needs_revision');
+ s.input.comparisons=s.input.comparisons.filter(c=>c.channel!=='action');
+ assert.deepEqual(s.review().missing_comparisons,[{channel:'action',pair:[a.id,b.id]}]);
+ assert.equal(s.review().status,'needs_review');
+});
+
+test('a newly requested variation channel cannot be certified against snapshots without its targets',t=>{
+ const s=setup(t);const a=s.add(0),b=s.add(1);s.select(0,a.id);s.select(1,b.id);s.input.variation_channels.push('action');s.compare();
+ assert.throws(s.review,/action needs a frozen per-look target/);
+});
+
+test('an unselected historical run can retain its earlier narrower target',t=>{
+ const s=setup(t,{action:true}),earlier=structuredClone(s.variants[0].brief);
+ const oldIds=new Set(earlier.requirements.filter(r=>r.channel==='action').map(r=>r.id));
+ earlier.requirements=earlier.requirements.filter(r=>!oldIds.has(r.id));
+ earlier.sections=earlier.sections.filter(section=>section.channel!=='action');
+ earlier.acceptance=earlier.acceptance.filter(c=>!oldIds.has(c.basis));
+ const old=s.add(0,1,{brief:earlier}),a=s.add(0,2,{parentRun:old.id}),b=s.add(1);
+ s.select(0,a.id);s.select(1,b.id);s.compare();assert.equal(s.review().status,'reviewer_qualified');
+ s.input.selection[0].run_id=old.id;assert.throws(s.review,/action needs a frozen per-look target/);
+});
 
 test('per-look qualification, visible diversity observations and user acceptance remain separate',t=>{
  const s=setup(t);const a=s.add(0,1,{failed:true}),b=s.add(1);s.select(0,a.id);s.select(1,b.id);s.compare();
