@@ -32,7 +32,7 @@ description: 将文字描述与可选参考图转为任务专属的中文分类�
 | 保持原图任务与风格的统一标准化 | [风格保持标准化](references/routes/style-preserving-standardization.md)，按用途统一可读性与明暗层次，保护原光色、动势、媒介和场景 |
 | 明确要求正面中性肖像对照、对应失败项逐张修订 | [原图绑定肖像对照](references/routes/reference-portrait-standardization.md)，另建对照目标，先查保护，再查呈现；来源未知独立保留 |
 | 人物媒介或风格转换 | [人物风格](references/routes/character-visual-styles.md) |
-| 妆肤、发型、表情与生命感 | [妆肤](references/core/makeup-skin-integration-v2.md)按可见部位写色彩、范围、过渡与光泽；[发型与发丝](references/core/hair-frequency-variation-v2.md)用于自然层次和资产面部可读性；[身份与表情](references/core/identity-vs-temperament-diagnostics.md)、[动作](references/core/action-direction.md)按问题选读 |
+| 妆肤、光线质感、发型、表情与生命感 | 新设或获准修改妆肤与光线时必读[用户八图妆光基准](references/routes/reference-makeup-lighting.md)，按主卡分别落为必须项与关键验收；[妆肤](references/core/makeup-skin-integration-v2.md)按部位写色彩、范围、过渡与光泽；[发型与发丝](references/core/hair-frequency-variation-v2.md)、[身份与表情](references/core/identity-vs-temperament-diagnostics.md)、[动作](references/core/action-direction.md)按问题选读 |
 | 换装、复杂衣装与适度再设计 | [人物与衣装资产](references/routes/character-asset-pipeline.md)、[标杆与服装](references/routes/benchmark-costume-refinement.md) |
 | 多视角、表情组与同人物资产包 | [同人物成组验收](references/routes/character-consistency-assets.md) |
 | 多套肖像、发型试款与同人物不同造型 | [多造型与发型差异化](references/routes/portrait-look-variation.md)，区分身份与原图呈现，分别设计姿势、脸前结构、妆面和表演；修订继承当前完整造型，按实际图片复核差异及回退 |
@@ -48,6 +48,8 @@ description: 将文字描述与可选参考图转为任务专属的中文分类�
 | 兼容资产素材或旧 CLI | [资产素材工作流](references/routes/asset-master-workflow.md)；其输出是 `scaffold_only` |
 
 ## 人物设计的共同要求
+
+人物妆容与光线质感按2026-10-19[用户八张参考](references/routes/reference-makeup-lighting.md)设定：需要设计或获准调整的通道，从对应主卡继承具体底妆、眉眼、腮红、唇面光泽与受光关系，分别写成必须项及关键验收，不只写“精致通透柔光”。参考支持白底柔亮、柔雾、侧逆光、幻想精描与直接照明等不同方向，不能统一成一套裸妆。当前明确要求、本人肤色年龄及原妆原光保持和局部保护优先；本组不授权换脸、改虹膜、复制额饰衣装或强加年轻女性妆面。没有新设妆光的任务不主动替换，产品及无人物场景不套本组人物妆光。
 
 古装原创人物默认采用现代精致、高奢、高预算古装偶像剧的审美，适度理想化面容、妆肤、身材与造型，不自行转向过于写实的纪实肤质或朴素复原。按 [古装偶像剧审美](references/routes/costume-idol-drama-aesthetics.md) 保留年龄、角色与时代辨识，将高级感写成具体可见设计；明确的纪实、历史复原、其他审美或媒介要求，以及原图保持和局部编辑范围优先。此默认不扩展到现代人物、产品或独立场景。
 

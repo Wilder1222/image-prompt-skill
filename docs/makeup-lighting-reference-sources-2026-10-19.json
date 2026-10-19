@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-19",
+  "user_instruction": "所有妆容和光线质感必须按照我提供的参考图来设定，详细解析这几种妆容质感，修改skill",
+  "approval_scope": "用户明确指定妆容与光线参考；不代表接受任何新生成图或其他身份造型维度。",
+  "source_images_bundled": false,
+  "source_images": [
+    {
+      "id": "ML01",
+      "original_filename": "1-照片-1.jpg",
+      "original_path": "C:\\Users\\ww\\.codex\\codex-remote-attachments\\01a15249-9392-7162-be2d-3a1315c3b3a4\\1B0F7E72-47B0-4EB4-9829-D773F44525D6\\1-照片-1.jpg",
+      "archive_path": "output/makeup-lighting-references-20261019/photo-01.jpg",
+      "sha256": "7f5531a2355cb342098271dc43b8affdbd3629e7c21fc88cf32827266076a450",
+      "width": 716,
+      "height": 1280,
+      "inspected": true,
+      "authorized_dimensions": [
+        "makeup",
+        "lighting"
+      ],
+      "identity_authority": false
+    },
+    {
+      "id": "ML02",
+      "original_filename": "2-照片-2.jpg",
+      "original_path": "C:\\Users\\ww\\.codex\\codex-remote-attachments\\01a15249-9392-7162-be2d-3a1315c3b3a4\\1B0F7E72-47B0-4EB4-9829-D773F44525D6\\2-照片-2.jpg",
+      "archive_path": "output/makeup-lighting-references-20261019/photo-02.jpg",
+      "sha256": "f8827eea96c791ecda7373443f39fb4c377d597fa2d41037ab24568d854ca7cb",
+      "width": 1009,
+      "height": 1280,
+      "inspected": true,
+      "authorized_dimensions": [
+        "makeup",
+        "lighting"
+      ],
+      "identity_authority": false
+    },
+    {
+      "id": "ML03",
+      "original_filename": "3-照片-3.jpg",
+      "original_path": "C:\\Users\\ww\\.codex\\codex-remote-attachments\\01a15249-9392-7162-be2d-3a1315c3b3a4\\1B0F7E72-47B0-4EB4-9829-D773F44525D6\\3-照片-3.jpg",
+      "archive_path": "output/makeup-lighting-references-20261019/photo-03.jpg",
+      "sha256": "cfe565781596efa53a32e63c4b3c3f8301f16d12a2aa5515a4aaaa4ccb41ce70",
+      "width": 619,
+      "height": 725,
+      "inspected": true,
+      "authorized_dimensions": [
+        "makeup",
+        "lighting"
+      ],
+      "identity_authority": false
+    },
+    {
+      "id": "ML04",
+      "original_filename": "4-照片-4.jpg",
+      "original_path": "C:\\Users\\ww\\.codex\\codex-remote-attachments\\01a15249-9392-7162-be2d-3a1315c3b3a4\\1B0F7E72-47B0-4EB4-9829-D773F44525D6\\4-照片-4.jpg",
+      "archive_path": "output/makeup-lighting-references-20261019/photo-04.jpg",
+      "sha256": "efcf809239cc1239610c8e0847d718677cc3ddc55a9b95c87c1d9fc4894d1ea9",
+      "width": 960,
+      "height": 1280,
+      "inspected": true,
+      "authorized_dimensions": [
+        "makeup",
+        "lighting"
+      ],
+      "identity_authority": false
+    },
+    {
+      "id": "ML05",
+      "original_filename": "5-照片-5.jpg",
+      "original_path": "C:\\Users\\ww\\.codex\\codex-remote-attachments\\01a15249-9392-7162-be2d-3a1315c3b3a4\\1B0F7E72-47B0-4EB4-9829-D773F44525D6\\5-照片-5.jpg",
+      "archive_path": "output/makeup-lighting-references-20261019/photo-05.jpg",
+      "sha256": "dde50dd402b8c78233625bdfd89abaa7d6abf45ceee1e5c43414b56107b61645",
+      "width": 960,
+      "height": 1280,
+      "inspected": true,
+      "authorized_dimensions": [
+        "makeup",
+        "lighting"
+      ],
+      "identity_authority": false
+    },
+    {
+      "id": "ML06",
+      "original_filename": "6-照片-6.jpg",
+      "original_path": "C:\\Users\\ww\\.codex\\codex-remote-attachments\\01a15249-9392-7162-be2d-3a1315c3b3a4\\1B0F7E72-47B0-4EB4-9829-D773F44525D6\\6-照片-6.jpg",
+      "archive_path": "output/makeup-lighting-references-20261019/photo-06.jpg",
+      "sha256": "bdd95c19bb15c4066e67933ad5608906038c8d776e9cd50e4343814e5002ca1a",
+      "width": 720,
+      "height": 1280,
+      "inspected": true,
+      "authorized_dimensions": [
+        "makeup",
+        "lighting"
+      ],
+      "identity_authority": false
+    },
+    {
+      "id": "ML07",
+      "original_filename": "7-照片-7.jpg",
+      "original_path": "C:\\Users\\ww\\.codex\\codex-remote-attachments\\01a15249-9392-7162-be2d-3a1315c3b3a4\\1B0F7E72-47B0-4EB4-9829-D773F44525D6\\7-照片-7.jpg",
+      "archive_path": "output/makeup-lighting-references-20261019/photo-07.jpg",
+      "sha256": "551d743a905ebfc9646f7fac50eb46f2a4e01e3e1b269cd26959b13d884e1744",
+      "width": 1280,
+      "height": 716,
+      "inspected": true,
+      "authorized_dimensions": [
+        "makeup",
+        "lighting"
+      ],
+      "identity_authority": false
+    },
+    {
+      "id": "ML08",
+      "original_filename": "8-照片-8.jpg",
+      "original_path": "C:\\Users\\ww\\.codex\\codex-remote-attachments\\01a15249-9392-7162-be2d-3a1315c3b3a4\\1B0F7E72-47B0-4EB4-9829-D773F44525D6\\8-照片-8.jpg",
+      "archive_path": "output/makeup-lighting-references-20261019/photo-08.jpg",
+      "sha256": "ebd217a8f1027e47d067815a568550db6fec7bf45c7158ba4770ef185ca0458b",
+      "width": 716,
+      "height": 1280,
+      "inspected": true,
+      "authorized_dimensions": [
+        "makeup",
+        "lighting"
+      ],
+      "identity_authority": false
+    }
+  ],
+  "new_images_generated": false,
+  "visual_reproduction_verified": false
+}

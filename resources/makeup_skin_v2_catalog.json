@@ -3,6 +3,7 @@
   "name": "makeup_skin_integration_v2",
   "control_scope": "legacy_light_makeup_profile_not_universal_character_defaults",
   "selection_policy": {
+    "current_makeup_lighting_authority": "references/routes/reference-makeup-lighting.md；新设或获准修改人物妆光时按用户八图选主卡并写入must与critical验收，旧轻妆控制组不是最终设计。原妆原光保持和局部保护优先。",
     "refinement": "visible_structure_finish_and_coordination",
     "preserve": [
       "own_identity_relationships",
