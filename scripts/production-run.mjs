@@ -103,6 +103,7 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}
     if(runtimeValidation!==undefined)verifyRuntimeValidation(snapshot.model_execution,runtimeValidation);
     return {transport:snapshot.model_execution.transport,model:snapshot.model_execution.model,
       request:snapshot.model_execution.request,runtime:snapshot.model_execution.runtime,
+      ...(snapshot.model_execution.transport==='midjourney'?{dispatch_ready:false,manual_submission_required:true,ready_to_submit:snapshot.model_execution.request.ready_to_submit}:{}),
       ...(required?{dispatch_ready:runtimeValidation!==undefined,runtime_validation_required:required}:{}),
       execution_sha256:snapshot.model_execution.execution_sha256};
   }
@@ -111,6 +112,7 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}
 
 // Recompute review meaning from the frozen contract without accessing image files.
 function evaluateCompletedReview(snapshot, receipt) {
+  if(snapshot.model_execution?.transport==='midjourney' && snapshot.model_execution.request.ready_to_submit===false) throw new Error('MJ 参考或比例尚未就绪；先完成手动输入并重新冻结计划');
   if(snapshot.model_execution && receipt.execution_sha256!==snapshot.model_execution.execution_sha256)throw new Error('回执必须绑定实际模型、参数与完整请求的 execution_sha256');
   if(snapshot.model_execution?.runtime_validation_required)verifyRuntimeValidation(snapshot.model_execution,receipt.runtime_validation);
   if(receipt.target_sha256!==snapshot.target_sha256)throw new Error('review target changed');

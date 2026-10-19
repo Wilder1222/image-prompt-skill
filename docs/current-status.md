@@ -1,6 +1,8 @@
 # 当前项目状态
 
-## 当前功能版本：0.17.2
+## 当前功能版本：0.20.0
+
+2026-10-19：新增 [Midjourney 手动提示词适配](../references/providers/midjourney.md)，按官方文档区分 V8.1/V8.2 Edit 与显式 V7 Omni、网页附件与 Discord URL。新增参数与参考校验、待补输入状态及 `--format native`；仅离线编译，不访问或操作 MJ。V8 Draft 的文档冲突与 V8.2 iw / V8 sv 的保守边界均记录在专项中。没有新增 MJ 成图或身份保持证据。
 
 人物身材先适配年龄与指定体型，未指定时默认适度美化为轻盈修长的仙侠身形。[全身体型基准路线](../references/routes/full-body-baseline.md)补充肖像扩身、共同身体输入、六区目标与逐套比较；生产回执和成组复核检查可见关系、目标对照、重复证据及用户撤回。分析来源见[对话记录](full-body-conversation-analysis-2026-10-18.md)，未取得其中五套成片及原始回执，不据此声称新规则已改善实际比例。
 
