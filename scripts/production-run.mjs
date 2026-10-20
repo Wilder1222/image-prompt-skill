@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import {adaptModelPrompt,verifyModelPlan,verifyRuntimeValidation} from './model-adapter.mjs';
+import {assertFigureDesign} from './figure-design.mjs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {compileProductionPrompt, reviewProductionResult, promptHash, objectHash} from './production-prompt.mjs';
@@ -49,6 +50,7 @@ export function freezeProductionRun(input, options={}) {
   if(stylePlan&&stylePlan.scope_contract!==styleStandardizationContract)throw new Error('legacy style plans are historical records; rebuild a current style contract before a new dispatch');
   const target={subject_kind:input.subject_kind,requirements:input.requirements,acceptance:compiled.acceptance,
     ...(input.body_plan?{body_plan:input.body_plan}:{}),
+    ...(input.figure_design?{figure_design:input.figure_design}:{}),
     ...(input.character_exceptions?{character_exceptions:input.character_exceptions}:{}),
     identity_targets:identityTargets(refs,options.parent)};
   const targetHash=objectHash(target);
@@ -56,6 +58,7 @@ export function freezeProductionRun(input, options={}) {
   if(options.parent&&(options.parent.case_id!==options.case_id||options.parent.cohort!==options.cohort))throw new Error('revision case and cohort must match parent');
   const record={schema_version:1,target_contract:targetContract,...(stylePlan?{style_standardization_contract:styleStandardizationContract}:{}),run_id:options.run_id,case_id:options.case_id,cohort:options.cohort,kind,
     ...(input.subject_kind==='character'?{character_goals_contract:'character_goals_v1'}:{}),
+    ...(input.figure_design?{figure_design_contract:'figure_design_v1'}:{}),
     quality_audit:qualityAudit,quality_review:input.quality_review??null,
     created_at:new Date().toISOString(),tool:compiled.model_execution?.transport??'built-in image_gen',
     tool_parameters:compiled.model_execution?{model:compiled.model_execution.model,...compiled.model_execution.settings}:{model:null,seed:null},
@@ -72,6 +75,8 @@ export function freezeProductionRun(input, options={}) {
 
 export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}) {
   if(snapshot?.schema_version!==1)throw new Error('unsupported run snapshot');
+  if(snapshot.figure_design_contract!==undefined&&(snapshot.figure_design_contract!=='figure_design_v1'||!snapshot.target?.figure_design))throw new Error('frozen figure design contract was removed or changed');
+  if(snapshot.target?.figure_design&&snapshot.figure_design_contract!=='figure_design_v1')throw new Error('missing frozen figure design contract');
   const {snapshot_sha256,...body}=snapshot;
   if(objectHash(body)!==snapshot_sha256)throw new Error('frozen snapshot changed');
   if(snapshot.character_goals_contract!==undefined){
@@ -90,6 +95,7 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}
   if(promptHash(snapshot.prompt)!==snapshot.prompt_sha256||objectHash(snapshot.target)!==snapshot.target_sha256)throw new Error('frozen prompt or target changed');
   const inputs=snapshot.references.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source,content_sha256:r.content_sha256}));
   assertBodyCriteria({...snapshot.target,references:snapshot.references});
+  const figureDesign=assertFigureDesign({...snapshot.target,prompt:snapshot.prompt});
   if(objectHash(inputs)!==objectHash(snapshot.actual_inputs))throw new Error('actual input order or roles changed');
   assertReferenceFacePresetBindings(snapshot.references);
   if(snapshot.style_standardization_contract!==undefined&&snapshot.style_standardization_contract!==styleStandardizationContract)throw new Error('unsupported frozen style standardization contract');
@@ -101,13 +107,13 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}
     if(snapshot.model_execution.prompt_sha256!==snapshot.prompt_sha256)throw new Error('模型执行计划与正文不一致');
     const required=snapshot.model_execution.runtime_validation_required;
     if(runtimeValidation!==undefined)verifyRuntimeValidation(snapshot.model_execution,runtimeValidation);
-    return {transport:snapshot.model_execution.transport,model:snapshot.model_execution.model,
+    return {transport:snapshot.model_execution.transport,model:snapshot.model_execution.model,...(figureDesign?{figure_design:figureDesign}:{}),
       request:snapshot.model_execution.request,runtime:snapshot.model_execution.runtime,
       ...(snapshot.model_execution.transport==='midjourney'?{dispatch_ready:false,manual_submission_required:true,ready_to_submit:snapshot.model_execution.request.ready_to_submit}:{}),
       ...(required?{dispatch_ready:runtimeValidation!==undefined,runtime_validation_required:required}:{}),
       execution_sha256:snapshot.model_execution.execution_sha256};
   }
-  return {prompt:snapshot.prompt,...(inputs.length?{referenced_image_paths:inputs.map(r=>r.source)}:{})};
+  return {prompt:snapshot.prompt,...(inputs.length?{referenced_image_paths:inputs.map(r=>r.source)}:{}),...(figureDesign?{figure_design:figureDesign}:{})};
 }
 
 // Recompute review meaning from the frozen contract without accessing image files.

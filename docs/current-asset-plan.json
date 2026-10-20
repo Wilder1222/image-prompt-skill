@@ -206,7 +206,13 @@
       "mandatory": true,
       "explicit_only": false,
       "aesthetic_direction": "age_adapted_xianxia_default",
-      "idealization_scope": "all_character_tasks"
+      "idealization_scope": "all_character_tasks",
+      "adult_full_body_default_head_count": 8.5,
+      "adult_full_body_design_range": [
+        8,
+        9
+      ],
+      "numeric_target_scope": "declared_adult_full_body_only"
     },
     "hand_pose": {
       "mode": "elegant_crossed_hands_safe",

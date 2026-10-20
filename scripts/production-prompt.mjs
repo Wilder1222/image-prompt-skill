@@ -3,13 +3,14 @@ import {adaptModelPrompt} from './model-adapter.mjs';
 import {characterStyleIds} from './character-style-render.mjs';
 import {characterGoalErrors} from './character-goals.mjs';
 import {assertBodyCriteria,bodyObservation,assertDistinctBodyEvidence} from './body-proportion-contract.mjs';
+import {assertFigureDesign} from './figure-design.mjs';
 
 // The host agent performs visual observation and design reasoning. This compiler only
 // checks declared provenance, coverage and delivery integrity; it does not see images.
 const channels = new Set(['identity','expression','action','makeup','hair','costume','material','composition','layout','proportion','hands_feet','background','lighting','style','task','output']);
 const nonempty = x => typeof x === 'string' && x.trim().length > 0;
 const referenceFields = new Set(['id','source','inspected','generation_input','authority','facts','identity_group','identity_role','identity_target_id']);
-const inputFields = new Set(['subject_kind','request','references','requirements','unresolved','sections','acceptance','target','edit_scope','metadata','character_exceptions','quality_review','body_plan']);
+const inputFields = new Set(['subject_kind','request','references','requirements','unresolved','sections','acceptance','target','edit_scope','metadata','character_exceptions','quality_review','body_plan','figure_design']);
 const internalStyle = new RegExp(`\\b(?:${characterStyleIds.join('|')})\\b`);
 export const promptHash = text => crypto.createHash('sha256').update(text).digest('hex');
 
@@ -35,6 +36,7 @@ export function compileProductionPrompt(input) {
   if (errors.length) throw new Error(errors.join('\n'));
   errors.push(...characterGoalErrors(input));
   assertBodyCriteria(input);
+  const figureDesign=assertFigureDesign(input);
   function checkProse(text,label) {
     if (!nonempty(text) || /【|】|\bTODO\b|待填写|逐项填写|填写本套/.test(text)) errors.push(`unfinished clause in ${label}`);
     if (internalStyle.test(text ?? '')) errors.push(`replace internal style identifiers with concrete visual prose in ${label}`);
@@ -187,7 +189,7 @@ export function compileProductionPrompt(input) {
     ...(editScope?{edit_scope:editScope}:{}),
     reference_inputs: referenceInputs,
     acceptance: input.acceptance,
-    audit: { coverage: input.requirements.map(r => ({id:r.id, covered:used.has(r.id)})), unused_observations:[...basis.values()].filter(r => r.type==='observation'&&!used.has(r.id)).map(r=>r.id), reference_usage:referenceUsage },
+    audit: { coverage: input.requirements.map(r => ({id:r.id, covered:used.has(r.id)})), unused_observations:[...basis.values()].filter(r => r.type==='observation'&&!used.has(r.id)).map(r=>r.id), reference_usage:referenceUsage,...(figureDesign?{figure_design:figureDesign}:{}) },
     evidence: { provenance_checked:true, semantic_quality_verified:false, image_generated:false, visual_quality_verified:false, user_accepted:false },
     note: 'The agent must review meaning against the actual images and request. Declared provenance and complete coverage do not prove good visual results.',
   };
