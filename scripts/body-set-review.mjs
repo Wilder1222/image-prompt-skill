@@ -7,10 +7,10 @@ import {bodyRegions,assertBodyCriteria,bodyObservation,normalizeBodyEvidence} fr
 const nonempty=x=>typeof x==='string'&&x.trim().length>0;
 const verdicts=['pass','fail','uncertain','not_assessable'];
 const unique=(rows,label)=>{if(new Set(rows).size!==rows.length)throw new Error(`duplicate ${label}`);};
-const bodySignature=(snapshot,figureId)=>objectHash(Object.keys(bodyRegions).map(region=>{
+export const bodySignature=(snapshot,figureId)=>{const regions=Object.keys(bodyRegions).map(region=>{
   const check=snapshot.target.acceptance.find(c=>c.body_region===region&&c.figure_id===figureId);
   return [region,snapshot.target.requirements.find(r=>r.id===check.basis).text];
-}));
+});const design=snapshot.target.figure_design;return objectHash(design?.design_version===2?{regions,body_baseline:design.body_baseline??null,character_type:design.character_type,target_head_count:design.target_head_count??null,target_waist_hip_ratio:design.target_waist_hip_ratio??null,waist_hip_definition:design.waist_hip_definition??null}:regions);};
 const figureKey=(run,figure)=>JSON.stringify([run,figure??null]);
 const figures=snapshot=>snapshot.target.body_plan?.figures??[{id:undefined,view:null,locator:null}];
 function selectFigure(snapshot,id){

@@ -9,12 +9,12 @@ import {freezeProductionRun,verifyFrozenRun} from '../scripts/production-run.mjs
 import {compileAssetPrompt} from '../scripts/asset-master.mjs';
 const blank=()=>({subject_kind:'character',request:'原创人物，按本轮明确年龄与可见取景设计协调的身体与真实服装面料；仅设计文本，不生成图像。',references:[],unresolved:[],requirements:[],sections:[],acceptance:[]});
 const garments=[{id:'coat',part:'外套',fabric:'denim'},{id:'top',part:'内搭',fabric:'knit'},{id:'scarf',part:'围巾',fabric:'silk'}];
-const make=options=>withCharacterGoals(blank(),{ageStage:'adult',framing:'full_body',garments,...options});
+const make=options=>withCharacterGoals(blank(),{ageStage:'adult',characterType:'female',framing:'full_body',garments,...options});
 
 test('adult full-body production emits a concrete 8.5-head target, waist, hips and distinct real fabrics',()=>{
   const authored=make(),compiled=compileProductionPrompt(authored);
   assert.equal(authored.figure_design.target_head_count,8.5);assert.equal(authored.requirements.find(r=>r.id==='FIG:body').target_head_count,8.5);
-  assert.match(compiled.prompt,/8\.5 头身/);assert.match(compiled.prompt,/细腰自然收束/);assert.match(compiled.prompt,/臀部曲线自然饱满/);
+  assert.match(compiled.prompt,/8\.5 头身/);assert.match(compiled.prompt,/腰身纤细且有力量感/);assert.match(compiled.prompt,/臀部圆润上提/);
   assert.match(compiled.prompt,/保持脸型与五官内部关系/);assert.doesNotMatch(compiled.prompt,/\d+\s*(?:厘米|cm)|精确实现|已测得/);
   for(const text of ['棉质牛仔布，中厚、较重','羊毛针织，中等厚度、中等重量','真丝素绉缎，薄、轻','较宽的折线','圆缓褶皱','细软流动褶皱'])assert.ok(compiled.prompt.includes(text),text);
   assert.equal(compiled.audit.figure_design.measurement_verified,false);
@@ -39,7 +39,7 @@ test('reference body locks never fabricate a ratio or introduce new waist and hi
   const output=compileProductionPrompt(input);
   assert.equal(input.figure_design.target_head_count,undefined);
   assert.match(output.prompt,/保持参考中当前可见的身体比例/);
-  assert.doesNotMatch(output.prompt,/造型目标为 8\.5|臀部曲线自然饱满/);
+  assert.doesNotMatch(output.prompt,/造型目标为 8\.5|臀部圆润上提/);
   assert.match(output.audit.figure_design.warnings.join(),/8\.5 头身及成人曲线默认未应用/);
   assert.throws(()=>make({headCount:8.5,proportionMode:'reference_locked',proportionReason:'身体锁定'}),/冲突/);
 });
@@ -55,13 +55,13 @@ test('pre-authored numeric targets cannot be overwritten by default construction
 test('specified stocky body type is retained as an explicit alternative rather than receiving a thin waist',()=>{
   const output=compileProductionPrompt(make({headCount:8,proportionMode:'user',proportionReason:'用户指定矮壮力量体型与8头身',bodyShape:'保留矮壮力量体型与厚实腰背，骨盆和四肢有实在体积'}));
   assert.match(output.prompt,/保留矮壮力量体型与厚实腰背/);
-  assert.doesNotMatch(output.prompt,/细腰自然收束，臀部曲线自然饱满/);
+  assert.doesNotMatch(output.prompt,/腰身纤细且有力量感，臀部圆润上提/);
   assert.match(output.audit.figure_design.warnings.join(),/指定体型优先/);
 });
 
 test('portrait production stays within visible head-neck-shoulders without adult full-body numbers',()=>{
   const output=compileProductionPrompt(make({framing:'portrait'}));
-  assert.doesNotMatch(output.prompt,/8\.5|臀部曲线自然饱满|细腰自然收束/);
+  assert.doesNotMatch(output.prompt,/8\.5|臀部圆润上提|腰身纤细且有力量感/);
   assert.match(output.prompt,/本画幅实际可见的头颈肩/);
   assert.equal(output.audit.figure_design.head_count_target,null);
   assert.throws(()=>make({framing:'portrait',headCount:8.5}),/肖像/);
@@ -71,7 +71,7 @@ test('minors and unknown ages keep natural proportions; older adults retain age-
   for(const ageStage of ['infant','child','adolescent','unspecified']){
     const input=make({ageStage}),out=compileProductionPrompt(input);
     assert.equal(input.figure_design.target_head_count,undefined);
-    assert.doesNotMatch(out.prompt,/8\.5|细腰自然收束|臀部曲线自然饱满/);
+    assert.doesNotMatch(out.prompt,/8\.5|腰身纤细且有力量感|臀部圆润上提/);
     assert.match(out.prompt,/自然|生长阶段/);
     assert.throws(()=>make({ageStage,headCount:8.5}),/未成年或年龄未知/);
   }
@@ -98,7 +98,7 @@ test('local repairs do not receive a new full-body target or material choice fro
   assert.throws(()=>compileAssetPrompt({stage:'material-light',fabric:'denim'}),/不能扩大局部编辑范围/);
   assert.throws(()=>compileAssetPrompt({referenceMode:'full_body_anchor',headCount:8.5}),/锁定.*冲突/);
   const local=compileAssetPrompt({stage:'structure',focus:'hands'});
-  assert.doesNotMatch(local.prompt,/造型目标为 8\.5|臀部曲线自然饱满/);
+  assert.doesNotMatch(local.prompt,/造型目标为 8\.5|臀部圆润上提/);
 });
 
 test('asset generation emits adult numeric defaults; unknown age remains natural and explicit profile conflicts fail',()=>{

@@ -1,6 +1,6 @@
 # 明确头身数值与真实服装面料
 
-本轮用户规则：成年全身默认明确写出 8.5 头身，可在 8–9 中选择具体数值，体现修长、细腰与自然饱满、协调的臀部曲线。数值是造型目标，不是模型保证或实测结果；不补造胸腰臀厘米数据。人物身份、年龄、指定体型、参考锁定与局部编辑范围继续优先。
+本轮用户规则：成年全身默认明确写出 8.5 头身，可在 8–9 中选择具体数值，明确成年女性（`character_type: female`）新增腰臀围比默认 **0.70（腰围÷臀围）**，腰身纤细且有力量感，臀部圆润上提，腹部与臀腿有适度肌肉张力，保留自然组织体积，避免极端收腰。数值是造型目标，不是模型保证或实测结果；不补造胸腰臀厘米数据。人物身份、年龄、指定体型、参考锁定与局部编辑范围继续优先。
 
 ## 先确定年龄、取景与冲突
 
@@ -37,7 +37,8 @@
 
 ```javascript
 withCharacterGoals(brief, {
-  ageStage: 'adult', framing: 'full_body', headCount: 8.5,
+  ageStage: 'adult', characterType: 'female', framing: 'full_body', headCount: 8.5,
+  waistHipRatio: 0.70, // 腰围÷臀围；不填时仅明确成年女性采用此默认
   garments: [
     {id:'coat', part:'外套', fabric:'denim'},
     {id:'top', part:'内搭', fabric:'knit'},
@@ -55,9 +56,21 @@ withCharacterGoals(brief, {
 资产 CLI 的明确成年档案现在会输出具体数值；可显式指定：
 
 ```bash
-node scripts/iteration-director.mjs asset-prompt --age-stage adult --head-count 8.5 --fabric denim --format text
+node scripts/iteration-director.mjs asset-prompt --age-stage adult --character-type female --head-count 8.5 --waist-hip-ratio 0.70 --fabric denim --format text
 ```
 
 生成编译器不把旧预设默认的18–22岁当作实际参考年龄。未明确选择年龄档案时保留参考年龄，未声明年龄则不推定成年；`--age-stage child` 与用户同时明确选择的成年年龄档案冲突会拒绝。明确选择 `NATURAL_ADULT` 本身是成年设定，其7.5头身作为用户选择保留并警告偏离8–9默认；其他数值档案仍需明确成年。比例档案与 `headCount` 不一致也会拒绝。未选择面料时返回 `fabric_design_required: true`，资产输出仍是 `scaffold_only`，不能直接当完成的服装提示词。完整多衣片任务用生产构建器。MJ 仍只输出手动粘贴文本，不上传、自动填表或提交。
 
 实际编译的正例与反例见 [输出例子](../../examples/figure-proportion-fabric.md)，可运行 [完整 brief](../../examples/adult-body-fabric-brief.json)。
+
+## 腰臀围比与同一人物的身体基准
+
+0.70 是为本用户“臀部更饱满、腰臀反差更明显”方向选择的**可配置设计默认**，不是用户实测数据或唯一科学黄金比例。定义固定为 `waist_circumference/hip_circumference`；它是围度比，不是正面像素宽度比，也不是臀围÷腰围。更强腰臀反差对应降低此比值。绝不补造胸腰臀厘米数据。有限正数的显式用户值原样保留，不反转、不夹值；偏离0.70会有说明，≥1会提示与更强腰臀反差的方向不同。这里不建立医学健康区间。
+
+新契约为 `design_version: 2`。`withCharacterGoals` 的参数为 `characterType`、`waistHipRatio`、`waistHipDefinition`、`bodyBaseline`；底层对应 `character_type`、`target_waist_hip_ratio`、`waist_hip_definition`、`body_baseline`。默认 `characterType: unspecified`，不从姓名、外观词或旧预设推断女性。未成年、年龄未知、男性及其他类型不自动采用成年女性围度默认；其他成年类型仅可用明确 `user` 模式、理由和数值表达其自定义方向。指定体型优先，默认0.70不会叠加到矮壮等自定义体型。
+
+完整全身构建会建立含身份标识、年龄、角色类型、头身数值和可选腰臀围比的身体基准。后续同一人物各造型传入原 `bodyBaseline`，不因妆发、神态、动作、衣装或透视变化随机重设数值。身份权威有明确 `identity_target_id` 时必须与基准一致。已有基准与新数值/体型冲突会报错；只有明确授权重设计身体时才能建立新基准。基准标识是设计声明的关联，不是面部身份认证。
+
+肖像可传同一全身基准，元数据继承完整目标，但正文只描述可见头颈肩，不新增或声称展示/验证8.5头身和0.70围度。未提供基准时明确缺失，不补造。`buildPortraitLookPlan` 所有变体克隆同一身体契约，仅允许声明的妆发、神态、动作通道改变；单套不能另传身体比值。身体成组复核把 v2 基准与数值纳入签名，不把换衣料当作身体漂移。
+
+`figure_design_v1` 历史记录继续使用原正文与冻结验证，不回填腰臀数值或新基准；新任务使用v2。`measurement_verified` 和 `circumference_measurement_verified` 始终为false。文本一致性检查、冻结记录、成组签名通过均不能替代真实图像的像素测量、人体围度测量、身份或视觉验收；遮挡、侧身、透视下不得从投影宽度冒充围度。

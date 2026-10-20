@@ -1,6 +1,6 @@
 {
   "subject_kind": "character",
-  "request": "仅编写原创成年全身人物提示词：明确8.5头身、修长协调、细腰与自然饱满臀部曲线，牛仔外套、羊毛针织内搭与真丝围巾各有真实材质和自然垂感。不生成图像。",
+  "request": "仅编写原创成年女性全身人物提示词：明确8.5头身、腰臀围比0.70（腰围÷臀围）、纤细有力的腰身与圆润上提的臀部，牛仔外套、羊毛针织内搭与真丝围巾各有真实材质和自然垂感。不生成图像。",
   "references": [],
   "unresolved": [],
   "requirements": [
@@ -8,7 +8,7 @@
       "id": "identity",
       "channel": "identity",
       "priority": "must",
-      "text": "原创成年人物，面容自然协调，脸型与五官内部关系稳定；后续改衣装或身体造型时不改人物身份。"
+      "text": "原创成年女性人物，面容自然协调，脸型与五官内部关系稳定；后续改衣装或身体造型时不改人物身份。"
     },
     {
       "id": "costume",
@@ -103,8 +103,10 @@
       "id": "FIG:body",
       "channel": "proportion",
       "priority": "must",
-      "text": "身材造型目标为 8.5 头身：按颅顶至下巴的头长协调完整身体，不计发量、头饰、鞋跟和拖尾。整体修长舒展，呈现黄金比例的均衡美感，细腰自然收束，臀部曲线自然饱满且与骨盆连续，躯干完整，肩颈与上下肢段协调，保留肌肉和软组织厚度；不靠极端缩头、纸片腰或单段拉腿凑比例。保持脸型与五官内部关系、人物身份和当前媒介。",
-      "target_head_count": 8.5
+      "text": "身材造型目标为 8.5 头身，保持脸型与五官内部关系及人物身份；头长取颅顶至下巴，不计发量、头饰、鞋跟与拖尾。身形修长协调，腰身纤细且有力量感，臀部圆润上提；腹部与臀腿具有适度肌肉张力和自然软组织体积，腰胯与完整躯干连续，避免极端收腰、纸片腰或单段拉腿。 腰臀围比设计目标为 0.70，定义为腰围÷臀围；这是围度比，不是正面像素宽度比，也不是唯一科学黄金比例，不虚构厘米数。 同一人物的所有造型沿用同一身份与身体基准，不随机改变头身比或腰臀围比；姿态、透视和服装改变不等于重塑身体。",
+      "target_head_count": 8.5,
+      "target_waist_hip_ratio": 0.7,
+      "waist_hip_definition": "waist_circumference/hip_circumference"
     },
     {
       "id": "FIG:fabric:coat",
@@ -131,7 +133,7 @@
       "channel": "identity",
       "items": [
         {
-          "text": "原创成年人物，面容自然协调，脸型与五官内部关系稳定；后续改衣装或身体造型时不改人物身份。",
+          "text": "原创成年女性人物，面容自然协调，脸型与五官内部关系稳定；后续改衣装或身体造型时不改人物身份。",
           "basis": [
             "identity"
           ],
@@ -284,7 +286,7 @@
       "channel": "proportion",
       "items": [
         {
-          "text": "身材造型目标为 8.5 头身：按颅顶至下巴的头长协调完整身体，不计发量、头饰、鞋跟和拖尾。整体修长舒展，呈现黄金比例的均衡美感，细腰自然收束，臀部曲线自然饱满且与骨盆连续，躯干完整，肩颈与上下肢段协调，保留肌肉和软组织厚度；不靠极端缩头、纸片腰或单段拉腿凑比例。保持脸型与五官内部关系、人物身份和当前媒介。",
+          "text": "身材造型目标为 8.5 头身，保持脸型与五官内部关系及人物身份；头长取颅顶至下巴，不计发量、头饰、鞋跟与拖尾。身形修长协调，腰身纤细且有力量感，臀部圆润上提；腹部与臀腿具有适度肌肉张力和自然软组织体积，腰胯与完整躯干连续，避免极端收腰、纸片腰或单段拉腿。 腰臀围比设计目标为 0.70，定义为腰围÷臀围；这是围度比，不是正面像素宽度比，也不是唯一科学黄金比例，不虚构厘米数。 同一人物的所有造型沿用同一身份与身体基准，不随机改变头身比或腰臀围比；姿态、透视和服装改变不等于重塑身体。",
           "basis": [
             "FIG:body"
           ],
@@ -479,10 +481,23 @@
     ]
   },
   "figure_design": {
+    "design_version": 2,
+    "character_type": "female",
     "age_stage": "adult",
     "framing": "full_body",
     "proportion_mode": "default",
     "target_head_count": 8.5,
+    "target_waist_hip_ratio": 0.7,
+    "waist_hip_definition": "waist_circumference/hip_circumference",
+    "body_baseline": {
+      "id": "body-b5c2121b93ba0b4f",
+      "identity_id": "identity-e5858e7755a794a6",
+      "age_stage": "adult",
+      "character_type": "female",
+      "target_head_count": 8.5,
+      "target_waist_hip_ratio": 0.7,
+      "waist_hip_definition": "waist_circumference/hip_circumference"
+    },
     "garments": [
       {
         "id": "coat",

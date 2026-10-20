@@ -1,5 +1,8 @@
 # 图像提示词技能
 
+v0.22.0：明确成年女性新增8.5头身与0.70腰臀围比（腰围÷臀围）的可配置创作目标，同一人物多造型继承同一身体基准；肖像、年龄未知、指定体型和参考锁定不强套默认。规则、参数与证据边界见[明确比例和真实面料](references/routes/figure-proportion-fabric.md)。仅文本编译，未生图或测量。
+
+
 当前版本 **0.21.0**。输入文字描述与可选参考图，输出任务专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
 
 支持纯文字描述，参考图可选。新增 OpenAI GPT Image、Gemini、FLUX、Midjourney、Seedream、Stable Diffusion、Qwen-Image 的指定版本适配，提供独立请求设置、参数检查和执行摘要绑定；停用的 Imagen Gemini API 入口会明确报错。详见 [文生图模型指南](references/providers/text-to-image-models.md)。这是提示词与请求编译支持，尚未完成各供应商的联网出图验证。

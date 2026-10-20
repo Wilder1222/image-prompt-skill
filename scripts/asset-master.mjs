@@ -189,10 +189,10 @@ function renderEnglishCompatibility(prompt) {
   return translateCatalogToEnglish(scopesRendered).replaceAll('仅修订当前媒介下的面部表现与妆面，不更换人物身份、年龄或整体风格。', 'Refine the face and makeup within the current medium without changing identity, age or overall style.').replaceAll('P9 fashion-asset proportion', 'mandatory balanced nine-head body proportions');
 }
 
-export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'zh-CN', ageStage, headCount, fabric, ...options } = {}) {
+export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'zh-CN', ageStage, headCount, characterType, waistHipRatio, fabric, ...options } = {}) {
   if (!['en', 'zh-CN'].includes(language)) throw new Error('language must be zh-CN or en');
-  if(stage!=='generate'&&(ageStage!==undefined||headCount!==undefined||fabric!==undefined))throw new Error('新身体或面料选择不能扩大局部编辑范围；请撰写获准区域的生产任务');
-  if(referenceMode==='full_body_anchor'&&(headCount!==undefined||fabric!==undefined||ageStage!==undefined))throw new Error('身体与服装锁定和新造型设置冲突，先明确用户取舍');
+  if(stage!=='generate'&&(ageStage!==undefined||headCount!==undefined||characterType!==undefined||waistHipRatio!==undefined||fabric!==undefined))throw new Error('新身体或面料选择不能扩大局部编辑范围；请撰写获准区域的生产任务');
+  if(referenceMode==='full_body_anchor'&&(headCount!==undefined||waistHipRatio!==undefined||characterType!==undefined||fabric!==undefined||ageStage!==undefined))throw new Error('身体与服装锁定和新造型设置冲突，先明确用户取舍');
   // A legacy preset's default 18–22 guard is not evidence of the reference's age.
   // Only an explicitly selected age/age guard or adult profile authorizes adult targets.
   if(stage==='generate'&&referenceMode!=='full_body_anchor'&&options.maturityGuard===undefined)options.maturityGuard='none';
@@ -214,7 +214,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
       if(explicit&&headCount!==undefined&&headCount!==presetHead)throw new Error('明确比例档案与 headCount 冲突，先选定唯一目标');
       const selectedHead=headCount??(explicit?presetHead:undefined);
       const userMode=explicit;
-      design=planFigureDesign({age_stage:selectedAge,framing:'full_body',proportion_mode:userMode?'user':'default',target_head_count:selectedHead,
+      design=planFigureDesign({age_stage:selectedAge,character_type:characterType??'unspecified',target_waist_hip_ratio:waistHipRatio,framing:'full_body',proportion_mode:userMode?'user':'default',target_head_count:selectedHead,
         ...(userMode?{reason:`明确选择 ${profile} 成年比例档案，保留该档案原值`}:{}),
         garments:fabric===undefined?[]:[{id:'main',part:language==='en'?'the specified main garment panel':'本轮明确指定的主衣片',fabric}]});
       rendered+=`\n\n【${language==='en'?'Concrete body styling target':'本轮明确身体造型'}】\n${language==='en'?design.en:design.body}`;

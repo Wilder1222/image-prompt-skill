@@ -40,7 +40,7 @@ export function characterGoalErrors(input) {
 }
 
 // Agent-side construction helper. Compilation never injects or rewrites these clauses.
-export function withCharacterGoals(input,{bindings={},exceptions={},texts={},ageStage='unspecified',framing,headCount,proportionMode='default',proportionReason,bodyShape,garments=[]}={}) {
+export function withCharacterGoals(input,{bindings={},exceptions={},texts={},ageStage='unspecified',framing,headCount,characterType='unspecified',waistHipRatio,waistHipDefinition,bodyBaseline,proportionMode='default',proportionReason,bodyShape,garments=[]}={}) {
   const next=structuredClone(input);
   if(next.subject_kind!=='character')return next;
   if(!Object.hasOwn(ageDirections,ageStage))throw new Error(`unknown body age stage: ${ageStage}`);
@@ -77,5 +77,5 @@ export function withCharacterGoals(input,{bindings={},exceptions={},texts={},age
     else next.sections.push({label,channel,items});
   }
   const errors=characterGoalErrors(next);if(errors.length)throw new Error(errors.join('\n'));
-  return framing===undefined ? next : withFigureDesign(next,{age_stage:ageStage,framing,proportion_mode:proportionMode,target_head_count:headCount,reason:proportionReason,body_shape:bodyShape,garments});
+  return framing===undefined ? next : withFigureDesign(next,{age_stage:ageStage,framing,character_type:characterType,target_waist_hip_ratio:waistHipRatio,waist_hip_definition:waistHipDefinition,body_baseline:bodyBaseline,proportion_mode:proportionMode,target_head_count:headCount,reason:proportionReason,body_shape:bodyShape,garments});
 }
