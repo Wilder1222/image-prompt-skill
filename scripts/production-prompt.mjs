@@ -3,7 +3,7 @@ import {adaptModelPrompt} from './model-adapter.mjs';
 import {characterStyleIds} from './character-style-render.mjs';
 import {characterGoalErrors} from './character-goals.mjs';
 import {assertBodyCriteria,bodyObservation,assertDistinctBodyEvidence} from './body-proportion-contract.mjs';
-import {assertFigureDesign} from './figure-design.mjs';
+import {assertFigureDesign,waistHipDefinition} from './figure-design.mjs';
 
 // The host agent performs visual observation and design reasoning. This compiler only
 // checks declared provenance, coverage and delivery integrity; it does not see images.
@@ -101,6 +101,8 @@ export function compileProductionPrompt(input) {
     if (!characterProportions.length) errors.push('character production requires a must proportion requirement');
     if (proportions.some(r => r.target_head_count !== undefined && (!Number.isFinite(r.target_head_count) || r.target_head_count <= 0))) errors.push('target_head_count must be a finite positive number when explicitly supplied');
     if (new Set(proportions.map(r => r.target_head_count).filter(n => n !== undefined)).size > 1) errors.push('conflicting target_head_count requirements');
+    if(proportions.some(r=>r.target_waist_hip_ratio!==undefined&&(!Number.isFinite(r.target_waist_hip_ratio)||r.target_waist_hip_ratio<=0||r.waist_hip_definition!==waistHipDefinition)))errors.push('waist-to-hip ratio requires a finite positive circumference ratio defined as waist_circumference/hip_circumference');
+    if(new Set(proportions.map(r=>r.target_waist_hip_ratio).filter(n=>n!==undefined)).size>1)errors.push('conflicting target_waist_hip_ratio requirements');
   }
   const labels = new Set(), paragraphs = [];
   for (const section of input.sections ?? []) {

@@ -125,6 +125,7 @@ export function buildPortraitLookPlan(input) {
       const identityEnd=brief.sections.findLastIndex(section=>section.channel==='identity')+1;
       brief.sections.splice(identityEnd,0,...leading);
     }
+    if(objectHash(brief.figure_design??null)!==objectHash(base.figure_design??null))throw new Error('same-character body baseline changed');
     const compiled = compileProductionPrompt(brief);
     variants.push({id:look.id,label:look.label,group:look.group ?? null,fit_reason:look.fit_reason,brief,prompt:compiled.prompt,prompt_sha256:compiled.prompt_sha256});
   }
@@ -148,6 +149,7 @@ export function buildPortraitLookPlan(input) {
   repeated('action','repeated_body_action',look => ['torso','hands','support'].map(field => normalized(look.action[field])));
   return {status:diagnostics.length ? 'needs_revision' : 'text_plan_ready',plan_sha256:objectHash(input),count:variants.length,
     groups:groups.map(group => ({...group})),variation_channels:[...input.variation_channels],diagnostics,variants,
+    body_baseline:structuredClone(base.figure_design?.body_baseline??null),
     evidence:{text_plan_only:true,image_generated:false,semantic_fit_verified:false,visual_diversity_verified:false,identity_preservation_verified:false}};
 }
 

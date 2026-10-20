@@ -58,7 +58,7 @@ export function freezeProductionRun(input, options={}) {
   if(options.parent&&(options.parent.case_id!==options.case_id||options.parent.cohort!==options.cohort))throw new Error('revision case and cohort must match parent');
   const record={schema_version:1,target_contract:targetContract,...(stylePlan?{style_standardization_contract:styleStandardizationContract}:{}),run_id:options.run_id,case_id:options.case_id,cohort:options.cohort,kind,
     ...(input.subject_kind==='character'?{character_goals_contract:'character_goals_v1'}:{}),
-    ...(input.figure_design?{figure_design_contract:'figure_design_v1'}:{}),
+    ...(input.figure_design?{figure_design_contract:`figure_design_v${input.figure_design.design_version??1}`} :{}),
     quality_audit:qualityAudit,quality_review:input.quality_review??null,
     created_at:new Date().toISOString(),tool:compiled.model_execution?.transport??'built-in image_gen',
     tool_parameters:compiled.model_execution?{model:compiled.model_execution.model,...compiled.model_execution.settings}:{model:null,seed:null},
@@ -75,8 +75,8 @@ export function freezeProductionRun(input, options={}) {
 
 export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}) {
   if(snapshot?.schema_version!==1)throw new Error('unsupported run snapshot');
-  if(snapshot.figure_design_contract!==undefined&&(snapshot.figure_design_contract!=='figure_design_v1'||!snapshot.target?.figure_design))throw new Error('frozen figure design contract was removed or changed');
-  if(snapshot.target?.figure_design&&snapshot.figure_design_contract!=='figure_design_v1')throw new Error('missing frozen figure design contract');
+  if(snapshot.figure_design_contract!==undefined&&(!['figure_design_v1','figure_design_v2'].includes(snapshot.figure_design_contract)||!snapshot.target?.figure_design))throw new Error('frozen figure design contract was removed or changed');
+  if(snapshot.target?.figure_design&&snapshot.figure_design_contract!==`figure_design_v${snapshot.target.figure_design.design_version??1}`)throw new Error('missing or changed frozen figure design contract');
   const {snapshot_sha256,...body}=snapshot;
   if(objectHash(body)!==snapshot_sha256)throw new Error('frozen snapshot changed');
   if(snapshot.character_goals_contract!==undefined){
