@@ -345,8 +345,8 @@ export const catalogEnglish = [
   {
     "resource": "fashion_asset_v082_catalog.json",
     "path": "$.principle",
-    "zh": "人物比例先适配年龄与明确体型；未指定体型时，默认适度美化为黄金比例审美下轻盈挺拔、修长舒展的仙侠风格身材。仙侠只限定身形气质，不改变时代、衣装或媒介。指定丰满、魁梧、矮小等体型优先保留；局部编辑不扩大范围，已达标身体保持连续，不固定头身数或1.618。",
-    "en": "Age and explicit body type take precedence. Without a specified body type, use moderate, age-appropriate refinement toward balanced, light and elongated xianxia proportions. Preserve the era, costume and medium, body locks and local edit scope; do not impose fixed numeric ratios."
+    "zh": "人物比例先适配年龄与明确体型。已明确成年且完整全身时，默认写出8.5头身（8–9范围）的修长造型目标、细腰与自然饱满的臀部曲线；不编造厘米测量或保证模型精确实现。肖像只写可见身体，未成年和年龄未知用非性化自然比例。指定数值、指定体型、身体锁定与局部编辑范围优先，冲突显式说明。",
+    "en": "Age, explicit body type and scope take precedence. For a declared adult full-body design, state a concrete 8.5-head target within 8–9, an elongated balanced body, a slender waist and naturally full hips. This is a styling target, not invented measurements or guaranteed generation. Portraits describe only visible body areas; minors and unknown ages use natural non-sexualized proportions. Explicit numeric choices, body locks and edit scope remain visible and never silently overridden."
   },
   {
     "resource": "fashion_asset_v082_catalog.json",
@@ -1023,8 +1023,8 @@ export const catalogEnglish = [
   {
     "resource": "fashion_proportion_catalog.json",
     "path": "$.note",
-    "zh": "人物比例先适配年龄与明确体型；未指定体型时，默认适度美化为黄金比例审美下轻盈挺拔、修长舒展的仙侠风格身材。仙侠只限定身形气质，不改变时代、衣装或媒介。指定丰满、魁梧、矮小等体型优先保留；局部编辑不扩大范围，已达标身体保持连续，不固定头身数或1.618。",
-    "en": "Age and explicit body type take precedence. Without a specified body type, use moderate, age-appropriate refinement toward balanced, light and elongated xianxia proportions. Preserve the era, costume and medium, body locks and local edit scope; do not impose fixed numeric ratios."
+    "zh": "人物比例先适配年龄与明确体型。已明确成年且完整全身时，默认写出8.5头身（8–9范围）的修长造型目标、细腰与自然饱满的臀部曲线；不编造厘米测量或保证模型精确实现。肖像只写可见身体，未成年和年龄未知用非性化自然比例。指定数值、指定体型、身体锁定与局部编辑范围优先，冲突显式说明。",
+    "en": "Age, explicit body type and scope take precedence. For a declared adult full-body design, state a concrete 8.5-head target within 8–9, an elongated balanced body, a slender waist and naturally full hips. This is a styling target, not invented measurements or guaranteed generation. Portraits describe only visible body areas; minors and unknown ages use natural non-sexualized proportions. Explicit numeric choices, body locks and edit scope remain visible and never silently overridden."
   },
   {
     "resource": "p9_persistence_guard_catalog.json",

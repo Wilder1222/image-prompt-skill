@@ -28,9 +28,10 @@ test('default body and full-body framing are consistent in all media and languag
  }
 });
 
-test('explicit numeric preset is preserved without becoming a default',()=>{
+test('explicit adult numeric preset is preserved without becoming an unknown-age default',()=>{
  for(const language of ['zh-CN','en']){
-  assert.match(compileAssetPrompt({proportionProfile:'P9_FASHION_ASSET',language}).prompt,language==='en'?/nine.head/:/九头身/);
+  assert.match(compileAssetPrompt({ageStage:'adult',proportionProfile:'P9_FASHION_ASSET',language}).prompt,language==='en'?/nine.head/:/九头身/);
+  assert.throws(()=>compileAssetPrompt({proportionProfile:'P9_FASHION_ASSET',language}),/年龄未知/);
   assert.doesNotMatch(compileAssetPrompt({referenceMode:'full_body_anchor',language}).prompt,/九头|nine.head/);
  }
 });
@@ -68,7 +69,7 @@ test('narrow repairs preserve existing framing and do not introduce showcase occ
 });
 
 test('reference anchors, numeric profiles and scoped repairs retain the shared body goal in both languages',()=>{
- const variants=[{referenceMode:'full_body_anchor'},{proportionProfile:'P9_FASHION_ASSET'},
+ const variants=[{referenceMode:'full_body_anchor'},{ageStage:'adult',proportionProfile:'P9_FASHION_ASSET'},
   {stage:'face'},{stage:'structure',focus:'hands'},{stage:'structure',focus:'framing'},
   {stage:'material-light',focus:'materials'},{stage:'material-light',focus:'lighting'}];
  for(const options of variants)for(const language of ['zh-CN','en']){

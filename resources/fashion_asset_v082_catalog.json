@@ -1,7 +1,7 @@
 {
   "version": "0.8.2",
   "default": "BALANCED_ELEGANT",
-  "principle": "人物比例先适配年龄与明确体型；未指定体型时，默认适度美化为黄金比例审美下轻盈挺拔、修长舒展的仙侠风格身材。仙侠只限定身形气质，不改变时代、衣装或媒介。指定丰满、魁梧、矮小等体型优先保留；局部编辑不扩大范围，已达标身体保持连续，不固定头身数或1.618。",
+  "principle": "人物比例先适配年龄与明确体型。已明确成年且完整全身时，默认写出8.5头身（8–9范围）的修长造型目标、细腰与自然饱满的臀部曲线；不编造厘米测量或保证模型精确实现。肖像只写可见身体，未成年和年龄未知用非性化自然比例。指定数值、指定体型、身体锁定与局部编辑范围优先，冲突显式说明。",
   "profiles": {
     "NATURAL_ADULT": {
       "visual_head_count_target": "approximately_7_to_7.5_design_guide_not_measurement",
@@ -80,7 +80,13 @@
       "mandatory": true,
       "explicit_only": false,
       "aesthetic_direction": "age_adapted_xianxia_default",
-      "idealization_scope": "all_character_tasks"
+      "idealization_scope": "all_character_tasks",
+      "adult_full_body_default_head_count": 8.5,
+      "adult_full_body_design_range": [
+        8,
+        9
+      ],
+      "numeric_target_scope": "declared_adult_full_body_only"
     }
   },
   "all_task_constraint": "所有人物先按年龄与指定体型确定比例；未指定体型时默认适度美化为轻盈修长的仙侠身形，黄金比例表达整体均衡。头肩相称、躯干完整、腰臀有厚度，肌肉支撑适配年龄与动作，仅呈现当前取景实际可见的身体关系。指定体型、身体锁定和局部编辑范围优先；已达标关系保持连续。"

@@ -5,12 +5,13 @@ import { compileAssetPrompt, createAssetPlan } from './asset-master.mjs';
 import { applyFaceDesign, reviseFaceDesign } from './face-design.mjs';
 import { compileProductionPrompt } from './production-prompt.mjs';
 import { buildPortraitLookPlan, renderPortraitLookPrompts } from './portrait-look-plan.mjs';
+import {writeFigureExamples} from './build-figure-examples.mjs';
 
 export function currentExamples() {
   const cases = [
-    ['A：角色感优先的全身白底生成', {}],
+    ['A：明确成年、角色感优先的全身白底生成', {ageStage:'adult'}],
     ['东方幻想原画资产：保留厚涂面容与选择性边缘', { styleWorkflow: 'dark_fantasy_asset', maturityGuard: 'none' }],
-    ['B：轻度真人感；其余条件与 A 相同', { faceProfile: 'humanized_real_light' }],
+    ['B：轻度真人感；其余条件与 A 相同', { faceProfile: 'humanized_real_light', ageStage:'adult' }],
     ['服装定妆展示：有层次的长袍与袖摆', { presentation: 'costume_showcase', maturityGuard: 'none' }],
     ['适度优化服装与造型：保留人物辨识度，按方案再设计', { presentation: 'costume_showcase', maturityGuard: 'none', designFreedom: 'moderate' }],
     ['已有全身参考：保留身份、造型与已认可体型比例', { referenceMode: 'full_body_anchor' }],
@@ -106,4 +107,5 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   fs.writeFileSync(path.join(root, 'examples/portrait-look-diversity-current-prompts.md'), currentPortraitLookExamples());
   fs.writeFileSync(path.join(root, 'docs/current-asset-plan.json'), `${JSON.stringify(createAssetPlan({ presentation: 'costume_showcase', maturityGuard: 'none' }), null, 2)}\n`);
   console.log('Generated current prompts and plan; visual regression remains pending.');
+  writeFigureExamples();
 }

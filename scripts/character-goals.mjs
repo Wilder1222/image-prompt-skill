@@ -1,4 +1,5 @@
 // Authored, visible targets only. Tags establish coverage, never semantic or image approval.
+import {withFigureDesign} from './figure-design.mjs';
 export const characterGoals = Object.freeze({
   elongated: {channel:'proportion',label:'修长比例',text:'未指定体型时，按人物年龄适度美化为轻盈挺拔、修长舒展的仙侠风格身形，以黄金比例的均衡感协调可见头肩、完整躯干和上下肢段；保持当前身份、衣装与媒介。获准纠正比例时可协调调整完整头部与身体的尺度，保留脸型和五官内部关系，不冻结被否定的旧头身关系；避免极端缩头、拉颈或单独拉腿。'},
   slender: {channel:'proportion',label:'苗条轮廓',text:'未指定体型时，在本年龄的骨架与软组织基础上适度整理苗条利落的轮廓，胸廓、腰腹和骨盆连续有厚度；不削成纸片或露骨细杆。明确的丰满、魁梧、矮小等体型优先保留，不统一改瘦改高；衣装沿既定结构呈现。'},
@@ -39,7 +40,7 @@ export function characterGoalErrors(input) {
 }
 
 // Agent-side construction helper. Compilation never injects or rewrites these clauses.
-export function withCharacterGoals(input,{bindings={},exceptions={},texts={},ageStage='unspecified'}={}) {
+export function withCharacterGoals(input,{bindings={},exceptions={},texts={},ageStage='unspecified',framing,headCount,proportionMode='default',proportionReason,bodyShape,garments=[]}={}) {
   const next=structuredClone(input);
   if(next.subject_kind!=='character')return next;
   if(!Object.hasOwn(ageDirections,ageStage))throw new Error(`unknown body age stage: ${ageStage}`);
@@ -53,7 +54,16 @@ export function withCharacterGoals(input,{bindings={},exceptions={},texts={},age
     if(bindings[goal]&&!existing)throw new Error(`unknown character goal binding: ${bindings[goal]}`);
     if(existing){existing.character_goal=goal;continue;}
     if(next.edit_scope)throw new Error(`scoped edits need authored bindings or explicit exceptions for ${goal}; common goals cannot expand editing permission`);
-    const id=`CQ:${goal}`,text=texts[goal]??(definition.channel==='proportion'?`${definition.text} ${ageDirections[ageStage]}`:definition.text);
+    const visibleTargets={elongated:'仅协调本取景实际可见的头颈肩关系，不扩成全身或声称完整头身比可见；保持脸型、身份与年龄。',
+      slender:'仅整理本画幅可见上身体积与衣装轮廓，不补写遮挡腰臀或完整下肢，不改变指定体型。',
+      muscle:'可见肩颈与上身体块有符合年龄和姿态的柔和支撑，不穿透衣料推断肌肉，不补画未见关节。'};
+    const ageTargets={elongated:ageDirections[ageStage],slender:'保留本生长阶段自然躯干、肩胸骨盆与肢体体积，不强调成人胸臀曲线或过度收腰。',muscle:'软组织与动作支撑适配实际年龄，未成年不强化成人肌肉分块；年龄未知保留可见的自然关系。'};
+    const lockedTargets={elongated:'保持已锁定参考的可见头肩、躯干与肢段尺度，不重新缩头或拉腿，不编造未测得的比例。',slender:'保留已锁定身体的当前腰胯轮廓和体积，不重新收腰或塑造臀部，不借服装改写身体。',muscle:'保持已确认肌肉与软组织的体积和动作支撑，只观察本轮可见范围。'};
+    const userTargets={elongated:`按本轮明确指定体型协调头肩、躯干与肢段：${bodyShape}；身份内部关系保持。`,slender:`衣装围绕明确体型呈现自然体积：${bodyShape}；不额外削腰或统一改瘦。`,muscle:`肌肉与软组织支撑服从指定体型和当前动作，不以加强写实改变身份或骨架。`};
+    const adultTargets={elongated:'头肩、完整躯干与四肢共同形成修长协调的全身轮廓，比例造型按本轮明确数值；保持脸型和五官内部关系。',slender:'腰身自然收束、腰胯连续，保留躯干厚度和指定体型，衣带与服装腰线不替代人体腰位。',muscle:'肌肉与软组织的体积、线条和支撑适配年龄与当前动作，不画细杆四肢或穿透衣料的肌肉。'};
+    const visibleBody=framing&&proportionMode==='reference_locked'?lockedTargets[goal]:framing&&bodyShape?userTargets[goal]:framing&&framing!=='full_body'?visibleTargets[goal]:
+      framing==='full_body'?(['adult','older'].includes(ageStage)?adultTargets[goal]:ageTargets[goal]):null;
+    const id=`CQ:${goal}`,text=texts[goal]??(definition.channel==='proportion'?(visibleBody??`${definition.text} ${ageDirections[ageStage]}`):definition.text);
     if(!nonempty(text)||next.requirements.some(row=>row.id===id))throw new Error(`invalid or duplicate character goal: ${goal}`);
     next.requirements.push({id,channel:definition.channel,priority:'must',character_goal:goal,text});
     const item={text,basis:[id],intent:'constraint'};
@@ -67,5 +77,5 @@ export function withCharacterGoals(input,{bindings={},exceptions={},texts={},age
     else next.sections.push({label,channel,items});
   }
   const errors=characterGoalErrors(next);if(errors.length)throw new Error(errors.join('\n'));
-  return next;
+  return framing===undefined ? next : withFigureDesign(next,{age_stage:ageStage,framing,proportion_mode:proportionMode,target_head_count:headCount,reason:proportionReason,body_shape:bodyShape,garments});
 }

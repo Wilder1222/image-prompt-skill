@@ -383,9 +383,10 @@ const o=argv();try{const cmd=o._[0];let out;
  else if(cmd==='asset-master-plan-v082')out=createAssetPlan(assetOptions(o));
  else if(cmd==='ancient-white-asset-plan-v082')out=ancientWhiteAssetPromptPlanV082(assetOptions(o));
  else if(cmd==='asset-prompt'){
-  const options=assetOptions(o,['stage','focus','format','reference-mode','language']);
+  const options=assetOptions(o,['stage','focus','format','reference-mode','language','age-stage','head-count','fabric']);
   if(o.format&&!['text','json'].includes(o.format))throw new Error('format must be text or json');
-  out=compileAssetPrompt({...options,stage:o.stage,focus:o.focus,referenceMode:o['reference-mode'],language:o.language??'zh-CN'});
+  if(o['head-count']!==undefined&&!/^\d+(?:\.\d+)?$/.test(o['head-count']))throw new Error('--head-count requires a positive decimal number');
+  out=compileAssetPrompt({...options,stage:o.stage,focus:o.focus,referenceMode:o['reference-mode'],language:o.language??'zh-CN',ageStage:o['age-stage'],headCount:o['head-count']===undefined?undefined:Number(o['head-count']),fabric:o.fabric});
  }
  else if(cmd==='constraint-plan')out=constraintBudgetPlan(o.completion||'C1',o.density||'preserve',o.wear||'W0',o.human||'H2',o.extremity||'E2');
  else if(cmd==='density-plan')out=densityPlan(o.level||'medium',o.wear||'W0');
