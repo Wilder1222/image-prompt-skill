@@ -1,10 +1,15 @@
 # 图像提示词技能
 
-当前版本 **0.19.0**。输入文字描述与可选参考图，输出任务专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
+v0.22.0：明确成年女性新增8.5头身与0.70腰臀围比（腰围÷臀围）的可配置创作目标，同一人物多造型继承同一身体基准；肖像、年龄未知、指定体型和参考锁定不强套默认。规则、参数与证据边界见[明确比例和真实面料](references/routes/figure-proportion-fabric.md)。仅文本编译，未生图或测量。
+
+
+当前版本 **0.21.0**。输入文字描述与可选参考图，输出任务专属的中文分类提示词；已要求测试时，使用宿主图像工具生成、查看并修订。
 
 支持纯文字描述，参考图可选。新增 OpenAI GPT Image、Gemini、FLUX、Midjourney、Seedream、Stable Diffusion、Qwen-Image 的指定版本适配，提供独立请求设置、参数检查和执行摘要绑定；停用的 Imagen Gemini API 入口会明确报错。详见 [文生图模型指南](references/providers/text-to-image-models.md)。这是提示词与请求编译支持，尚未完成各供应商的联网出图验证。
 
 Midjourney 适配已按 2026-10-19 官方文档更新：默认版本说明为 V8.2，编译显式版本，支持网页附件清单与 Discord 图片 URL、V8 Edit / V7 Omni 兼容校验，以及可手动粘贴的 `--format native` 输出。缺少参考时明确待补，不提供自动发送或平台操作。见 [MJ 指南](references/providers/midjourney.md) 与 [可用例子](examples/midjourney-manual-prompts.md)。
+
+新增 [明确头身比例与服装面料](references/routes/figure-proportion-fabric.md)。成年全身默认明确8.5头身（8–9范围），按年龄、取景和用户锁定分流；服装落实面料、厚薄、重量、自然垂感和褶皱。数值为造型目标，不代表模型已精确实现；身份保持、参考锁定与 MJ 手动提交边界继续保留。
 
 ## 使用
 

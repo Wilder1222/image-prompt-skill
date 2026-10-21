@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { renderTaggedChinese } from './asset-prompt-zh.mjs';
 import { translateCatalogToEnglish, workflowEnglish } from './asset-catalog-en.mjs';
 import { applyCharacterAppearance } from './character-style-render.mjs';
+import {planFigureDesign} from './figure-design.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = name => JSON.parse(fs.readFileSync(path.join(root, 'resources', name), 'utf8'));
@@ -189,8 +190,13 @@ function renderEnglishCompatibility(prompt) {
   return translateCatalogToEnglish(scopesRendered).replaceAll('仅修订当前媒介下的面部表现与妆面，不更换人物身份、年龄或整体风格。', 'Refine the face and makeup within the current medium without changing identity, age or overall style.').replaceAll('P9 fashion-asset proportion', 'mandatory balanced nine-head body proportions');
 }
 
-export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'zh-CN', ...options } = {}) {
+export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 'portrait_expand', language = 'zh-CN', ageStage, headCount, characterType, waistHipRatio, fabric, ...options } = {}) {
   if (!['en', 'zh-CN'].includes(language)) throw new Error('language must be zh-CN or en');
+  if(stage!=='generate'&&(ageStage!==undefined||headCount!==undefined||characterType!==undefined||waistHipRatio!==undefined||fabric!==undefined))throw new Error('新身体或面料选择不能扩大局部编辑范围；请撰写获准区域的生产任务');
+  if(referenceMode==='full_body_anchor'&&(headCount!==undefined||waistHipRatio!==undefined||characterType!==undefined||fabric!==undefined||ageStage!==undefined))throw new Error('身体与服装锁定和新造型设置冲突，先明确用户取舍');
+  // A legacy preset's default 18–22 guard is not evidence of the reference's age.
+  // Only an explicitly selected age/age guard or adult profile authorizes adult targets.
+  if(stage==='generate'&&referenceMode!=='full_body_anchor'&&options.maturityGuard===undefined)options.maturityGuard='none';
   const finish = result => {
     if (language === 'en') result = {...result, prompt:renderEnglishCompatibility(result.prompt)};
     const prompt = language === 'zh-CN' ? renderTaggedChinese(result) : (result.prompt.startsWith('【') ? result.prompt : result.prompt.split('\n\n').map((text, i) => `【${i ? 'Preservation and edit scope' : 'Task and reference'}】\n${text}`).join('\n\n'));
@@ -199,7 +205,25 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
       const constraint = language === 'en' ? translateCatalogToEnglish(proportions.all_task_constraint) : proportions.all_task_constraint;
       rendered += `\n\n【${language === 'en' ? 'Shared body refinement goal' : '共同身材美化目标'}】\n${constraint}`;
     }
-    return {...result, status:'scaffold_only', requires_reference_analysis:true, prompt_language:language, prompt:`${rendered}\n\n${outputResolutionClause(language)}`};
+    let design;
+    if(result.stage==='generate'&&result.reference_mode!=='full_body_anchor'){
+      const guard=guards.profiles[result.configuration.maturity_guard];
+      const profile=result.configuration.proportion_profile,explicit=profile!=='BALANCED_ELEGANT';
+      const selectedAge=ageStage??((guard?.enabled&&guard.age_floor>=18)||profile==='NATURAL_ADULT'?'adult':'unspecified');
+      if(['infant','child','adolescent','unspecified'].includes(selectedAge)&&ageStage!==undefined&&guard?.enabled)throw new Error('年龄声明与成年年龄档案冲突；选择 maturityGuard none 并保留实际年龄');
+      const presetHead=profile==='NATURAL_ADULT'?7.5:Number(proportions.profiles[profile]?.visual_head_count_target);
+      if(explicit&&headCount!==undefined&&headCount!==presetHead)throw new Error('明确比例档案与 headCount 冲突，先选定唯一目标');
+      const selectedHead=headCount??(explicit?presetHead:undefined);
+      const userMode=explicit;
+      design=planFigureDesign({age_stage:selectedAge,character_type:characterType??'unspecified',target_waist_hip_ratio:waistHipRatio,framing:'full_body',proportion_mode:userMode?'user':'default',target_head_count:selectedHead,
+        ...(userMode?{reason:`明确选择 ${profile} 成年比例档案，保留该档案原值`}:{}),
+        garments:fabric===undefined?[]:[{id:'main',part:language==='en'?'the specified main garment panel':'本轮明确指定的主衣片',fabric}]});
+      rendered+=`\n\n【${language==='en'?'Concrete body styling target':'本轮明确身体造型'}】\n${language==='en'?design.en:design.body}`;
+      for(const g of design.cloth)rendered+=`\n\n【${language==='en'?'Fabric and drape':'具体服装面料与垂感'}】\n${language==='en'?g.en:g.zh}`;
+    }
+    return {...result, status:'scaffold_only', requires_reference_analysis:true, prompt_language:language, prompt:`${rendered}\n\n${outputResolutionClause(language)}`,
+      ...(design?{figure_design:design.contract,design_warnings:design.warnings}:{}),
+      ...(!design?.cloth.length?{fabric_design_required:true}:{})};
   };
   const reference = lookup(presentations.reference_modes, referenceMode, 'reference mode');
   if (referenceMode === 'full_body_anchor') {

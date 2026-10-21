@@ -1,0 +1,519 @@
+{
+  "subject_kind": "character",
+  "request": "仅编写原创成年女性全身人物提示词：明确8.5头身、腰臀围比0.70（腰围÷臀围）、纤细有力的腰身与圆润上提的臀部，牛仔外套、羊毛针织内搭与真丝围巾各有真实材质和自然垂感。不生成图像。",
+  "references": [],
+  "unresolved": [],
+  "requirements": [
+    {
+      "id": "identity",
+      "channel": "identity",
+      "priority": "must",
+      "text": "原创成年女性人物，面容自然协调，脸型与五官内部关系稳定；后续改衣装或身体造型时不改人物身份。"
+    },
+    {
+      "id": "costume",
+      "channel": "costume",
+      "priority": "must",
+      "text": "深靛蓝牛仔外套，内搭米白羊毛针织衫，搭配窄幅灰蓝真丝围巾；衣领、袖口与接缝清楚，整体设计克制。"
+    },
+    {
+      "id": "layout",
+      "channel": "composition",
+      "priority": "must",
+      "text": "单人完整全身，正面自然站立，头顶至足底完整入画，浅中性背景，柔和光线。"
+    },
+    {
+      "id": "BODY:head_shoulders",
+      "channel": "proportion",
+      "priority": "must",
+      "text": "头部、肩带与完整身体协调，肩颈自然连接，保留人物脸型与五官内部关系。"
+    },
+    {
+      "id": "BODY:torso_pelvis",
+      "channel": "proportion",
+      "priority": "must",
+      "text": "胸廓、腰腹和骨盆结构完整连续，腰胯体积自然，不靠压短躯干凑长腿。"
+    },
+    {
+      "id": "BODY:arms",
+      "channel": "proportion",
+      "priority": "must",
+      "text": "上臂、肘、前臂、腕手长度与厚度协调，姿势自然。"
+    },
+    {
+      "id": "BODY:legs",
+      "channel": "proportion",
+      "priority": "must",
+      "text": "大腿、膝、小腿与足部成组协调，保留腿部体积和自然膝位。"
+    },
+    {
+      "id": "BODY:support",
+      "channel": "proportion",
+      "priority": "must",
+      "text": "肌肉与软组织随承重自然收缩放松，足底接触与重心可信。"
+    },
+    {
+      "id": "BODY:silhouette",
+      "channel": "proportion",
+      "priority": "must",
+      "text": "整体修长舒展，轮廓和服装体积统一，鞋跟、衣摆与头饰不冒充人体高度。"
+    },
+    {
+      "id": "BODY:layout",
+      "channel": "composition",
+      "priority": "must",
+      "text": "画面内全身形象共1幅：单人完整全身。各幅沿用本轮共同身体关系与完整取景。"
+    },
+    {
+      "id": "CQ:elongated",
+      "channel": "proportion",
+      "priority": "must",
+      "character_goal": "elongated",
+      "text": "头肩、完整躯干与四肢共同形成修长协调的全身轮廓，比例造型按本轮明确数值；保持脸型和五官内部关系。"
+    },
+    {
+      "id": "CQ:slender",
+      "channel": "proportion",
+      "priority": "must",
+      "character_goal": "slender",
+      "text": "腰身自然收束、腰胯连续，保留躯干厚度和指定体型，衣带与服装腰线不替代人体腰位。"
+    },
+    {
+      "id": "CQ:muscle",
+      "channel": "proportion",
+      "priority": "must",
+      "character_goal": "muscle",
+      "text": "肌肉与软组织的体积、线条和支撑适配年龄与当前动作，不画细杆四肢或穿透衣料的肌肉。"
+    },
+    {
+      "id": "CQ:hair_natural",
+      "channel": "hair",
+      "priority": "must",
+      "character_goal": "hair_natural",
+      "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。"
+    },
+    {
+      "id": "CQ:face_readable",
+      "channel": "hair",
+      "priority": "must",
+      "character_goal": "face_readable",
+      "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。"
+    },
+    {
+      "id": "FIG:body",
+      "channel": "proportion",
+      "priority": "must",
+      "text": "身材造型目标为 8.5 头身，保持脸型与五官内部关系及人物身份；头长取颅顶至下巴，不计发量、头饰、鞋跟与拖尾。身形修长协调，腰身纤细且有力量感，臀部圆润上提；腹部与臀腿具有适度肌肉张力和自然软组织体积，腰胯与完整躯干连续，避免极端收腰、纸片腰或单段拉腿。 腰臀围比设计目标为 0.70，定义为腰围÷臀围；这是围度比，不是正面像素宽度比，也不是唯一科学黄金比例，不虚构厘米数。 同一人物的所有造型沿用同一身份与身体基准，不随机改变头身比或腰臀围比；姿态、透视和服装改变不等于重塑身体。",
+      "target_head_count": 8.5,
+      "target_waist_hip_ratio": 0.7,
+      "waist_hip_definition": "waist_circumference/hip_circumference"
+    },
+    {
+      "id": "FIG:fabric:coat",
+      "channel": "material",
+      "priority": "must",
+      "text": "深靛蓝外套采用棉质牛仔布，中厚、较重；较挺括，衣摆受自重下垂，接缝处保留支撑，肘膝与坐折处形成较宽的折线和受力堆褶。沿用指定衣片、缝线、叠压和穿着关系，不以换材质或统一轻薄飘逸改变服装设计。"
+    },
+    {
+      "id": "FIG:fabric:knit",
+      "channel": "material",
+      "priority": "must",
+      "text": "米白内搭采用羊毛针织，中等厚度、中等重量；柔软且有弹性，自重下垂，肩部与袖口保留回弹，弯曲处形成圆缓褶皱，针目随伸展轻微张开。沿用指定衣片、缝线、叠压和穿着关系，不以换材质或统一轻薄飘逸改变服装设计。"
+    },
+    {
+      "id": "FIG:fabric:scarf",
+      "channel": "material",
+      "priority": "must",
+      "text": "灰蓝围巾采用真丝素绉缎，薄、轻；柔顺贴合，沿悬垂方向自然落下，反光随面料朝向移动，形成细软流动褶皱，缝边和叠压处有克制厚度。沿用指定衣片、缝线、叠压和穿着关系，不以换材质或统一轻薄飘逸改变服装设计。"
+    }
+  ],
+  "sections": [
+    {
+      "label": "人物身份",
+      "channel": "identity",
+      "items": [
+        {
+          "text": "原创成年女性人物，面容自然协调，脸型与五官内部关系稳定；后续改衣装或身体造型时不改人物身份。",
+          "basis": [
+            "identity"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "服装设计",
+      "channel": "costume",
+      "items": [
+        {
+          "text": "深靛蓝牛仔外套，内搭米白羊毛针织衫，搭配窄幅灰蓝真丝围巾；衣领、袖口与接缝清楚，整体设计克制。",
+          "basis": [
+            "costume"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "构图与灯光",
+      "channel": "composition",
+      "items": [
+        {
+          "text": "单人完整全身，正面自然站立，头顶至足底完整入画，浅中性背景，柔和光线。",
+          "basis": [
+            "layout"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "身体方案",
+      "channel": "proportion",
+      "items": [
+        {
+          "text": "头部、肩带与完整身体协调，肩颈自然连接，保留人物脸型与五官内部关系。",
+          "basis": [
+            "BODY:head_shoulders"
+          ],
+          "intent": "design",
+          "reason": "依据本轮年龄、指定体型及可见范围，建立共同身体方案。"
+        },
+        {
+          "text": "胸廓、腰腹和骨盆结构完整连续，腰胯体积自然，不靠压短躯干凑长腿。",
+          "basis": [
+            "BODY:torso_pelvis"
+          ],
+          "intent": "design",
+          "reason": "依据本轮年龄、指定体型及可见范围，建立共同身体方案。"
+        },
+        {
+          "text": "上臂、肘、前臂、腕手长度与厚度协调，姿势自然。",
+          "basis": [
+            "BODY:arms"
+          ],
+          "intent": "design",
+          "reason": "依据本轮年龄、指定体型及可见范围，建立共同身体方案。"
+        },
+        {
+          "text": "大腿、膝、小腿与足部成组协调，保留腿部体积和自然膝位。",
+          "basis": [
+            "BODY:legs"
+          ],
+          "intent": "design",
+          "reason": "依据本轮年龄、指定体型及可见范围，建立共同身体方案。"
+        },
+        {
+          "text": "肌肉与软组织随承重自然收缩放松，足底接触与重心可信。",
+          "basis": [
+            "BODY:support"
+          ],
+          "intent": "design",
+          "reason": "依据本轮年龄、指定体型及可见范围，建立共同身体方案。"
+        },
+        {
+          "text": "整体修长舒展，轮廓和服装体积统一，鞋跟、衣摆与头饰不冒充人体高度。",
+          "basis": [
+            "BODY:silhouette"
+          ],
+          "intent": "design",
+          "reason": "依据本轮年龄、指定体型及可见范围，建立共同身体方案。"
+        }
+      ]
+    },
+    {
+      "label": "全身人物范围",
+      "channel": "composition",
+      "items": [
+        {
+          "text": "画面内全身形象共1幅：单人完整全身。各幅沿用本轮共同身体关系与完整取景。",
+          "basis": [
+            "BODY:layout"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "共同身材目标",
+      "channel": "proportion",
+      "items": [
+        {
+          "text": "头肩、完整躯干与四肢共同形成修长协调的全身轮廓，比例造型按本轮明确数值；保持脸型和五官内部关系。",
+          "basis": [
+            "CQ:elongated"
+          ],
+          "intent": "constraint"
+        },
+        {
+          "text": "腰身自然收束、腰胯连续，保留躯干厚度和指定体型，衣带与服装腰线不替代人体腰位。",
+          "basis": [
+            "CQ:slender"
+          ],
+          "intent": "constraint"
+        },
+        {
+          "text": "肌肉与软组织的体积、线条和支撑适配年龄与当前动作，不画细杆四肢或穿透衣料的肌肉。",
+          "basis": [
+            "CQ:muscle"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "发型自然度与面容可读性",
+      "channel": "hair",
+      "items": [
+        {
+          "text": "保持本套主要发型；发根与发际线衔接自然，主发量有体积，次级发束粗细疏密有变化，发梢自然收束，高光随朝向变化，避免硬壳、胶结和等距亮丝。",
+          "basis": [
+            "CQ:hair_natural"
+          ],
+          "intent": "constraint"
+        },
+        {
+          "text": "本视角实际可见的眉眼、鼻口与面容辨识点清楚，禁止过多碎发遮脸；少量细发留在鬓角和轮廓边缘，不为整洁抹去全部自然细发。",
+          "basis": [
+            "CQ:face_readable"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "本轮明确身体造型",
+      "channel": "proportion",
+      "items": [
+        {
+          "text": "身材造型目标为 8.5 头身，保持脸型与五官内部关系及人物身份；头长取颅顶至下巴，不计发量、头饰、鞋跟与拖尾。身形修长协调，腰身纤细且有力量感，臀部圆润上提；腹部与臀腿具有适度肌肉张力和自然软组织体积，腰胯与完整躯干连续，避免极端收腰、纸片腰或单段拉腿。 腰臀围比设计目标为 0.70，定义为腰围÷臀围；这是围度比，不是正面像素宽度比，也不是唯一科学黄金比例，不虚构厘米数。 同一人物的所有造型沿用同一身份与身体基准，不随机改变头身比或腰臀围比；姿态、透视和服装改变不等于重塑身体。",
+          "basis": [
+            "FIG:body"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "服装面料与垂感 1",
+      "channel": "material",
+      "items": [
+        {
+          "text": "深靛蓝外套采用棉质牛仔布，中厚、较重；较挺括，衣摆受自重下垂，接缝处保留支撑，肘膝与坐折处形成较宽的折线和受力堆褶。沿用指定衣片、缝线、叠压和穿着关系，不以换材质或统一轻薄飘逸改变服装设计。",
+          "basis": [
+            "FIG:fabric:coat"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "服装面料与垂感 2",
+      "channel": "material",
+      "items": [
+        {
+          "text": "米白内搭采用羊毛针织，中等厚度、中等重量；柔软且有弹性，自重下垂，肩部与袖口保留回弹，弯曲处形成圆缓褶皱，针目随伸展轻微张开。沿用指定衣片、缝线、叠压和穿着关系，不以换材质或统一轻薄飘逸改变服装设计。",
+          "basis": [
+            "FIG:fabric:knit"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "服装面料与垂感 3",
+      "channel": "material",
+      "items": [
+        {
+          "text": "灰蓝围巾采用真丝素绉缎，薄、轻；柔顺贴合，沿悬垂方向自然落下，反光随面料朝向移动，形成细软流动褶皱，缝边和叠压处有克制厚度。沿用指定衣片、缝线、叠压和穿着关系，不以换材质或统一轻薄飘逸改变服装设计。",
+          "basis": [
+            "FIG:fabric:scarf"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "identity:check",
+      "basis": "identity",
+      "critical": true,
+      "question": "本轮身份是否达到声明目标？"
+    },
+    {
+      "id": "costume:check",
+      "basis": "costume",
+      "critical": true,
+      "question": "本轮衣装设计是否达到声明目标？"
+    },
+    {
+      "id": "layout:check",
+      "basis": "layout",
+      "critical": true,
+      "question": "本轮全身构图是否达到声明目标？"
+    },
+    {
+      "id": "BODY:head_shoulders:check",
+      "basis": "BODY:head_shoulders",
+      "critical": true,
+      "body_region": "head_shoulders",
+      "figure_id": "subject",
+      "question": "单人完整全身的头肩与肩颈是否达到本轮身体方案？记录本人物可见关系与相对目标的具体比较；无明显畸形不足以判定审美目标通过。"
+    },
+    {
+      "id": "BODY:torso_pelvis:check",
+      "basis": "BODY:torso_pelvis",
+      "critical": true,
+      "body_region": "torso_pelvis",
+      "figure_id": "subject",
+      "question": "单人完整全身的胸廓腰腹与骨盆是否达到本轮身体方案？记录本人物可见关系与相对目标的具体比较；无明显畸形不足以判定审美目标通过。"
+    },
+    {
+      "id": "BODY:arms:check",
+      "basis": "BODY:arms",
+      "critical": true,
+      "body_region": "arms",
+      "figure_id": "subject",
+      "question": "单人完整全身的上下臂与手是否达到本轮身体方案？记录本人物可见关系与相对目标的具体比较；无明显畸形不足以判定审美目标通过。"
+    },
+    {
+      "id": "BODY:legs:check",
+      "basis": "BODY:legs",
+      "critical": true,
+      "body_region": "legs",
+      "figure_id": "subject",
+      "question": "单人完整全身的上下腿与足是否达到本轮身体方案？记录本人物可见关系与相对目标的具体比较；无明显畸形不足以判定审美目标通过。"
+    },
+    {
+      "id": "BODY:support:check",
+      "basis": "BODY:support",
+      "critical": true,
+      "body_region": "support",
+      "figure_id": "subject",
+      "question": "单人完整全身的肌肉软组织与承重是否达到本轮身体方案？记录本人物可见关系与相对目标的具体比较；无明显畸形不足以判定审美目标通过。"
+    },
+    {
+      "id": "BODY:silhouette:check",
+      "basis": "BODY:silhouette",
+      "critical": true,
+      "body_region": "silhouette",
+      "figure_id": "subject",
+      "question": "单人完整全身的年龄体型与整体修长感是否达到本轮身体方案？记录本人物可见关系与相对目标的具体比较；无明显畸形不足以判定审美目标通过。"
+    },
+    {
+      "id": "BODY:layout:check",
+      "basis": "BODY:layout",
+      "critical": true,
+      "question": "声明的全身人物是否逐个出现且与位置对应，未用近景、重复人物或裁切掩盖缺失？"
+    },
+    {
+      "id": "CQ:elongated:check",
+      "basis": "CQ:elongated",
+      "critical": true,
+      "question": "本轮实际可见范围内，修长比例是否满足正文关系、年龄适配与指定体型，且未越过编辑保护范围？"
+    },
+    {
+      "id": "CQ:slender:check",
+      "basis": "CQ:slender",
+      "critical": true,
+      "question": "本轮实际可见范围内，苗条轮廓是否满足正文关系、年龄适配与指定体型，且未越过编辑保护范围？"
+    },
+    {
+      "id": "CQ:muscle:check",
+      "basis": "CQ:muscle",
+      "critical": true,
+      "question": "本轮实际可见范围内，肌肉支撑是否满足正文关系、年龄适配与指定体型，且未越过编辑保护范围？"
+    },
+    {
+      "id": "CQ:hair_natural:check",
+      "basis": "CQ:hair_natural",
+      "critical": true,
+      "question": "本轮实际可见范围内，发型自然度是否满足正文关系，且未越过编辑保护范围？"
+    },
+    {
+      "id": "CQ:face_readable:check",
+      "basis": "CQ:face_readable",
+      "critical": true,
+      "question": "本轮实际可见范围内，面容可读性是否满足正文关系，且未越过编辑保护范围？"
+    },
+    {
+      "id": "FIG:body:check",
+      "basis": "FIG:body",
+      "critical": true,
+      "question": "可见身体是否符合本轮数值造型目标、年龄、取景和锁定范围？数值为设计要求，未实测不宣称精确实现。"
+    },
+    {
+      "id": "FIG:fabric:coat:check",
+      "basis": "FIG:fabric:coat",
+      "critical": true,
+      "question": "对应衣片的具体面料、厚薄、重量、垂感与受力褶皱是否成立，且未擅自更换材料或衣片？"
+    },
+    {
+      "id": "FIG:fabric:knit:check",
+      "basis": "FIG:fabric:knit",
+      "critical": true,
+      "question": "对应衣片的具体面料、厚薄、重量、垂感与受力褶皱是否成立，且未擅自更换材料或衣片？"
+    },
+    {
+      "id": "FIG:fabric:scarf:check",
+      "basis": "FIG:fabric:scarf",
+      "critical": true,
+      "question": "对应衣片的具体面料、厚薄、重量、垂感与受力褶皱是否成立，且未擅自更换材料或衣片？"
+    }
+  ],
+  "target": {
+    "profile": "midjourney-8.2",
+    "surface": "web",
+    "settings": {
+      "aspect_ratio": "3:4",
+      "raw": true
+    }
+  },
+  "body_plan": {
+    "framing": "full_body",
+    "figures": [
+      {
+        "id": "subject",
+        "view": "front",
+        "locator": "单人完整全身"
+      }
+    ]
+  },
+  "figure_design": {
+    "design_version": 2,
+    "character_type": "female",
+    "age_stage": "adult",
+    "framing": "full_body",
+    "proportion_mode": "default",
+    "target_head_count": 8.5,
+    "target_waist_hip_ratio": 0.7,
+    "waist_hip_definition": "waist_circumference/hip_circumference",
+    "body_baseline": {
+      "id": "body-b5c2121b93ba0b4f",
+      "identity_id": "identity-e5858e7755a794a6",
+      "age_stage": "adult",
+      "character_type": "female",
+      "target_head_count": 8.5,
+      "target_waist_hip_ratio": 0.7,
+      "waist_hip_definition": "waist_circumference/hip_circumference"
+    },
+    "garments": [
+      {
+        "id": "coat",
+        "part": "深靛蓝外套",
+        "fabric": "denim"
+      },
+      {
+        "id": "knit",
+        "part": "米白内搭",
+        "fabric": "knit"
+      },
+      {
+        "id": "scarf",
+        "part": "灰蓝围巾",
+        "fabric": "silk"
+      }
+    ]
+  }
+}

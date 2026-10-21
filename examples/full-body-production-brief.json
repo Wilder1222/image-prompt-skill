@@ -129,6 +129,27 @@
       "channel": "composition",
       "priority": "must",
       "text": "画面内全身形象共3幅：左格正面全身；中格人物自身右侧全身；右格背面全身。各幅沿用本轮共同身体关系与完整取景。"
+    },
+    {
+      "id": "FIG:body",
+      "channel": "proportion",
+      "priority": "must",
+      "text": "身材造型目标为 9 头身，保持脸型与五官内部关系及人物身份；头长取颅顶至下巴，不计发量、头饰、鞋跟与拖尾。身形修长协调，腰身纤细且有力量感，臀部圆润上提；腹部与臀腿具有适度肌肉张力和自然软组织体积，腰胯与完整躯干连续，避免极端收腰、纸片腰或单段拉腿。 腰臀围比设计目标为 0.70，定义为腰围÷臀围；这是围度比，不是正面像素宽度比，也不是唯一科学黄金比例，不虚构厘米数。 同一人物的所有造型沿用同一身份与身体基准，不随机改变头身比或腰臀围比；姿态、透视和服装改变不等于重塑身体。",
+      "target_head_count": 9,
+      "target_waist_hip_ratio": 0.7,
+      "waist_hip_definition": "waist_circumference/hip_circumference"
+    },
+    {
+      "id": "FIG:fabric:uniform",
+      "channel": "material",
+      "priority": "must",
+      "text": "灰绿色连体工作服采用棉质府绸，中薄、较轻；略挺且有支撑，衣片受重力自然垂落，缝线与弯肘处形成清楚但不僵硬的折褶。沿用指定衣片、缝线、叠压和穿着关系，不以换材质或统一轻薄飘逸改变服装设计。"
+    },
+    {
+      "id": "FIG:fabric:shoes",
+      "channel": "material",
+      "priority": "must",
+      "text": "深灰平底工作鞋鞋面采用皮革，中厚、较重；有韧性和支撑，按裁片与接缝受重力弯曲，关节处形成圆钝受力褶，边缘保持厚度。沿用指定衣片、缝线、叠压和穿着关系，不以换材质或统一轻薄飘逸改变服装设计。"
     }
   ],
   "sections": [
@@ -355,6 +376,45 @@
           "text": "画面内全身形象共3幅：左格正面全身；中格人物自身右侧全身；右格背面全身。各幅沿用本轮共同身体关系与完整取景。",
           "basis": [
             "BODY:layout"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "本轮明确身体造型",
+      "channel": "proportion",
+      "items": [
+        {
+          "text": "身材造型目标为 9 头身，保持脸型与五官内部关系及人物身份；头长取颅顶至下巴，不计发量、头饰、鞋跟与拖尾。身形修长协调，腰身纤细且有力量感，臀部圆润上提；腹部与臀腿具有适度肌肉张力和自然软组织体积，腰胯与完整躯干连续，避免极端收腰、纸片腰或单段拉腿。 腰臀围比设计目标为 0.70，定义为腰围÷臀围；这是围度比，不是正面像素宽度比，也不是唯一科学黄金比例，不虚构厘米数。 同一人物的所有造型沿用同一身份与身体基准，不随机改变头身比或腰臀围比；姿态、透视和服装改变不等于重塑身体。",
+          "basis": [
+            "FIG:body"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "服装面料与垂感 1",
+      "channel": "material",
+      "items": [
+        {
+          "text": "灰绿色连体工作服采用棉质府绸，中薄、较轻；略挺且有支撑，衣片受重力自然垂落，缝线与弯肘处形成清楚但不僵硬的折褶。沿用指定衣片、缝线、叠压和穿着关系，不以换材质或统一轻薄飘逸改变服装设计。",
+          "basis": [
+            "FIG:fabric:uniform"
+          ],
+          "intent": "constraint"
+        }
+      ]
+    },
+    {
+      "label": "服装面料与垂感 2",
+      "channel": "material",
+      "items": [
+        {
+          "text": "深灰平底工作鞋鞋面采用皮革，中厚、较重；有韧性和支撑，按裁片与接缝受重力弯曲，关节处形成圆钝受力褶，边缘保持厚度。沿用指定衣片、缝线、叠压和穿着关系，不以换材质或统一轻薄飘逸改变服装设计。",
+          "basis": [
+            "FIG:fabric:shoes"
           ],
           "intent": "constraint"
         }
@@ -589,6 +649,24 @@
       "basis": "BODY:layout",
       "critical": true,
       "question": "声明的全身人物是否逐个出现且与位置对应，未用近景、重复人物或裁切掩盖缺失？"
+    },
+    {
+      "id": "FIG:body:check",
+      "basis": "FIG:body",
+      "critical": true,
+      "question": "可见身体是否符合本轮数值造型目标、年龄、取景和锁定范围？数值为设计要求，未实测不宣称精确实现。"
+    },
+    {
+      "id": "FIG:fabric:uniform:check",
+      "basis": "FIG:fabric:uniform",
+      "critical": true,
+      "question": "对应衣片的具体面料、厚薄、重量、垂感与受力褶皱是否成立，且未擅自更换材料或衣片？"
+    },
+    {
+      "id": "FIG:fabric:shoes:check",
+      "basis": "FIG:fabric:shoes",
+      "critical": true,
+      "question": "对应衣片的具体面料、厚薄、重量、垂感与受力褶皱是否成立，且未擅自更换材料或衣片？"
     }
   ],
   "metadata": {
@@ -620,6 +698,38 @@
         "id": "back",
         "view": "back",
         "locator": "右格背面全身"
+      }
+    ]
+  },
+  "figure_design": {
+    "design_version": 2,
+    "character_type": "female",
+    "age_stage": "adult",
+    "framing": "full_body",
+    "proportion_mode": "user",
+    "target_head_count": 9,
+    "target_waist_hip_ratio": 0.7,
+    "waist_hip_definition": "waist_circumference/hip_circumference",
+    "body_baseline": {
+      "id": "body-8ebda1505fefe579",
+      "identity_id": "identity-b820a2cd9ba88324",
+      "age_stage": "adult",
+      "character_type": "female",
+      "target_head_count": 9,
+      "target_waist_hip_ratio": 0.7,
+      "waist_hip_definition": "waist_circumference/hip_circumference"
+    },
+    "reason": "本例已明确要求九头身，保留用户数值而不改成默认8.5。",
+    "garments": [
+      {
+        "id": "uniform",
+        "part": "灰绿色连体工作服",
+        "fabric": "cotton"
+      },
+      {
+        "id": "shoes",
+        "part": "深灰平底工作鞋鞋面",
+        "fabric": "leather"
       }
     ]
   }

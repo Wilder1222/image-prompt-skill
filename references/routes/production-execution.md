@@ -4,7 +4,7 @@
 
 ## 生成前固定目标
 
-brief 的完整顶层字段定义以 [生产编译器](../../scripts/production-prompt.mjs) 导出的 `productionFields` 为唯一来源。共同记录包含主体、原需求、参考、要求、未决、正文与验收；专项按需使用 `character_exceptions`、`quality_review`、`body_plan`。`target` 保存模型设置，`language` 为 zh-CN（默认）或 en；对象型 `metadata` 仅作内部说明。未知或拼错字段明确报错，不静默丢弃设置。
+brief 的完整顶层字段定义以 [生产编译器](../../scripts/production-prompt.mjs) 导出的 `productionFields` 为唯一来源。共同记录包含主体、原需求、参考、要求、未决、正文与验收；专项按需使用 `character_exceptions`、`quality_review`、`body_plan`、`figure_design`。`target` 保存模型设置，`language` 为 zh-CN（默认）或 en；对象型 `metadata` 仅作内部说明。未知或拼错字段明确报错，不静默丢弃设置。
 
 新快照使用 `target_contract: identity_sources_v1`，目标摘要同时绑定主身份来源。没有稳定身份声明时，主参考文件、身份组或主引用改变会产生新目标；评价图变化不影响身份目标。需换同人物视角或编辑基准时，主身份参考声明稳定的 `identity_target_id`，保持同一身份组，并由代理核对同人依据；新快照沿用父任务的原始身份来源。换人使用新目标标识或身份组，不能以通用“保持原人物”要求掩盖换人。该字段是声明，不是识图认证。
 
@@ -12,7 +12,7 @@ brief 的完整顶层字段定义以 [生产编译器](../../scripts/production-
 
 新生产 brief 必须由代理声明 `subject_kind: character|scene|product|other`。人物生成、换风格、多视角和人物局部编辑使用 `character`；产品自身、无人场景等按实际范围选择。混合画面中包含本轮需设计或验收的人物，也使用 `character`。这是代理依据任务作出的范围声明，脚本不会识图或从关键词自动猜测，不能为绕过检查错填成其他类型。
 
-人物 brief 至少包含一条 `channel: proportion`、`priority: must` 的要求，在 proportion 正文中引用，并关联 `critical: true` 的验收项。默认要求适合角色、协调好看，由代理按 [比例自动选择](../core/fashion-proportion-system.md) 设计具体身体关系，用 `intent: design` 和 `reason` 记录选择依据；不填 `target_head_count`，不要求用户选择预设。只有明确数字请求才填有限正数，并同步正文和验收口径。字段不自动插入提示词，不证明图像达标。构图通道同时写景别、人物占比与留白并关联关键验收，见 [人物入景示例](../../examples/character-garden-brief.json) 与 [占比规则](../core/character-framing.md)。旧九头身示例属于冻结历史目标，目标改变另建版本，不修改原验收。
+人物 brief 至少包含一条 `channel: proportion`、`priority: must` 的要求，在 proportion 正文中引用，并关联 `critical: true` 的验收项。默认要求适合角色、协调好看，由代理按 [比例自动选择](../core/fashion-proportion-system.md) 设计具体身体关系，用 `intent: design` 和 `reason` 记录选择依据；不要求用户选择预设。明确成年全身按[比例与面料路线](figure-proportion-fabric.md)建立 figure_design，写出选定头身值、腰臀围比适用范围与来源；用户指定数值或身体锁定优先，肖像、未成年和年龄未知不自动套成人数值。正文与验收保持同一口径。字段不自动插入提示词，不证明图像达标。构图通道同时写景别、人物占比与留白并关联关键验收，见 [人物入景示例](../../examples/character-garden-brief.json) 与 [占比规则](../core/character-framing.md)。旧九头身示例属于冻结历史目标，目标改变另建版本，不修改原验收。
 
 局部编辑保留本轮比例目标与取景边界，不自动扩大到全身修复。近景只验收可见关系，完整母图证据另行核对。明确要求但无法判断的项如实记录 uncertain 或 not_assessable；场景、产品不插入人体比例。用户明确改变比例目标时生成新的修订记录，不改旧快照或原评审。
 
