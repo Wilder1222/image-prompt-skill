@@ -4,6 +4,8 @@
 
 支持纯文字描述，参考图可选。新增 OpenAI GPT Image、Gemini、FLUX、Midjourney、Seedream、Stable Diffusion、Qwen-Image 的指定版本适配，提供独立请求设置、参数检查和执行摘要绑定；停用的 Imagen Gemini API 入口会明确报错。详见 [文生图模型指南](references/providers/text-to-image-models.md)。这是提示词与请求编译支持，尚未完成各供应商的联网出图验证。
 
+Midjourney 适配已按 2026-10-19 官方文档更新：默认版本说明为 V8.2，编译显式版本，支持网页附件清单与 Discord 图片 URL、V8 Edit / V7 Omni 兼容校验，以及可手动粘贴的 `--format native` 输出。缺少参考时明确待补，不提供自动发送或平台操作。见 [MJ 指南](references/providers/midjourney.md) 与 [可用例子](examples/midjourney-manual-prompts.md)。
+
 ## 使用
 
 安装插件后，在新任务中提供参考图并说明目标。例如：

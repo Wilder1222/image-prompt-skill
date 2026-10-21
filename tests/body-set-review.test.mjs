@@ -1,3 +1,4 @@
+import {pngFixture} from './helpers/image-fixture.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -18,7 +19,7 @@ function setup(t){
   const runs={};
   function add(id,input=brief(),options={}){
     const snapshot=freezeProductionRun(input,{run_id:id,case_id:id,cohort:'synthetic-contract-only',base_dir:dir,...options});
-    const output=`${id}.png`;fs.writeFileSync(path.join(dir,output),Buffer.concat([Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64'),Buffer.from(id)]));
+    const output=`${id}.png`;fs.writeFileSync(path.join(dir,output),Buffer.concat([pngFixture(),Buffer.from(id)]));
     const receipt={status:'completed',snapshot_sha256:snapshot.snapshot_sha256,target_sha256:snapshot.target_sha256,prompt_sha256:snapshot.prompt_sha256,output_image:output,output_sha256:promptHash(fs.readFileSync(path.join(dir,output))),inspected:true,reviewer:'synthetic test',checks:snapshot.target.acceptance.map(c=>({id:c.id,verdict:'pass',evidence:`合成${id} ${c.id}`, ...(c.body_region?{body_observation:observation(c.body_region,input.body_plan.figures.length>1?`${id}:${c.figure_id}`:id)}:{})}))};
     if(snapshot.edit_scope)receipt.scope_review={verdict:'pass',change_evidence:'合成局部发型修改。',preservation_evidence:'合成身体保持检查。',preservation_checks:snapshot.edit_scope.preserve.map((_,index)=>({index,verdict:'pass',evidence:'合成保护项检查，不是实际视觉证据。'}))};
     const row={snapshot:`${id}.snapshot.json`,receipt:`${id}.receipt.json`};

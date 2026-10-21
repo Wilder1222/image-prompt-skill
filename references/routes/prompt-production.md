@@ -46,6 +46,8 @@
 
 用无编号中文语义标签组织可复制正文，标签服务实际任务。写清主体、来源、设计、构图、动作、材料、光线、允许变化与保持范围；内部参数留在执行计划。真正画面中的文字逐字保留。局部编辑不机械复述全套生成条款，清理上一轮不适用的操作指令。
 
+分辨率由编译器统一补入并合并已有 output 栏目，最终正文必须明确 4K、保持当前画幅比例、长边至少 3840 像素。不得在【输出分辨率】中要求更低的成图尺寸。`language` 同时控制生成条款和编辑范围标签；代理负责用同一语言撰写视觉正文。原生尺寸和后续放大安排保存在模型计划 `delivery_resolution`，不虚构原生支持。
+
 代理通读最终正文并回看原始描述与实际参考，逐项检查：
 
 1. 必须项是否有可执行表达及适用的图像验收？是否真实描述本主体，而非通用形容词？
@@ -61,7 +63,7 @@
 
 ## 固定记录与派发
 
-需要持久化或执行时，代理创建 brief：`subject_kind`、`request`、`references`、`requirements`、`unresolved`、`sections`、`acceptance`，可选 `target`、`edit_scope` 和内部 `metadata`。未知顶层字段报错；模型设置只能放在 `target`，内部说明不改变执行。字段、参考权限、稳定身份目标和局部范围详见 [执行契约](production-execution.md)，模型设置详见 [模型指南](../providers/text-to-image-models.md)。
+需要持久化或执行时，由代理创建 brief；完整字段定义以 [生产编译器](../../scripts/production-prompt.mjs) 导出的 `productionFields` 为准，字段用途见 [执行契约](production-execution.md#生成前固定目标)。模型设置放在 `target`，交付语言用 `language: zh-CN|en`；内部说明不改变执行。
 
 每个必须视觉目标关联出图前固定的关键验收。人物在 proportion 正文引用协调比例要求；明确数字才填 `target_head_count`。近景只检查可见关系，不擅自扩为全身。构图与人体比例分别验收；产品和无人场景不添加人体检查。
 
@@ -87,16 +89,4 @@ node scripts/production-run.mjs inspect --snapshot run-01.snapshot.json
 
 交付可复制正文、实际测试图（执行时）、通过与未决内容。仅提示词说明本轮尚未出图；观察者通过不等于用户接受，单次成功不证明批量稳定。量化分数、修订次数、用户接受、耗时和已知成本按相应实验组记录，未知值留空；历史分母与失败不重置。
 
-## 可检查的人物共同目标
-
-代理在原样编译之前建立五项独立要求：修长比例 elongated、苗条轮廓 slender、肌肉支撑 muscle、发型自然度 hair_natural、面容可读性 face_readable。它们是内部追踪标签，写在对应 must 要求的 character_goal 字段，正文仍为中文可见关系。每项沿现有 basis 引用到同通道正文和关键验收；挂标签不能证明语义或实图达标。
-
-可用 scripts/character-goals.mjs 的 withCharacterGoals(brief, {bindings, exceptions, texts, ageStage}) 辅助构造。bindings 将各维度绑定本轮已有的要求 ID，texts 可替换新增目标的可见中文；辅助函数返回新对象，不改写已有正文。只有未设置局部编辑范围的新任务才会补充未绑定目标，代理仍需按实际主体与景别细化。局部编辑缺项时须写明确的已有绑定或例外，不能自动新增身体、发型修改。产品与无人场景不注入人物规则。
-
-用户明确的体型、冻结身体、局部操作和不可见视图，在 character_exceptions 按维度记录 {source, reason}。source 只接受 user_request、edit_scope、not_visible，reason 写具体用户范围或观察限制；edit_scope 例外必须绑定真实编辑范围。某维度不能同时声明已覆盖和例外。指定体型必须另写 proportion 通道的 must 要求、对应正文和关键验收，不能只豁免默认后漏写实际体型。年龄适配通常在正文中直接落实；ageStage 接受 infant、child、adolescent、adult、older、unspecified，只用于新增目标，已有绑定须人工复核。用户要求的遮脸效果按实际可见区域另定面容检查；严格背面可明确该维度不可观察，不能把它记作正面通过。参考本来如此或泛称氛围感不是例外依据。
-
-编译器拒绝维度缺失、错误通道、非 must、遗漏正文或关键验收；旧 brief 要经代理复查并补充后才用于新生产，不重写历史冻结快照。完整示例必须通过这条生产路径，不能仅因与生成函数一致就称符合标准。
-
-## 全身体型基准与换装组
-
-全身生产先读 [共同身体基准](full-body-baseline.md)。生成前调用 withBodyRegionChecks 声明 body_plan 的人物位置与视角，共享六区正文、逐人物冻结关键验收；普通近景不套此契约。回执按实际可见关系和相对目标填写 body_observation，整体美化与结构连续分别判断。完整成组记录再调用 body-set-review 检查共同基准、按 run_id / figure_id 比较、漏人漏区和用户撤回，不能用一人、单图或局部修复通过代替整组资格。
+人物的五项共同目标、例外字段和全身体型方案见 [人物生产](character-production.md#可检查的人物共同目标)；产品与无人物场景不加载该专项。

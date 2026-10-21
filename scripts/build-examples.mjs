@@ -1,10 +1,23 @@
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { compileAssetPrompt, createAssetPlan } from './asset-master.mjs';
 import { applyFaceDesign, reviseFaceDesign } from './face-design.mjs';
 import { compileProductionPrompt } from './production-prompt.mjs';
 import { buildPortraitLookPlan, renderPortraitLookPrompts } from './portrait-look-plan.mjs';
+import {outputResolutionClause} from './output-resolution.mjs';
+
+export function currentCompleteProductionExamples() {
+  const brief=JSON.parse(fs.readFileSync(new URL('../examples/full-body-production-brief.json',import.meta.url),'utf8'));
+  return '# 当前完整全身生产示例\n\n由 `npm run examples:build` 从 [完整 brief](full-body-production-brief.json) 生成。包含年龄、指定比例、妆光文字方案、三视图 body_plan 与逐人物六区验收；尚未生成图像，不证明视觉质量或用户接受。\n\n```text\n'+compileProductionPrompt(brief).prompt+'\n```\n';
+}
+
+export function currentCompactEditExample() {
+  const historical=fs.readFileSync(new URL('../examples/compact-edit-history-prompt.md',import.meta.url),'utf8');
+  const text=historical.match(/```text\n([\s\S]*?)\n```/)[1];
+  return '# 当前局部编辑范围写法示例\n\n由 `npm run examples:build` 将[历史文本](compact-edit-history-prompt.md)投影为包含当前分辨率要求的方法示例。此页演示紧凑范围，不能替代完整生产 brief；未重出图，原输入、旧正文与原评审保留。当前完整契约见[全身生产示例](full-body-production-current-prompt.md)。\n\n```text\n'+text+'\n\n'+outputResolutionClause()+'\n```\n';
+}
 
 export function currentExamples() {
   const cases = [
@@ -105,6 +118,9 @@ export function referenceMakeupLightingBriefs() {
   return surfaceCatalog().cards.map(card => {
     const source = sources.source_images.find(row => row.id === card.id);
     if (!source?.inspected || !/^[a-f0-9]{64}$/.test(source.sha256)) throw new Error(`missing inspected source for ${card.id}`);
+    if (source.bundled_path !== card.image_path || source.sha256 !== card.image_sha256 || !/^assets\/makeup-lighting-references\/photo-\d{2}\.jpg$/.test(card.image_path)) throw new Error(`invalid bundled image binding for ${card.id}`);
+    const imageFile = new URL(`../${card.image_path}`, import.meta.url);
+    if (crypto.createHash('sha256').update(fs.readFileSync(imageFile)).digest('hex') !== card.image_sha256) throw new Error(`reference image hash mismatch for ${card.id}`);
     const brief = structuredClone(base);
     const text = {
       task: '生成一张单人竖幅头肩肖像，完整保留主发型、双肩上缘与衣领，面部为主要展示区域。画面无字幕、边框、水印或拼板。',
@@ -124,12 +140,16 @@ export function referenceMakeupLightingBriefs() {
     for (const section of brief.sections) {
       if (text[section.channel]) section.items = [{text:text[section.channel], basis:brief.requirements.filter(row => row.channel === section.channel).map(row => row.id), intent:'constraint'}];
     }
-    brief.references = [{id:card.id, source:`用户照片${card.photo}，原图SHA256 ${source.sha256}；见docs/makeup-lighting-reference-sources-2026-10-19.json`,
-      inspected:true, generation_input:false, authority:['makeup','lighting'], facts:[
+    brief.references = [{id:card.id, source:card.image_path,
+      inspected:true, generation_input:true, authority:['makeup','lighting'], facts:[
         {id:`${card.id}:makeup`, channel:'makeup', visibility:'visible', text:Object.values(card.makeup).join(' ')},
         {id:`${card.id}:lighting`, channel:'lighting', visibility:'visible', text:card.lighting.visible}
       ]}];
     for (const channel of ['makeup','lighting']) brief.sections.find(row => row.channel === channel).items[0].basis.push(`${card.id}:${channel}`);
+    const referenceRequirement = {id:`${card.id}:reference-role`,channel:'task',priority:'must',text:'附带参考图用于妆容与光线风格，按其底妆、眉眼、腮红、唇面和受光关系塑造本人物；五官结构、基础肤色、年龄、眼色、发型与服装以本人物设定为准。'};
+    brief.requirements.push(referenceRequirement);
+    brief.sections.unshift({label:'参考分工',channel:'task',items:[{text:referenceRequirement.text,basis:[referenceRequirement.id],intent:'constraint'}]});
+    brief.acceptance.push({id:`${card.id}:reference-role-check`,basis:referenceRequirement.id,critical:true,question:'执行时是否实际传入选定妆光原图，且未将参考人物的五官、眼色或衣装混入本人物？'});
     brief.acceptance = brief.acceptance.map(check => {
       const requirement = brief.requirements.find(row => row.id === check.basis);
       if (text[requirement?.channel]) return {...check,question:`本例${requirement.channel === 'makeup' ? '妆肤' : requirement.channel === 'lighting' ? '照明' : '对应画面'}是否满足冻结正文的具体关系，并保留本人肤色、年龄与身份？`};
@@ -137,7 +157,7 @@ export function referenceMakeupLightingBriefs() {
     });
     for (const [index, question] of card.checks.entries()) brief.acceptance.push({id:`${card.id}:check:${index+1}`,basis:brief.requirements.find(row => row.channel === (index === 0 ? 'makeup' : 'lighting')).id,critical:true,question});
     brief.metadata = {evidence_kind:'reference_observation_and_text_design_only', makeup_reference:card.id, lighting_reference:card.id,
-      source_sha256:source.sha256, source_image_mode:'observed_not_generation_input',
+      source_sha256:source.sha256, source_image_mode:'planned_generation_input', dispatch_completed:false,
       adaptation:'保留本例三十三岁暖小麦肤色、原有五官与浅雀斑，按主卡迁移妆面与光线关系；表情、短卷发和衬衫独立设计，ML07媒介为本例明确选择。',
       image_generated:false, visual_quality_verified:false, user_accepted:false};
     return {id:card.id,label:card.label,brief};
@@ -145,15 +165,15 @@ export function referenceMakeupLightingBriefs() {
 }
 
 export function currentReferenceMakeupLightingExamples() {
-  return '# 八张参考对应的完整妆光提示词\n\n由 `npm run examples:build` 从[主卡目录](../resources/portrait_surface_reference_catalog.json)与原始[来源摘要](../docs/makeup-lighting-reference-sources-2026-10-19.json)生成。每例以对应照片为妆肤、光线主源，两通道均为must并有critical验收；原图只作观察，未送入生成器。\n\n'
+  return '# 八张参考对应的完整妆光提示词\n\n由 `npm run examples:build` 从[主卡目录](../resources/portrait_surface_reference_catalog.json)与原始[来源摘要](../docs/makeup-lighting-reference-sources-2026-10-19.json)生成。每例已声明对应真实原图为计划生成输入，仅授权妆肤与光线，两通道落实为must与critical验收。执行时需附带该原图；本页尚未派发生成，不能将输入声明当作已调用。\n\n'
     + '八例共用一个原创三十三岁暖小麦肤色女性的面容、短卷发、平静神态和简洁衬衫，以展示妆光差异；不复制来源人物。本人肤色与浅雀斑保留，ML07明确采用风格化幻想表现，其余采用摄影观感。这是文字设计，尚未出图、验证还原程度或获得用户接受。\n\n'
-    + referenceMakeupLightingBriefs().map(row => `## ${row.id} · ${row.label}\n\n\`\`\`text\n${compileProductionPrompt(row.brief).prompt}\n\`\`\`\n\n`).join('').trimEnd() + '\n';
+    + referenceMakeupLightingBriefs().map(row => `## ${row.id} · ${row.label}\n\n实际妆容与光线参考：[原图](../${row.brief.references[0].source})。\n\n\`\`\`text\n${compileProductionPrompt(row.brief).prompt}\n\`\`\`\n\n`).join('').trimEnd() + '\n';
 }
 
 export function currentReferenceMakeupLightingAnalysis() {
   const catalog=surfaceCatalog(), sources=surfaceSources();
   const labels={base:'底妆与肤色观感',brows:'眉妆',eyes:'眼影、眼线与睫毛',cheeks:'腮红与修容观感',lips:'唇色、唇缘与光泽',finish:'肤质完成度'};
-  return '# 八张参考的妆容与光线质感详解\n\n用户要求：所有妆容和光线质感按所提供的参考图设定。以下逐张观察来自本轮八张原图，参考用途限定为妆肤与光线；不认定同人关系，也不推测真实年龄、产品、设备或制作管线。原图已按字节归档并核对SHA256；图片不随技能发布。\n\n'
+  return '# 八张参考的妆容与光线质感详解\n\n用户明确：作为实际妆容参考，人物妆容感觉默认从这些风格中生成。八张原图已原样保存在技能assets目录并核对SHA256，随包提供；支持参考图的生成实际传入选定图，限定妆肤及按需光线用途，身份来源独立。当前明确要求与原妆保护优先。以下逐张观察不认定同人关系，也不推测真实年龄、产品、设备或制作管线。\n\n'
     + '妆色是当前图像显示下的近似描述，光滑程度可能同时受底妆、受光、修图、压缩和媒介影响，不能据图分离其真实成因。灯光复现是设计建议，不是实测灯位。\n\n'
     + '| 照片 | 妆光方向 | 关键区别 |\n| --- | --- | --- |\n'
     + catalog.cards.map(card=>`| ${card.photo} | ${card.label} | ${card.appearance} |`).join('\n')+'\n\n'
@@ -164,7 +184,7 @@ export function currentReferenceMakeupLightingAnalysis() {
         + `\n**实际可见光线**：${card.lighting.visible}\n\n**复现建议，非已知灯位**：${card.lighting.reconstruction}\n\n**色彩与清晰度**：${card.lighting.color_and_texture}\n\n`
         + '**使用边界**：'+card.limits.join('；')+'\n\n'
         + '**关键验收**：\n\n'+card.checks.map(question=>`- ${question}`).join('\n')
-        + `\n\n来源：照片${card.photo}，${source.width}×${source.height}；原始文件SHA256：\`${source.sha256}\`。\n\n`;
+        + `\n\n来源：[照片${card.photo}原图](../${source.bundled_path})，${source.width}×${source.height}；原始文件SHA256：\`${source.sha256}\`。\n\n`;
     }).join('')
     + '## 生效规则与验证边界\n\n按[选卡与生产规则](../references/routes/reference-makeup-lighting.md)执行，必须选择主源，妆面和光线分别进入must与critical验收。保持本人肤色、年龄和五官，局部编辑只投影获准通道。八例完整文字见[提示词示例](../examples/reference-makeup-lighting-current-prompts.md)。本次没有新出图，逐图观察与结构校验不证明实际还原效果。\n';
 }
@@ -172,6 +192,8 @@ export function currentReferenceMakeupLightingAnalysis() {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
   fs.writeFileSync(path.join(root, 'examples/ancient-white-asset-current-prompts.md'), currentExamples());
+  fs.writeFileSync(path.join(root, 'examples/full-body-production-current-prompt.md'), currentCompleteProductionExamples());
+  fs.writeFileSync(path.join(root, 'examples/compact-edit-current-prompt.md'), currentCompactEditExample());
   fs.writeFileSync(path.join(root, 'examples/character-style-current-prompts.md'), currentCharacterStyleExamples());
   fs.writeFileSync(path.join(root, 'examples/face-design-current-prompts.md'), currentFaceDesignExamples());
   fs.writeFileSync(path.join(root, 'examples/blue-benchmark-distinct-faces-current-prompts.md'), currentBlueBenchmarkDistinctFacesExamples());

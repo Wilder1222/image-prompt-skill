@@ -4,7 +4,7 @@
 
 ## 生成前固定目标
 
-brief 顶层仅接受 `subject_kind`、`request`、`references`、`requirements`、`unresolved`、`sections`、`acceptance`、可选 `target`、`edit_scope` 和对象型 `metadata`。未知或拼错字段明确报错，不静默丢弃模型选择或编辑控制；`metadata` 只作内部说明，不进入正文和执行设置。
+brief 的完整顶层字段定义以 [生产编译器](../../scripts/production-prompt.mjs) 导出的 `productionFields` 为唯一来源。共同记录包含主体、原需求、参考、要求、未决、正文与验收；专项按需使用 `character_exceptions`、`quality_review`、`body_plan`。`target` 保存模型设置，`language` 为 zh-CN（默认）或 en；对象型 `metadata` 仅作内部说明。未知或拼错字段明确报错，不静默丢弃设置。
 
 新快照使用 `target_contract: identity_sources_v1`，目标摘要同时绑定主身份来源。没有稳定身份声明时，主参考文件、身份组或主引用改变会产生新目标；评价图变化不影响身份目标。需换同人物视角或编辑基准时，主身份参考声明稳定的 `identity_target_id`，保持同一身份组，并由代理核对同人依据；新快照沿用父任务的原始身份来源。换人使用新目标标识或身份组，不能以通用“保持原人物”要求掩盖换人。该字段是声明，不是识图认证。
 
@@ -51,7 +51,7 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 
 背景使用 background 通道，光线使用 lighting；只改背景时不自动重写人物或照明，换场景确需匹配灯光时把 lighting 也列入本轮允许范围。既有背景与光线合写的记录可继续使用原通道，或在新任务中重建类别，不能修改旧冻结记录。
 
-设定表的分格、顺序和间隔使用 `layout`，格内人物朝向与取景使用 `composition`；模板笔触需要独立的 `style` 权限。只改版式时允许范围写 `layout`，不能顺带改姿态或比例要求。新示例 [三视图版式 brief](../../examples/character-sheet-layout-brief.json) 可用 `prompt-build --input examples/character-sheet-layout-brief.json` 编译；它是没有参考输入的原创文字示例。首版两次 [实图诊断](../../docs/character-sheet-evidence.json) 未整体通过，当前版已拆分背景要求，尚无本版出图验收。旧快照无需迁移，旧 brief 下次编辑时按需要拆分混合段落。
+设定表的分格、顺序和间隔使用 `layout`，格内人物朝向与取景使用 `composition`；模板笔触需要独立的 `style` 权限。只改版式时不能顺带改姿态或比例。[三视图版式 brief](../../examples/character-sheet-layout-brief.json)保留为单项方法示例，其首版两次[实图诊断](../../docs/character-sheet-evidence.json)未整体通过，不代表当前完整契约。新生产可参考[完整全身 brief](../../examples/full-body-production-brief.json)及[当前正文](../../examples/full-body-production-current-prompt.md)，包含 body_plan、逐人物六区与妆光目标；它尚未出图。历史快照与旧评审不改写。
 
 表情使用 expression 通道，与 identity 分开修改和验收。仅改表情保留身份、年龄、发型、衣装、姿态、背景和灯光；需要同步转头或改变身体姿态时显式加入 composition。旧 identity 段同时锁定神态或嘴角位置时，先在新任务中拆清稳定辨识点与可变表情，不通过新增一句“自然微笑”掩盖旧冲突。
 
@@ -129,6 +129,12 @@ node scripts/production-run.mjs review --snapshot run-01.snapshot.json --receipt
 
 ## 当前文本质量合同
 
-新建人物 brief 的五项 character_goal 与明确 character_exceptions 见[生产流程](prompt-production.md#可检查的人物共同目标)。异常不能只写 metadata。新人物快照带 character_goals_contract，例外进入目标摘要；新冻结均保存 quality_audit 和与同一正文绑定的 quality_review，剩余诊断没有逐项处理理由时 prepare 失败。inspect 核对记录绑定后才返回派发内容，Diffusers 仍需实际 tokenizer 覆盖。
+新建人物 brief 的五项 character_goal 与明确 character_exceptions 见[人物生产](character-production.md#可检查的人物共同目标)。异常不能只写 metadata。新人物快照带 character_goals_contract，例外进入目标摘要；新冻结均保存 quality_audit 和与同一正文绑定的 quality_review，剩余诊断没有逐项处理理由时 prepare 失败。inspect 核对记录绑定后才返回派发内容，Diffusers 仍需实际 tokenizer 覆盖。
 
 旧快照没有这些新字段时按原合同核验，不补写目标、诊断或观察者通过。把旧 brief 用于新的生产，须先由代理按当前目标、景别和编辑范围重新构造。构造规则只核对声明，不重看图片，也不把部分身体或背面观察升级为整个人物合格。
+
+## 首次外部母图编辑与分辨率
+
+用户首次提供外部母图且无旧快照时，使用 `prepare --kind edit`，保留实际 `edit_scope`，无需构造虚假的父任务。新快照的 `baseline_origin` 绑定该输入的 reference_id 与文件摘要；后续修订仍传 `--parent`。`kind: revision` 必须有父快照，initial 不携带编辑范围。
+
+新快照冻结 `output_resolution`。模型计划的 `delivery_resolution` 分开记录原生尺寸、是否需放大及像素检查步骤；原生请求就绪不代表最终输出已到 4K。生成与放大后，对最终交付文件执行 review：程序读取 PNG、JPEG、WebP 或 GIF 的编码尺寸，长边不足 3840 标为 needs_revision，无法读取标为 needs_review；尺寸通过仍不能代替内容与美感验收。历史无该契约的快照沿原标准验证，不事后改写。

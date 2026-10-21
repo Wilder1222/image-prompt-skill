@@ -1,4 +1,5 @@
 import crypto from 'node:crypto';
+import {resolveOutputSections,outputResolution} from './output-resolution.mjs';
 import {adaptModelPrompt} from './model-adapter.mjs';
 import {characterStyleIds} from './character-style-render.mjs';
 import {characterGoalErrors} from './character-goals.mjs';
@@ -9,7 +10,8 @@ import {assertBodyCriteria,bodyObservation,assertDistinctBodyEvidence} from './b
 const channels = new Set(['identity','expression','action','makeup','hair','costume','material','composition','layout','proportion','hands_feet','background','lighting','style','task','output']);
 const nonempty = x => typeof x === 'string' && x.trim().length > 0;
 const referenceFields = new Set(['id','source','inspected','generation_input','authority','facts','identity_group','identity_role','identity_target_id']);
-const inputFields = new Set(['subject_kind','request','references','requirements','unresolved','sections','acceptance','target','edit_scope','metadata','character_exceptions','quality_review','body_plan']);
+export const productionFields = Object.freeze(['subject_kind','request','references','requirements','unresolved','sections','acceptance','target','edit_scope','metadata','character_exceptions','quality_review','body_plan','language']);
+const inputFields = new Set(productionFields);
 const internalStyle = new RegExp(`\\b(?:${characterStyleIds.join('|')})\\b`);
 export const promptHash = text => crypto.createHash('sha256').update(text).digest('hex');
 
@@ -24,6 +26,8 @@ export const objectHash = value => promptHash(JSON.stringify(canonical(value)));
 export function compileProductionPrompt(input) {
   const errors = [], basis = new Map(), references = new Map(), used = new Set();
   if (!input || typeof input !== 'object' || Array.isArray(input)) throw new Error('production input must be an object');
+  const language=input.language ?? 'zh-CN';
+  if (!['zh-CN','en'].includes(language)) errors.push('language must be zh-CN or en');
   for (const key of Object.keys(input)) if (!inputFields.has(key)) errors.push(`unsupported production field ${key}; execution settings belong in target, notes belong in metadata`);
   if (input.metadata !== undefined && (!input.metadata || typeof input.metadata !== 'object' || Array.isArray(input.metadata))) errors.push('metadata must be an object and cannot configure execution');
   if (!['character','scene','product','other'].includes(input.subject_kind)) errors.push('declare subject_kind: character, scene, product or other; legacy briefs need explicit scope before new production');
@@ -100,14 +104,13 @@ export function compileProductionPrompt(input) {
     if (proportions.some(r => r.target_head_count !== undefined && (!Number.isFinite(r.target_head_count) || r.target_head_count <= 0))) errors.push('target_head_count must be a finite positive number when explicitly supplied');
     if (new Set(proportions.map(r => r.target_head_count).filter(n => n !== undefined)).size > 1) errors.push('conflicting target_head_count requirements');
   }
-  const labels = new Set(), paragraphs = [];
+  const labels = new Set();
   for (const section of input.sections ?? []) {
     if (!nonempty(section?.label) || /[【】\r\n]/.test(section.label) || labels.has(section.label)) errors.push(`invalid or duplicate section label: ${section?.label}`);
     labels.add(section?.label);
     if (/^\s*(?:\d+\s*[.．、:：)）]|[（(]?\d+[)）]|[一二三四五六七八九十百]+\s*[、.．:：)）]|[（(][一二三四五六七八九十百]+[)）]|P[012]\s)/.test(section?.label ?? '')) errors.push(`use an unnumbered semantic section label: ${section.label}`);
     if (!channels.has(section?.channel)) errors.push(`unknown section channel: ${section?.channel}`);
     if (!Array.isArray(section?.items) || !section.items.length) errors.push(`empty section: ${section?.label}`);
-    const texts = [];
     for (const item of section?.items ?? []) {
       checkProse(item?.text,section.label);
       if (!['retain','design','remove','constraint'].includes(item?.intent)) errors.push(`invalid clause intent in ${section.label}`);
@@ -125,9 +128,7 @@ export function compileProductionPrompt(input) {
       }
       if (item?.intent === 'retain' && !sourceRows.some(r => r.type === 'observation')) errors.push(`retain needs an observed source in ${section.label}`);
       if (item?.intent === 'constraint' && !sourceRows.some(r => r.type === 'requirement')) errors.push(`constraint needs a user requirement in ${section.label}`);
-      texts.push(item?.text?.trim() ?? '');
     }
-    paragraphs.push(`【${section?.label}】\n${texts.join('\n')}`);
   }
   for (const req of input.requirements ?? []) if (req.priority === 'must' && !used.has(req.id)) errors.push(`uncovered required instruction: ${req.id}`);
   for (const req of input.subject_kind === 'character' ? characterProportions : []) {
@@ -140,6 +141,7 @@ export function compileProductionPrompt(input) {
   if (!Array.isArray(input.acceptance) || !input.acceptance.length) errors.push('missing image acceptance criteria');
   const criterionIds = new Set();
   for (const criterion of input.acceptance ?? []) {
+    if (criterion?.id==='__output_resolution__') errors.push('reserved output resolution criterion');
     if (!nonempty(criterion?.id) || criterionIds.has(criterion.id) || !nonempty(criterion?.question) || typeof criterion?.critical !== 'boolean') errors.push('invalid or duplicate image criterion');
     criterionIds.add(criterion?.id);
     if (!basis.has(criterion?.basis)) errors.push(`unknown acceptance basis: ${criterion?.basis}`);
@@ -147,7 +149,7 @@ export function compileProductionPrompt(input) {
   for (const req of input.requirements) {
     if (req.priority === 'must' && !input.acceptance?.some(c => c.basis === req.id && c.critical === true)) errors.push(`missing critical image criterion for required instruction: ${req.id}`);
   }
-  let editScope;
+  let editScope, scopeParagraph;
   if (input.edit_scope !== undefined) {
     const scope=input.edit_scope, baseline=references.get(scope?.baseline_reference_id);
     if (!scope || typeof scope !== 'object' || Array.isArray(scope) ||
@@ -157,17 +159,23 @@ export function compileProductionPrompt(input) {
         !Array.isArray(scope.preserve) || !scope.preserve.length || scope.preserve.some(x=>!nonempty(x))) {
       errors.push('edit_scope requires an actual input baseline_reference_id, nonempty changes and preserve lists');
     } else {
-      if (labels.has('本次编辑范围') || criterionIds.has('__edit_scope__')) errors.push('reserved edit scope label or criterion');
+      if (labels.has('本次编辑范围') || labels.has('Edit scope') || criterionIds.has('__edit_scope__')) errors.push('reserved edit scope label or criterion');
       for(const text of [...scope.changes,...scope.preserve])checkProse(text,'本次编辑范围');
       const changes = new Set(scope.changes.map(text => text.trim()));
       if (scope.preserve.some(text => changes.has(text.trim()))) errors.push('the same edit instruction cannot be both a change and a preservation');
       editScope=structuredClone(scope);
       const scopeList=items=>items.map(text=>`- ${text.trim()}`).join('\n');
-      paragraphs.push(`【本次编辑范围】\n允许修改：\n${scopeList(scope.changes)}\n\n必须保持：\n${scopeList(scope.preserve)}`);
+      scopeParagraph=language === 'en'
+        ? `【Edit scope】\nAllowed changes:\n${scopeList(scope.changes)}\n\nMust preserve:\n${scopeList(scope.preserve)}`
+        : `【本次编辑范围】\n允许修改：\n${scopeList(scope.changes)}\n\n必须保持：\n${scopeList(scope.preserve)}`;
     }
   }
   if (errors.length) throw new Error(errors.join('\n'));
-  const prompt = paragraphs.join('\n\n');
+  const deliveredSections=resolveOutputSections(input.sections,language);
+  const rendered=deliveredSections.map(section=>`【${section.label}】\n${section.items.map(item=>item.text.trim()).join('\n')}`);
+  if (editScope) rendered.splice(rendered.length-(deliveredSections.length>input.sections.length?1:0),0,scopeParagraph);
+  const prompt = rendered.join('\n\n');
+  const deliveryClauses=deliveredSections.flatMap(section=>section.items.map((item,index)=>({text:item.text.trim(),channel:section.channel,location:{section:section.label,item_index:index},...(item.generated?{generated:true}:{})})));
   const referenceInputs=input.references.filter(r=>r.generation_input).map(r=>({id:r.id,source:r.source}));
   const inputPositions=new Map(referenceInputs.map((r,index)=>[r.id,index+1]));
   // Trace authored clauses back to observations without interpreting the prose.
@@ -183,11 +191,11 @@ export function compileProductionPrompt(input) {
       used_facts:ref.facts.filter(f=>used.has(f.id)).map(f=>f.id),clause_uses:clauseUses};
   });
   const compiled = {
-    status: 'prompt_ready', subject_kind: input.subject_kind, prompt, prompt_sha256: promptHash(prompt),
+    status: 'prompt_ready', subject_kind: input.subject_kind, language, output_resolution:{...outputResolution}, prompt, prompt_sha256: promptHash(prompt),
     ...(editScope?{edit_scope:editScope}:{}),
     reference_inputs: referenceInputs,
     acceptance: input.acceptance,
-    audit: { coverage: input.requirements.map(r => ({id:r.id, covered:used.has(r.id)})), unused_observations:[...basis.values()].filter(r => r.type==='observation'&&!used.has(r.id)).map(r=>r.id), reference_usage:referenceUsage },
+    audit: { coverage: input.requirements.map(r => ({id:r.id, covered:used.has(r.id)})), unused_observations:[...basis.values()].filter(r => r.type==='observation'&&!used.has(r.id)).map(r=>r.id), reference_usage:referenceUsage, delivery_clauses:deliveryClauses },
     evidence: { provenance_checked:true, semantic_quality_verified:false, image_generated:false, visual_quality_verified:false, user_accepted:false },
     note: 'The agent must review meaning against the actual images and request. Declared provenance and complete coverage do not prove good visual results.',
   };

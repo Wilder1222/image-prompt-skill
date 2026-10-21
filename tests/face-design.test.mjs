@@ -1,3 +1,4 @@
+import {pngFixture} from './helpers/image-fixture.mjs';
 import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
@@ -63,7 +64,7 @@ function observedBrief(t) {
   const parent=path.resolve(os.tmpdir()),dir=fs.mkdtempSync(path.join(parent,'face-design-behavior-'));
   t.after(()=>{if(path.dirname(path.resolve(dir))!==parent)throw new Error('unsafe fixture cleanup');fs.rmSync(dir,{recursive:true,force:true});});
   const ref=path.join(dir,'synthetic-reference.png');
-  fs.writeFileSync(ref,Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64'));
+  fs.writeFileSync(ref,pngFixture());
   const brief=productionBrief();
   brief.references=[{id:'R1',source:ref,inspected:true,generation_input:true,authority:['identity'],
     facts:Object.entries(visibleFactValues).map(([axis,text])=>({id:'fact-'+axis,channel:'identity',visibility:'visible',text}))}];

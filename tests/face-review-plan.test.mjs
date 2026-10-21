@@ -1,3 +1,4 @@
+import {pngFixture} from './helpers/image-fixture.mjs';
 import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
@@ -24,7 +25,7 @@ function setup(t){
   const parent=path.resolve(os.tmpdir()),dir=fs.mkdtempSync(path.join(parent,'face-review-plan-'));
   t.after(()=>{const relative=path.relative(parent,path.resolve(dir));if(!relative||relative.startsWith('..')||path.isAbsolute(relative))throw new Error('unsafe temporary cleanup');fs.rmSync(dir,{recursive:true,force:true});});
   const original=path.join(dir,'original.png'),candidate=path.join(dir,'candidate.png');
-  const pixels=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64');
+  const pixels=pngFixture();
   fs.writeFileSync(original,pixels);fs.writeFileSync(candidate,Buffer.concat([pixels,Buffer.from('synthetic candidate bytes, not a real portrait review')]));
   const fact=(id,channel,text,visibility='visible',extra={})=>({id,channel,text,visibility,...extra});
   const originalFacts=[fact('original-face','identity','合成整体面容声明，不是实际像素观察。'),

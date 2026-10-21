@@ -21,9 +21,10 @@ function selectFigure(snapshot,id){
   return figure;
 }
 function figureStatus(outcome,id){
+  if(outcome.critical_failures.includes('__output_resolution__'))return 'needs_revision';
   const checks=outcome.checks.filter(c=>c.figure_id===undefined||c.figure_id===id);
   if(checks.some(c=>c.critical&&c.verdict==='fail')||outcome.scope_review?.verdict==='fail')return 'needs_revision';
-  if(checks.some(c=>c.critical&&['uncertain','not_assessable'].includes(c.verdict))||['uncertain','not_assessable'].includes(outcome.scope_review?.verdict))return 'needs_review';
+  if(outcome.unresolved.includes('__output_resolution__')||checks.some(c=>c.critical&&['uncertain','not_assessable'].includes(c.verdict))||['uncertain','not_assessable'].includes(outcome.scope_review?.verdict))return 'needs_review';
   return 'reviewer_qualified';
 }
 

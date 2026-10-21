@@ -30,7 +30,7 @@ export function withBodyRegionChecks(input,{targets,figures=[{id:'subject',view:
     next.sections.push({label:'比例来源',channel:'proportion',items:[{text:comparison,basis:['BODY:benchmark'],intent:'constraint'}]});
     next.acceptance.push({id:'BODY:benchmark:check',basis:'BODY:benchmark',critical:true,question:'实际成片的可见身体关系是否对齐指定标杆？分开比较头肩、躯干与肢段，保留遮挡未知；参考已传入不等于比例已执行。'});
   }
-  const layout=`画面内需分别检查的全身人物共${figures.length}个：${figures.map(f=>f.locator).join('；')}。每个人物分别遵守共同身体方案，不能用其中一人代替其余人物。`;
+  const layout=`画面内全身形象共${figures.length}幅：${figures.map(f=>f.locator).join('；')}。各幅沿用本轮共同身体关系与完整取景。`;
   next.requirements.push({id:'BODY:layout',channel:'composition',priority:'must',text:layout});
   next.sections.push({label:'全身人物范围',channel:'composition',items:[{text:layout,basis:['BODY:layout'],intent:'constraint'}]});
   next.acceptance.push({id:'BODY:layout:check',basis:'BODY:layout',critical:true,question:'声明的全身人物是否逐个出现且与位置对应，未用近景、重复人物或裁切掩盖缺失？'});

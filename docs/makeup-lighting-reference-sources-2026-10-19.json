@@ -2,8 +2,8 @@
   "schema_version": 1,
   "recorded_at": "2026-10-19",
   "user_instruction": "所有妆容和光线质感必须按照我提供的参考图来设定，详细解析这几种妆容质感，修改skill",
-  "approval_scope": "用户明确指定妆容与光线参考；不代表接受任何新生成图或其他身份造型维度。",
-  "source_images_bundled": false,
+  "approval_scope": "八图作为人物妆容的默认风格与实际参考库，光线沿用相应风格并适配场景；当前明确要求、原妆保持和局部编辑范围优先。",
+  "source_images_bundled": true,
   "source_images": [
     {
       "id": "ML01",
@@ -18,7 +18,8 @@
         "makeup",
         "lighting"
       ],
-      "identity_authority": false
+      "identity_authority": false,
+      "bundled_path": "assets/makeup-lighting-references/photo-01.jpg"
     },
     {
       "id": "ML02",
@@ -33,7 +34,8 @@
         "makeup",
         "lighting"
       ],
-      "identity_authority": false
+      "identity_authority": false,
+      "bundled_path": "assets/makeup-lighting-references/photo-02.jpg"
     },
     {
       "id": "ML03",
@@ -48,7 +50,8 @@
         "makeup",
         "lighting"
       ],
-      "identity_authority": false
+      "identity_authority": false,
+      "bundled_path": "assets/makeup-lighting-references/photo-03.jpg"
     },
     {
       "id": "ML04",
@@ -63,7 +66,8 @@
         "makeup",
         "lighting"
       ],
-      "identity_authority": false
+      "identity_authority": false,
+      "bundled_path": "assets/makeup-lighting-references/photo-04.jpg"
     },
     {
       "id": "ML05",
@@ -78,7 +82,8 @@
         "makeup",
         "lighting"
       ],
-      "identity_authority": false
+      "identity_authority": false,
+      "bundled_path": "assets/makeup-lighting-references/photo-05.jpg"
     },
     {
       "id": "ML06",
@@ -93,7 +98,8 @@
         "makeup",
         "lighting"
       ],
-      "identity_authority": false
+      "identity_authority": false,
+      "bundled_path": "assets/makeup-lighting-references/photo-06.jpg"
     },
     {
       "id": "ML07",
@@ -108,7 +114,8 @@
         "makeup",
         "lighting"
       ],
-      "identity_authority": false
+      "identity_authority": false,
+      "bundled_path": "assets/makeup-lighting-references/photo-07.jpg"
     },
     {
       "id": "ML08",
@@ -123,9 +130,11 @@
         "makeup",
         "lighting"
       ],
-      "identity_authority": false
+      "identity_authority": false,
+      "bundled_path": "assets/makeup-lighting-references/photo-08.jpg"
     }
   ],
   "new_images_generated": false,
-  "visual_reproduction_verified": false
+  "visual_reproduction_verified": false,
+  "user_clarification": "作为实际妆容参考；人物的妆容感觉默认从这些风格中生成"
 }

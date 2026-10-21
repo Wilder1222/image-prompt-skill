@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {outputResolutionClause} from './output-resolution.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderTaggedChinese } from './asset-prompt-zh.mjs';
@@ -198,7 +199,7 @@ export function compileAssetPrompt({ stage = 'generate', focus, referenceMode = 
       const constraint = language === 'en' ? translateCatalogToEnglish(proportions.all_task_constraint) : proportions.all_task_constraint;
       rendered += `\n\n【${language === 'en' ? 'Shared body refinement goal' : '共同身材美化目标'}】\n${constraint}`;
     }
-    return {...result, status:'scaffold_only', requires_reference_analysis:true, prompt_language:language, prompt:rendered};
+    return {...result, status:'scaffold_only', requires_reference_analysis:true, prompt_language:language, prompt:`${rendered}\n\n${outputResolutionClause(language)}`};
   };
   const reference = lookup(presentations.reference_modes, referenceMode, 'reference mode');
   if (referenceMode === 'full_body_anchor') {

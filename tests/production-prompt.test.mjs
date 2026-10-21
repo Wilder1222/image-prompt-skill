@@ -1,4 +1,6 @@
+import {pngFixture} from './helpers/image-fixture.mjs';
 import {test} from 'node:test';
+import {outputResolutionClause} from '../scripts/output-resolution.mjs';
 import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -108,7 +110,7 @@ test('reference usage distinguishes observed prose from filtered image positions
   assert.deepEqual(usage[0].clause_uses,[{section:'服装',channel:'costume',item_index:2,facts:['back-seam']}]);
   assert.deepEqual(usage[2].clause_uses,[{section:'服装',channel:'costume',item_index:2,facts:['weave']}]);
   assert.deepEqual(usage[1].authority,['identity','costume']);
-  const prompt=input.sections.map(s=>`【${s.label}】\n${s.items.map(i=>i.text).join('\n')}`).join('\n\n');
+  const prompt=[...input.sections.map(s=>`【${s.label}】\n${s.items.map(i=>i.text).join('\n')}`),outputResolutionClause()].join('\n\n');
   assert.equal(result.prompt,prompt);assert.equal(result.prompt_sha256,promptHash(prompt));
   assert.equal(result.evidence.semantic_quality_verified,false);
   // Changing transport intent changes the audit, not authored prose or hash.
@@ -372,7 +374,7 @@ test('production CLI emits the exact checked text and rejects unknown options',t
   assert.deepEqual(JSON.parse(jsonResult.stdout).audit.reference_usage,compileProductionPrompt(fixture()).audit.reference_usage);
   for(const args of [['--input'],['--input',input,'--unknown','x'],['--input',input,'--format','xml']]){const bad=run(['prompt-build',...args]);assert.equal(bad.status,1);assert.equal(bad.stdout,'');}
   const output=path.join(dir,'output.png');
-  fs.writeFileSync(output,Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64'));
+  fs.writeFileSync(output,pngFixture());
   const reviewed=receipt(compileProductionPrompt(fixture()));reviewed.output_image='output.png';reviewed.output_sha256=promptHash(fs.readFileSync(output));
   const reviewFile=path.join(dir,'review.json');fs.writeFileSync(reviewFile,JSON.stringify(reviewed));
   const checked=run(['prompt-review','--input',input,'--review',reviewFile]);assert.equal(checked.status,0,checked.stderr);assert.equal(JSON.parse(checked.stdout).user_accepted,false);

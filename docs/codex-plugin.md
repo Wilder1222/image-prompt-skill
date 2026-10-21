@@ -11,7 +11,7 @@ npm run validate
 npm run plugin:build
 ```
 
-构建输出为 `dist/codex-plugin/image-prompt-skill/`。构建器检查源清单、文件摘要与包内链接，拒绝覆盖含未知文件或人工改动的旧构建目录。原始图片和本地成果不放入构建目录。
+构建输出为 `dist/codex-plugin/image-prompt-skill/`。构建器检查源清单、文件摘要与包内链接，拒绝覆盖含未知文件或人工改动的旧构建目录。本地成果和临时原图不放入构建目录；用户指定为默认妆容参考库的八张固定原图保存在 `assets/makeup-lighting-references/`，随包携带并按SHA核对，安装后可直接作为妆肤参考输入。
 
 ## 已注册个人插件的更新
 

@@ -1,3 +1,4 @@
+import {pngFixture} from './helpers/image-fixture.mjs';
 import {test} from 'node:test';
 import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import assert from 'node:assert/strict';
@@ -10,7 +11,7 @@ import {freezeProductionRun,verifyFrozenRun,finishProductionRun,summarizeProduct
 function setup(t){
  const parent=path.resolve(os.tmpdir()),dir=fs.mkdtempSync(path.join(parent,'image-prompt-run-'));
  t.after(()=>{if(path.dirname(path.resolve(dir))!==parent)throw new Error('unsafe cleanup');fs.rmSync(dir,{recursive:true,force:true});});
- const ref=path.join(dir,'ref.png');fs.writeFileSync(ref,Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64'));
+ const ref=path.join(dir,'ref.png');fs.writeFileSync(ref,pngFixture());
  const input={request:'保持参考人物，白底，蓝色衣服。',references:[{id:'R1',source:ref,inspected:true,generation_input:true,authority:['identity','costume'],facts:[{id:'F1',channel:'identity',visibility:'visible',text:'柔和下颌。'}]}],requirements:[{id:'U1',channel:'identity',priority:'must',text:'原人物。'},{id:'U2',channel:'costume',priority:'must',text:'蓝衣。'}],unresolved:[],sections:[{label:'人物',channel:'identity',items:[{text:'保留参考人物的柔和下颌。',basis:['F1','U1'],intent:'retain'}]},{label:'衣服',channel:'costume',items:[{text:'穿蓝色衣服。',basis:['U2'],intent:'constraint'}]}],acceptance:[{id:'face',basis:'U1',critical:true,question:'原人物？'},{id:'cloth',basis:'U2',critical:true,question:'蓝衣？'}]};
  input.subject_kind='character';
  input.requirements.push({id:'P9',channel:'proportion',priority:'must',target_head_count:9,text:'黄金九头身，排除发量与鞋跟。'});
@@ -163,7 +164,12 @@ test('new edits bind a real baseline and visible scope without rewriting the goa
  const {input}=setup(t),parent=freeze(input),scope={baseline_reference_id:'R1',changes:['头部尺寸和必要连接。'],preserve:['肩部以下与原标尺','衣服上的文字“完成。”与数字“1.5”']};
  assert.throws(()=>freeze(input,{kind:'edit',parent}),/require edit_scope/);
  const brief={...input,edit_scope:scope};
- assert.throws(()=>freeze(brief),/needs an edit or revision/);
+ assert.throws(()=>freeze(brief),/needs kind edit/);
+ const imported=freeze(brief,{kind:'edit'});
+ assert.equal(imported.parent,null);
+ assert.equal(imported.baseline_origin.reference_id,'R1');
+ assert.equal(imported.baseline_origin.content_sha256,imported.actual_inputs[0].content_sha256);
+ assert.equal(verifyFrozenRun(imported).prompt,imported.prompt);
  for(const bad of [{...scope,baseline_reference_id:'missing'},{...scope,changes:[]},{...scope,preserve:['']},{...scope,unexpected:true}])
   assert.throws(()=>freeze({...input,edit_scope:bad},{kind:'edit',parent}),/edit_scope requires/);
  const reviewOnly=structuredClone(brief);reviewOnly.references.push({...reviewOnly.references[0],id:'judge',authority:['composition'],generation_input:false,facts:[{id:'judge-fact',channel:'composition',visibility:'visible',text:'仅评价参考。'}]});reviewOnly.edit_scope.baseline_reference_id='judge';
@@ -373,7 +379,7 @@ test('background channel accepts retained, adjusted, replaced and white targets 
  for(const [intent,text] of [['retain','保留灰墙与花树庭院。'],['design','保留庭院，减弱后方花树的景深细节。'],['design','替换为有灰石地面的室内展厅，人物尺度与透视匹配。'],['design','背景替换为纯白无缝棚景。']]){
   const plan=structuredClone(input);plan.requirements.at(-1).text=text;
   plan.sections.push({label:'背景与空间',channel:'background',items:[{text,intent,basis:['scene','BG'],...(intent==='design'?{reason:'当前用户指定的背景处理。'}:{})}]});
-  const c=compileProductionPrompt(plan);assert.equal(c.prompt,plan.sections.map(s=>`【${s.label}】\n${s.items.map(i=>i.text).join('\n')}`).join('\n\n'));
+  const c=compileProductionPrompt(plan);assert.equal(c.prompt,[...plan.sections.map(s=>`【${s.label}】\n${s.items.map(i=>i.text).join('\n')}`),'【输出分辨率】\n4K 像素分辨率，保持当前画幅比例，成图长边至少 3840 像素。'].join('\n\n'));
   assert.deepEqual(c.reference_inputs.at(-1),{id:'ENV',source:'environment.jpg'});
  }
 });

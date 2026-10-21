@@ -1,3 +1,4 @@
+import {pngFixture} from './helpers/image-fixture.mjs';
 import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
@@ -40,7 +41,7 @@ function observedCase(t){
   const parent=path.resolve(os.tmpdir()),dir=fs.mkdtempSync(path.join(parent,'face-controls-'));
   t.after(()=>{const relative=path.relative(parent,path.resolve(dir));if(!relative||relative.startsWith('..')||path.isAbsolute(relative))throw new Error('unsafe temporary cleanup');fs.rmSync(dir,{recursive:true,force:true});});
   const source=path.join(dir,'synthetic.png');
-  fs.writeFileSync(source,Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC1lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64'));
+  fs.writeFileSync(source,pngFixture());
   const input=sideFace(),brief=baseBrief(),observed=(value,fact_id)=>({value,origin:'observed',reference_id:'R1',visibility:'visible',fact_id});
   input.mode='reference_match';input.reference_id='R1';
   input.traits.face_shape=observed('合成的椭圆轮廓观察。','face-fact');

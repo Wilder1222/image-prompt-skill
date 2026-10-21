@@ -1,3 +1,4 @@
+import {pngFixture} from './helpers/image-fixture.mjs';
 import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
@@ -28,7 +29,7 @@ function setup(t,id='VP-C01'){
   t.after(()=>{const relative=path.relative(parent,path.resolve(dir));if(!relative||relative.startsWith('..')||path.isAbsolute(relative))throw new Error('unsafe temporary cleanup');fs.rmSync(dir,{recursive:true,force:true});});
   const catalog=loadVisualPreferenceCatalog(),asset=structuredClone(catalog.assets.find(asset=>asset.id===id));
   const original=path.join(dir,'original.png'),candidate=path.join(dir,'candidate.png');
-  const bytes=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64');
+  const bytes=pngFixture();
   fs.writeFileSync(original,bytes);fs.writeFileSync(candidate,Buffer.concat([bytes,Buffer.from('synthetic candidate differs from original; not a visual test')]));
   asset.source={...asset.source,sha256:promptHash(bytes),local_path:path.relative(root,original),availability:'local_verified'};
   asset.inspection={status:'actual_pixels'};catalog.assets=[asset];

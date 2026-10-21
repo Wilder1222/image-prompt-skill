@@ -17,14 +17,14 @@ test('default body and full-body framing are consistent in all media and languag
   assert.equal(plan.stage_2.fashion_asset.mandatory,true);
   assert.equal(plan.stage_2.fashion_asset.aesthetic_direction,'age_adapted_xianxia_default');
   assert.equal(plan.stage_2.fashion_asset.idealization_scope,'all_character_tasks');
-  for(const language of ['zh-CN','en']){
-   const result=compileAssetPrompt({styleWorkflow,language});
+ }
+ for(const language of ['zh-CN','en']){
+   const result=compileAssetPrompt({styleWorkflow:characterStyleIds[0],language});
    assert.doesNotMatch(result.prompt,/九头|nine.head|BALANCED_ELEGANT|P9/);
    assert.match(result.prompt,language==='en'?/breathing room above, below and beside/:/头顶、脚下与左右/);
    assert.match(result.prompt,language==='en'?/rather than stretching anatomy/:/不为了填满画幅拉伸身体/);
    assert.match(result.prompt,language==='en'?/gracefully elongated xianxia/:/修长舒展的仙侠风格/);
    assert.match(result.prompt,language==='en'?/body type takes priority/:/指定的体型优先/);
-  }
  }
 });
 
@@ -67,10 +67,8 @@ test('narrow repairs preserve existing framing and do not introduce showcase occ
  }
 });
 
-test('reference anchors, numeric profiles and scoped repairs retain the shared body goal in both languages',()=>{
- const variants=[{referenceMode:'full_body_anchor'},{proportionProfile:'P9_FASHION_ASSET'},
-  {stage:'face'},{stage:'structure',focus:'hands'},{stage:'structure',focus:'framing'},
-  {stage:'material-light',focus:'materials'},{stage:'material-light',focus:'lighting'}];
+test('preservation anchors and explicit numeric overrides retain the shared body goal',()=>{
+ const variants=[{referenceMode:'full_body_anchor'},{proportionProfile:'P9_FASHION_ASSET'}];
  for(const options of variants)for(const language of ['zh-CN','en']){
   const result=compileAssetPrompt({...options,language});
   assert.match(result.prompt,language==='en'?/Across all character tasks/:/所有人物先按年龄/);

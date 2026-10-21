@@ -6,9 +6,7 @@ import {compileProductionPrompt,objectHash} from './production-prompt.mjs';
 // Structural diagnostics only. Never rewrite authored prose or approve image quality.
 export function auditPromptQuality(input) {
   const compiled = compileProductionPrompt(input), diagnostics = [], groups = new Map();
-  const clauses = input.sections.flatMap(section => section.items.map((item, index) => ({
-    text: item.text.trim(), channel: section.channel, location: {section: section.label, item_index: index}
-  })));
+  const clauses = compiled.audit.delivery_clauses;
   for (const clause of clauses) {
     const group = groups.get(clause.text) ?? [];
     group.push(clause.location); groups.set(clause.text, group);

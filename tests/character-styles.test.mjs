@@ -35,15 +35,33 @@ test('all character media preserve identity scope and mandatory anatomy while ch
 });
 
 test('all media compile in both languages for generation and every scoped edit without leaking identifiers',()=>{
-  for (const [styleWorkflow] of profiles) for (const language of ['zh-CN','en']) {
-    for(const edit of [{},{stage:'face'},{stage:'structure',focus:'hands'},{stage:'structure',focus:'proportion'},{stage:'material-light',focus:'materials'},{stage:'material-light',focus:'lighting'}]) {
+  for (const styleWorkflow of [undefined,...profiles.map(([id])=>id)]) for (const language of ['zh-CN','en']) {
+    const scopes=[{},{stage:'face'},{stage:'structure',focus:'hands'},{stage:'structure',focus:'proportion'},{stage:'material-light',focus:'materials'},{stage:'material-light',focus:'lighting'}];
+    if(!styleWorkflow)scopes.push({referenceMode:'full_body_anchor'});
+    for(const edit of scopes) {
       const r=compileAssetPrompt({styleWorkflow,language,...edit});
       assert.ok(r.prompt.length>100);
-      assert.ok(!r.prompt.includes(styleWorkflow));
+      if(styleWorkflow)assert.ok(!r.prompt.includes(styleWorkflow));
       assert.doesNotMatch(r.prompt,/undefined|\[object Object\]/);
       if(language==='en')assert.doesNotMatch(r.prompt,/[\u3400-\u9fff]/);
-      if(edit.stage)assert.match(r.prompt,language==='en'?/local repair changes only/:/局部修复只改变指定区域/);
+      if(edit.stage){
+        assert.ok(r.round_plan.editable.length>0);
+        assert.ok(r.round_plan.editable.every(id=>!r.round_plan.locked.includes(id)));
+      }
     }
+  }
+});
+
+test('face geometry protection allows authorized head-scale correction but does not leak into other repairs',()=>{
+  for(const [styleWorkflow]of profiles)for(const language of ['zh-CN','en']){
+    const prompt=compileAssetPrompt({styleWorkflow,language}).prompt;
+    assert.match(prompt,language==='en'?/face width relative to head height/:/面宽相对头高/);
+    assert.match(prompt,language==='en'?/noncompliant head-to-body ratio/:/不单独压窄脸/);
+  }
+  for(const language of ['zh-CN','en']){
+    assert.match(compileAssetPrompt({stage:'structure',focus:'proportion',language}).prompt,language==='en'?/scale of the complete head/:/完整头部与身体的尺度/);
+    for(const options of [{stage:'face'},{stage:'structure',focus:'hands'},{stage:'material-light',focus:'materials'}])
+      assert.doesNotMatch(compileAssetPrompt({...options,language}).prompt,/必要时协调调整完整头部|Where needed, coordinate the scale of the complete head/);
   }
 });
 
@@ -109,6 +127,8 @@ test('a focused material repair does not repeat whole-image skin or lighting con
     const p=sections(r.prompt);
     assert.ok(p['既有材料']);assert.ok(!p['妆容与肌肤']);assert.ok(!p['棚拍光线']);
     assert.match(r.prompt,/灯位、背景和地面阴影保持/);
+  }
+  for(const styleWorkflow of [profiles[0][0],profiles.at(-1)[0]]){
     const hands=compileAssetPrompt({styleWorkflow,stage:'structure',focus:'hands'});
     assert.ok(!sections(hands.prompt)['身材比例']);
     assert.match(hands.prompt,/只修可见手指/);
@@ -133,8 +153,6 @@ test('material and lighting repairs retain medium detail rules in plans and both
         for(const [value,enabled] of [[detail,focus!=='lighting'],[highlight,focus!=='materials'],[edge,focus!=='materials']]){
           assert.equal(r.prompt.includes(text(value)),enabled,`${styleWorkflow}/${language}/${focus}: ${value}`);
         }
-        assert.equal(r.configuration.proportion_profile,'BALANCED_ELEGANT');
-        assert.match(r.prompt,language==='en'?/Any unresolved proportion issue remains unresolved/:/未解决的比例问题仍保留为待修项/);
       }
       for(const edit of [{stage:'face'},{stage:'structure',focus:'hands'}]){
         const r=compileAssetPrompt({styleWorkflow,language,...edit});

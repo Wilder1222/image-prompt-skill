@@ -30,6 +30,8 @@
 
 实际图像评估使用 `templates/visual-regression-record.json`。不能仅凭命令行输出就把图像验收标为通过。
 
+自然语言向前验证使用 [固定行为任务](../examples/skill-behavior-cases.md)，由独立代理按 Skill 从头选择路线和撰写，不复用预期答案。`skill-behavior.test.mjs` 只验证代表性 brief 的契约，不能代替该行为评估。共用 PNG 夹具在 `helpers/image-fixture.mjs`，尺寸合格仍是合成测试数据，不是实图质量证据。
+
 用户提供更好的参考时，使用 `templates/benchmark-comparison-record.json`，记录标杆仅被查看用于写提示词，还是确实送入图像模型。观察者评审与用户认可分开记录。
 
 插件测试覆盖标准技能发现、权威元数据同步、清单与路径及版本漂移、官方缓存版本后缀保持、隔离安装目录内编译、干净重建、过期源拒绝、已编辑构建目录保护，以及生成文件与凭证排除。`npm run release:build` 先同步插件再更新哈希；运行 `npm run plugin:build` 验证完整可移植插件目录。

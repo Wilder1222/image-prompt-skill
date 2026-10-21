@@ -7,6 +7,7 @@ import {assertReferenceFacePresetBindings} from './reference-face-presets.mjs';
 import {auditPromptQuality,assertPromptQualityReview} from './prompt-quality-audit.mjs';
 import {characterGoalErrors} from './character-goals.mjs';
 import {assertBodyCriteria} from './body-proportion-contract.mjs';
+import {outputResolution,reviewOutputResolution} from './output-resolution.mjs';
 import {assertStyleStandardizationBindings,styleStandardizationContract,validateStyleStandardizationChecks} from './style-standardization.mjs';
 export {canonical,objectHash} from './production-prompt.mjs';
 const fileHash = file => promptHash(fs.readFileSync(file));
@@ -36,10 +37,10 @@ export function freezeProductionRun(input, options={}) {
   for(const key of ['run_id','case_id','cohort']) if(typeof options[key]!=='string'||!options[key].trim()) throw new Error(`missing ${key}`);
   const kind=options.kind??'initial';
   if(!['initial','revision','edit'].includes(kind))throw new Error('invalid run kind');
-  if(kind!=='initial'&&!options.parent)throw new Error('a revision needs its frozen parent');
+  if(kind==='revision'&&!options.parent)throw new Error('a revision needs its frozen parent');
   if(kind==='initial'&&options.parent)throw new Error('initial run cannot have a parent');
   if(kind==='edit'&&!compiled.edit_scope)throw new Error('new edit runs require edit_scope in the brief');
-  if(kind==='initial'&&compiled.edit_scope)throw new Error('edit_scope needs an edit or revision with a parent');
+  if(kind==='initial'&&compiled.edit_scope)throw new Error('edit_scope needs kind edit; a first external baseline does not need a parent');
   if(options.parent)verifyFrozenRun(options.parent,{verifyFiles:false});
   const refs=input.references.map(r=>({...r,source:path.resolve(options.base_dir??process.cwd(),r.source),content_sha256:fileHash(path.resolve(options.base_dir??process.cwd(),r.source))}));
   assertReferenceFacePresetBindings(refs);
@@ -47,7 +48,7 @@ export function freezeProductionRun(input, options={}) {
   const stylePlan=assertStyleStandardizationBindings(refs,input.requirements,{acceptance:compiled.acceptance,edit_scope:compiled.edit_scope,sections:input.sections,
     required:input.metadata?.style_standardization!==undefined||parentStyle===true});
   if(stylePlan&&stylePlan.scope_contract!==styleStandardizationContract)throw new Error('legacy style plans are historical records; rebuild a current style contract before a new dispatch');
-  const target={subject_kind:input.subject_kind,requirements:input.requirements,acceptance:compiled.acceptance,
+  const target={subject_kind:input.subject_kind,requirements:input.requirements,acceptance:compiled.acceptance,output_resolution:compiled.output_resolution,
     ...(input.body_plan?{body_plan:input.body_plan}:{}),
     ...(input.character_exceptions?{character_exceptions:input.character_exceptions}:{}),
     identity_targets:identityTargets(refs,options.parent)};
@@ -61,6 +62,9 @@ export function freezeProductionRun(input, options={}) {
     tool_parameters:compiled.model_execution?{model:compiled.model_execution.model,...compiled.model_execution.settings}:{model:null,seed:null},
     ...(compiled.model_execution?{model_execution:compiled.model_execution}:{}),
     ...(compiled.edit_scope?{edit_scope:compiled.edit_scope,scope_review_contract:preservationContract}:{}),
+    output_resolution:compiled.output_resolution,
+    ...(kind==='edit'&&!options.parent?{baseline_origin:{kind:'external',reference_id:compiled.edit_scope.baseline_reference_id,
+      content_sha256:refs.find(ref=>ref.id===compiled.edit_scope.baseline_reference_id).content_sha256}}:{}),
     parent:options.parent?{run_id:options.parent.run_id,snapshot_sha256:options.parent.snapshot_sha256}:null,
     goal_changed:options.parent?options.parent.target_sha256!==targetHash:false,
     request:input.request,target,target_sha256:targetHash,references:refs,
@@ -74,6 +78,14 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}
   if(snapshot?.schema_version!==1)throw new Error('unsupported run snapshot');
   const {snapshot_sha256,...body}=snapshot;
   if(objectHash(body)!==snapshot_sha256)throw new Error('frozen snapshot changed');
+  if(snapshot.output_resolution!==undefined && objectHash(snapshot.output_resolution)!==objectHash(outputResolution))throw new Error('unsupported output resolution contract');
+  if(snapshot.output_resolution && (!snapshot.target?.output_resolution || objectHash(snapshot.target.output_resolution)!==objectHash(snapshot.output_resolution)))throw new Error('output resolution must bind the frozen target');
+  if(snapshot.output_resolution && snapshot.kind==='edit'&&!snapshot.parent&&!snapshot.baseline_origin)throw new Error('first external edit needs its frozen baseline origin');
+  if(snapshot.baseline_origin!==undefined){
+    const origin=snapshot.baseline_origin,ref=snapshot.references.find(ref=>ref.id===origin.reference_id);
+    if(snapshot.kind!=='edit'||snapshot.parent||origin.kind!=='external'||origin.reference_id!==snapshot.edit_scope?.baseline_reference_id||!ref?.generation_input||origin.content_sha256!==ref.content_sha256)
+      throw new Error('external edit baseline must bind the actual input and its content');
+  }
   if(snapshot.character_goals_contract!==undefined){
     if(snapshot.character_goals_contract!=='character_goals_v1')throw new Error('unsupported character goals contract');
     const errors=characterGoalErrors({...snapshot.target,edit_scope:snapshot.edit_scope});if(errors.length)throw new Error(errors.join('\n'));
@@ -103,6 +115,8 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}
     if(runtimeValidation!==undefined)verifyRuntimeValidation(snapshot.model_execution,runtimeValidation);
     return {transport:snapshot.model_execution.transport,model:snapshot.model_execution.model,
       request:snapshot.model_execution.request,runtime:snapshot.model_execution.runtime,
+      ...(snapshot.model_execution.delivery_resolution?{delivery_resolution:snapshot.model_execution.delivery_resolution}:{}),
+      ...(snapshot.model_execution.transport==='midjourney'?{dispatch_ready:false,manual_submission_required:true,ready_to_submit:snapshot.model_execution.request.ready_to_submit}:{}),
       ...(required?{dispatch_ready:runtimeValidation!==undefined,runtime_validation_required:required}:{}),
       execution_sha256:snapshot.model_execution.execution_sha256};
   }
@@ -110,7 +124,8 @@ export function verifyFrozenRun(snapshot,{verifyFiles=true,runtimeValidation}={}
 }
 
 // Recompute review meaning from the frozen contract without accessing image files.
-function evaluateCompletedReview(snapshot, receipt) {
+function evaluateCompletedReview(snapshot, receipt, {checkResolution=true}={}) {
+  if(snapshot.model_execution?.transport==='midjourney' && snapshot.model_execution.request.ready_to_submit===false) throw new Error('MJ 参考或比例尚未就绪；先完成手动输入并重新冻结计划');
   if(snapshot.model_execution && receipt.execution_sha256!==snapshot.model_execution.execution_sha256)throw new Error('回执必须绑定实际模型、参数与完整请求的 execution_sha256');
   if(snapshot.model_execution?.runtime_validation_required)verifyRuntimeValidation(snapshot.model_execution,receipt.runtime_validation);
   if(receipt.target_sha256!==snapshot.target_sha256)throw new Error('review target changed');
@@ -146,7 +161,23 @@ function evaluateCompletedReview(snapshot, receipt) {
     if(['uncertain','not_assessable'].includes(scopeReview.verdict))verdict.unresolved.push('__edit_scope__');
     verdict.status=verdict.critical_failures.length?'needs_revision':verdict.unresolved.length?'needs_review':'reviewer_qualified';
   }else if(receipt.scope_review!==undefined)throw new Error('scope_review cannot claim an unfrozen edit scope');
+  if(checkResolution)applyResolutionReview(snapshot,receipt,verdict);
   return {verdict,scopeReview};
+}
+
+function applyResolutionReview(snapshot,receipt,verdict){
+  if(snapshot.output_resolution){
+    const review=receipt.resolution_review,hasDimensions=review?.width!==undefined||review?.height!==undefined;
+    if(!review || review.contract!==snapshot.output_resolution.contract || review.minimum_long_edge!==snapshot.output_resolution.minimum_long_edge ||
+      typeof review.evidence!=='string'||!review.evidence.trim()||
+      (hasDimensions && (!Number.isSafeInteger(review.width)||review.width<=0||!Number.isSafeInteger(review.height)||review.height<=0)))
+      throw new Error('completed output needs its frozen pixel resolution review');
+    const expected=hasDimensions?(Math.max(review.width,review.height)>=snapshot.output_resolution.minimum_long_edge?'pass':'fail'):'not_assessable';
+    if(review.verdict!==expected)throw new Error('resolution verdict conflicts with encoded dimensions');
+    if(expected==='fail')verdict.critical_failures.push('__output_resolution__');
+    if(expected==='not_assessable')verdict.unresolved.push('__output_resolution__');
+    verdict.status=verdict.critical_failures.length?'needs_revision':verdict.unresolved.length?'needs_review':'reviewer_qualified';
+  }else if(receipt.resolution_review!==undefined)throw new Error('resolution review was not frozen for this historical run');
 }
 
 export function finishProductionRun(snapshot, receipt, baseDir=process.cwd()) {
@@ -161,10 +192,14 @@ export function finishProductionRun(snapshot, receipt, baseDir=process.cwd()) {
     return {run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,status:'interrupted',reason:receipt.reason,dispatch_state:receipt.dispatch_state,recorded_at:new Date().toISOString()};
   }
   if(receipt.status!=='completed')throw new Error('receipt status must be completed, tool_error or interrupted');
-  const {verdict,scopeReview}=evaluateCompletedReview(snapshot,receipt);
+  const {verdict,scopeReview}=evaluateCompletedReview(snapshot,receipt,{checkResolution:false});
   const output=path.resolve(baseDir,receipt.output_image??'');
-  if(fileHash(output)!==receipt.output_sha256)throw new Error('output content changed');
+  const outputBytes=fs.readFileSync(output);
+  if(promptHash(outputBytes)!==receipt.output_sha256)throw new Error('output content changed');
+  const resolutionReview=snapshot.output_resolution?reviewOutputResolution(outputBytes,snapshot.output_resolution):undefined;
+  applyResolutionReview(snapshot,{...receipt,...(resolutionReview?{resolution_review:resolutionReview}:{})},verdict);
   return {...verdict,run_id:snapshot.run_id,snapshot_sha256:snapshot.snapshot_sha256,target_sha256:snapshot.target_sha256,
+    ...(resolutionReview?{resolution_review:resolutionReview}:{}),
     ...(scopeReview?{edit_scope:structuredClone(snapshot.edit_scope),scope_review:scopeReview}:{}),
     ...(snapshot.model_execution?{execution_sha256:receipt.execution_sha256}:{}),
     ...(snapshot.model_execution?.runtime_validation_required?{runtime_validation:structuredClone(receipt.runtime_validation)}:{}),
@@ -232,7 +267,7 @@ export function summarizeProductionRuns(entries,{userFeedback=[]}={}) {
   }
   const cohorts={};
   for(const cohort of new Set(entries.map(e=>e.snapshot.cohort))){
-    const rows=entries.filter(e=>e.snapshot.cohort===cohort),initial=rows.filter(e=>e.snapshot.kind==='initial');
+    const rows=entries.filter(e=>e.snapshot.cohort===cohort),initial=rows.filter(e=>e.snapshot.kind==='initial'||e.snapshot.baseline_origin?.kind==='external');
     const completed=initial.filter(e=>e.outcome?.execution_status==='completed'&&!reused.has(e.snapshot.run_id));
     const descendants=(root)=>{
       const found=new Set([root.run_id]);let changed=true;

@@ -1,3 +1,4 @@
+import {pngFixture} from './helpers/image-fixture.mjs';
 import {withCharacterGoals} from '../scripts/character-goals.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
@@ -31,7 +32,7 @@ function temporaryImage(t) {
   const parent=path.resolve(os.tmpdir()),dir=fs.mkdtempSync(path.join(parent,'reference-face-preset-'));
   t.after(()=>{const relative=path.relative(parent,path.resolve(dir));if(!relative||relative.startsWith('..')||path.isAbsolute(relative))throw new Error('unsafe temporary cleanup');fs.rmSync(dir,{recursive:true,force:true});});
   const file=path.join(dir,'synthetic.png');
-  fs.writeFileSync(file,Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64'));
+  fs.writeFileSync(file,pngFixture());
   return file;
 }
 

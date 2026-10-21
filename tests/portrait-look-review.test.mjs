@@ -1,3 +1,4 @@
+import {pngFixture} from './helpers/image-fixture.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -24,7 +25,7 @@ function setup(t,{action=false}={}){
   const snapshot=freezeProductionRun(brief,options);snapshots.set(id,snapshot);
   const file=`${id}.png`;
   // A one-pixel PNG with unique trailing test bytes tests file binding, never image quality.
-  fs.writeFileSync(path.join(dir,file),Buffer.concat([Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=','base64'),Buffer.from(id)]));
+  fs.writeFileSync(path.join(dir,file),Buffer.concat([pngFixture(),Buffer.from(id)]));
   const checks=snapshot.target.acceptance.map(a=>({id:a.id,verdict:failed&&a.id.endsWith('hair:fringe:check')?'fail':'pass',evidence:`合成记录 ${id} ${a.id}；不构成实图质量观察。`}));
   const receipt={status:'completed',snapshot_sha256:snapshot.snapshot_sha256,target_sha256:snapshot.target_sha256,prompt_sha256:snapshot.prompt_sha256,output_image:file,output_sha256:promptHash(fs.readFileSync(path.join(dir,file))),inspected:true,reviewer:'synthetic contract test',checks};
   fs.writeFileSync(path.join(dir,`${id}.snapshot.json`),JSON.stringify(snapshot));fs.writeFileSync(path.join(dir,`${id}.receipt.json`),JSON.stringify(receipt));
